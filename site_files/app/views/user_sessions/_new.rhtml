@@ -1,0 +1,45 @@
+<h2><%=t('user_session.new.title')%></h2>
+
+<div class="form_side_notes">
+  <div class="note">
+    <p class="buttons">
+      <%= link_to '<img src="/images/google.ico" alt=""/>'+t('user_session.new.form_side_notes.google_signin'),
+        "/user_session?user_session%5Bopenid_identifier%5D=https://www.google.com/accounts/o8/id", 
+        :class => "positive create", :method => 'post' %> 
+      <%= link_to '<img src="/images/yahoo.ico" alt=""/>'+t('user_session.new.form_side_notes.yahoo_signin'), 
+        "/user_session?user_session%5Bopenid_identifier%5D=https://www.yahoo.com", 
+        :class => "positive create", :method => 'post' %> 
+    </p>
+    <p><%= t('user_session.new.form_side_notes.first') %></p>
+  </div>
+  <div class="note">
+    <p><%= t('user_session.new.form_side_notes.second') %></p>
+  </div>
+</div>
+
+<div class="form_with_notes">
+  <% semantic_form_for @user_session, :url => user_session_path do |f| %>
+      <% if @user_session.openid_identifier.blank? -%>
+        <% f.inputs :name => t('user_session.new.form_inputs_name') do %>
+          <%= f.input :email, :label => t('user_session.new.email'),
+                      :required => false %>
+          <%= f.input :password, :label => t('user_session.new.password'),
+                      :required => false %>
+        <% end %>
+      <% end %>
+      <% f.inputs :name => (@user_session.openid_identifier.blank? ? t('user_session.new.form_openid_inputs_name'): "") do %>
+        <%= f.input :openid_identifier, :label => t('user_session.new.openid'),
+                    :required => false %>
+        <%= f.input :remember_me, :label => t('user_session.new.remember_me'), 
+                    :as => :boolean, :required => false %>
+      <% end %>
+      <% f.buttons do %>
+        <%= f.button :label => icon_tag('door_in')+t('user_session.new.commit_button') %>  
+        <%= f.button_link icon_tag('door')+t('user_session.new.forgot_pass'), new_user_password_reset_path, 
+                         :button_html => {:class => "negative"} %> 
+        <%= f.button_link icon_tag('door_open')+t('user_session.new.new_account'), new_user_path, 
+                         :button_html => {:class => "negative"} %> 
+      <% end %>
+  <% end %>
+</div>
+

@@ -1,0 +1,10 @@
+<ul>
+	<% if Setting.count > 0 %>
+	<li style="float: right;"><%= tab_to "Settings", [{:controller => "admin/settings"}] %></li>
+	<% end %>
+	
+	<li><%= tab_to "Dashboard", [{:controller => "admin/dashboard"}] %></li>
+	<li><%= tab_to "Users", [{:controller => "admin/users"}] %></li>
+	<li><%= tab_to "Announcements", [{:controller => "/announcements" }] %></li>
+	<li><%= tab_to "Post-Commits", [{:controller => "admin/commits" }] %></li>
+</ul>

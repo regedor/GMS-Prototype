@@ -1,0 +1,34 @@
+<% content_for(:head) do -%>
+  <%= javascript_include_tag('admin/posts.js') %>
+<% end -%>
+
+<h1>Your posts</h1>
+<table cellspacing="0" cellpadding="0">
+  <thead>
+    <tr>
+      <th>Published At</th>
+      <th>Title</th>
+      <th>Excerpt</th>
+      <th>Comments</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% if @posts.empty? -%>
+      <tr><td colspan="5">There are no posts at this time.</td></tr>
+    <% else -%>
+      <%= render :partial => 'post', :collection => @posts %>
+    <% end -%>
+  </tbody>
+
+  <tfoot>
+    <% if @posts.total_pages > 1 -%>
+      <tr class="pagination">
+        <td colspan="5">
+          <%= will_paginate(@posts, :previous_label => '« Newer', :next_label => 'Older »') %>
+        </td>
+      </tr>
+    <% end -%>
+  </tfoot>
+</table>

@@ -1,0 +1,80 @@
+<% content_for :header do -%>
+	Post-Commits
+<% end -%>
+
+<% content_for :sidebar do -%>
+<img src="/images/postcommit.jpg" style="width: 300px; border: 0px; padding: 0px; margin-left: 35px; overflow: hidden"/>
+<% end %>
+
+<h3>Introduction</h3>
+
+<p>A post-commit hook is basically a piece of information that can be sent to a third party software service to notify and/or trigger an event at their end. A simple case use I am going to explain would be sending a message to a Campfire chat room every time a new record is created. Remember, a record can be anything you want i.e. a blog post or a new medical record. It just depends on what your Rails application actually does.</p>
+
+<h3>Example Use / Case Study</h3>
+
+<p>I have an application that has a model called Kases (Cases is a reserved word in Rails, so we have to use Kases). Put simply, imagine a lawyer and what they use Cases for.</p>
+
+<p>Each case hold various bit of data that's important to the Lawyer. However, this lawyer is part of a partnership - his colleagues all chat in Campfire all day to keep in touch with each other in their remote offices. What we need to do, is send a simple message to their company Campfire room whenever someone creates a new case in our application to let the others know.</p>
+
+<h3>Pre-Requisites</h3>
+
+<p>To follow this basic guide you must have a Campfire account with 37signals. You need your accounts subdomain, your accounts API access key and the numerical ID of the room you want to send the message to. You can get this number by visiting the room and copying the number from the URL. It should be the only number in the URL, after the final forward slash.</p>
+
+<h3>Setup</h3>
+
+<p>Add the following to the Kase.rb model.</p>
+
+<pre>
+# Campfire Post-Commit
+ def sendtocampfire
+  post_commit :campfire do
+  authorize :subdomain => "YourSubDomain", :token => "YourAPIToken", :room => 'YourRoomNumber'
+  post "Enter your message here.", :type => :text
+  end
+ end
+</pre>
+
+<p>Add the following to kases_controller.rb.</p>
+
+<pre>
+# POST /kases
+# POST /kases.xml
+def create
+  @company = Company.find(params[:kase][:company_id])
+
+  respond_to do |format|
+  @kase.sendtocampfire if params[:send_to_campfire]
+
+  #flash[:notice] = 'Record was successfully created.'
+  flash[:notice] = fading_flash_message("Record was successfully created.", 5)
+
+  format.html { redirect_to(@kase) }
+  format.xml  { render :xml => @kase, :status => :created, :location => @kase }
+ end
+end
+</pre>
+
+<p>Note: If you have already generated the scaffold for your model, just add the following to the def create part.</p>
+
+<pre>
+@kase.sendtocampfire if params[:send_to_campfire]
+</pre>
+
+<p>Finally, and optionally, add the following to your view just before the submit button.</p>
+
+<pre>
+< % = check _box_tag :send_to_campfire, 1, true %> Send Case to Campfire?
+</pre>
+
+<h3>Fin.</h3>
+
+<p>Now whenever someone creates a Kase/Case a message will be sent to Campfire, but only if the "Send Case to Campfire?" select box is ticked.</p>
+
+<p>Campfire accepts the following hooks:</p>
+
+<pre>
+post "Some message"
+post "Some message", :type => :text
+post "Some pasted code", :type => :paste
+post "http://twitter.com/johndoe/statuses/12345", :type => :twitter
+</pre>

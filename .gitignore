@@ -1,0 +1,8 @@
+site_files/config/database.yml
+site_files/db/schema.rb
+site_files/config/mailer.yml
+site_files/log/*
+site_files/tmp/*
+site_files/db/*.sqlite3
+.DS_Store
+*~

@@ -1,0 +1,35 @@
+<% content_for(:head) do -%>
+  <%= javascript_include_tag('admin/pages.js') %>
+<% end -%>
+
+<h1>Your pages</h1>
+
+<table cellspacing="0" cellpadding="0">
+  <thead>
+    <tr>
+      <th>Created At</th>
+      <th>Title</th>
+      <th>Excerpt</th>
+      <th>Link</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% if @pages.empty? -%>
+      <tr><td colspan="5">There are no pages at this time.</td></tr>
+    <% else -%>
+      <%= render :partial => 'page', :collection => @pages %>
+    <% end -%>
+  </tbody>
+
+  <tfoot>
+    <% if @pages.total_pages > 1 -%>
+      <tr class="pagination">
+        <td colspan='5'>
+          <%= will_paginate(@pages, :previous_label => '« Newer', :next_label => 'Older »') %>
+        </td>
+      </tr>
+    <% end -%>
+  </tfoot>
+</table>
