@@ -18,8 +18,8 @@ class Formtastic::SemanticFormBuilder
       button_html.merge!(:class => [button_html[:class], key].compact.join(' '))
       button_html.merge!(:type => [button_html[:type], key].compact.join(' '))
       element_class = ['commit', options.delete(:class)].compact.join(' ')
-      accesskey = (options.delete(:accesskey) || @@default_commit_button_accesskey) unless button_html.has_key?(:accesskey)
-      button_html = button_html.merge(:accesskey => accesskey) if accesskey
+      #accesskey = (options.delete(:accesskey) || @@default_commit_button_accesskey) unless button_html.has_key?(:accesskey)
+      #button_html = button_html.merge(:accesskey => accesskey) if accesskey
 
     button="<button #{tag_options(button_html.stringify_keys, true)}>#{text}</button>"
     template.content_tag(:li, button, :class => element_class)
@@ -38,8 +38,8 @@ class Formtastic::SemanticFormBuilder
  
       button_html = options.delete(:button_html) || {}
       button_html.merge!(:class => [button_html[:class], key].compact.join(' '))
-      accesskey = (options.delete(:accesskey) || @@default_commit_button_accesskey) unless button_html.has_key?(:accesskey)
-      button_html = button_html.merge(:accesskey => accesskey) if accesskey
+      #accesskey = (options.delete(:accesskey) || @@default_commit_button_accesskey) unless button_html.has_key?(:accesskey)
+      #button_html = button_html.merge(:accesskey => accesskey) if accesskey
 
     element_class = ['commit', options.delete(:class)].compact.join(' ') 
 

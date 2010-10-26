@@ -14,8 +14,22 @@ puts "Creating admins!"
   user_regedor.language          = 'en'
   user_regedor.country           = 'PT'
   user_regedor.phone             = "00351964472540"
-  user_regedor.female            =  false
+  user_regedor.gender            =  false
   user_regedor.role              =  User::ROLES[:admin]
-  user_regedor.active            =  true
   user_regedor.save
+  
+  user_zamith = User.new
+  user_zamith.email                 = 'zamith.28@gmail.com'
+  #user_zamith.openid_identifier = 'https://www.google.com/accounts/o8/id?id=AItOawnbGyx78N1LosCVj5coDtzlvTjtRpcLu5c'
+  user_zamith.password              = 'oregedorebuedezeca'
+  user_zamith.password_confirmation = 'oregedorebuedezeca'
+  user_zamith.name                  = 'Luis Zamith'
+  user_zamith.language              = 'en'
+  user_zamith.country               = 'PT'
+  user_zamith.phone                 = "00351964472540"
+  user_zamith.gender                =  true
+  user_zamith.role                  =  User::ROLES[:admin]
+  user_zamith.save
+  
+  Group.create(:name=>"Grupinho da moda",:mailable=>false)
   

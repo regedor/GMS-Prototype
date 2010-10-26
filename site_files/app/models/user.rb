@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  has_and_belongs_to_many :groups
+
   ROLES = { :admin => 10, :user  => 1 }
   INVERTED_ROLES = ROLES.invert
 
@@ -13,7 +15,7 @@ class User < ActiveRecord::Base
                                 'http://axschema.org/contact/email']
   end
  
-  attr_accessible :email, :password, :password_confirmation, :openid_identifier, :language, :name, :female, :country
+  attr_accessible :email, :password, :password_confirmation, :openid_identifier, :language, :name, :gender, :country
   attr_accessible :row_mark #scaffold hack
   #####################
   ##  Relationships     
