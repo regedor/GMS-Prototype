@@ -1,2 +1,2 @@
-module GroupHelper
+module GroupsHelper
 end

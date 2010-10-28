@@ -111,17 +111,18 @@ en:
         bt_label: "Delete user"
         cancel_link: 
           label: "Cancel"
-          title: "Go back to users list"
+          title: "Go back to users list"         
     
     groups:
       index:
         title: "Groups List"
-        update_link: "<img src='/images/icons/user_edit.png'/>Edit"
-        destroy_link: "<img src='/images/icons/user_delete.png'/>Delete"
-        show_link: "<img src='/images/icons/user.png'/>Details"
+        show_link: "<img src='/images/icons/group.png'/>Details"
+        update_link: "<img src='/images/icons/group_edit.png'/>Edit"
+        destroy_link: "<img src='/images/icons/group_delete.png'/>Delete"      
         search: "Find groups"
+        create: "New Group"
         columns:
-          parent_group: "Parent"
+          parent: "Parent"
           name: "Name"
           mailable: "Mailable"
           description: "Description"
