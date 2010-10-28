@@ -128,6 +128,7 @@ class ScaffoldApp < ActiveRecord::Migration
       t.string  :name,            :null => false
       t.text    :description
       t.boolean :mailable,        :null => false
+      t.timestamps
     end  
 
     create_table :groups_users, :id => false do |t|

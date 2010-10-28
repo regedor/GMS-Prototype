@@ -9,6 +9,8 @@ ActionController::Routing::Routes.draw do |map|
   # ==========================================================================
   # Session Resources
   # ==========================================================================
+  map.resources :groups
+  
   map.resources :users
   map.resource  :account,  :controller => "users"
   map.resources :user_password_resets
@@ -23,6 +25,7 @@ ActionController::Routing::Routes.draw do |map|
   # ==========================================================================
   map.namespace :admin do |admin|
     admin.root :controller => 'dashboard', :action => 'index'
+    admin.resources :groups
     admin.resources :settings
     admin.resources :announcements
     admin.resources :commits
