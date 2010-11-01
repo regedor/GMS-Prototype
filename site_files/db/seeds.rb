@@ -30,6 +30,7 @@ puts "Creating admins!"
   user_zamith.gender                =  true
   user_zamith.role                  =  User::ROLES[:admin]
   user_zamith.save
+  user_zamith.activate!
   
   Group.create(:name=>"Grupinho da moda",:mailable=>false)
   

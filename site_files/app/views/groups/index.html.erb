@@ -25,11 +25,11 @@
 				<% if !group.parent_group.nil? %>
     				<td><%=h group.parent_group.name %></td>
 				<% else %>
-					<td> No parent </td>
+					<td> - </td>
 				<% end %>	
     			<td><%=h group.mailable %></td>
     			<td class="last">
-		            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", group_path(group) %> |
+		            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", group_path(group) %> | 
 		            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_group_path(group) %> |
 		            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", group_path(group), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
 		        </td>

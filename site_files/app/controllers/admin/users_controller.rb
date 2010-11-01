@@ -7,6 +7,8 @@ class Admin::UsersController < Admin::BaseController
     config.actions << :update
     config.actions << :delete
     
+    config.row_mark_actions_list = [:destroy, :activate!]
+    
     config.subform.columns.exclude :email, :active, :password, :nickname, :profile, :website,
      :language, :country, :gender, :role, :phone, :crypted_password, :current_login_at, :last_login_at, :current_login_ip, :last_login_ip,
      :persistence_token, :single_access_token, :perishable_token, :openid_identifier, :password_salt, :last_request_at
