@@ -12,6 +12,9 @@ class Admin::GroupsController < Admin::BaseController
     config.create.columns = [:name, :description, :mailable, :parent_group, :subgroups, :users]
     config.subform.columns.exclude :description, :mailable
 
+    # FIXME - adicionar a linha ao Scaffoldapp para todas as páginas
+    config.row_mark_actions_list = nil
+
     Scaffoldapp::active_scaffold config, "admin.groups", [
       :name, :mailable, :description, :parent_name     # Parent is a method defined in models/group.rb
     ], true
