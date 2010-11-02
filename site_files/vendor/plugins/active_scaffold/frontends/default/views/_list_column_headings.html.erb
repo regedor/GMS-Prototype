@@ -24,7 +24,7 @@ default_sorting_stages = ['ASC', 'DESC']
         :method => :get },
       { :href => href } %>
    <% elsif column.label == "Row mark" -%>
-     <p><input id="row_mark_header" name="row_mark_header" type="checkbox" onclick="alert('a');" \></p>
+     <p><input id="row_mark_header" name="row_mark_header" type="checkbox" onclick="alert('<%=active_scaffold_config.row_mark_actions_list%>');" \></p>
    <% else -%>
      <p><%= column.label %></p>
    <% end -%>

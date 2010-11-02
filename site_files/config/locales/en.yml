@@ -122,7 +122,7 @@ en:
         search: "Find groups"
         create: "New Group"
         columns:
-          parent: "Parent"
+          parent_name: "Parent"
           name: "Name"
           mailable: "Mailable"
           description: "Description"

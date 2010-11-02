@@ -5,7 +5,7 @@ module Admin::BaseHelper
   end
 
   def row_mark_column(record)
-    '<input id="row_mark_' + record.id.to_s + '" name="" type="checkbox" onclick="alert(\'a\');" \>'
+    '<input id="row_mark_' + record.id.to_s + '" name="" type="checkbox";" \>'
   end
 
   def excert_column(record)
