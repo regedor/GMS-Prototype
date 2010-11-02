@@ -19,19 +19,20 @@ Feature: Authentication System
     When I open the email
     Then I should see "Thank you for creating an account!" in the email body
     When I click the link in the email
-    Then I should see "Your account has been activated"
+    Then I should see "Your account has been activated. Please login."
     When I fill in "Email" with "example@email.com"
     And I fill in "Password" with "SuperPass"
-    And I press "Login"
+    And I press "Sign"
     Then I should see "Login successful"
+
 
   Scenario: Reset password, and login
     Given the following activated users exists 
-      | name     | email                | 
+      | name     | email                |
       | Jonh Doe | jonh.doe@regedor.com |
     And I am not logged in
     And I am on the homepage
-    When I follow "Login"
+    When I follow "Sign In"
     And I follow "I forgot my password"
     And I fill in "Email" with "jonh.doe@regedor.com"
     Then I press "Reset my password"
@@ -71,9 +72,8 @@ Feature: Authentication System
     Then I should see "Obrigado" in the email body
     When I click the link in the email
     Then I should see "A sua conta foi activada"
-    Then I follow "Login"
+    Then I follow "Sign In"
     When I fill in "Email" with "example@email.com"
     And I fill in "Password" with "SuperPass"
     And I press "Iniciar Sessão"
     Then I should see "Sessão iniciada"
-
