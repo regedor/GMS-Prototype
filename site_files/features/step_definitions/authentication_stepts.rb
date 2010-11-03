@@ -9,10 +9,10 @@ end
 
 Given /^I am logged in as admin$/ do 
   user = Factory.give_me_an_admin_user(:email => "root@example.com")
-  visit("/login")
+  visit("/user_session")
   fill_in("email", :with => user.email)
   fill_in("password", :with => user.password)
-  click_button("Login")
+  click_button("Sign in")
 end
 
 Given /^I am logged in as "(.*)"$/ do |email|
