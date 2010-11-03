@@ -44,7 +44,7 @@ class Group < ActiveRecord::Base
       users.map { |u| users_hash[u.id] ||= u } unless users.empty? 
     end
     
-    #To move to Helper
+    #FIXME: To move to Helper
     users = {}
     users_groups.each do |k,v|
       v.each do |group|

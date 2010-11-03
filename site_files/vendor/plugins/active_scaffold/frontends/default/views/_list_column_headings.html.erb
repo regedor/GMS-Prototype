@@ -24,7 +24,7 @@ default_sorting_stages = ['ASC', 'DESC']
         :method => :get },
       { :href => href } %>
    <% elsif column.label == "Row mark" -%>
-     <p><input type="checkbox" name="row_mark_header" id="row_mark_header" onclick="checkUncheckAll(this, myForm.list);"\></p>
+     <p><input type="checkbox" class="row_mark_header" id="row_mark_header" \></p>
    <% else -%>
      <p><%= column.label %></p>
    <% end -%>
@@ -33,4 +33,14 @@ default_sorting_stages = ['ASC', 'DESC']
 <% end -%>
 <th class="actions">
 </th>
+
+<script>
+$(".row_mark_header").click(function () {
+     $(".row_mark_elem").each(function (i) {
+       $(this).attr('checked',!$(this).is(':checked'));
+     });
+ });
+</script>
+
+
 
