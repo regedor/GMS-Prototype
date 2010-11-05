@@ -17,16 +17,19 @@ jQuery(document).ready(function($){
 		    $(".row_mark_elem").each(function() {
 			  if($(this).is(':checked'))
 			  {
-				  ids.push($(this).attr("id").substring(9,10));
+				  ids.push($(this).attr("id").substring(9,$(this).attr("id").length));
 			  }
 		    });
-		
-		    alert(action+' '+ids);
+		    
 		    $(this).get(0).selectedIndex = 0;
 			
-			//FIXME Ajax post
-			var path = "http://localhost:3000/admin/admin/users/active"
-		    $.post(path,{ "actions": action},null,"script");
+	            var path = location.href + "/" + action.replace(/[!?]/,'');
+
+	            $.post(path + '_admin',{ "ids": '[' + ids.toString() + ']' },null,"script");
+
+		    //fixme - fazer refresh a pagina depois de efectuada a operacao no users_controller.rb
+		    alert( 'operacao efectuada!! fazer f5 para visualizar alteracoes!' );
+
 		  }
         });
  });
