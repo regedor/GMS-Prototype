@@ -32,7 +32,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :users, :member => { :suspend   => :put,
                                          :unsuspend => :put,
                                          :activate  => :put, 
-                                         :reset_password => :put },
+                                         :reset_password => :put},
                             :collection => { :pending   => :get,
                                              :active    => :get, 
                                              :suspended => :get, 
@@ -44,6 +44,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :undo_items, :member => {:undo => :post}
 
     map.connect '/admin/:controller/:action/:id'
+    
   end
   #map.connect ':controller/:action/:id'
   #map.connect ':controller/:action/:id.:format'

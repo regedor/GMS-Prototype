@@ -10,7 +10,7 @@
   <% semantic_form_for @user, :html => {:method => :put} do |f| %>
     <% f.inputs :name => t('users.edit.form_inputs_name') do %>
       <%= f.input :name, :label => t('users.form.name') %>
-      <%= f.input :female, :as => :radio, :label => t('users.form.genre'), :collection => [["Female", true], ["Male", false]] %>
+      <%= f.input :gender, :as => :radio, :label => t('users.form.gender'), :collection => [["Female", true], ["Male", false]] %>
       <%= f.input :email, :label => t('users.form.email') %>
       <%= f.input :phone, :label => t('users.form.phone') %>
       <%= f.input :language, :as => :select, :label => t('users.form.language'), :collection => select_language_collection %>

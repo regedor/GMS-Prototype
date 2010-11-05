@@ -17,5 +17,17 @@ class Admin::UsersController < Admin::BaseController
       :created_at, :email, :active, :language, :name, :role
     ], true
   end
-
+  
+  
+  def active
+   flash[:notice] = "works"
+   respond_to do |format|
+     format.html { redirect_to :action=>"" }
+     format.js
+   end
+    #redirect_to root_path 
+    return true
+  end
+  
+  
 end

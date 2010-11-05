@@ -19,7 +19,6 @@
       </td>
     </tr>
   </tbody>
-  <form name="records">
   <tbody class="records" id="<%= active_scaffold_tbody_id %>">
     <% if !@records.empty? -%>
       <%= render :partial => 'list_record', :collection => @page.items, :locals => { :hidden => false, :dont_show_calculations => true } %>
@@ -28,7 +27,6 @@
       <%= render :partial => 'list_calculations' %>
     <% end -%>
   </tbody>
-  </form>
 </table>
 <div class="active-scaffold-footer">
 <% unless @page.pager.infinite? -%>
