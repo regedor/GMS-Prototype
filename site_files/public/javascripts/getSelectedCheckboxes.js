@@ -25,8 +25,7 @@ jQuery(document).ready(function($){
 				  ids_array.push(id);
 			  }
 		    });
-		
-		    alert(action+' '+ids);
+		    
 		    $(this).get(0).selectedIndex = 0;
 			
 			var path = active_controller_url.substring(1,active_controller_url.length)+"/do_action";

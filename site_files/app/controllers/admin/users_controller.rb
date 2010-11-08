@@ -6,6 +6,12 @@ class Admin::UsersController < Admin::BaseController
     config.actions << :show
     config.actions << :update
     config.actions << :delete
+
+    #testing...
+    config.show.columns = [ :email, :crypted_password ]
+    config.columns[:crypted_password].label = "password"
+
+    config.list.label = "cenas"
     
     config.columns.exclude :crypted_password, :current_login_at, :last_login_at, :current_login_ip, :last_login_ip,
      :persistence_token, :single_access_token, :perishable_token, :password_salt, :last_request_at

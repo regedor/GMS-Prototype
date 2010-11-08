@@ -31,6 +31,22 @@ puts "Creating admins!"
   user_zamith.role                  =  User::ROLES[:admin]
   user_zamith.save
   user_zamith.activate!
+
+  user_admin = User.new
+  user_admin.email                 = 'admin@simonadmin.com'
+  #user_zamith.openid_identifier = 'https://www.google.com/accounts/o8/id?id=AItOawnbGyx78N1LosCVj5coDtzlvTjtRpcLu5c'
+  user_admin.password              = 'password'
+  user_admin.password_confirmation = 'password'
+  user_admin.name                  = 'Joseph Administrator'
+  user_admin.language              = 'en'
+  user_admin.country               = 'PT'
+  user_admin.phone                 = "00351253685940"
+  user_admin.gender                =  true
+  user_admin.role                  =  User::ROLES[:admin]
+  user_admin.save
+  user_admin.activate!
+  
+
   
   admin = User.new
   admin.email                 = 'admin@admin.com'
