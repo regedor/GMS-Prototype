@@ -6,6 +6,12 @@ class Admin::UsersController < Admin::BaseController
     config.actions << :show
     config.actions << :update
     config.actions << :delete
+
+    #testing...
+    config.show.columns = [ :email, :crypted_password ]
+    config.columns[:crypted_password].label = "password"
+
+    config.list.label = "cenas"
     
     config.row_mark_actions_list = [:destroy, :activate!]
     
@@ -17,7 +23,6 @@ class Admin::UsersController < Admin::BaseController
       :created_at, :email, :active, :language, :name, :role
     ], true
   end
-  
   
   def active
    flash[:notice] = "works"
