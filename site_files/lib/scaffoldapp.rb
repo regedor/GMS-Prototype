@@ -1,8 +1,8 @@
 module Scaffoldapp
   class << self
 
-    def active_scaffold(config, i18n_scope, columns, row_mark=false)
-      columns.unshift :row_mark if row_mark
+    def active_scaffold(config, i18n_scope, columns, row_mark_actions_list=nil)
+      columns.unshift :row_mark if row_mark_actions_list
       config.label = I18n::t(i18n_scope+".create.title")
       config.list.label = I18n::t(i18n_scope+".index.title")
       begin;config.live_search.link.label = I18n::t(i18n_scope+".index.search")   ;rescue;end
@@ -11,6 +11,7 @@ module Scaffoldapp
       begin;config.update.link.label = I18n::t(i18n_scope+".index.update_link")   ;rescue;end
       begin;config.delete.link.label = I18n::t(i18n_scope+".index.destroy_link")  ;rescue;end
       begin;config.create.link.label = I18n::t(i18n_scope+".index.create")        ;rescue;end
+      config.row_mark_actions_list = row_mark_actions_list
       self.active_scaffold_list_columns(config, i18n_scope+".index.columns", columns)
     end
 

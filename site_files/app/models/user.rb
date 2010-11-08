@@ -69,6 +69,13 @@ class User < ActiveRecord::Base
   def first_name
     name.split(" ").first
   end
+  
+  def self.destroy_by_ids(ids)
+    ids.each do |id|
+      return false unless User.find(id).activate!
+    end 
+    return true 
+  end
 
  private
   def  map_openid_registration(registration)

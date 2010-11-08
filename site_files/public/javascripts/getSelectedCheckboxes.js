@@ -1,8 +1,9 @@
 jQuery.noConflict();
 
-jQuery.ajaxSetup({
-	'beforeSend':function(xhr) {xhr.setRequestHeader('Accept','text/javascript')}
-})
+//jQuery.ajaxSetup({
+//	'beforeSend':function(xhr) {xhr.setRequestHeader('Accept','text/javascript')}
+//})
+
 
 jQuery(document).ready(function($){
 	$(".dropdownmenu").change(function () {
@@ -13,20 +14,37 @@ jQuery(document).ready(function($){
 		    var patt1=/\//g;
 		    var active_controller = active_controller_url.split(patt1)[2];
           
-		    var ids = [];
+		    var ids = "";
+		    var id =""
+			var ids_array = [];
 		    $(".row_mark_elem").each(function() {
 			  if($(this).is(':checked'))
 			  {
-				  ids.push($(this).attr("id").substring(9,10));
+				  id = $(this).attr("id").substring(9,10);
+				  ids+= (id+"&");
+				  ids_array.push(id);
 			  }
 		    });
 		
 		    alert(action+' '+ids);
 		    $(this).get(0).selectedIndex = 0;
 			
-			//FIXME Ajax post
-			var path = "http://localhost:3000/admin/admin/users/active"
-		    $.post(path,{ "actions": action},null,"script");
+			var path = active_controller_url.substring(1,active_controller_url.length)+"/do_action";
+		    $.post(path,{"actions": action,"ids":ids},
+				function(data)
+				{
+					if(data.response == "OK")
+					{
+						$.each(ids_array,function(index,value){
+							$("#as_admin__"+active_controller+"-list-"+value+"-row").remove();
+						})
+						alert(data.message);
+						$(".flash").render(data.message);
+					}
+					
+				}
+				,"json");
+				
 		  }
         });
  });

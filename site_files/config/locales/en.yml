@@ -303,6 +303,7 @@ en:
                  If you did make this request just click the link below:"  
         footer: "If the above URL does not work try copying and pasting it into your browser.\n  
                  If you continue to have problem please feel free to contact us."  
+    action_success: "\"Action performed with success\""                 
 
 
   generic_sentence:

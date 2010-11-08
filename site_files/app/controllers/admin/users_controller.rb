@@ -7,7 +7,8 @@ class Admin::UsersController < Admin::BaseController
     config.actions << :update
     config.actions << :delete
     
-    config.row_mark_actions_list = [:destroy, :activate!]
+    config.columns.exclude :crypted_password, :current_login_at, :last_login_at, :current_login_ip, :last_login_ip,
+     :persistence_token, :single_access_token, :perishable_token, :password_salt, :last_request_at
     
     config.subform.columns.exclude :email, :active, :password, :nickname, :profile, :website,
      :language, :country, :gender, :role, :phone, :crypted_password, :current_login_at, :last_login_at, :current_login_ip, :last_login_ip,
@@ -15,18 +16,17 @@ class Admin::UsersController < Admin::BaseController
 
     Scaffoldapp::active_scaffold config, "admin.users", [
       :created_at, :email, :active, :language, :name, :role
-    ], true
+    ], [:destroy_by_ids, :activate!]
+    
   end
   
-  
-  def active
-   flash[:notice] = "works"
-   respond_to do |format|
-     format.html { redirect_to :action=>"" }
-     format.js
-   end
-    #redirect_to root_path 
-    return true
+  def do_action
+    ids = params[:ids].split('&')
+    if User.send(params[:actions],ids)
+      render :text => "{response: \"OK\",message:"+t("notifier.action_success")+"}"
+    else
+      render :text => "{response: \"Error\"}"
+    end    
   end
   
   
