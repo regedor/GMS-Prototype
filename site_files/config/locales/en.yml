@@ -104,14 +104,20 @@ en:
           active: "Active"
           language: "Language"
           name: "Name"
-          role: "User Role"
+          role: "User Role" 
       delete:
         title: "Delete User"
         question: "Are you sure you want to delete {{username}}?"
         bt_label: "Delete user"
         cancel_link: 
           label: "Cancel"
-          title: "Go back to users list"         
+          title: "Go back to users list"   
+      destroy_by_ids: "Delete"
+      activate!: "Activate"
+      list:
+        found:
+          more: "Users Found"
+          one: "User Found"            
     
     groups:
       index:

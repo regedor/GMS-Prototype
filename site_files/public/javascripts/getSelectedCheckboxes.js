@@ -1,8 +1,8 @@
 jQuery.noConflict();
 
-//jQuery.ajaxSetup({
-//	'beforeSend':function(xhr) {xhr.setRequestHeader('Accept','text/javascript')}
-//})
+jQuery.ajaxSetup({
+	'beforeSend':function(xhr) {xhr.setRequestHeader('Accept','text/javascript')}
+})
 
 
 jQuery(document).ready(function($){
@@ -37,7 +37,6 @@ jQuery(document).ready(function($){
 						$.each(ids_array,function(index,value){
 							$("#as_admin__"+active_controller+"-list-"+value+"-row").remove();
 						})
-						alert(data.message);
 						$(".flash").render(data.message);
 					}
 					

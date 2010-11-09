@@ -30,7 +30,7 @@
 </table>
 <div class="active-scaffold-footer">
 <% unless @page.pager.infinite? -%>
-  <div class="active-scaffold-found"><span class="active-scaffold-records"><%=I18n::t(active_scaffold_config.internationalization_prefix+".list.found."+((@page.pager.count > 1) ? "more" : "one"), :count => @page.pager.count ) %></div>
+  <div class="active-scaffold-found"><span class="active-scaffold-records"><%= @page.pager.count -%> <%=I18n::t(active_scaffold_config.internationalization_prefix+".list.found."+((@page.pager.count > 1) ? "more" : "one"), :count => @page.pager.count ) %></div>
 <% end -%>
   <div class="active-scaffold-pagination">
     <%= render :partial => 'list_pagination_links', :locals => { :current_page => @page } if @page.pager.infinite? || @page.pager.number_of_pages > 1 %>

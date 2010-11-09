@@ -16,7 +16,7 @@ class Admin::SettingsController < Admin::BaseController
 
     Scaffoldapp::active_scaffold config, "admin.settings", [
       :created_at, :email, :active, :language, :name, :role
-    ], true
+    ]
   end
 
 end
