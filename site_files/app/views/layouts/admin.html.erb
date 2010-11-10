@@ -24,14 +24,13 @@
       <div id="main-navigation">
         <ul class="wat-cf">
           <li class="<%= controller.controller_path == 'admin/dashboard' ? 'active' : '' %>"><a href="<%= admin_root_path %>">Dashboad</a></li>
-          <li class="<%= controller.controller_path == 'admin/users' ? 'active' : '' %>"><a href="<%= admin_users_path %>">Users</a></li>
+          <li class="<%= controller.controller_path == 'admin/usermanagement' ? 'active' : '' %>"><%= link_to "Users/Group Management", :controller => 'usermanagement', :action => 'index', :id => 1%></li>
           <li class="<%= controller.controller_path == 'admin/announcements' ? 'active' : '' %>"><a href="<%= admin_announcements_path %>">Announcements</a></li>
           <li class="<%= controller.controller_path == 'admin/posts' ? 'active' : '' %>"><a href="<%= admin_posts_path %>">Posts</a></li>
           <li class="<%= controller.controller_path == 'admin/comments' ? 'active' : '' %>"><a href="<%= admin_comments_path %>">Comments</a></li>
           <li class="<%= controller.controller_path == 'admin/tags' ? 'active' : '' %>"><a href="<%= admin_tags_path %>">Tags</a></li>
           <li class="<%= controller.controller_path == 'admin/undo_items' ? 'active' : '' %>"><a href="<%= admin_undo_items_path %>">Actions</a></li>
           <li class="<%= controller.controller_path == 'admin/settings' ? 'active' : '' %>"><a href="<%= admin_settings_path %>">Settings</a></li>
-		  <li class="<%= controller.controller_path == 'admin/groups' ? 'active' : '' %>"><a href="<%= admin_groups_path %>">Groups</a></li>
         </ul>
       </div>
     </div>    
