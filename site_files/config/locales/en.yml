@@ -114,10 +114,11 @@ en:
           title: "Go back to users list"   
       destroy_by_ids: "Delete"
       activate!: "Activate"
+      destroy: "Destroy"
       list:
         found:
-          more: "Users Found"
-          one: "User Found"            
+          more: "{{count}} Users Found"
+          one: "{{count}} User Found"            
     
     groups:
       index:
@@ -140,7 +141,11 @@ en:
           label: "Cancel"
           title: "Go back to groups list"
       create:
-        title: "Group"                              
+        title: "Group"
+      list:
+        found:
+          more: "{{count}} Groups Found"
+          one: "{{count}} Group Found"                              
 
     posts:
       index:
