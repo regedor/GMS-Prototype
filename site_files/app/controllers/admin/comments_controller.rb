@@ -11,7 +11,7 @@ class Admin::CommentsController < Admin::BaseController
 
     Scaffoldapp::active_scaffold config, "admin.comments", [
       :created_at, :commenter, :excert, :post
-    ], true
+    ]
   end
 
 end

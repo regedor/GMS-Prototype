@@ -10,7 +10,7 @@ class Admin::TagsController < Admin::BaseController
 
     Scaffoldapp::active_scaffold config, "admin.tags", [
       :name, :taggings_count
-    ], true
+    ]
   end
 
 #

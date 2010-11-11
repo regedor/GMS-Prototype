@@ -13,7 +13,7 @@ class Admin::AnnouncementsController < Admin::BaseController
 
     Scaffoldapp::active_scaffold config, "admin.announcements", [
       :headline, :message, :starts_at, :ends_at
-    ], true
+    ]
   end
 
 end

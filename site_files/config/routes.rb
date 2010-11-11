@@ -34,7 +34,8 @@ ActionController::Routing::Routes.draw do |map|
                                          :activate  => :put, 
                                          :reset_password => :put},
                             :collection => { :pending   => :get,
-                                             :active    => :get, 
+                                             :active    => :get,
+                                             :do_action => :get, 
                                              :suspended => :get, 
                                              :deleted   => :get }
     admin.resources :posts, :new => {:preview => :post}

@@ -48,5 +48,19 @@ puts "Creating admins!"
   
 
   
+  admin = User.new
+  admin.email                 = 'admin@admin.com'
+  #admin.openid_identifier = 'https://www.google.com/accounts/o8/id?id=AItOawnbGyx78N1LosCVj5coDtzlvTjtRpcLu5c'
+  admin.password              = 'admin'
+  admin.password_confirmation = 'admin'
+  admin.name                  = 'Admin'
+  admin.language              = 'en'
+  admin.country               = 'PT'
+  admin.phone                 = "123456789"
+  admin.gender                =  true
+  admin.role                  =  User::ROLES[:admin]
+  admin.save
+  admin.activate!
+  
   Group.create(:name=>"Grupinho da moda",:mailable=>false)
   
