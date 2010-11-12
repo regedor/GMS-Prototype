@@ -114,6 +114,7 @@ en:
           title: "Go back to users list"   
       destroy_by_ids: "Delete"
       activate!: "Activate"
+      deactivate!: "Deactivate"
       list:
         found:
           more: "Users Found"
@@ -309,7 +310,8 @@ en:
                  If you did make this request just click the link below:"  
         footer: "If the above URL does not work try copying and pasting it into your browser.\n  
                  If you continue to have problem please feel free to contact us."  
-    action_success: "\"Action performed with success\""                 
+    action_success: "\"Action performed with success\""
+    action_failure: "\"An error ocurred while performing action\""                
 
 
   generic_sentence:

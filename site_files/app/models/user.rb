@@ -30,7 +30,12 @@ class User < ActiveRecord::Base
   end
 
   def activate!
-    self.active = true
+    self.active = true 
+    save
+  end
+  
+  def deactivate!
+    self.active = false 
     save
   end
 
@@ -72,9 +77,23 @@ class User < ActiveRecord::Base
   
   def self.destroy_by_ids(ids)
     ids.each do |id|
-      return false unless User.find(id).activate!
+      return false unless User.find(id).destroy
     end 
     return true 
+  end
+  
+  def self.activate!(ids)
+    ids.each do |id|
+      return false unless User.find(id).activate!
+    end 
+    return true
+  end  
+  
+  def self.deactivate!(ids)
+    ids.each do |id|
+      return false unless User.find(id).deactivate!
+    end 
+    return true
   end
 
  private

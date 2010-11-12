@@ -21,7 +21,7 @@ class Admin::UsersController < Admin::BaseController
      :persistence_token, :single_access_token, :perishable_token, :openid_identifier, :password_salt, :last_request_at
 
     Scaffoldapp::active_scaffold config, "admin.users", [:created_at, :email, :active, :language, :name, :role], 
-    [:destroy_by_ids, :activate!]
+    [:destroy_by_ids, :activate!, :deactivate!]
     
   end
   
@@ -30,10 +30,12 @@ class Admin::UsersController < Admin::BaseController
   # returning a JSON object with the response
   def do_action
     ids = params[:ids].split('&')
-    if User.send(params[:actions],ids)
-      render :text => "{response: \"OK\",message:"+t("notifier.action_success")+"}"
+    if User.send(params[:actions],ids)  
+      #render :text => "{response: \"OK\",message:"+t("notifier.action_success")+",actionPerformed:\""+params[:actions]+"\"}"  
+      list
+      #render :action => "index"   
     else
-      render :text => "{response: \"Error\"}"
+      render :text => "{response: \"Error\",message: "+t("notifier.action_failure")+"}"
     end    
   end
   
