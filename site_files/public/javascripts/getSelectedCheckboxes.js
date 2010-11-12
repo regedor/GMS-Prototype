@@ -32,9 +32,17 @@ jQuery(document).ready(function($){
 
 
 			$.post(path,{"actions": action,"ids":ids},function(data){
-				$("#wrapper #main").html(data);
-				$(".flash").renderFlash("notifier.action_success","notice");	
-				$(".dropdownmenu").bind('change',do_action);	
+				if(data == "")
+				{
+					$(".flash").renderFlash("notifier.action_failure","error");	
+					$(".dropdownmenu").bind('change',do_action);	
+				}
+				else
+				{
+					$("#wrapper #main").html(data);
+					$(".flash").renderFlash("notifier.action_success","notice");	
+					$(".dropdownmenu").bind('change',do_action);
+				}		
 			},"html");
 			$(this).get(0).selectedIndex = 0;		
 		  }

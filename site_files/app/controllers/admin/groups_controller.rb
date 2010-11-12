@@ -14,7 +14,7 @@ class Admin::GroupsController < Admin::BaseController
 
     Scaffoldapp::active_scaffold config, "admin.groups", [
       :name, :mailable, :description, :parent_name     # Parent is a method defined in models/group.rb
-    ], true
+    ]
     
     #config.show.columns.exclude :users
     config.show.columns.exclude :updated_at, :users

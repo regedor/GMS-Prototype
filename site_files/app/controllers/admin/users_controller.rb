@@ -7,9 +7,8 @@ class Admin::UsersController < Admin::BaseController
     config.actions << :update
     config.actions << :delete
 
-    #testing...
-    config.show.columns = [ :email, :crypted_password ]
-    config.columns[:crypted_password].label = "password"
+    config.show.columns = [ :email, :active, :nickname, :profile, :website, :country, :gender ]
+    #config.columns[:crypted_password].label = "password"
     
     config.subform.columns.exclude :email, :active, :password, :nickname, :profile, :website,
      :language, :country, :gender, :role, :phone, :crypted_password, :current_login_at, :last_login_at, :current_login_ip, :last_login_ip,
@@ -27,12 +26,10 @@ class Admin::UsersController < Admin::BaseController
   def do_action
     ids = params[:ids].split('&')
     if User.send(params[:actions],ids)  
-      #render :text => "{response: \"OK\",message:"+t("notifier.action_success")+",actionPerformed:\""+params[:actions]+"\"}"  
       list
-      #render :action => "index"   
     else
-      render :text => "{response: \"Error\",message: "+t("notifier.action_failure")+"}"
-    end    
+      render :text => "" 
+    end      
   end
   
   
