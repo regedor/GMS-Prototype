@@ -78,7 +78,7 @@ class Admin::PostsController < Admin::BaseController
 
     respond_to do |format|
       format.js {
-        render :partial => 'posts/post.html.erb', :locals => {:post => @post}
+        render :partial => 'post.html.erb', :locals => {:post => @post}
       }
     end
   end

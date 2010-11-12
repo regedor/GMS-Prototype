@@ -6,6 +6,7 @@ module ActiveScaffold::Config
 
 
     cattr_accessor :row_mark_actions_list
+    cattr_accessor :has_sidebar
     cattr_accessor :internationalization_prefix
 
     # provides read/write access to the global Actions DataStructure

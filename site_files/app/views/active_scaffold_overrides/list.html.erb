@@ -1,4 +1,9 @@
 <div class="block">
+<% if (active_scaffold_config.has_sidebar) %>
+<% content_for :sidebar do -%>
+	<%= render :partial => 'sidebar' %>
+<% end -%>
+<% end -%>
   <div class="content">
     <div class="inner">
       <%= render :super %>

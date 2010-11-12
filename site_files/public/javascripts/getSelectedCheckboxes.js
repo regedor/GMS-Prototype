@@ -8,8 +8,7 @@ jQuery.ajaxSetup({
 
 
 jQuery(document).ready(function($){
-	$(".dropdownmenu").change(do_action=function () {
-		  alert("Yellow");
+	$(".dropdownmenu").change(do_action=function () { 
 		  var action = $(".dropdownmenu option:selected").attr("value");
 		  if(action != "")
 		  {

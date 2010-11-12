@@ -8,13 +8,8 @@ class Admin::UsersController < Admin::BaseController
     config.actions << :delete
 
     #testing...
-    config.columns.exclude :crypted_password, :current_login_at, :last_login_at, :current_login_ip, :last_login_ip,
-     :persistence_token, :single_access_token, :perishable_token, :password_salt, :last_request_at
-     
-    
-    config.columns[:crypted_password].label = "Password"
-
-    config.list.label = "cenas"
+    config.show.columns = [ :email, :crypted_password ]
+    config.columns[:crypted_password].label = "password"
     
     config.subform.columns.exclude :email, :active, :password, :nickname, :profile, :website,
      :language, :country, :gender, :role, :phone, :crypted_password, :current_login_at, :last_login_at, :current_login_ip, :last_login_ip,
@@ -23,6 +18,7 @@ class Admin::UsersController < Admin::BaseController
     Scaffoldapp::active_scaffold config, "admin.users", [:created_at, :email, :active, :language, :name, :role], 
     [:destroy_by_ids, :activate!, :deactivate!]
     
+    config.has_sidebar = true
   end
   
   
