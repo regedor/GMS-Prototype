@@ -8,7 +8,6 @@ class Admin::UsersController < Admin::BaseController
     config.actions << :delete
 
     config.show.columns = [ :email, :active, :nickname, :profile, :website, :country, :gender ]
-    #config.columns[:crypted_password].label = "password"
     
     config.subform.columns.exclude :email, :active, :password, :nickname, :profile, :website,
      :language, :country, :gender, :role, :phone, :crypted_password, :current_login_at, :last_login_at, :current_login_ip, :last_login_ip,
@@ -19,7 +18,13 @@ class Admin::UsersController < Admin::BaseController
     
     config.has_sidebar = true
   end
-  
+
+  # Override this method to provide custom finder options to the find() call.
+  # With this, only the users with the value 'false' in the column 'deleted' will be shown.
+  def custom_finder_options
+    return { :conditions => {:deleted => false} }
+  end
+
   
   # Method that receives all requests and calls the desired action with the selected ids, 
   # returning a JSON object with the response

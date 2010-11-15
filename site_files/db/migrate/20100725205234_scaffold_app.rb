@@ -27,12 +27,13 @@ class ScaffoldApp < ActiveRecord::Migration
       t.timestamps
       # optional, see Authlogic::Session::MagicColumns
       t.integer   :login_count,         :null => false, :default => 0 
-      t.integer   :failed_login_count,  :null => false, :default => 0 
+      t.integer   :failed_login_count,  :null => false, :default => 0
       t.datetime  :last_request_at                                    
       t.datetime  :current_login_at                                   
       t.datetime  :last_login_at                                      
       t.string    :current_login_ip                                   
-      t.string    :last_login_ip                                      
+      t.string    :last_login_ip
+      t.boolean   :deleted,             :null => false, :default => false 
     end
     add_index :users, :email, :unique => true
 
