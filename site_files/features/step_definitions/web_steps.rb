@@ -4,16 +4,6 @@
 # instead of editing this one. Cucumber will automatically load all features/**/*.rb
 # files.
 
-Before do
-	include Authlogic::TestCase
-	activate_authlogic
-end
-
-def logout_user
-	session = UserSession.find
-	session.destroy if session
-end
-
 require 'uri'
 require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
 
