@@ -55,3 +55,10 @@ DatabaseCleaner.strategy = :truncation
 require 'email_spec/cucumber'
 require 'factory_girl'
 require File.expand_path(File.dirname(__FILE__) + '/../../test/factories.rb')
+
+ActionController::Base.class_eval do
+    private
+        def begin_open_id_authentication(identity_url, options = {})
+            yield OpenIdAuthentication::Result.new(:successful), self.normalize_identifier(identity_url), nil
+        end 
+end

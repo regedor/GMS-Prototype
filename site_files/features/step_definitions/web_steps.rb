@@ -4,6 +4,15 @@
 # instead of editing this one. Cucumber will automatically load all features/**/*.rb
 # files.
 
+Before do
+	include Authlogic::TestCase
+	activate_authlogic
+end
+
+def logout_user
+	session = UserSession.find
+	session.destroy if session
+end
 
 require 'uri'
 require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
@@ -25,6 +34,10 @@ end
 
 When /^(?:|I )follow "([^\"]*)"$/ do |link|
   click_link(link)
+end
+
+When /^I signout$/ do
+  logout_user
 end
 
 When /^(?:|I )follow "([^\"]*)" within "([^\"]*)"$/ do |link, parent|
@@ -182,7 +195,8 @@ Then /^(?:|I )should not see "([^\"]*)"$/ do |text|
   if defined?(Spec::Rails::Matchers)
     response.should_not contain(text)
   else
-    assert_not_contain(text)
+    hc = Webrat::Matchers::HasContent.new(text)
+    assert !hc.matches?(response), hc.negative_failure_message
   end
 end
 

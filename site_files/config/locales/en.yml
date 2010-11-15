@@ -41,7 +41,7 @@ en:
     errors:
       invalid_open_id: "OpenID authentication failed. Verify your data and try again."
     bar:
-      last_session_paragraph: "Your last login was {{time_ago}} ago, your ip was {{ip}}"
+      last_session_paragraph: "Your last login was %{time_ago} ago, your ip was %{ip}"
       account_link: "Account details"
       logout: "Sign Out"
       signin: "Sign In"
@@ -107,7 +107,7 @@ en:
           role: "User Role" 
       delete:
         title: "Delete User"
-        question: "Are you sure you want to delete {{username}}?"
+        question: "Are you sure you want to delete %{username}?"
         bt_label: "Delete user"
         cancel_link: 
           label: "Cancel"
@@ -135,7 +135,7 @@ en:
           description: "Description"
       delete:
         title: "Delete Group"
-        question: "Are you sure you want to delete {{username}}?"
+        question: "Are you sure you want to delete %{username}?"
         bt_label: "Delete group"
         cancel_link: 
           label: "Cancel"
@@ -164,7 +164,7 @@ en:
         title: "Announcement"
       delete:
         title: "Delete User"
-        question: "Are you sure you want to delete {{username}}?"
+        question: "Are you sure you want to delete %{username}?"
         bt_label: "Delete user"
         cancel_link: 
           label: "Cancel"
@@ -186,7 +186,7 @@ en:
         title: "Announcement"
       delete:
         title: "Delete User"
-        question: "Are you sure you want to delete {{username}}?"
+        question: "Are you sure you want to delete %{username}?"
         bt_label: "Delete user"
         cancel_link: 
           label: "Cancel"
@@ -207,7 +207,7 @@ en:
         title: "Announcement"
       delete:
         title: "Delete User"
-        question: "Are you sure you want to delete {{username}}?"
+        question: "Are you sure you want to delete %{username}?"
         bt_label: "Delete user"
         cancel_link: 
           label: "Cancel"
@@ -231,7 +231,7 @@ en:
         title: "Announcement"
       delete:
         title: "Delete User"
-        question: "Are you sure you want to delete {{username}}?"
+        question: "Are you sure you want to delete %{username}?"
         bt_label: "Delete user"
         cancel_link: 
           label: "Cancel"
