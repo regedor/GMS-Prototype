@@ -47,6 +47,14 @@ ActionController::Routing::Routes.draw do |map|
     map.connect '/admin/:controller/:action/:id'
     
   end
+  
+  # ==========================================================================
+  # API Resources
+  # ==========================================================================
+  map.namespace :api do |api|
+   api.resource :i18n
+  end
+  
   #map.connect ':controller/:action/:id'
   #map.connect ':controller/:action/:id.:format'
 end

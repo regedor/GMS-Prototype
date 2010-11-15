@@ -1,12 +1,13 @@
-<tr class="<%= cycle('', 'alt') %>">
-  <td><%= post.published_at.strftime('%d %b, %Y') %></td>
-  <td><%= link_to (post.title == '' ? '[Untitled]' : h(truncate(post.title, :length => 30))), admin_post_path(post) %></td>
-  <td><% tmpc = h(truncate(post.body, :length => 55)) %><%= (tmpc != '' ? tmpc : '&nbsp;') %></td>
-  <td><%= post.approved_comments.size %></td>
-  <td>
-    <%= link_to(image_tag('silk/pencil.png', :alt => 'edit'), admin_post_path(post)) %>
-    <% form_for(:post, post, :url => admin_post_path(post), :html => {:class => 'delete-item', :method => :delete}) do |form| -%>
-      <%= image_submit_tag("silk/delete.png") %>
+<h2><%= link_to(h(post.title), '#') %></h2>
+<div class="entrybody">
+  <%= post.body_html.untaint %>
+</div>
+<div class="meta">
+  <ul>
+    <li class="date">Posted on <%= I18n::l(post.published_at) %></li>
+    <li class="comments"><%= link_to(pluralize(post.approved_comments.size, "comment"), '#') %></li>
+    <% unless post.tags.empty? -%>
+    <li class="tags">Tagged <%= linked_tag_list(post.tags) %></li>
     <% end -%>
-  </td>
-</tr>
+  </ul>
+</div>
