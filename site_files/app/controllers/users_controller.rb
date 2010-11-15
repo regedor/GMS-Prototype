@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_filter :require_admin, :only => [:activate_admin]
   before_filter :require_no_user, :only => [:new, :create, :activate]
   before_filter :require_user, :only => [:show, :edit, :update]
   
@@ -45,17 +44,6 @@ class UsersController < ApplicationController
     else
       render :action => :new
     end
-  end
-
-  def activate_admin
-    ids = eval(params[:ids])
-    ids.each do |id|
-      useractive = User.find(id)
-      if useractive.activate!
-        flash[:notice] = "Conta #{useractive.name} activada!"
-      end
-    end
-    #FixME - fazer refresh da pagina admin/users ...
   end
 
   def show

@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :groups
 
+  # Scope for non-deleted users
+  named_scope :not_deleted, :conditions => {:deleted => false}
+
   ROLES = { :admin => 10, :user  => 1 }
   INVERTED_ROLES = ROLES.invert
 
