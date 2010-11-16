@@ -17,15 +17,17 @@ module Scaffoldapp
       config.row_mark_actions_list = row_mark_actions_list
     end
 
-    def active_scaffold_list_columns(config, i18n_scope, columns)
+    #FIXME The labels of user defined fields are not shown
+
+    def active_scaffold_list_columns(config, i18n_scope, columns)    
       columns.each do |column| 
         unless column == :row_mark
           config.columns << column unless config.columns[column]
           config.columns[column].label = I18n::t(i18n_scope+"."+column.to_s) 
         end
-      end
-      config.list.columns = columns
+      end  
+      config.list.columns = columns  
     end
-
+  
   end
 end

@@ -213,6 +213,18 @@ en:
           label: "Cancel"
           title: "Go back to users list"        
 
+    undo_items:
+      index:
+        title: "All Actions"
+        search: "Search Actions"
+        show_link: "<img src='/images/icons/pencil.png'/>Details"
+        columns:
+          created_at: "Date"
+          type: "Description"
+      list:
+        found:
+          one: "{{count}} Action Found" 
+          many: "{{count}} Actions Found"   
 
     announcements:
       index:

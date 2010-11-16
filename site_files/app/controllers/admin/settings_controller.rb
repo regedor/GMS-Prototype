@@ -15,7 +15,7 @@ class Admin::SettingsController < Admin::BaseController
     config.actions.swap :search, :live_search
 
     Scaffoldapp::active_scaffold config, "admin.settings", [
-      :created_at, :email, :active, :language, :name, :role
+      :label, :identifier, :description, :field_type, :value
     ]
   end
 

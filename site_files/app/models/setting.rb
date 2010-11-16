@@ -25,4 +25,4 @@ class Setting < ActiveRecord::Base
     
     setting.nil? ? "" : setting.value
   end
-end
+end 
