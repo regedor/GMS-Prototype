@@ -1,6 +1,7 @@
 class UserSessionsController < ApplicationController
   before_filter :require_no_user, :only => [:new, :create]
-  before_filter :require_user, :only => [:destroy, :send_invitations, :show]
+  before_filter :require_user, :only => [:send_invitations, :show]
+  before_filter :require_user_all, :only => [:destroy]
   
   def show
     @user = current_user
@@ -22,11 +23,14 @@ class UserSessionsController < ApplicationController
       @user_session = UserSession.new(params[:user_session])
     end
     @user_session.save do |result|
-      if result
+      if result && !UserSession.find.record.deleted
         session[:language] = UserSession.find.user.language
         set_user_language
         flash[:notice] = t('flash.login')
         redirect_back_or_default root_url
+      elsif result && UserSession.find.record.deleted
+        @user_session.destroy
+        flash[:notice] = t('flash.login_failed')
       elsif request['openid.mode'] == 'id_res'
         flash[:notice] = t('flash.you_are_being_redirected')
         @user = User.new :openid_identifier => request['openid.identity']
