@@ -117,8 +117,8 @@ en:
       deactivate!: "Deactivate"
       list:
         found:
-          more: "{{count}} Users Found"
-          one: "{{count}} User Found"            
+          more: "%{count} Users Found"
+          one: "%{count} User Found"            
     
     groups:
       index:
@@ -144,8 +144,8 @@ en:
         title: "Group"
       list:
         found:
-          more: "{{count}} Groups Found"
-          one: "{{count}} Group Found"                              
+          more: "%{count} Groups Found"
+          one: "%{count} Group Found"                              
 
     posts:
       index:
@@ -273,8 +273,8 @@ en:
     account_updated: "Account updated!"
     user_deleted: "User has been deleted!"
     invalid_user_invitations: "You have entered an invalid email addresses! Correct it and try again."
-    single_user_invitation: "You have successfully sent an invitation to {{mail}}."
-    multiple_user_invitations: "You have successfully sent {{number}} invitations."
+    single_user_invitation: "You have successfully sent an invitation to %{mail}."
+    multiple_user_invitations: "You have successfully sent %{number} invitations."
     password_resets_intruction_sent: "Instructions to reset your password have been emailed to you.
                                       Please check your email."  
     no_user_found_with_that_email: "No user was found with that email address"  
@@ -284,7 +284,7 @@ en:
                                   If you are having issues try copying and pasting the URL 
                                   from your email into your browser or restarting the 
                                   reset password process"  
-    rare_error: "A rare error occured! You should contact the administrator and refer the following code: {{ref}}"
+    rare_error: "A rare error occured! You should contact the administrator and refer the following code: %{ref}"
     you_are_being_redirected: "You are being redirected. Please wait..."
     login_failed: "Failed to log in. Maybe you haven't activated your account, or entered incorrect data."
     group_created: "Succefully created a group"
@@ -294,7 +294,7 @@ en:
     invitation:
       subject: "You have been invited"
       body:
-        header: "The user '{{name}}' wants you to join Regedor! Follow the link and create an account!"
+        header: "The user '%{name}' wants you to join Regedor! Follow the link and create an account!"
         footer: "If the above URL does not work try copying and pasting it into your browser. If you continue to have problem, please feel free to contact us."
     activation_instructions:
       subject: "Activation Instructions"
