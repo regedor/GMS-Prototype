@@ -42,6 +42,11 @@ class User < ActiveRecord::Base
     save
   end
 
+  def delete!
+    self.deleted = true
+    save
+  end
+
   def send_invitation!(mail)
     Notifier.deliver_invitation(self,mail)
   end
@@ -80,7 +85,7 @@ class User < ActiveRecord::Base
   
   def self.destroy_by_ids(ids)
     ids.each do |id|
-      return false unless User.find(id).destroy
+      return false unless User.find(id).delete!
     end 
     return true 
   end
