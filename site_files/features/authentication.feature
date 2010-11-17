@@ -6,6 +6,7 @@ Feature: Authentication System
   Backgroud:
     Given I18n is set to english  
 
+	@auth
   Scenario: Create an account, confirm and login
     Given I am not logged in
     And I am on the homepage
@@ -23,9 +24,10 @@ Feature: Authentication System
     When I fill in "Email" with "example@email.com"
     And I fill in "Password" with "SuperPass"
     And I press "Sign In"
-    Then I should see "Your last login was"
+    Then I should see "Login successful"
+    And I should see "Your last login was"
 
-
+	@auth
   Scenario: Reset password, and login
     Given the following activated users exists 
       | name     | email                |
@@ -46,23 +48,22 @@ Feature: Authentication System
     And I fill in "New Password" with "NewSuperPass"
     And I fill in "Password Confirmation" with "NewSuperPass"
     And I press "Update password and log in"
-    #Flash notice: Then I should see "Password successfully updated" 
+    Then I should see "Password successfully updated" 
     Then I should see "Your last login was"
 		Then I should see "Sign Out"
-    When I signout
 		When I follow "Sign Out"
-		When I follow "Sign Out"
-	
+    Then I should see "Logout successful"
 		And I am on the homepage
-    #Flash Notice: Then I should see "Logout successful"
 		Then I should see "Sign In"
     When I follow "Sign In" 
     And I fill in "Email" with "jonh.doe@regedor.com"
     And I fill in "Password" with "NewSuperPass"
     And I press "Sign in"
-    Then I should see "Your last login was"
+    Then I should see "Login successful"
+    And I should see "Your last login was"
 
 	@openid
+	@auth
   Scenario: Sign up with Open ID and Log in
     Given I am not logged in
 		And I am on the homepage
