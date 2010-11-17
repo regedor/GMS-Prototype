@@ -7,6 +7,12 @@ class Admin::UsersController < Admin::BaseController
     config.actions << :update
     config.actions << :delete
 
+    config.delete.link.controller = nil
+    config.delete.link.method = nil
+    config.delete.link.action = 'do_action'
+    config.delete.link.parameters = { "actions" => "destroy_by_ids" }
+    config.delete.link.page = true
+
     config.show.columns = [ :email, :active, :nickname, :profile, :website, :country, :gender ]
     
     config.subform.columns.exclude :email, :active, :password, :nickname, :profile, :website,
@@ -29,13 +35,15 @@ class Admin::UsersController < Admin::BaseController
   # Method that receives all requests and calls the desired action with the selected ids, 
   # returning a JSON object with the response
   def do_action
-    ids = params[:ids].split('&')
+    if !params[:ids].nil?
+      ids = params[:ids].split('&')
+    else ids = [ params[:id] ]
+    end
     if User.send(params[:actions],ids)  
       list
     else
       render :text => "" 
     end      
   end
-  
   
 end
