@@ -1,0 +1,31 @@
+# Configuration options can be accessed as
+# configatron.site_name
+
+development: &local
+    site_name: BaseApp2
+    site_namemobile: BaseApp2
+    site_url: baseapp2.local
+    
+    company_name: BaseApp2 Ltd
+    admin_email: admin@baseapp2.local
+    
+    support_name: BaseApp2 Support
+    support_email: support@baseapp2.local
+    
+    site_envnote: Local Server
+
+production:
+    site_name: BaseApp2
+    site_namemobile: BaseApp2
+    site_url: www.regedor.com
+    
+    company_name: BaseApp2 Ltd
+    admin_email: admin@baseapp2.com
+    
+    support_name: BaseApp2 Support
+    support_email: support@baseapp2.com
+    
+    site_envnote: Production Server
+  
+test:
+  <<: *local

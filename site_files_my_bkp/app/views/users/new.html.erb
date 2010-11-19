@@ -1,0 +1,50 @@
+<h2><%= t('users.new.title') %></h2>
+
+<div class="form_side_notes">
+  <div class="note">
+    <p class="buttons">
+      <%= link_to '<img src="/images/google.ico" alt=""/>'+t('users.new.form_side_notes.google_signup'),
+        "/users?user%5Bopenid_identifier%5D=https://www.google.com/accounts/o8/id", 
+        :class => "positive create", :method => 'post' %> 
+      <%= link_to '<img src="/images/yahoo.ico" alt=""/>'+t('users.new.form_side_notes.yahoo_signup'), 
+        "/users?user%5Bopenid_identifier%5D=https://www.yahoo.com", 
+        :class => "positive create", :method => 'post' %> 
+    </p>
+    <p><%= t('users.new.form_side_notes.first') %></p>
+  </div>
+  <div class="note">
+    <p><%= t('users.new.form_side_notes.second') %></p>
+  </div>
+</div>
+
+<div class="form_with_notes">
+  <% semantic_form_for @user, :html => {:method => :post} do |f| %>
+    <% if @user.openid_identifier.blank? -%>
+      <% f.inputs :name => t('users.new.form_inputs_name') do %>
+        <%= f.input :email, :label => t('users.form.email') %>
+        <%= f.input :password, :label => t('users.form.password') %>
+        <%= f.input :password_confirmation, 
+                    :label => t('users.form.password_confirmation') %>
+        <%= f.input :language, :as => :select, :label => t('users.form.language'), 
+                    :collection => select_language_collection %>
+      <% end %>
+      <% f.inputs :name => t('user_session.new.form_openid_inputs_name') do %>
+        <%= f.input :openid_identifier, :label => t('users.new.openid'),
+                    :required => false %>
+      <% end %>
+    <% else -%>
+      <% f.inputs :name => t('users.new.form_openid_inputs_name') do %>
+        <%= f.input :email, :label => t('users.form.email') %>
+        <%= f.input :openid_identifier, :label => t('users.new.openid') %>
+        <%= f.input :language, :as => :select, :label => t('users.form.language'), 
+                    :collection => select_language_collection %>
+      <% end %>
+    <% end -%>
+    <div class="required_field_note"><%= t('generic_sentence.required_field') %></div>
+    <% f.buttons do %>
+      <%= f.button :label => icon_tag('user_add')+t('users.new.commit_button') %> 
+    <% end %>
+  <% end %>
+</div>
+
+<%= '<script>$("#new_user").submit();</script>' if @auto_submit %>

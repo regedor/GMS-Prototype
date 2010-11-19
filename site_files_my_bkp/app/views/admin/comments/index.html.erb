@@ -1,0 +1,35 @@
+<% content_for(:head) do -%>
+  <%= javascript_include_tag('jquery.form.js') %>
+  <%= javascript_include_tag('admin/comments.js') %>
+<% end -%>
+
+<h1>Comments</h1>
+<table cellspacing="0" cellpadding="0">
+  <thead>
+    <tr>
+      <th>Created At</th>
+      <th>Commenter</th>
+      <th>Excerpt</th>
+      <th>Post</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% if @comments.empty? -%>
+      <tr><td colspan="5">There are no comments at this time.</td></tr>
+    <% else -%>
+      <%= render :partial => 'comment', :collection => @comments %>
+    <% end -%>
+  </tbody>
+
+  <tfoot>
+    <% if @comments.total_pages > 1 -%>
+      <tr class="pagination">
+        <td colspan='5'>
+          <%= will_paginate(@comments, :previous_label => '« Newer', :next_label => 'Older »') %>
+        </td>
+      </tr>
+    <% end -%>
+  </tfoot>
+</table>

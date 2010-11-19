@@ -1,0 +1,30 @@
+<h2> <%= t('users.edit.title') %> </h2>
+
+<div class="form_side_notes">
+  <div class="note">
+    <p><%= t('users.edit.form_side_notes.first') %></p>
+  </div>
+</div>
+
+<div class="form_with_notes">
+  <% semantic_form_for @user, :html => {:method => :put} do |f| %>
+    <% f.inputs :name => t('users.edit.form_inputs_name') do %>
+      <%= f.input :name, :label => t('users.form.name') %>
+      <%= f.input :gender, :as => :radio, :label => t('users.form.gender'), :collection => [["Female", true], ["Male", false]] %>
+      <%= f.input :email, :label => t('users.form.email') %>
+      <%= f.input :phone, :label => t('users.form.phone') %>
+      <%= f.input :language, :as => :select, :label => t('users.form.language'), :collection => select_language_collection %>
+    <% end %>
+    <% f.inputs :name => t('users.new.form_auth_inputs_name') do %>
+      <%= f.input :password, :label => t('users.form.change_password'), :required => false%>
+      <%= f.input :password_confirmation, :label => t('users.form.password_confirmation'), :required => false %>
+      <%= f.input :openid_identifier, :label => t('users.form.openid'), :required => false %>
+    <% end %>
+    <div class="required_field_note"><%= t('generic_sentence.required_field') %></div>
+    <% f.buttons do %>
+      <%= f.button :label => icon_tag('user_edit')+t('users.update.commit_button') %> 
+      <%= f.button_link icon_tag('arrow_undo')+t('generic_word.go_back'), user_session_path, 
+                         :button_html => {:class => "negative"} %> 
+    <% end %>
+  <% end %>
+</div>

@@ -1,0 +1,134 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", users_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_user_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", user_path %></li>
+    </ul>
+  </div>          
+  <div class="content">
+    <div class="inner">
+      
+        <p>
+          <b><%= t("activerecord.attributes.user.email", :default => t("activerecord.labels.email", :default => "Email")) %>:</b>
+          <%= @user.email %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.user.nickname", :default => t("activerecord.labels.nickname", :default => "Nickname")) %>:</b>
+          <%= @user.nickname %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.user.name", :default => t("activerecord.labels.name", :default => "Name")) %>:</b>
+          <%= @user.name %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.user.profile", :default => t("activerecord.labels.profile", :default => "Profile")) %>:</b>
+          <%= @user.profile %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.user.language", :default => t("activerecord.labels.language", :default => "Language")) %>:</b>
+          <%= @user.language %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.user.country", :default => t("activerecord.labels.country", :default => "Country")) %>:</b>
+          <%= @user.country %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.user.role", :default => t("activerecord.labels.role", :default => "Role")) %>:</b>
+          <%= @user.role %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.user.gender", :default => t("activerecord.labels.gender", :default => "Female")) %>:</b>
+          <%= @user.gender %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.user.phone", :default => t("activerecord.labels.phone", :default => "Phone")) %>:</b>
+          <%= @user.phone %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.user.openid_identifier", :default => t("activerecord.labels.openid_identifier", :default => "Openid identifier")) %>:</b>
+          <%= @user.openid_identifier %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.user.crypted_password", :default => t("activerecord.labels.crypted_password", :default => "Crypted password")) %>:</b>
+          <%= @user.crypted_password %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.user.password_salt", :default => t("activerecord.labels.password_salt", :default => "Password salt")) %>:</b>
+          <%= @user.password_salt %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.user.persistence_token", :default => t("activerecord.labels.persistence_token", :default => "Persistence token")) %>:</b>
+          <%= @user.persistence_token %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.user.single_access_token", :default => t("activerecord.labels.single_access_token", :default => "Single access token")) %>:</b>
+          <%= @user.single_access_token %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.user.perishable_token", :default => t("activerecord.labels.perishable_token", :default => "Perishable token")) %>:</b>
+          <%= @user.perishable_token %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.user.active", :default => t("activerecord.labels.active", :default => "Active")) %>:</b>
+          <%= @user.active %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.user.login_count", :default => t("activerecord.labels.login_count", :default => "Login count")) %>:</b>
+          <%= @user.login_count %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.user.failed_login_count", :default => t("activerecord.labels.failed_login_count", :default => "Failed login count")) %>:</b>
+          <%= @user.failed_login_count %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.user.last_request_at", :default => t("activerecord.labels.last_request_at", :default => "Last request at")) %>:</b>
+          <%= @user.last_request_at %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.user.current_login_at", :default => t("activerecord.labels.current_login_at", :default => "Current login at")) %>:</b>
+          <%= @user.current_login_at %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.user.last_login_at", :default => t("activerecord.labels.last_login_at", :default => "Last login at")) %>:</b>
+          <%= @user.last_login_at %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.user.current_login_ip", :default => t("activerecord.labels.current_login_ip", :default => "Current login ip")) %>:</b>
+          <%= @user.current_login_ip %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.user.last_login_ip", :default => t("activerecord.labels.last_login_ip", :default => "Last login ip")) %>:</b>
+          <%= @user.last_login_ip %>
+        </p>
+      <div class="wat-cf">
+        <%= link_to "#{image_tag("web-app-theme/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}")} #{t("web-app-theme.edit", :default=> "Edit")}", edit_user_path(@user), :class => "button" %> 
+        <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}")} #{t("web-app-theme.delete", :default => "Delete")}", user_path(@user), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+      </div>      
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

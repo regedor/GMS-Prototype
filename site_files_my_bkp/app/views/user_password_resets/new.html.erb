@@ -1,0 +1,19 @@
+<h2><%= t('user_password_resets.new.title') %></h2>
+
+<div class="form_side_notes">
+  <div class="note">
+    <p><%= t('user_password_resets.new.form_side_notes') %></p>
+  </div>
+</div>
+ 
+<div class="form_with_notes">
+  <% semantic_form_for 'user_password_reset', :url => user_password_resets_url do |f| %>
+    <% f.inputs :name => t('user_password_resets.new.form_inputs_name') do %>
+        <%= f.input :email, :label => t('user_password_resets.new.email') %>
+      <% end %>
+      <div class="required_field_note"><%= t('generic_sentence.required_field') %></div>
+      <% f.buttons do %>
+        <%= f.commit_button :label => t('user_password_resets.new.commit_button') %>  
+      <% end %>
+  <% end %>
+</div>
