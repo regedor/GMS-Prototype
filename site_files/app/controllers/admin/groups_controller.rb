@@ -19,6 +19,7 @@ class Admin::GroupsController < Admin::BaseController
     #config.show.columns.exclude :users
     config.show.columns.exclude :updated_at, :users
     config.show.columns << :all_users_names
+    config.has_sidebar = true
     
   end
   
