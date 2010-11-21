@@ -1,10 +1,6 @@
 /*
- ActiveScaffold
- (c) 2007 Richard White <rrwhite@gmail.com>
+ Simon ActiveScaffold theme
 
- ActiveScaffold is freely distributable under the terms of an MIT-style license.
-
- For details, see the ActiveScaffold web site: http://www.activescaffold.com/
 */
 
 .active-scaffold form,
@@ -36,7 +32,7 @@ color: #999;
 }
 
 .active-scaffold a:hover {
-background-color: #ff8;
+background-color: #CFCFCF;
 }
 
 .active-scaffold .clear-fix {
@@ -66,7 +62,7 @@ background-color: #005CB8;
 .active-scaffold-header h2 {
 padding: 2px 0px;
 margin: 0;
-color: #555;
+color: white;
 font: bold 160% arial, sans-serif;
 }
 
@@ -142,19 +138,22 @@ text-align: right;
    ============================= */
 
 .active-scaffold th {
-background-color: #555;
+background-color: white;
 text-align: left;
+color: #FF6631;
 }
 
 .active-scaffold th a,
 .active-scaffold th p {
-font: bold 11px arial, sans-serif;
+/*font: bold 11px arial, sans-serif;*/
 display: block;
-background-color: #555;
+background-color: white;
+font-size: 14px; 
+color: #FF6631;
 }
 
 .active-scaffold th a, .active-scaffold th a:visited {
-color: #fff;
+color: #FF6631;
 padding: 2px 15px 2px 5px;
 }
 
@@ -164,59 +163,76 @@ padding: 2px 5px;
 }
 
 .active-scaffold th a:hover {
-background-color: #000;
-color: #ff8;
+background-color: #fff;
+color: #CC1111;
 }
 
 .active-scaffold th.sorted {
-background-color: #333;
+background-color: #fff;
 }
 
 .active-scaffold th.asc a,
 .active-scaffold th.asc a:hover {
-background: #333 url(../../../images/active_scaffold/default/arrow_up.gif) right 50% no-repeat;
+background: #fff url(../../../images/active_scaffold/default/arrow_up.gif) right 50% no-repeat;
 }
 
 .active-scaffold th.desc a,
 .active-scaffold th.desc a:hover {
-background: #333 url(../../../images/active_scaffold/default/arrow_down.gif) right 50% no-repeat;
+background: #fff url(../../../images/active_scaffold/default/arrow_down.gif) right 50% no-repeat;
 }
 
 .active-scaffold th.loading a,
 .active-scaffold th.loading a:hover {
-background: #333 url(../../../images/active_scaffold/default/indicator-small.gif) right 50% no-repeat;
+background: #fff url(../../../images/active_scaffold/default/indicator-small.gif) right 50% no-repeat;
 }
 
 /* Table :: Record Rows
    ============================= */
 
 .active-scaffold tr.record {
-  background-color: #E6F2FF;
+background-color: #EEEEEE;
+color: #111111;
 }
+
+.active-scaffold tr.record:hover {
+  background-color: #DDD;
+}
+
 .active-scaffold tr.record td {
 padding: 5px 4px;
 color: #333;
 font-family: Verdana, sans-serif;
 font-size: 11px;
-border-bottom: solid 1px #C5DBF7;
-border-left: solid 1px #C5DBF7;
+/*border-bottom: solid 1px #C5DBF7;*/
+/*border-left: solid 1px #C5DBF7;*/
+border:0;
+height: 50px;
+
 }
 
 .active-scaffold tr.even-record {
-background-color: #fff;
+background-color: white;
 }
-.active-scaffold tr.even-record td {
-border-left-color: #ddd;
+.active-scaffold tr.even-record:hover {
+  background-color: #DDDDDD;
 }
 
 .active-scaffold tr.record td.sorted {
-background-color: #B9DCFF;
+background-color: #EEE;
 border-bottom-color: #AFD0F5;
 }
 
 .active-scaffold tr.even-record td.sorted {
-background-color: #E6F2FF;
-border-bottom-color: #AFD0F5;
+background-color: white;
+}
+
+.active-scaffold tr.record:hover td.sorted {
+background-color: #DDD;
+
+}
+
+.active-scaffold tr.even-record:hover td.sorted {
+background-color: #DDD;
 }
 
 .active-scaffold tbody.records td.empty {
@@ -233,7 +249,7 @@ text-align: right;
    ============================= */
 
 .active-scaffold tr.record td.actions {
-border-right: solid 1px #ccc;
+border-right: 0;
 padding: 0;
 min-width: 1%;
 }
@@ -263,9 +279,9 @@ white-space: nowrap;
    ============================= */
 
 .active-scaffold .view {
-background-color: #DAFFCD;
+background-color: #FCFCFC;
 padding: 4px;
-border: solid 1px #7FcF00;
+border: solid 1px #9E9E9E;
 }
 
 .active-scaffold tbody.records td.inline-adapter-cell .view {
@@ -337,7 +353,7 @@ border-left: solid 1px #CDF7C5;
 background-color: #FFFFBB;
 padding: 4px;
 border: solid 1px #DDDF37;
-border-top: none;
+/*border-top: none;*/
 }
 
 .active-scaffold .active-scaffold .active-scaffold-footer {
@@ -563,10 +579,11 @@ border: none;
 padding: 2px;
 margin: 0;
 text-transform: none;
-color: #1F7F00;
+color: black;
 letter-spacing: -1px;
 font: bold 16px arial;
 }
+
 
 .active-scaffold h5 {
 padding: 0;
@@ -641,7 +658,7 @@ color: #888;
 .active-scaffold select {
 font: bold 16px arial;
 letter-spacing: -1px;
-border: solid 1px #1F7F00;
+border: solid 1px #9E9E9E;
 }
 
 .active-scaffold input.text-input {
@@ -664,14 +681,14 @@ color: #aaa;
 
 .active-scaffold select:focus,
 .active-scaffold input.text-input:focus {
-background-color: #ffc;
+background-color: #CACACA;
 }
 
 .active-scaffold textarea {
 font-family: Arial, sans-serif;
 font-size: 12px;
 padding: 1px;
-border: solid 1px #1F7F00;
+border: solid 1px #9E9E9E;
 }
 
 .active-scaffold .checkbox-list {

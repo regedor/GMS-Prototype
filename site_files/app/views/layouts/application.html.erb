@@ -5,8 +5,8 @@
   <meta http-equiv="content-type" content="application/xhtml+xml;charset=UTF-8" />
   <link rel="shortcut icon" href="/favicon.png" />
   <title> <%= t('navigation.title') %><%= "- " + yield(:page_title) if yield(:page_title)%> </title>
-  <%= stylesheet_link_tag 'default', 'formtastic', :cache => "defaults" %>
-  <%= stylesheet_link_tag 'formtastic_changes', :cache => "changes" %>
+  <%= stylesheet_link_tag 'default', 'formtastic/formtastic', :cache => "defaults" %>
+  <%= stylesheet_link_tag 'formtastic/formtastic_changes', :cache => "changes" %>
   <%= javascript_include_tag 'jquery' %>
   <% if @active_scaffold_includes -%>
     <%= javascript_include_tag :defaults %>

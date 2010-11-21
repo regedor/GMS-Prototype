@@ -22,8 +22,17 @@ Given /^I am logged in as "(.*)"$/ do |email|
   visit("/login")
   fill_in("email", :with => user.email)
   fill_in("password", :with => user.password)
-  click_button("Login")
+  click_button("Sign")
 end
+
+# Needs tweaking
+#Given /^I am logged in as "(.*)"$/ do |name|
+#  user = User.find_by_email(user)
+#  post '/session', :openid_url => user.identity_url
+#  # Some assertions just to make sure our hack in env.rb is still working
+#  response.should redirect_to('/')
+#  flash[:notice].should eql('Logged in successfully')
+#end
 
 Given /^the following (.+) records?$/ do |factory, table|
   table.hashes.each do |hash|
@@ -37,6 +46,5 @@ Given /^the following activated users exists?$/ do |table|
   end
 end
 
-Given /^I18n is set to english$/ do 
-  I18n.locale = :en
+And /^OpenID Server confirms?$/ do 
 end

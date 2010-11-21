@@ -22,7 +22,7 @@ jQuery(document).ready(function($){
 		    $(".row_mark_elem").each(function() {
 			  if($(this).is(':checked'))
 			  {
-				  id = $(this).attr("id").substring(9,10);
+				  id = $(this).attr("id").substring(9,$(this).attr("id").length);
 				  ids+= (id+"&");
 				  ids_array.push(id);
 			  }

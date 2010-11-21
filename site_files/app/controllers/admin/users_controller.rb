@@ -7,8 +7,13 @@ class Admin::UsersController < Admin::BaseController
     config.actions << :update
     config.actions << :delete
 
+    config.delete.link.controller = nil
+    config.delete.link.method = nil
+    config.delete.link.action = 'do_action'
+    config.delete.link.parameters = { "actions" => "destroy_by_ids" }
+    config.delete.link.page = true
+
     config.show.columns = [ :email, :active, :nickname, :profile, :website, :country, :gender ]
-    #config.columns[:crypted_password].label = "password"
     
     config.subform.columns.exclude :email, :active, :password, :nickname, :profile, :website,
      :language, :country, :gender, :role, :phone, :crypted_password, :current_login_at, :last_login_at, :current_login_ip, :last_login_ip,
@@ -19,18 +24,26 @@ class Admin::UsersController < Admin::BaseController
     
     config.has_sidebar = true
   end
-  
+
+  # Override this method to provide custom finder options to the find() call.
+  # With this, only the users with the value 'false' in the column 'deleted' will be shown.
+  def custom_finder_options
+    return { :conditions => {:deleted => false} }
+  end
+
   
   # Method that receives all requests and calls the desired action with the selected ids, 
   # returning a JSON object with the response
   def do_action
-    ids = params[:ids].split('&')
+    if !params[:ids].nil?
+      ids = params[:ids].split('&')
+    else ids = [ params[:id] ]
+    end
     if User.send(params[:actions],ids)  
       list
     else
       render :text => "" 
     end      
   end
-  
   
 end
