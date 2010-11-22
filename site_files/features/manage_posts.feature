@@ -34,4 +34,15 @@ Feature: Posts Manegement
 		And I press "Save"
 		Then I should see "Created post 'Lorem Ipsum'"
 		When I follow "Posts"
-		Then I Should see "Lorem Ipsum"
+		Then I should see "Lorem Ipsum"
+		
+	Scenario: I want to delete an existing post
+  	When I follow "Administration"
+  	Then I should see "Simon Administration"
+		And I follow "Website"
+		And I follow "Posts"
+		And I delete "Helena"
+		
+	
+	
+	
