@@ -1,9 +1,9 @@
 <div class="block">
 
 <%= javascript_include_tag 'checkboxes' %>
-<% if true %>
+<% if File.exists?(Rails.root.join("app", "views", params[:controller], "_sidebar.html.erb")) %>
 <% content_for :sidebar do -%>
-	<%= render :partial => 'sidebar' %>
+	<%= render :partial => 'sidebar'  %>
 <% end -%>
 <% end -%>
   <div class="content">

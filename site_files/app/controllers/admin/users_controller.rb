@@ -21,8 +21,6 @@ class Admin::UsersController < Admin::BaseController
 
     Scaffoldapp::active_scaffold config, "admin.users", [:created_at, :email, :active, :language, :name, :role], 
     [:destroy_by_ids, :activate!, :deactivate!]
-    
-    config.has_sidebar = true
   end
 
   # Override this method to provide custom finder options to the find() call.
