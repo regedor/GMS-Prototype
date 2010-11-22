@@ -27,13 +27,5 @@ Feature: User Manegement
     Given I am logged in as admin
     When I follow "Administration"
 		Then I should see "now viewing the Administration dashboard"
-		
-	@admin
-	Scenario: I want to create a new announcement
-	  Given I am logged in as admin
-		And I follow "Administration"
-		Then I should see "now viewing the Administration dashboard"
-	  And I follow "Announcements"
-	  Then I should see "Display Announcements"
-		And I press "New Announcements"
+	
    
