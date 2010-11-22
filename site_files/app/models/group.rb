@@ -3,7 +3,7 @@ class Group < ActiveRecord::Base
   has_many   :subgroups,      :class_name=>"Group", :foreign_key=>"parent_group_id"
   has_and_belongs_to_many :users
   
-  
+  named_scope :not_deleted, :conditions => {:deleted => false}
   
   def parent_name
     if self.parent_group.nil?
@@ -12,7 +12,19 @@ class Group < ActiveRecord::Base
       return self.parent_group.name
     end    
   end
-  
+
+  def deleted?
+    deleted
+  end
+
+  def destroy
+    self.subgroups.each do |subgroup|
+      subgroup.destroy unless subgroup == self
+    end
+    self.deleted = true
+    self.parent_group = nil
+    save
+  end
   
   #on = self.instance_method(:users)
   #define_method(:this_group_only_users) do

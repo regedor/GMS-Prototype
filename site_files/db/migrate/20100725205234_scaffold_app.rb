@@ -129,6 +129,7 @@ class ScaffoldApp < ActiveRecord::Migration
       t.string  :name,            :null => false
       t.text    :description
       t.boolean :mailable,        :null => false
+      t.boolean  "deleted",       :default => false, :null => false
       t.timestamps
     end  
 
