@@ -32,6 +32,10 @@ class User < ActiveRecord::Base
     active
   end
 
+  def deleted?
+    deleted
+  end
+
   def activate!
     self.active = true 
     save
