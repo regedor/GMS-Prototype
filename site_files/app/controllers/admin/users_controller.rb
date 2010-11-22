@@ -30,8 +30,8 @@ class Admin::UsersController < Admin::BaseController
   end
 
   
-  # Method that receives all requests and calls the desired action with the selected ids, 
-  # returning a JSON object with the response
+  # Method that receives all requests and calls the desired action with the selected ids,
+  # and returns the re-rendered html
   def do_action
     if !params[:ids].nil?
       ids = params[:ids].split('&')
