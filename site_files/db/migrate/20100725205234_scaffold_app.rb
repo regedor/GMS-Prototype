@@ -56,6 +56,7 @@ class ScaffoldApp < ActiveRecord::Migration
       t.text   :description
       t.string :field_type, :default => 'string'
       t.text   :value
+      t.boolean   :editable, :null => false, :default => true
       t.timestamps
     end
  
