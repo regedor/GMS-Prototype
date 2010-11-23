@@ -30,6 +30,11 @@ class Admin::PostsController < Admin::BaseController
 
 
 
+  def index
+    @tags = Tag.paginate :page => params[:tag_page], :per_page => 5, :order => 'taggings_count DESC'
+    super
+  end
+
   def create
     @post = Post.new(params[:post])
     if @post.save
@@ -78,7 +83,7 @@ class Admin::PostsController < Admin::BaseController
 
     respond_to do |format|
       format.js {
-        render :partial => 'post.html.erb', :locals => {:post => @post}
+        render :partial => 'preview', :locals => {:post => @post}
       }
     end
   end
