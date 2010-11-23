@@ -21,3 +21,9 @@ end
 Given /^I18n is set to test$/ do 
   I18n.locale = :test
 end
+
+Given /^the following posts exists?$/ do |table|
+  table.hashes.each do |hash|
+    Factory.give_me_a_post(hash)
+  end
+end

@@ -7,12 +7,6 @@ class Admin::UsersController < Admin::BaseController
     config.actions << :update
     config.actions << :delete
 
-    config.delete.link.controller = nil
-    config.delete.link.method = nil
-    config.delete.link.action = 'do_action'
-    config.delete.link.parameters = { "actions" => "destroy_by_ids" }
-    config.delete.link.page = true
-
     config.show.columns = [ :email, :active, :nickname, :profile, :website, :country, :gender ]
     
     config.subform.columns.exclude :email, :active, :password, :nickname, :profile, :website,
@@ -29,6 +23,31 @@ class Admin::UsersController < Admin::BaseController
     return { :conditions => {:deleted => false} }
   end
 
+
+  # This method applies not_deleted scope to find method
+  # Redefine actions to check this first to ensure that only applies to non-deleted users
+  def check_undeleted(id)
+    return false unless User.not_deleted.find(id)
+    return true
+  end
+
+  def show
+    if check_undeleted(params[:id])
+      super
+    end
+  end
+
+  def edit
+    if check_undeleted(params[:id])
+      super
+    end
+  end
+
+  def update
+    if check_undeleted(params[:id])
+      super
+    end
+  end
   
   # Method that receives all requests and calls the desired action with the selected ids,
   # and returns the re-rendered html

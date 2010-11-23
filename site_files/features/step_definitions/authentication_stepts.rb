@@ -45,6 +45,3 @@ Given /^the following activated users exists?$/ do |table|
     Factory.give_me_an_active_user(hash)
   end
 end
-
-And /^OpenID Server confirms?$/ do 
-end

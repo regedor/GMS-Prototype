@@ -46,7 +46,7 @@ class User < ActiveRecord::Base
     save
   end
 
-  def delete!
+  def destroy
     self.deleted = true
     save
   end
@@ -89,7 +89,7 @@ class User < ActiveRecord::Base
   
   def self.destroy_by_ids(ids)
     ids.each do |id|
-      return false unless User.find(id).delete!
+      return false unless User.find(id).destroy
     end 
     return true 
   end
