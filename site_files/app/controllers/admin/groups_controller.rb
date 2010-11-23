@@ -15,7 +15,6 @@ class Admin::GroupsController < Admin::BaseController
     config.delete.link.action = 'delete_group'
     config.delete.link.page = true
     config.delete.link.inline = "admin/groups"
-    config.delete.link.parameters = nil
         
     config.create.columns = [:name, :description, :mailable, :parent_group, :subgroups, :users]
     config.subform.columns.exclude :description, :mailable
@@ -30,10 +29,10 @@ class Admin::GroupsController < Admin::BaseController
     
   end
 
-  # Override this method to provide custom finder options to the find() call.
-  # With this, only the users with the value 'false' in the column 'deleted' will be shown.
-  def custom_finder_options
-    return { :conditions => {:deleted => false} }
+  # Override this method to define conditions to be used when querying a recordset (e.g. for List).
+  # With this, only the groups with the value 'false' in the column 'deleted' will be shown.
+  def conditions_for_collection
+    return { :deleted => false }
   end
 
   # This method applies not_deleted scope to find method
