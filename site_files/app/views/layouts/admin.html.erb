@@ -29,7 +29,7 @@
           <li class="<%= (controller.controller_path == 'admin/posts') || (controller.controller_path == 'admin/announcements') ? 'active' : '' %>"><a href="<%= admin_posts_path %>">Website</a></li>
           <li class="<%= controller.controller_path == 'admin/comments' ? 'active' : '' %>"><a href="<%= admin_comments_path %>">Comments</a></li>
           <li class="<%= controller.controller_path == 'admin/tags' ? 'active' : '' %>"><a href="<%= admin_tags_path %>">Tags</a></li>
-          <li class="<%= controller.controller_path == 'admin/undo_items' ? 'active' : '' %>"><a href="<%= admin_undo_items_path %>">Actions</a></li>
+          <li class="<%= controller.controller_path == 'admin/action_entries' ? 'active' : '' %>"><a href="<%= admin_action_entries_path %>">Actions</a></li>
           <li class="<%= controller.controller_path == 'admin/settings' ? 'active' : '' %>"><a href="<%= admin_settings_path %>">Settings</a></li>
 
         </ul>

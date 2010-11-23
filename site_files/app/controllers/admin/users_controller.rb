@@ -38,6 +38,8 @@ class Admin::UsersController < Admin::BaseController
     else ids = [ params[:id] ]
     end
     if User.send(params[:actions],ids)  
+      entry = ActionEntry.new({:controller=>params[:controller],:action=>params[:actions],:message=>"No message"})
+      entry.save
       list
     else
       render :text => "" 

@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
   has_and_belongs_to_many :groups
+  has_many :action_entries
 
   # Scope for non-deleted users
   named_scope :not_deleted, :conditions => {:deleted => false}

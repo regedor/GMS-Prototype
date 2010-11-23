@@ -1,15 +1,15 @@
-class Admin::UndoItemsController < Admin::BaseController
+class Admin::ActionEntriesController < Admin::BaseController
   
-  active_scaffold :undo_item do |config|
+  active_scaffold :action_entry do |config|
     config.actions.swap :search, :live_search
     config.actions.exclude :update, :delete, :show, :create
     
     config.actions << :show
-    config.action_links.add 'undo', :label => 'Undo', :type => :member, :page => true, :crud_type => :update, :method => :post
+    #config.action_links.add 'undo', :label => 'Undo', :type => :member, :page => true, :crud_type => :update, :method => :post
   
 
 
-    Scaffoldapp::active_scaffold config, "admin.undo_items", [:created_at, :type]
+    Scaffoldapp::active_scaffold config, "admin.action_entry", [:created_at, :controller, :action]
    
   end
   
