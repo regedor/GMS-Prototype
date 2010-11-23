@@ -20,6 +20,12 @@ class ActionEntry < ActiveRecord::Base
     case action
     when "activate!"
       self.undo = "deactivate!"
+    when "deactivate!"
+      self.undo = "activate!"
+    when "destroy_by_ids"
+      self.undo = "revive_by_ids"
+    when "revive_by_ids"
+      self.undo = "destroy_by_ids"      
     else
       self.undo = nil  
     end  

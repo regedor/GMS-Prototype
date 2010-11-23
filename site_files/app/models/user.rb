@@ -51,6 +51,11 @@ class User < ActiveRecord::Base
     self.deleted = true
     save
   end
+  
+  def revive!
+    self.deleted = false
+    save
+  end  
 
   def send_invitation!(mail)
     Notifier.deliver_invitation(self,mail)
@@ -87,6 +92,13 @@ class User < ActiveRecord::Base
   def first_name
     name.split(" ").first
   end
+  
+  def self.revive_by_ids(ids)
+    ids.each do |id|
+      return false unless User.find(id).revive!
+    end 
+    return true
+  end  
   
   def self.destroy_by_ids(ids)
     ids.each do |id|
