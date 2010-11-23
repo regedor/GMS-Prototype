@@ -64,4 +64,23 @@ class Group < ActiveRecord::Base
    return group_users + subgroups_users
   end
   
-end  
+  #Check if is not subgroup of itself
+  # not correct
+  def subgroup? id
+    r = false;
+    sg = self.subgroups
+    self.subgroup_ids.each do |i|
+      print ">", i,id,"<\n"
+      if id ==  i
+        puts "TRUE !!!"
+        r = true
+        return true
+      else
+        tg = Group.find_by_id i
+        r = tg.subgroup? id
+      end
+    end
+    return r
+  end
+  
+end

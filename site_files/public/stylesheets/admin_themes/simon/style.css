@@ -52,10 +52,12 @@ hr {
 
 #header {
   background: white;
+
   /*border-bottom: 1px #676766 solid ;*/
 }
 
 #header h1 {
+  height: 60px;
   padding: 15px 0;
   font-size: 28px;
   font-style: normal;
@@ -73,6 +75,7 @@ hr {
   top: auto;
   bottom: 5px;
   right: 25px;
+  color: black;
 }
 
 #user-navigation a.logout {
@@ -82,12 +85,13 @@ hr {
 
 #main .block .content {
   background: #FCFCFC;
-  border: 1px solid #9E9E9E;
+  /*border: 1px solid #9E9E9E;*/
+  border:0;
   padding-top: 1px;
 } /* Active scaffold content */
 
 #main .block .content h2 {
-  margin-left: 15px;
+  margin-left: 0px;
   font-size: 22px;
   font-style: normal;
   font-weight: bold;
@@ -160,8 +164,12 @@ hr {
 }
 
 #main-navigation {
-  border-top:1px solid  #DDDDDD;
+  border-top:1px solid  #DDDDDD;  
 /*  background: #676766;*/
+}
+
+#wrapper #main-navigation {
+  border-top:0 ;
 }
 
 #main-navigation ul li {
@@ -352,7 +360,7 @@ ul.list li .item .avatar {
 }
 
 #sidebar {
-  border: solid 1px #DDDDDD;
+
 }
 
 #sidebar ul {

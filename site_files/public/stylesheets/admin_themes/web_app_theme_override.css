@@ -1,1 +1,15 @@
 /* Override here any style definide by web-app-theme */
+#main .block .content .inner .block .content   {
+  border:0;
+  border-left: 1px solid #9E9E9E;
+}
+
+#main .block .content .inner .content .inner {
+  padding: 0;
+}
+
+#main .block .content .inner {
+  padding: 0;
+}
+
+
