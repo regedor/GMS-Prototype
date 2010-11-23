@@ -15,4 +15,14 @@ class ActionEntry < ActiveRecord::Base
 #  self
 #end  
   
+  #Defines the opposite action for the action given as parameter
+  def set_undo_for (action)
+    case action
+    when "activate!"
+      self.undo = "deactivate!"
+    else
+      self.undo = nil  
+    end  
+  end  
+  
 end

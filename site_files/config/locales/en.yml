@@ -213,18 +213,22 @@ en:
           label: "Cancel"
           title: "Go back to users list"        
 
-    undo_items:
+    action_entry:
       index:
         title: "All Actions"
         search: "Search Actions"
         show_link: "<img src='/images/icons/pencil.png'/>Details"
         columns:
           created_at: "Date"
-          type: "Description"
+          controller: "Controller"
+          action: "Performed Action"
+      create:
+        title: "Action"      
       list:
         found:
           one: "{{count}} Action Found" 
-          many: "{{count}} Actions Found"   
+          more: "{{count}} Actions Found"
+        noentries: "No actions"     
 
     announcements:
       index:
