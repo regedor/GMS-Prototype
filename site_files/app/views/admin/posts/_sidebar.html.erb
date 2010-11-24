@@ -1,21 +1,20 @@
-<div class="tagstitle">
-  <h3>Tags</h3>
-</div>
+<div class="block">
+  <h3>
+    Tags
+    <% if @tags.total_pages > 1 -%>
+      <%= will_paginate(@tags, :previous_label => '««', :next_label => '»»', :param_name => :tag_page) %>
+    <% end -%>
+  </h3>
 
-<% if @tags.total_pages > 1 -%>
-  <div class="pagination">
-    <%= will_paginate(@tags, :previous_label => 'Previous', :next_label => 'Next', :param_name => :tag_page) %>
-  </div>
-<% end -%>
-
-<div id="tags">
-  <ul>
-    <% @tags.each do |tag| %>
-    <ul class="record <%= cycle('', 'even-record') %>">
-      <%= tag.name %>
-      (<%= link_to(tag.taggings_count.to_s + " posts", admin_posts_path + "?tag_id=" + tag.id.to_s) %>)
-      <%= link_to("Edit", edit_admin_tag_path(tag)) %>
+  <div class="content">
+    <ul class="list">
+      <% @tags.each do |tag| %>
+      <li>
+        <%= tag.name %>
+        (<%= link_to(tag.taggings_count.to_s + " posts", admin_posts_path + "?tag_id=" + tag.id.to_s) %>)
+        <%= link_to("Edit", edit_admin_tag_path(tag)) %>
+      </li>
+      <% end %>
     </ul>
-  <% end %>
-  </ul>
+  </div>
 </div>
