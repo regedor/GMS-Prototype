@@ -13,7 +13,7 @@ class Admin::SettingsController < Admin::BaseController
     config.create.label = I18n::t('settings.new.title')
 
     # This action_link should be only available to root..
-    config.action_links.add 'lockunlock', :label => I18n::t('settings.record.lockunlock'), :type => :record, :page => true
+    #config.action_links.add 'lockunlock', :label => I18n::t('settings.record.lockunlock'), :type => :record, :page => true
 
     #list_columns = [:row_mark,:email,:active, :language, :name, :role]
     #config.list.columns = list_columns
@@ -24,18 +24,23 @@ class Admin::SettingsController < Admin::BaseController
 
     #config.update.link.security_method editable?
 
+    config.columns[:editable].set_link('lockunlock',{:page => true})
+
     Scaffoldapp::active_scaffold config, "admin.settings", [
       :label, :identifier, :description, :field_type, :value, :editable
     ]
   end
 
   # This method should be only available to root.
+  # This methos locks/unlocks the setting.
   def lockunlock
-    if Setting.send(:editable!,params[:id])
-      list
-    else
-      render :text => "" 
+    @setting = Setting.find(params[:id])
+    if @setting.editable!
+        flash.now[:notice] = I18n::t('settings.record.unlocked',:label => @setting.label)
+      else
+        flash.now[:notice] = I18n::t('settings.record.locked',:label => @setting.label)
     end
+    list
   end  
 
 end

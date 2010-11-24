@@ -18,6 +18,7 @@ class Setting < ActiveRecord::Base
   def editable!
     self.editable = !self.editable
     self.save
+    return self.editable
   end
 
   def self.editable!(ids)
