@@ -1,17 +1,21 @@
-<h2>User management</h2>
+<div class="block">
+  <h3>Simon is amazing</h3>
+  <div class="content">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  </div>
+</div>
 
-<ul>
-	<li><%= link_to "Manage user accounts", admin_users_url %></li>
-</ul>
+<div class="block">
+  <h3>User management</h3>
+  <ul class="navigation">
+    <li><%= link_to "Manage user accounts", admin_users_url %></li>
+    <li><%= link_to "Manage groupss", admin_groups_url %></li>
+  </ul>
+</div>
 
-<h2>Settings</h2>
-
-<ul>
-	<li><%= link_to "Manage #{configatron.site_name} settings", admin_settings_url %></li>
-</ul>
-
-<h2>Announcements</h2>
-
-<ul>
-	<li><%= link_to "Manage Site Announcements", admin_announcements_url %></li>
-</ul>
+<div class="block">
+  <h3>Simon Settings</h3>
+  <ul class="navigation">
+    <li><%= link_to "Manage #{configatron.site_name} settings", admin_settings_url %></li>
+  </ul>
+</div>

@@ -1,7 +1,9 @@
 class Group < ActiveRecord::Base
-  belongs_to :parent_group,    :class_name=>"Group", :foreign_key=>"parent_group_id", :conditions => {:deleted=>false}
-  has_many   :subgroups,      :class_name=>"Group", :foreign_key=>"parent_group_id", :conditions => {:deleted=>false}
-  has_and_belongs_to_many :users, :conditions => {:users => {:deleted=>false}}
+  belongs_to :parent_group,    :class_name => "Group", :foreign_key => "parent_group_id"
+  has_many   :subgroups,      :class_name=>"Group", :foreign_key=>"parent_group_id"
+  has_and_belongs_to_many :users
+
+  validate :parent_is_not_own_descendent
   
   named_scope :not_deleted, :conditions => {:deleted => false}
   
@@ -25,19 +27,6 @@ class Group < ActiveRecord::Base
     self.parent_group = nil
     save
   end
-  
-  #on = self.instance_method(:users)
-  #define_method(:this_group_only_users) do
-  #  on.bind(self).call
-  #end
-  #
-  #def users
-  #  us = self.subgroups.map do |g| g.users end
-  #  us.flatten! if us
-  #  us.uniq! if us
-  #  this_group_only_users << us
-  #end  
-  
   
   def all_users
     us = self.subgroups.map do |g| g.users end
@@ -76,4 +65,15 @@ class Group < ActiveRecord::Base
    return group_users + subgroups_users
   end
   
-end  
+  #Check if is not subgroup of itself
+  def parent_is_not_own_descendent
+    group = self
+    while group = group.parent_group
+      if group.id == self.id 
+        errors.add("PANIC!!! impossible hapens")
+        return false
+      end
+    end
+  end
+  
+end

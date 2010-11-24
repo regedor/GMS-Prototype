@@ -23,50 +23,8 @@ class Admin::GroupsController < Admin::BaseController
       :name, :mailable, :description, :parent_name     # Parent is a method defined in models/group.rb
     ]
     
-    #config.show.columns.exclude :users
     config.show.columns.exclude :updated_at, :users
     config.show.columns << :all_users_names
-    
-  end
+  end  
 
-  # Override this method to define conditions to be used when querying a recordset (e.g. for List).
-  # With this, only the groups with the value 'false' in the column 'deleted' will be shown.
-  def conditions_for_collection
-    return { :deleted => false }
-  end
-
-  # This method applies not_deleted scope to find method
-  # Redefine actions to check this first to ensure that only applies to non-deleted groups
-  def check_undeleted(id)
-    return false unless Group.not_deleted.find(id)
-    return true
-  end
-
-  def show
-    if check_undeleted(params[:id])
-      super
-    end
-  end
-
-  def edit
-    if check_undeleted(params[:id])
-      super
-    end
-  end
-
-  def update
-    if check_undeleted(params[:id])
-      super
-    end
-  end
-
-  def delete_group
-    id = params[:id]
-    if Group.send(:destroy,id)
-      list
-    else
-      render :text => "" 
-    end     
-  end
-  
-end  
+end

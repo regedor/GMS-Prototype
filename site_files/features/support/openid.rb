@@ -1,3 +1,3 @@
-require "rots"
+#require "rots"
 
-World(Rots::TestHelper)
+#World(Rots::TestHelper)

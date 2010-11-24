@@ -13,7 +13,7 @@ class Admin::UsersController < Admin::BaseController
      :language, :country, :gender, :role, :phone, :crypted_password, :current_login_at, :last_login_at, :current_login_ip, :last_login_ip,
      :persistence_token, :single_access_token, :perishable_token, :openid_identifier, :password_salt, :last_request_at
 
-    Scaffoldapp::active_scaffold config, "admin.users", [:created_at, :email, :active, :language, :name, :role], 
+    Scaffoldapp::active_scaffold config, "admin.users", [:created_at, :email, :active, :name, :role], 
     [:destroy_by_ids, :activate!, :deactivate!]
   end
 
