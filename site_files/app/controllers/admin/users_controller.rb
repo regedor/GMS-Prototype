@@ -17,36 +17,10 @@ class Admin::UsersController < Admin::BaseController
     [:destroy_by_ids, :activate!, :deactivate!]
   end
 
-  # Override this method to provide custom finder options to the find() call.
+  # Override this method to define conditions to be used when querying a recordset (e.g. for List).
   # With this, only the users with the value 'false' in the column 'deleted' will be shown.
-  def custom_finder_options
-    return { :conditions => {:deleted => false} }
-  end
-
-
-  # This method applies not_deleted scope to find method
-  # Redefine actions to check this first to ensure that only applies to non-deleted users
-  def check_undeleted(id)
-    return false unless User.not_deleted.find(id)
-    return true
-  end
-
-  def show
-    if check_undeleted(params[:id])
-      super
-    end
-  end
-
-  def edit
-    if check_undeleted(params[:id])
-      super
-    end
-  end
-
-  def update
-    if check_undeleted(params[:id])
-      super
-    end
+  def conditions_for_collection
+    return { :deleted => false }
   end
   
   # Method that receives all requests and calls the desired action with the selected ids,

@@ -15,6 +15,10 @@ class Group < ActiveRecord::Base
     end    
   end
 
+  def authorized_for?(*args)
+    !deleted
+  end
+
   def deleted?
     deleted
   end

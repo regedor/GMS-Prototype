@@ -33,31 +33,6 @@ class Admin::GroupsController < Admin::BaseController
     return { :deleted => false }
   end
 
-  # This method applies not_deleted scope to find method
-  # Redefine actions to check this first to ensure that only applies to non-deleted groups
-  def check_undeleted(id)
-    return false unless Group.not_deleted.find(id)
-    return true
-  end
-
-  def show
-    if check_undeleted(params[:id])
-      super
-    end
-  end
-
-  def edit
-    if check_undeleted(params[:id])
-      super
-    end
-  end
-
-  def update
-    if check_undeleted(params[:id])
-      super
-    end
-  end
-
   def delete_group
     id = params[:id]
     if Group.send(:destroy,id)
