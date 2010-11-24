@@ -856,12 +856,3 @@ font-size: 100%;
   float:left;
 }
 
-div#wrapper.wat-cf {
-  padding-left: 20px;
-  padding-top: 0px;
-  padding-right: 20px;
-  border-top: 1px solid #DDDDDD;
-  margin-left: 20px; /*  !!!!!  */
-  margin-right: 20px
-}
-

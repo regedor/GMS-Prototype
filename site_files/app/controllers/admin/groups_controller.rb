@@ -16,25 +16,9 @@ class Admin::GroupsController < Admin::BaseController
       :name, :mailable, :description, :parent_name     # Parent is a method defined in models/group.rb
     ]
     
-    #config.show.columns.exclude :users
     config.show.columns.exclude :updated_at, :users
     config.show.columns << :all_users_names
     
   end 
     
-#  def create
-#  end
-  
-  
-  def update
-    @group = Group.find_by_name params[:record][:name]
-    if (@group.subgroup? params[:record][:parent_group][:id]) != true
-      puts "search",params[:record][:parent_group][:id],"in",@group.id
-      puts "Seems ok, no subgroup of itself"
-      super
-    else
-      puts "Here is a problem" #FIXME What to do in case of error?
-    end
-  end
-  
 end  

@@ -27,15 +27,7 @@ default_sorting_stages = ['ASC', 'DESC']
    <% elsif column.label == "Row mark" -%>
  <p><input id="row_mark_header" class="row_mark_header" type="checkbox"\></p>
 
-  <%unless active_scaffold_config.row_mark_actions_list.nil?%>
-    <select name="dropdownmenu" class="dropdownmenu" default="">
-    <option value="">-----</option>
-
-    <% active_scaffold_config.row_mark_actions_list.each do |option| -%>
-      <option value="<%= option %>"><%=I18n::t(active_scaffold_config.internationalization_prefix+"."+option.to_s)%></option>
-    <% end -%>
-	</select>
-  <% else -%>
+  <% if active_scaffold_config.row_mark_actions_list.nil?%>
      <p><%= column.label %></p>
   <% end -%>
   <%= inplace_edit_control(column) -%>

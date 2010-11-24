@@ -1,7 +1,9 @@
 class Group < ActiveRecord::Base
-  belongs_to :parent_group,    :class_name=>"Group", :foreign_key=>"parent_group_id"
+  belongs_to :parent_group,    :class_name => "Group", :foreign_key => "parent_group_id"
   has_many   :subgroups,      :class_name=>"Group", :foreign_key=>"parent_group_id"
   has_and_belongs_to_many :users
+
+  validate :parent_is_not_own_descendent
   
   
   
@@ -66,21 +68,14 @@ class Group < ActiveRecord::Base
   
   #Check if is not subgroup of itself
   # not correct
-  def subgroup? id
-    r = false;
-    sg = self.subgroups
-    self.subgroup_ids.each do |i|
-      print ">", i,id,"<\n"
-      if id ==  i
-        puts "TRUE !!!"
-        r = true
-        return true
-      else
-        tg = Group.find_by_id i
-        r = tg.subgroup? id
+  def parent_is_not_own_descendent
+    group = self
+    while group = group.parent_group
+      if group.id == self.id 
+        errors.add("PANIC!!! impossible hapens")
+        return false
       end
     end
-    return r
   end
   
 end

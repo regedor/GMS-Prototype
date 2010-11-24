@@ -78,11 +78,9 @@ class Post < ActiveRecord::Base
     end
 
     def find_all_grouped_by_month
-      posts = find(
-        :all,
-        :order      => 'posts.published_at DESC',
-        :conditions => ['published_at < ?', Time.now]
-      )
+      posts = find :all,
+                   :order      => 'posts.published_at DESC',
+                   :conditions => ['published_at < ?', Time.now]
       month = Struct.new(:date, :posts)
       posts.group_by(&:month).inject([]) {|a, v| a << month.new(v[0], v[1])}
     end
