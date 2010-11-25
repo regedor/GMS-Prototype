@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :groups
 
+  # Scope for non-deleted users
+  named_scope :not_deleted, :conditions => {:deleted => false}
+
   ROLES = { :admin => 10, :user  => 1 }
   INVERTED_ROLES = ROLES.invert
 
@@ -25,8 +28,16 @@ class User < ActiveRecord::Base
   #####################
   ##  Instance Methods
   #####################
+  def authorized_for?(*args)
+    !deleted
+  end
+
   def active?
     active
+  end
+
+  def deleted?
+    deleted
   end
 
   def activate!
@@ -36,6 +47,11 @@ class User < ActiveRecord::Base
   
   def deactivate!
     self.active = false 
+    save
+  end
+
+  def destroy
+    self.deleted = true
     save
   end
 

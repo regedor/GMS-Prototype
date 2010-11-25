@@ -14,6 +14,21 @@ class Post < ActiveRecord::Base
 
   validate                :validate_published_at_natural
 
+  named_scope :not_deleted, :conditions => {:deleted => false}
+
+
+  # If a post is destroyed, associated comments are also destroyed.
+  def destroy
+    self.deleted = true
+    self.comments.each do |comment|
+      comment.destroy
+    end
+    self.save
+  end
+
+  def authorized_for?(*args)
+    !deleted
+  end
 
   def validate_published_at_natural
     errors.add("published_at_natural", "Unable to parse time") unless published?
@@ -78,11 +93,9 @@ class Post < ActiveRecord::Base
     end
 
     def find_all_grouped_by_month
-      posts = find(
-        :all,
-        :order      => 'posts.published_at DESC',
-        :conditions => ['published_at < ?', Time.now]
-      )
+      posts = find :all,
+                   :order      => 'posts.published_at DESC',
+                   :conditions => ['published_at < ?', Time.now]
       month = Struct.new(:date, :posts)
       posts.group_by(&:month).inject([]) {|a, v| a << month.new(v[0], v[1])}
     end
@@ -109,7 +122,7 @@ class Post < ActiveRecord::Base
   end
 
   def denormalize_comments_count!
-    Post.update_all(["approved_comments_count = ?", self.approved_comments.count], ["id = ?", self.id])
+    Post.update_all(["approved_comments_count = ?", self.approved_comments.not_deleted.count], ["id = ?", self.id])
   end
 
   def generate_slug

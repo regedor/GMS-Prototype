@@ -1,0 +1,7 @@
+identity: john.doe
+sreg:
+  nickname: jdoe
+  fullname: John Doe
+  email: jhon@doe.com
+  dob: 1985-09-21
+  gender: M

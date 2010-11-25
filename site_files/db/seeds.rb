@@ -17,42 +17,12 @@ puts "Creating admins!"
   user_regedor.gender            =  false
   user_regedor.role              =  User::ROLES[:admin]
   user_regedor.save
-  
-  user_zamith = User.new
-  user_zamith.email                 = 'zamith.28@gmail.com'
-  #user_zamith.openid_identifier = 'https://www.google.com/accounts/o8/id?id=AItOawnbGyx78N1LosCVj5coDtzlvTjtRpcLu5c'
-  user_zamith.password              = 'oregedorebuedezeca'
-  user_zamith.password_confirmation = 'oregedorebuedezeca'
-  user_zamith.name                  = 'Luis Zamith'
-  user_zamith.language              = 'en'
-  user_zamith.country               = 'PT'
-  user_zamith.phone                 = "00351964472540"
-  user_zamith.gender                =  true
-  user_zamith.role                  =  User::ROLES[:admin]
-  user_zamith.save
-  user_zamith.activate!
-
-  user_admin = User.new
-  user_admin.email                 = 'admin@simonadmin.com'
-  #user_zamith.openid_identifier = 'https://www.google.com/accounts/o8/id?id=AItOawnbGyx78N1LosCVj5coDtzlvTjtRpcLu5c'
-  user_admin.password              = 'password'
-  user_admin.password_confirmation = 'password'
-  user_admin.name                  = 'Joseph Administrator'
-  user_admin.language              = 'en'
-  user_admin.country               = 'PT'
-  user_admin.phone                 = "00351253685940"
-  user_admin.gender                =  true
-  user_admin.role                  =  User::ROLES[:admin]
-  user_admin.save
-  user_admin.activate!
-  
-
+  user_regedor.activate!
   
   admin = User.new
-  admin.email                 = 'admin@admin.com'
-  #admin.openid_identifier = 'https://www.google.com/accounts/o8/id?id=AItOawnbGyx78N1LosCVj5coDtzlvTjtRpcLu5c'
-  admin.password              = 'admin'
-  admin.password_confirmation = 'admin'
+  admin.email                 = 'admin@simon.com'
+  admin.password              = 'simonadmin'
+  admin.password_confirmation = 'simonadmin'
   admin.name                  = 'Admin'
   admin.language              = 'en'
   admin.country               = 'PT'
@@ -62,5 +32,6 @@ puts "Creating admins!"
   admin.save
   admin.activate!
   
-  Group.create(:name=>"Grupinho da moda",:mailable=>false)
+puts "Creating standard groups!"
+  Group.create(:name=>"Default",:mailable=>false)
   

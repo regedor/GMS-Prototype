@@ -28,5 +28,9 @@ module Admin::BaseHelper
   def published_at_column(record)
     record.published_at.strftime('%d %b, %Y')
   end
+  
+  def type_column(action)
+    action.complete_description
+  end  
 
 end

@@ -1,6 +1,7 @@
 module Admin::PostsHelper
 
-  #TODO: add the tags path
+  # Generates a string from a tags array.
+  # All tags are separated by commas.
   def linked_tag_list(tags)
     code = ""
     tags.each { |tag| code = code + '<a href="#">' + tag.name + '</a>, ' }

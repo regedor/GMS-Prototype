@@ -19,4 +19,5 @@ module ApplicationHelper
   def select_language_collection
     UserSession::LANGUAGES
   end
+
 end

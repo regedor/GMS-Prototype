@@ -2,12 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>Web App</title>
+  <title>Simon Administration</title>
   <%= javascript_include_tag :defaults %>
   <%= javascript_include_tag 'jquery' %>
-  <%= javascript_include_tag 'utils' , 'checkboxes' , 'getSelectedCheckboxes' %>
+  <%= javascript_include_tag 'utils' , 'getSelectedCheckboxes' %>
   <%= active_scaffold_includes %>
-  <%= stylesheet_link_tag "web_app_theme", "web_app_theme_override", "themes/drastic-dark/style", :cache => true %>
+  <%= stylesheet_link_tag "formtastic/formtastic_changes",             :cache => true %>
+  <%= stylesheet_link_tag "admin_themes/web_app_theme",                :cache => true %>
+  <%= stylesheet_link_tag "active_scaffold_override/simon/stylesheet", :cache => true %>
+  <%= stylesheet_link_tag "admin_themes/default/style",                  :cache => true %>
   <%= yield :head %>
 </head>
 <body>
@@ -22,12 +25,13 @@
         <%= link_to icon_tag('door_out')+t('user_session.bar.logout'), logout_path         %> 
       </div>
       <h1><a href="/"><%= configatron.site_name %></a></h1>
-      <div id="main-navigation">
+<div id="main-navigation">
         <ul class="wat-cf">
           <li class="<%= controller.controller_path == 'admin/dashboard' ? 'active' : '' %>"><a href="<%= admin_root_path %>">Dashboad</a></li>
           <li class="<%= controller.controller_path == 'admin/users' || controller.controller_path == 'admin/groups' ? 'active' : '' %>"><a href="<%= admin_users_path %>">User Management</a></li>
           <li class="<%= controller.controller_path == 'admin/announcements' || controller.controller_path == 'admin/posts' ? 'active' : '' %>"><a href="<%= admin_announcements_path %>">Website</a></li>
           <li class="<%= controller.controller_path == 'admin/settings' || controller.controller_path == 'admin/undo_items'? 'active' : '' %>"><a href="<%= admin_settings_path %>">System</a></li>
+
         </ul>
       </div>
     </div>    
@@ -40,14 +44,42 @@
         <% end -%>
       </div>
       <div id="main">
+        <div class="secondary-navigation">
+          <ul class="wat-cf">
+            <% if controller.controller_path == 'admin/users' || controller.controller_path == 'admin/groups' %>
+              <li class="first <%= controller.controller_path == 'admin/users' ? 'active' : '' %>">
+                <a href="<%= admin_users_path%>"> Users</a> 
+              </li>
+              <li class="<%= controller.controller_path == 'admin/groups' ? 'active' : '' %>">
+                <a href="<%= admin_groups_path%>"> Groups</a> 
+              </li>
+            <% elsif controller.controller_path == 'admin/posts' || controller.controller_path == 'admin/announcements' %>
+              <li class="first <%= controller.controller_path == 'admin/announcements' ? 'active' : '' %>">
+                <a href="<%= admin_announcements_path%>"> Announcements</a> 
+              </li>
+              <li class="<%= controller.controller_path == 'admin/posts' ? 'active' : '' %>">
+                <a href="<%= admin_posts_path%>"> Posts</a> 
+              </li>
+              <li class="">
+                <a href=""> Static pages</a>
+              </li>
+            <% elsif controller.controller_path == 'admin/settings' || controller.controller_path == 'admin/undo_items' %>
+              <li class="first <%= controller.controller_path == 'admin/undo_items' ? 'active' : '' %>">
+                <a href="<%= admin_undo_items_path%>"> Actions</a> 
+              </li>
+              <li class="<%= controller.controller_path == 'admin/settings' ? 'active' : '' %>">
+                <a href="<%= admin_settings_path%>"> Settings</a> 
+              </li>
+            <% end %>
+          </ul>
+        </div>        
         <%= yield %>
-
-        <%= render :partial => 'shared/footer' %>
       </div>
       <div id="sidebar">
         <%= yield :sidebar %>
       </div>
-    </div>    
+    </div>
+    <%= render :partial => 'shared/footer' %>
   </div>
 </body>
 </html>

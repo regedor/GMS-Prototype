@@ -1,0 +1,170 @@
+\documentclass[english]{article}%{llncs}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{pgf}
+\usepackage{url}
+\usepackage{fancyhdr}
+
+\renewcommand{\labelitemi}{$-$} %usar '-' como bullet
+\setlength{\parskip}{1ex}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+\title{\textbf{simon} wireframes and implementation guide}
+\author{\small{André Santos}\\\small{Márcio Coelho}}
+\pagestyle{fancy}
+\date{\today}
+\maketitle
+\begin{abstract}
+This document contains wireframes to help as a visual guide in the development of the core and interface components of Simon. When appropriate, brief comments allow to define more specific details.
+\end{abstract}
+%\addvspace{2cm}
+\tableofcontents
+
+%\section{Introduction}
+\section{Public Access}
+\subsection{Homepage}
+\pgfimage[width=\textwidth]{wf/homepage}
+The homepage includes four main elements: the logo, the sidebar, the annoucements and the blog.
+\begin{description}
+\item[Logo]: At this point, this is simply the Simon logo (later it should be possible to change it to a customized logo -- file upload feature needed for this).
+\item[Sidebar]: This will contain links to Static Pages. However, in Settings there will be a variable containing the HTML for this sidebar, which should be possible to modify. A micro-DSL should be defined to ease the editing of the content of the sidebar.
+\item[Annoucements]: A banner which displays a slideshow of the active announcements. For reference, see \url{http://www.tmn.pt}.
+\item[Blog]: The main section of the page. Should behave like a standard blog, displaying the last posts.
+\end{description}
+
+\subsection{View Post}
+\pgfimage[width=\textwidth]{wf/homepage_post_view}
+As a normal user (signed in or not), this should be how a post is viewed. If the user is signed in, the add comment box should appear at the bottom.
+
+\section{User Management}
+\subsection{Dashboard}
+
+\subsection{Users}
+\subsubsection{Sign Up}
+\pgfimage[width=\textwidth]{wf/user_signup}
+There are two different ways of signing up: either with or without Open ID. Both ways should be clearly separated.
+\subsubsection{Sign In}
+\pgfimage[width=\textwidth]{wf/user_signin}
+There are two different ways of signing in: either with or without Open ID. Both ways should be clearly separated.
+
+\subsubsection{List}
+\pgfimage[width=\textwidth]{wf/user_list}
+\subsubsection{View}
+There are two different View User cases: an user viewing its own profile (or and admin viewing an user profile), or an user viewing other user's profile.
+\paragraph{As self or Admin}~\\
+
+\pgfimage[width=\textwidth]{wf/user_view_self}
+\paragraph{As other normal user}~\\
+
+\pgfimage[width=\textwidth]{wf/user_view_other}
+
+\subsubsection{Edit}
+There are two different Edit User cases: an user editing its own profile, and an admin editing anyone's profile. These are presented by growing order of editable information:
+\paragraph{As self}~\\
+
+\pgfimage[width=\textwidth]{wf/user_edit_self}
+\paragraph{As admin}~\\
+
+\pgfimage[width=\textwidth]{wf/user_edit_admin}
+
+\subsection{Groups}
+\subsubsection{New}
+\pgfimage[width=\textwidth]{wf/group_new}
+\subsubsection{List}
+\pgfimage[width=\textwidth]{wf/group_list}
+\subsubsection{View}
+\pgfimage[width=\textwidth]{wf/group_view}
+\subsubsection{Edit}
+\pgfimage[width=\textwidth]{wf/group_edit}
+
+\section{Website}
+\subsection{Announcements}
+\subsubsection{New}
+See \textbf{Edit Announcement}.
+%\pgfimage[width=\textwidth]{wf/announcement_new}
+\subsubsection{List}
+\pgfimage[width=\textwidth]{wf/announcement_list}
+\subsubsection{View}
+\pgfimage[width=\textwidth]{wf/announcement_view}
+\subsubsection{Edit}
+\pgfimage[width=\textwidth]{wf/announcement_edit}
+\subsubsection{Remove}
+
+\subsection{Posts}
+\subsubsection{New}
+\pgfimage[width=\textwidth]{wf/post_new}
+\subsubsection{List}
+\pgfimage[width=\textwidth]{wf/post_list}
+\subsubsection{View}
+\pgfimage[width=\textwidth]{wf/post_view}
+\subsubsection{Edit}
+\pgfimage[width=\textwidth]{wf/post_edit}
+
+\subsection{Comments}
+\subsubsection{New}
+See the \textbf{View Post} wireframe.
+%\pgfimage[width=\textwidth]{wf/comment_new}
+\subsubsection{List}
+\pgfimage[width=\textwidth]{wf/comment_list}
+\subsubsection{View}
+See the \textbf{View Post} wireframe.
+%\pgfimage[width=\textwidth]{wf/comment_view}
+\subsubsection{Edit}
+\pgfimage[width=\textwidth]{wf/comment_edit}
+Only the admin will have the power to edit existing comments.
+
+\subsection{Tags}
+\pgfimage[width=\textwidth]{wf/tag_list}
+\begin{itemize}
+\item A table with the tags list should be visible on the Post listing page.
+\item Clicking on a tag will filter the Posts list, displaying only the posts marked with that tag.
+\item Due to the \textbf{Remove Comment} feature, it is possible to have tags which are used in \textbf{zero} posts. This tags should not be visible on the tags list.
+\item A maximum number N of tags to show should be defined. Only N or less tags should be displayed on the tag list.
+\end{itemize}
+
+\subsection{Static Pages}
+\subsubsection{New}
+\pgfimage[width=\textwidth]{wf/page_new}
+\subsubsection{List}
+\pgfimage[width=\textwidth]{wf/page_list}
+\subsubsection{View}
+\pgfimage[width=\textwidth]{wf/page_view}
+\subsubsection{Edit}
+\pgfimage[width=\textwidth]{wf/page_edit}
+
+\section{System}
+\subsection{Dashboard}
+%TODO 
+Aqui devem aparecer estatisticas ou assim
+\subsection{Settings}
+\subsubsection{List}
+\subsubsection{View}
+\subsubsection{Edit}
+\subsubsection{Remove}
+
+\subsection{Actions}
+\subsubsection{List}
+\subsubsection{View}
+\subsubsection{Edit}
+\subsubsection{Remove}
+
+
+%\subsection{Users}
+%\subsection{Users}
+%\subsection{Users}
+%\subsection{Users}
+%\subsection{Users}
+%\subsection{Users}
+% Um cronograma relativo às várias tarefas pode ser consultado na Figura~\ref{fig:crono}.
+% \begin{figure}[h!]
+% \centering
+% \includegraphics[width=.8\textwidth]{crono}
+% \caption{Cronograma das várias tarefas a realizar no âmbito desta dissertação.}
+% \label{fig:crono}
+% \end{figure}
+
+\end{document}

@@ -15,8 +15,8 @@ input#user_session_openid_identifier { background: url(http://openid.net/login-b
 input#user_session_openid_identifier { background-position: 0 50%; color: #000; text-indent: 18px; }
 
 #content form.formtastic p                     { line-height:1em; margin-bottom:0; font-size:1em; text-align:left; }
-form.formtastic abbr, form.formtastic acronym  { color:#e22;                                                       }
-form.formtastic                                { font-size:1.3em;                                                  }
+form.formtastic abbr, form.formtastic acronym  { color:#e22;                                                        }
+form.formtastic                                { font-size:1.3em; border:solid #9E9E9E 1px; background-color: #FCFCFC; }
 form.formtastic legend                         { margin-bottom:1em;                                                }
 form.formtastic fieldset ol li p.inline-hints  { color:#555;                                                       }
 form.formtastic fieldset ol li p.inline-errors { color:#d32;                                                       }
@@ -44,3 +44,38 @@ button:hover, .buttons a:hover                    { background-color:#eef; borde
 .buttons a.negative, button.negative              { color:#d32;                                                                 }
 .buttons a.negative:hover, button.negative:hover  { background-color:#fee; border:1px solid #fcc; color:#d32;                   }
 .buttons a.negative:active                        { background-color:#f54; border:1px solid #f76; color:#fff;                   }
+
+/*custom*/
+
+input[type=text], textarea {
+  background-color: #F1F1F1;
+  border: 1px solid #9E9E9E;
+  font-size:15px; padding:2px;
+  letter-spacing: -1;
+} /* text inputs properties*/
+
+input[type=text]:focus, textarea:focus {
+  background-color: #CACACA;
+}
+
+textarea { width: 320px; } /* Textarea properties*/
+
+input[type=text] { width: 270px; font: bold 16px arial; } /* text field properties */
+
+ol li { margin:0;list-style-type:none; } /* Remove ol numbers */
+
+.inputs ol li { padding: 2px; } /* ol li padding */
+fieldset{ border: 0; padding: 10px;} /*padding around fieldset*/
+
+abbr { border-bottom: 0; } /*remove border bottom*/
+
+h1 {
+  padding: 2px;
+  margin: 0;
+  text-transform: none;
+  color: black;
+  letter-spacing: -1px;
+  font: bold 16px arial;
+} /* Header h1 properties*/
+
+form.formtastic fieldset ol li p.inline-hints { color:#A1A1A1; font-size: 11px; margin-top:0; margin-left: 100px; } /* Hints properties*/

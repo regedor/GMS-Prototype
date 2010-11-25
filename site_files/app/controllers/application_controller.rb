@@ -41,8 +41,12 @@ class ApplicationController < ActionController::Base
     end
 
     # To use in before filter.
-    # Asserts that there is a current session.
+    # Asserts that there is a current session and user is not deleted.
+    # If the current user is deleted, user session is destroyed.
     def require_user
+      if !current_user.nil? and current_user.deleted?
+        current_user_session.destroy
+      end
       unless current_user
         store_location
         flash[:notice] = t 'flash.require_login' 
@@ -52,9 +56,13 @@ class ApplicationController < ActionController::Base
     end
 
     # To use in before filter.
-    # Asserts that there is a current user with admin role.
+    # Asserts that there is a current user with admin role and its not deleted.
+    # If the current user is deleted, user session is destroyed.
     def require_admin
-      unless current_user and current_user.is_role? :admin 
+      if !current_user.nil? and current_user.deleted?
+        current_user_session.destroy
+      end
+      unless current_user and current_user.is_role? :admin
         store_location
         flash[:notice] = t 'flash.you_need_admin_login' 
         redirect_to login_url

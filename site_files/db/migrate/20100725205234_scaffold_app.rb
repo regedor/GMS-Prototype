@@ -27,12 +27,13 @@ class ScaffoldApp < ActiveRecord::Migration
       t.timestamps
       # optional, see Authlogic::Session::MagicColumns
       t.integer   :login_count,         :null => false, :default => 0 
-      t.integer   :failed_login_count,  :null => false, :default => 0 
+      t.integer   :failed_login_count,  :null => false, :default => 0
       t.datetime  :last_request_at                                    
       t.datetime  :current_login_at                                   
       t.datetime  :last_login_at                                      
       t.string    :current_login_ip                                   
-      t.string    :last_login_ip                                      
+      t.string    :last_login_ip
+      t.boolean   :deleted,             :null => false, :default => false 
     end
     add_index :users, :email, :unique => true
 
@@ -55,6 +56,7 @@ class ScaffoldApp < ActiveRecord::Migration
       t.text   :description
       t.string :field_type, :default => 'string'
       t.text   :value
+      t.boolean   :editable, :null => false, :default => true
       t.timestamps
     end
  
@@ -87,6 +89,7 @@ class ScaffoldApp < ActiveRecord::Migration
       t.timestamps
       t.datetime :published_at
       t.datetime :edited_at,                                                  :null => false
+      t.boolean   :deleted,                :default => false,                 :null => false
     end
 
     create_table :comments do |t|
@@ -98,6 +101,7 @@ class ScaffoldApp < ActiveRecord::Migration
       t.text     :body_html,               :null => false
       t.datetime :created_at
       t.datetime :updated_at
+      t.boolean   :deleted,                :null => false,                    :default => false
     end
     add_index :comments, ["post_id"], :name => 'index_comments_on_post_id'
     add_index :comments, ["created_at"], :name => 'index_comments_on_created_at'
@@ -128,6 +132,7 @@ class ScaffoldApp < ActiveRecord::Migration
       t.string  :name,            :null => false
       t.text    :description
       t.boolean :mailable,        :null => false
+      t.boolean  "deleted",       :default => false, :null => false
       t.timestamps
     end  
 

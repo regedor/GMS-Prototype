@@ -12,10 +12,22 @@ class Comment < ActiveRecord::Base
 
   validates_presence_of :author, :body, :post
 
+  named_scope :not_deleted, :conditions => {:deleted => false}
+
   # validate :open_id_thing
   def validate
     super
     errors.add(:base, openid_error) unless openid_error.blank?
+  end
+
+  def authorized_for?(*args)
+    !deleted
+  end
+
+  def destroy
+    self.deleted = true
+    self.post.approved_comments
+    self.save
   end
 
   def apply_filter
