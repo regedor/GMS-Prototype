@@ -9,12 +9,34 @@
   <div class="content">
     <ul class="list">
       <% @tags.each do |tag| %>
-      <li>
+      <li id="tag-<%= tag.id %>">
         <%= tag.name %>
         (<%= link_to(tag.taggings_count.to_s + " posts", admin_posts_path + "?tag_id=" + tag.id.to_s) %>)
-        <%= link_to("Edit", edit_admin_tag_path(tag)) %>
+        <a href="javascript:void(0)" onclick='edit_tag_js(<%= tag.id %>, "<%= tag.name %>")'>Edit</a>
       </li>
       <% end %>
     </ul>
   </div>
 </div>
+
+<script type="text/javascript">
+  function edit_tag_js(id, old_name) {
+    var new_name = prompt('Change the name of tag "' + old_name + '"', "");
+    if (new_name != null) {
+      jQuery.ajax({
+        type: "PUT",
+        url: "posts/" + id + "/edit_tag",
+        data: "name=" + new_name,
+        success: function() {
+                   var old_line = document.getElementById("tag-" + id).innerHTML;
+                   var new_line = old_line.replace(new RegExp(old_name + "[ \n]+"), new_name + " ");
+                   new_line = new_line.replace('"' + old_name + '"', '"' + new_name + '"');
+                   document.getElementById("tag-" + id).innerHTML = new_line;
+        },
+        error: function() {
+                 alert("Error!\nTry another tag name.");
+        }
+      });
+    }
+  }
+</script>

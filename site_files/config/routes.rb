@@ -38,10 +38,11 @@ ActionController::Routing::Routes.draw do |map|
                                              :do_action => :get, 
                                              :suspended => :get, 
                                              :deleted   => :get }
-    admin.resources :posts, :new => {:preview => :post}
+    admin.resources :posts, :new => { :preview => :post },
+                            :member => { :edit_tag => :put }
     admin.resources :pages, :new => {:preview => :post}
     admin.resources :comments, :member => {:mark_as_spam => :put, :mark_as_ham => :put}
-    admin.resources :tags
+    #admin.resources :tags
     admin.resources :undo_items, :member => {:undo => :post}
 
     map.connect '/admin/:controller/:action/:id'

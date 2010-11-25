@@ -27,8 +27,6 @@
           <li class="<%= controller.controller_path == 'admin/dashboard' ? 'active' : '' %>"><a href="<%= admin_root_path %>">Dashboad</a></li>
           <li class="<%= (controller.controller_path == 'admin/users') || (controller.controller_path == 'admin/groups') ? 'active' : '' %>"><a href="<%= admin_users_path %>">User Management</a></li>
           <li class="<%= (controller.controller_path == 'admin/posts') || (controller.controller_path == 'admin/announcements') ? 'active' : '' %>"><a href="<%= admin_posts_path %>">Website</a></li>
-          <li class="<%= controller.controller_path == 'admin/comments' ? 'active' : '' %>"><a href="<%= admin_comments_path %>">Comments</a></li>
-          <li class="<%= controller.controller_path == 'admin/tags' ? 'active' : '' %>"><a href="<%= admin_tags_path %>">Tags</a></li>
           <li class="<%= controller.controller_path == 'admin/settings' ? 'active' : '' %>"><a href="<%= admin_settings_path %>">System</a></li>
         </ul>
       </div>

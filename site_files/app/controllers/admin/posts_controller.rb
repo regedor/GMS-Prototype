@@ -31,7 +31,10 @@ class Admin::PostsController < Admin::BaseController
 
 
   def index
-    @tags = Tag.paginate :page => params[:tag_page], :per_page => 5, :order => 'taggings_count DESC'
+    @tags = Tag.paginate :page => params[:tag_page],
+                         :per_page => 5,
+                         :conditions => 'taggings_count > 0',
+                         :order => 'taggings_count DESC'
     super
   end
 
@@ -106,9 +109,16 @@ class Admin::PostsController < Admin::BaseController
     end
   end
 
+  def edit_tag
+    @tag = Tag.find(params[:id])
+    success = @tag.update_attributes( :name => params[:name] )
+    render :nothing => success
+  end
+
   protected
 
   def find_post
     @post = Post.find(params[:id])
   end
+
 end
