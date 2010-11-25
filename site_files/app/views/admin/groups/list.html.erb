@@ -1,4 +1,7 @@
-<% content_for :sidebar do -%>
-	<%= render :partial =>  'admin/shared/sidebarU'%>
-<% end -%>
+<div id="main-navigation">
+<ul class="wat-cf">
+	<li class="<%= controller.controller_path == 'admin/users' ? 'active' : '' %>"><a href="<%= admin_users_path %>">Users</a></li>
+	<li class="<%= controller.controller_path == 'admin/groups' ? 'active' : '' %>"><a href="<%= admin_groups_path %>">Groups</a></li>
+</ul>
+</div>
 <%=render :super%>
