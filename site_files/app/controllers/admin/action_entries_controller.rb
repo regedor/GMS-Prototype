@@ -5,13 +5,13 @@ class Admin::ActionEntriesController < Admin::BaseController
     config.actions.exclude :update, :delete, :show, :create
     
     config.actions << :show
-    config.action_links.add 'undo', :label => 'Undo', :type => :member, :page => true, :crud_type => :update, :method => :post
+    config.action_links.add 'undo', :label => "<img src='/images/icons/arrow_undo.png'/>Undo", :type => :member, :page => true, :crud_type => :update, :method => :post
   
 
-
-    Scaffoldapp::active_scaffold config, "admin.action_entry", [:created_at, :controller, :action]
+    Scaffoldapp::active_scaffold config, "admin.action_entry", [:created_at, :controller, :action, :users_performed_on]
    
   end
+  
   
   #Overrides find so that it only shows the actions that can be undone
   def custom_finder_options

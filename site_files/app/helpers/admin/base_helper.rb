@@ -20,10 +20,10 @@ module Admin::BaseHelper
   def total_approved_comments_column(post)
     post.approved_comments.size
   end
-
+  
   def created_at_column(record)
     record.created_at.strftime('%d %b, %Y')
-  end
+  end  
 
   def published_at_column(record)
     record.published_at.strftime('%d %b, %Y')
@@ -31,6 +31,24 @@ module Admin::BaseHelper
   
   def type_column(action)
     action.complete_description
+  end  
+  
+  def users_performed_on_column(record)
+    if record.controller == "admin/users"
+      #Gets the ids for the users
+      match = record.message[/Performed on ids: \[(.*)\]/]
+      value = $1
+   
+      #Transforms the string with ids into an array
+      ids = value.split(/\"/).map(&:to_i).map(&:nonzero?).compact!
+    end
+    
+    names = []
+    ids.each do |id|
+      names << User.find(id).name
+    end   
+     
+     names.join(", ")
   end  
 
 end
