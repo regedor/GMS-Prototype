@@ -42,7 +42,7 @@ Feature: Posts Manegement
   	Then I should see "Simon Administration"
 		And I follow "Website"
 		And I follow "Posts"
-		When I follow "Delete" for posts whose title is "Helena Secretária"
+		When as admin I follow "Delete" for posts whose title is "Helena Secretária"
 		Then I should not see "Helena Secretária"
 		# Check for tags
 	
