@@ -16,8 +16,6 @@ module Scaffoldapp
       config.row_mark_actions_list = row_mark_actions_list
     end
 
-    #FIXME The labels of user defined fields are not shown
-
     def active_scaffold_list_columns(config, i18n_scope, columns)    
       columns.each do |column| 
         unless column == :row_mark
