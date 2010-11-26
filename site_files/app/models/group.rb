@@ -1,16 +1,32 @@
 class Group < ActiveRecord::Base
-  belongs_to :parent_group,    :class_name => "Group", :foreign_key => "parent_group_id"
-  has_many   :subgroups,      :class_name=>"Group", :foreign_key=>"parent_group_id"
+
+  # ==========================================================================
+  # Relationships
+  # ==========================================================================
+
+  belongs_to              :parent_group, :class_name => "Group", :foreign_key => "parent_group_id"
+  has_many                :subgroups,    :class_name => "Group", :foreign_key => "parent_group_id"
   has_and_belongs_to_many :users
 
-  validate :parent_is_not_own_descendent
-  
+
+  # ==========================================================================
+  # Validations
+  # ==========================================================================
+
+  validate :parent_is_not_own_descendent  
   named_scope :not_deleted, :conditions => {:deleted => false}
+
+  # ==========================================================================
+  # Instance Methods
+  # ==========================================================================
   
+  #Returns parent name
   def parent_name
     if self.parent_group.nil?
+    
       return ""
     else
+    
       return self.parent_group.name
     end    
   end
@@ -19,6 +35,7 @@ class Group < ActiveRecord::Base
     deleted
   end
 
+  # Destroys a group
   def destroy
     self.subgroups.each do |subgroup|
       subgroup.destroy unless subgroup == self
@@ -28,6 +45,7 @@ class Group < ActiveRecord::Base
     save
   end
   
+  #Give all users
   def all_users
     us = self.subgroups.map do |g| g.users end
     us.flatten! if us
@@ -35,7 +53,7 @@ class Group < ActiveRecord::Base
     self.users + us
   end
   
-
+  #Give all users names
   def all_users_names
     users_groups = {}
     users_hash   = {}
@@ -62,6 +80,7 @@ class Group < ActiveRecord::Base
    
    group_users = ((self.users.map &:name).join ", ")  
    group_users += ", " unless group_users.nil? || group_users.blank? || subgroups_users.nil? || subgroups_users.blank?
+   
    return group_users + subgroups_users
   end
   
@@ -70,9 +89,32 @@ class Group < ActiveRecord::Base
     group = self
     while group = group.parent_group
       if group.id == self.id 
-        errors.add("PANIC!!! impossible hapens")
+        errors.add(I18n.t("admin.groups.modify.error.subgroup_of_self")+", ")
+        
         return false
       end
+    end
+  end
+  
+  #Create group names hierarchy as sublists
+  def subgroups_tree
+    self.subgroups.map(&:subgroups_tree).unshift self
+  end
+  
+  #Create group hierarchy as sublists
+  def subgroups_names_tree
+    self.subgroups.map(&:subgroups_names_tree).unshift self.name
+  end
+   
+  # ==========================================================================
+  # Class Methods
+  # ==========================================================================
+
+  class << self
+
+    #Create group hierarchy as sublists for All nodes
+    def subgroups_names_tree
+      self.find_all_by_parent_group_id(nil).map(&:subgroups_names_tree).unshift nil
     end
   end
   

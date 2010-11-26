@@ -133,6 +133,9 @@ en:
           name: "Name"
           mailable: "Mailable"
           description: "Description"
+        sidebar:
+          hierarchy:
+            name: "Hierarchy"
       delete:
         title: "Delete Group"
         question: "Are you sure you want to delete %{username}?"
@@ -145,7 +148,10 @@ en:
       list:
         found:
           more: "%{count} Groups Found"
-          one: "%{count} Group Found"                              
+          one: "%{count} Group Found"      
+      modify:
+        error:
+          subgroup_of_self: "Group cannot be subgroup of itself"
 
     posts:
       index:
@@ -235,7 +241,7 @@ en:
         search: "Search"
         create: "New Announcement"
         columns:
-          headline: "Headine"
+          headline: "Headline"
           message: "Message"
           starts_at: "Start Date"
           ends_at: "End Date"
