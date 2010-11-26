@@ -28,6 +28,10 @@ class User < ActiveRecord::Base
   #####################
   ##  Instance Methods
   #####################
+  def authorized_for?(*args)
+    !deleted
+  end
+
   def active?
     active
   end

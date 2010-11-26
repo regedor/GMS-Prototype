@@ -89,6 +89,7 @@ class ScaffoldApp < ActiveRecord::Migration
       t.timestamps
       t.datetime :published_at
       t.datetime :edited_at,                                                  :null => false
+      t.boolean   :deleted,                :default => false,                 :null => false
     end
 
     create_table :comments do |t|
@@ -100,6 +101,7 @@ class ScaffoldApp < ActiveRecord::Migration
       t.text     :body_html,               :null => false
       t.datetime :created_at
       t.datetime :updated_at
+      t.boolean   :deleted,                :null => false,                    :default => false
     end
     add_index :comments, ["post_id"], :name => 'index_comments_on_post_id'
     add_index :comments, ["created_at"], :name => 'index_comments_on_created_at'

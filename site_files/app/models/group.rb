@@ -1,7 +1,7 @@
 class Group < ActiveRecord::Base
-  belongs_to :parent_group,    :class_name => "Group", :foreign_key => "parent_group_id"
-  has_many   :subgroups,      :class_name=>"Group", :foreign_key=>"parent_group_id"
-  has_and_belongs_to_many :users
+  belongs_to :parent_group,    :class_name=>"Group", :foreign_key=>"parent_group_id", :conditions => {:deleted=>false}
+  has_many   :subgroups,      :class_name=>"Group", :foreign_key=>"parent_group_id", :conditions => {:deleted=>false}
+  has_and_belongs_to_many :users, :conditions => {:users => {:deleted=>false}}
 
   validate :parent_is_not_own_descendent
   
@@ -13,6 +13,10 @@ class Group < ActiveRecord::Base
     else
       return self.parent_group.name
     end    
+  end
+
+  def authorized_for?(*args)
+    !deleted
   end
 
   def deleted?

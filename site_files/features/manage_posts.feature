@@ -6,9 +6,9 @@ Feature: Posts Manegement
 	Background:
 		Given I18n is set to english  
     And the following posts exists
-      | title             | body                     | published_at |
-      | Alice Hunter      | Is hot                   | yesterday    |
-			| Helena Secretária | anda por ai              | now          |
+      | title             | body        | published_at |
+      | Alice Hunter      | Is hot      | yesterday    |
+      | Helena Secretária | anda por ai | now          |
 		And I am logged in as admin
 
 	@admin
@@ -35,14 +35,15 @@ Feature: Posts Manegement
 		Then I should see "Created post 'Lorem Ipsum'"
 		When I follow "Posts"
 		Then I should see "Lorem Ipsum"
+		# Check for tags
 		
 	Scenario: I want to delete an existing post
   	When I follow "Administration"
   	Then I should see "Simon Administration"
 		And I follow "Website"
 		And I follow "Posts"
-		And I delete "Helena"
-		
-	
+		When as admin I follow "Delete" for posts whose title is "Helena Secretária"
+		Then I should not see "Helena Secretária"
+		# Check for tags
 	
 	

@@ -19,7 +19,13 @@ class Admin::PostsController < Admin::BaseController
 
   end
 
+  # Override this method to define conditions to be used when querying a recordset (e.g. for List).
+  # With this, only the posts with the value 'false' in the column 'deleted' will be shown.
+  def conditions_for_collection
+    return { :deleted => false }
+  end
 
+  ## Who created this method, please change it's name to something more intuitive, or put here a description.
   def self.coisa(config)
     config.columns << :excert
     config.columns << :total_approved_comments
