@@ -46,36 +46,16 @@ button:hover, .buttons a:hover                    { background-color:#eef; borde
 .buttons a.negative:active                        { background-color:#f54; border:1px solid #f76; color:#fff;                   }
 
 /*custom*/
+fieldset                               { border: 0; padding: 10px;} 
+abbr                                   { border-bottom: 0; }
 
-input[type=text], textarea {
-  background-color: #F1F1F1;
-  border: 1px solid #9E9E9E;
-  font-size:15px; padding:2px;
-  letter-spacing: -1;
-} /* text inputs properties*/
+h1                                     { padding: 2px;margin: 0;text-transform: none; color: black; letter-spacing: -1px; font: bold 16px arial;}
 
-input[type=text]:focus, textarea:focus {
-  background-color: #CACACA;
-}
-
-textarea { width: 320px; } /* Textarea properties*/
-
-input[type=text] { width: 270px; font: bold 16px arial; } /* text field properties */
-
-ol li { margin:0;list-style-type:none; } /* Remove ol numbers */
-
-.inputs ol li { padding: 2px; } /* ol li padding */
-fieldset{ border: 0; padding: 10px;} /*padding around fieldset*/
-
-abbr { border-bottom: 0; } /*remove border bottom*/
-
-h1 {
-  padding: 2px;
-  margin: 0;
-  text-transform: none;
-  color: black;
-  letter-spacing: -1px;
-  font: bold 16px arial;
-} /* Header h1 properties*/
-
-form.formtastic fieldset ol li p.inline-hints { color:#A1A1A1; font-size: 11px; margin-top:0; margin-left: 100px; } /* Hints properties*/
+input[type=text], textarea             { background-color: #F1F1F1;border: 1px solid #9E9E9E;font-size:15px;padding:2px;letter-spacing: -1;}
+input[type=text]:focus, textarea:focus { background-color: #CACACA; }
+textarea                               { width: 320px; } 
+input[type=text]                       { width: 270px; font: bold 16px arial; }
+ 
+ol li                                  { margin:0;list-style-type:none; } 
+.inputs ol li                          { padding: 2px; } 
+form.formtastic fieldset ol li p.inline-hints { color:#A1A1A1; font-size: 11px; margin-top:0; margin-left: 100px; } 

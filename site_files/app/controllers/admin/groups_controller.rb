@@ -19,13 +19,15 @@ class Admin::GroupsController < Admin::BaseController
     config.create.columns = [:name, :description, :mailable, :parent_group, :subgroups, :users]
     config.subform.columns.exclude :description, :mailable
 
-    Scaffoldapp::active_scaffold config, "admin.groups", [
-      :name, :mailable, :description, :parent_name     # Parent is a method defined in models/group.rb
-    ]
-    
     config.show.columns.exclude :updated_at, :users
     config.show.columns << :all_users_names
-  end  
+    
+    Scaffoldapp::active_scaffold config, "admin.groups", [
+      :name, :mailable, :description, :parent_name      # Parent is a method defined in models/group.rb
+                                                        #FIXME - The column "Parent" has no name
+    ]
+   
+  end
 
   # Override this method to define conditions to be used when querying a recordset (e.g. for List).
   # With this, only the groups with the value 'false' in the column 'deleted' will be shown.
