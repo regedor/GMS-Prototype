@@ -120,12 +120,15 @@ class ScaffoldApp < ActiveRecord::Migration
     end
     add_index :tags, ["name"], :name => 'index_tags_on_name'
 
-    create_table :undo_items, :force => true do |t|
-      t.string   :type,       :null => false
+    create_table :action_entries, :force => true do |t|
       t.datetime :created_at, :null => false
-      t.text     :data
+      t.string   :controller, :null => false   
+      t.string   :action,     :null => false
+      t.text     :message,    :null => false
+      t.text     :undo 
+      t.integer  :user_id
     end
-    add_index :undo_items, ["created_at"], :name => 'index_undo_items_on_created_at'
+    add_index :action_entries, ["created_at"], :name => 'index_undo_items_on_created_at'
 
     create_table :groups do |t|
       t.integer :parent_group_id

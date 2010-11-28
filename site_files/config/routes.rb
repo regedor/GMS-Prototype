@@ -1,18 +1,15 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :posts
 
   map.root :controller => "pages", :action => "root_page"
-
   # ==========================================================================
   # User Resources
   # ==========================================================================
   map.page '/page/:action', :controller => "pages"
+  map.resources :posts
 
   # ==========================================================================
   # Session Resources
   # ==========================================================================
-  map.resources :groups
-  
   map.resources :users
   map.resource  :account,  :controller => "users"
   map.resources :user_password_resets
@@ -27,33 +24,25 @@ ActionController::Routing::Routes.draw do |map|
   # ==========================================================================
   map.namespace :admin do |admin|
     admin.root :controller => 'dashboard', :action => 'index'
-    admin.resources :groups,               :active_scaffold => true, :active_scaffold_sortable => true
-    admin.resources :settings,             :active_scaffold => true, :active_scaffold_sortable => true
-    admin.resources :announcements,        :active_scaffold => true, :active_scaffold_sortable => true
-    admin.resources :commits,              :active_scaffold => true, :active_scaffold_sortable => true
-    admin.resources :users,                :active_scaffold => true, :active_scaffold_sortable => true,
-                    :member     =>       { :suspend   => :put,
-                                           :unsuspend => :put,
-                                           :activate  => :put, 
-                                           :reset_password => :put },
-                    :collection =>       { :pending   => :get,
-                                           :active    => :get,
-                                           :do_action => :get, 
-                                           :suspended => :get, 
-                                           :deleted   => :get }
-    admin.resources :posts,                :active_scaffold => true, :active_scaffold_sortable => true,
-                    :has_many   =>         [ :comments, :tags ],
-                    :new        =>       { :preview => :post },
-                    :member     =>       { :update_tag => :put }
-    admin.resources :pages,                :active_scaffold => true, :active_scaffold_sortable => true,
-                    :new        =>       { :preview => :post }
-    admin.resources :comments,             :active_scaffold => true, :active_scaffold_sortable => true,
-                    :member     =>       { :mark_as_spam => :put,
-                                           :mark_as_ham => :put }
-    admin.resources :tags,                 :has_many => :posts
-    admin.resources :undo_items,           :active_scaffold => true, :active_scaffold_sortable => true,
-                    :member     =>       { :undo => :post }
-
+    admin.resources :users,          :active_scaffold => true, :active_scaffold_sortable => true,
+                                     :member          => { :suspend => :put,:unsuspend => :put :activate => :put,:reset_password => :put },
+                                     :collection      => { :pending => :get,:active => :get,:do_action => :get,:suspended => :get,:deleted => :get }
+    admin.resources :groups,         :active_scaffold => true, :active_scaffold_sortable => true
+    admin.resources :settings,       :active_scaffold => true, :active_scaffold_sortable => true
+    admin.resources :announcements,  :active_scaffold => true, :active_scaffold_sortable => true
+    admin.resources :commits,        :active_scaffold => true, :active_scaffold_sortable => true
+    admin.resources :posts,          :active_scaffold => true, :active_scaffold_sortable => true,
+                                     :has_many        =>  [ :comments, :tags ],
+                                     :new             =>  { :preview => :post },
+                                     :member          =>  { :update_tag => :put }
+    admin.resources :pages,          :active_scaffold => true, :active_scaffold_sortable => true,
+                                     :new        =>    { :preview => :post }
+    admin.resources :comments,       :active_scaffold => true, :active_scaffold_sortable => true,
+                                     :member     =>    { :mark_as_spam => :put,
+                                     :mark_as_ham => :put }
+    admin.resources :tags,           :has_many => :posts
+    admin.resources :action_entries, :active_scaffold => true, :active_scaffold_sortable => true,
+                                     :member     =>    { :undo => :post }
   end
   
   # ==========================================================================
@@ -62,7 +51,5 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace :api do |api|
    api.resource :i18n
   end
-  
-  #map.connect ':controller/:action/:id'
-  #map.connect ':controller/:action/:id.:format'
+
 end

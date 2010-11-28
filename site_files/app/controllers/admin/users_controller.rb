@@ -31,6 +31,10 @@ class Admin::UsersController < Admin::BaseController
     else ids = [ params[:id] ]
     end
     if User.send(params[:actions],ids)  
+      #After being sure the action was done, creates an action entry with the corresponding parameters and saves it to the db
+      entry = ActionEntry.new({:controller=>params[:controller],:action=>params[:actions],:message=>"Performed on ids: "+ids.inspect})
+      entry.set_undo_for(params[:actions])
+      entry.save
       list
     else
       render :text => "" 
