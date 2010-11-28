@@ -27,27 +27,33 @@ ActionController::Routing::Routes.draw do |map|
   # ==========================================================================
   map.namespace :admin do |admin|
     admin.root :controller => 'dashboard', :action => 'index'
-    admin.resources :groups
-    admin.resources :settings
-    admin.resources :announcements
-    admin.resources :commits
-    admin.resources :users, :member => { :suspend   => :put,
-                                         :unsuspend => :put,
-                                         :activate  => :put, 
-                                         :reset_password => :put},
-                            :collection => { :pending   => :get,
-                                             :active    => :get,
-                                             :do_action => :get, 
-                                             :suspended => :get, 
-                                             :deleted   => :get }
-    admin.resources :posts, :new => {:preview => :post}
-    admin.resources :pages, :new => {:preview => :post}
-    admin.resources :comments, :member => {:mark_as_spam => :put, :mark_as_ham => :put}
-    admin.resources :tags
-    admin.resources :undo_items, :member => {:undo => :post}
+    admin.resources :groups,               :active_scaffold => true, :active_scaffold_sortable => true
+    admin.resources :settings,             :active_scaffold => true, :active_scaffold_sortable => true
+    admin.resources :announcements,        :active_scaffold => true, :active_scaffold_sortable => true
+    admin.resources :commits,              :active_scaffold => true, :active_scaffold_sortable => true
+    admin.resources :users,                :active_scaffold => true, :active_scaffold_sortable => true,
+                    :member     =>       { :suspend   => :put,
+                                           :unsuspend => :put,
+                                           :activate  => :put, 
+                                           :reset_password => :put },
+                    :collection =>       { :pending   => :get,
+                                           :active    => :get,
+                                           :do_action => :get, 
+                                           :suspended => :get, 
+                                           :deleted   => :get }
+    admin.resources :posts,                :active_scaffold => true, :active_scaffold_sortable => true,
+                    :has_many   =>         [ :comments, :tags ],
+                    :new        =>       { :preview => :post },
+                    :member     =>       { :update_tag => :put }
+    admin.resources :pages,                :active_scaffold => true, :active_scaffold_sortable => true,
+                    :new        =>       { :preview => :post }
+    admin.resources :comments,             :active_scaffold => true, :active_scaffold_sortable => true,
+                    :member     =>       { :mark_as_spam => :put,
+                                           :mark_as_ham => :put }
+    admin.resources :tags,                 :has_many => :posts
+    admin.resources :undo_items,           :active_scaffold => true, :active_scaffold_sortable => true,
+                    :member     =>       { :undo => :post }
 
-    map.connect '/admin/:controller/:action/:id'
-    
   end
   
   # ==========================================================================

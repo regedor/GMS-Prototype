@@ -389,3 +389,7 @@ div#wrapper.wat-cf {
   margin-right: 20px
 }
 
+#sidebar .pagination {
+  float: right;
+  margin-top: -0.15em;
+}

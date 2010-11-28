@@ -1,0 +1,47 @@
+<% i_env = "admin.posts.tags" -%>
+<div class="block">
+  <h3>
+    <%= I18n::t("#{i_env}.title") %>
+    <% if @tags.total_pages > 1 -%>
+      <%= will_paginate(@tags, :previous_label => I18n::t("#{i_env}.pagination.previous"),
+                               :next_label     => I18n::t("#{i_env}.pagination.next"),
+                               :param_name     => :tag_page) %>
+    <% end -%>
+  </h3>
+
+  <div class="content">
+    <ul class="list">
+      <% @tags.each do |tag| %>
+      <li id="tag-<%= tag.id %>">
+        <%= tag.name %>
+        (<%= link_to(tag.taggings_count.to_s + " " + I18n::t("#{i_env}.list.posts"),
+                     admin_posts_path + "?tag_id=" + tag.id.to_s) %>)
+        <a href="javascript:void(0)" onclick='edit_tag_js(<%= tag.id %>, "<%= tag.name %>")'>
+                     <%= I18n::t("#{i_env}.list.edit") %></a>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<script type="text/javascript">
+  function edit_tag_js(id, old_name) {
+    var new_name = prompt(<%= '"' + I18n::t("#{i_env}.edit.prompt") + '"' %> + ' "' + old_name + '"', "");
+    if (new_name != null) {
+      jQuery.ajax({
+        type: "PUT",
+        url: "posts/" + id + "/update_tag",
+        data: "name=" + new_name,
+        success: function() {
+                   var old_line = document.getElementById("tag-" + id).innerHTML;
+                   var new_line = old_line.replace(new RegExp(old_name + "[ \n]+"), new_name + " ");
+                   new_line = new_line.replace('"' + old_name + '"', '"' + new_name + '"');
+                   document.getElementById("tag-" + id).innerHTML = new_line;
+        },
+        error: function() {
+                 alert(<%= '"' + I18n::t("#{i_env}.edit.error.generic") + '"' %>);
+        }
+      });
+    }
+  }
+</script>
