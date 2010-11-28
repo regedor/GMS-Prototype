@@ -6,28 +6,17 @@ class Admin::PostsController < Admin::BaseController
     config.actions << :update
     config.actions << :delete
 
-
-    Scaffoldapp::active_scaffold config, "admin.posts", [
-      :published_at,:title,:excert,:total_approved_comments
-    ]
-
     config.update.link = false
     config.actions.swap :search, :live_search
     config.create.link.inline = false
     config.show.link.inline = false
     config.nested.add_link(I18n::t("admin.posts.index.comments_link"), [:comments])
 
+    Scaffoldapp::active_scaffold config, "admin.posts", [
+      :title,:excert,:published_at,:total_approved_comments
+    ]
+
   end
-
-
-  def self.coisa(config)
-    config.columns << :excert
-    config.columns << :total_approved_comments
-    list_columns = [:published_at,:title,:excert,:total_approved_comments]
-    config.list.columns = list_columns
-    list_columns.each { |column| config.columns[column].label = I18n::t('posts.index.'+column.to_s) }
-  end
-
 
 
   def index
@@ -109,7 +98,7 @@ class Admin::PostsController < Admin::BaseController
     end
   end
 
-  def edit_tag
+  def update_tag
     @tag = Tag.find(params[:id])
     success = @tag.update_attributes( :name => params[:name] )
     render :nothing => success
@@ -122,3 +111,4 @@ class Admin::PostsController < Admin::BaseController
   end
 
 end
+

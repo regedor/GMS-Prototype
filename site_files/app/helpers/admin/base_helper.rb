@@ -26,11 +26,49 @@ module Admin::BaseHelper
   end
 
   def published_at_column(record)
-    record.published_at.strftime('%d %b, %Y')
+    if (Time.now - record.published_at) < 30.days
+      time_ago_in_words record.published_at 
+    else
+      record.published_at.strftime('%d %b, %Y')
+    end
   end
   
   def type_column(action)
     action.complete_description
-  end  
+  end
+
+  def is_menu_active? controller_paths
+    active = false
+    controller_paths.each do |path|
+      next if active
+      active = controller.controller_path == path
+    end
+
+    active
+  end
+
+  def navigation_menu(i18n_path, controller_paths, link_to_path, options={})
+    code = '<li class="'
+    code += 'active ' if is_menu_active? controller_paths
+    code += 'first ' if options[:first]
+    code += "\">\n"
+    code += link_to(i18n_path, link_to_path) + "\n"
+    code += "</li>\n"
+
+    code
+  end
+
+  def secondary_navigation_menu(active_links, options={})
+    code = ""
+    if is_menu_active? active_links.map { |hash| hash[:controller_path] }
+      first = true if options[:specify_first] #filter nil
+      active_links.each do |hash|
+        code += navigation_menu hash[:i18n_path], hash[:controller_path], hash[:link_to_path], :first => first
+        first = false
+      end
+    end
+
+    code
+  end
 
 end

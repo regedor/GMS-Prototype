@@ -1,8 +1,11 @@
+<% i_env = "admin.posts.tags" -%>
 <div class="block">
   <h3>
-    Tags
+    <%= I18n::t("#{i_env}.title") %>
     <% if @tags.total_pages > 1 -%>
-      <%= will_paginate(@tags, :previous_label => '««', :next_label => '»»', :param_name => :tag_page) %>
+      <%= will_paginate(@tags, :previous_label => I18n::t("#{i_env}.pagination.previous"),
+                               :next_label     => I18n::t("#{i_env}.pagination.next"),
+                               :param_name     => :tag_page) %>
     <% end -%>
   </h3>
 
@@ -11,8 +14,10 @@
       <% @tags.each do |tag| %>
       <li id="tag-<%= tag.id %>">
         <%= tag.name %>
-        (<%= link_to(tag.taggings_count.to_s + " posts", admin_posts_path + "?tag_id=" + tag.id.to_s) %>)
-        <a href="javascript:void(0)" onclick='edit_tag_js(<%= tag.id %>, "<%= tag.name %>")'>Edit</a>
+        (<%= link_to(tag.taggings_count.to_s + " " + I18n::t("#{i_env}.list.posts"),
+                     admin_posts_path + "?tag_id=" + tag.id.to_s) %>)
+        <a href="javascript:void(0)" onclick='edit_tag_js(<%= tag.id %>, "<%= tag.name %>")'>
+                     <%= I18n::t("#{i_env}.list.edit") %></a>
       </li>
       <% end %>
     </ul>
@@ -21,11 +26,11 @@
 
 <script type="text/javascript">
   function edit_tag_js(id, old_name) {
-    var new_name = prompt('Change the name of tag "' + old_name + '"', "");
+    var new_name = prompt(<%= '"' + I18n::t("#{i_env}.edit.prompt") + '"' %> + ' "' + old_name + '"', "");
     if (new_name != null) {
       jQuery.ajax({
         type: "PUT",
-        url: "posts/" + id + "/edit_tag",
+        url: "posts/" + id + "/update_tag",
         data: "name=" + new_name,
         success: function() {
                    var old_line = document.getElementById("tag-" + id).innerHTML;
@@ -34,7 +39,7 @@
                    document.getElementById("tag-" + id).innerHTML = new_line;
         },
         error: function() {
-                 alert("Error!\nTry another tag name.");
+                 alert(<%= '"' + I18n::t("#{i_env}.edit.error.generic") + '"' %>);
         }
       });
     }

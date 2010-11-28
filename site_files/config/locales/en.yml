@@ -160,6 +160,10 @@ en:
           title: "Title"
           excert: "Excert"
           total_approved_comments: "Comments"
+      list:
+        found:
+          one: "1 Post Found"
+          more: "%{count} Posts Found"
       create:
         title: "Announcement"
       delete:
@@ -169,6 +173,20 @@ en:
         cancel_link: 
           label: "Cancel"
           title: "Go back to users list"        
+      tags:
+        title: "Tags"
+        pagination:
+          previous: "««"
+          next: "»»"
+        list:
+          posts: "posts"
+          edit: "<img src='/images/icons/pencil.png' />Edit"
+        edit:
+          prompt: "Change the name of tag"
+          error:
+            generic: "Couldn't change the tag name."
+            tag_exists: "A tag with the specified name already exists."
+            no_server: "Couldn't connect to the server."
 
     comments:
       index:
@@ -180,27 +198,6 @@ en:
         columns:
           created_at: "Date"
           commenter: "Commenter"
-          excert: "Excert"
-          post: "Post"
-      create:
-        title: "Announcement"
-      delete:
-        title: "Delete User"
-        question: "Are you sure you want to delete %{username}?"
-        bt_label: "Delete user"
-        cancel_link: 
-          label: "Cancel"
-          title: "Go back to users list"        
-
-    tags:
-      index:
-        title: "All Tags"
-        destroy_link: "<img src='/images/icons/tag_blue_delete.png'/>Delete"
-        update_link: "<img src='/images/icons/tag_blue_edit.png'/>Edit"
-        search: "Search Tags"
-        columns:
-          name: "Name"
-          taggings_count: "Posts Tagged"
           excert: "Excert"
           post: "Post"
       create:
