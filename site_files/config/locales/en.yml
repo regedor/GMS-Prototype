@@ -6,8 +6,7 @@ en:
     title: "Regedor"
     home: "Home"
     about: "About"
-    administration: "Administration" 
-
+    administration: "Administration"
 
   users:
     roles:
@@ -91,6 +90,21 @@ en:
 
 
   admin:
+    navigation:
+      main:
+        dashboard: "Dashboard"
+        users: "User Management"
+        website: "Website"
+        system: "System"
+      secondary:
+        users: "Users"
+        groups: "Groups"
+        posts: "Posts"
+        comments: "Comments"
+        announcements: "Announcements"
+        static_pages: "Static Pages"
+        settings: "Settings"
+        undo_items: "Actions"
     users:
       index:
         title: "Users List"

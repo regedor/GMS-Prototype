@@ -37,6 +37,8 @@ module Admin::BaseHelper
     action.complete_description
   end
 
+  # Auxiliar method that checks if some controller is the current controller.
+  # Needed to differentiate the current controller for highlight in the navigation bar.
   def is_menu_active? controller_paths
     active = false
     controller_paths.each do |path|
@@ -47,17 +49,20 @@ module Admin::BaseHelper
     active
   end
 
+  # Prints one element of the navigation menu.
   def navigation_menu(i18n_path, controller_paths, link_to_path, options={})
     code = '<li class="'
     code += 'active ' if is_menu_active? controller_paths
     code += 'first ' if options[:first]
     code += "\">\n"
-    code += link_to(i18n_path, link_to_path) + "\n"
+    code += link_to(I18n::t(i18n_path), link_to_path) + "\n"
     code += "</li>\n"
 
     code
   end
 
+  # Checks if the argument navigation bar is the one to be shown.
+  # If it is then it's shown.
   def secondary_navigation_menu(active_links, options={})
     code = ""
     if is_menu_active? active_links.map { |hash| hash[:controller_path] }
