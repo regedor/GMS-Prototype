@@ -1,6 +1,6 @@
 class Group < ActiveRecord::Base
-  belongs_to :parent_group,    :class_name=>"Group", :foreign_key=>"parent_group_id", :conditions => {:deleted=>false}
-  has_many   :subgroups,      :class_name=>"Group", :foreign_key=>"parent_group_id", :conditions => {:deleted=>false}
+  belongs_to :parent_group,    :class_name=>"Group", :foreign_key=>"parent_group_id", :conditions => {:groups => {:deleted=>false}}
+  has_many   :subgroups,      :class_name=>"Group", :foreign_key=>"parent_group_id", :conditions => {:groups => {:deleted=>false}}
   has_and_belongs_to_many :users, :conditions => {:users => {:deleted=>false}}
 
   validate :parent_is_not_own_descendent
