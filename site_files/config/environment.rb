@@ -9,13 +9,13 @@ require File.join(File.dirname(__FILE__), 'boot')
 Rails::Initializer.run do |config|
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
-
   config.gem "formtastic"
   config.gem "authlogic"
   config.gem "authlogic-oid", :lib => "authlogic_openid"
   config.gem "ruby-openid",   :lib => "openid"
   config.gem "configatron"
   config.gem "will_paginate"
+  config.gem "declarative_authorization", :source => "http://gemcutter.org"
   config.gem "chronic"
   config.gem "coderay"
   config.gem "lesstile"
@@ -42,7 +42,6 @@ Rails::Initializer.run do |config|
 end
 
 configatron.configure_from_yaml("config/config.yml", :hash => Rails.env)
-#APP_CONFIG = YAML.load_file("#{RAILS_ROOT}/config/config.yml")[RAILS_ENV]
 require 'string_extensions'
 require 'formtastic_extensions'
 

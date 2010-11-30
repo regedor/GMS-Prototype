@@ -6,7 +6,17 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Major.create(:name => 'Daley', :city => cities.first)
 #
-puts "Creating admins!"
+puts "Creating standard roles..."
+  Role.create :name => "root"
+  Role.create :name => "admin"
+  Role.create :name => "user"
+
+puts "Creating standard groups..."
+  default_group = Group.create :name => "Default", :mailable => false
+  root_group    = Group.create :name => "root",    :mailable => false
+  admin_group   = Group.create :name => "root",    :mailable => false
+
+puts "Creating admins..."
   user_regedor = User.new
   user_regedor.email             = 'miguelregedor@gmail.com'
   user_regedor.openid_identifier = 'https://www.google.com/accounts/o8/id?id=AItOawnbGyx78N1LosCVj5coDtzlvTjtRpcLu5c'
@@ -15,9 +25,11 @@ puts "Creating admins!"
   user_regedor.country           = 'PT'
   user_regedor.phone             = "00351964472540"
   user_regedor.gender            =  false
-  user_regedor.role              =  User::ROLES[:admin]
   user_regedor.save
   user_regedor.activate!
+  default_group.users << user_regedor
+  root_group.users    << user_regedor
+  admin_group.users   << user_regedor
   
   admin = User.new
   admin.email                 = 'admin@simon.com'
@@ -28,10 +40,14 @@ puts "Creating admins!"
   admin.country               = 'PT'
   admin.phone                 = "123456789"
   admin.gender                =  true
-  admin.role                  =  User::ROLES[:admin]
   admin.save
   admin.activate!
+  default_group.users << admin
+  root_group.users    << admin
+  admin_group.users   << admin
   
-puts "Creating standard groups!"
-  Group.create(:name=>"Default",:mailable=>false)
-  
+puts "Saving Groups..."
+  default_group.save
+  root_group.save
+  admin_group.save
+

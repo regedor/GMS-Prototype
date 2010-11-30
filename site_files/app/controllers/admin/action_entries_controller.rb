@@ -1,4 +1,5 @@
 class Admin::ActionEntriesController < Admin::BaseController
+  filter_access_to :all
   
   active_scaffold :action_entry do |config|
     config.actions.swap :search, :live_search
@@ -6,11 +7,8 @@ class Admin::ActionEntriesController < Admin::BaseController
     
     config.actions << :show
     config.action_links.add 'undo', :label => 'Undo', :type => :member, :page => true, :crud_type => :update, :method => :post
-  
-
 
     Scaffoldapp::active_scaffold config, "admin.action_entry", [:created_at, :controller, :action]
-   
   end
   
   #Overrides find so that it only shows the actions that can be undone

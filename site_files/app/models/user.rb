@@ -1,44 +1,62 @@
 class User < ActiveRecord::Base
 
+  # ==========================================================================
+  # Relationships
+  # ==========================================================================
+  
   has_and_belongs_to_many :groups
-  has_many :action_entries
+  has_many                :action_entries
+
+
+  # ==========================================================================
+  # Validations
+  # ==========================================================================
+  
+  validates_presence_of   :language, :name
+
+  # ==========================================================================
+  # Extra defnitions
+  # ==========================================================================
+
+  #is_gravtastic!
+  acts_as_authentic do |c| 
+    c.openid_required_fields = [
+      :fullname, :email, :language, :country, :nickname, 
+      'http://axschema.org/namePerson/first', 
+      'http://axschema.org/namePerson/last', 
+      'http://axschema.org/pref/language',
+      'http://axschema.org/contact/country/home',
+      'http://axschema.org/contact/email'
+    ]
+  end
+ 
+  attr_accessible :email, :password, :password_confirmation, :openid_identifier
+  attr_accessible :language, :name, :gender, :country
+  attr_accessible :groups
+  attr_accessible :row_mark #scaffold hack
 
   # Scope for non-deleted users
   named_scope :not_deleted, :conditions => {:deleted => false}
 
-  ROLES = { :admin => 10, :user  => 1 }
-  INVERTED_ROLES = ROLES.invert
+  # ==========================================================================
+  # Instance Methods
+  # ==========================================================================
 
-  #is_gravtastic!
-  acts_as_authentic do |c|
-    c.openid_required_fields = [:fullname, :email, :language, :country, :nickname, 
-                                'http://axschema.org/namePerson/first', 
-                                'http://axschema.org/namePerson/last', 
-                                'http://axschema.org/pref/language',
-                                'http://axschema.org/contact/country/home',
-                                'http://axschema.org/contact/email']
+  def build_cached_roles!
+    groups = self.groups.find_by_enforce_roles true
+    roles = group && group.roles
+    roles = self.groups.map(&:roles) unless roles && !roles.empty?
+    roles.map { |role| role.name.underscore }
+    self.cached_roles = roles.join ", "
+    self.save
   end
- 
-  attr_accessible :email, :password, :password_confirmation, :openid_identifier, :language, :name, :gender, :country
-  attr_accessible :row_mark #scaffold hack
-  #####################
-  ##  Relationships     
-  #####################
-  #
 
-  #####################
-  ##  Instance Methods
-  #####################
+  def role_symbols
+    self.cached_roles.split(", ").map &:to_sym
+  end
+
   def authorized_for?(*args)
-    !deleted
-  end
-
-  def active?
-    active
-  end
-
-  def deleted?
-    deleted
+    !self.deleted
   end
 
   def activate!
@@ -51,15 +69,23 @@ class User < ActiveRecord::Base
     save
   end
 
-  def destroy
+  def active?
+    self.active
+  end
+
+  def delete!
     self.deleted = true
     save
   end
   
-  def revive!
+  def undelete!
     self.deleted = false
     save
   end  
+
+  def deleted?
+    self.deleted
+  end
 
   def send_invitation!(mail)
     Notifier.deliver_invitation(self,mail)
@@ -80,49 +106,51 @@ class User < ActiveRecord::Base
     Notifier.deliver_password_reset_instructions(self)  
   end  
 
-  def set_role!(role)
-    self.role = ROLES[role]
-    self.save!
-  end
-
-  def is_role?(role)
+  def has_role?(role)
     self.role == ROLES[role]
   end
 
-  def role_sym
-    INVERTED_ROLES[self.role]
+  def first_name
+    self.name.split(" ").first
   end
 
-  def first_name
-    name.split(" ").first
+  def small_name
+    self.nickname || first_name
   end
   
-  def self.revive_by_ids(ids)
-    ids.each do |id|
-      return false unless User.find(id).revive!
-    end 
-    return true
-  end  
-  
-  def self.destroy_by_ids(ids)
-    ids.each do |id|
-      return false unless User.find(id).destroy
-    end 
-    return true 
-  end
-  
-  def self.activate!(ids)
-    ids.each do |id|
-      return false unless User.find(id).activate!
-    end 
-    return true
-  end  
-  
-  def self.deactivate!(ids)
-    ids.each do |id|
-      return false unless User.find(id).deactivate!
-    end 
-    return true
+ 
+  # ==========================================================================
+  # Class Methods
+  # ==========================================================================
+
+  class << self
+    def revive_by_ids(ids)
+      ids.each do |id|
+        return false unless User.find(id).revive!
+      end 
+      return true
+    end  
+    
+    def destroy_by_ids(ids)
+      ids.each do |id|
+        return false unless User.find(id).destroy
+      end 
+      return true 
+    end
+    
+    def activate!(ids)
+      ids.each do |id|
+        return false unless User.find(id).activate!
+      end 
+      return true
+    end  
+    
+    def deactivate!(ids)
+      ids.each do |id|
+        return false unless User.find(id).deactivate!
+      end 
+      return true
+    end
   end
 
  private
