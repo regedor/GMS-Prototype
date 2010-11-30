@@ -15,8 +15,8 @@
       <li id="tag-<%= tag.id %>">
         <%= tag.name %>
         (<%= link_to(tag.taggings_count.to_s + " " + I18n::t("#{i_env}.list.posts"),
-                     admin_posts_path + "?tag_id=" + tag.id.to_s) %>)
-        <a href="javascript:void(0)" onclick='edit_tag_js(<%= tag.id %>, "<%= tag.name %>")'>
+                     admin_posts_path + url_tag_list_array(@old_tag_ids, tag.id)) %>)
+        <a class="float_right" href="javascript:void(0)" onclick='edit_tag_js(<%= tag.id %>, "<%= tag.name %>")'>
                      <%= I18n::t("#{i_env}.list.edit") %></a>
       </li>
       <% end %>

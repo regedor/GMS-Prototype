@@ -5,21 +5,46 @@ class Admin::PostsController < Admin::BaseController
     config.actions.exclude :update, :delete
     config.actions << :update
     config.actions << :delete
-
+ 
     config.update.link = false
     config.actions.swap :search, :live_search
     config.create.link.inline = false
     config.show.link.inline = false
-    config.nested.add_link(I18n::t("admin.posts.index.comments_link"), [:comments])
-
+ 
     Scaffoldapp::active_scaffold config, "admin.posts", [
-      :title,:excert,:published_at,:total_approved_comments
+      :title, :excert, :published_at, :total_approved_comments
     ]
 
   end
 
+  def custom_finder_options
+    tag_ids = (params[:tag_ids] ? params[:tag_ids] : [])
+    tag_ids = [] if tag_ids.is_a? Hash
+    if tag_ids.empty?
+      return {}
+    elsif tag_ids.size == 1
+      return {
+         :joins => :taggings,
+         :conditions => { "taggings.tag_id" => tag_ids }
+      }
+    else
+      return { 
+         :from       => "(" + Post.send(:construct_finder_sql, 
+         {
+           :select     => "*, COUNT(*) as tag_count", 
+           :group      => "taggings.taggable_id",  
+           :joins      => :taggings, 
+           :conditions => { "taggings.tag_id" => tag_ids }
+         }) + ") as posts",
+         :conditions => { "tag_count" => tag_ids.size }
+      }
+    end
+  end
+
 
   def index
+    @old_tag_ids = (params[:tag_ids] ? params[:tag_ids] : [])
+    @old_tag_ids = [] if @old_tag_ids.is_a? Hash
     @tags = Tag.paginate :page => params[:tag_page],
                          :per_page => 5,
                          :conditions => 'taggings_count > 0',
@@ -32,7 +57,7 @@ class Admin::PostsController < Admin::BaseController
     if @post.save
       respond_to do |format|
         format.html {
-          flash[:notice] = "Created post '#{@post.title}'"
+          flash[:notice] = I18n::t('flash.post_created', :title => @post.title)
           redirect_to(:action => 'show', :id => @post)
         }
       end
@@ -47,7 +72,7 @@ class Admin::PostsController < Admin::BaseController
     if @post.update_attributes(params[:post])
       respond_to do |format|
         format.html {
-          flash[:notice] = "Updated post '#{@post.title}'"
+          flash[:notice] = I18n::t('flash.post_updated', :title => @post.title)
           redirect_to(:action => 'show', :id => @post)
         }
       end
@@ -75,7 +100,7 @@ class Admin::PostsController < Admin::BaseController
 
     respond_to do |format|
       format.js {
-        render :partial => 'preview', :locals => {:post => @post}
+        render :partial => 'post', :locals => {:post => @post}
       }
     end
   end
@@ -85,7 +110,7 @@ class Admin::PostsController < Admin::BaseController
 
     respond_to do |format|
       format.html do
-        flash[:notice] = "Deleted post '#{@post.title}'"
+        flash[:notice] = I18n::t('flash.post_deleted', :title => @post.title)
         redirect_to :action => 'index'
       end
       format.json {

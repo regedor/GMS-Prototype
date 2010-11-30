@@ -18,7 +18,13 @@ module Admin::BaseHelper
   end
 
   def total_approved_comments_column(post)
-    post.approved_comments.size
+    comments = post.approved_comments.size
+    message = I18n::t('admin.posts.index.comments_link.' + ((comments == 1) ? 'one' : 'more'), :count => comments)
+    if comments > 0
+      link_to(message, admin_post_comments_path(post))
+    else
+      message
+    end
   end
 
   def created_at_column(record)

@@ -166,7 +166,10 @@ en:
         title: "News List"
         destroy_link: "<img src='/images/icons/pencil_delete.png'/>Delete"
         show_link: "<img src='/images/icons/pencil.png'/>Details"
-        comments_link: "<img src='/images/icons/comments.png'/>Comments"
+        comments_link:
+          image: "<img src='/images/icons/comments.png'/>"
+          more: "%{count} Comments"
+          one: "%{count} Comment"
         search: "Search Posts"
         create: "New Post"
         columns:
@@ -175,18 +178,22 @@ en:
           excert: "Excert"
           total_approved_comments: "Comments"
       list:
+        noentries: "No Posts Found"
         found:
-          one: "1 Post Found"
           more: "%{count} Posts Found"
-      create:
-        title: "Announcement"
-      delete:
-        title: "Delete User"
-        question: "Are you sure you want to delete %{username}?"
-        bt_label: "Delete user"
-        cancel_link: 
-          label: "Cancel"
-          title: "Go back to users list"        
+          one: "%{count} Post Found"
+      form:
+        new: "New Post"
+        edit: "Editing Post"
+        submit: "Save"
+        fields:
+          published_at_natural: "Published at"
+        hints:
+          body: '<a href="http://hobix.com/textile/quick.html">Textile enabled</a>. Use Ctrl+E to switch between preview and edit mode.'
+          tag_list: "Comma separated: ruby, rails&hellip;"
+          published_at_natural: 'Example: now, yesterday, 1 hour from now, <a href="http://chronic.rubyforge.org/">more&hellip;</a>'
+          slug: "Leave blank for an auto-generated slug based on the title."
+          minor_edit: "Minor edits will not show up as refreshed in feed readers. Use this to fix spelling mistakes and the like."
       tags:
         title: "Tags"
         pagination:
@@ -194,7 +201,7 @@ en:
           next: "»»"
         list:
           posts: "posts"
-          edit: "<img src='/images/icons/pencil.png' />Edit"
+          edit: "<img src='/images/icons/tag_blue_edit.png' />Edit"
         edit:
           prompt: "Change the name of tag"
           error:
@@ -214,15 +221,11 @@ en:
           commenter: "Commenter"
           excert: "Excert"
           post: "Post"
-      create:
-        title: "Announcement"
-      delete:
-        title: "Delete User"
-        question: "Are you sure you want to delete %{username}?"
-        bt_label: "Delete user"
-        cancel_link: 
-          label: "Cancel"
-          title: "Go back to users list"        
+      list:
+        noentries: "No Comments Found"
+        found:
+          more: "%{count} Comments Found"
+          one: "%{count} Comment Found"
 
     undo_items:
       index:
@@ -234,8 +237,8 @@ en:
           type: "Description"
       list:
         found:
-          one: "{{count}} Action Found" 
-          many: "{{count}} Actions Found"   
+          one: "%{count} Action Found" 
+          many: "%{count} Actions Found"   
 
     announcements:
       index:
@@ -311,6 +314,9 @@ en:
     you_are_being_redirected: "You are being redirected. Please wait..."
     login_failed: "Failed to log in. Maybe you haven't activated your account, or entered incorrect data."
     group_created: "Succefully created a group"
+    post_created: "Created post '%{title}'"
+    post_updated: "Updated post '%{title}'"
+    post_deleted: " Deleted post '%{title}'"
   
   
   notifier: 
