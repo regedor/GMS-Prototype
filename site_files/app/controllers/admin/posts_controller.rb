@@ -18,14 +18,13 @@ class Admin::PostsController < Admin::BaseController
   end
 
   def custom_finder_options
-    tag_ids = (params[:tag_ids] ? params[:tag_ids] : [])
-    tag_ids = [] if tag_ids.is_a? Hash
-    if tag_ids.empty?
+    # '@tag_ids' comes from the index method
+    if @tag_ids.empty?
       return {}
-    elsif tag_ids.size == 1
+    elsif @tag_ids.size == 1
       return {
          :joins => :taggings,
-         :conditions => { "taggings.tag_id" => tag_ids }
+         :conditions => { "taggings.tag_id" => @tag_ids }
       }
     else
       return { 
@@ -34,21 +33,56 @@ class Admin::PostsController < Admin::BaseController
            :select     => "*, COUNT(*) as tag_count", 
            :group      => "taggings.taggable_id",  
            :joins      => :taggings, 
-           :conditions => { "taggings.tag_id" => tag_ids }
+           :conditions => { "taggings.tag_id" => @tag_ids }
          }) + ") as posts",
-         :conditions => { "tag_count" => tag_ids.size }
+         :conditions => { "tag_count" => @tag_ids.size }
       }
     end
   end
 
 
   def index
-    @old_tag_ids = (params[:tag_ids] ? params[:tag_ids] : [])
-    @old_tag_ids = [] if @old_tag_ids.is_a? Hash
-    @tags = Tag.paginate :page => params[:tag_page],
-                         :per_page => 5,
-                         :conditions => 'taggings_count > 0',
-                         :order => 'taggings_count DESC'
+    @tag_ids = (params[:tag_ids] ? params[:tag_ids] : [])
+    @tag_ids = [] if @tag_ids.is_a? Hash
+
+    if @tag_ids.empty?
+      @tags = Tag.paginate :page => params[:tag_page],
+                           :per_page => 5,
+                           :order => 'taggings_count DESC',
+                           :conditions => 'taggings_count > 0'
+    elsif @tag_ids.size == 1
+      @tags = Tag.paginate :page => params[:tag_page],
+                           :per_page => 5,
+                           :select => "tags.id, tags.name, COUNT(*) as taggings_count",
+                           :order => 'taggings_count DESC',
+                           :joins => "INNER JOIN taggings ON tags.id = taggings.tag_id",
+                           :group => "tags.id", 
+                           :conditions => "taggings.taggable_id IN (" + Post.send(:construct_finder_sql,
+                             {
+                               :select => "posts.id",
+                               :joins => :taggings,
+                               :conditions => { "taggings.tag_id" => @tag_ids }
+                             }) + ")"
+    else
+      @tags = Tag.paginate :page => params[:tag_page],
+                           :per_page => 5,
+                           :select => "tags.id, tags.name, COUNT(*) as taggings_count",
+                           :order => 'taggings_count DESC',
+                           :joins => "INNER JOIN taggings ON tags.id = taggings.tag_id",
+                           :group => "tags.id", 
+                           :conditions => "taggings.taggable_id IN (" + Post.send(:construct_finder_sql,
+                             {
+                               :select     => "posts.id",
+                               :from       => "(" + Post.send(:construct_finder_sql, 
+                                 {
+                                   :select     => "posts.id, COUNT(*) as tag_count", 
+                                   :group      => "taggings.taggable_id",  
+                                   :joins      => :taggings, 
+                                   :conditions => { "taggings.tag_id" => @tag_ids }
+                                 }) + ") as posts",
+                               :conditions => { "tag_count" => @tag_ids.size }
+                             }) + ")"
+    end
     super
   end
 
