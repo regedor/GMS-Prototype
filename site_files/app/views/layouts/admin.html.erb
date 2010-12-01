@@ -64,35 +64,42 @@
         <div class="secondary-navigation">
           <ul class="wat-cf">
 
-            <%= secondary_navigation_menu [ { :controller_path => 'admin/users',
+            <%= secondary_navigation_menu [ { :controller_paths => 'admin/dashboard',
+                                              :i18n_path => 'admin.navigation.secondary.dashboard',
+                                              :link_to_path => admin_root_path } ],
+
+                                          :specify_first => true %>
+
+            <%= secondary_navigation_menu [ { :controller_paths => 'admin/users',
                                               :i18n_path => 'admin.navigation.secondary.users',
                                               :link_to_path => admin_users_path },
 
-                                            { :controller_path => 'admin/groups',
+                                            { :controller_paths => 'admin/groups',
                                               :i18n_path => 'admin.navigation.secondary.groups',
                                               :link_to_path => admin_groups_path } ],
 
                                           :specify_first => true %>
 
-            <%= secondary_navigation_menu [ { :controller_path => 'admin/announcements',
+            <%= secondary_navigation_menu [ { :controller_paths => 'admin/announcements',
                                               :i18n_path => 'admin.navigation.secondary.announcements',
                                               :link_to_path => admin_announcements_path },
 
-                                            { :controller_path => 'admin/posts',
+                                            { :controller_paths => [ 'admin/posts',
+                                                                     'admin/comments'],
                                               :i18n_path => 'admin.navigation.secondary.posts',
                                               :link_to_path => admin_posts_path },
 
-                                            { :controller_path => '',
+                                            { :controller_paths => '',
                                               :i18n_path => 'admin.navigation.secondary.static_pages',
                                               :link_to_path => '' } ],
 
                                           :specify_first => true %>
 
-            <%= secondary_navigation_menu [ { :controller_path => 'admin/undo_items', 
+            <%= secondary_navigation_menu [ { :controller_paths => 'admin/undo_items', 
                                               :i18n_path => 'admin.navigation.secondary.undo_items',
                                               :link_to_path => admin_undo_items_path },
 
-                                            { :controller_path => 'admin/settings',
+                                            { :controller_paths => 'admin/settings',
                                               :i18n_path => 'admin.navigation.secondary.settings',
                                               :link_to_path => admin_settings_path   } ],
 

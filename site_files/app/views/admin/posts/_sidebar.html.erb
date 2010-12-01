@@ -38,8 +38,13 @@
                    new_line = new_line.replace('"' + old_name + '"', '"' + new_name + '"');
                    document.getElementById("tag-" + id).innerHTML = new_line;
         },
-        error: function() {
-                 alert(<%= '"' + I18n::t("#{i_env}.edit.error.generic") + '"' %>);
+        error: function(xmlhttp) {
+                 message = <%= '"' + I18n::t("#{i_env}.edit.error.generic") + '"' %>;
+                 if (xmlhttp.status == 500)
+                   message += '\n' + <%= '"' + I18n::t("#{i_env}.edit.error.tag_exists") + '"' %>;
+                 if (xmlhttp.status == 0 || xmlhttp.status == 404)
+                   message += '\n' + <%= '"' + I18n::t("#{i_env}.edit.error.no_server") + '"' %>;
+                 alert(message);
         }
       });
     }

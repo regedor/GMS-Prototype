@@ -97,6 +97,7 @@ en:
         website: "Website"
         system: "System"
       secondary:
+        dashboard: "Dashboard"
         users: "Users"
         groups: "Groups"
         posts: "Posts"

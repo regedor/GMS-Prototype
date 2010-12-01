@@ -28,7 +28,11 @@ module Admin::BaseHelper
   end
 
   def created_at_column(record)
-    record.created_at.strftime('%d %b, %Y')
+    if (Time.now - record.created_at) < 30.days
+      time_ago_in_words record.created_at 
+    else
+      record.created_at.strftime('%d %b, %Y')
+    end
   end
 
   def published_at_column(record)
@@ -71,10 +75,10 @@ module Admin::BaseHelper
   # If it is then it's shown.
   def secondary_navigation_menu(active_links, options={})
     code = ""
-    if is_menu_active? active_links.map { |hash| hash[:controller_path] }
+    if is_menu_active? active_links.map { |hash| hash[:controller_paths] }.flatten
       first = true if options[:specify_first] #filter nil
       active_links.each do |hash|
-        code += navigation_menu hash[:i18n_path], hash[:controller_path], hash[:link_to_path], :first => first
+        code += navigation_menu hash[:i18n_path], hash[:controller_paths], hash[:link_to_path], :first => first
         first = false
       end
     end
