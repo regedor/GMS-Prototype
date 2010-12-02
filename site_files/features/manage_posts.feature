@@ -6,9 +6,9 @@ Feature: Posts Manegement
 	Background:
 		Given I18n is set to english  
     And the following posts exists
-      | title             | body                     | published_at |
-      | Alice Hunter      | Is hot                   | yesterday    |
-			| Helena Secretária | anda por ai              | now          |
+      | title             | body                          | published_at |
+      | Alice Hunter      | Is an actress                 | yesterday    |
+      | Helena Secretária | Is the department secretary | now          |
 		And I am logged in as admin
 
 	@admin
@@ -18,9 +18,9 @@ Feature: Posts Manegement
 		And I follow "Website"
 		And I follow "Posts"
 		Then I should see "Alice Hunter"
-		And I should see "Is hot"
+		And I should see "Is an actress"
 		And I should see "Helena Secretária"
-		And I should see "anda por ai"
+		And I should see "Is the department secretary"
 		
 	Scenario: I want to create a new post
 	  When I follow "Administration"
@@ -35,14 +35,36 @@ Feature: Posts Manegement
 		Then I should see "Created post 'Lorem Ipsum'"
 		When I follow "Posts"
 		Then I should see "Lorem Ipsum"
+		# Check for tags
 		
 	Scenario: I want to delete an existing post
   	When I follow "Administration"
   	Then I should see "Simon Administration"
 		And I follow "Website"
 		And I follow "Posts"
-		And I delete "Helena"
+		When as admin I follow "Delete" for posts whose title is "Helena Secretária"
+		And I press "OK"
+		Then I should not see "Helena Secretária"
+		And I should see "Alice Hunter"
+		# Check for tags
+	
+	Scenario: I want to edit the title of a post
+		When I follow "Administration"
+		Then I should see "Simon Administration"
+		And I follow "Website"
+		And I follow "Posts"
+		Then I should see "Alice Hunter"
+		When as admin I follow "Details" for posts whose title is "Alice Hunter"
+		And I fill in "Title" with "The Huntress"
+		And I press "Save"
+		Then I should see "Updated post"
+		When I follow "Posts"
+		Then I should not see "Alice Hunter"
+		And I should see "The Huntress"
 		
+    
+		
+
 	
 	
 	
