@@ -31,7 +31,8 @@ Feature:
 			| End Date | Tue, 30 Nov 2010 16:22:00 +0000 |
 		When I press "Create"
 		Then I should see "Announcement 3"
-		
+	
+	@selenium
 	Scenario: Test the content of the announcements table after deleting an announcement
 		Given I am logged in as admin
 		When I follow "Administration"
