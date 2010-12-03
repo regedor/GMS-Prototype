@@ -36,7 +36,8 @@ Feature: Posts Manegement
 		When I follow "Posts"
 		Then I should see "Lorem Ipsum"
 		# Check for tags
-		
+	
+	@selenium
 	Scenario: I want to delete an existing post
   	When I follow "Administration"
   	Then I should see "Simon Administration"
@@ -47,6 +48,18 @@ Feature: Posts Manegement
 		Then I should not see "Helena Secretária"
 		And I should see "Alice Hunter"
 		# Check for tags
+		
+		@selenium
+		Scenario: I don't want to delete an existing post
+	  	When I follow "Administration"
+	  	Then I should see "Simon Administration"
+			And I follow "Website"
+			And I follow "Posts"
+			When as admin I follow "Delete" for posts whose title is "Helena Secretária"
+			And I press "Cancel"
+			Then I should see "Helena Secretária"
+			And I should see "Alice Hunter"
+			# Check for tags
 	
 	Scenario: I want to edit the title of a post
 		When I follow "Administration"
