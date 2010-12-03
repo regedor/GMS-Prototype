@@ -10,7 +10,7 @@
   <%= stylesheet_link_tag "formtastic/formtastic_changes",             :cache => true %>
   <%= stylesheet_link_tag "admin_themes/web_app_theme",                :cache => true %>
   <%= stylesheet_link_tag "active_scaffold_override/simon/stylesheet", :cache => true %>
-  <%= stylesheet_link_tag "admin_themes/default/style",                  :cache => true %>
+  <%= stylesheet_link_tag "admin_themes/simon/style",                  :cache => true %>
   <%= yield :head %>
 </head>
 <body>
@@ -30,10 +30,13 @@
           <li class="<%= controller.controller_path == 'admin/dashboard' ? 'active' : '' %>">
             <a href="<%= admin_root_path %>">Dashboad</a>
           </li>
-          <li class="<%= (controller.controller_path == 'admin/users') || (controller.controller_path == 'admin/groups') ? 'active' : '' %>">
+          <li class="<%= (controller.controller_path == 'admin/users')  ||
+                         (controller.controller_path == 'admin/groups') ||
+                         (controller.controller_path == 'root/groups') ? 'active' : '' %>">
             <a href="<%= admin_users_path %>">User Management</a>
           </li>
-          <li class="<%= (controller.controller_path == 'admin/posts') || (controller.controller_path == 'admin/announcements') ? 'active' : '' %>">
+          <li class="<%= (controller.controller_path == 'admin/posts') ||
+                         (controller.controller_path == 'admin/announcements') ? 'active' : '' %>">
             <a href="<%= admin_posts_path %>">Website</a>
           </li>
           <li class="<%= controller.controller_path == 'admin/settings' ? 'active' : '' %>"><a href="<%= admin_settings_path %>">System</a></li>

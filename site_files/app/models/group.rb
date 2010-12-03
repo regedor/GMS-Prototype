@@ -13,7 +13,7 @@ class Group < ActiveRecord::Base
   # Validations
   # ==========================================================================
 
-  validate :parent_is_not_own_descendent  
+  validate :parent_is_not_own_descendent
   named_scope :not_deleted, :conditions => {:deleted => false}
 
   # ==========================================================================

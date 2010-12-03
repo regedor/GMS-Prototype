@@ -136,6 +136,7 @@ en:
         sidebar:
           hierarchy:
             name: "Hierarchy"
+            subname: "All groups"
       delete:
         title: "Delete Group"
         question: "Are you sure you want to delete %{username}?"
@@ -151,7 +152,7 @@ en:
           one: "%{count} Group Found"      
       modify:
         error:
-          subgroup_of_self: "Group cannot be subgroup of itself"
+          subgroup_of_self: "Group cannot be subgroup of itself"      
 
     posts:
       index:

@@ -1,4 +1,4 @@
-class Admin::GroupsController < Admin::BaseController
+class Root::GroupsController < Admin::BaseController
   
   active_scaffold :group do |config|
     config.actions.swap :search, :live_search   
@@ -26,6 +26,12 @@ class Admin::GroupsController < Admin::BaseController
       :name, :mailable, :description, :parent_name      # Parent is a method defined in models/group.rb
     ]
    
+  end
+
+  # Method to filter which rows will appear.
+  # Only groups non managelable by root only be visible
+  def custom_finder_options
+    return { :conditions => {:manageable_by_root_only => false} }
   end
 
 end

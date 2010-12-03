@@ -2,7 +2,7 @@ module Admin::GroupsHelper
 
   #Method to generate tree as lists
   def generate_tree(group=Group.subgroups_names_tree) 
-    out = group[0] || ""
+    out = group[0] || "<h4>"+I18n.t("admin.groups.index.sidebar.hierarchy.subname")+"</h4>"
     if group.size > 2
       out += "<ul class=\"inner\">"
       group[1..-1].each do |subgroup|

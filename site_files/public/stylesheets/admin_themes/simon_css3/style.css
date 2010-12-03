@@ -1,5 +1,6 @@
 /*
-    Simon theme    
+    This theme uses a lot of css3 elements, only for experimental use
+    Simon theme
     simon grey:   #676766
     simon orange: #F2663A
     (Colors go from lighter to darker)
@@ -38,7 +39,7 @@ hr                       { background: #f0f0ee;color: #f0f0ee;}
 #header h1 a:visited     { color: #fff;}
 #sidebar .block h4       { font-weight: bold;}
 #sidebar .notice h4      { color: #0B43A8;}
-#sidebar h3              { background: #F2663A;color: #FFF;border-bottom: 5px solid #36393D; border-left:0;}
+#sidebar h3              { background: #FF9F0F;color: #FFF;border-bottom: 5px solid #36393D; border-left:0;}
 #sidebar ul li a:link, 
 #sidebar ul li a:visited { background: #FFF; border-bottom: 1px solid #F0F0EE; text-decoration: none;}
 #sidebar ul li a:hover, 
@@ -95,28 +96,30 @@ label { float:left;}
 #main .block .content .inner .content .inner { padding: 0;}
 #main .block .content .inner                 { padding: 0;}
 /* Active scaffold container */
-#main .block .content                        { background: #FCFCFC;border: 1px solid #36393D ;padding: 5px;}
+#main .block .content                        { background: #FCFCFC;padding: 5px;}
+
+
+
 
 /* Header */
-#header                   { background: #F2663A;}
 #user-navigation          { top: auto;bottom: 5px;right: 25px; color: black;}
 #user-navigation a.logout { background: #cc0000; padding: 1px 4px;}
 
 /* Sidebar */
-#sidebar .block     { background: #FFF;}
+#sidebar .block     { background: #FFF; }
 #sidebar .notice    { background: #E6EEFC;}
 
 /* Navigation */
 #wrapper #main-navigation        { border-top:0;}
 #main-navigation                 { background-color: #36393D;} /* Main navigation*/
 #main-navigation ul li           { margin-right: 0;}
-#main-navigation ul li a         { padding: 8px 0;}
-.secondary-navigation .wat-cf    { background-color: #F2663A;} /*Secondary navigation*/
+#main-navigation ul li a         { padding: 8px 0; }
+.secondary-navigation .wat-cf    { background-color: #FF9F0F;} /*Secondary navigation*/
 .secondary-navigation li a:hover { background: #666666;}
 .secondary-navigation            { background: white; border-bottom-color: #36393D;}
 
 /* Footer */
-#footer                          { padding: 0 20px;}
+#footer                          { padding: 10px 20px;}
 #footer .block p                 { margin: 0; padding: 7px; background-color: #36393D;}
 
 /* Pagination */
@@ -185,3 +188,21 @@ ul.list li,
 .form input.button, 
 #box .block                       { -moz-border-radius-bottomleft: 4px; -webkit-border-bottom-left-radius: 4px;
                                     -moz-border-radius-bottomright: 4px; -webkit-border-bottom-right-radius: 4px; }
+                        
+
+#main-navigation ul li.active a:link, 
+#main-navigation ul li.active a:visited, 
+#main-navigation ul li.active a:hover, 
+#main-navigation ul li.active a:active 
+               { background: -webkit-gradient(linear,left bottom,left top,color-stop(0.49, rgb(240,240,240)),color-stop(0.74, rgb(163,163,163)));
+                 background: -moz-linear-gradient(center bottom,rgb(240,240,240) 49%,rgb(163,163,163) 74%);}
+.secondary-navigation ul li.active,
+.secondary-navigation ul li.active a:hover,
+.secondary-navigation ul li.active a   
+               { background: -webkit-gradient(linear,left bottom,left top,color-stop(0.02, rgb(54,57,61)),color-stop(0.29, rgb(224,224,224)));
+                 background: -moz-linear-gradient(center bottom,rgb(54,57,61) 2%,rgb(224,224,224) 29%); }            
+#header        { background: -webkit-gradient(linear,left bottom,left top,color-stop(0.16, rgb(204,204,204)),color-stop(0.87, rgb(255,159,15)))}
+#header        { background: -moz-linear-gradient(center bottom,rgb(204,204,204) 16%,rgb(255,159,15) 87%)}
+#wrapper #main {-moz-box-shadow: 5px 5px 5px #888;-webkit-box-shadow: 5px 5px 5px #888;box-shadow: 5px 5px 5px #888;}
+#sidebar       {-moz-box-shadow: 5px 5px 5px #888;-webkit-box-shadow: 5px 5px 5px #888;box-shadow: 5px 5px 5px #888;}
+

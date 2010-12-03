@@ -131,6 +131,7 @@ class ScaffoldApp < ActiveRecord::Migration
       t.text    :description
       t.boolean :mailable,        :null => false
       t.boolean  "deleted",       :default => false, :null => false
+      t.boolean  "manageable_by_root_only",          :default => false, :null => false
       t.timestamps
     end  
 
