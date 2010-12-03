@@ -14,11 +14,16 @@ class Admin::UsersController < Admin::BaseController
     config.delete.link.page = true
 
     config.show.columns = [ :email, :active, :nickname, :profile, :website, :country, :gender ]
-    
+  
     config.subform.columns.exclude :email, :active, :password, :nickname, :profile, :website,
      :language, :country, :gender, :role, :phone, :crypted_password, :current_login_at, :last_login_at, :current_login_ip, :last_login_ip,
      :persistence_token, :single_access_token, :perishable_token, :openid_identifier, :password_salt, :last_request_at
-
+     
+    config.update.columns = [:name, :nickname, :email, :profile, :website, :country]
+  
+    
+    config.nested.add_link("<img src='/images/icons/arrow_undo.png'/>History", [:action_entries])
+  
     Scaffoldapp::active_scaffold config, "admin.users", [:created_at, :email, :active, :language, :name, :role], 
     [:destroy_by_ids, :activate!, :deactivate!]
   end
@@ -38,10 +43,17 @@ class Admin::UsersController < Admin::BaseController
     else ids = [ params[:id] ]
     end
     if User.send(params[:actions],ids)  
+      ids.each do |id|
+        user = User.find_by_id(id)
+        entry = ActionEntry.new({:controller=>params[:controller],:action=>params[:actions],:message=>user.name+" has been altered",:user_id=>user.id})
+        entry.set_undo_for(user.to_xml)
+        entry.save
+      end  
+      
       #After being sure the action was done, creates an action entry with the corresponding parameters and saves it to the db
-      entry = ActionEntry.new({:controller=>params[:controller],:action=>params[:actions],:message=>"Performed on ids: "+ids.inspect})
-      entry.set_undo_for(params[:actions])
-      entry.save
+      #entry = ActionEntry.new({:controller=>params[:controller],:action=>params[:actions],:message=>"Performed on ids: "+ids.inspect})
+      #entry.set_undo_for(params[:actions])
+      #entry.save
       list
     else
       render :text => "" 

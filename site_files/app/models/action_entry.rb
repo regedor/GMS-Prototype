@@ -1,6 +1,6 @@
 class ActionEntry < ActiveRecord::Base
   validates_presence_of :controller,:action
-  #belongs_to :caller, :class_name=>"ActionEntry", :foreign_key=>"user_id"
+  belongs_to :user
   
   attr_accessible :controller, :action, :user_id, :message
   
@@ -27,7 +27,7 @@ class ActionEntry < ActiveRecord::Base
     when "revive_by_ids"
       self.undo = "destroy_by_ids"      
     else
-      self.undo = nil  
+      self.undo = action  
     end  
   end  
   

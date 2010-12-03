@@ -7,16 +7,17 @@ class Admin::ActionEntriesController < Admin::BaseController
     config.actions << :show
     config.action_links.add 'undo', :label => "<img src='/images/icons/arrow_undo.png'/>Undo", :type => :member, :page => true, :crud_type => :update, :method => :post
   
+    config.show.columns.exclude :action,:undo
 
-    Scaffoldapp::active_scaffold config, "admin.action_entry", [:created_at, :controller, :action, :users_performed_on]
+    Scaffoldapp::active_scaffold config, "admin.action_entry", [:created_at, :controller, :user_id]
    
   end
   
   
   #Overrides find so that it only shows the actions that can be undone
-  def custom_finder_options
-     return { :conditions => "undo IS NOT NULL" }
-  end  
+ #def custom_finder_options
+ #   return { :conditions => "undo IS NOT NULL" }
+ #end  
   
  #Does the undo for an action    
  def undo
@@ -25,17 +26,14 @@ class Admin::ActionEntriesController < Admin::BaseController
    
    if item.controller == "admin/users"
      #Gets the ids for the users
-     match = item.message[/Performed on ids: \[(.*)\]/]
-     value = $1
+     #match = item.message[/Performed on ids: \[(.*)\]/]
+     #value = $1
      
      #Transforms the string with ids into an array
-     ids = value.split(/\"/).map(&:to_i).map(&:nonzero?).compact!
+     #ids = value.split(/\"/).map(&:to_i).map(&:nonzero?).compact!
+     
+     flash[:notice] = "Hello"
    end
-   
-   #Tries to undo, destroing the action if successful
-   if User.send(item.undo,ids)
-     item.destroy
-   end 
    
    #Re-renders the page
    index
