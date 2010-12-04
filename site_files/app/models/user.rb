@@ -93,6 +93,12 @@ class User < ActiveRecord::Base
     name.split(" ").first
   end
   
+  def revertTo(xmlUser)
+    user_hash = Hash.from_xml(xmlUser)
+    self.update_attributes user_hash["user"]
+   # self.attributes = user_hash["user"] #FIXME Doesn't work... :S
+  end  
+  
   def self.revive_by_ids(ids)
     ids.each do |id|
       return false unless User.find(id).revive!

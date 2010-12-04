@@ -2,22 +2,24 @@ class Admin::ActionEntriesController < Admin::BaseController
   
   active_scaffold :action_entry do |config|
     config.actions.swap :search, :live_search
-    config.actions.exclude :update, :delete, :show, :create
+    config.actions.exclude :update, :delete, :show, :create, :live_search
     
     config.actions << :show
-    config.action_links.add 'undo', :label => "<img src='/images/icons/arrow_undo.png'/>Undo", :type => :member, :page => true, :crud_type => :update, :method => :post
+    config.action_links.add 'undo', :label => "<img src='/images/icons/book_previous.png'/>Revert", :type => :member, :page => true, :crud_type => :update, :method => :post
   
     config.show.columns.exclude :action,:undo
 
-    Scaffoldapp::active_scaffold config, "admin.action_entry", [:created_at, :controller, :user_id]
+    Scaffoldapp::active_scaffold config, "admin.action_entry", [:created_at]
    
-  end
+  end  
   
+ # def count_includes
+ #    " "  
+ # end  
   
-  #Overrides find so that it only shows the actions that can be undone
- #def custom_finder_options
- #   return { :conditions => "undo IS NOT NULL" }
- #end  
+ def custom_finder_options
+    return { :order => 'created_at DESC'}
+ end  
   
  #Does the undo for an action    
  def undo
@@ -25,17 +27,14 @@ class Admin::ActionEntriesController < Admin::BaseController
    item = ActionEntry.find(params[:id])
    
    if item.controller == "admin/users"
-     #Gets the ids for the users
-     #match = item.message[/Performed on ids: \[(.*)\]/]
-     #value = $1
-     
-     #Transforms the string with ids into an array
-     #ids = value.split(/\"/).map(&:to_i).map(&:nonzero?).compact!
-     
-     flash[:notice] = "Hello"
+     item.user.revertTo(item.undo)
+     newer_entries = ActionEntry.all(:conditions => "id >= #{item.id}")
+     newer_entries.map(&:destroy)
+      #Re-renders the page
+     redirect_to :controller => "admin/users", :action => "index"
    end
    
-   #Re-renders the page
-   index
+  
+   
  end
 end

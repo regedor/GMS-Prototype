@@ -1,7 +1,5 @@
 class Admin::GroupsController < Admin::BaseController
   
-  after_filter :save_action
-  
   active_scaffold :group do |config|
     config.actions.swap :search, :live_search   
     config.actions.exclude :update, :delete, :show, :create
@@ -13,6 +11,9 @@ class Admin::GroupsController < Admin::BaseController
         
     config.create.columns = [:name, :description, :mailable, :parent_group, :subgroups, :users]
     config.subform.columns.exclude :description, :mailable
+    config.update.columns = [:name, :description, :mailable, :parent_group, :subgroups, :users]
+
+    config.nested.add_link("<img src='/images/icons/book_open.png'/>History", [:action_entries])
 
     Scaffoldapp::active_scaffold config, "admin.groups", [
       :name, :mailable, :description, :parent_name     # Parent is a method defined in models/group.rb
@@ -23,16 +24,14 @@ class Admin::GroupsController < Admin::BaseController
     
   end
   
-  
-  #TODO Different messages for each action
-  
-  def save_action
+  def before_update_save(record)
     @loggable_actions = [:destroy,:create,:update]
     if @loggable_actions.include?(params[:action].to_sym)
-      entry = ActionEntry.new({:controller=>params[:controller],:action=>params[:action],:message=>"No Message"})
-      entry.set_undo_for(params[:action])
+      group = Group.find_by_id(params[:id])
+      entry = ActionEntry.new({:controller=>params[:controller],:action=>params[:action],:message=>group.name+" has been altered",:user_id=>group.id})
+      entry.set_undo_for(group.to_xml)
       entry.save
     end
-  end  
+  end
   
 end  
