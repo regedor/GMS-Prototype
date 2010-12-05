@@ -215,8 +215,7 @@ en:
 
     comments:
       index:
-        #title: "All Comments for %{title}"
-        title: "All Comments"
+        title: "All Comments for %{title}"
         destroy_link: "<img src='/images/icons/comment_delete.png'/>Delete"
         update_link: "<img src='/images/icons/comment.png'/>Edit"
         search: "Search"

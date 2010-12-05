@@ -11,6 +11,14 @@ class Admin::CommentsController < Admin::BaseController
     Scaffoldapp::active_scaffold config, "admin.comments", [
       :commenter, :excert, :created_at
     ]
+
+  end
+
+  def list
+    active_scaffold_config.list.label =
+                           I18n::t 'admin.comments.index.title',
+                                   :title => (Post.find params[:post_id]).title
+    super
   end
 
 end
