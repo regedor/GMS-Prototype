@@ -48,8 +48,8 @@ class Admin::UsersController < Admin::BaseController
     if User.send(params[:actions],ids)  
       ids.each do |id|
         user = User.find_by_id(id)
-        entry = ActionEntry.new({:controller=>params[:controller],:action=>params[:actions],:message=>user.name+" has been altered",:user_id=>user.id})
-        entry.set_undo_for(user.to_xml)
+        entry = ActionEntry.new({:controller=>params[:controller],:action=>params[:actions],:message=>user.name+" has been altered",:entity_id=>user.id})
+        entry.xml_hash = user.to_xml
         entry.save
       end  
       list
@@ -62,8 +62,8 @@ class Admin::UsersController < Admin::BaseController
     @loggable_actions = [:destroy,:create,:update]
     if @loggable_actions.include?(params[:action].to_sym)
       user = User.find_by_id(params[:id])
-      entry = ActionEntry.new({:controller=>params[:controller],:action=>params[:action],:message=>user.name+" has been altered",:user_id=>user.id})
-      entry.set_undo_for(user.to_xml)
+      entry = ActionEntry.new({:controller=>params[:controller],:action=>params[:action],:message=>user.name+" has been altered",:entity_id=>user.id})
+      entry.xml_hash = user.to_xml
       entry.save
     end
   end

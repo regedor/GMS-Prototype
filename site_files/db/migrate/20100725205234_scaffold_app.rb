@@ -122,8 +122,8 @@ class ScaffoldApp < ActiveRecord::Migration
       t.string   :controller, :null => false   
       t.string   :action,     :null => false
       t.text     :message,    :null => false
-      t.text     :undo 
-      t.integer  :user_id
+      t.text     :xml_hash 
+      t.integer  :entity_id
     end
     add_index :action_entries, ["created_at"], :name => 'index_undo_items_on_created_at'
 
