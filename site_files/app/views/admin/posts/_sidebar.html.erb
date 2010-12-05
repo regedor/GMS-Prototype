@@ -14,10 +14,13 @@
       <% @tags.each do |tag| %>
       <li id="tag-<%= tag.id %>">
         <%= tag.name %>
-        (<%= link_to(tag.taggings_count.to_s + " " + I18n::t("#{i_env}.list.posts"),
-                     admin_posts_path + url_tag_list_array(@tag_ids, tag.id)) %>)
-        <a class="float_right" href="javascript:void(0)" onclick='edit_tag_js(<%= tag.id %>, "<%= tag.name %>")'>
-                     <%= I18n::t("#{i_env}.list.edit") %></a>
+        (<%= link_to(I18n::t("#{i_env}.list.posts." +
+                              (tag.taggings_count == 1 ? "one" : "more"),
+                                :count => tag.taggings_count),
+                            admin_posts_path + url_tag_list_array(@tag_ids, tag.id)) %>)
+        <a class="float_right" href="<%= edit_tag_admin_post_path(tag) %>"
+                               onclick='edit_tag_js(<%= tag.id %>, "<%= tag.name %>"); return false;'>
+                               <%= I18n::t("#{i_env}.list.edit") %></a>
       </li>
       <% end %>
     </ul>
@@ -31,22 +34,18 @@
       jQuery.ajax({
         type: "PUT",
         url: "posts/" + id + "/update_tag",
-        data: "name=" + new_name,
-        success: function() {
-                   var old_line = document.getElementById("tag-" + id).innerHTML;
-                   var new_line = old_line.replace(new RegExp(old_name + "[ \n]+"), new_name + " ");
-                   new_line = new_line.replace('"' + old_name + '"', '"' + new_name + '"');
-                   document.getElementById("tag-" + id).innerHTML = new_line;
-        },
-        error: function(xmlhttp) {
-                 message = <%= '"' + I18n::t("#{i_env}.edit.error.generic") + '"' %>;
-                 if (xmlhttp.status == 500)
-                   message += '\n' + <%= '"' + I18n::t("#{i_env}.edit.error.tag_exists") + '"' %>;
-                 if (xmlhttp.status == 0 || xmlhttp.status == 404)
-                   message += '\n' + <%= '"' + I18n::t("#{i_env}.edit.error.no_server") + '"' %>;
-                 alert(message);
+        data: "tag[name]=" + new_name,
+        success: function(xmlhttp) {
+          eval(xmlhttp);
         }
       });
     }
+  }
+
+  function update_record(id, old_name, new_name) {
+    var old_line = document.getElementById("tag-" + id).innerHTML;
+    var new_line = old_line.replace(new RegExp(old_name + "[ \n]+"), new_name + " ");
+    new_line = new_line.replace('"' + old_name + '"', '"' + new_name + '"');
+    document.getElementById("tag-" + id).innerHTML = new_line;
   }
 </script>

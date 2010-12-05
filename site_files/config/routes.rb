@@ -40,15 +40,16 @@ ActionController::Routing::Routes.draw do |map|
                                            :suspended => :get, 
                                            :deleted   => :get }
     admin.resources :posts,                :active_scaffold => true, :active_scaffold_sortable => true,
-                    :has_many   =>         [ :comments, :tags ],
+                    :has_many   =>         :comments,
                     :new        =>       { :preview => :post },
-                    :member     =>       { :update_tag => :put }
+                    :member     =>       { :check_delete => [:get, :post],
+                                           :edit_tag => :get,
+                                           :update_tag => :put }
     admin.resources :pages,                :active_scaffold => true, :active_scaffold_sortable => true,
                     :new        =>       { :preview => :post }
     admin.resources :comments,             :active_scaffold => true, :active_scaffold_sortable => true,
                     :member     =>       { :mark_as_spam => :put,
                                            :mark_as_ham => :put }
-    admin.resources :tags,                 :has_many => :posts
     admin.resources :undo_items,           :active_scaffold => true, :active_scaffold_sortable => true,
                     :member     =>       { :undo => :post }
 

@@ -7,6 +7,7 @@
   <%= javascript_include_tag 'jquery' %>
   <%= javascript_include_tag 'utils' , 'getSelectedCheckboxes' %>
   <%= active_scaffold_includes %>
+  <%= stylesheet_link_tag "formtastic/formtastic",                     :cache => true %>
   <%= stylesheet_link_tag "formtastic/formtastic_changes",             :cache => true %>
   <%= stylesheet_link_tag "admin_themes/web_app_theme",                :cache => true %>
   <%= stylesheet_link_tag "active_scaffold_override/simon/stylesheet", :cache => true %>
@@ -53,12 +54,8 @@
       </div>
     </div>    
     <div id="wrapper" class="wat-cf">
-      <div class="flash">
-        <% flash.each do |type, message| -%>
-          <div class="message <%= type %>">
-            <p><%= message %></p>
-          </div>
-        <% end -%>
+      <div id="flash" class="flash">
+        <%= flash_messages %>
       </div>
       <div id="main">
         <div class="secondary-navigation">

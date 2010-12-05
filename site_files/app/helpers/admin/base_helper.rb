@@ -47,6 +47,19 @@ module Admin::BaseHelper
     action.complete_description
   end
 
+  # Generates html containing the flash messages with the correct classes.
+  def flash_messages
+    code = ""
+    flash.each do |type, message|
+      next if message.nil?
+      code += "<div class=\"message #{type}\">\n"
+      code += "  <p>#{message}</p>\n"
+      code += "</div>\n"
+    end
+
+    code
+  end
+
   # Auxiliar method that checks if some controller is the current controller.
   # Needed to differentiate the current controller for highlight in the navigation bar.
   def is_menu_active? controller_paths

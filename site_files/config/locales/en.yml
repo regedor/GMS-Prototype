@@ -186,6 +186,7 @@ en:
       form:
         new: "New Post"
         edit: "Editing Post"
+        edit_tag: "Editing Tag - %{name}"
         submit: "Save"
         fields:
           published_at_natural: "Published at"
@@ -201,8 +202,10 @@ en:
           previous: "««"
           next: "»»"
         list:
-          posts: "posts"
           edit: "<img src='/images/icons/tag_blue_edit.png' />Edit"
+          posts:
+            more: "%{count} posts"
+            one: "%{count} post"
         edit:
           prompt: "Change the name of tag"
           error:
@@ -212,6 +215,7 @@ en:
 
     comments:
       index:
+        #title: "All Comments for %{title}"
         title: "All Comments"
         destroy_link: "<img src='/images/icons/comment_delete.png'/>Delete"
         update_link: "<img src='/images/icons/comment.png'/>Edit"
@@ -315,9 +319,8 @@ en:
     you_are_being_redirected: "You are being redirected. Please wait..."
     login_failed: "Failed to log in. Maybe you haven't activated your account, or entered incorrect data."
     group_created: "Succefully created a group"
-    post_created: "Created post '%{title}'"
-    post_updated: "Updated post '%{title}'"
-    post_deleted: " Deleted post '%{title}'"
+    tag_changed: "Successfully updated tag %{old}'s name to %{new}."
+    invalid_tag_change: "Could not change tag %{old}'s name to %{new} because tag %{new} already exists."
   
   
   notifier: 
