@@ -48,6 +48,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :pages,                :active_scaffold => true, :active_scaffold_sortable => true,
                     :new        =>       { :preview => :post }
     admin.resources :comments,             :active_scaffold => true, :active_scaffold_sortable => true,
+                    :only       =>         :destroy,
                     :member     =>       { :mark_as_spam => :put,
                                            :mark_as_ham => :put }
     admin.resources :undo_items,           :active_scaffold => true, :active_scaffold_sortable => true,
