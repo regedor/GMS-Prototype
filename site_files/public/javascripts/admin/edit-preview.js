@@ -1,5 +1,3 @@
-( function($) {
-
 $(document).ready(function() {
   var form = $('form.formtastic');
 
@@ -42,5 +40,3 @@ $(document).ready(function() {
     });
   }
 });
-
-} ) ( jQuery );
