@@ -169,7 +169,6 @@ class ScaffoldApp < ActiveRecord::Migration
     end
     add_index :action_entries, ["created_at"], :name => 'index_action_entries_on_created_at'
 
-
   end
 
   def self.down

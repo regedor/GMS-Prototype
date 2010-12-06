@@ -151,6 +151,7 @@ en:
         sidebar:
           hierarchy:
             name: "Hierarchy"
+            subname: "All groups"
       delete:
         title: "Delete Group"
         question: "Are you sure you want to delete %{username}?"
@@ -163,17 +164,7 @@ en:
       list:
         found:
           more: "%{count} Groups Found"
-<<<<<<< HEAD
           one: "%{count} Group Found"      
-      modify:
-        error:
-          subgroup_of_self: "Group cannot be subgroup of itself"
-=======
-          one: "%{count} Group Found"
-      translations:
-        name: "Name"                                      
->>>>>>> origin/features/admin-actions
-
     posts:
       index:
         title: "News List"

@@ -28,8 +28,7 @@ class Admin::GroupsController < Admin::BaseController
     config.list.always_show_search = true
     
     Scaffoldapp::active_scaffold config, "admin.groups", [:name, :mailable, :description ],
-      [:isto_symbol_devia_ser_delete_mas_alguem_fez_ma_i18n]
-   
+      [:delete_by_ids]
   end
 
   
