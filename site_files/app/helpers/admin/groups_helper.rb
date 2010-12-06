@@ -31,5 +31,18 @@ module Admin::GroupsHelper
     users
   end
 
+  #Redefining layout for manageable by root only field
+  #FIXME: the label still appears
+  #def manageable_by_root_only_form_column(record, input_name)
+  #  #check_box :record, :manageable_by_root_only, :name => input_name
+  #  nil
+  #end
 
+  #How to remove users for groups
+  #FIXME: the label still appears
+  #def users_form_column(record, input_name)
+  #  #check_box :record, :manageable_by_root_only, :name => input_name
+  #  nil
+  #end
+  
 end

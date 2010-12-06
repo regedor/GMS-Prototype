@@ -1,6 +1,6 @@
 /*
-    This theme uses a lot of css3 elements, only for experimental use
-    Simon theme
+    This theme uses a lot of css3 elements, only for experimental use.
+    Simon theme: Orange gradient
     simon grey:   #676766
     simon orange: #F2663A
     (Colors go from lighter to darker)
@@ -58,7 +58,7 @@ hr                       { background: #f0f0ee;color: #f0f0ee;}
 #main-navigation ul li a:hover         { background-color: #666;}
 .secondary-navigation ul li.active,
 .secondary-navigation ul li.active a:hover,
-.secondary-navigation ul li.active a   { background-color: #36393D; color: #F2663A;}
+.secondary-navigation ul li.active a   { background-color: #36393D; color: #F2663A; font-weight: bold;}
 #main-navigation ul li.active a:link, 
 #main-navigation ul li.active a:visited, 
 #main-navigation ul li.active a:hover, 
