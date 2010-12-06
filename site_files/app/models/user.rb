@@ -5,8 +5,9 @@ class User < ActiveRecord::Base
   # ==========================================================================
   
   has_and_belongs_to_many :groups
-  has_many                :action_entries
   belongs_to              :role
+  has_many :action_entries, :class_name => "ActionEntry", :foreign_key => "entity_id", 
+   :conditions => "'action_entries'.'controller'='admin/users' AND 'action_entries'.'action' is not 'delete' "
 
 
   # ==========================================================================
@@ -118,32 +119,16 @@ class User < ActiveRecord::Base
   def first_name
     self.name.split(" ").first
   end
-<<<<<<< HEAD
 
   def small_name
     self.nickname || first_name
-=======
+  end
   
   def revertTo(xmlUser)
     user_hash = Hash.from_xml(xmlUser)
     self.update_attributes user_hash["user"]
    # self.attributes = user_hash["user"] #FIXME Doesn't work... :S
   end  
-  
-  def self.revive_by_ids(ids)
-    ids.each do |id|
-      return false unless User.find(id).revive!
-    end 
-    return true
-  end  
-  
-  def self.destroy_by_ids(ids)
-    ids.each do |id|
-      return false unless User.find(id).delete!
-    end 
-    return true 
->>>>>>> origin/features/admin-actions
-  end
   
  
   # ==========================================================================

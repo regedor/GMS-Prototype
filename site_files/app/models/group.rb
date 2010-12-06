@@ -1,11 +1,12 @@
 class Group < ActiveRecord::Base
-<<<<<<< HEAD
   # ==========================================================================
   # Relationships
   # ==========================================================================
 
   has_and_belongs_to_many :groups,       :association_foreign_key => "include_group_id"
   has_and_belongs_to_many :direct_users, :class_name => "User"
+  has_many :action_entries, :class_name => "ActionEntry", :foreign_key => "entity_id", 
+  :conditions => "'action_entries'.'controller'='admin/groups' AND 'action_entries'.'action' is not 'delete' "
 
 
   # ==========================================================================
@@ -18,14 +19,6 @@ class Group < ActiveRecord::Base
   # ==========================================================================
   # Instance Methods
   # ==========================================================================
-=======
-  belongs_to :parent_group,    :class_name=>"Group", :foreign_key=>"parent_group_id"
-  has_many   :subgroups,      :class_name=>"Group", :foreign_key=>"parent_group_id"
-  has_and_belongs_to_many :users
-  has_many :action_entries, :class_name => "ActionEntry", :foreign_key => "user_id", :conditions => "'action_entries'.'controller'='admin/groups'"
-  
-  
->>>>>>> origin/features/admin-actions
   
   #Returns parent name
   def subgroups_names
@@ -41,6 +34,24 @@ class Group < ActiveRecord::Base
   def subgroups
     subgroups_tree.flatten[1..-1]
   end
+
+  #FIXME
+  def pretty_print
+    str = "Name: #{name}\nMailable: #{mailable}\nDescription: #{description}"
+    if parent_group_id != nil
+     str += "\nParent: #{Group.find(parent_group_id).name}"
+    else
+      str += "\nNo parent" 
+    end
+    return str 
+  end  
+  
+  def revertTo(xmlGroup)
+    group_hash = Hash.from_xml(xmlGroup)
+    self.update_attributes group_hash["group"]
+   # self.attributes = user_hash["user"] #FIXME Doesn't work... :S
+  end
+  
   
   # Create group hierarchy (includes itself)
   # Each array is a group

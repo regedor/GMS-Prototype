@@ -11,35 +11,15 @@ class Admin::UsersController < Admin::BaseController
     config.actions << :update
     config.actions << :delete
 
-<<<<<<< HEAD
     config.update.columns = [:email, :active, :nickname, :profile, :website, :country, :gender]
     config.columns[:groups].show_blank_record = false
     config.show.columns = [ :email, :active, :nickname, :profile, :website, :country, :gender ]
 
 
-    Scaffoldapp::active_scaffold config, "admin.users", [:created_at, :email, :active, :name, :role], 
-      [:destroy_by_ids, :activate!, :deactivate!]
-=======
-    config.delete.link.controller = nil
-    config.delete.link.method = nil
-    config.delete.link.action = 'do_action'
-    config.delete.link.parameters = { "actions" => "destroy_by_ids" }
-    config.delete.link.page = true
-
-    config.show.columns = [ :email, :name, :active, :nickname, :profile, :website, :country, :gender ]
-  
-    config.subform.columns.exclude :email, :active, :password, :nickname, :profile, :website,
-     :language, :country, :gender, :role, :phone, :crypted_password, :current_login_at, :last_login_at, :current_login_ip, :last_login_ip,
-     :persistence_token, :single_access_token, :perishable_token, :openid_identifier, :password_salt, :last_request_at
-     
-    config.update.columns = [:email, :name, :nickname, :profile, :website, :country, :gender]
-  
-    
     config.nested.add_link("<img src='/images/icons/book_open.png'/>History", [:action_entries])
   
-    Scaffoldapp::active_scaffold config, "admin.users", [:created_at, :email, :active, :language, :name, :role], 
-    [:destroy_by_ids, :activate!, :deactivate!]
->>>>>>> origin/features/admin-actions
+    Scaffoldapp::active_scaffold config, "admin.users", [:created_at, :email, :active, :name, :role], 
+      [:destroy_by_ids, :activate!, :deactivate!]
   end
 
   # Override this method to define conditions to be used when querying a recordset (e.g. for List).
@@ -58,8 +38,8 @@ class Admin::UsersController < Admin::BaseController
     if User.send(params[:actions],ids)  
       ids.each do |id|
         user = User.find_by_id(id)
-        entry = ActionEntry.new({:controller=>params[:controller],:action=>params[:actions],:message=>user.name+" has been altered",:user_id=>user.id})
-        entry.set_undo_for(user.to_xml)
+        entry = ActionEntry.new({:controller=>params[:controller],:action=>params[:actions],:message=>user.name+" has been altered",:entity_id=>user.id})
+        entry.xml_hash = user.to_xml
         entry.save
       end  
       list
@@ -72,8 +52,8 @@ class Admin::UsersController < Admin::BaseController
     @loggable_actions = [:destroy,:create,:update]
     if @loggable_actions.include?(params[:action].to_sym)
       user = User.find_by_id(params[:id])
-      entry = ActionEntry.new({:controller=>params[:controller],:action=>params[:action],:message=>user.name+" has been altered",:user_id=>user.id})
-      entry.set_undo_for(user.to_xml)
+      entry = ActionEntry.new({:controller=>params[:controller],:action=>params[:action],:message=>user.name+" has been altered",:entity_id=>user.id})
+      entry.xml_hash = user.to_xml
       entry.save
     end
   end
