@@ -46,14 +46,17 @@ configatron.configure_from_yaml("config/config.yml", :hash => Rails.env)
 require 'string_extensions'
 require 'formtastic_extensions'
 
-#module I18n
-#
-#  def self.t(label, options = {})
-#    "pumba"
-#  end
-#
-#  def self.translate(label, options = {})
-#    "pumba"
-#  end
-#
-#end
+=begin
+module I18n
+
+  def self.t(label, options = {})
+    "pumba"
+  end
+
+  def self.translate(label, options = {})
+    "pumba"
+  end
+
+end
+=end
+

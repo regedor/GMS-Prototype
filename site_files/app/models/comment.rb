@@ -68,6 +68,10 @@ class Comment < ActiveRecord::Base
     undo_item
   end
 
+  def to_s
+    "#{author} (#{id})"
+  end
+
   # Delegates
   def post_title
     post.title

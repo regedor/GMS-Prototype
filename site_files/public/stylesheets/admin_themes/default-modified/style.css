@@ -282,3 +282,6 @@ ul.list li .item .avatar {
   margin-top: -0.15em;
 }
 
+#sidebar a.float_right {
+  float: right;
+}

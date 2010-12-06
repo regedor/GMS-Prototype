@@ -1,8 +1,15 @@
-<h1>New post</h1>
+<div class="block">
+  <div class="content">
+    <div class="inner">
 
-<% semantic_form_for([:admin, @post]) do |form| -%>
-  <%= render :partial => 'form', :locals => {:form => form} -%>
-  <% form.button_field_set do -%>
-    <%= form.commit_button("Save") -%>
-  <% end -%>
-<% end -%>
+      <h2><%= I18n::t('admin.posts.form.new') %></h2>
+
+      <% semantic_form_for([:admin, @post]) do |form| -%>
+        <%= render :partial => 'form', :locals => {:form => form} -%>
+        <% form.button_field_set do -%>
+          <%= form.commit_button(I18n::t('admin.posts.form.submit')) -%>
+        <% end -%>
+      <% end -%>
+    </div>
+  </div>
+</div>
