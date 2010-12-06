@@ -1,9 +1,9 @@
 module Admin::GroupsHelper
 
   #Method to generate tree as lists
-  def generate_tree(group=Group.subgroups_names_tree) 
+  def generate_tree(group) 
     out = group[0] || ""
-    if group.size > 2
+    if group.size > 1
       out += "<ul class=\"inner\">"
       group[1..-1].each do |subgroup|
         out += "<li>" + generate_tree(subgroup) + "</li>"
@@ -14,8 +14,7 @@ module Admin::GroupsHelper
     return out
   end
   
-  #--
-  #FIXME:moved from model, delete on model
+  #
   def groups_names
     users = {}
     users_groups.each do |k,v|

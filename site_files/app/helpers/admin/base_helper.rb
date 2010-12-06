@@ -1,5 +1,6 @@
 module Admin::BaseHelper
 
+
   def role_column(user)
     t("users.roles." + user.role_sym.to_s)
   end

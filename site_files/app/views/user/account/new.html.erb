@@ -18,7 +18,7 @@
 </div>
 
 <div class="form_with_notes">
-  <% semantic_form_for @user, :html => {:method => :post} do |f| %>
+  <% semantic_form_for @user, :url => new_user_account_url, :html => {:method => :post} do |f| %>
     <% if @user.openid_identifier.blank? -%>
       <% f.inputs :name => t('users.new.form_inputs_name') do %>
         <%= f.input :email, :label => t('users.form.email') %>

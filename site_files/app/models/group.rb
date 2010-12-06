@@ -3,17 +3,14 @@ class Group < ActiveRecord::Base
   # Relationships
   # ==========================================================================
 
-  belongs_to              :parent_group, :class_name => "Group", :foreign_key => "parent_group_id"
-  has_many                :subgroups,    :class_name => "Group", :foreign_key => "parent_group_id"
-  has_and_belongs_to_many :users
-  has_and_belongs_to_many :roles
+  has_and_belongs_to_many :groups,       :association_foreign_key => "include_group_id"
+  has_and_belongs_to_many :direct_users, :class_name => "User"
 
 
   # ==========================================================================
   # Validations
   # ==========================================================================
 
-  validate :parent_is_not_own_descendent  
   named_scope :not_deleted, :conditions => {:deleted => false}
 
 
@@ -22,105 +19,42 @@ class Group < ActiveRecord::Base
   # ==========================================================================
   
   #Returns parent name
-  def parent_name
-    if self.parent_group.nil?
-    
-      return ""
-    else
-    
-      return self.parent_group.name
-    end    
+  def subgroups_names
+    self.subgroups.map(&:name).join ", "
   end
 
-  def authorized_for?(*args)
-    !deleted
-  end
-
-  def deleted?
-    deleted
-  end
-
-  # Destroys a group
-  def destroy
-    self.subgroups.each do |subgroup|
-      subgroup.destroy unless subgroup == self
-    end
-    self.deleted = true
-    self.parent_group = nil
-    save
-  end
-  
   #Give all users
   def all_users
-    us = self.subgroups.map do |g| g.users end
-    us.flatten! if us
-    us.uniq! if us
-    self.users + us
+    self.direct_users | subgroups.map(&:direct_users).flatten
   end
   
-  #Give all users names
-  def all_users_names
-    users_groups = {}
-    users_hash   = {}
-    self.subgroups.each do |subgroup|
-      users = (subgroup.users - self.users).flatten.uniq
-      users.map { |u| users_groups[u.id] ? users_groups[u.id] << subgroup : users_groups[u.id] = [subgroup] } unless users.empty?
-      users.map { |u| users_hash[u.id] ||= u } unless users.empty? 
-    end
-    
-    #FIXME: To move to Helper
-    users = {}
-    users_groups.each do |k,v|
-      v.each do |group|
-        if users[k]
-          users[k] += ", #{group.name}"
-        else
-          users[k]  = users_hash[k].name + " (" + group.name  
-        end
-      end
-    end
-    
-   subgroups_users  = users.values.join "), "
-   subgroups_users += ")" unless subgroups_users.nil? || subgroups_users.blank?
-   
-   group_users = ((self.users.map &:name).join ", ")  
-   group_users += ", " unless group_users.nil? || group_users.blank? || subgroups_users.nil? || subgroups_users.blank?
-   
-   return group_users + subgroups_users
+  #Retrieves and array containing all subgroups
+  def subgroups
+    subgroups_tree.flatten[1..-1]
   end
   
-  #Check if is not subgroup of itself
-  def parent_is_not_own_descendent
-    group = self
-    while group = group.parent_group
-      if group.id == self.id 
-        errors.add(I18n.t("admin.groups.modify.error.subgroup_of_self")+", ")
-        
-        return false
-      end
-    end
+  # Create group hierarchy (includes itself)
+  # Each array is a group
+  # First element is tha name of the group, the rest are it's subgroups
+  def subgroups_tree(groups_to_exclude=[])
+    (self.groups - groups_to_exclude).map do |group| 
+      group.subgroups_tree(self.groups | groups_to_exclude).unshift self
+    end.unshift
   end
   
-  #Create group names hierarchy as sublists
-  def subgroups_tree
-    self.subgroups.map(&:subgroups_tree).unshift self
-  end
-  
-  #Create group hierarchy as sublists
-  def subgroups_names_tree
-    self.subgroups.map(&:subgroups_names_tree).unshift self.name
+  #Create group names hierarchy as list
+  def subgroups_names_tree(groups_to_exclude=[self])
+    (self.groups - groups_to_exclude).map do |group| 
+      group.subgroups_names_tree(self.groups | groups_to_exclude)
+    end.unshift self.name
   end
    
+
   # ==========================================================================
   # Class Methods
   # ==========================================================================
 
   class << self
-
-    #Create group hierarchy as sublists for All nodes
-    def subgroups_names_tree
-      self.find_all_by_parent_group_id(nil).map(&:subgroups_names_tree).unshift nil
-    end
 
   end
   

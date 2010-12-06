@@ -1,4 +1,4 @@
-class UserPasswordResetsController < ApplicationController
+class User::PasswordResetController < ApplicationController
   before_filter :require_no_user
   before_filter :load_user_using_perishable_token, :only => [:edit, :update]
 

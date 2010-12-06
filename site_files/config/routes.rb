@@ -1,23 +1,30 @@
 ActionController::Routing::Routes.draw do |map|
 
-  map.root :controller => "pages", :action => "root_page"
+  map.root :controller => 'posts', :action => 'index'
   # ==========================================================================
-  # User Resources
+  # Frontend Resources
   # ==========================================================================
   map.page '/page/:action', :controller => "pages"
   map.resources :posts
+  map.resources :pages
+  map.connect ':year/:month/:day/:slug/comments/new', :controller => 'comments', :action => 'new'
+  map.connect ':year/:month/:day/:slug/comments.:format', :controller => 'comments', :action => 'index'
+  map.connect ':year/:month/:day/:slug', :controller => 'posts', :action => 'show', :requirements => { :year => /\d+/ }
+  #map.posts_with_tag ':tag', :controller => 'posts', :action => 'index'
+  #map.formatted_posts_with_tag ':tag.:format', :controller => 'posts', :action => 'index'
+
 
   # ==========================================================================
-  # Session Resources
+  # User Resources
   # ==========================================================================
-  map.resources :users
-  map.resource  :account,  :controller => "users"
-  map.resources :user_password_resets
-  map.resource  :user_session, :member => { :send_invitations => :post }
-  map.language  '/user_session/language/:language', :controller => 'user_sessions', :action => 'language'
-  map.logout    '/logout', :controller => 'user_sessions', :action => 'destroy'
-  map.login     '/login',  :controller => 'user_sessions', :action => 'new'
-  map.activate  '/activate/:activation_code', :controller => 'users', :action => 'activate'
+  map.namespace :user do |user|
+    user.resource  :account,                           :controller => 'account'
+    user.resource  :password_reset
+    user.resource  :session,                           :controller => 'session', :member => { :send_invitations => :post }
+    user.logout    'session/end',                      :controller => 'session', :action => 'destroy'
+    user.language  '/user_session/language/:language', :controller => 'session', :action => 'language'
+    user.activate  '/activate/:activation_code',       :controller => 'account', :action => 'activate'
+  end
 
   # ==========================================================================
   # Admin Resources
@@ -36,7 +43,7 @@ ActionController::Routing::Routes.draw do |map|
                                      :new             =>  { :preview => :post },
                                      :member          =>  { :update_tag => :put }
     admin.resources :pages,          :active_scaffold => true, :active_scaffold_sortable => true,
-                                     :new        =>    { :preview => :post }
+                                     :new             =>  { :preview => :post }
     admin.resources :comments,       :active_scaffold => true, :active_scaffold_sortable => true,
                                      :member     =>    { :mark_as_spam => :put,
                                      :mark_as_ham => :put }

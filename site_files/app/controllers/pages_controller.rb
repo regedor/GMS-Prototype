@@ -1,13 +1,15 @@
 class PagesController < ApplicationController
-  filter_access_to :all
-  
-  def root_page
-    render :action => logged_in? ? 'home' : 'about'
+  before_filter :find_page
+  filter_access_to :show, :attribute_check => true
+
+
+  # ==========================================================================
+  # Protected Methods
+  # ==========================================================================
+  protected
+
+  def find_page
+    @page = Page.find_by_slug(params[:id]) || raise(ActiveRecord::RecordNotFound)
   end
 
-  def about
-  end
-
-  def home
-  end
 end

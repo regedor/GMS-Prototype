@@ -20,9 +20,7 @@ class ApplicationController < ActionController::Base
     @current_user = current_user_session && current_user_session.user
   end
 
-  # Returns true there is a current user with a given role.
-  # Only checks for a current user if no role is given.
-  # Role is a symbol.
+  # TO DELETE 
   def logged_in?(role=nil)
     return !current_user.nil? unless role
     !current_user.nil? and current_user.is_role? role
@@ -43,6 +41,17 @@ class ApplicationController < ActionController::Base
         return false
       else
         return true
+      end
+    end
+
+    # To use in before filter.
+    # Asserts that there is a current session.
+    def require_user
+      unless current_user
+        store_location
+        flash[:notice] = t 'flash.require_login' 
+        redirect_to new_user_session_url
+        return false
       end
     end
     

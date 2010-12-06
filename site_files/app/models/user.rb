@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   
   has_and_belongs_to_many :groups
   has_many                :action_entries
+  belongs_to              :role
 
 
   # ==========================================================================
@@ -42,8 +43,12 @@ class User < ActiveRecord::Base
   # Instance Methods
   # ==========================================================================
 
-  def build_cached_roles!
-    groups = self.groups.find_by_enforce_roles true
+  def to_label
+    "#{self.name} ( #{self.email} )"
+  end
+
+  def build_cached_groups!
+    groups = self.all_groups
     roles = group && group.roles
     roles = self.groups.map(&:roles) unless roles && !roles.empty?
     roles.map { |role| role.name.underscore }
@@ -51,8 +56,8 @@ class User < ActiveRecord::Base
     self.save
   end
 
-  def role_symbols
-    self.cached_roles.split(", ").map &:to_sym
+  def role_sym
+    [ self.role.name.to_sym ]
   end
 
   def authorized_for?(*args)
@@ -124,16 +129,16 @@ class User < ActiveRecord::Base
   # ==========================================================================
 
   class << self
-    def revive_by_ids(ids)
+    def undelete_by_ids!(ids)
       ids.each do |id|
         return false unless User.find(id).revive!
       end 
       return true
     end  
     
-    def destroy_by_ids(ids)
+    def delete_by_ids!(ids)
       ids.each do |id|
-        return false unless User.find(id).destroy
+        return false unless User.find(id).delete
       end 
       return true 
     end

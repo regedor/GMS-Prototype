@@ -1,17 +1,29 @@
 class Page < ActiveRecord::Base
-  validates_presence_of :title, :slug, :body
+  # ==========================================================================
+  # Relationships
+  # ==========================================================================
+  
+  belongs_to :group
 
+
+  # ==========================================================================
+  # Validations
+  # ==========================================================================
+  
+  validates_presence_of :title, :slug, :body
   before_validation     :generate_slug
+
+
+  # ==========================================================================
+  # Extra defnitions
+  # ==========================================================================
 
   before_save           :apply_filter
 
-  class << self
-    def build_for_preview(params)
-      page = Page.new(params)
-      page.apply_filter
-      page
-    end
-  end
+
+  # ==========================================================================
+  # Instance Methods
+  # ==========================================================================
 
   def apply_filter
     self.body_html = EnkiFormatter.format_as_xhtml(self.body)
@@ -32,4 +44,20 @@ class Page < ActiveRecord::Base
     self.slug = self.title.dup if self.slug.blank?
     self.slug.slugorize!
   end
+
+
+  # ==========================================================================
+  # Class Methods
+  # ==========================================================================
+
+  class << self
+    def build_for_preview(params)
+      page = Page.new(params)
+      page.apply_filter
+      page
+    end
+  end
+
 end
+
+

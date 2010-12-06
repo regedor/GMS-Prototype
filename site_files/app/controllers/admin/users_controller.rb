@@ -1,5 +1,6 @@
 class Admin::UsersController < Admin::BaseController
   active_scaffold :user do |config|
+    config.subform.columns = [:email]
     config.actions.swap :search, :live_search
     config.actions.exclude :update, :delete, :show, :create
 
@@ -7,14 +8,13 @@ class Admin::UsersController < Admin::BaseController
     config.actions << :update
     config.actions << :delete
 
+    config.update.columns = [:email, :active, :nickname, :profile, :website, :country, :gender]
+    config.columns[:groups].show_blank_record = false
     config.show.columns = [ :email, :active, :nickname, :profile, :website, :country, :gender ]
-    
-    config.subform.columns.exclude :email, :active, :password, :nickname, :profile, :website,
-     :language, :country, :gender, :role, :phone, :crypted_password, :current_login_at, :last_login_at, :current_login_ip, :last_login_ip,
-     :persistence_token, :single_access_token, :perishable_token, :openid_identifier, :password_salt, :last_request_at
+
 
     Scaffoldapp::active_scaffold config, "admin.users", [:created_at, :email, :active, :name, :role], 
-    [:destroy_by_ids, :activate!, :deactivate!]
+      [:destroy_by_ids, :activate!, :deactivate!]
   end
 
   # Override this method to define conditions to be used when querying a recordset (e.g. for List).

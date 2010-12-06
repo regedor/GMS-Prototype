@@ -2,7 +2,7 @@
   <h3><%=h t("admin.groups.index.sidebar.hierarchy.name") %></h3>
   <div class="content">
     <p>
-      <%= generate_tree Group.subgroups_names_tree %>
+      <%= generate_tree @record.subgroups_names_tree if @record %>
     </p>
   </div>
 </div>
