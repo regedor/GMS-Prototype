@@ -100,6 +100,10 @@ class Post < ActiveRecord::Base
       posts.group_by(&:month).inject([]) {|a, v| a << month.new(v[0], v[1])}
     end
   end
+    def self.paginate_by_published_date(page)
+    paginate :per_page => 5, :page => page,
+             :order => "published_at DESC"
+  end
 
   def destroy_with_undo
     transaction do
