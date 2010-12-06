@@ -244,8 +244,9 @@ en:
         show_link: "<img src='/images/icons/pencil.png'/>Details"
         columns:
           created_at: "Date"
-          controller: "Controller"
+          controller: "Entity Name"
           action: "Performed Action"
+          user_id: "Entity Number"
       create:
         title: "Action"      
       list:

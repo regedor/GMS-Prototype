@@ -27,14 +27,19 @@ module Admin::BaseHelper
       message
     end
   end
-
+  
   def created_at_column(record)
+<<<<<<< HEAD
     if (Time.now - record.created_at) < 30.days
       time_ago_in_words record.created_at 
     else
       record.created_at.strftime('%d %b, %Y')
     end
   end
+=======
+    record.created_at.strftime('%d %b, %Y')
+  end  
+>>>>>>> origin/features/admin-actions
 
   def published_at_column(record)
     if (Time.now - record.published_at) < 30.days
@@ -46,6 +51,7 @@ module Admin::BaseHelper
   
   def type_column(action)
     action.complete_description
+<<<<<<< HEAD
   end
 
   # Generates html containing the flash messages with the correct classes.
@@ -99,5 +105,31 @@ module Admin::BaseHelper
 
     code
   end
+=======
+  end  
+  
+  def controller_column(record)
+    record.controller.split("/").last.singularize.capitalize_first
+  end  
+  
+  def users_performed_on_column(record)
+   #if record.controller == "admin/users"
+   #  #Gets the ids for the users
+   #  match = record.message[/Performed on ids: \[(.*)\]/]
+   #  value = $1
+   #
+   #  #Transforms the string with ids into an array
+   #  ids = value.split(/\"/).map(&:to_i).map(&:nonzero?).compact!
+   #end
+   #
+   #names = []
+   #ids.each do |id|
+   #  names << User.find(id).name
+   #end   
+   # 
+   # names.join(", ")
+   Hash.from_xml(record.undo)["user"]["name"]
+  end  
+>>>>>>> origin/features/admin-actions
 
 end
