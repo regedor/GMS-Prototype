@@ -9,8 +9,16 @@ class Admin::CommentsController < Admin::BaseController
     config.update.columns = :author, :author_url, :author_email, :body
 
     Scaffoldapp::active_scaffold config, "admin.comments", [
-      :created_at, :commenter, :excert, :post
+      :commenter, :excert, :created_at
     ]
+
+  end
+
+  def list
+    active_scaffold_config.list.label =
+                           I18n::t 'admin.comments.index.title',
+                                   :title => (Post.find params[:post_id]).title
+    super
   end
 
   # Override this method to define conditions to be used when querying a recordset (e.g. for List).

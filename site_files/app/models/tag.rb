@@ -16,6 +16,17 @@ class Tag < ActiveRecord::Base
     end
   end
 
+  # TODO: This is a copy of the after_destroy method
+  after_update do |tag|
+    tag.taggings.each do |tagging|
+      taggable = tagging.taggable
+      if taggable.class.caching_tag_list?
+        taggable.tag_list = TagList.new(*taggable.tags.map(&:name))
+        taggable.save
+      end
+    end
+  end
+
   cattr_accessor :destroy_unused
   self.destroy_unused = false
 

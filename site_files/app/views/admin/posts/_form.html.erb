@@ -4,11 +4,11 @@
 
 <% form.input_field_set do -%>
   <%= form.input :title -%>
-  <%= form.input :body, :hint => "<a href='http://hobix.com/textile/quick.html'>Textile enabled</a>. Use Ctrl+E to switch between preview and edit mode." -%>
-  <%= form.input :tag_list, :as => 'string', :required => false, :hint => 'Comma separated: ruby, rails&hellip;' -%>
+  <%= form.input :body, :hint => I18n::t('admin.posts.form.hints.body').html_safe -%>
+  <%= form.input :tag_list, :as => 'string', :required => false, :hint => I18n::t('admin.posts.form.hints.tag_list') -%>
 <% end -%>
 <% form.input_field_set do -%>
-  <%= form.input :published_at_natural, :label => 'Published at', :as => 'string', :hint => 'Example: now, yesterday, 1 hour from now, ' + link_to("more&hellip;", "http://chronic.rubyforge.org/") -%>
-  <%= form.input :slug, :hint => "Leave blank for an auto-generated slug based on the title." -%>
-  <%= form.input :minor_edit, :as => 'boolean', :hint => 'Minor edits will not show up as refreshed in feed readers. Use this to fix spelling mistakes and the like.' unless @post.new_record? -%>
+  <%= form.input :published_at_natural, :label => I18n::t('admin.posts.form.fields.published_at_natural'), :as => 'string', :hint => I18n::t('admin.posts.form.hints.published_at_natural').html_safe -%>
+  <%= form.input :slug, :hint => I18n::t('admin.posts.form.hints.slug'), :required => false -%>
+  <%= form.input :minor_edit, :as => 'boolean', :hint => I18n::t('admin.posts.form.hints.minor_edit') unless @post.new_record? -%>
 <% end -%>
