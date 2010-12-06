@@ -1,0 +1,7 @@
+<div id="main-navigation">
+<ul class="wat-cf">
+	<li class="<%= controller.controller_path == 'admin/settings' ? 'active' : '' %>"><a href="<%= admin_settings_path %>">Settings</a></li>
+	<li class="<%= controller.controller_path == 'admin/actions' ? 'active' : '' %>"><a href="<%= admin_undo_items_path %>">Actions</a></li>
+</ul>
+</div>
+<%=render :super%>
