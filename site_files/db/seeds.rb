@@ -7,9 +7,9 @@
 #   Major.create(:name => 'Daley', :city => cities.first)
 #
 puts "Creating standard roles..."
-  Role.create :name => "root"
-  Role.create :name => "admin"
-  Role.create :name => "user"
+  Role.create :label => "root"
+  Role.create :label => "admin"
+  Role.create :label => "user"
 
 puts "Creating standard groups..."
   default_group = Group.create :name => "Default",           :mailable => false

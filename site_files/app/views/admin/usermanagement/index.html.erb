@@ -1,8 +1,0 @@
-<% content_for :sidebar do -%>
-	<%= render :partial => 'admin/shared/sidebarU'%>
-<% end -%>
-<%- if @page.to_i == 1-%>
-		<%= render :active_scaffold => 'admin/users'%>
-	<%- else -%>
-		<%= render :active_scaffold => 'admin/groups'%>
-<%- end -%>

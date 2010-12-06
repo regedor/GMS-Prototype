@@ -4,7 +4,6 @@ ActionController::Routing::Routes.draw do |map|
   # ==========================================================================
   # Frontend Resources
   # ==========================================================================
-  map.page '/page/:action', :controller => "pages"
   map.resources :posts
   map.resources :pages
   map.connect ':year/:month/:day/:slug/comments/new', :controller => 'comments', :action => 'new'

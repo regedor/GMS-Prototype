@@ -1,7 +1,4 @@
 class Admin::UsersController < Admin::BaseController
-  
-  #after_filter :save_action
-  
   active_scaffold :user do |config|
     config.subform.columns = [:email]
     config.actions.swap :search, :live_search

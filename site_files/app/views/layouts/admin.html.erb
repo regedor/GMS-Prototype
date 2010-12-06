@@ -43,7 +43,7 @@
 
           <%= navigation_menu 'admin.navigation.main.system',
                               [ 'admin/settings',
-                                'admin/undo_items' ],
+                                'admin/action_entries' ],
                               admin_settings_path %>
         </ul>
       </div>
@@ -86,9 +86,9 @@
 
                                           :specify_first => true %>
 
-            <%= secondary_navigation_menu [ { :controller_paths => 'admin/undo_items', 
+            <%= secondary_navigation_menu [ { :controller_paths => 'admin/action_entries', 
                                               :i18n_path => 'admin.navigation.secondary.undo_items',
-                                              :link_to_path => admin_undo_items_path },
+                                              :link_to_path => admin_action_entries_path },
 
                                             { :controller_paths => 'admin/settings',
                                               :i18n_path => 'admin.navigation.secondary.settings',

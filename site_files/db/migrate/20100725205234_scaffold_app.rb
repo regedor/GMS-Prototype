@@ -106,7 +106,7 @@ class ScaffoldApp < ActiveRecord::Migration
       t.string   :slug,       :null    => false
       t.text     :body,       :null    => false
       t.text     :body_html,  :null    => false
-      t.integer  :group_id    :default => nil
+      t.integer  :group_id,    :default => nil
       t.timestamps
     end
     add_index :pages, ["title"], :name => 'index_pages_on_title'

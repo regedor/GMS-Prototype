@@ -36,5 +36,6 @@ class Admin::ActionEntriesController < Admin::BaseController
   
   #Re-renders the page
   redirect_to :controller => item.controller, :action => "index"
+ end
    
 end

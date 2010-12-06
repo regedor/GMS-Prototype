@@ -45,9 +45,10 @@ class User < ActiveRecord::Base
   # ==========================================================================
 
   def to_label
-    "#{self.name} ( #{self.email} )"
+    "#{self.name} < #{self.email} >"
   end
 
+  #DELETE ME
   def build_cached_groups!
     groups = self.all_groups
     roles = group && group.roles
@@ -58,7 +59,7 @@ class User < ActiveRecord::Base
   end
 
   def role_sym
-    [ self.role.name.to_sym ]
+    [ self.role.label.to_sym ]
   end
 
   def authorized_for?(*args)

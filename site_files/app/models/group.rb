@@ -37,13 +37,7 @@ class Group < ActiveRecord::Base
 
   #FIXME
   def pretty_print
-    str = "Name: #{name}\nMailable: #{mailable}\nDescription: #{description}"
-    if parent_group_id != nil
-     str += "\nParent: #{Group.find(parent_group_id).name}"
-    else
-      str += "\nNo parent" 
-    end
-    return str 
+    "Name: #{name}\nMailable: #{mailable}\nDescription: #{description}"
   end  
   
   def revertTo(xmlGroup)
