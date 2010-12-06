@@ -1,0 +1,8 @@
+<div id="main-navigation">
+<ul class="wat-cf">
+	<li class="<%= controller.controller_path == 'admin/announcements' ? 'active' : '' %>"><a href="<%= admin_announcements_path %>">Announcements</a></li>
+	<li class="<%= controller.controller_path == 'admin/posts' ? 'active' : '' %>"><a href="<%= admin_posts_path %>">Posts</a></li>
+	<li><a href="not_yet_implemented">Static Pages</a></li>
+</ul>
+</div>
+<%=render :super%>

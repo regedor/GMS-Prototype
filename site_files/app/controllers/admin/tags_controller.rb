@@ -1,4 +1,5 @@
 class Admin::TagsController < Admin::BaseController
+	layout 'admin'
 
   active_scaffold :tag do |config|
     config.actions.swap :search, :live_search

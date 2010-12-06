@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :posts
+
   map.root :controller => "pages", :action => "root_page"
 
   # ==========================================================================
@@ -54,7 +56,15 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace :api do |api|
    api.resource :i18n
   end
-  
+  # ==========================================================================
+  # Website Resources
+  # ==========================================================================
+  map.namespace :website do |website|
+    website.root :controller => 'posts', :action => 'index'
+	 website.resources :posts
+#    map.connect '/website/:controller/:action/:id'
+  end
+
   #map.connect ':controller/:action/:id'
   #map.connect ':controller/:action/:id.:format'
 end

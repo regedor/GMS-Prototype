@@ -28,15 +28,14 @@ class Admin::UsersController < Admin::BaseController
     config.nested.add_link("<img src='/images/icons/book_open.png'/>History", [:action_entries])
   
     Scaffoldapp::active_scaffold config, "admin.users", [:created_at, :email, :active, :language, :name, :role], 
-    [:destroy_by_ids, :activate!, :deactivate!]
+      [:destroy_by_ids, :activate!, :deactivate!]
   end
 
-  # Override this method to provide custom finder options to the find() call.
+  # Override this method to define conditions to be used when querying a recordset (e.g. for List).
   # With this, only the users with the value 'false' in the column 'deleted' will be shown.
-  def custom_finder_options
-    return { :conditions => {:deleted => false} }
+  def conditions_for_collection
+    return { :deleted => false }
   end
-
   
   # Method that receives all requests and calls the desired action with the selected ids,
   # and returns the re-rendered html

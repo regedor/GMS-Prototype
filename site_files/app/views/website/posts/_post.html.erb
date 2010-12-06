@@ -1,0 +1,8 @@
+<div class="website_posts_post">
+	<div class="website_posts_post_date"><%= post.published_at.strftime('%d %b, %Y') %></div>
+	<div class="website_posts_post_content">
+		<div class="website_posts_post_content_title"><%= link_to (post.title == '' ? '[Untitled]' : h(truncate(post.title, :length => 30))), website_post_path(post) %></div>
+		<div class="website_posts_post_text"><%= post.body%></div>
+		<div class="website_posts_post_content_comments_number"><%= link_to(pluralize(post.approved_comments.size, "comment"), '#') %></div>
+	</div>
+</div>

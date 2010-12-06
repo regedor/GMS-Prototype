@@ -4,5 +4,12 @@ site_files/config/mailer.yml
 site_files/log/*
 site_files/tmp/*
 site_files/db/*.sqlite3
+site_files/doc/implementation_guidelines/simon_wfreport.aux
+site_files/doc/implementation_guidelines/simon_wfreport.log
+site_files/doc/implementation_guidelines/simon_wfreport.nav
+site_files/doc/implementation_guidelines/simon_wfreport.out
+site_files/doc/implementation_guidelines/simon_wfreport.snm
+site_files/doc/implementation_guidelines/simon_wfreport.toc
+site_files/doc/implementation_guidelines/simon_wfreport.vrb
 .DS_Store
 *~

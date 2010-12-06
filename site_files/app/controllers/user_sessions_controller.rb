@@ -29,7 +29,7 @@ class UserSessionsController < ApplicationController
       elsif result
         session[:language] = UserSession.find.user.language
         set_user_language
-        flash[:notice] = t('flash.logqin')
+        flash[:notice] = t('flash.login')
         redirect_back_or_default root_url
       elsif request['openid.mode'] == 'id_res'
         flash[:notice] = t('flash.you_are_being_redirected')

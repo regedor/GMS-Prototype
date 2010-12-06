@@ -2,6 +2,13 @@
   <%= javascript_include_tag('admin/actions.js') %>
 <% end -%>
 
+<div id="main-navigation">
+<ul class="wat-cf">
+	<li class="<%= controller.controller_path == 'admin/settings' ? 'active' : '' %>"><a href="<%= admin_settings_path %>">Settings</a></li>
+	<li class="<%= controller.controller_path == 'admin/undo_items' ? 'active' : '' %>"><a href="<%= admin_undo_items_path %>">Actions</a></li>
+</ul>
+</div>
+
 <h1>Recent actions</h1>
 <table cellspacing="0" cellpadding="0">
   <thead>

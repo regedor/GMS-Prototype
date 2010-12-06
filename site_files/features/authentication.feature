@@ -3,10 +3,10 @@ Feature: Authentication System
   As an user
   I want to be able to login, logout, and create accounts
 
-  Backgroud:
+  Background:
     Given I18n is set to english  
 
-	@auth
+  @auth
   Scenario: Create an account, confirm and login
     Given I am not logged in
     And I am on the homepage
@@ -27,7 +27,7 @@ Feature: Authentication System
     Then I should see "Login successful"
     And I should see "Your last login was"
 
-	@auth
+  @auth
   Scenario: Reset password, and login
     Given the following activated users exists 
       | name     | email                |

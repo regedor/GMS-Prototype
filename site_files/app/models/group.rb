@@ -4,8 +4,9 @@ class Group < ActiveRecord::Base
   has_and_belongs_to_many :users
   has_many :action_entries, :class_name => "ActionEntry", :foreign_key => "entity_id", 
   :conditions => "'action_entries'.'controller'='admin/groups' AND 'action_entries'.'action' is not 'delete' "
+
   
-  
+  named_scope :not_deleted, :conditions => {:deleted => false}
   
   def parent_name
     if self.parent_group.nil?
@@ -14,20 +15,23 @@ class Group < ActiveRecord::Base
       return self.parent_group.name
     end    
   end
-  
-  
-  #on = self.instance_method(:users)
-  #define_method(:this_group_only_users) do
-  #  on.bind(self).call
-  #end
-  #
-  #def users
-  #  us = self.subgroups.map do |g| g.users end
-  #  us.flatten! if us
-  #  us.uniq! if us
-  #  this_group_only_users << us
-  #end  
-  
+
+  def authorized_for?(*args)
+    !deleted
+  end
+
+  def deleted?
+    deleted
+  end
+
+  def destroy
+    self.subgroups.each do |subgroup|
+      subgroup.destroy unless subgroup == self
+    end
+    self.deleted = true
+    self.parent_group = nil
+    save
+  end
   
   def pretty_print
     str = "Name: #{name}\nMailable: #{mailable}\nDescription: #{description}"
@@ -82,4 +86,15 @@ class Group < ActiveRecord::Base
    return group_users + subgroups_users
   end
   
-end  
+  #Check if is not subgroup of itself
+  def parent_is_not_own_descendent
+    group = self
+    while group = group.parent_group
+      if group.id == self.id 
+        errors.add("PANIC!!! impossible hapens")
+        return false
+      end
+    end
+  end
+  
+end
