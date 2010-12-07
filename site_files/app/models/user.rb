@@ -6,8 +6,10 @@ class User < ActiveRecord::Base
   
   has_and_belongs_to_many :groups
   belongs_to              :role
-  has_many :action_entries, :class_name => "ActionEntry", :foreign_key => "entity_id", 
-   :conditions => "'action_entries'.'controller'='admin/users' AND 'action_entries'.'action' is not 'delete' "
+  #has_many :action_entries, :class_name => "ActionEntry", :foreign_key => "entity_id", 
+  # :conditions => "'action_entries'.'controller'='admin/users' AND 'action_entries'.'action' is not 'delete' "
+
+  has_many                :history_entries, :as => :historicable
 
 
   # ==========================================================================
@@ -34,12 +36,14 @@ class User < ActiveRecord::Base
   end
  
   attr_accessible :email, :password, :password_confirmation, :openid_identifier
-  attr_accessible :language, :name, :gender, :country
+  attr_accessible :language, :name, :gender, :country, :website, :nickname
   attr_accessible :groups
   attr_accessible :row_mark #scaffold hack
 
   # Scope for non-deleted users
   named_scope :not_deleted, :conditions => {:deleted => false}
+
+  after_save :create_history_entry!
 
 
   # ==========================================================================
@@ -83,6 +87,16 @@ class User < ActiveRecord::Base
   def to_label
     "#{self.name} < #{self.email} >"
   end
+
+  def create_history_entry!
+    message  =  self.to_label
+    message += "has been altered"
+    history_entry = HistoryEntry.create :historicable => self,
+                                        :user_id      => (current_user && current_user.id or 1), 
+                                        :message      => message,
+                                        :xml_hash     => self.to_xml
+  end
+
 
   #DELETE ME
   def build_cached_groups!

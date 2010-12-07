@@ -159,15 +159,16 @@ class ScaffoldApp < ActiveRecord::Migration
     add_index :comments, ["created_at"], :name => 'index_comments_on_created_at'
 
 
-    create_table :action_entries, :force => true do |t|
-      t.datetime :created_at, :null => false
-      t.string   :controller, :null => false   
-      t.string   :action,     :null => false
-      t.text     :message,    :null => false
-      t.text     :xml_hash 
-      t.integer  :entity_id
+    create_table :history_entries, :force => true do |t|
+      t.datetime :created_at,           :null => false
+      t.string   :historicable_type,    :null => false   
+      t.integer  :historicable_id,      :null => false
+      t.boolean  :historicable_deleted,                            :default => false
+      t.text     :message,              :null => false
+      t.integer  :user_id
+      t.text     :xml_hash,             :null => false
     end
-    add_index :action_entries, ["created_at"], :name => 'index_action_entries_on_created_at'
+    add_index :history_entries, ["created_at"], :name => 'index_history_entries_on_created_at'
 
   end
 

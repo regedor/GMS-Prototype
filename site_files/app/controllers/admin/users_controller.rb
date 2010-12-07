@@ -5,7 +5,7 @@ class Admin::UsersController < Admin::BaseController
     config.subform.columns = [:email]
 
     config.columns[:groups].show_blank_record = false
-    config.nested.add_link("<img src='/images/icons/book_open.png'/>History", [:action_entries])
+    config.nested.add_link("<img src='/images/icons/book_open.png'/>History", [:history_entries])
 
 
     config.columns[:role].form_ui = :select 
