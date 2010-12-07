@@ -28,7 +28,7 @@ jQuery(document).ready(function($){
 			  }
 		    });
 
-			var path = active_controller_url.substring(1,active_controller_url.length)+"/do_action";
+			var path = active_controller_url+"/do_action";
 
 
 			$.post(path,{"actions": action,"ids":ids},function(data){

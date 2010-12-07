@@ -33,26 +33,10 @@ class Admin::UsersController < Admin::BaseController
     else ids = [ params[:id] ]
     end
     if User.send(params[:actions],ids)  
-      ids.each do |id|
-        user = User.find_by_id(id)
-        entry = ActionEntry.new({:controller=>params[:controller],:action=>params[:actions],:message=>user.name+" has been altered",:entity_id=>user.id})
-        entry.xml_hash = user.to_xml
-        entry.save
-      end  
       list
     else
       render :text => "" 
     end      
-  end
-  
-  def before_update_save(record)
-    @loggable_actions = [:destroy,:create,:update]
-    if @loggable_actions.include?(params[:action].to_sym)
-      user = User.find_by_id(params[:id])
-      entry = ActionEntry.new({:controller=>params[:controller],:action=>params[:action],:message=>user.name+" has been altered",:entity_id=>user.id})
-      entry.xml_hash = user.to_xml
-      entry.save
-    end
   end
   
 end
