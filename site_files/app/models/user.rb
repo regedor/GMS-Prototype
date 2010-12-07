@@ -20,10 +20,24 @@ class User < ActiveRecord::Base
 
 
   # ==========================================================================
+  # Attributes Accessors
+  # ==========================================================================
+
+  attr_accessible :email, :password, :password_confirmation, :openid_identifier
+  attr_accessible :language, :name, :gender, :country, :website, :nickname
+  attr_accessible :groups
+  attr_accessible :row_mark #scaffold hack
+
+  # ==========================================================================
   # Extra defnitions
   # ==========================================================================
 
   #is_gravtastic!
+  
+  #Turns this model historicable
+  include HistoryEntry::Historicable
+
+  # Defines User as the authentication model, including open id parameters
   acts_as_authentic do |c| 
     c.openid_required_fields = [
       :fullname, :email, :language, :country, :nickname, 
@@ -35,15 +49,8 @@ class User < ActiveRecord::Base
     ]
   end
  
-  attr_accessible :email, :password, :password_confirmation, :openid_identifier
-  attr_accessible :language, :name, :gender, :country, :website, :nickname
-  attr_accessible :groups
-attr_accessible :row_mark #scaffold hack
-
   # Scope for non-deleted users
   named_scope :not_deleted, :conditions => {:deleted => false}
-
-  HistoryEntry.activate_history_for_this_model
 
 
   # ==========================================================================
@@ -89,6 +96,8 @@ attr_accessible :row_mark #scaffold hack
   end
 
 
+  # validates when a history entry should be created
+  # this method will be used in before update
   def create_history_entry?
     new_user = self
     old_user = User.find self.id
@@ -97,31 +106,6 @@ attr_accessible :row_mark #scaffold hack
     end
     return false
   end
-
-
-  HistoryEntry.activate_history_for_this_model
-  before_update :create_history_entry!
-  after_create  :create_first_history_entry!
-  def create_history_entry!
-    return unless create_history_entry?
-    message  =  self.to_label
-    message += "has been altered"
-    history_entry = HistoryEntry.create :historicable => self,
-                                        :user_id      => (current_user && current_user.id or 1), 
-                                        :message      => message,
-                                        :xml_hash     => self.to_xml
-  end
-
-  def create_first_history_entry!
-    message  =  self.to_label
-    message += "has been altered"
-    history_entry = HistoryEntry.create :historicable => self,
-                                        :user_id      => (current_user && current_user.id or 1), 
-                                        :message      => message,
-                                        :xml_hash     => self.to_xml
-  end
-
-
 
 
   #DELETE ME
