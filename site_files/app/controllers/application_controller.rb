@@ -27,6 +27,10 @@ class ApplicationController < ActionController::Base
   end
 
   private
+    def self.any_as_privilege
+      [:as_read, :as_create, :as_update, :as_delete]
+    end
+
     # Stores current URI in session
     def store_location
       session[:return_to] = request.request_uri

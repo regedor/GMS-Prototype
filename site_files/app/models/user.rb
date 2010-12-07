@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   
   validates_presence_of   :language, :name
 
+
   # ==========================================================================
   # Extra defnitions
   # ==========================================================================
@@ -40,6 +41,41 @@ class User < ActiveRecord::Base
   # Scope for non-deleted users
   named_scope :not_deleted, :conditions => {:deleted => false}
 
+
+  # ==========================================================================
+  # Active Scaffold stuff
+  # ==========================================================================
+  
+  def authorized_for_create?
+    !self.deleted &&
+    ( Authorization::Engine.instance.permit? :as_create, :user => current_user, :context => :admin_users ) or
+    ( Authorization::Engine.instance.permit? :as_create, :user => current_user, :context => :admin_deleted_users )
+  end
+
+  def authorized_for_read?
+    !self.deleted &&
+    ( Authorization::Engine.instance.permit? :as_read, :user => current_user, :context => :admin_users ) or
+    ( Authorization::Engine.instance.permit? :as_read, :user => current_user, :context => :admin_deleted_users )
+  end
+
+  def authorized_for_update?
+    !self.deleted &&
+    ( Authorization::Engine.instance.permit? :as_update, :user => current_user, :context => :admin_users ) or 
+    ( Authorization::Engine.instance.permit? :as_update, :user => current_user, :context => :admin_deleted_users )
+  end
+
+  def authorized_for_delete?
+    !self.deleted &&
+    ( Authorization::Engine.instance.permit? :as_delete, :user => current_user, :context => :admin_users ) or
+    ( Authorization::Engine.instance.permit? :as_delete, :user => current_user, :context => :admin_deleted_users )
+  end
+
+  def groups_authorized_for_update?
+    !self.deleted &&
+    ( Authorization::Engine.instance.permit? :as_update, :user => current_user, :context => :admin_groups )
+  end
+
+
   # ==========================================================================
   # Instance Methods
   # ==========================================================================
@@ -58,12 +94,8 @@ class User < ActiveRecord::Base
     self.save
   end
 
-  def role_sym
+  def role_symbols
     [ self.role.label.to_sym ]
-  end
-
-  def authorized_for?(*args)
-    !self.deleted
   end
 
   def activate!

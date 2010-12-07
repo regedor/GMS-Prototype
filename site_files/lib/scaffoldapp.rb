@@ -10,13 +10,21 @@ module Scaffoldapp
       config.list.always_show_search = true
 
       # MAIN LABELS
-      config.label = I18n::t(i18n_scope+".create.title")
-      config.list.label = I18n::t(i18n_scope+".index.title")
+      config.label                  = I18n::t(i18n_scope+".create.title")
+      config.list.label             = I18n::t(i18n_scope+".index.title")
       config.live_search.link.label = I18n::t(i18n_scope+".index.search")
+
+      # ROW MARK
+      if (value = options[:actions_list]) && !value.empty?
+        options[:list].unshift :row_mark 
+        config.row_mark_actions_list = value 
+      else
+        config.row_mark_actions_list = nil
+      end
 
       # LIST
       if value = options[:list]
-        self.active_scaffold_list_columns(config, i18n_scope+".index.columns", value)
+        self.active_scaffold_list_columns(config, i18n_scope + ".index.columns", value)
       end
 
       # CREATE
@@ -30,7 +38,6 @@ module Scaffoldapp
 
       # SHOW
       if value = options[:show]
-        config.show.link.page = true
         config.show.columns = value
         config.action_links.add 'show', :type => :record, :page => true,
                                         :label => I18n::t(i18n_scope+".index.show_link")
@@ -40,21 +47,20 @@ module Scaffoldapp
 
       # EDIT / UPDATE
       if value = options[:edit]
-        config.update.link.page = true
         config.update.columns = value.empty? ? options[:create] : value
         config.action_links.add 'edit', :type => :record, :page => true,
                                         :label => I18n::t(i18n_scope+".index.update_link")
       else
-        config.actions.exclude :edit
+        config.actions.exclude :update
       end
 
       # DELETE
-      config.delete.link.page = true
-      config.action_links.add 'delete', :type => :record, :page => true,
-                                        :label => I18n::t(i18n_scope+".index.destroy_link")
-
-      # ROW MARK
-      config.row_mark_actions_list = options[:row_mark] if value = options[:row_mark]
+      unless false == options[:delete]
+        config.action_links.add 'delete', :type => :record, :page => true, :crud_type => :delete,
+                                           :label => I18n::t(i18n_scope+".index.destroy_link")
+      else
+        config.actions.exclude :delete
+      end
     end
 
     def active_scaffold_list_columns(config, i18n_scope, columns)

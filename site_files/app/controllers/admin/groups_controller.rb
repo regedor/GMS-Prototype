@@ -11,11 +11,11 @@ class Admin::GroupsController < Admin::BaseController
     config.columns[:direct_users].options = {:draggable_lists => true}
     
     Scaffoldapp::active_scaffold config, "admin.groups",
-         :list     => [ :name, :mailable, :description ],
-         :show     => [ :name, :description, :mailable, :users, :all_users_names ],
-         :create   => [ :name, :description, :mailable, :user_choosable, :groups, :direct_users ],
-         :edit     => [ :name, :description, :mailable, :user_choosable, :groups, :direct_users ],
-         :row_mark => [ :delete_by_ids ]
+      :list     => [ :name, :mailable, :description ],
+      :show     => [ :name, :description, :mailable, :users, :all_users_names ],
+      :create   => [ :name, :description, :mailable, :user_choosable, :groups, :direct_users ],
+      :edit     => [ :name, :description, :mailable, :user_choosable, :groups, :direct_users ],
+      :row_mark => [ :delete_by_ids ]
   end
 
   
