@@ -7,9 +7,11 @@
 #   Major.create(:name => 'Daley', :city => cities.first)
 #
 puts "Creating standard roles..."
-  Role.create :label => "root"
-  Role.create :label => "admin"
-  Role.create :label => "user"
+  File.open( "config/authorization_rules.rb" ) do |f| 
+    f.grep( /role :([a-z_0-9]*) do/ ) do |line| 
+      Role.create :label => $1
+    end 
+  end
 
 puts "Creating standard groups..."
   default_group = Group.create :name => "Default",           :mailable => false

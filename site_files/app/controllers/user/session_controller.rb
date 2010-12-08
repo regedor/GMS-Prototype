@@ -35,7 +35,7 @@ class User::SessionController < ApplicationController
         flash[:notice] = t('flash.you_are_being_redirected')
         @user = User.new :openid_identifier => request['openid.identity']
         @auto_submit = true
-        render :template => '/users/new'
+        render :template => '/user/account/new'
         flash[:notice] = ""
       else 
         render :action => 'new'

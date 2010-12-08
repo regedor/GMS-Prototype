@@ -8,7 +8,6 @@ class User < ActiveRecord::Base
   belongs_to              :role
   #has_many :action_entries, :class_name => "ActionEntry", :foreign_key => "entity_id", 
   # :conditions => "'action_entries'.'controller'='admin/users' AND 'action_entries'.'action' is not 'delete' "
-
   has_many                :history_entries, :as => :historicable
 
 
@@ -16,17 +15,33 @@ class User < ActiveRecord::Base
   # Validations
   # ==========================================================================
   
-  validates_presence_of   :language, :name
+  validates_presence_of   :language
+  validates_format_of     :phone,
+    :message => "must be a valid telephone number.", 
+    :with => /(^[\(\)0-9\- \+\.]{9,20} *[extension\.]{0,9} *[0-9]{0,5}$)|(^$)/i #FIXME i18n
 
 
   # ==========================================================================
   # Attributes Accessors
   # ==========================================================================
 
-  attr_accessible :email, :password, :password_confirmation, :openid_identifier
-  attr_accessible :language, :name, :gender, :country, :website, :nickname
-  attr_accessible :groups
-  attr_accessible :row_mark #scaffold hack
+  attr_accessible  :email               
+  attr_accessible  :name                
+  attr_accessible  :password
+  attr_accessible  :password_confirmation
+  attr_accessible  :nickname            
+  attr_accessible  :gender              
+  attr_accessible  :profile             
+  attr_accessible  :website             
+  attr_accessible  :country             
+  attr_accessible  :phone               
+  attr_accessible  :emails #does user want to recieve emails 
+  attr_accessible  :language            
+  attr_accessible  :openid_identifier   
+  attr_accessible  :groups
+  attr_accessible  :role                
+  attr_accessible  :row_mark #scaffold hack
+
 
   # ==========================================================================
   # Extra defnitions
@@ -34,7 +49,7 @@ class User < ActiveRecord::Base
 
   #is_gravtastic!
   
-  #Turns this model historicable
+  # Makes this model historicable
   include HistoryEntry::Historicable
 
   # Defines User as the authentication model, including open id parameters
@@ -59,31 +74,32 @@ class User < ActiveRecord::Base
   
   def authorized_for_create?
     !self.deleted &&
-    ( Authorization::Engine.instance.permit? :as_create, :user => current_user, :context => :admin_users ) or
-    ( Authorization::Engine.instance.permit? :as_create, :user => current_user, :context => :admin_deleted_users )
+    ( Authorization::Engine.instance.permit? :as_create, :user => current_user, :context => :admin_users )
   end
 
   def authorized_for_read?
     !self.deleted &&
-    ( Authorization::Engine.instance.permit? :as_read, :user => current_user, :context => :admin_users ) or
-    ( Authorization::Engine.instance.permit? :as_read, :user => current_user, :context => :admin_deleted_users )
+    ( Authorization::Engine.instance.permit? :as_read, :user => current_user, :context => :admin_users )
   end
 
   def authorized_for_update?
     !self.deleted &&
-    ( Authorization::Engine.instance.permit? :as_update, :user => current_user, :context => :admin_users ) or 
-    ( Authorization::Engine.instance.permit? :as_update, :user => current_user, :context => :admin_deleted_users )
+    ( Authorization::Engine.instance.permit? :as_update, :user => current_user, :context => :admin_users ) 
   end
 
   def authorized_for_delete?
     !self.deleted &&
-    ( Authorization::Engine.instance.permit? :as_delete, :user => current_user, :context => :admin_users ) or
-    ( Authorization::Engine.instance.permit? :as_delete, :user => current_user, :context => :admin_deleted_users )
+    ( Authorization::Engine.instance.permit? :as_delete, :user => current_user, :context => :admin_users )
   end
 
   def groups_authorized_for_update?
     !self.deleted &&
     ( Authorization::Engine.instance.permit? :as_update, :user => current_user, :context => :admin_groups )
+  end
+
+  def role_authorized_for_update?
+    !self.deleted &&
+    ( Authorization::Engine.instance.permit? :manage, :user => current_user, :context => :user_roles )
   end
 
 
@@ -108,7 +124,8 @@ class User < ActiveRecord::Base
   end
 
 
-  #DELETE ME
+  #FIXME 
+  # DELETE ME or maybe trun me into cached_groups
   def build_cached_groups!
     groups = self.all_groups
     roles = group && group.roles
@@ -122,11 +139,15 @@ class User < ActiveRecord::Base
     [ self.role.label.to_sym ]
   end
 
+  #FIXME 
+  # I think this is ok, confirme that this is only used to check email
   def activate!
     self.active = true 
     save
   end
   
+  #FIXME
+  # If it is only for email, this method should me deleted
   def deactivate!
     self.active = false 
     save
@@ -136,16 +157,19 @@ class User < ActiveRecord::Base
     self.active
   end
 
+  # Marks as deleted
   def delete!
     self.deleted = true
     save
   end
   
+  # Unchecks deleted
   def undelete!
     self.deleted = false
     save
   end  
 
+  # Checks if this user is deleted
   def deleted?
     self.deleted
   end
@@ -168,10 +192,6 @@ class User < ActiveRecord::Base
     reset_perishable_token!  
     Notifier.deliver_password_reset_instructions(self)  
   end  
-
-  def has_role?(role)
-    self.role == ROLES[role]
-  end
 
   def first_name
     self.name.split(" ").first
@@ -200,6 +220,8 @@ class User < ActiveRecord::Base
       return true
     end  
     
+    #FIXME 
+    # maybe overide the delete class method, not sure
     def delete_by_ids!(ids)
       ids.each do |id|
         return false unless User.find(id).delete
@@ -207,6 +229,8 @@ class User < ActiveRecord::Base
       return true 
     end
     
+    #FIXME 
+    # The same research as the instance activate
     def activate!(ids)
       ids.each do |id|
         return false unless User.find(id).activate!
@@ -214,6 +238,8 @@ class User < ActiveRecord::Base
       return true
     end  
     
+    #FIXME 
+    # The same thing not sure if this should exist
     def deactivate!(ids)
       ids.each do |id|
         return false unless User.find(id).deactivate!

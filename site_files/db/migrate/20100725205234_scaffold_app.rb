@@ -13,7 +13,6 @@ class ScaffoldApp < ActiveRecord::Migration
       t.string    :phone
       t.boolean   :emails               # wanna receive emails
       # User values
-      t.string    :cached_roles,        :null => false, :default => ""
       t.integer   :role_id 
       t.boolean   :deleted,             :null => false, :default => false 
       t.string    :language,            :null => false, :default => "en" 

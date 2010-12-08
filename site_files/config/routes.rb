@@ -17,7 +17,8 @@ ActionController::Routing::Routes.draw do |map|
   # User Resources
   # ==========================================================================
   map.namespace :user do |user|
-    user.resource  :account,                           :controller => 'account'
+    user.resource  :account,                            :controller => 'account'
+    user.resources :accounts,                           :controller => 'account'
     user.resource  :password_reset
     user.resource  :session,                           :controller => 'session', :member => { :send_invitations => :post }
     user.logout    'session/end',                      :controller => 'session', :action => 'destroy'
