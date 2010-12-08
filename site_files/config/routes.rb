@@ -33,6 +33,9 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :users,          :active_scaffold => true, :active_scaffold_sortable => true,
                                      :member          => { :suspend => :put,:unsuspend => :put, :activate => :put,:reset_password => :put },
                                      :collection      => { :pending => :get,:active => :get,:do_action => [:post,:get],:suspended => :get,:deleted => :get }
+    admin.resources :deleted_users,          :active_scaffold => true, :active_scaffold_sortable => true,
+                                     :member          => { :suspend => :put,:unsuspend => :put, :activate => :put,:reset_password => :put },
+                                     :collection      => { :pending => :get,:active => :get,:do_action => [:post,:get],:suspended => :get,:deleted => :get }
     admin.resources :groups,         :active_scaffold => true, :active_scaffold_sortable => true
     admin.resources :settings,       :active_scaffold => true, :active_scaffold_sortable => true
     admin.resources :announcements,  :active_scaffold => true, :active_scaffold_sortable => true
