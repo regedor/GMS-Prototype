@@ -8,6 +8,8 @@ if (Prototype.Version.substring(0, 3) != '1.6')
   warning = "ActiveScaffold Error: Prototype version 1.6.x is required. Please update prototype.js (rake rails:update:javascripts).";
   alert(warning);
 }
+if (!Element.Methods.highlight) Element.addMethods({highlight: Prototype.emptyFunction});
+
 
 /*
  * Simple utility methods
@@ -48,9 +50,8 @@ var ActiveScaffold = {
     }
   },
   reload_if_empty: function(tbody, url) {
-    var content_container_id = tbody.replace('tbody', 'content');
     if (this.records_for(tbody).length == 0) {
-      new Ajax.Updater($(content_container_id), url, {
+      new Ajax.Request(url, {
         method: 'get',
         asynchronous: true,
         evalScripts: true
@@ -70,19 +71,19 @@ var ActiveScaffold = {
   decrement_record_count: function(scaffold_id) {
     // decrement the last record count, firsts record count are in nested lists
     count = $$('#' + scaffold_id + ' span.active-scaffold-records').last();
-    count.innerHTML = parseInt(count.innerHTML) - 1;
+    if (count) count.update(parseInt(count.innerHTML, 10) - 1);
   },
   increment_record_count: function(scaffold_id) {
     // increment the last record count, firsts record count are in nested lists
     count = $$('#' + scaffold_id + ' span.active-scaffold-records').last();
-    count.innerHTML = parseInt(count.innerHTML) + 1;
+    if (count) count.update(parseInt(count.innerHTML, 10) + 1);
   },
   update_row: function(row, html) {
     row = $(row);
     Element.replace(row, html);
     var new_row = $(row.id);
     if (row.hasClassName('even-record')) new_row.addClassName('even-record');
-    new Effect.Highlight(new_row);
+    new_row.highlight();
   },
 
   server_error_response: '',
@@ -202,6 +203,8 @@ ActiveScaffold.ActionLink.Abstract = Class.create({
       this.method = 'delete';
     } else if(this.url.match('_method=post')){
       this.method = 'post';
+    } else if(this.url.match('_method=put')){
+      this.method = 'put';
     }
     this.target = target;
     this.loading_indicator = loading_indicator;
@@ -336,7 +339,10 @@ ActiveScaffold.Actions.Record = Class.create(ActiveScaffold.Actions.Abstract, {
 ActiveScaffold.ActionLink.Record = Class.create(ActiveScaffold.ActionLink.Abstract, {
   close_previous_adapter: function() {
     this.set.links.each(function(item) {
-      if (item.url != this.url && item.is_disabled() && item.adapter) item.close();
+      if (item.url != this.url && item.is_disabled() && item.adapter) {
+        item.enable();
+        item.adapter.remove();
+      }
     }.bind(this));
   },
 
@@ -363,7 +369,7 @@ ActiveScaffold.ActionLink.Record = Class.create(ActiveScaffold.ActionLink.Abstra
     this.adapter.down('a.inline-adapter-close').observe('click', this.close_handler.bind(this));
     this.register_cancel_hooks();
 
-    new Effect.Highlight(this.adapter.down('td').down());
+    this.adapter.down('td').down().highlight();
   },
 
   close: function($super, updatedRow) {
@@ -426,24 +432,35 @@ ActiveScaffold.ActionLink.Table = Class.create(ActiveScaffold.ActionLink.Abstrac
     this.adapter.down('a.inline-adapter-close').observe('click', this.close_handler.bind(this));
     this.register_cancel_hooks();
 
-    new Effect.Highlight(this.adapter.down('td').down());
-  },
+    this.adapter.down('td').down().highlight();
+  }
 });
 
+if (Ajax.InPlaceEditor) {
 ActiveScaffold.InPlaceEditor = Class.create(Ajax.InPlaceEditor, {
   setFieldFromAjax: function(url, options) {
-    $(this._controls.editor).remove();
+    var ipe = this;
+    $(ipe._controls.editor).remove();
     new Ajax.Request(url, {
       method: 'get',
       onComplete: function(response) {
-        this._form.insert({top: response.responseText});
-        var fld = this._form.findFirstElement();
-        fld.name = this.options.paramName;
-        fld.className = 'editor_field';
-        if (this.options.submitOnBlur)
-          fld.onblur = this._boundSubmitHandler;
-        this._controls.editor = fld;
-      }.bind(this)
+        ipe._form.insert({top: response.responseText});
+        if (options.plural) {
+          ipe._form.getElements().each(function(el) {
+            if (el.type != "submit" && el.type != "image") {
+              el.name = ipe.options.paramName + '[]';
+              el.className = 'editor_field';
+            }
+          });
+        } else {
+          var fld = ipe._form.findFirstElement();
+          fld.name = ipe.options.paramName;
+          fld.className = 'editor_field';
+          if (ipe.options.submitOnBlur)
+            fld.onblur = ipe._boundSubmitHandler;
+          ipe._controls.editor = fld;
+        }
+      }
     });
   },
 
@@ -512,3 +529,4 @@ ActiveScaffold.InPlaceEditor = Class.create(Ajax.InPlaceEditor, {
     }
   }
 });
+}
