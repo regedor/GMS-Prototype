@@ -12,7 +12,11 @@ default_sorting_stages = ['ASC', 'DESC']
                            :sort => column.name, :sort_direction => column_sort_direction)
   column_header_id = active_scaffold_column_header_id(column)
   -%>
-  <th id="<%= column_header_id %>" class="<%= column.css_class unless column.css_class.nil? %> <%= "sorted #{sorting.direction_of(column).downcase}" if sorting.sorts_on? column %>" title="<%= h column.description %>">
+
+  <th id="<%= column_header_id %>" 
+      class="<%= column.css_class unless column.css_class.nil? %> 
+             <%= "sorted #{sorting.direction_of(column).downcase}" if sorting.sorts_on? column %>" 
+      title="<%= h column.description %>">
   <% if column.sortable? -%>
     <% href = url_for(sort_params) -%>
     <%= link_to_remote column.label,
@@ -23,13 +27,14 @@ default_sorting_stages = ['ASC', 'DESC']
         :update => active_scaffold_content_id,
         :method => :get },
       { :href => href } %>
-   <% elsif column.label == "Row mark" -%>
-     <p><input id="row_mark_header" name="row_mark_header" type="checkbox" onclick="alert('a');" \></p>
-   <% else -%>
+  <% elsif column.label == "Row mark" -%>
+     <p><input id="row_mark_header" class="row_mark_header" type="checkbox"\></p>
+     <%= inplace_edit_control(column) -%>
+  <% else -%>
      <p><%= column.label %></p>
-   <% end -%>
-   <%= inplace_edit_control(column) -%>
- </th>
+     <%= inplace_edit_control(column) -%>
+  <% end -%>
+  </th>
 <% end -%>
 <th class="actions">
 </th>

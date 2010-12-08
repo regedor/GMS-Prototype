@@ -4,10 +4,6 @@ module ActiveScaffold::Config
     # global level configuration
     # --------------------------
 
-
-    cattr_accessor :row_mark_actions_list
-    cattr_accessor :internationalization_prefix
-
     # provides read/write access to the global Actions DataStructure
     cattr_reader :actions
     def self.actions=(val)

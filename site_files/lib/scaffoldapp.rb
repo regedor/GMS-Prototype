@@ -74,4 +74,32 @@ module Scaffoldapp
     end
   
   end
+
 end
+
+module ActiveScaffold
+  module Config
+    class Core
+      cattr_accessor :row_mark_actions_list
+      cattr_accessor :internationalization_prefix
+    end
+  end
+  module Helpers
+    module ViewHelpers
+      def active_scaffold_includes(*args)
+        frontend = args.first.is_a?(Symbol) ? args.shift : :default
+        options = args.first.is_a?(Hash) ? args.shift : {}
+        js = javascript_include_tag(*active_scaffold_javascripts(frontend).push(options))
+
+        css = stylesheet_link_tag(*active_scaffold_stylesheets(frontend).push(options))
+        options[:cache] += '_ie' if options[:cache].is_a? String
+        options[:concat] += '_ie' if options[:concat].is_a? String
+        ie_css = stylesheet_link_tag(*active_scaffold_ie_stylesheets(frontend).push(options))
+
+        # ScaffoldAppDeveloper: added "" in the beginning to prevent escape.
+        "" + js + "\n" + css + "\n<!--[if IE]>" + ie_css + "<![endif]-->\n"
+      end
+    end
+  end
+end
+
