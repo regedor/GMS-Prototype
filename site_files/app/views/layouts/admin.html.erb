@@ -11,7 +11,7 @@
   <%= stylesheet_link_tag "formtastic/formtastic_changes",             :cache => true %>
   <%= stylesheet_link_tag "admin_themes/web_app_theme",                :cache => true %>
   <%= stylesheet_link_tag "active_scaffold_override/simon/stylesheet", :cache => true %>
-  <%= stylesheet_link_tag "admin_themes/simon/style",                  :cache => true %>
+  <%= stylesheet_link_tag "admin_themes/default/style",                  :cache => true %>
   <%= yield :head %>
 </head>
 <body id="<%= @controller.controller_name + "_" + @controller.action_name  %>">
@@ -30,11 +30,6 @@
                               admin_root_path,
                               :first => true %>
 
-          <%= navigation_menu 'admin.navigation.main.users',
-                              [ 'admin/users',
-                                'admin/groups' ],
-                              admin_users_path %>
-
           <%= navigation_menu 'admin.navigation.main.website',
                               [ 'admin/posts',
                                 'admin/comments',
@@ -43,8 +38,11 @@
 
           <%= navigation_menu 'admin.navigation.main.system',
                               [ 'admin/settings',
-                                'admin/action_entries' ],
-                              admin_settings_path %>
+                                'admin/action_entries',
+                                'admin/users',
+                                'admin/deleted_users',
+                                'admin/groups' ],
+                              admin_users_path %>
         </ul>
       </div>
     </div>    
@@ -58,16 +56,6 @@
             <%= secondary_navigation_menu [ { :controller_paths => 'admin/dashboard',
                                               :i18n_path => 'admin.navigation.secondary.dashboard',
                                               :link_to_path => admin_root_path } ],
-
-                                          :specify_first => true %>
-
-            <%= secondary_navigation_menu [ { :controller_paths => 'admin/users',
-                                              :i18n_path => 'admin.navigation.secondary.users',
-                                              :link_to_path => admin_users_path },
-
-                                            { :controller_paths => 'admin/groups',
-                                              :i18n_path => 'admin.navigation.secondary.groups',
-                                              :link_to_path => admin_groups_path } ],
 
                                           :specify_first => true %>
 
@@ -86,7 +74,16 @@
 
                                           :specify_first => true %>
 
-            <%= secondary_navigation_menu [ { :controller_paths => 'admin/action_entries', 
+            <%= secondary_navigation_menu [ { :controller_paths => [ 'admin/users',
+                                                                   'admin/deleted_users' ],
+                                              :i18n_path => 'admin.navigation.secondary.users',
+                                              :link_to_path => admin_users_path },
+
+                                            { :controller_paths => 'admin/groups',
+                                              :i18n_path => 'admin.navigation.secondary.groups',
+                                              :link_to_path => admin_groups_path },
+                                              
+                                            { :controller_paths => 'admin/action_entries', 
                                               :i18n_path => 'admin.navigation.secondary.undo_items',
                                               :link_to_path => admin_action_entries_path },
 
@@ -96,7 +93,7 @@
 
                                           :specify_first => true %>
           </ul>
-        </div>        
+        </div>
         <%= yield %>
       </div>
       <div id="sidebar">

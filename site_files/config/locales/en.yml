@@ -134,6 +134,7 @@ en:
         found:
           more: "%{count} Users Found"
           one: "%{count} User Found"            
+        noentries: "No entries found"
     
     groups:
       index:
@@ -152,6 +153,9 @@ en:
           hierarchy:
             name: "Hierarchy"
             subname: "All groups"
+          users:
+            go_to_deleted_users: "Go to deleted users"
+            go_to_users: "Go to users"
       delete:
         title: "Delete Group"
         question: "Are you sure you want to delete %{username}?"

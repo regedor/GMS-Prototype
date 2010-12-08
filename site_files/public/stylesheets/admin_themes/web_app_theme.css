@@ -12,7 +12,7 @@ h1                             { margin: 15px 0; font-size: 22px; font-weight: n
 h2                             { font-size: 22px; margin: 15px 0; font-weight: normal;}
 h3                             { font-size: 18px; margin: 10px 0; font-weight: normal;}
 h4                             { font-size: 16px; margin: 10px 0; font-weight: normal;}
-body                           { font-size: 12px;font-family: sans-serif;}
+body                           { font-size: 12px;font-family: verdana;}
 #header h1                     { margin: 0; margin-left: 0.5em;padding: 10px 0;font-size: 26px;}
 #header h1 a:link, 
 #header h1 a:active, 
