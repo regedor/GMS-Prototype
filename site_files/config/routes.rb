@@ -31,7 +31,10 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace :admin do |admin|
     admin.root :controller => 'dashboard', :action => 'index'
     admin.resources :users,          :active_scaffold => true, :active_scaffold_sortable => true,
-                                     :member          => { :suspend => :put,:unsuspend => :put, :activate => :put,:reset_password => :put },
+                                     :member          => { :suspend => :put, :unsuspend => :put, :activate => :put, :reset_password => :put },
+                                     :collection      => { :pending => :get, :active => :get, :list_action => :post, :suspended => :get, :deleted => :get }
+    admin.resources :deleted_users,  :active_scaffold => true, :active_scaffold_sortable => true,
+                                     :member          => { :suspend => :put, :unsuspend => :put, :activate => :put,:reset_password => :put },
                                      :collection      => { :pending => :get, :active => :get, :list_action => :post, :suspended => :get, :deleted => :get }
     admin.resources :groups,         :active_scaffold => true, :active_scaffold_sortable => true,
                                      :collection      => { :list_action => :post }

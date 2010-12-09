@@ -27,9 +27,8 @@
 .active-scaffold a.disabled                        { color: #999;}
 noscript.active-scaffold                           { border-left: solid 0.5em #f66;background-color: #fbb;font-size: 1em;}
 noscript.active-scaffold                           { font-weight: bold;padding: 0.5em 2em 0.5em 0.5em;color: #333;}
-.active-scaffold-header h2                         { padding-top: 0.2em;margin: 0;padding-left: 0em;}
-.active-scaffold-header h2                         { color: #676766;font: bold 160% arial, sans-serif;}
-.blue-theme .active-scaffold-header h2             { color: #fff;padding: 0.2em 0.5em 0.4em 0.5em;}
+.active-scaffold-header h2                         { padding-top: 0.2em;margin: 0;padding-left: 0em; padding-bottom: 0.7em;}
+.active-scaffold-header h2                         { color: #676766;font: bold 160% arial, sans-serif;letter-spacing: -1px; font-size: 1.8em; }
 .active-scaffold-header div.actions a              { float: right;font: bold 14px arial;letter-spacing: -1px;text-decoration: none;}
 .active-scaffold-header div.actions a              { padding: 1px 2px;white-space: nowrap;margin-left: 5px;background-position: 1px 50%;}
 .blue-theme .active-scaffold-header div.actions a  { color: #fff;}
@@ -37,14 +36,14 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .blue-theme .active-scaffold-header div.actions a.disabled {color: #fff;opacity: 0.5;}
 .active-scaffold-header div.actions                { position: absolute;right: 0.4em;top: 0.5em;text-align: right;}
 .active-scaffold th                                { background-color: white;text-align: left;} 
-.active-scaffold th                                { color: #FF6631;padding-left: 0.9em;}
+.active-scaffold th                                { color: #676766;padding-left: 0.9em;}
 .active-scaffold th a,
-.active-scaffold th p                              { display: block;background-color: white;font-size: 14px; color: #FF6631;}
+.active-scaffold th p                              { display: block;background-color: #EAEAEA;/*font-size: 14px;*/ color: #676766;}
 .active-scaffold th a, 
-.active-scaffold th a:visited                      { color: #FF6631;padding: 2px 15px 2px 5px;}
+.active-scaffold th a:visited                      { color: #676766;padding: 2px 15px 2px 5px;}
 .active-scaffold th p                              { color: #eee;padding: 2px 5px;}
-.active-scaffold th a:hover                        { background-color: #fff;color: #CC1111;}
-.active-scaffold tr.record                         { background-color: #eee;color: #111;}
+.active-scaffold th a:hover                        { background-color: #EAEAEA;color: #CC1111;}
+.active-scaffold tr.record                         { background-color: #fff;color: #111;}
 .active-scaffold tr.record td                      { padding: 0.5em 0.5em;padding-left: 1.4em;color: #333;font-family: Verdana, sans-serif;}
 .active-scaffold tr.record td                      { font-size: 11px;border:0;height: 50px;}
 .active-scaffold tbody.records td.empty            { color: #999;text-align: center;}
@@ -102,7 +101,7 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold a.visibility-toggle                     { font-size: 100%;}
 .active-scaffold a.inline-adapter-close                  { float: right;text-indent: -4000px;width: 16px;}
 .active-scaffold h4, .active-scaffold h5                 { color: #333;}
-
+.active-scaffold select                                  { font-size: 14px;}
 /*
 ============================================================================
 = General Structure
@@ -147,25 +146,30 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold-header div.actions a.disabled:hover    { background-color: transparent;cursor: default;}
 
 /* Table :: Column Headers */
-.active-scaffold th.sorted          { background-color: #fff;}
+.active-scaffold th.sorted          { background-color: #EAEAEA;}
 .active-scaffold th.asc a,
-.active-scaffold th.asc a:hover     { background: #fff url(../../../images/active_scaffold/default/arrow_up.gif) right 50% no-repeat;}
+.active-scaffold th.asc a:hover     { background: #EAEAEA url(../../../images/active_scaffold/default/arrow_up.gif) right 50% no-repeat;}
 .active-scaffold th.desc a,
-.active-scaffold th.desc a:hover    { background: #fff url(../../../images/active_scaffold/default/arrow_down.gif) right 50% no-repeat;}
+.active-scaffold th.desc a:hover    { background: #EAEAEA url(../../../images/active_scaffold/default/arrow_down.gif) right 50% no-repeat;}
 .active-scaffold th.loading a,
-.active-scaffold th.loading a:hover { background: #fff url(../../../images/active_scaffold/default/indicator-small.gif) right 50% no-repeat;}
+.active-scaffold th.loading a:hover { background: #EAEAEA url(../../../images/active_scaffold/default/indicator-small.gif) right 50% no-repeat;}
+.active-scaffold th                 { background-color: #EAEAEA;}
 
 /* Table :: Record Rows */
-.active-scaffold tr.record:hover                { background-color: #DDD;}
-.active-scaffold tr.even-record                 { background-color: #fff;}
-.active-scaffold tr.even-record:hover           { background-color: #DDD;}
-.active-scaffold tr.record td.sorted            { background-color: #EEE;border-bottom-color: #EEE;}
-.active-scaffold tr.even-record td.sorted       { background-color: #fff;}
-.active-scaffold tr.record:hover td.sorted      { background-color: #DDD;}
-.active-scaffold tr.even-record:hover td.sorted { background-color: #DDD;}
+.active-scaffold tr.record:hover                { background-color: #F5F5F5;}
+.active-scaffold tr.even-record                 { background-color: #F8F8F8;}
+.active-scaffold tr.even-record:hover           { background-color: #F5F5F5;}
+.active-scaffold tr.record td.sorted            { background-color: #fff;}
+.active-scaffold tr.even-record td.sorted       { background-color: #F8F8F8;}
+.active-scaffold tr.record:hover td.sorted      { background-color: #F5F5F5;}
+.active-scaffold tr.even-record:hover td.sorted { background-color: #F5F5F5;}
+.active-scaffold tr.even-record td              { border-top:1px solid #EAEAEA;height: 50px;}
+.active-scaffold tr.even-record td              { border-bottom:1px solid #EAEAEA;height: 50px;}
+.active-scaffold tr.even-record td.sorted       { border-bottom:1px solid #EAEAEA;height: 50px;}
 
 /* Table :: Actions (Edit, Delete) */
 .active-scaffold tr.record td.actions { border-right: 0;padding: 0;min-width: 1%;}
+
 
 /* Table :: Inline Adapter */
 .active-scaffold .view                                       { background-color: #FCFCFC;padding: 0px;border:0px;}
@@ -226,7 +230,7 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold input.text-input         { padding: 2px;}
 .active-scaffold .fieldWithErrors input,
 .active-scaffold .fieldWithErrors textarea,
-.active-scaffold .fieldWithErrors select  {border: solid 1px #f00;}
+.active-scaffold .fieldWithErrors select  { border: solid 1px #f00;}
 .active-scaffold select                   { padding: 1px;}
 .active-scaffold input.example            { color: #aaa;}
 .active-scaffold select:focus,
@@ -257,3 +261,4 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold .sub-form .locked a.destroy             { display: none;}
 .active-scaffold .sub-form input.text-input,
 .active-scaffold .sub-form .footer-wrapper               { margin-top: 3px;margin-right: 10px;}
+
