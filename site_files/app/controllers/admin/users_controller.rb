@@ -25,19 +25,5 @@ class Admin::UsersController < Admin::BaseController
   def conditions_for_collection
     return { :deleted => false }
   end
-  
-  # Method that receives all requests and calls the desired action with the selected ids,
-  # and returns the re-rendered html
-  def do_action
-    if !params[:ids].nil?
-      ids = params[:ids].split('&')
-    else ids = [ params[:id] ]
-    end
-    if User.send(params[:actions],ids)  
-      list
-    else
-      render :text => "" 
-    end      
-  end
-  
+
 end

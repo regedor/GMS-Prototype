@@ -22,7 +22,7 @@ margin: 5px 0;
 
 .active-scaffold table {
 width: 100%;
-/*border-collapse: separate;*/
+border-collapse: separate;
 }
 
 .active-scaffold a,
@@ -85,10 +85,6 @@ white-space: nowrap;
 margin-left: 5px;
 background-position: 1px 50%;
 background-repeat: no-repeat;
-}
-
-.view .active-scaffold-header div.actions a {
-float: left;
 }
 
 .blue-theme .active-scaffold-header div.actions a {
@@ -521,6 +517,9 @@ margin-bottom: 3px;
 .active-scaffold .show-view dl {
 margin-left: 5px;
 }
+.active-scaffold .show-view dl dl {
+margin-left: 0px;
+}
 
 .active-scaffold .show-view dt {
 width: 12em;
@@ -540,6 +539,10 @@ margin-bottom: 5px;
 
 /* Form
    ============================== */
+
+.active-scaffold dl {
+margin: 0;
+}
 
 .active-scaffold .submit {
 font-weight: bold;

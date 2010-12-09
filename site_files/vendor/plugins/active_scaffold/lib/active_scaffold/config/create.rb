@@ -1,10 +1,10 @@
 module ActiveScaffold::Config
-  class Create < Form
+  class Create < ActiveScaffold::Config::Form
     self.crud_type = :create
     def initialize(*args)
       super
       self.persistent = self.class.persistent
-      self.edit_after_create = self.class.edit_after_create
+      self.action_after_create = self.class.action_after_create
     end
 
     # global level configuration
@@ -23,8 +23,12 @@ module ActiveScaffold::Config
     @@persistent = false
 
     # whether update form is opened after a create or not
-    cattr_accessor :edit_after_create
-    @@edit_after_create = false
+    cattr_accessor :action_after_create
+    @@action_after_create = nil
+    def self.edit_after_create=(value)
+      ::ActiveSupport::Deprecation.warn("edit_after_create is deprecated, use action_after_create = :edit instead", caller)
+      @@action_after_create = value ? :edit : nil
+    end
 
     # instance-level configuration
     # ----------------------------
@@ -38,6 +42,10 @@ module ActiveScaffold::Config
     attr_accessor :persistent
 
     # whether the form stays open after a create or not
-    attr_accessor :edit_after_create
+    attr_accessor :action_after_create
+    def edit_after_create=(value)
+      ::ActiveSupport::Deprecation.warn("edit_after_create is deprecated, use action_after_create = :edit instead", caller)
+      @action_after_create = value ? :edit : nil
+    end
   end
 end

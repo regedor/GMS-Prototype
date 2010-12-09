@@ -50,6 +50,9 @@ module ActiveScaffold::DataStructures
       @required
     end
 
+    # column to be updated in a form when this column change
+    attr_accessor :update_column
+
     # sorting on a column can be configured four ways:
     #   sort = true               default, uses intelligent sorting sql default
     #   sort = false              sometimes sorting doesn't make sense
@@ -187,7 +190,7 @@ module ActiveScaffold::DataStructures
       if @show_blank_record
         return false if self.through_association?
         return false unless self.association.klass.authorized_for?(:action => :create)
-        self.plural_association? or (self.singular_association? and associated.empty?)
+        self.plural_association? or (self.singular_association? and associated.blank?)
       end
     end
 
@@ -255,17 +258,7 @@ module ActiveScaffold::DataStructures
 
       # default all the configurable variables
       self.css_class = ''
-      if active_record_class.respond_to? :reflect_on_validations_for
-        column_names = [name]
-        column_names << @association.primary_key_name if @association
-        self.required = column_names.any? do |column_name|
-          active_record_class.reflect_on_validations_for(column_name.to_sym).any? do |val|
-            val.macro == :validates_presence_of or (val.macro == :validates_inclusion_of and not val.options[:allow_nil] and not val.options[:allow_blank])
-          end
-        end
-      else
-        self.required = false
-      end
+      self.required = false
       self.sort = true
       self.search_sql = true
 
@@ -281,6 +274,25 @@ module ActiveScaffold::DataStructures
     def <=>(other_column)
       order_weight = self.weight <=> other_column.weight
       order_weight != 0 ? order_weight : self.name.to_s <=> other_column.name.to_s
+    end
+
+    def number_to_native(value)
+      native = '.' # native ruby separator
+      format = {:separator => '', :delimiter => ''}.merge! I18n.t('number.format', :default => {})
+      specific = case self.options[:format]
+      when :currency
+        I18n.t('number.currency.format', :default => nil)
+      when :size
+        I18n.t('number.human.format', :default => nil)
+      when :percentage
+        I18n.t('number.percentage.format', :default => nil)
+      end
+      format.merge! specific unless specific.nil?
+      unless format[:separator].blank? || !value.include?(format[:separator]) && value.include?(native) && (format[:delimiter] != native || value !~ /\.\d{3}$/)
+        value.gsub(/[^0-9\-#{format[:separator]}]/, '').gsub(format[:separator], native)
+      else
+        value
+      end
     end
 
     protected
@@ -317,7 +329,7 @@ module ActiveScaffold::DataStructures
 
     # the table.field name for this column, if applicable
     def field
-      @field ||= [@active_record_class.connection.quote_column_name(@table), field_name].join('.')
+      @field ||= [@active_record_class.connection.quote_table_name(@table), field_name].join('.')
     end
   end
 end

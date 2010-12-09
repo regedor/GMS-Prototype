@@ -8,7 +8,7 @@ jQuery.ajaxSetup({
 
 
 jQuery(document).ready(function($){
-	$(".dropdownmenu").change(do_action=function () { 
+	$(".dropdownmenu").change(list_action=function () { 
 		  var action = $(".dropdownmenu option:selected").attr("value");
 		  if(action != "")
 		  {
@@ -28,21 +28,21 @@ jQuery(document).ready(function($){
 			  }
 		    });
 
-			var path = active_controller_url+"/do_action";
+			var path = active_controller_url+"/list_action";
 
 
 			$.post(path,{"actions": action,"ids":ids},function(data){
 				if(data == "")
 				{
 					$(".flash").renderFlash("notifier.action_failure","error");	
-					$(".dropdownmenu").bind('change',do_action);	
+					$(".dropdownmenu").bind('change',list_action);	
 				}
 				else
 				{
-					$("#wrapper #main").html(data);
+					jQuery.globalEval(data);
 					$(".flash").renderFlash("notifier.action_success","notice");	
-					$(".dropdownmenu").bind('change',do_action);
-				}		
+					$(".dropdownmenu").bind('change',list_action);
+				}
 			},"html");
 			$(this).get(0).selectedIndex = 0;		
 		  }

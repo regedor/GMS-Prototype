@@ -56,6 +56,11 @@ module ActiveScaffold
       end
 
       def condition_for_integer_type(column, value, like_pattern)
+        if column.options[:format]
+          value['from'] = column.number_to_native(value['from'])
+          value['to'] = column.number_to_native(value['to'])
+        end
+
         if value['from'].blank? or not ActiveScaffold::Finder::NumericComparators.include?(value['opt'])
           nil
         elsif value['opt'] == 'BETWEEN'
@@ -148,6 +153,7 @@ module ActiveScaffold
       )
     end
     
+    # Deprecated
     def model_with_named_scope(model = active_scaffold_config.model, scope_definitions = named_scopes_for_collection)
       case scope_definitions
       when String
@@ -168,8 +174,7 @@ module ActiveScaffold
     # returns a single record (the given id) but only if it's allowed for the specified action.
     # accomplishes this by checking model.#{action}_authorized?
     # TODO: this should reside on the model, not the controller
-    def find_if_allowed(id, action, klass = nil)
-      klass ||= active_scaffold_config.model
+    def find_if_allowed(id, action, klass = beginning_of_chain)
       record = klass.find(id)
       raise ActiveScaffold::RecordNotAllowed unless record.authorized_for?(:action => action.to_sym)
       return record
@@ -182,15 +187,15 @@ module ActiveScaffold
     # * :page
     # TODO: this should reside on the model, not the controller
     def find_page(options = {})
-      options.assert_valid_keys :sorting, :per_page, :page, :count_includes, :infinite_pagination
+      options.assert_valid_keys :sorting, :per_page, :page, :count_includes, :pagination
 
-      full_includes = (active_scaffold_includes.blank? ? nil : active_scaffold_includes)
       search_conditions = all_conditions
+      full_includes = (active_scaffold_includes.blank? ? nil : active_scaffold_includes)
       options[:per_page] ||= 999999999
       options[:page] ||= 1
       options[:count_includes] ||= full_includes unless search_conditions.nil?
 
-      klass = model_with_named_scope
+      klass = beginning_of_chain
       
       # create a general-use options array that's compatible with Rails finders
       finder_options = { :order => options[:sorting].try(:clause),
@@ -201,7 +206,7 @@ module ActiveScaffold
       finder_options.merge! custom_finder_options
 
       # NOTE: we must use :include in the count query, because some conditions may reference other tables
-      count = klass.count(finder_options.reject{|k,v| [:select, :order].include? k}) unless options[:infinite_pagination]
+      count = klass.count(finder_options.reject{|k,v| [:select, :order].include? k}) unless options[:pagination] == :infinite
 
       # Converts count to an integer if ActiveRecord returned an OrderedHash
       # that happens when finder_options contains a :group key
@@ -213,11 +218,13 @@ module ActiveScaffold
       if options[:sorting] and options[:sorting].sorts_by_method?
         pager = ::Paginator.new(count, options[:per_page]) do |offset, per_page|
           sorted_collection = sort_collection_by_column(klass.all(finder_options), *options[:sorting].first)
-          sorted_collection.slice(offset, per_page)
+          sorted_collection = sorted_collection.slice(offset, per_page) if options[:pagination]
+          sorted_collection
         end
       else
         pager = ::Paginator.new(count, options[:per_page]) do |offset, per_page|
-          klass.all(finder_options.merge(:offset => offset, :limit => per_page))
+          finder_options.merge!(:offset => offset, :limit => per_page) if options[:pagination]
+          klass.all(finder_options)
         end
       end
 
