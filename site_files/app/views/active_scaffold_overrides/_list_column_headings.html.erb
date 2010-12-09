@@ -12,12 +12,12 @@ default_sorting_stages = ['ASC', 'DESC']
                            :sort => column.name, :sort_direction => column_sort_direction)
   column_header_id = active_scaffold_column_header_id(column)
   -%>
-<!-- Begin override - substituted code -->
+<%# Begin override - substituted code %>
   <th id="<%= column_header_id %>" 
       class="<%= column.css_class unless column.css_class.nil? %> 
              <%= "sorted #{sorting.direction_of(column).downcase}" if sorting.sorts_on? column %>" 
       title="<%= h column.description %>">
-<!-- End override -->
+<%# End override %>
   <% if column.sortable? -%>
     <% href = url_for(sort_params) -%>
     <%= link_to_remote column.label,
@@ -27,17 +27,17 @@ default_sorting_stages = ['ASC', 'DESC']
         :failure => "ActiveScaffold.report_500_response('#{active_scaffold_id}')",
         :method => :get },
       { :href => href } %>
-<!-- Begin override - added code -->
+<%# Begin override - added code %>
     <% elsif column.label == "Row mark" -%>
       <p><input id="row_mark_header" class="row_mark_header" type="checkbox"\></p>
       <%= inplace_edit_control(column) -%>
-<!-- End override -->
+<%# End override %>
     <% else -%>
       <p><%= column.label %></p>
-<!-- Begin override - switch lines -->
+<%# Begin override - switch lines %>
       <%= inplace_edit_control(column) -%>
     <% end -%>
-<!-- End override -->
+<%# End override %>
   </th>
 <% end -%>
 <th class="actions">

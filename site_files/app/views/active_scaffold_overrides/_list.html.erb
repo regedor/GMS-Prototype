@@ -14,9 +14,9 @@
           <%= as_(active_scaffold_config.list.filtered_message) %>
         </p>
         <p id="<%= empty_message_id %>" class="empty-message" <%= ' style="display:none;" ' unless @page.items.empty? %>>
-<!-- Begin override - substituted code -->
+<%# Begin override - substituted code %>
           <%= I18n::t(active_scaffold_config.internationalization_prefix+".list.noentries") %>
-<!-- End override -->
+<%# End override %>
         </p>
       </td>
     </tr>
@@ -33,9 +33,9 @@
 <% if active_scaffold_config.list.pagination -%>
 <div class="active-scaffold-footer">
 <% unless @page.pager.infinite? -%>
-<!-- Begin override - substituted code -->
+<%# Begin override - substituted code -%>
   <div class="active-scaffold-found"><span class="active-scaffold-records"><%=I18n::t(active_scaffold_config.internationalization_prefix+".list.found."+((@page.pager.count == 1) ? "one" : "more"), :count => @page.pager.count ) %></div>
-<!-- End override -->
+<%# End override %>
 <% end -%>
   <div class="active-scaffold-pagination">
     <%= render :partial => 'list_pagination_links', :locals => { :current_page => @page } if @page.pager.infinite? || @page.pager.number_of_pages > 1 %>
