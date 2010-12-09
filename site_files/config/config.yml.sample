@@ -2,30 +2,32 @@
 # configatron.site_name
 
 development: &local
-    site_name: "Simon Administration"
-    site_namemobile: "Simon Administration"
-    site_url: Simon Administration.local
-    
-    company_name: BaseApp2 Ltd
-    admin_email: admin@baseapp2.local
-    
-    support_name: BaseApp2 Support
-    support_email: support@baseapp2.local
-    
-    site_envnote: Local Server
+  site_name: "Simon Administration"
+  site_namemobile: "Simon Administration"
+  site_url: Simon Administration.local
+  
+  company_name: BaseApp2 Ltd
+  admin_email: admin@baseapp2.local
+  
+  support_name: BaseApp2 Support
+  support_email: support@baseapp2.local
+  
+  site_envnote: Local Server
+  theme: simon
 
 production:
-    site_name: "Simon Administration"
-    site_namemobile: BaseApp2
-    site_url: www.regedor.com
-    
-    company_name: BaseApp2 Ltd
-    admin_email: admin@baseapp2.com
-    
-    support_name: BaseApp2 Support
-    support_email: support@baseapp2.com
-    
-    site_envnote: Production Server
+  site_name: "Simon Administration"
+  site_namemobile: BaseApp2
+  site_url: www.regedor.com
+  
+  company_name: BaseApp2 Ltd
+  admin_email: admin@baseapp2.com
+  
+  support_name: BaseApp2 Support
+  support_email: support@baseapp2.com
+  
+  site_envnote: Production Server
+  theme: simon
   
 test:
   <<: *local

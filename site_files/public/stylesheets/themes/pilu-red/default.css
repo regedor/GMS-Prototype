@@ -1,0 +1,60 @@
+/*
+============================================================================
+= Typography
+============================================================================
+*/
+
+
+
+
+/*
+============================================================================
+= Specific Sections Structure
+============================================================================
+*/
+
+
+/*
+============================================================================
+= Resources
+============================================================================
+*/
+/* TODO: Complete all the other views, as they became avaliable */
+
+/* Users */
+#as_admin__users-content a.show   { background: url("icons/user.png") no-repeat; padding-left: 16px;}
+#as_admin__users-content a.edit   { background: url("icons/user_edit.png") no-repeat;padding-left: 16px;}
+#as_admin__users-content a.delete { background: url("icons/user_delete.png") no-repeat;padding-left: 16px;}
+
+/* Groups */
+#as_admin__groups-content a.show   { background: url("icons/group.png") no-repeat;padding-left: 16px;}
+#as_admin__groups-content a.edit   { background: url("icons/group_edit.png") no-repeat;padding-left: 16px;}
+#as_admin__groups-content a.delete { background: url("icons/group_delete.png") no-repeat;padding-left: 16px;}
+
+/* Posts */
+#as_admin__posts-content a.comments { background: url("icons/comments.png") no-repeat;padding-left: 16px;}
+#as_admin__posts-content a.show     { background: url("icons/pencil.png") no-repeat;padding-left: 16px;}
+#as_admin__posts-content a.delete   { background: url("icons/pencil_delete.png") no-repeat;padding-left: 16px;}
+
+/* Other */
+.content .actions input[type=text]  { background: url("icons/magnifier.png") no-repeat;padding-left: 16px;background-position:1px 1px; }
+
+/* Icons on hover */
+
+/* Users */
+#as_admin__users-content a.show:hover   { background: url("icons_hover/user.png") no-repeat; padding-left: 16px;}
+#as_admin__users-content a.edit:hover   { background: url("icons_hover/user_edit.png") no-repeat;padding-left: 16px;}
+#as_admin__users-content a.delete:hover { background: url("icons_hover/user_delete.png") no-repeat;padding-left: 16px;}
+
+/* Groups */
+#as_admin__groups-content a.show:hover   { background: url("icons_hover/group.png") no-repeat;padding-left: 16px;}
+#as_admin__groups-content a.edit:hover   { background: url("icons_hover/group_edit.png") no-repeat;padding-left: 16px;}
+#as_admin__groups-content a.delete:hover { background: url("icons_hover/group_delete.png") no-repeat;padding-left: 16px;}
+
+/* Posts */
+#as_admin__posts-content a.comments:hover { background: url("icons_hover/comments.png") no-repeat;padding-left: 16px;}
+#as_admin__posts-content a.show:hover     { background: url("icons_hover/pencil.png") no-repeat;padding-left: 16px;}
+#as_admin__posts-content a.delete:hover   { background: url("icons_hover/pencil_delete.png") no-repeat;padding-left: 16px;}
+
+/* Other */
+.content .actions input[type=text]  { background: url("icons_hover/magnifier.png") no-repeat;padding-left: 16px;background-position:1px 1px; }

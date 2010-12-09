@@ -1,16 +1,13 @@
 <!-- If a sidebar file exists in the views/controller folder it is rendered, otherwise it does not -->
 
-<div class="block">
-  <%= javascript_include_tag 'checkboxes' %>
-  <% if File.exists?(Rails.root.join("app", "views", params[:controller], "_sidebar.html.erb")) %>
-    <% content_for :sidebar do -%>
-      <%= render :partial => 'sidebar'  %>
-    <% end -%>
+<%= javascript_include_tag 'checkboxes' %>
+<% if File.exists?(Rails.root.join("app", "views", params[:controller], "_sidebar.html.erb")) %>
+  <% content_for :sidebar do -%>
+    <%= render :partial => 'sidebar'  %>
   <% end -%>
-  <div class="content">
-    <div class="inner">
-      <%= render :super %>
-    </div>
+<% end -%>
+<div class="content">
+  <div class="inner">
+    <%= render :super %>
   </div>
 </div>
-

@@ -16,6 +16,7 @@ class Admin::UsersController < Admin::BaseController
       :list         => [ :created_at, :email, :active, :name, :role ], 
       :show         => [ :email, :active, :nickname, :profile, :website, :country, :gender ],
       :edit         => [ :email, :active, :nickname, :profile, :website, :country, :gender, :groups, :role ],
+#      :create       => [ :email, :active, :nickname, :profile, :website, :country, :gender, :groups, :role ],
       :actions_list => [ :destroy_by_ids, :activate!, :deactivate! ]
   end
 
