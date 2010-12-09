@@ -218,7 +218,7 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold .show-view dl { margin-left: 5px;}
 
 /* Form */
-.active-scaffold .submit         { margin: 0;margin-top: 5px;}
+.active-scaffold .submit         { margin: 0;/*margin-top: 5px;*/}
 .active-scaffold form p          { clear: both;}
 .active-scaffold fieldset        { border: none;}
 .active-scaffold h4,
