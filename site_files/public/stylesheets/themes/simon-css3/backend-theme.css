@@ -150,7 +150,6 @@ ul.list li .item .avatar { border-color: #F0F0EE;border-width: 1px;border-style:
 /* box */
 #box .block           { background: #FFF;}
 .secondary-navigation { border-bottom-width: 4px;}
-#sidebar              { /*border: 1px solid black;*/ background-color: #fff;}
 #sidebar ul           { margin-left: 2em; margin-bottom: 2em;}
 div#wrapper.wat-cf    { padding-top: 2em;margin-left: 20px; margin-right: 20px;}
 
@@ -203,6 +202,6 @@ ul.list li,
                  background: -moz-linear-gradient(center bottom,rgb(54,57,61) 2%,rgb(224,224,224) 29%); }            
 #header        { background: -webkit-gradient(linear,left bottom,left top,color-stop(0.16, rgb(204,204,204)),color-stop(0.87, rgb(255,159,15)))}
 #header        { background: -moz-linear-gradient(center bottom,rgb(204,204,204) 16%,rgb(255,159,15) 87%)}
-#wrapper #main {-moz-box-shadow: 5px 5px 5px #888;-webkit-box-shadow: 5px 5px 5px #888;box-shadow: 5px 5px 5px #888;}
-#sidebar       {-moz-box-shadow: 5px 5px 5px #888;-webkit-box-shadow: 5px 5px 5px #888;box-shadow: 5px 5px 5px #888;}
+#wrapper #main .block {-moz-box-shadow: 5px 5px 5px #888;-webkit-box-shadow: 5px 5px 5px #888;box-shadow: 5px 5px 5px #888;}
+#sidebar .block       {-moz-box-shadow: 5px 5px 5px #888;-webkit-box-shadow: 5px 5px 5px #888;box-shadow: 5px 5px 5px #888;}
 
