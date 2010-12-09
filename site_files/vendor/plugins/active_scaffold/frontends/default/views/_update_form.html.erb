@@ -43,7 +43,7 @@ end
 
   <%= render :partial => 'form', :locals => { :columns => active_scaffold_config.update.columns } %>
 
-  <p class="form-footer buttons">
+  <p class="form-footer">
     <%= submit_tag as_(:update), :class => "submit" %>
     <%= link_to as_(:cancel), main_path_to_return, :class => 'cancel' %>
     <%= loading_indicator_tag(:action => :update, :id => params[:id]) %>
