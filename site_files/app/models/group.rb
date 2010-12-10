@@ -5,8 +5,6 @@ class Group < ActiveRecord::Base
 
   has_and_belongs_to_many :groups,       :association_foreign_key => "include_group_id"
   has_and_belongs_to_many :direct_users, :class_name => "User"
-  has_many :action_entries, :class_name => "ActionEntry", :foreign_key => "entity_id", 
-  :conditions => "'action_entries'.'controller'='admin/groups' AND 'action_entries'.'action' is not 'delete' "
 
 
   # ==========================================================================

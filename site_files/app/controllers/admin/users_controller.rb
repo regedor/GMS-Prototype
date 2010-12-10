@@ -2,11 +2,9 @@ class Admin::UsersController < Admin::BaseController
   filter_access_to :all, :require => any_as_privilege
 
   active_scaffold :user do |config|
-    config.subform.columns = [:email]
+    config.subform.columns = [:email] 
 
     config.columns[:groups].show_blank_record = false
-    config.nested.add_link("<img src='/images/icons/book_open.png'/>History", [:history_entries])
-
 
     config.columns[:role].form_ui = :select 
     config.columns[:groups].form_ui = :select 
@@ -24,19 +22,17 @@ class Admin::UsersController < Admin::BaseController
   def conditions_for_collection
     return { :deleted => false }
   end
-  
-  # Method that receives all requests and calls the desired action with the selected ids,
-  # and returns the re-rendered html
-  def do_action
-    if !params[:ids].nil?
-      ids = params[:ids].split('&')
-    else ids = [ params[:id] ]
-    end
-    if User.send(params[:actions],ids)  
-      list
+
+
+  # I are Overriding this action to use it as befor revert preview too
+  def show
+    if params[:history_entry_id]
+      @actual_record = User.find params[:id] 
+      @history_entry  = HistoryEntry.find(params[:history_entry_id])
+      @record         = @history_entry.historicable_preview
     else
-      render :text => "" 
-    end      
+     super   
+    end
   end
   
 end

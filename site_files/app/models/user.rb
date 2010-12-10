@@ -8,7 +8,6 @@ class User < ActiveRecord::Base
   belongs_to              :role
   #has_many :action_entries, :class_name => "ActionEntry", :foreign_key => "entity_id", 
   # :conditions => "'action_entries'.'controller'='admin/users' AND 'action_entries'.'action' is not 'delete' "
-  has_many                :history_entries, :as => :historicable
 
 
   # ==========================================================================
@@ -117,10 +116,15 @@ class User < ActiveRecord::Base
   def create_history_entry?
     new_user = self
     old_user = User.find self.id
-    [:website].each do |attribute|
+    [:website, :email, :name, :nickname, :gender, :profile, :website, :country, :phone, :emails, :language,:openid_identifier
+    ].each do |attribute|
       return true if new_user.send(attribute) != old_user.send(attribute)
     end
     return false
+  end
+
+  def historicable_name
+    first_and_last_name
   end
 
 
@@ -195,6 +199,14 @@ class User < ActiveRecord::Base
 
   def first_name
     self.name.split(" ").first
+  end
+
+  def last_name
+    self.name.split(" ").last
+  end
+
+  def first_and_last_name
+    [first_name,last_name].join " "
   end
 
   def small_name

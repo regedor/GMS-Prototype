@@ -1,9 +1,68 @@
-<div class="block">
-  <h3>User management</h3>
-  <div class="content">
-    <p>Esta aplicação é um espetaculo para gerir users. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    <ul class="navigation"> 
-            <li><a href="<%= :deleted_users %>"><%=h t("admin.groups.index.sidebar.users.go_to_deleted_users") %></a></li> 
-   </ul> 
+<%# List page %>
+<% if @records -%>
+  <div class="block">
+    <h3>User management</h3>
+    <div class="content">
+      <p>Esta aplicação é um espetaculo para gerir users. Falar do historico e mais promenores dos users</p>
+    </div>
   </div>
-</div>
+
+  <div class="block">
+    <h3>Deleted Users</h3>
+    <div class="content">
+      <p>Recurperar users</p>
+      <ul class="navigation"> 
+        <li><a href="<%= :deleted_users %>"><%=h t("admin.groups.index.sidebar.users.go_to_deleted_users") %></a></li> 
+     </ul> 
+    </div>
+  </div>
+<% end -%>
+
+
+<%# Revert Preview, show and delete pages %>
+<%# History list %>
+<% if (controller.action_name != "edit") and (@history_entry or @record && !@record.new_record?) -%>
+  <div class="block">
+    <h3><%= t "admin.users.sidebar.history.title", :name => @record.small_name %></h3>
+    <div class="content">
+      <p><%= t("admin.users.sidebar.history.paragraph") %></p>
+      <ul class="options"> 
+        <% ( @actual_record || @record ).history_entries_list.each do |entry| -%>
+          <li> 
+            <%= link_to t("generic_sentence.time_ago", {:time_ago => time_ago_in_words(entry.created_at)}), 
+                        admin_user_path(entry.historicable,{:history_entry_id => entry.id}) %>
+            <%= entry.historicable.historicable_name %>
+          </li> 
+        <% end -%>
+      </ul> 
+    </div>
+  </div>
+<% end -%>
+
+
+<% if  @history_entry -%>
+<% end %>
+
+
+<%# History show preview page %>
+<% if  @history_entry -%>
+  <div class="block notice">
+    <h3>Reverting</h3>
+    <h4>Reverting</h4>
+    <p>cuidado com coisas e tal</p>
+    <%= link_to "sdf", admin_history_entries_path({:id => @history_entry.id, :redirect_url => admin_user_url(@actual_record.id)}),
+                 :method => :post %>
+  </div>
+<% end -%>
+
+
+<%# Edit page %>
+<% if controller.action_name == "edit" and @record -%>
+  <div class="block">
+    <h3>Falar sobre a edição de users</h3>
+    <div class="content">
+      <p>Esta aplicação é um espetaculo para gerir users. Falar do historico e mais promenores dos users</p>
+    </div>
+  </div>
+<% end -%>
+

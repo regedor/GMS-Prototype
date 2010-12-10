@@ -10,7 +10,11 @@ en:
 
   users:
     roles:
+      root: "Root"
       admin: "Administrator"
+      users_manager: "Users Manager"
+      website_manager: "Website Manager"
+      blogger: "Blogger" 
       user: "Normal User"
     form:
       email: "Email"
@@ -369,5 +373,6 @@ en:
     go_back: "Go back"
     are_you_sure: "Are you sure?"
     scaffold_do_actions: "More actions"
+    time_ago: "%{time_ago} ago"
         
           
