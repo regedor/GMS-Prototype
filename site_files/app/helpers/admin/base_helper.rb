@@ -30,7 +30,7 @@ module Admin::BaseHelper
   
   def created_at_column(record)
     if (Time.now - record.created_at) < 30.days
-      time_ago_in_words record.created_at 
+      I18n::t "generic_sentence.time_ago", :time_ago => time_ago_in_words(record.created_at)
     else
       record.created_at.strftime('%d %b, %Y')
     end

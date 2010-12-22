@@ -19,7 +19,6 @@ class Post < ActiveRecord::Base
 
   # If a post is destroyed, associated comments are also destroyed.
   def destroy
-    self.deleted = true
     self.comments.each do |comment|
       comment.destroy
     end
@@ -27,7 +26,8 @@ class Post < ActiveRecord::Base
   end
 
   def authorized_for?(*args)
-    !deleted
+    #!deleted
+    true
   end
 
   def validate_published_at_natural

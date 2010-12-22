@@ -2,11 +2,9 @@ class Admin::UsersController < Admin::BaseController
   filter_access_to :all, :require => any_as_privilege
 
   active_scaffold :user do |config|
-    config.subform.columns = [:email]
+    config.subform.columns = [:email] 
 
     config.columns[:groups].show_blank_record = false
-    config.nested.add_link("<img src='/images/icons/book_open.png'/>History", [:history_entries])
-
 
     config.columns[:role].form_ui = :select 
     config.columns[:groups].form_ui = :select 
@@ -15,8 +13,8 @@ class Admin::UsersController < Admin::BaseController
     Scaffoldapp::active_scaffold config, "admin.users", 
       :list         => [ :created_at, :email, :active, :name, :role ], 
       :show         => [ :email, :active, :nickname, :profile, :website, :country, :gender ],
-      :edit         => [ :email, :active, :nickname, :profile, :website, :country, :gender, :groups, :role ],
 #      :create       => [ :email, :active, :nickname, :profile, :website, :country, :gender, :groups, :role ],
+      :edit         => [ :email, :active, :nickname, :profile, :website, :country, :gender, :groups, :role ],
       :actions_list => [ :destroy_by_ids, :activate!, :deactivate! ]
   end
 
@@ -26,4 +24,16 @@ class Admin::UsersController < Admin::BaseController
     return { :deleted => false }
   end
 
+
+  # I are Overriding this action to use it as befor revert preview too
+  def show
+    if params[:history_entry_id]
+      @actual_record = User.find params[:id] 
+      @history_entry  = HistoryEntry.find(params[:history_entry_id])
+      @record         = @history_entry.historicable_preview
+    else
+     super   
+    end
+  end
+  
 end

@@ -6,6 +6,7 @@ class HistoryEntry < ActiveRecord::Base
 
   module Historicable
     def self.included(base)
+      base.send :has_many,      :history_entries, :as => :historicable
       base.send :extend, ClassMethods
       base.send :include, InstanceMethods
       base.send :before_update, :create_history_entry!
@@ -22,7 +23,7 @@ class HistoryEntry < ActiveRecord::Base
         def create_history_entry?
           true
         end
-
+       
         def create_history_entry!
           return unless create_history_entry?
           message  =  self.to_label
@@ -42,6 +43,15 @@ class HistoryEntry < ActiveRecord::Base
                                               :xml_hash     => self.to_xml
         end
 
+
+        def history_entries_list
+          history_entries.reverse
+        end
+
+       def is_historicable?
+         true
+       end
+
       end
   end
 
@@ -51,6 +61,7 @@ class HistoryEntry < ActiveRecord::Base
   # ==========================================================================
   
   belongs_to :historicable, :polymorphic => true 
+  belongs_to :user
 
 
   # ==========================================================================
@@ -68,12 +79,21 @@ class HistoryEntry < ActiveRecord::Base
   # ==========================================================================
   # Instance Methods
   # ==========================================================================
+
+
+  def user_name
+    user.nickname_or_first_and_last_name
+  end
   
   def revert!
     hash = Hash.from_xml(self.xml_hash)
     self.historicable.attributes = hash[self.historicable_type.downcase]
     self.historicable.save
-    HistoryEntry.all(:conditions => "id >= #{self.id} AND historicable_id = #{self.historicable.id}").map(&:destroy)
+  end  
+  
+  def historicable_preview
+    hash = Hash.from_xml(self.xml_hash)
+    self.historicable_type.constantize.new hash[self.historicable_type.downcase]
   end  
 
  
