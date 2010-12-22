@@ -43,12 +43,9 @@ class HistoryEntry < ActiveRecord::Base
                                               :xml_hash     => self.to_xml
         end
 
-        def historicable_name
-          to_label || name || to_s
-        end
 
         def history_entries_list
-          (history_entries[1..-1] || []).reverse
+          history_entries.reverse
         end
 
        def is_historicable?
@@ -64,6 +61,7 @@ class HistoryEntry < ActiveRecord::Base
   # ==========================================================================
   
   belongs_to :historicable, :polymorphic => true 
+  belongs_to :user
 
 
   # ==========================================================================
@@ -81,6 +79,11 @@ class HistoryEntry < ActiveRecord::Base
   # ==========================================================================
   # Instance Methods
   # ==========================================================================
+
+
+  def user_name
+    user.nickname_or_first_and_last_name
+  end
   
   def revert!
     hash = Hash.from_xml(self.xml_hash)

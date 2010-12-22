@@ -202,15 +202,19 @@ class User < ActiveRecord::Base
   end
 
   def last_name
-    self.name.split(" ").last
+    (names = self.name.split(" ")).length == 1 ? "" : names.last
   end
 
   def first_and_last_name
-    [first_name,last_name].join " "
+    [first_name,last_name].join(" ").chomp " "
   end
 
   def small_name
     self.nickname || first_name
+  end
+
+  def nickname_or_first_and_last_name
+    self.nickname || first_and_last_name
   end
   
   def revertTo(xmlUser)

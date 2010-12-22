@@ -26,13 +26,21 @@
     <h3><%= t "admin.users.sidebar.history.title", :name => @record.small_name %></h3>
     <div class="content">
       <p><%= t("admin.users.sidebar.history.paragraph") %></p>
-      <ul class="options"> 
-        <% ( @actual_record || @record ).history_entries_list.each do |entry| -%>
-          <li> 
+      <ul class="options">
+        <% history_rows = ( @actual_record || @record ).history_entries_list -%>
+        <% if (first_entry = history_rows.shift) -%>
+          <li class="<%= 'selected' unless params[:history_entry_id] %>">
+            <%= link_to t("generic_sentence.time_ago", {:time_ago => time_ago_in_words(first_entry.created_at)}), 
+                        admin_user_path(first_entry.historicable) %>
+            <%= first_entry.user_name %>
+          </li>
+        <% end -%>
+        <% history_rows.each do |entry| -%>
+          <li class="<%= 'selected' if params[:history_entry_id].to_s == entry.id.to_s %>">
             <%= link_to t("generic_sentence.time_ago", {:time_ago => time_ago_in_words(entry.created_at)}), 
                         admin_user_path(entry.historicable,{:history_entry_id => entry.id}) %>
-            <%= entry.historicable.historicable_name %>
-          </li> 
+            <%= entry.user_name %>
+          </li>
         <% end -%>
       </ul> 
     </div>

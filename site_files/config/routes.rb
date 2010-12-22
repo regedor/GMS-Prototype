@@ -67,9 +67,7 @@ ActionController::Routing::Routes.draw do |map|
                                      :only            => :destroy,
                                      :member          => { :mark_as_spam => :put, :mark_as_ham => :put }
     admin.resources :tags,           :has_many        => :posts
-    admin.resources :action_entries, :active_scaffold => true, :active_scaffold_sortable => true,
-                                     :member          => { :undo => :post },
-                                     :collection      => { :list_action => :post }
+    admin.resources :history_entries
   end
 
   
