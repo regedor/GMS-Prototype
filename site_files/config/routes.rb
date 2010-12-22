@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
 
-  map.root :controller => 'posts', :action => 'index'
+  map.root :controller => 'website/posts', :action => 'index'
 
 
   # ==========================================================================
