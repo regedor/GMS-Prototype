@@ -38,7 +38,7 @@ hr                       { background: #f0f0ee;color: #f0f0ee;}
 #header h1 a:visited     { color: #fff;}
 #sidebar .block h4       { font-weight: bold;}
 #sidebar .notice h4      { color: #0B43A8;}
-#sidebar h3              { background: #87A7DD;color: #36393D; border-left:0;}
+#sidebar h3              { background: #D8DFEA;color: #36393D; border-left:0;}
 #sidebar ul li a:link, 
 #sidebar ul li a:visited { background: #FFF; border-bottom: 1px solid #F0F0EE; text-decoration: none;}
 #sidebar ul li a:hover, 
@@ -65,7 +65,7 @@ hr                       { background: #f0f0ee;color: #f0f0ee;}
 #main-navigation ul li.active a:link, 
 #main-navigation ul li.active a:visited, 
 #main-navigation ul li.active a:hover, 
-#main-navigation ul li.active a:active { font-weight:bold; background-color: #87A7DD; color: #36393D; }
+#main-navigation ul li.active a:active { font-weight:bold; background-color: #D8DFEA; color: #36393D; }
 #footer .block                         { color: #fff;  solid  #36393D;}
 #footer a                              { color: #fff;}
 .pagination a                          { color: #1a1a1a;}
@@ -90,7 +90,9 @@ label                                  { width: 100px; color:#555555; font:11px 
 label                      { float:left;}
 #main-navigation,
 #secondary-navigation,
-#main-navigation ul.wat-cf { width: 70%; height: 30px;}
+#main-navigation ul.wat-cf { width: 71%; height: 30px;margin:0;padding: 0; border: 0;} /*navbar*/
+#main                      { width: 71%; margin:0;padding: 0; border: 0;} /*content*/
+#sidebar                   { width: 28%;}
 
 
 
@@ -110,7 +112,7 @@ body { background: #EEE; }
 #main .block .content                        { background: #FCFCFC;padding: 5px;}
 
 /* Header */
-#header                   { background: #406AB0; margin: 20px; margin-bottom: 0; padding:0;}
+#header                   { background: #3B5998; margin: 20px; margin-bottom: 0; padding:0;}
 #user-navigation a,
 #user-navigation          { top: auto;bottom: 5px;right: 25px; color: #fff; text-decoration: none;}
 #user-navigation a.logout { background: #cc0000; padding: 1px 4px;}
@@ -121,17 +123,17 @@ body { background: #EEE; }
 
 /* Navigation */
 #wrapper #main-navigation        { border-top:0;}
-#main-navigation                 { background-color: #3A407F;} /* Main navigation*/
+#main-navigation                 { background-color: #627AAD;} /* Main navigation*/
 #main-navigation ul li           { margin-right: 0;}
 #main-navigation ul li a         { padding: 8px 0;}
-#main-navigation ul li a:hover   { background: #87A7DD;}
-.secondary-navigation .wat-cf    { background-color: #87A7DD;} /*Secondary navigation*/
+#main-navigation ul li a:hover   { background: #D8DFEA;}
+.secondary-navigation .wat-cf    { background-color: #D8DFEA;} /*Secondary navigation*/
 .secondary-navigation li a:hover { background: white;}
 .secondary-navigation            { border-bottom-color: #36393D;}
 
 /* Footer */
 #footer                          { padding: 0 20px;}
-#footer .block p                 { margin: 0; padding: 7px; background-color: #406AB0;}
+#footer .block p                 { margin: 0; padding: 7px; background-color: #3B5998;}
 
 /* Pagination */
 .pagination a, .pagination span { background: #cfcfcf; border: 1px solid #c1c1c1;}
@@ -163,7 +165,8 @@ ul.list li .item .avatar { border-color: #F0F0EE;border-width: 1px;border-style:
 .secondary-navigation { border-bottom-width: 0px;}
 #sidebar              { background-color: #fff;}
 #sidebar ul           { margin-left: 2em; margin-bottom: 2em;}
-div#wrapper.wat-cf    { margin-left: 20px; margin-right: 20px;padding: 0; min-height: 22em;}
+div#wrapper.wat-cf    { margin-left: 20px;margin-right: 20px; padding: 0; min-height: 22em;}
+
 
 
 /* This elements are css3,
@@ -201,3 +204,11 @@ ul.list li,
 #box .block                       { -moz-border-radius-bottomleft: 4px; -webkit-border-bottom-left-radius: 4px;
                                     -moz-border-radius-bottomright: 4px; -webkit-border-bottom-right-radius: 4px; }
 */
+
+/* Gradients */
+#header                   {background: -webkit-gradient(linear,left bottom,left top,color-stop(0, #35518A),color-stop(1, #3B5998));
+                           background: -moz-linear-gradient(center bottom,   #35518A 0%,#3B5998 100%);}
+                           
+#footer .block            {background: -webkit-gradient(linear,left bottom,left top,color-stop(0, #35518A),color-stop(1, #3B5998));
+                           background: -moz-linear-gradient(center bottom,   #35518A 0%,#3B5998 100%);}
+

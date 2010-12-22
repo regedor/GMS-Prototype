@@ -101,8 +101,7 @@ p              { margin: 1.5em 0;}
 a img          { border: none; }
 #container     { min-width: 960px;}
 #header, 
-#wrapper, 
-#footer        { padding: 0 20px;}
+#wrapper       { padding: 0 20px;}
 .actions-bar   { padding: 10px 1px;}
 
 /* Sidebar

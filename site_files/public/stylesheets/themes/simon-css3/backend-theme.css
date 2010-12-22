@@ -193,15 +193,19 @@ ul.list li,
 #main-navigation ul li.active a:visited, 
 #main-navigation ul li.active a:hover, 
 #main-navigation ul li.active a:active 
-               { background: -webkit-gradient(linear,left bottom,left top,color-stop(0.49, rgb(240,240,240)),color-stop(0.74, rgb(163,163,163)));
-                 background: -moz-linear-gradient(center bottom,rgb(240,240,240) 49%,rgb(163,163,163) 74%);}
+               { background: -webkit-gradient(linear,left bottom,left top,color-stop(0.49, #F2F2F2),color-stop(0.74, #F5F5F5));
+                 background: -moz-linear-gradient(center bottom,#F2F2F2 49%,#F5F5F5 74%);}
+                 
+
 .secondary-navigation ul li.active,
 .secondary-navigation ul li.active a:hover,
 .secondary-navigation ul li.active a   
-               { background: -webkit-gradient(linear,left bottom,left top,color-stop(0.02, rgb(54,57,61)),color-stop(0.29, rgb(224,224,224)));
-                 background: -moz-linear-gradient(center bottom,rgb(54,57,61) 2%,rgb(224,224,224) 29%); }            
-#header        { background: -webkit-gradient(linear,left bottom,left top,color-stop(0.16, rgb(204,204,204)),color-stop(0.87, rgb(255,159,15)))}
-#header        { background: -moz-linear-gradient(center bottom,rgb(204,204,204) 16%,rgb(255,159,15) 87%)}
+               { background: -webkit-gradient(linear,left bottom,left top,color-stop(0.02, #41454A ),color-stop(0.29, #595959));
+                 background: -moz-linear-gradient(center bottom,#41454A 2%,#595959 29%); }
+
+#header        { background: -webkit-gradient(linear,left bottom,left top,color-stop(0.16, #FEB340),color-stop(0.87, #FF9F0F))}
+#header        { background: -moz-linear-gradient(center bottom,#FEB340 16%,#FF9F0F 87%)}
+
 #wrapper #main .block {-moz-box-shadow: 5px 5px 5px #888;-webkit-box-shadow: 5px 5px 5px #888;box-shadow: 5px 5px 5px #888;}
 #sidebar .block       {-moz-box-shadow: 5px 5px 5px #888;-webkit-box-shadow: 5px 5px 5px #888;box-shadow: 5px 5px 5px #888;}
 

@@ -113,6 +113,7 @@ en:
         destroy_link: "Delete"
         show_link: "Details"
         search: "Find users"
+        create: "Delete-me!"
         columns:
           created_at: "Created at"
           email: "Email"

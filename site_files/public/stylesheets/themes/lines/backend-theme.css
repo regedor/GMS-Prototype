@@ -28,7 +28,7 @@ a:active,
 h1, 
 h2, 
 h3                       { color: #36393d;}
-body                     { color: #222; background: #DDD; font-family: helvetica, arial, sans-serif;}
+body                     { color: #222; background: #D5D5D5; font-family: helvetica, arial, sans-serif;}
 hr                       { background: #f0f0ee;color: #f0f0ee;}
 #header h1               { height: 60px;padding: 15px 0;font-size: 28px;font-style: normal;}
 #header h1               { font-weight: bold;text-transform: normal;letter-spacing: -1px;line-height: 1.2em;}
@@ -38,7 +38,7 @@ hr                       { background: #f0f0ee;color: #f0f0ee;}
 #header h1 a:visited     { color: #fff;}
 #sidebar .block h4       { font-weight: bold;}
 #sidebar .notice h4      { color: #0B43A8;}
-#sidebar h3              { background: #ddd;color: #F2663A; }
+#sidebar h3              { color: #F2663A; font-weight: bold;}
 
 #sidebar ul li a:link, 
 #sidebar ul li a:visited { background: #FFF; border-bottom: 1px solid #F0F0EE; text-decoration: none;}
@@ -55,29 +55,41 @@ hr                       { background: #f0f0ee;color: #f0f0ee;}
 #user-navigation ul li a:active,
 #main-navigation ul li a:link, 
 #main-navigation ul li a:visited, 
-#main-navigation ul li a:hover         { text-decoration: none;color: #fff;padding-right: 10px;padding-left: 10px;}
-#main-navigation ul li a:hover         { background-color: gray;} /**/
+#main-navigation ul li a:hover         { text-decoration: none;color: #000;padding-right: 10px;padding-left: 10px;}
+
+#user-navigation          { top: auto;bottom: 5px;right: 25px; color: #fff;}
+#user-navigation a        { color: #fff; text-decoration: none; }
+
+.secondary-navigation ul li a:link,
+.secondary-navigation ul li a:visited,
+.secondary-navigation ul li a:hover,
+.secondary-navigation ul li a:active,
+.secondary-navigation ul li a:link, 
+.secondary-navigation ul li a:visited, 
+.secondary-navigation ul li a:hover         { text-decoration: none;color: #000;padding-right: 10px;padding-left: 10px;}
+
 
 .secondary-navigation ul li.active,
 .secondary-navigation ul li.active a:hover,
-.secondary-navigation ul li.active a   { background-color: #fff; color: #F2663A;}
+.secondary-navigation ul li.active a   { background-color: #fff; color: #F2663A; font-weight: bold;}
 
-.secondary-navigation ul li.active,
+
 .secondary-navigation ul li.active a:hover,
-.secondary-navigation ul li.active a   { border-top: 1px solid gray;border-left: 1px solid gray;border-right: 1px solid gray;}
+.secondary-navigation ul li.active a   { border-top: 2px solid gray;border-left: 2px solid gray;border-right: 2px solid gray;}
 
 #main-navigation ul li.active a:link,
 #main-navigation ul li.active a:visited,
 #main-navigation ul li.active a:hover,
-#main-navigation ul li.active a:active { font-weight:bold; background-color: #DDD; color: #F2663A;border-bottom: 0;  }
+#main-navigation ul li.active a:active { font-weight:bold; background-color: #FFE295; color: #F2663A;border-bottom: 0;  }
 #main-navigation ul li.active a:link,
 #main-navigation ul li.active a:visited,
 #main-navigation ul li.active a:hover,
-#main-navigation ul li.active a:active { border-left: 2px solid #808080 ;border-top: 2px solid #808080; border-right: 2px solid #808080; }
+#main-navigation ul li.active a:active { border-left: 2px solid #000 ;border-top: 2px solid #000; border-right: 2px solid #000; }
 
 
-#footer .block                         { color: #fff; margin-top: 10px; solid  #36393D;}
-#footer a                              { color: #fff;}
+
+#footer .block                         { color: #000; margin-top: 10px; solid  #36393D;}
+#footer a                              { color: #000;}
 .pagination a                          { color: #1a1a1a;}
 .table th                              { background: #36393d; color: #FFF;}
 label                                  { width: 100px; color:#555555; font:11px verdana,sans-serif;}
@@ -112,9 +124,9 @@ label { float:left;}
 #main .block .content                        { background: #FCFCFC;padding: 5px;}
 
 /* Header */
-#header                   { background: #D0D0D0; }
-#user-navigation          { top: auto;bottom: 5px;right: 25px; color: black;}
+#header                   { background: #B8B89A; border-bottom: 2px solid #000; }
 #user-navigation a.logout { background: #cc0000; padding: 1px 4px;}
+
 
 /* Sidebar */
 #sidebar .block .content p   {  margin:0; padding: 0; }
@@ -122,20 +134,20 @@ label { float:left;}
 #sidebar h3              { background:white;width: 40%; }
 #sidebar h3              { border-left: 2px solid #808080;border-right: 2px solid #808080;border-top: 2px solid #808080; }
 #sidebar .block .content { background-color: white; margin: 0; padding: 1em;}
-#sidebar { background-color: #DDD;}
+
 
 /* Navigation */
 #wrapper #main-navigation        { border-top:0;}
-#main-navigation                 { background-color: #D0D0D0;}
+/*#main-navigation                 { background-color: #D0D0D0;}*/
 #main-navigation ul li           { margin-right: 0;}
 #main-navigation ul li a         { padding: 8px 0;}
-.secondary-navigation .wat-cf    { background: #DDDDDD;}
+.secondary-navigation .wat-cf    { background: #FFE295;}
 .secondary-navigation li a:hover { background: gray; } 
 .secondary-navigation            { background: white; border-bottom: white; }
 
 /* Footer */
-#footer                          { padding: 0 20px;}
-#footer .block p                 { margin: 0; padding: 7px; background-color: #D0D0D0;}
+#footer .block                  { border-top: 2px solid #000; }
+#footer .block p                { margin: 0; padding: 7px;margin-left: 20px;}
 
 /* Pagination */
 .pagination a, .pagination span { background: #cfcfcf; border: 1px solid #c1c1c1;}
@@ -169,7 +181,32 @@ ul.list li .item .avatar { border-color: #F0F0EE;border-width: 1px;border-style:
 #sidebar ul           { margin-left: 2em; margin-bottom: 2em;}
 div#wrapper.wat-cf    { padding-top: 2em;margin-left: 20px; margin-right: 20px; }
 
-/* This elements are css3, they make the rounded borders, ugly css
+
+/* Overlapped tabs */
+
+.block .content               { border: 2px solid gray;  }
+#main-navigation ul li.active { border-bottom: 2px solid #FFE295;}
+.secondary-navigation         { margin-bottom: -2px; }
+#main-navigation              { margin-bottom: -4px; }
+#sidebar h3                   { margin-bottom: -2px;}
+#sidebar_head                 { position: relative; }
+
+
+/* Color elements */
+
+#header                                { background: #C7C7C7; }
+body                                   { background: #fff;}
+#main-navigation ul li.active a:link,
+#main-navigation ul li.active a:visited,
+#main-navigation ul li.active a:hover,
+#main-navigation ul li.active a:active { background-color: #fff; }
+#main-navigation ul li.active          { border-bottom-color:#fff;}
+.secondary-navigation .wat-cf          { background-color: #fff; }
+
+
+
+
+/* This elements are css3, they make the rounded borders, ugly css*/
 #main,
 #main-navigation,
 #main-navigation li,
@@ -179,13 +216,15 @@ div#wrapper.wat-cf    { padding-top: 2em;margin-left: 20px; margin-right: 20px; 
 #sidebar h3,
 #sidebar,
 ul.list li,
-ul.wat-cf li.active,
+#main-navigation ul.wat-cf li.active,
 ul.wat-cf li.active a,
 #footer .block p,
 .form input.button,
 #box .block,
 #box .block h2                    { -moz-border-radius-topleft: 4px; -webkit-border-top-left-radius: 4px;
                                     -moz-border-radius-topright: 4px; -webkit-border-top-right-radius: 4px;}
+
+
 .secondary-navigation li.first a,
 ul.wat-cf,
 .secondary-navigation ul li.first,
@@ -203,4 +242,7 @@ ul.list li,
 .form input.button, 
 #box .block                       { -moz-border-radius-bottomleft: 4px; -webkit-border-bottom-left-radius: 4px;
                                     -moz-border-radius-bottomright: 4px; -webkit-border-bottom-right-radius: 4px; }
-*/
+
+#main .content,
+#sidebar .content { -moz-border-radius-bottomleft: 4px; -webkit-border-bottom-left-radius: 4px;
+                    -moz-border-radius-bottomright: 4px; -webkit-border-bottom-right-radius: 4px; }

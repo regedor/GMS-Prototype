@@ -1,15 +1,5 @@
 <% if active_scaffold_config.action_links.any? { |link| link.type == :collection } -%>
   <div class="actions">
-<%# Begin override - added code - live search - part 1 %>
-<% href = url_for(params_for(:action => :index, :escape => false).delete_if{|k,v| k == 'search'}) -%>
-<%= form_remote_tag :url => href,
-                    :method => :get,
-                    :before => "addActiveScaffoldPageToHistory('#{href}', '#{params[:controller]}')",
-                    :after => "$('#{loading_indicator_id(:action => :search, :id => params[:id])}').style.visibility = 'visible';",
-                    :complete => "$('#{loading_indicator_id(:action => :search, :id => params[:id])}').style.visibility = 'hidden';",
-                    :failure => "ActiveScaffold.report_500_response('#{active_scaffold_id}')",
-                    :html => { :action => href, :id => search_form_id, :class => 'search', :method => :get } %>
-<%# End override %>
 <%# Begin override - added code - actions list select %>
     <% unless active_scaffold_config.row_mark_actions_list.nil? %>
       <select name="dropdownmenu" class="dropdownmenu" default="">
@@ -21,6 +11,16 @@
         <% end -%>
       </select>
     <% end %>
+<%# End override %>
+<%# Begin override - added code - live search - part 1 %>
+<% href = url_for(params_for(:action => :index, :escape => false).delete_if{|k,v| k == 'search'}) -%>
+<%= form_remote_tag :url => href,
+                    :method => :get,
+                    :before => "addActiveScaffoldPageToHistory('#{href}', '#{params[:controller]}')",
+                    :after => "$('#{loading_indicator_id(:action => :search, :id => params[:id])}').style.visibility = 'visible';",
+                    :complete => "$('#{loading_indicator_id(:action => :search, :id => params[:id])}').style.visibility = 'hidden';",
+                    :failure => "ActiveScaffold.report_500_response('#{active_scaffold_id}')",
+                    :html => { :action => href, :id => search_form_id, :class => 'search', :method => :get } %>
 <%# End override %>
 <%# Begin override - added code - live search - part 2 %>
   <%= text_field_tag :search, params[:search], :class => 'text-input', :id => search_input_id, :size => 50, :autocompleted => :off %>

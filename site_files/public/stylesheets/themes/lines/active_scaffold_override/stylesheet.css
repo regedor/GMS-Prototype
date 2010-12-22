@@ -141,19 +141,19 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold-header div.actions a.new_existing,
 .active-scaffold-header div.actions a.show_search       { padding-left: 1.4em;background-position: 1px 50%;background-repeat: no-repeat;}
 .active-scaffold-header div.actions a.new,
-.active-scaffold-header div.actions a.new_existing      { background-image: url(../../../images/active_scaffold/default/add.gif);}
-.active-scaffold-header div.actions a.show_search       { background-image: url(../../../images/active_scaffold/default/magnifier.png);}
+.active-scaffold-header div.actions a.new_existing      { background-image: url(../../../../images/active_scaffold/default/add.gif);}
+.active-scaffold-header div.actions a.show_search       { background-image: url(../../../../images/active_scaffold/default/magnifier.png);}
 .blue-theme .active-scaffold-header div.actions a:hover { background-color: #378CDF;}
 .active-scaffold-header div.actions a.disabled:hover    { background-color: transparent;cursor: default;}
 
 /* Table :: Column Headers */
 .active-scaffold th.sorted          { background-color: #EAEAEA;}
 .active-scaffold th.asc a,
-.active-scaffold th.asc a:hover     { background: #EAEAEA url(../../../images/active_scaffold/default/arrow_up.gif) right 50% no-repeat;}
+.active-scaffold th.asc a:hover     { background: #EAEAEA url(../../../../images/active_scaffold/default/arrow_up.gif) right 50% no-repeat;}
 .active-scaffold th.desc a,
-.active-scaffold th.desc a:hover    { background: #EAEAEA url(../../../images/active_scaffold/default/arrow_down.gif) right 50% no-repeat;}
+.active-scaffold th.desc a:hover    { background: #EAEAEA url(../../../../images/active_scaffold/default/arrow_down.gif) right 50% no-repeat;}
 .active-scaffold th.loading a,
-.active-scaffold th.loading a:hover { background: #EAEAEA url(../../../images/active_scaffold/default/indicator-small.gif) right 50% no-repeat;}
+.active-scaffold th.loading a:hover { background: #EAEAEA url(../../../../images/active_scaffold/default/indicator-small.gif) right 50% no-repeat;}
 .active-scaffold th                 { background-color: #EAEAEA;}
 
 /* Table :: Record Rows */
@@ -176,7 +176,7 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold .view                                       { background-color: #FCFCFC;padding: 0px;border:0px;}
 .active-scaffold tbody.records td.inline-adapter-cell .view  { border-top: none;}
 .active-scaffold .before-header td.inline-adapter-cell .view { border-bottom: none;}
-.active-scaffold a.inline-adapter-close { height: 17px;background: url(../../../images/active_scaffold/default/close.gif) 0 0 no-repeat;}
+.active-scaffold a.inline-adapter-close { height: 17px;background: url(../../../../images/active_scaffold/default/close.gif) 0 0 no-repeat;}
 
 /* Nested */
 .blue-theme .active-scaffold .active-scaffold-header,
@@ -261,7 +261,7 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold .sub-form table td                      { border: none;background-color: transparent;padding: 1px;}
 .active-scaffold .sub-form table td                      { vertical-align: top;color: #999;}
 .active-scaffold .sub-form .actions                      { vertical-align: middle;background-color: transparent;clear: left;}
-.active-scaffold .sub-form .association-record a.destroy { background: url(../../../images/active_scaffold/default/cross.png) 0 0 no-repeat;}
+.active-scaffold .sub-form .association-record a.destroy { background: url(../../../../images/active_scaffold/default/cross.png) 0 0 no-repeat;}
 .active-scaffold .sub-form .locked a.destroy             { display: none;}
 .active-scaffold .sub-form input.text-input,
 .active-scaffold .sub-form .footer-wrapper               { margin-top: 3px;margin-right: 10px;}

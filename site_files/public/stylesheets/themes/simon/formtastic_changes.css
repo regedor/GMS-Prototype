@@ -7,40 +7,64 @@
 = Typography
 ============================================================================
 */
-input#user_session_openid_identifier             { background-position: 0 50%; color: #000; text-indent: 18px; }
-#content form.formtastic p                       { line-height:1em; margin-bottom:0; font-size:1em; text-align:left; }
-form.formtastic abbr, form.formtastic acronym    { color:#e22;}
-form.formtastic                                  { font-size:1.3em; border:solid #9E9E9E 1px; background-color: #FCFCFC;}
-form.formtastic fieldset ol li p.inline-hints    { color:#555;}
-form.formtastic fieldset ol li p.inline-errors   { color:#d32;}
-.buttons a, .buttons button, .buttons input      { color:#666; background-color: #f5f5f5; border: 1px solid #ccc;} 
-.buttons a, .buttons button, .buttons input      { font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;}
-.buttons a, .buttons button, .buttons input      { font-size:100%;line-height:130%;text-decoration:none;} 
-.buttons a, .buttons button                      { font-weight:bold;  cursor:pointer; padding:5px 10px 6px 7px;} 
-button:hover, .buttons a:hover,
-.buttons input:hover                             { background-color:#eef; border:1px solid #ccf; color:#369;}
-.buttons a:active                                { background-color:#58b; border:1px solid #7ad; color:#fff;}
-.buttons a.positive, button.positive             { color:#591;}
-.buttons a.positive:hover, button.positive:hover { background-color:#efe; border:1px solid #cfc; color:#591;}
-.buttons a.positive:active                       { background-color:#7b3; border:1px solid #9d5; color:#fff;}
-.buttons a.negative, button.negative             { color:#d32;}
-.buttons a.negative:hover, button.negative:hover { background-color:#fee; border:1px solid #fcc; color:#d32;}
-.buttons a.negative:active                       { background-color:#f54; border:1px solid #f76; color:#fff;}
-h1                                               { padding: 2px;margin: 0;text-transform: none;}
-h1                                               { color: black; letter-spacing: -1px; font: bold 16px arial;}
-input[type=text], textarea                       { background-color: #F1F1F1;border: 1px solid #9E9E9E;}
-input[type=text], textarea                       { font-size:15px;padding:2px;letter-spacing: -1;}
-input[type=text]                                 { width: 270px; font: bold 16px arial; }
-form.formtastic fieldset ol li p.inline-hints    { color:#A1A1A1; font-size: 11px; margin-top:0; margin-left: 100px; } 
+input#user_session_openid_identifier           { background-position: 0 50%; color: #000; text-indent: 18px; }
+#content form.formtastic p                     { line-height:1em; margin-bottom:0; font-size:1em; text-align:left; }
+form.formtastic abbr, 
+form.formtastic acronym                        { color:#e22;}
+form.formtastic                                { font-size:1.3em; border:solid #9E9E9E 1px; background-color: #FCFCFC;}
+form.formtastic fieldset ol li p.inline-hints  { color:#555;}
+form.formtastic fieldset ol li p.inline-errors { color:#d32;}
+
+.buttons a,
+.buttons button,
+.buttons input  { color:#666; background-color: #f5f5f5; border: 1px solid #ccc;} 
+.buttons a, 
+.buttons button, 
+.buttons input  { font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;}
+.buttons a, 
+.buttons button, 
+.buttons input  { font-size:100%;line-height:130%;text-decoration:none;} 
+.buttons a, 
+.buttons button { font-weight:bold;  cursor:pointer; padding:5px 10px 6px 7px;} 
+
+button:hover, 
+.buttons a:hover,
+.buttons input:hover { background-color:#eef; border:1px solid #ccf; color:#369;}
+.buttons a:active    { background-color:#58b; border:1px solid #7ad; color:#fff;}
+
+.buttons a.positive, 
+button.positive,           { color:#591;}
+.buttons a.positive:hover, 
+button.positive:hover      { background-color:#efe; border:1px solid #cfc; color:#591;}
+.buttons a.positive:active { background-color:#7b3; border:1px solid #9d5; color:#fff;}
+
+.buttons a.negative,
+button.negative,
+.buttons a.cancel           { color:#d32;}
+.buttons a.negative:hover, 
+button.negative:hover,
+.buttons a.cancel:hover     { background-color:#fee; border:1px solid #fcc; color:#d32;}
+.buttons a.negative:active,
+.buttons a.cancel:active    { background-color:#f54; border:1px solid #f76; color:#fff;}
+
+h1                                            { padding: 2px;margin: 0;text-transform: none;}
+h1                                            { color: black; letter-spacing: -1px; font: bold 16px arial;}
+input[type=text], 
+textarea                                      { background-color: #F1F1F1;border: 1px solid #9E9E9E;}
+input[type=text], 
+textarea                                      { font-size:15px;padding:2px;letter-spacing: -1;}
+input[type=text]                              { width: 270px; font: bold 16px arial; }
+form.formtastic fieldset ol li p.inline-hints { color:#A1A1A1; font-size: 11px; margin-top:0; margin-left: 100px; } 
 
 /*
 ============================================================================
 = General Structure
 ============================================================================
 */
-.buttons a, .buttons button { display:block;float:left;margin:0 7px 0 0;                                  }
+.buttons a, 
+.buttons button { display:block;float:left;margin:0 7px 0 0;}
+.buttons input  { margin: 0px;padding: 0; height:29px;}
 
-.buttons input              { margin: 0px;padding: 0; height:29px; }
 /*
 ============================================================================
 = Specific Sections Structure
@@ -53,16 +77,21 @@ input#user_session_openid_identifier { background: url(http://openid.net/login-b
 form.formtastic legend               { margin-bottom:1em;}
 
 /* BUTTONS */
-.buttons a, .buttons button, .buttons input { border-top: 1px solid #eee; border-left:1px solid #eee;}
-.buttons button, .buttons input             { width:auto; overflow:visible; padding:4px 10px 3px 7px;} /* IE6 */
-.buttons button[type]                       { padding:5px 10px 5px 7px; line-height:17px;}/* Firefox & Safari */
-*:first-child+html button[type]             { padding:4px 10px 3px 7px;}/* IE7 */
-.buttons button img, .buttons a img         { margin:0 3px -3px 0 !important;padding:0;border:none;width:16px;height:16px;}
+.buttons a, 
+.buttons button, 
+.buttons input                       { border-top: 1px solid #eee; border-left:1px solid #eee;}
+.buttons button, 
+.buttons input                       { width:auto; overflow:visible; padding:4px 10px 3px 7px;} /* IE6 */
+.buttons button[type]                { padding:5px 10px 5px 7px; line-height:17px;}/* Firefox & Safari */
+*:first-child+html button[type]      { padding:4px 10px 3px 7px;}/* IE7 */
+.buttons button img, 
+.buttons a img                       { margin:0 3px -3px 0 !important;padding:0;border:none;width:16px;height:16px;}
 
 /*custom*/
-fieldset                               { border: 0; padding: 10px;} 
-abbr                                   { border-bottom: 0;}
-input[type=text]:focus, textarea:focus { background-color: #CACACA;}
-textarea                               { width: 320px;}
-ol li                                  { margin:0;list-style-type:none;}
-.inputs ol li                          { padding: 2px;}
+fieldset       { border: 0; padding: 10px;} 
+abbr           { border-bottom: 0;}
+input[type=text]:focus,
+textarea:focus { background-color: #CACACA;}
+textarea       { width: 320px;}
+ol li          { margin:0;list-style-type:none;}
+.inputs ol li  { padding: 2px;}
