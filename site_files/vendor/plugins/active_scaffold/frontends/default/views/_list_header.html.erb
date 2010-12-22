@@ -1,15 +1,5 @@
 <% if active_scaffold_config.action_links.any? { |link| link.type == :collection } -%>
   <div class="actions">
-<%unless active_scaffold_config.row_mark_actions_list.nil?%>
-    <select name="dropdownmenu" class="dropdownmenu" default="">
-      <option value=""><%=I18n::t('generic_sentence.scaffold_do_actions')%></option>
-      <% active_scaffold_config.row_mark_actions_list.each do |option| -%>
-        <option value="<%= option %>"><%=I18n::t(active_scaffold_config.internationalization_prefix+"."+option.to_s)%>
-        </option>
-      <% end -%>
-    </select>
-    <% end %>
-
     <% new_params = params_for(:action => :table) %>
     <% active_scaffold_config.action_links.each :collection do |link| -%>
       <% next if skip_action_link(link) -%>

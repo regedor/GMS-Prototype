@@ -14,7 +14,7 @@
           <%= as_(active_scaffold_config.list.filtered_message) %>
         </p>
         <p id="<%= empty_message_id %>" class="empty-message" <%= ' style="display:none;" ' unless @page.items.empty? %>>
-          <%= I18n::t(active_scaffold_config.internationalization_prefix+".list.noentries") %>
+          <%= as_(active_scaffold_config.list.no_entries_message) %>
         </p>
       </td>
     </tr>
@@ -28,12 +28,14 @@
     <% end -%>
   </tbody>
 </table>
+<% if active_scaffold_config.list.pagination -%>
 <div class="active-scaffold-footer">
 <% unless @page.pager.infinite? -%>
-  <div class="active-scaffold-found"><span class="active-scaffold-records"><%=I18n::t(active_scaffold_config.internationalization_prefix+".list.found."+((@page.pager.count == 1) ? "one" : "more"), :count => @page.pager.count ) %></div>
+  <div class="active-scaffold-found"><span class="active-scaffold-records"><%= @page.pager.count -%></span> <%=as_(:found, :count => @page.pager.count) %></div>
 <% end -%>
   <div class="active-scaffold-pagination">
     <%= render :partial => 'list_pagination_links', :locals => { :current_page => @page } if @page.pager.infinite? || @page.pager.number_of_pages > 1 %>
   </div>
   <br clear="both" /><%# a hack for the Rico Corner problem %>
 </div>
+<% end -%>

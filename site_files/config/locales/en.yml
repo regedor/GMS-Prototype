@@ -113,9 +113,9 @@ en:
     users:
       index:
         title: "Users List"
-        update_link: "<img src='/images/icons/user_edit.png'/>Edit"
-        destroy_link: "<img src='/images/icons/user_delete.png'/>Delete"
-        show_link: "<img src='/images/icons/user.png'/>Details"
+        update_link: "Edit"
+        destroy_link: "Delete"
+        show_link: "Details"
         search: "Find users"
         columns:
           created_at: "Created at"
@@ -143,9 +143,9 @@ en:
     groups:
       index:
         title: "Groups List"
-        show_link: "<img src='/images/icons/group.png'/>Details"
-        update_link: "<img src='/images/icons/group_edit.png'/>Edit"
-        destroy_link: "<img src='/images/icons/group_delete.png'/>Delete"      
+        show_link: "Details"
+        update_link: "Edit"
+        destroy_link: "Delete"      
         search: "Find groups"
         create: "New Group"
         columns:
@@ -176,10 +176,10 @@ en:
     posts:
       index:
         title: "News List"
-        destroy_link: "<img src='/images/icons/pencil_delete.png'/>Delete"
-        show_link: "<img src='/images/icons/pencil.png'/>Details"
+        destroy_link: "Delete"
+        show_link: "Details"
         comments_link:
-          image: "<img src='/images/icons/comments.png'/>"
+          image: ""
           more: "%{count} Comments"
           one: "%{count} Comment"
         search: "Search Posts"

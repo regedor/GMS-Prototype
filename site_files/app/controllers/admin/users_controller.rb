@@ -13,6 +13,7 @@ class Admin::UsersController < Admin::BaseController
     Scaffoldapp::active_scaffold config, "admin.users", 
       :list         => [ :created_at, :email, :active, :name, :role ], 
       :show         => [ :email, :active, :nickname, :profile, :website, :country, :gender ],
+#      :create       => [ :email, :active, :nickname, :profile, :website, :country, :gender, :groups, :role ],
       :edit         => [ :email, :active, :nickname, :profile, :website, :country, :gender, :groups, :role ],
       :actions_list => [ :destroy_by_ids, :activate!, :deactivate! ]
   end

@@ -111,7 +111,8 @@ module ActiveScaffold
         elsif column.singular_association?
           manage_nested_record_from_params(parent_record, column, value)
         elsif column.plural_association?
-          value.collect {|key_value_pair| manage_nested_record_from_params(parent_record, column, key_value_pair[1])}.compact
+          # sort by id or temporary id so new records are created in the same order as user write them
+          value.sort.collect {|key_value_pair| manage_nested_record_from_params(parent_record, column, key_value_pair[1])}.compact
         else
           value
         end
@@ -122,16 +123,8 @@ module ActiveScaffold
         elsif column.plural_association?
           # it's an array of ids
           column.association.klass.find(value) if value and not value.empty?
-        elsif column.column && column.column.number? && [:i18n_number, :currency].include?(column.options[:format])
-          native = '.'
-          delimiter = I18n.t('number.format.delimiter')
-          separator = I18n.t('number.format.separator')
-
-          unless delimiter == native && !value.include?(separator) && value !~ /\.\d{3}$/
-            value.gsub(/[^0-9\-#{I18n.t('number.format.separator')}]/, '').gsub(I18n.t('number.format.separator'), native)
-          else
-            value
-          end
+        elsif column.column && column.column.number? && column.options[:format]
+          column.number_to_native(value)
         else
           # convert empty strings into nil. this works better with 'null => true' columns (and validations),
           # and 'null => false' columns should just convert back to an empty string.
@@ -148,7 +141,7 @@ module ActiveScaffold
     def find_or_create_for_params(params, parent_column, parent_record)
       current = parent_record.send(parent_column.name)
       klass = parent_column.association.klass
-      return nil if parent_column.show_blank_record and attributes_hash_is_empty?(params, klass)
+      return nil if parent_column.show_blank_record?(current) and attributes_hash_is_empty?(params, klass)
 
       if params.has_key? :id
         # modifying the current object of a singular association

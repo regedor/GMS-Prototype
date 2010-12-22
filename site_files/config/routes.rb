@@ -1,9 +1,12 @@
 ActionController::Routing::Routes.draw do |map|
 
   map.root :controller => 'posts', :action => 'index'
+
+
   # ==========================================================================
   # Frontend Resources
   # ==========================================================================
+
   map.resources :posts
   map.resources :pages
   map.connect ':year/:month/:day/:slug/comments/new', :controller => 'comments', :action => 'new'
@@ -16,6 +19,7 @@ ActionController::Routing::Routes.draw do |map|
   # ==========================================================================
   # User Resources
   # ==========================================================================
+
   map.namespace :user do |user|
     user.resource  :account,                            :controller => 'account'
     user.resources :accounts,                           :controller => 'account'
@@ -26,61 +30,66 @@ ActionController::Routing::Routes.draw do |map|
     user.activate  '/activate/:activation_code',       :controller => 'account', :action => 'activate'
   end
 
+
   # ==========================================================================
   # Admin Resources
   # ==========================================================================
+
   map.namespace :admin do |admin|
     admin.root :controller => 'dashboard', :action => 'index'
     admin.resources :users,          :active_scaffold => true, :active_scaffold_sortable => true,
-                                     :member          => { :suspend => :put,:unsuspend => :put, :activate => :put,:reset_password => :put },
-                                     :collection      => { :pending => :get,:active => :get,:do_action => [:post,:get],:suspended => :get,:deleted => :get }
-    admin.resources :deleted_users,          :active_scaffold => true, :active_scaffold_sortable => true,
-                                     :member          => { :suspend => :put,:unsuspend => :put, :activate => :put,:reset_password => :put },
-                                     :collection      => { :pending => :get,:active => :get,:do_action => [:post,:get],:suspended => :get,:deleted => :get }
-    admin.resources :history_entries
-    admin.resources :groups,         :active_scaffold => true, :active_scaffold_sortable => true
-    admin.resources :settings,       :active_scaffold => true, :active_scaffold_sortable => true
-    admin.resources :announcements,  :active_scaffold => true, :active_scaffold_sortable => true
-    admin.resources :commits,        :active_scaffold => true, :active_scaffold_sortable => true
+                                     :member          => { :suspend => :put, :unsuspend => :put, :activate => :put, 
+                                                           :reset_password => :put },
+                                     :collection      => { :pending => :get, :active => :get, :list_action => :post, 
+                                                           :suspended => :get, :deleted => :get }
+    admin.resources :deleted_users,  :active_scaffold => true, :active_scaffold_sortable => true,
+                                     :member          => { :suspend => :put, :unsuspend => :put, :activate => :put,
+                                                           :reset_password => :put },
+                                     :collection      => { :pending => :get, :active => :get, :list_action => :post, 
+                                                           :suspended => :get, :deleted => :get }
+    admin.resources :groups,         :active_scaffold => true, :active_scaffold_sortable => true,
+                                     :collection      => { :list_action => :post }
+    admin.resources :settings,       :active_scaffold => true, :active_scaffold_sortable => true,
+                                     :collection      => { :list_action => :post }
+    admin.resources :announcements,  :active_scaffold => true, :active_scaffold_sortable => true,
+                                     :collection      => { :list_action => :post }
+    admin.resources :commits,        :active_scaffold => true, :active_scaffold_sortable => true,
+                                     :collection      => { :list_action => :post }
     admin.resources :posts,          :active_scaffold => true, :active_scaffold_sortable => true,
-                                     :has_many        =>  :comments,
-                                     :new             =>  { :preview => :post },
-                    :member     =>       { :check_delete => [:get, :post],
-                                           :edit_tag => :get,
-                                           :update_tag => :put }
+                                     :has_many        => :comments,
+                                     :new             => { :preview => :post },
+                                     :member          => { :check_delete => [:get, :post], :edit_tag => :get, :update_tag => :put },
+                                     :collection      => { :list_action => :post }
     admin.resources :pages,          :active_scaffold => true, :active_scaffold_sortable => true,
-                                     :new             =>  { :preview => :post }
+                                     :new             => { :preview => :post },
+                                     :collection      => { :list_action => :post }
     admin.resources :comments,       :active_scaffold => true, :active_scaffold_sortable => true,
-
-                    :only       =>         :destroy,
-                                     :member     =>    { :mark_as_spam => :put,
-                                     :mark_as_ham => :put }
-    admin.resources :tags,           :has_many => :posts
+                                     :only            => :destroy,
+                                     :member          => { :mark_as_spam => :put, :mark_as_ham => :put }
+    admin.resources :tags,           :has_many        => :posts
     admin.resources :action_entries, :active_scaffold => true, :active_scaffold_sortable => true,
-                                     :member     =>    { :undo => :post }
+                                     :member          => { :undo => :post },
+                                     :collection      => { :list_action => :post }
   end
-  
-  # ==========================================================================
-  # Root Resources
-  # ==========================================================================
-  map.namespace :root do |rooter|
-    rooter.resources :groups
-  end
-  
+
   
   # ==========================================================================
   # API Resources
   # ==========================================================================
+
   map.namespace :api do |api|
    api.resource :i18n
   end
+  
 
   # ==========================================================================
   # Website Resources
   # ==========================================================================
+
   map.namespace :website do |website|
     website.root :controller => 'posts', :action => 'index'
 	 website.resources :posts
   end
+
 
 end

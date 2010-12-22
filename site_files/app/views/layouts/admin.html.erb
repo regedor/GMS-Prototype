@@ -7,11 +7,15 @@
   <%= javascript_include_tag 'jquery' %>
   <%= javascript_include_tag 'utils' , 'getSelectedCheckboxes' %>
   <%= active_scaffold_includes %>
-  <%= stylesheet_link_tag "formtastic/formtastic",                     :cache => true %>
-  <%= stylesheet_link_tag "formtastic/formtastic_changes",             :cache => true %>
-  <%= stylesheet_link_tag "admin_themes/web_app_theme",                :cache => true %>
-  <%= stylesheet_link_tag "active_scaffold_override/simon/stylesheet", :cache => true %>
-  <%= stylesheet_link_tag "admin_themes/default/style",                  :cache => true %>
+  <% configatron.theme = "simon-css3"%>
+  
+  <%= stylesheet_link_tag "themes/"+configatron.theme+"/formtastic",                          :cache => true %>
+  <%= stylesheet_link_tag "themes/"+configatron.theme+"/formtastic_changes",                  :cache => true %>
+  <%= stylesheet_link_tag "themes/"+configatron.theme+"/web_app_theme",                       :cache => true %>
+  <%= stylesheet_link_tag "themes/"+configatron.theme+"/active_scaffold_override/stylesheet", :cache => true %>
+  <%= stylesheet_link_tag "themes/"+configatron.theme+"/backend-theme",          :cache => true %>
+  <%= stylesheet_link_tag "themes/"+configatron.theme+"/default",                :cache => true %>
+
   <%= yield :head %>
 </head>
 <body id="<%= @controller.controller_name + "_" + @controller.action_name  %>">
@@ -47,10 +51,8 @@
       </div>
     </div>    
     <div id="wrapper" class="wat-cf">
-      <div id="flash" class="flash">
-        <%= flash_messages %>
-      </div>
       <div id="main">
+      <div class="block">
         <div class="secondary-navigation">
           <ul class="wat-cf">
             <%= secondary_navigation_menu [ { :controller_paths => 'admin/dashboard',
@@ -94,7 +96,11 @@
                                           :specify_first => true %>
           </ul>
         </div>
+      <div id="flash" class="flash">
+        <%= flash_messages %>
+      </div>
         <%= yield %>
+        </div>
       </div>
       <div id="sidebar">
         <%= yield :sidebar %>
