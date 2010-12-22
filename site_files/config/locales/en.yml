@@ -177,7 +177,7 @@ en:
       index:
         title: "News List"
         destroy_link: "Delete"
-        show_link: "Details"
+        update_link: "Edit"
         comments_link:
           image: ""
           more: "%{count} Comments"
