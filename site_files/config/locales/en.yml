@@ -214,7 +214,7 @@ en:
           previous: "««"
           next: "»»"
         list:
-          edit: "<img src='/images/icons/tag_blue_edit.png' />Edit"
+          edit: "Edit"
           posts:
             more: "%{count} posts"
             one: "%{count} post"

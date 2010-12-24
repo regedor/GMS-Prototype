@@ -6,7 +6,7 @@
     grey:
     #DDDDDD  #DDD #9E9E9E #36393D    
 */
-
+/* TODO: this is the most updated theme, copy all changes on this THEME to others*/
 /*
 ============================================================================
 = Typography
@@ -98,7 +98,8 @@ label                                  { width: 100px; color:#555555; font:11px 
 
 /* Header */
 #header                   { background: #F2663A;}
-#user-navigation          { top: auto;bottom: 5px;right: 25px; color: black;}
+#user-navigation          { top: auto;bottom: 5px;right: 25px; color: #fff;}
+#user-navigation a        { color: #fff; text-decoration: none;}
 #user-navigation a.logout { background: #cc0000; padding: 1px 4px;}
 
 /* Sidebar */
