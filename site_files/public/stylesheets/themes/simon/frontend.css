@@ -75,7 +75,7 @@ div#sidebar p img { vertical-align:text-top;}
 
 #footer {  clear: both;  border-top: 1px solid gray;}
 
-#website_left_side{  width:750px;  float:left;  background-color: gray;}
+#website_left_side{  width:750px;  float:left;  background-color: #fff;}
 #website_announcements{}
 #website_posts{  border:1px solid black;  margin-top:10px;}
 #website_right_side{  width:200px;  float:right;}
