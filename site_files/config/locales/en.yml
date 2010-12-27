@@ -124,7 +124,11 @@ en:
           active: "Active"
           language: "Language"
           name: "Name"
-          role: "User Role" 
+          role: "User Role"
+      sidebar:
+        history:
+          title: "Actions history"
+          paragraph: "See below the changes made to this user" 
       delete:
         title: "Delete User"
         question: "Are you sure you want to delete %{username}?"
@@ -214,7 +218,7 @@ en:
           previous: "««"
           next: "»»"
         list:
-          edit: "<img src='/images/icons/tag_blue_edit.png' />Edit"
+          edit: "Edit"
           posts:
             more: "%{count} posts"
             one: "%{count} post"

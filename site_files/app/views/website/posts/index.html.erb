@@ -1,6 +1,6 @@
 <% content_for :head do %>
 	<%= javascript_include_tag "website/announcements" %>
-	<%= stylesheet_link_tag "website/frontend", :cache => "defaults"%>
+	<%= stylesheet_link_tag "themes/"+configatron.theme+"/frontend", :cache => "defaults"%>
 	<% javascript_tag do %>
       window.onload = setTimeout(function() { announcementsRoutine(<%=@announcements.size%>) }, 0);
    <% end %>

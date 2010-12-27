@@ -6,7 +6,7 @@
     grey:
     #DDDDDD  #DDD #9E9E9E #36393D    
 */
-
+/* TODO: this is the most updated theme, copy all changes on this THEME to others*/
 /*
 ============================================================================
 = Typography
@@ -98,12 +98,16 @@ label                                  { width: 100px; color:#555555; font:11px 
 
 /* Header */
 #header                   { background: #F2663A;}
-#user-navigation          { top: auto;bottom: 5px;right: 25px; color: black;}
+#user-navigation          { top: auto;bottom: 5px;right: 25px; color: #fff;}
+#user-navigation a        { color: #fff; text-decoration: none;}
 #user-navigation a.logout { background: #cc0000; padding: 1px 4px;}
 
 /* Sidebar */
 #sidebar .block     { background: #FFF;}
 #sidebar .notice    { background: #E6EEFC;}
+#sidebar .block .content ul            { list-style: none; }
+#sidebar .block .content ul .selected  { font-weight: bold; color: #999;}
+#sidebar .block .content ul .selected  a { font-weight: bold; color: #999;}
 
 /* Navigation */
 #wrapper #main-navigation        { border-top:0;}
@@ -149,7 +153,7 @@ ul.list li .item .avatar { border-color: #F0F0EE;border-width: 1px;border-style:
 #sidebar ul           { margin-left: 2em; margin-bottom: 2em;}
 div#wrapper.wat-cf    { padding-top: 2em;margin-left: 20px; margin-right: 20px;}
 
-/* This elements are css3, they make the rounded borders, ugly css*/
+/* This elements are css3, they make the rounded borders, css 3*/
 #main,
 #main-navigation,
 #main-navigation li,
@@ -168,6 +172,7 @@ ul.wat-cf li.active a,
                                     -moz-border-radius-topright: 4px; -webkit-border-top-right-radius: 4px;}
 .secondary-navigation li.first a,
 ul.wat-cf,
+#main-navigation ul li.first a,
 .secondary-navigation ul li.first,
 .table th.first, 
 .table th.first                   { -moz-border-radius-topleft: 4px; -webkit-border-top-left-radius: 4px; }
