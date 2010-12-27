@@ -128,7 +128,12 @@ en:
       sidebar:
         history:
           title: "Actions history"
-          paragraph: "See below the changes made to this user" 
+          paragraph: "See below the changes made to this user"
+        reversion:
+          title: "Reverting"
+          subtitle: "You are reverting information"
+          message: "If you click \"Revert\" below, you are making your actions permanent!"
+          link: "Revert"
       delete:
         title: "Delete User"
         question: "Are you sure you want to delete %{username}?"

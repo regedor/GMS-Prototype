@@ -3,20 +3,37 @@
    gray:    #676766  #5e5f61
 */
 
-
 /*
 ============================================================================
 = Typography
 ============================================================================
 */
-html, body {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; padding: 0; margin: 0;  }
-#main-nav a       { color: #ddd;  text-decoration: none;}
+html, 
+body                                { font-family:Verdana,Arial,Helvetica,sans-serif;font-size:12px;padding:0;margin:0;}
+#main-nav a                         { color: #ddd;  text-decoration: none;}
+div#sidebar p img                   { vertical-align:text-top;}
+#announcements-bar                  { margin-bottom: 10px;  color: #ddd;  text-align: center; border:1px solid black;}
+#announcements-bar a                { color: #ddd;  text-decoration: none;}
+.website_posts_post_content_title a { color:blue;  text-decoration:underline;}
+.website_posts_post_content_title   { font-size:1.3em;  margin-bottom:5px;}
 
+/* Main navigation */
+#main-nav                           { padding: 2px;  padding-bottom: 4px;  margin-top: 15px;  color: #ddd;  background: #676766;}
+#main-nav a:hover                   { color: white;}
+
+/* Sidebar */
+#sidebar a                          { color: #676766;}
+#sidebar a:hover                    { background: #676766;  color: white;}
+
+#announcements-bar a:hover          { color: white;}
 /*
 ============================================================================
 = General Structure
 ============================================================================
 */
+#sidebar                           { float: right;  width: 200px; padding: 25px;}
+#website_left_side                 { width:750px; float:left; background-color: #fff;}
+#website_right_side                { width:200px; float:right;}
 
 /*
 ============================================================================
@@ -24,73 +41,64 @@ html, body {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;
 ============================================================================
 */
 
+
+/* 
+body                       { background-color: gray; }
+#account-info              { background-color: orange; }
+#header                    { background-color: red; }
+#navigation                { background: lime; }
+#content                   { background-color: green;}
+#website_left_side         { background-color: blue}
+#website_right_side        { background-color: yellow}
+#footer                    { background-color: white;}
+/* */
+
 h1,
 h2,
 h3,
 h4,
 h5,
-h6 { padding: 0; margin: 0; } 
+h6                         { padding: 0; margin: 0; } 
 
-#page-container { margin: auto;  padding: 25px;  width: 1000px;}
-
-body {  }
+#page-container            { margin: auto;  padding: 25px;  width: 1000px;}
 
 /* Header */
-#header       {  }
-#header a img {  border: none;}
+#header                    { margin-bottom:0;}
+#header a img              { border: none;}
 
-/* Main navigation */
-#main-nav         { padding: 2px;  padding-bottom: 4px;  margin-top: 15px;  color: #ddd;  background: #676766;}
-#main-nav a:hover { color: white;}
+/* Navigation */
+#navigation                { margin-bottom:0;padding-top: 5px;padding-bottom: 5px;}
 
 /* Content */
-#content {/* padding-top: 25px;*/ padding-bottom: 25px;}
-
-/* Sidebar */
-#sidebar          { float: right;  width: 200px;  padding: 25px;}
-#sidebar a        { color: #676766;}
-#sidebar a:hover  { background: #676766;  color: white;}
-div#sidebar p img { vertical-align:text-top;}
-
-#inner            { margin-right: 250px;  background: #f2673a;}
+#content                   { padding-bottom: 25px;}
+#inner                     { margin-right: 250px;  background: #f2673a;}
 
 /* Announcements */
 #announcements             { padding: 10px; height: 300px;/*  background: #f2673a;*/  border:1px solid black;}
-#announcements-bar         { margin-bottom: 10px;  color: #ddd;  text-align: center;/*  background: #f2673a;*/  border:1px solid black;}
-#announcements-bar a       { color: #ddd;  text-decoration: none;}
-#announcements-bar a:hover { color: white;}
 #announcements-area        { position: relative;/*  width: 730px;*/  height: 283px;  background: white;}
 #announcement1             { display: block;}
 #announcement2, 
 #announcement3, 
 #announcement4, 
 #announcement5             { /*opacity: 0;*/ /*filter: alpha(0);*/ display: none;}
-/*.announcement-background-class {  width: 730px;  height: 283px;}*/
-.announcement-class {  position: absolute;  top: 0;/*}
-
-.announcement-message-class {  background: url('images/transparent.png');  position: absolute;  bottom: 0;*/
-  padding: 10px; /*margin-bottom: 3px;*/ width: 710px;  max-height: 263px; overflow: hidden; /*text-shadow: #6374AB -2px 1px 2px;*/}
-
-#entries {  padding: 10px;  padding-top: 25px;  margin-top: 10px;  min-height: 10em;  background: white;}
-
-#footer {  clear: both;  border-top: 1px solid gray;}
-
-#website_left_side{  width:750px;  float:left;  background-color: #fff;}
-#website_announcements{}
-#website_posts{  border:1px solid black;  margin-top:10px;}
-#website_right_side{  width:200px;  float:right;}
+.announcement-background-class { }
+.announcement-class         { position: absolute;  top: 0;  padding: 10px; width: 710px;  max-height: 263px; overflow: hidden;}
+.announcement-message-class { }
+#entries                    { padding: 10px; padding-top: 25px; margin-top: 10px; min-height: 10em; background: white;}
+#website_announcements      {}
+#website_posts              { border:1px solid black; margin-top:10px;}
 
 /* Posts */
-.website_posts_post                 { border: 1px solid black;  margin:5px;}
-.website_posts_post_content         { border-top: 1px solid black;  padding : 10px;}
-.website_posts_post_date            { padding:5px;  }
-.website_posts_post_content_title   { font-size:1.3em;  margin-bottom:5px;}
-.website_posts_post_content_title a { color:blue;  text-decoration:underline;}
-.website_posts_post_text            { padding-bottom:15px;}
+.website_posts_post         { border: 1px solid black;  margin:5px;}
+.website_posts_post_content { border-top: 1px solid black;  padding : 10px;}
+.website_posts_post_date    { padding:5px;}
+.website_posts_post_text    { padding-bottom:15px;}
+#website_menu_links         { border:1px solid black;  width:100%;}
+#website_static_pages       { border:1px solid black;  width:100%;}
 
-#website_menu_links   { border:1px solid black;  width:100%;}
-#website_static_pages { border:1px solid black;  width:100%;}
+/* Footer */
+#footer                     { clear: both; border-top: 1px solid gray;}
 
 /* Other */
-.asBlock           { display:block;}
-.paddingMargin10PX { margin-bottom:10px;}
+.asBlock                    { display:block;}
+.paddingMargin10PX          { margin-bottom:10px;}

@@ -135,7 +135,7 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold p,
 .active-scaffold div,
 .active-scaffold fieldset   { margin: 0;padding: 0;}
-.active-scaffold            { margin: 0.5em 0;}
+.active-scaffold            { margin: 0;}
 .active-scaffold table      { width: 100%;}
 .active-scaffold a:hover    { background-color: #CFCFCF;}
 .active-scaffold .clear-fix { clear: both;}
@@ -180,7 +180,7 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 
 
 /* Table :: Inline Adapter */
-.active-scaffold .view                                       { background-color: #FCFCFC;padding: 0px;border:0px;}
+.active-scaffold .view                                       { background-color: #FCFCFC;border:0px; padding: 1em 0;}
 .active-scaffold tbody.records td.inline-adapter-cell .view  { border-top: none;}
 .active-scaffold .before-header td.inline-adapter-cell .view { border-bottom: none;}
 .active-scaffold a.inline-adapter-close { height: 17px;background: url(../../../images/active_scaffold/default/close.gif) 0 0 no-repeat;}

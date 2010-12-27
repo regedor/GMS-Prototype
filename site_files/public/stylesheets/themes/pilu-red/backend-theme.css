@@ -85,6 +85,11 @@ hr {
   color: #FFF;
 }
 
+#sidebar .block .content ul            { list-style: none; }
+#sidebar .block .content ul .selected  { font-weight: bold; color: #999;}
+#sidebar .block .content ul .selected  a { font-weight: bold; color: #999;}
+
+
 #main-navigation {
   background: #262626;
 }

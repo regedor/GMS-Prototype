@@ -118,6 +118,9 @@ a                         { -moz-outline: none; }
 #sidebar .notice          { -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.4); box-shadow: 0 1px 3px rgba(0,0,0,0.4); }
 #sidebar ul li            { background-position: 15px 11px; background-repeat: no-repeat;} 
 #sidebar ul li            { background-image: url("images/arrow.png"); border-bottom: 1px solid #e2e2e2; }
+#sidebar .block .content ul            { list-style: none; }
+#sidebar .block .content ul .selected  { font-weight: bold; color: #999;}
+#sidebar .block .content ul .selected  a { font-weight: bold; color: #999;}
 
 /* MAIN NAVIGATION */
 #main-navigation ul li          { background-color: #ADADAD; margin-left: 10px; margin-right: 10px;}

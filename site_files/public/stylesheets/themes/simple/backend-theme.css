@@ -120,6 +120,9 @@ body { background: #EEE; }
 /* Sidebar */
 #sidebar .block     { background: #FFF;}
 #sidebar .notice    { background: #E6EEFC;}
+#sidebar .block .content ul            { list-style: none; }
+#sidebar .block .content ul .selected  { font-weight: bold; color: #999;}
+#sidebar .block .content ul .selected  a { font-weight: bold; color: #999;}
 
 /* Navigation */
 #wrapper #main-navigation        { border-top:0;}

@@ -3,28 +3,23 @@
 = Typography
 ============================================================================
 */
-
-
-
-
 /*
 ============================================================================
 = Specific Sections Structure
 ============================================================================
 */
-
-
 /*
 ============================================================================
 = Resources
 ============================================================================
 */
-/* TODO: Complete all the other views, as they became avaliable */
+/* TODO: Complete all the other views, as they became avaliable. After that the hover section will be completed */
 
 /* Users */
 #as_admin__users-content a.show   { background: url("icons/user.png") no-repeat; padding-left: 16px;}
 #as_admin__users-content a.edit   { background: url("icons/user_edit.png") no-repeat;padding-left: 16px;}
 #as_admin__users-content a.delete { background: url("icons/user_delete.png") no-repeat;padding-left: 16px;}
+
 
 /* Groups */
 #as_admin__groups-content a.show   { background: url("icons/group.png") no-repeat;padding-left: 16px;}
@@ -32,29 +27,22 @@
 #as_admin__groups-content a.delete { background: url("icons/group_delete.png") no-repeat;padding-left: 16px;}
 
 /* Posts */
-#as_admin__posts-content a.comments { background: url("icons/comments.png") no-repeat;padding-left: 16px;}
-#as_admin__posts-content a.show     { background: url("icons/pencil.png") no-repeat;padding-left: 16px;}
-#as_admin__posts-content a.delete   { background: url("icons/pencil_delete.png") no-repeat;padding-left: 16px;}
+#as_admin__posts-content a.comments        { background: url("icons/comments.png") no-repeat;padding-left: 16px;}
+#as_admin__posts-content a.show            { background: url("icons/pencil.png") no-repeat;padding-left: 16px;}
+#as_admin__posts-content a.delete          { background: url("icons/pencil_delete.png") no-repeat;padding-left: 16px;}
+#as_admin__posts-content a.edit            { background: url("icons/pencil.png") no-repeat;padding-left: 16px;}
+.active-scaffold-header div.actions a.new  { background: url("icons/add.png") no-repeat;padding-left: 16px;}
+
+/* Order */
+.active-scaffold th.desc a, 
+.active-scaffold th.desc a:hover    { background: #EAEAEA url("icons/arrow_down.gif") no-repeat 0px 4px; padding-left: 16px;}
+.active-scaffold th.asc a,
+.active-scaffold th.asc a:hover     { background: #EAEAEA url("icons/arrow_up.gif") no-repeat 0px 4px;padding-left: 16px; }
 
 /* Other */
 .content .actions input[type=text]  { background: url("icons/magnifier.png") no-repeat;padding-left: 16px;background-position:1px 1px; }
+#sidebar .block a.float_right       { background: url("icons/tag_blue_edit.png") no-repeat;padding-left: 16px;background-position:1px 1px; }
+
+
 
 /* Icons on hover */
-
-/* Users */
-#as_admin__users-content a.show:hover   { background: url("icons_hover/user.png") no-repeat; padding-left: 16px;}
-#as_admin__users-content a.edit:hover   { background: url("icons_hover/user_edit.png") no-repeat;padding-left: 16px;}
-#as_admin__users-content a.delete:hover { background: url("icons_hover/user_delete.png") no-repeat;padding-left: 16px;}
-
-/* Groups */
-#as_admin__groups-content a.show:hover   { background: url("icons_hover/group.png") no-repeat;padding-left: 16px;}
-#as_admin__groups-content a.edit:hover   { background: url("icons_hover/group_edit.png") no-repeat;padding-left: 16px;}
-#as_admin__groups-content a.delete:hover { background: url("icons_hover/group_delete.png") no-repeat;padding-left: 16px;}
-
-/* Posts */
-#as_admin__posts-content a.comments:hover { background: url("icons_hover/comments.png") no-repeat;padding-left: 16px;}
-#as_admin__posts-content a.show:hover     { background: url("icons_hover/pencil.png") no-repeat;padding-left: 16px;}
-#as_admin__posts-content a.delete:hover   { background: url("icons_hover/pencil_delete.png") no-repeat;padding-left: 16px;}
-
-/* Other */
-.content .actions input[type=text]  { background: url("icons_hover/magnifier.png") no-repeat;padding-left: 16px;background-position:1px 1px; }

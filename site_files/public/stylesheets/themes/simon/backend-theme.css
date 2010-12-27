@@ -28,7 +28,7 @@ a:active,
 h1, 
 h2, 
 h3                       { color: #36393d;}
-body                     { color: #222; background: #F2F2F2; font-family: helvetica, arial, sans-serif;}
+body                     { color: #222; background: #F2F2F2; font-family: helvetica, arial, sans-serif; }
 hr                       { background: #f0f0ee;color: #f0f0ee;}
 #header h1               { height: 60px;padding: 15px 0;font-size: 28px;font-style: normal;}
 #header h1               { font-weight: bold;text-transform: normal;letter-spacing: -1px;line-height: 1.2em;}
@@ -94,7 +94,7 @@ label                                  { width: 100px; color:#555555; font:11px 
 #main .block .content .inner .content .inner { padding: 0;}
 #main .block .content .inner                 { padding: 0;}
 /* Active scaffold container */
-#main .block .content                        { background: #FCFCFC;border: 1px solid #36393D ;padding: 5px;}
+#main .block .content                        { background: #FCFCFC;padding: 5px;}
 
 /* Header */
 #header                   { background: #F2663A;}

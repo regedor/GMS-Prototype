@@ -178,3 +178,6 @@ button.button[type]                    { padding:5px 10px 5px 7px; /* Firefox */
 button.button img, a.button img        { margin:0 3px -3px 0 !important; padding:0; border:none; width:16px;height:16px;}
 button.button:hover, a.button:hover    { background-color:#dedede;}
 button.button:active, a.button:active  { background-color:#e5e5e5;}
+
+/* fix */
+#main .block                           { margin-right: 0px;}
