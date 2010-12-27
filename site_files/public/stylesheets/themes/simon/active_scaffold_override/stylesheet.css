@@ -23,7 +23,8 @@
 = Typography
 ============================================================================
 */
-.active-scaffold a, .active-scaffold a:visited     { color: #06c;text-decoration: none;}
+.active-scaffold a, 
+.active-scaffold a:visited                         { color: #06c;text-decoration: none;}
 .active-scaffold a.disabled                        { color: #999;}
 noscript.active-scaffold                           { border-left: solid 0.5em #f66;background-color: #fbb;font-size: 1em;}
 noscript.active-scaffold                           { font-weight: bold;padding: 0.5em 2em 0.5em 0.5em;color: #333;}
@@ -34,7 +35,7 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .blue-theme .active-scaffold-header div.actions a  { color: #fff;}
 .active-scaffold-header div.actions a.disabled     { color: #666;opacity: 0.5;}
 .blue-theme .active-scaffold-header div.actions a.disabled {color: #fff;opacity: 0.5;}
-.active-scaffold-header div.actions                { position: absolute;right: 0.4em;top: 0.5em;text-align: right;}
+.active-scaffold-header div.actions                { position: relative;float: right;padding-left: 10px;}
 .active-scaffold th                                { background-color: white;text-align: left;} 
 .active-scaffold th                                { color: #676766;padding-left: 0.9em;}
 .active-scaffold th a,
@@ -103,6 +104,12 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold h4, .active-scaffold h5                 { color: #333;}
 .active-scaffold select                                  { font-size: 14px;}
 .content input[type=text]                                { font-size: 14px;}
+
+.active-scaffold a,
+.active-scaffold a:link,
+.active-scaffold a:active,
+.active-scaffold a:visited   { color: #111;}
+#wrapper.wat-cf td > a:hover { background-color: #111; color: #fff; }
 /*
 ============================================================================
 = General Structure
@@ -128,14 +135,13 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold p,
 .active-scaffold div,
 .active-scaffold fieldset   { margin: 0;padding: 0;}
-.active-scaffold            { margin: 0; background-color: #fff; }
-.active-scaffold div.view   { border: 1px solid #36393D;}
+.active-scaffold            { margin: 0.5em 0;}
 .active-scaffold table      { width: 100%;}
 .active-scaffold a:hover    { background-color: #CFCFCF;}
 .active-scaffold .clear-fix { clear: both;}
 
 /* Header */
-.active-scaffold-header                                 { position: relative;}
+
 .blue-theme .active-scaffold-header                     { background-color: #005CB8;}
 .active-scaffold-header div.actions a                   { background-repeat: no-repeat;}
 .active-scaffold-header div.actions a.new,
@@ -185,11 +191,11 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold .active-scaffold .active-scaffold-header                {margin-right: 15px;}
 .active-scaffold .active-scaffold .active-scaffold-header div.actions    {top: 0px;right: 0px;}
 .blue-theme .active-scaffold .active-scaffold-header div.actions a:hover {background-color: #DDD;}
-.active-scaffold .active-scaffold  td                    { background-color: #DDD;border-bottom: solid 1px #FFF;}
-.active-scaffold .active-scaffold  td                    { border-left: solid 1px #FFF;}
-.active-scaffold .active-scaffold .record td             { background-color: #EEE;}
-.active-scaffold .active-scaffold .even-record td        { background-color: #fff;}
-.active-scaffold .active-scaffold td.inline-adapter-cell { background-color: #DDD;padding: 4px;}
+.active-scaffold .active-scaffold  td                                    { background-color: #DDD;border-bottom: solid 1px #FFF;}
+.active-scaffold .active-scaffold  td                                    { border-left: solid 1px #FFF;}
+.active-scaffold .active-scaffold .record td                             { background-color: #EEE;}
+.active-scaffold .active-scaffold .even-record td                        { background-color: #fff;}
+.active-scaffold .active-scaffold td.inline-adapter-cell                 { background-color: #DDD;padding: 4px;}
 
 /* Footer */
 .blue-theme .active-scaffold-footer .active-scaffold-records { margin-left: 0.5em;}
@@ -216,41 +222,41 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold .active-scaffold-header .loading-indicator { margin-bottom: 3px;}
 
 /* Show */
-.active-scaffold .show-view dl { margin-left: 5px;}
+.active-scaffold .show-view dl                           { margin-left: 5px;}
 
 /* Form */
-.active-scaffold .submit         { margin: 0;margin-top: 5px;}
-.active-scaffold form p          { clear: both;}
-.active-scaffold fieldset        { border: none;}
+.active-scaffold .submit                                 { margin: 0;margin-top: 5px;}
+.active-scaffold form p                                  { clear: both;}
+.active-scaffold fieldset                                { border: none;}
 .active-scaffold h4,
-.active-scaffold ol              { clear: both;float: none;padding: 2px;margin-left: 5px;list-style: none;}
-.active-scaffold p.form-footer   { clear: both;}
+.active-scaffold ol                                      { clear: both;float: none;padding: 2px;margin-left: 5px;list-style: none;}
+.active-scaffold p.form-footer                           { clear: both;}
 
-.actions input[type=text]        { width: 100px; height: 20px; padding:0; margin:0;}
+.actions input[type=text]                                { width: 100px; height: 20px; padding:0; margin:0;}
 
 
 /* Form :: Fields */
-.active-scaffold li.form-element          { clear: both;padding-top: 2px;}
-.active-scaffold .form dd                 { margin: 0;}
-.active-scaffold input.text-input         { padding: 2px;}
+.active-scaffold li.form-element                         { clear: both;padding-top: 2px;}
+.active-scaffold .form dd                                { margin: 0;}
+.active-scaffold input.text-input                        { padding: 2px;}
 .active-scaffold .fieldWithErrors input,
 .active-scaffold .fieldWithErrors textarea,
-.active-scaffold .fieldWithErrors select  { border: solid 1px #f00;}
-.active-scaffold select                   { padding: 1px;}
-.active-scaffold input.example            { color: #aaa;}
+.active-scaffold .fieldWithErrors select                 { border: solid 1px #f00;}
+.active-scaffold select                                  { padding: 1px;}
+.active-scaffold input.example                           { color: #aaa;}
 .active-scaffold select:focus,
-.active-scaffold input.text-input:focus   { background-color: #CACACA;}
-.active-scaffold .checkbox-list           { padding-left: 0px;}
-.active-scaffold .checkbox-list li        { padding-right: 5px;display: inline;}
-.active-scaffold .checkbox-list li label  { padding: 0 0 0 2px;}
-.active-scaffold .draggable-list          { overflow: auto;background-color: #FFFF88;}
-.active-scaffold .draggable-list.hover    { opacity: 0.5;}
-.active-scaffold .draggable-list.selected { background-color: #7FCF00;}
-.active-scaffold .draggable-list li       { display: block;}
-.active-scaffold .draggable-list input    { display: none;}
-.active-scaffold-header .actions select   { height: 20px;padding: -1;margin: -1px; }
+.active-scaffold input.text-input:focus                  { background-color: #CACACA;}
+.active-scaffold .checkbox-list                          { padding-left: 0px;}
+.active-scaffold .checkbox-list li                       { padding-right: 5px;display: inline;}
+.active-scaffold .checkbox-list li label                 { padding: 0 0 0 2px;}
+.active-scaffold .draggable-list                         { overflow: auto;background-color: #FFFF88;}
+.active-scaffold .draggable-list.hover                   { opacity: 0.5;}
+.active-scaffold .draggable-list.selected                { background-color: #7FCF00;}
+.active-scaffold .draggable-list li                      { display: block;}
+.active-scaffold .draggable-list input                   { display: none;}
+.active-scaffold-header .actions select                  { height: 20px;padding: -1;margin: -1px; }
 /* Form :: Sub-Sections */
-.active-scaffold li.sub-section           {clear: left;padding: 5px 0;}
+.active-scaffold li.sub-section                          { clear: left;padding: 5px 0;}
 
 /* Form :: Association Sub-Forms */
 .active-scaffold .sub-form h5                            { margin-left: -5px;}
@@ -274,13 +280,13 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 /* Buttons */
 
 .active-scaffold a.cancel,
- .active-scaffold p.form-footer a,
+.active-scaffold p.form-footer a,
 .active-scaffold .submit a,
 .form-footer a,
 .form-footer a:active,
 .form-footer a:visited,
 .form-footer a:link,
-.form-footer input.submit          { border:0; margin:0; padding:0; color:#666; background-color: #f5f5f5; border: 1px solid #ccc; } 
+.form-footer input.submit                                { border:0; margin:0; padding:0; color:#666; background-color: #f5f5f5; border: 1px solid #ccc; } 
 
 .active-scaffold a.cancel,
  .active-scaffold p.form-footer a,
@@ -288,7 +294,7 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .form-footer a:active,
 .form-footer a:visited,
 .form-footer a:link,
-.form-footer input.submit          { font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;}
+.form-footer input.submit                                { font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;}
 
 .active-scaffold a.cancel,
  .active-scaffold p.form-footer a,
@@ -296,7 +302,7 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .form-footer a:active,
 .form-footer a:visited,
 .form-footer a:link,
-.form-footer input.submit          { border-top: 1px solid #eee; border-left:1px solid #eee;}
+.form-footer input.submit                                { border-top: 1px solid #eee; border-left:1px solid #eee;}
 
 .active-scaffold a.cancel,
 .active-scaffold p.form-footer a,
@@ -304,7 +310,7 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .form-footer a:active,
 .form-footer a:visited,
 .form-footer a:link,
-.form-footer input.submit          { font-size:100%;line-height:130%;text-decoration:none;} 
+.form-footer input.submit                                { font-size:100%;line-height:130%;text-decoration:none;} 
 
   /*FIXME: Wrong height on chrome, right on firefox (?)*/
 .active-scaffold a.cancel, 

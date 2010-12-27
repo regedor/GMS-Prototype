@@ -20,6 +20,7 @@
 #as_admin__users-content a.edit   { background: url("icons/user_edit.png") no-repeat;padding-left: 16px;}
 #as_admin__users-content a.delete { background: url("icons/user_delete.png") no-repeat;padding-left: 16px;}
 
+
 /* Groups */
 #as_admin__groups-content a.show   { background: url("icons/group.png") no-repeat;padding-left: 16px;}
 #as_admin__groups-content a.edit   { background: url("icons/group_edit.png") no-repeat;padding-left: 16px;}
@@ -32,10 +33,15 @@
 #as_admin__posts-content a.edit            { background: url("icons/pencil.png") no-repeat;padding-left: 16px;}
 .active-scaffold-header div.actions a.new  { background: url("icons/add.png") no-repeat;padding-left: 16px;}
 
+/* Order */
+.active-scaffold th.desc a, 
+.active-scaffold th.desc a:hover    { background: #EAEAEA url("icons/arrow_down.gif") no-repeat 0px 4px; padding-left: 16px;}
+.active-scaffold th.asc a,
+.active-scaffold th.asc a:hover     { background: #EAEAEA url("icons/arrow_up.gif") no-repeat 0px 4px;padding-left: 16px; }
+
 /* Other */
 .content .actions input[type=text]  { background: url("icons/magnifier.png") no-repeat;padding-left: 16px;background-position:1px 1px; }
 #sidebar .block a.float_right       { background: url("icons/tag_blue_edit.png") no-repeat;padding-left: 16px;background-position:1px 1px; }
-
 
 
 

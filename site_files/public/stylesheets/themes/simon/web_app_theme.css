@@ -120,7 +120,7 @@ a img          { border: none; }
 
 #wrapper                            {padding-top: 20px;}
 
-#main .block                        { margin-bottom: 20px;padding-top: 0px; margin-right: 10px;}
+#main .block                        { margin-bottom: 20px;padding-top: 0px; }
 /*#main .block .content .inner        { padding: 0 10px 15px;}*/
 #main .main p.first                 { margin-top: 0;}
 
