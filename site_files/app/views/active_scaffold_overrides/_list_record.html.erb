@@ -11,7 +11,7 @@ url_options = params_for(:action => :list, :id => record.id)
     <% authorized = record.authorized_for?(:action => :read, :column => column.name) -%>
     <% column_value = authorized ? get_column_value(record, column) : active_scaffold_config.list.empty_field_text -%>
 <%# Begin override - substituted code %>
-    <td class="<%= column_class(column, column_value) %> <%= 'list_action_hidden' if column.label == "Row mark" %>" >
+    <td class="<%= column_class(column, column_value) %> <%= 'list_actions' if column.label == "Row mark" %>" >
 <%# End override %>
       <%= authorized ? render_list_column(column_value, column, record) : column_value %>
     </td>

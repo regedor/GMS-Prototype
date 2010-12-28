@@ -124,6 +124,7 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold .sub-form                  { float: left;clear: left;padding: 5px 0;padding-left: 5px;}
 .active-scaffold .draggable-list            { float: left;width: 300px;margin-right: 15px;min-height: 30px;max-height: 100px;}
 .active-scaffold-found                      { float:left;}
+.list_actions                               { display: none;}
 
 /*
 ============================================================================

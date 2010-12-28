@@ -109,18 +109,24 @@ module ActiveScaffold
 
   module Helpers
     module ViewHelpers
-      def active_scaffold_includes(*args)
+      def active_scaffold_js_includes(*args)
         frontend = args.first.is_a?(Symbol) ? args.shift : :default
         options = args.first.is_a?(Hash) ? args.shift : {}
         js = javascript_include_tag(*active_scaffold_javascripts(frontend).push(options))
+
+        "" + js + "\n"
+      end
+
+      def active_scaffold_css_includes(*args)
+        frontend = args.first.is_a?(Symbol) ? args.shift : :default
+        options = args.first.is_a?(Hash) ? args.shift : {}
 
         css = stylesheet_link_tag(*active_scaffold_stylesheets(frontend).push(options))
         options[:cache] += '_ie' if options[:cache].is_a? String
         options[:concat] += '_ie' if options[:concat].is_a? String
         ie_css = stylesheet_link_tag(*active_scaffold_ie_stylesheets(frontend).push(options))
 
-        # ScaffoldAppDeveloper: added "" in the beginning to prevent escape.
-        "" + js + "\n" + css + "\n<!--[if IE]>" + ie_css + "<![endif]-->\n"
+        "" + css + "\n<!--[if IE]>" + ie_css + "<![endif]-->\n"
       end
     end
   end
@@ -160,14 +166,12 @@ module ActiveScaffold
       def list_action
         if !params[:ids].nil?
           ids = params[:ids].split('&')
-        else
-          ids = [ params[:id] ]
+          if !ids.empty? && active_scaffold_config.model.send(params[:actions], ids)
+            list
+            return
+          end
         end
-        if !ids.empty? && active_scaffold_config.model.send(params[:actions], ids)
-          list
-        else
-          render :nothing => true
-        end
+        head 500
       end
 
       protected

@@ -1,56 +1,68 @@
 jQuery.noConflict();
 
-//jQuery.ajaxSetup({
-//	'beforeSend':function(xhr) {xhr.setRequestHeader('Accept','text/javascript')}
-//})
+jQuery.ajaxSetup({
+	'beforeSend':function(xhr) {xhr.setRequestHeader('Accept','text/javascript')}
+})
 
 jQuery(document).ready(function($) {
 
-	$(".list_action_hidden").show();
+	var sheet = document.createElement('style');
+	sheet.type = 'text/css';
+	sheet.innerHTML = ".list_actions { display: table-cell; }\n.list_actions { *display: inline; *float: left; }";
+	$('head').append(sheet);
 
-	$(".row_mark_header").click(function () {
+	$(".row_mark_header").live('click', function () {
 		var check = $(this).is(':checked');
 		$(".row_mark_elem").each(function (i) {
 			$(this).attr('checked',check);
 		});
 	});
 
-	$(".dropdownmenu").change(list_action=function () { 
-		var action = $(".dropdownmenu option:selected").attr("value");
+	$(".dropdownmenu").change(list_action=function () {
+		var selectedOption = $(".dropdownmenu option:selected");
+		var action = selectedOption.attr("value");
+		var verboseAction = selectedOption.html().toLowerCase();
 		if(action != "")
 		{
 			var active_controller_url = $("#main-navigation .active a").attr("href");
 			var patt1=/\//g;
 			var active_controller = active_controller_url.split(patt1)[2];
 
+			var id;
 			var ids = "";
-			var id =""
-			var ids_array = [];
 			$(".row_mark_elem").each(function() {
 				if($(this).is(':checked'))
 				{
 					id = $(this).attr("id").substring(9,$(this).attr("id").length);
 					ids+= (id+"&");
-					ids_array.push(id);
 				}
 			});
 
-			var path = active_controller_url+"/list_action";
+			if (ids != "")
+			{
+				if (confirm(translate("notifier.actions.confirm", { "action":verboseAction })))
+				{
+					new Ajax.Request(active_controller_url+"/list_action", {
+							asynchronous: true,
+							evalScripts: true,
+							method: 'post',
+							parameters: {"actions": action, "ids": ids},
+							onSuccess: function(data, textStatus) {
+								$(".flash").renderFlash("notifier.actions.success", "notice", {"action":verboseAction});
+							},
+							onFailure: function(data, textStatus) {
+								$(".flash").renderFlash("notifier.actions.failure", "error", {"action":verboseAction});
+							}
+					});
+				}
+			}
+			else
+			{
+				$(".flash").renderFlash("notifier.actions.no_selection", "error");
+			}
 
-			$.post(path, {"actions": action,"ids":ids}, function(data){
-				if(data == "")
-				{
-					$(".flash").renderFlash("notifier.action_failure", "error");	
-					$(".dropdownmenu").bind('change', list_action);	
-				}
-				else
-				{
-					//jQuery.globalEval(data);
-					$(".flash").renderFlash("notifier.action_success", "notice");	
-					$(".dropdownmenu").bind('change', list_action);
-				}
-			}, "html");
-			$(this).get(0).selectedIndex = 0;		
+			$(".dropdownmenu").bind('change', list_action);
+			$(this).get(0).selectedIndex = 0;
 		  }
 	    });
 	});
