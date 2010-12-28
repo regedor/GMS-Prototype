@@ -170,6 +170,8 @@ en:
           users:
             go_to_deleted_users: "Go to deleted users"
             go_to_users: "Go to users"
+            deleted_users: "Deleted users"
+            undo_deleted_users: "Recover users"
       delete:
         title: "Delete Group"
         question: "Are you sure you want to delete %{username}?"

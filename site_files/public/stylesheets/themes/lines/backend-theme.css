@@ -140,6 +140,9 @@ label { float:left;}
 #sidebar .block .content ul .selected  { font-weight: bold; color: #999;}
 #sidebar .block .content ul .selected  a { font-weight: bold; color: #999;}
 
+#sidebar h3,
+#sidebar .block h3              { position: relative;}
+
 /* Navigation */
 #wrapper #main-navigation        { border-top:0;}
 /*#main-navigation                 { background-color: #D0D0D0;}*/
@@ -190,7 +193,7 @@ div#wrapper.wat-cf    { padding-top: 2em;margin-left: 20px; margin-right: 20px; 
 
 .block .content,
 .block.notice,
-.block .navigation            { border: 2px solid gray;  }
+.block>.navigation            { border: 2px solid gray; }
 #main-navigation ul li.active { border-bottom: 2px solid #FFE295;}
 .secondary-navigation         { margin-bottom: -2px; }
 #main-navigation              { margin-bottom: -4px; }
