@@ -15,6 +15,7 @@ default_sorting_stages = ['ASC', 'DESC']
 <%# Begin override - substituted code %>
   <th id="<%= column_header_id %>" 
       class="<%= column.css_class unless column.css_class.nil? %> 
+             <%= "list_actions" if column.label == "Row mark" %> 
              <%= "sorted #{sorting.direction_of(column).downcase}" if sorting.sorts_on? column %>" 
       title="<%= h column.description %>">
 <%# End override %>

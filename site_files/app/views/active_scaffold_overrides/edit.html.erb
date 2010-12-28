@@ -1,8 +1,8 @@
 <!-- If a sidebar file exists in the views/controller folder it is rendered, otherwise it does not -->
 
-<% if File.exists?(Rails.root.join("app", "views", params[:controller], "_show_sidebar.html.erb")) %>
+<% if File.exists?(Rails.root.join("app", "views", params[:controller], "_edit_sidebar.html.erb")) %>
   <% content_for :sidebar do -%>
-    <%= render :partial => 'show_sidebar'  %>
+    <%= render :partial => 'edit_sidebar'  %>
   <% end -%>
 <% elsif File.exists?(Rails.root.join("app", "views", params[:controller], "_sidebar.html.erb")) %>
   <% content_for :sidebar do -%>
@@ -14,3 +14,4 @@
     <%= render :super %>
   </div>
 </div>
+

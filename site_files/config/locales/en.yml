@@ -117,7 +117,7 @@ en:
         destroy_link: "Delete"
         show_link: "Details"
         search: "Find users"
-        create: "Delete-me!"
+        create: "Create user"
         columns:
           created_at: "Created at"
           email: "Email"
@@ -241,7 +241,7 @@ en:
         title: "All Comments for %{title}"
         destroy_link: "<img src='/images/icons/comment_delete.png'/>Delete"
         update_link: "<img src='/images/icons/comment.png'/>Edit"
-        search: "Search"
+        search: "Search Comments"
         create: "New Comment"
         columns:
           created_at: "Date"
@@ -278,7 +278,7 @@ en:
         update_link: "<img src='/images/icons/date_edit.png'/>Edit"
         destroy_link: "<img src='/images/icons/date_delete.png'/>Delete"
         show_link: "<img src='/images/icons/date.png'/>Details"
-        search: "Search"
+        search: "Search Announcements"
         create: "New Announcement"
         columns:
           headline: "Headline"
@@ -373,9 +373,12 @@ en:
                  If you did not make this request, simply ignore this email.\n  
                  If you did make this request just click the link below:"  
         footer: "If the above URL does not work try copying and pasting it into your browser.\n  
-                 If you continue to have problem please feel free to contact us."  
-    action_success: "\"Action performed with success\""
-    action_failure: "\"An error ocurred while performing action\""                
+                 If you continue to have problem please feel free to contact us."
+    actions:
+      confirm: "Are you sure you want to perform action \"%{action}\"?"
+      success: "Action \"%{action}\" performed with success."
+      failure: "An error occurred while performing action \"%{action}\"."
+      no_selection: "You must select at least one item from the table to execute an action."
 
 
   generic_sentence:
@@ -386,5 +389,4 @@ en:
     are_you_sure: "Are you sure?"
     scaffold_do_actions: "More actions"
     time_ago: "%{time_ago} ago"
-        
-          
+
