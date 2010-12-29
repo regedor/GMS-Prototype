@@ -73,7 +73,7 @@ label                                  { width: 100px; color:#555555; font:11px 
 .form .navform a                       { color: #cc0000;}
 .flash .message                        { background-color: white;border-top: #CCDD88 dashed 1px;}
 .flash .message                        { color: #559938;font-size: 13px; border-bottom: #CCDD88 dashed 1px;}
-.flash .message                        { border-left: none;border-right: none;text-align:center;margin: 0 auto 15px;}
+.flash .message                        { border-left: none;border-right: none;text-align:center;margin: 0 auto;}
 .flash .notice                         { background-color: white; border-top: #CCDD88 dashed 1px; color: #559938;}
 .flash .notice                         { font-size: 13px; border-bottom: #CCDD88 dashed 1px;border-left: none;}
 #box .block h2                         { background: #36393d; color: #FFF;}
@@ -188,3 +188,6 @@ ul.list li,
 .form input.button, 
 #box .block                       { -moz-border-radius-bottomleft: 4px; -webkit-border-bottom-left-radius: 4px;
                                     -moz-border-radius-bottomright: 4px; -webkit-border-bottom-right-radius: 4px; }
+                                    
+input[type=text]:hover,
+textarea:hover                  { -webkit-box-shadow: rgba(0,0,0,0.3) 0 0 3px; -moz-box-shadow: rgba(0,0,0,0.3) 0 0 3px; box-shadow: 0 0 3px rgba(0,0,0,0.3); border: 1px solid #a2a294; }

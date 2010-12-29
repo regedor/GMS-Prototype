@@ -12,7 +12,7 @@ html,
 body                                { font-family:Verdana,Arial,Helvetica,sans-serif;font-size:12px;padding:0;margin:0;}
 #main-nav a                         { color: #ddd;  text-decoration: none;}
 div#sidebar p img                   { vertical-align:text-top;}
-#announcements-bar                  { margin-bottom: 10px;  color: #ddd;  text-align: center; border:1px solid black;}
+#announcements-bar                  { margin-bottom: 10px;  color: #ddd;  text-align: center;}
 #announcements-bar a                { color: #ddd;  text-decoration: none;}
 .website_posts_post_content_title a { color:blue;  text-decoration:underline;}
 .website_posts_post_content_title   { font-size:1.3em;  margin-bottom:5px;}
@@ -26,6 +26,9 @@ div#sidebar p img                   { vertical-align:text-top;}
 #sidebar a:hover                    { background: #676766;  color: white;}
 
 #announcements-bar a:hover          { color: white;}
+
+#account-info                       { font-size: 12px;}
+#footer                             { font-size: 12px;}
 /*
 ============================================================================
 = General Structure
@@ -42,14 +45,24 @@ div#sidebar p img                   { vertical-align:text-top;}
 */
 
 
+/* */
+.website_posts_post,
+#announcements,
+#website_static_pages,
+#website_menu_links         { border:1px solid black;}
+
+
+/* */
+
+
 /* 
-body                       { background-color: gray; }
-#account-info              { background-color: orange; }
-#header                    { background-color: red; }
-#navigation                { background: lime; }
+body                       { background-color: gray;}
+#account-info              { background-color: orange;}
+#header                    { background-color: red;}
+#navigation                { background: lime;}
 #content                   { background-color: green;}
-#website_left_side         { background-color: blue}
-#website_right_side        { background-color: yellow}
+#website_left_side         { background-color: blue;}
+#website_right_side        { background-color: yellow;}
 #footer                    { background-color: white;}
 /* */
 
@@ -74,7 +87,7 @@ h6                         { padding: 0; margin: 0; }
 #inner                     { margin-right: 250px;  background: #f2673a;}
 
 /* Announcements */
-#announcements             { padding: 10px; height: 300px;/*  background: #f2673a;*/  border:1px solid black;}
+#announcements             { padding: 10px; height: 300px;/*  background: #f2673a;*/  }
 #announcements-area        { position: relative;/*  width: 730px;*/  height: 283px;  background: white;}
 #announcement1             { display: block;}
 #announcement2, 
@@ -86,15 +99,15 @@ h6                         { padding: 0; margin: 0; }
 .announcement-message-class { }
 #entries                    { padding: 10px; padding-top: 25px; margin-top: 10px; min-height: 10em; background: white;}
 #website_announcements      {}
-#website_posts              { border:1px solid black; margin-top:10px;}
+#website_posts              { margin-top:10px;}
 
 /* Posts */
-.website_posts_post         { border: 1px solid black;  margin:5px;}
-.website_posts_post_content { border-top: 1px solid black;  padding : 10px;}
+.website_posts_post         { margin:5px;}
+.website_posts_post_content { padding : 10px;}
 .website_posts_post_date    { padding:5px;}
 .website_posts_post_text    { padding-bottom:15px;}
-#website_menu_links         { border:1px solid black;  width:100%;}
-#website_static_pages       { border:1px solid black;  width:100%;}
+#website_menu_links         { width:100%;}
+#website_static_pages       { width:100%;}
 
 /* Footer */
 #footer                     { clear: both; border-top: 1px solid gray;}
@@ -102,3 +115,16 @@ h6                         { padding: 0; margin: 0; }
 /* Other */
 .asBlock                    { display:block;}
 .paddingMargin10PX          { margin-bottom:10px;}
+
+/* CSS 3 */
+.website_posts_post,
+#announcements,
+#website_static_pages,
+#website_menu_links,
+#content                    { -moz-border-radius-topleft: 4px; -webkit-border-top-left-radius: 4px;
+                              -moz-border-radius-topright: 4px; -webkit-border-top-right-radius: 4px;
+                              -moz-border-radius-bottomleft: 4px; -webkit-border-bottom-left-radius: 4px;
+                              -moz-border-radius-bottomright: 4px; -webkit-border-bottom-right-radius: 4px; }
+                              
+body                   {background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.77,#fff),color-stop(0,#fff));
+                        background-image: -moz-linear-gradient(center bottom,#fff 77%,#fff 0%);}

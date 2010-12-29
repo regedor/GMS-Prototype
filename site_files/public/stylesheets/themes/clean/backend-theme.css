@@ -109,9 +109,9 @@ a                         { -moz-outline: none; }
 
 /* MAIN */
 #main                     { width: 71%; }
-#main .block              { padding-top: 0px; background: #fff; -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.4);}
-#main .block              { -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.4); box-shadow: 0 1px 3px rgba(0,0,0,0.4); }
-#main .block .content     { padding-top: 1px; }
+#main>.block              { padding-top: 0px; background: #fff; -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.4);}
+#main>.block              { -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.4); box-shadow: 0 1px 3px rgba(0,0,0,0.4); }
+#main>.block .content     { padding-top: 1px; }
 
 /* SIDEBAR */
 #sidebar .notice          { background: #fff; -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.4);}
@@ -208,12 +208,13 @@ ul.list li,
 #sidebar,
 #sidebar .block,
 #main .block,
+.view,
 #sidebar ul.navigation,
 ul.list li,
 .form input.button,
 #box .block { -moz-border-radius-bottomleft:9px;-webkit-border-bottom-left-radius:9px;-moz-border-radius-bottomright:9px;-webkit-border-bottom-right-radius:9px;}
 
-#main .block,
+#main>.block,
 .secondary-navigation { -moz-border-radius-topleft: 9px; -webkit-border-top-left-radius: 9px; border-top-left-radius: 9px; 
  -moz-border-radius-topright: 9px; -webkit-border-top-right-radius: 9px; border-top-right-radius: 9px; }
 
