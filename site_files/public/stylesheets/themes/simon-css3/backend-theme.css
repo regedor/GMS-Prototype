@@ -96,7 +96,7 @@ label { float:left;}
 #main .block .content .inner .content .inner { padding: 0;}
 #main .block .content .inner                 { padding: 0;}
 /* Active scaffold container */
-#main .block .content                        { background: #FCFCFC;padding: 5px;}
+#main .block .content                        { background: #FCFCFC;}
 
 
 
