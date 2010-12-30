@@ -78,7 +78,8 @@ class User < ActiveRecord::Base
 
   def authorized_for_read?
     !self.deleted &&
-    ( Authorization::Engine.instance.permit? :as_read, :user => current_user, :context => :admin_users )
+    ( Authorization::Engine.instance.permit? :as_read, :user => current_user, :context => :admin_users ) ||
+    ( Authorization::Engine.instance.permit? :as_read, :user => current_user, :context => :admin_deleted_users )
   end
 
   def authorized_for_update?
@@ -88,7 +89,8 @@ class User < ActiveRecord::Base
 
   def authorized_for_delete?
     !self.deleted &&
-    ( Authorization::Engine.instance.permit? :as_delete, :user => current_user, :context => :admin_users )
+    ( Authorization::Engine.instance.permit? :as_delete, :user => current_user, :context => :admin_users ) ||
+    ( Authorization::Engine.instance.permit? :as_delete, :user => current_user, :context => :admin_deleted_users )
   end
 
   def groups_authorized_for_update?
@@ -155,6 +157,16 @@ class User < ActiveRecord::Base
   def deactivate!
     self.active = false 
     save
+  end
+
+  #Marks user as deleted 
+  #If the user was already deleted destroys it
+  def destroy
+    if deleted?
+      super 
+    else
+      delete!
+    end
   end
 
   def active?
