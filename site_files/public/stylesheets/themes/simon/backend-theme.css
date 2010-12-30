@@ -94,13 +94,14 @@ label                                  { width: 100px; color:#555555; font:11px 
 #main .block .content .inner .content .inner { padding: 0;}
 #main .block .content .inner                 { padding: 0;}
 /* Active scaffold container */
-#main .block .content                        { background: #FCFCFC;padding: 5px;}
+#main .block .content                        { background: #FCFCFC;}
 
 /* Header */
 #header                   { background: #F2663A;}
 #user-navigation          { top: auto;bottom: 5px;right: 25px; color: #fff;}
 #user-navigation a        { color: #fff; text-decoration: none;}
 #user-navigation a.logout { background: #cc0000; padding: 1px 4px;}
+
 
 /* Sidebar */
 #sidebar .block     { background: #FFF;}
