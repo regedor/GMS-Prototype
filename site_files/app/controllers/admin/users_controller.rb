@@ -25,12 +25,12 @@ class Admin::UsersController < Admin::BaseController
   end
 
 
-  # I are Overriding this action to use it as befor revert preview too
+  # I am overriding this action to use it before revert do preview as well
   def show
     if params[:history_entry_id]
       @actual_record = User.find params[:id] 
-      @history_entry  = HistoryEntry.find(params[:history_entry_id])
-      @record         = @history_entry.historicable_preview
+      @history_entry = HistoryEntry.find(params[:history_entry_id])
+      @record        = @history_entry.historicable_preview
     else
      super   
     end
