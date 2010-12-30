@@ -9,7 +9,7 @@ jQuery(document).ready(function($) {
 	var sheet = document.createElement('style');
 	sheet.type = 'text/css';
 	sheet.innerHTML = ".list_actions { display: table-cell; }\n.list_actions { *display: inline; *float: left; }";
-	$('head').append(sheet);
+	$('body').append(sheet);
 
 	$(".row_mark_header").live('click', function () {
 		var check = $(this).is(':checked');
