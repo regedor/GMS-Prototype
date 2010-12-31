@@ -40,15 +40,12 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace :admin do |admin|
     admin.root :controller => 'dashboard', :action => 'index'
     admin.resources :users,          :active_scaffold => true, :active_scaffold_sortable => true,
-                                     :member          => { :suspend => :put, :unsuspend => :put, :activate => :put, 
+                                     :member          => { :delete => [:get,:put], :suspend => :put, :unsuspend => :put, :activate => :put, 
                                                            :reset_password => :put },
-                                     :collection      => { :pending => :get, :active => :get, :list_action => :post, 
-                                                           :suspended => :get, :deleted => :get }
+                                     :collection      => { :list_action => :post }
     admin.resources :deleted_users,  :active_scaffold => true, :active_scaffold_sortable => true,
-                                     :member          => { :suspend => :put, :unsuspend => :put, :activate => :put,
-                                                           :reset_password => :put },
-                                     :collection      => { :pending => :get, :active => :get, :list_action => :post, 
-                                                           :suspended => :get, :deleted => :get }
+                                     :member          => { :undelete    => [:get,:put] },
+                                     :collection      => { :list_action => :post }
     admin.resources :groups,         :active_scaffold => true, :active_scaffold_sortable => true,
                                      :collection      => { :list_action => :post }
     admin.resources :settings,       :active_scaffold => true, :active_scaffold_sortable => true,
@@ -70,6 +67,7 @@ ActionController::Routing::Routes.draw do |map|
                                      :member          => { :mark_as_spam => :put, :mark_as_ham => :put }
     admin.resources :tags,           :has_many        => :posts
     admin.resources :history_entries
+    admin.resources :yaml_editors
   end
 
   
