@@ -41,7 +41,8 @@
                                 'admin/action_entries',
                                 'admin/users',
                                 'admin/deleted_users',
-                                'admin/groups' ],
+                                'admin/groups',
+ 								'admin/yaml_editors'],
                               admin_users_path %>
         </ul>
       </div>
@@ -83,7 +84,11 @@
                                               
                                             { :controller_paths => 'admin/settings',
                                               :i18n_path => 'admin.navigation.secondary.settings',
-                                              :link_to_path => admin_settings_path   } ],
+                                              :link_to_path => admin_settings_path   },
+
+ 											{ :controller_paths => 'admin/yaml_editors',
+                                              :i18n_path => 'admin.navigation.secondary.yaml_editors',
+                                              :link_to_path => admin_yaml_editors_path  }],
 
                                           :specify_first => true %>
           </ul>

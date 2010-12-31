@@ -68,6 +68,7 @@ ActionController::Routing::Routes.draw do |map|
                                      :member          => { :mark_as_spam => :put, :mark_as_ham => :put }
     admin.resources :tags,           :has_many        => :posts
     admin.resources :history_entries
+    admin.resources :yaml_editors
   end
 
   
