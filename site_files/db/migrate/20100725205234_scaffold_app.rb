@@ -92,8 +92,10 @@ class ScaffoldApp < ActiveRecord::Migration
 
     
     create_table :announcements do |t|
+      t.string :title,         :null => false
       t.text :headline,        :null => false
       t.text :message,         :null => false
+      t.string :background,    :null => false
       t.datetime :starts_at
       t.datetime :ends_at
       t.timestamps

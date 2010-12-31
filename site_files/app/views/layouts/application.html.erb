@@ -4,12 +4,18 @@
 <head>
   <meta http-equiv="content-type" content="application/xhtml+xml;charset=UTF-8" />
   <link rel="shortcut icon" href="/favicon.png" />
+
   <title> <%= yield(:page_title) || h(configatron.title)%> </title>
+
+  <% configatron.theme = "simon"%>
+
+  <%= javascript_include_tag 'jquery' %>
+
+  <!--[if lt IE 8]> <link href="/stylesheets/ie.css" rel="stylesheet" type="text/css" /> <![endif]-->
   <%= stylesheet_link_tag 'default', 'formtastic/formtastic', :cache => "defaults" %>
   <%= stylesheet_link_tag 'formtastic/formtastic_changes', :cache => "changes" %>
-  <%= javascript_include_tag 'jquery' %>
-  <% configatron.theme = "simon"%>
-  <!--[if lt IE 8]> <link href="/stylesheets/ie.css" rel="stylesheet" type="text/css" /> <![endif]-->
+  <%= stylesheet_link_tag "themes/"+configatron.theme+"/frontend", :cache => "defaults"%>
+
   <%= yield :head %>
 </head>
 
