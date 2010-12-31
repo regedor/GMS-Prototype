@@ -1,18 +1,20 @@
 ActionController::Routing::Routes.draw do |map|
 
-  map.root :controller => 'website/posts', :action => 'index'
+  map.root :controller => 'posts', :action => 'index'
 
 
   # ==========================================================================
   # Frontend Resources
   # ==========================================================================
 
-  map.resources :posts
+  map.archives '/archives', :controller => 'archives', :action => 'index'
+
+  map.resources :posts, :except => :show
   map.resources :pages
-  map.connect ':year/:month/:day/:slug/comments/new', :controller => 'comments', :action => 'new'
-  map.connect ':year/:month/:day/:slug/comments.:format', :controller => 'comments', :action => 'index'
+
+  map.connect ':year/:month/:day/:slug/comments', :controller => 'comments', :action => 'create', :method => :post
   map.connect ':year/:month/:day/:slug', :controller => 'posts', :action => 'show', :requirements => { :year => /\d+/ }
-  #map.posts_with_tag ':tag', :controller => 'posts', :action => 'index'
+  map.posts_with_tag ':tag', :controller => 'posts', :action => 'index'
   #map.formatted_posts_with_tag ':tag.:format', :controller => 'posts', :action => 'index'
 
 
@@ -65,6 +67,7 @@ ActionController::Routing::Routes.draw do |map|
                                      :member          => { :mark_as_spam => :put, :mark_as_ham => :put }
     admin.resources :tags,           :has_many        => :posts
     admin.resources :history_entries
+    admin.resources :yaml_editors
   end
 
   

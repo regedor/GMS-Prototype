@@ -12,7 +12,7 @@ class Comment < ActiveRecord::Base
 
   validates_presence_of :author, :body, :post
 
-  named_scope :not_deleted, :conditions => {:deleted => false}
+  #named_scope :not_deleted, :conditions => {:deleted => false}
 
   # validate :open_id_thing
   def validate
@@ -21,7 +21,8 @@ class Comment < ActiveRecord::Base
   end
 
   def authorized_for?(*args)
-    !deleted
+    #!deleted
+    true
   end
 
   def destroy
@@ -59,14 +60,14 @@ class Comment < ActiveRecord::Base
     self.post.denormalize_comments_count!
   end
 
-  def destroy_with_undo
-    undo_item = nil
-    transaction do
-      self.destroy
-      undo_item = DeleteCommentUndo.create_undo(self)
-    end
-    undo_item
-  end
+  #def destroy_with_undo
+  #  undo_item = nil
+  #  transaction do
+  #    self.destroy
+  #    undo_item = DeleteCommentUndo.create_undo(self)
+  #  end
+  #  undo_item
+  #end
 
   def to_s
     "#{author} (#{id})"

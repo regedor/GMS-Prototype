@@ -1,0 +1,12 @@
+<p><label><%= @editor.filename %></label></p>
+
+<% form_tag({:controller => "yaml_editors", :action => "update", :id=>1, :hash=>@editor.file_hash}, :method => "put") do %> 
+	<p><label>Development</label></p><br/>	
+	
+	<% @editor.options_hash.keys.each do |path| -%>
+	  <label><%= @editor.options_hash[path]['title']+": " %><label> 
+	  <%= @editor.get_value_from_path(path) %>
+	<% end -%>
+	
+	<p><input id="person_submit" name="commit" type="submit" value="Save Changes" /></p>
+<% end -%>

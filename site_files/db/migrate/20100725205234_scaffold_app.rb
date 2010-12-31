@@ -145,7 +145,7 @@ class ScaffoldApp < ActiveRecord::Migration
 
     create_table :comments do |t|
       t.integer  :post_id,                 :null => false
-      t.integer  :user_id,                 :null => false
+      t.integer  :user_id
       t.string   :author,                  :null => false
       t.string   :author_url,              :null => false
       t.string   :author_email,            :null => false
