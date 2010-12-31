@@ -18,6 +18,7 @@ authorization do
     includes :user
     has_permission_on [:admin_dashboard],           :to => [:read]
     has_permission_on [:admin_users],               :to =>  [ :as_manage ]
+    has_permission_on [:admin_deleted_users],               :to =>  [ :as_manage ]
     has_permission_on [:admin_groups],              :to =>  [ :as_manage ]
   end
 

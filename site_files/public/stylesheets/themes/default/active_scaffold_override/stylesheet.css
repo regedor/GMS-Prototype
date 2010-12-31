@@ -136,7 +136,7 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold p,
 .active-scaffold div,
 .active-scaffold fieldset   { margin: 0;padding: 0;}
-.active-scaffold            { margin: 0.5em 0;}
+.active-scaffold            { margin: 0 0;}
 .active-scaffold table      { width: 100%;}
 .active-scaffold a:hover    { background-color: #CFCFCF;}
 .active-scaffold .clear-fix { clear: both;}
@@ -154,6 +154,14 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .blue-theme .active-scaffold-header div.actions a:hover { background-color: #378CDF;}
 .active-scaffold-header div.actions a.disabled:hover    { background-color: transparent;cursor: default;}
 
+.active-scaffold-header div.actions                     { right: 0px; top: 0;}
+
+#as_admin__posts-active-scaffold                        { padding: 0; margin: 0px;}
+#main .block .content .inner                            { padding: 0;}
+#main .block .content .inner .active-scaffold-header h2 { padding: 0;}
+#main .block .content .inner .active-scaffold-header    { padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;}
+#main .block .content .inner .active-scaffold-found     { padding-left: 10px; padding-bottom: 10px;}
+
 /* Table :: Column Headers */
 .active-scaffold th.sorted          { background-color: #EAEAEA;}
 .active-scaffold th.asc a,
@@ -163,6 +171,7 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold th.loading a,
 .active-scaffold th.loading a:hover { background: #EAEAEA url(../../../images/active_scaffold/default/indicator-small.gif) right 50% no-repeat;}
 .active-scaffold th                 { background-color: #EAEAEA;}
+.active-scaffold th p               { padding: 2px 4px;}
 
 /* Table :: Record Rows */
 .active-scaffold tr.record:hover                { background-color: #F5F5F5;}
@@ -279,6 +288,7 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .actions .search .dropdownmenu                           { height: 20px; vertical-align: top; margin-right: 10px; }
 
 /* Buttons */
+.content a.disabled                                      {display: none;}
 
 .active-scaffold a.cancel,
 .active-scaffold p.form-footer a,

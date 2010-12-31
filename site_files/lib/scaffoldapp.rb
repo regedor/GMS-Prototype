@@ -107,30 +107,6 @@ module ActiveScaffold
     end
   end
 
-  module Helpers
-    module ViewHelpers
-      def active_scaffold_js_includes(*args)
-        frontend = args.first.is_a?(Symbol) ? args.shift : :default
-        options = args.first.is_a?(Hash) ? args.shift : {}
-        js = javascript_include_tag(*active_scaffold_javascripts(frontend).push(options))
-
-        "" + js + "\n"
-      end
-
-      def active_scaffold_css_includes(*args)
-        frontend = args.first.is_a?(Symbol) ? args.shift : :default
-        options = args.first.is_a?(Hash) ? args.shift : {}
-
-        css = stylesheet_link_tag(*active_scaffold_stylesheets(frontend).push(options))
-        options[:cache] += '_ie' if options[:cache].is_a? String
-        options[:concat] += '_ie' if options[:concat].is_a? String
-        ie_css = stylesheet_link_tag(*active_scaffold_ie_stylesheets(frontend).push(options))
-
-        "" + css + "\n<!--[if IE]>" + ie_css + "<![endif]-->\n"
-      end
-    end
-  end
-
   module Config
     class ListAction < Base
       self.crud_type = :read
@@ -147,7 +123,7 @@ module ActiveScaffold
 
       # the ActionLink for this action
       cattr_accessor :link
-      @@link = ActiveScaffold::DataStructures::ActionLink.new('list_action', :crud_type => :delete, :method => :do_action)
+      @@link = ActiveScaffold::DataStructures::ActionLink.new('list_action', :crud_type => :read, :method => :list_action)
 
       # instance-level configuration
       # ----------------------------
@@ -160,7 +136,7 @@ module ActiveScaffold
   module Actions
     module ListAction
       def self.included(base)
-        #base.before_filter :list_action_authorized_filter, :only => :list_action
+        base.before_filter :list_action_authorized_filter, :only => :list_action
       end
 
       def list_action
@@ -178,14 +154,15 @@ module ActiveScaffold
       # The default security delegates to ActiveRecordPermissions.
       # You may override the method to customize.
       def action_authorized?
-        authorized_for?(:action => :read)
+        authorized_for?(:action => :update)
       end
 
-      #private
-      #def list_action_authorized_filter
-      #  link = active_scaffold_config.live_search.link || active_scaffold_config.live_search.class.link
-      #  raise ActiveScaffold::ActionNotAllowed unless self.send(link.security_method)
-      #end
+      private
+      def list_action_authorized_filter
+        #link = active_scaffold_config.list_action.link || active_scaffold_config.list_action.class.link
+        #raise ActiveScaffold::ActionNotAllowed unless self.send(link.security_method)
+        raise ActiveScaffold::ActionNotAllowed unless authorized_for?(:action => :read)
+      end
     end
   end
 end
