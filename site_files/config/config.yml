@@ -1,35 +1,34 @@
-# Configuration options can be accessed as
-# configatron.site_name
-
-development: &local
-  site_name: "Simon Administration"
-  site_namemobile: "Simon Administration"
-  site_url: Simon Administration.local
-  title: Simon
-  
-  company_name: BaseApp2 Ltd
-  admin_email: admin@baseapp2.local
-  
-  support_name: BaseApp2 Support
-  support_email: support@baseapp2.local
-  
-  site_envnote: Local Server
+--- 
+production: 
   theme: simon
-
-production:
-  site_name: "Simon Administration"
-  site_namemobile: BaseApp2
-  site_url: www.regedor.com
-  title: Simon
-  
   company_name: BaseApp2 Ltd
-  admin_email: admin@baseapp2.com
-  
-  support_name: BaseApp2 Support
+  title: Simon
   support_email: support@baseapp2.com
-  
+  site_url: www.regedor.com
+  support_name: BaseApp2 Support
+  admin_email: admin@baseapp2.com
+  site_namemobile: BaseApp2
+  site_name: Simon Administration
   site_envnote: Production Server
+development: 
+  theme: teste
+  company_name: BaseApp2 Ltd
+  title: Simon
+  support_email: support@baseapp2.local
+  site_url: Simon Administration.local
+  support_name: BaseApp2 Support
+  admin_email: admin@baseapp2.local
+  site_namemobile: Simon Administration
+  site_name: Simon Administration
+  site_envnote: Local Server
+test: 
+  title: Simon
+  company_name: BaseApp2 Ltd
   theme: simon
-  
-test:
-  <<: *local
+  site_url: Simon Administration.local
+  support_email: support@baseapp2.local
+  site_namemobile: Simon Administration
+  admin_email: admin@baseapp2.local
+  support_name: BaseApp2 Support
+  site_name: Simon Administration
+  site_envnote: Local Server
