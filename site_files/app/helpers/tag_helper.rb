@@ -1,15 +1,8 @@
-module Admin::PostsHelper
+module TagHelper
 
-  # Generates a string from a tags array.
-  # All tags are separated by commas.
   def linked_tag_list(tags)
-
-    code = ""
-    tags.each { |tag| code += '<a href="#">' + tag.name + '</a>, ' }
-
-    code.chomp(", ")
+    tags.collect {|tag| link_to(h(tag.name), posts_path(:tag => tag))}.join(", ")
   end
-
 
   # Generates the GET variables for the tag filtered post list.
   # If the new tag belongs to the old array, the tag is removed.

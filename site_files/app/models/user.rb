@@ -159,16 +159,6 @@ class User < ActiveRecord::Base
     save
   end
 
-  #Marks user as deleted 
-  #If the user was already deleted destroys it
-  def destroy
-    if deleted?
-      super 
-    else
-      delete!
-    end
-  end
-
   def active?
     self.active
   end

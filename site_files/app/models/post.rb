@@ -105,12 +105,12 @@ class Post < ActiveRecord::Base
              :order => "published_at DESC"
   end
 
-  def destroy_with_undo
-    transaction do
-      self.destroy
-      return DeletePostUndo.create_undo(self)
-    end
-  end
+  #def destroy_with_undo
+  #  transaction do
+  #    self.destroy
+  #    return DeletePostUndo.create_undo(self)
+  #  end
+  #end
 
   def month
     published_at.beginning_of_month
@@ -126,7 +126,7 @@ class Post < ActiveRecord::Base
   end
 
   def denormalize_comments_count!
-    Post.update_all(["approved_comments_count = ?", self.approved_comments.not_deleted.count], ["id = ?", self.id])
+    Post.update_all(["approved_comments_count = ?", self.approved_comments.count], ["id = ?", self.id])
   end
 
   def generate_slug

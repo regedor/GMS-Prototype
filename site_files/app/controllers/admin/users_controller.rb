@@ -24,6 +24,17 @@ class Admin::UsersController < Admin::BaseController
     return { :deleted => false }
   end
 
+  def do_destroy
+    @record = find_if_allowed(params[:id], 'delete')
+    if request.method == :delete
+      begin
+        self.successful = @record.delete!
+      rescue
+        flash[:warning] = as_(:cant_destroy_record, user.to_label)
+        self.successful = false
+      end
+    end
+  end
 
   # I am overriding this action to use it before revert do preview as well
   def show

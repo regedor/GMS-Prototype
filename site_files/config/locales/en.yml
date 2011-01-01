@@ -254,24 +254,6 @@ en:
           more: "%{count} Comments Found"
           one: "%{count} Comment Found"
 
-    action_entry:
-      index:
-        title: "All Actions"
-        search: "Search Actions"
-        show_link: "<img src='/images/icons/pencil.png'/>Details"
-        columns:
-          created_at: "Date"
-          controller: "Entity Name"
-          action: "Performed Action"
-          user_id: "Entity Number"
-      create:
-        title: "Action"      
-      list:
-        found:
-          one: "%{count} Action Found" 
-          many: "%{count} Actions Found"   
-        noentries: "No actions"     
-
     announcements:
       index:
         title: "Display Announcements"
@@ -281,19 +263,18 @@ en:
         search: "Search Announcements"
         create: "New Announcement"
         columns:
+          title: "Title"
           headline: "Headline"
           message: "Message"
           starts_at: "Start Date"
           ends_at: "End Date"
       create:
         title: "Announcement"
-      delete:
-        title: "Delete User"
-        question: "Are you sure you want to delete %{username}?"
-        bt_label: "Delete user"
-        cancel_link: 
-          label: "Cancel"
-          title: "Go back to users list"        
+      list:
+        noentries: "No announcements"
+        found:
+          more: "%{count} Announcements Found"
+          one: "%{count} Announcements Found"
 
 
 
