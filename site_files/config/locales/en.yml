@@ -150,7 +150,27 @@ en:
           more: "%{count} Users Found"
           one: "%{count} User Found"            
         noentries: "No entries found"
-    
+    deleted_users:
+      index:
+        title: "Deleted Users List"
+        search: "Find users"
+        create: "Create user"
+        columns:
+          created_at: "Created at"
+          email: "Email"
+          active: "Active"
+          language: "Language"
+          name: "Name"
+          role: "User Role"
+      destroy_by_ids: "Delete"
+      activate!: "Activate"
+      undelete_by_ids: "Re activate"
+      list:
+        found:
+          more: "%{count} Users Found"
+          one: "%{count} User Found"            
+        noentries: "No entries found"
+          
     groups:
       index:
         title: "Groups List"
