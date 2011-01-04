@@ -6,8 +6,6 @@ Feature:
 Background:
   Given I18n is set to english
   And the following pages exists
-...
-...
 
   @admin
   Scenario: If I am an admin I should be able to see the content and author of the comments
