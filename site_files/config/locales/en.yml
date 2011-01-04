@@ -110,7 +110,7 @@ en:
         static_pages: "Static Pages"
         settings: "Settings"
         undo_items: "Actions"
-        yaml_editors: "Configration editors"
+        yaml_editors: "Configuration editors"
     users:
       index:
         title: "Users List"
@@ -258,9 +258,9 @@ en:
     announcements:
       index:
         title: "Display Announcements"
-        update_link: "<img src='/images/icons/date_edit.png'/>Edit"
-        destroy_link: "<img src='/images/icons/date_delete.png'/>Delete"
-        show_link: "<img src='/images/icons/date.png'/>Details"
+        update_link: "Edit"
+        destroy_link: "Delete"
+        show_link: "Details"
         search: "Search Announcements"
         create: "New Announcement"
         columns:
