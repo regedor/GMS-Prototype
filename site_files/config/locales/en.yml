@@ -110,6 +110,7 @@ en:
         static_pages: "Static Pages"
         settings: "Settings"
         undo_items: "Actions"
+        yaml_editors: "Configuration"
     users:
       index:
         title: "Users List"

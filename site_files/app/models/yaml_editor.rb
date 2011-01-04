@@ -36,6 +36,21 @@ class YamlEditor
     File.open(@filename, 'w') {|f| f.write(file_str)}
   end
 
+  # Returns the inline string to be rendered by the controller
+  def render
+    str = "<% form_tag({:controller => \"yaml_editors\", :action => \"update\", :id=>1}, :method => \"put\") do %>"
+    
+     @options_hash.keys.each do |path|
+       #str += "<p><label>#{path}</label></p><br/>"	
+       str += "#{self.options_hash[path]['title']}: " 
+    	 str += self.get_value_from_path(path)
+     end
+
+    str += "<p><input id=\"person_submit\" name=\"commit\" type=\"submit\" value=\"Save Changes\" /></p>\n<% end -%>"
+    
+    return str
+  end  
+
   # Given a path (eg: "development.theme") and a newValue, sets the value in that path from the file_hash
   def set_value_from_path(path_to_value,newValue)
     path_array = path_to_value.split "."
@@ -45,7 +60,7 @@ class YamlEditor
   end  
 
   # Given a path (eg: "development.theme"), gets the value in that path from the file_hash and returns the HTML code corresponding 
-  # to what was asked for that value, in the options_hash
+  # to what  was asked for that value, in the options_hash
   def get_value_from_path(path_to_value)
     path_array = path_to_value.split "."
     current_value = @file_hash
@@ -54,7 +69,15 @@ class YamlEditor
     end 
     
     case @options_hash[path_to_value]['type']
-      when "text_field" then return "<input name=#{path_to_value} type=\"text\" value=#{current_value} /></br>"
+      when "text_field" then return "<input name=#{path_to_value} type=\"text\" value=#{current_value} /></br></br>"
+      when "select" then 
+        str = "<select name=#{path_to_value}>"
+        #str += "<option value=#{current_value}>#{current_value}</option>"
+        @options_hash[path_to_value]['options'].each do |key, value|
+          str += (value == current_value ? "<option value=#{key} selected>#{value}</option>" : "<option value=#{key}>#{value}</option>")
+        end  
+        str+= "</select><br/><br/>"
+        return str
       else raise ArgumentError, "Unhandled type #{@options_hash[path_to_value]['type']}"  
     end    
   end  
