@@ -14,21 +14,25 @@ class YamlEditor
   # Instance Methods
   # ==========================================================================
 
-  def initialize
-    @file_hash    = {}
-    @filename     = ""
-    @final_hash   = {}
-    @path         = []
-    @options_hash = {}
-  end
-
-
   # Loads a YAML file
-  def load(filename,options_hash={})
-    @filename = filename
+  def initialize(options_hash={})
+    @global_title = options_hash.delete 'yaml_editor_title'
+    @filename = options_hash.keys.first
     @file_hash = YAML::load_file(filename)
-    @options_hash = options_hash
+    @options_hash = options_hash.values.first
+    @final_hash   = {}
+    @all_values   = {} 
+    @path         = []
   end
+
+  def update_attributes(params=[])
+    keys = @options_hash.keys
+    
+    params.each do |key,value|
+      set_value_from_path(key,value) if keys.member? key
+    end
+    p keys
+  end  
 
   # Saves a hash as YAML in  the file in filename
   def save
@@ -38,13 +42,20 @@ class YamlEditor
 
   # Returns the inline string to be rendered by the controller
   def render
-    str = "<% form_tag({:controller => \"yaml_editors\", :action => \"update\", :id=>1}, :method => \"put\") do %>"
+    str = "<% form_tag({:controller => \"settings\", :action => \"update\", :id=>1}, :method => \"put\") do %>"
     
-     @options_hash.keys.each do |path|
-       #str += "<p><label>#{path}</label></p><br/>"	
-       str += "#{self.options_hash[path]['title']}: " 
-    	 str += self.get_value_from_path(path)
-     end
+    if @options_hash == :all
+      get_all_values_nested.each_pair do |k,v|
+        str += "<br/><br/>#{k.split(".").last}: " 
+    	  str += "<input name=#{k} type=\"text\" value=#{v} />"
+      end  
+    else
+      @options_hash.keys.each do |path|
+        #str += "<p><label>#{path}</label></p><br/>"	
+        str += "#{self.options_hash[path]['title']}: " 
+    	  str += self.get_value_from_path(path)
+    	end  
+    end
 
     str += "<p><input id=\"person_submit\" name=\"commit\" type=\"submit\" value=\"Save Changes\" /></p>\n<% end -%>"
     
@@ -90,9 +101,30 @@ class YamlEditor
     end    
   end  
 
+  # Gets all the final values in a nested hash and returns them as an array
+  def get_all_values_nested(file_hash=@file_hash)
+    
+    file_hash.each_pair do |k,v|
+      
+      @path << k
+      case v
+        when String then @all_values.merge!({"#{@path.join(".")}" => "#{v}"}) 
+          @path.pop
+        #when Array  then get_array_values(v,file_hash[k]) if file_hash[k]
+        when Hash   then get_all_values_nested(file_hash[k]) if file_hash
+        else raise ArgumentError, "Unhandled type #{v.class}"
+      end
+    end
+    @path.pop
+    
+    return @all_values
+  end  
+
+
   # Filters nested hashes. Receives the hash of attributes to filter (eg: {"en"=>[{"navigation"=>[{"title"}]}]})
   # returns the file_hash but only with the requested attributes values 
   def get_only_some_attributes(attr_hash,file_hash=@file_hash)
+    @final_hash = {}
     attr_hash.each_pair do |k,v|
       @path << k
       case v
