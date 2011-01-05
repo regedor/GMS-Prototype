@@ -44,14 +44,15 @@ class YamlEditor
   def render
     str = "<% form_tag({:controller => \"settings\", :action => \"update\", :id=>1}, :method => \"put\") do %>"
     
+    str += "<h2>#{@global_title}</h2>"
+    
     if @options_hash == :all
       get_all_values_nested.each_pair do |k,v|
         str += "<br/><br/>#{k.split(".").last}: " 
     	  str += "<input name=#{k} type=\"text\" value=#{v} />"
       end  
     else
-      @options_hash.keys.each do |path|
-        #str += "<p><label>#{path}</label></p><br/>"	
+      @options_hash.keys.each do |path|	
         str += "#{self.options_hash[path]['title']}: " 
     	  str += self.get_value_from_path(path)
     	end  
@@ -64,6 +65,9 @@ class YamlEditor
 
   # Given a path (eg: "development.theme") and a newValue, sets the value in that path from the file_hash
   def set_value_from_path(path_to_value,newValue)
+    if @options_hash[path_to_value]['type'] == "select" && !@options_hash[path_to_value]['options'].keys.member?(newValue)
+      return
+    end  
     path_array = path_to_value.split "."
     last_key = path_array.pop
     hash = create_hash_with_path(path_array,{last_key=>newValue})

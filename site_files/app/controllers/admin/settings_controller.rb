@@ -18,18 +18,18 @@ class Admin::SettingsController < Admin::BaseController
   private
   
   def create_options_hash
-    #@editor = YamlEditor.new(
-    # {"yaml_editor_title"=>"Titulo",
-    #  "config/config.yml"=> {"development.theme"=> {"title"=>"Theme",
-    #                                                "type"=>"select",
-    #                                                "options"=>{"simon"=>"simon","theme"=>"Theme"}
-    #                                               },
-    #                         "development.title"=> {"title"=>"Title",
-    #                                                "type"=>"text_field"
-    #                                               }
-    #                         }
-    # })
-    @editor = YamlEditor.new({"config/config.yml"=>:all})
+    @editor = YamlEditor.new(
+     {"yaml_editor_title"=>"Titulo",
+      "config/config.yml"=> {"development.theme"=> {"title"=>"Theme",
+                                                    "type"=>"select",
+                                                    "options"=>{"simon"=>"simon","theme"=>"Theme"}
+                                                   },
+                             "development.title"=> {"title"=>"Title",
+                                                    "type"=>"text_field"
+                                                   }
+                             }
+     })
+    #@editor = YamlEditor.new({"config/config.yml"=>:all})
   end  
   
 end  
