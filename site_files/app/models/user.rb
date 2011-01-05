@@ -108,6 +108,7 @@ class User < ActiveRecord::Base
   # Instance Methods
   # ==========================================================================
 
+  # User's label
   def to_label
     "#{self.name} < #{self.email} >"
   end
@@ -125,6 +126,7 @@ class User < ActiveRecord::Base
     return false
   end
 
+  # Historicable name
   def historicable_name
     first_and_last_name
   end
@@ -141,6 +143,7 @@ class User < ActiveRecord::Base
     self.save
   end
 
+  # Role symbols from user
   def role_symbols
     [ self.role.label.to_sym ]
   end
@@ -159,6 +162,7 @@ class User < ActiveRecord::Base
     save
   end
 
+  # Checks if a user is active
   def active?
     self.active
   end
@@ -199,30 +203,35 @@ class User < ActiveRecord::Base
     Notifier.deliver_password_reset_instructions(self)  
   end  
 
+  # User's first name
   def first_name
     self.name.split(" ").first
   end
 
+  # User's last name
   def last_name
     (names = self.name.split(" ")).length == 1 ? "" : names.last
   end
 
+  # User's first and last name
   def first_and_last_name
     [first_name,last_name].join(" ").chomp " "
   end
 
+  # User's small name
   def small_name
     self.nickname || first_name
   end
 
+  # User's nickname or first and last name
   def nickname_or_first_and_last_name
     self.nickname || first_and_last_name
   end
   
+  # Revert user attributes
   def revertTo(xmlUser)
     user_hash = Hash.from_xml(xmlUser)
     self.update_attributes user_hash["user"]
-   # self.attributes = user_hash["user"] #FIXME Doesn't work... :S
   end  
   
  
@@ -231,24 +240,27 @@ class User < ActiveRecord::Base
   # ==========================================================================
 
   class << self
+    # Undeletes users from their ids
     def undelete_by_ids!(ids)
       ids.each do |id|
-        return false unless User.find(id).revive!
+        return false unless User.find(id).undelete!
       end 
       return true
     end  
     
     #FIXME 
     # maybe overide the delete class method, not sure
+    # Deletes users from their ids
     def delete_by_ids!(ids)
       ids.each do |id|
-        return false unless User.find(id).delete
+        return false unless User.find(id).delete!
       end 
       return true 
     end
     
     #FIXME 
     # The same research as the instance activate
+    # Activates users from their ids
     def activate!(ids)
       ids.each do |id|
         return false unless User.find(id).activate!
@@ -258,6 +270,7 @@ class User < ActiveRecord::Base
     
     #FIXME 
     # The same thing not sure if this should exist
+    # Deactivates users from their ids
     def deactivate!(ids)
       ids.each do |id|
         return false unless User.find(id).deactivate!
