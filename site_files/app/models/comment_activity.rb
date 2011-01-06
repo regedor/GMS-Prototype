@@ -1,19 +1,23 @@
 class CommentActivity
   attr_accessor :post
 
+  # Initialize CommentActivity for a given post
   def initialize(post)
     self.post = post
   end
 
+  # Returns the 5 most recent comments
   def comments
     @comments ||= post.approved_comments.find_recent(:limit => 5)
   end
 
+  # Returns the most recent comment
   def most_recent_comment
     comments.first
   end
 
   class << self
+    # Returns the 5 most recent comments
     def find_recent
       Post.find(:all,
         :group  => "comments.post_id, posts." + Post.column_names.join(", posts."),

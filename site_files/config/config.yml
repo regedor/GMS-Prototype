@@ -1,34 +1,34 @@
 --- 
 production: 
-  theme: simon
-  company_name: BaseApp2 Ltd
   title: Simon
-  support_email: support@baseapp2.com
+  company_name: BaseApp2 Ltd
+  theme: simon
   site_url: www.regedor.com
-  support_name: BaseApp2 Support
-  admin_email: admin@baseapp2.com
+  support_email: support@baseapp2.com
   site_namemobile: BaseApp2
+  admin_email: admin@baseapp2.com
+  support_name: BaseApp2 Support
   site_name: Simon Administration
   site_envnote: Production Server
 development: 
-  theme: simon
-  company_name: BaseApp2 Ltd
   title: Simon
-  support_email: support@baseapp2.local
+  company_name: BaseApp2 Ltd
+  theme: simon
   site_url: Simon Administration.local
-  support_name: BaseApp2 Support
-  admin_email: admin@baseapp2.local
+  support_email: support@baseapp2.local
   site_namemobile: Simon Administration
+  admin_email: admin@baseapp2.local
+  support_name: BaseApp2 Support
   site_name: Simon Administration
   site_envnote: Local Server
 test: 
-  title: Simon
-  company_name: BaseApp2 Ltd
   theme: simon
-  site_url: Simon Administration.local
+  company_name: BaseApp2 Ltd
+  title: Simon
   support_email: support@baseapp2.local
-  site_namemobile: Simon Administration
-  admin_email: admin@baseapp2.local
+  site_url: Simon Administration.local
   support_name: BaseApp2 Support
+  admin_email: admin@baseapp2.local
+  site_namemobile: Simon Administration
   site_name: Simon Administration
   site_envnote: Local Server
