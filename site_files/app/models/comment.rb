@@ -20,26 +20,31 @@ class Comment < ActiveRecord::Base
     errors.add(:base, openid_error) unless openid_error.blank?
   end
 
+  ##FIXME Authorization to comment
   def authorized_for?(*args)
     #!deleted
     true
   end
 
+  #FIXME Comments don't have deleted field
   def destroy
     self.deleted = true
     self.post.approved_comments
     self.save
   end
 
+  # # Sets body_html formatting body as html.
   def apply_filter
     self.body_html = Lesstile.format_as_xhtml(self.body, :code_formatter => Lesstile::CodeRayFormatter)
   end
 
+  # Erases author and author's email fields
   def blank_openid_fields
     self.author_url = ""
     self.author_email = ""
   end
 
+  # Checks if OpenID is required
   def requires_openid_authentication?
     !!self.author.index(".")
   end
@@ -83,6 +88,7 @@ class Comment < ActiveRecord::Base
       [:author, :body].include?(attribute.to_sym)
     end
 
+    # Creates new comment with filter
     def new_with_filter(params)
       comment = Comment.new(params)
       comment.created_at = Time.now
@@ -90,6 +96,7 @@ class Comment < ActiveRecord::Base
       comment
     end
 
+    # Builds preview from params
     def build_for_preview(params)
       comment = Comment.new_with_filter(params)
       if comment.requires_openid_authentication?
@@ -99,6 +106,7 @@ class Comment < ActiveRecord::Base
       comment
     end
 
+    # Finds recent comments 
     def find_recent(options = {})
       find(:all, {
         :limit => DEFAULT_LIMIT,
