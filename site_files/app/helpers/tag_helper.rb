@@ -1,33 +1,44 @@
 module TagHelper
 
-  def linked_tag_list(tags)
-    tags.collect {|tag| link_to(h(tag.name), posts_path(:tag => tag))}.join(", ")
+  def linked_tag_list(tag)
+    tag.collect {|tag| link_to(h(tag.name), posts_path(:tags => tag))}.join(", ")
   end
 
-  # Generates the GET variables for the tag filtered post list.
   # If the new tag belongs to the old array, the tag is removed.
-  def url_tag_list_array(old_tag_array, new_tag)
+  # Duplicates array
+  def add_or_remove_tag(old_array, new_tag)
+    new_array = old_array.dup
+    new_array << new_tag unless new_array.delete new_tag
+    return new_array.sort!
+  end
 
-    remove = false
-    new_tag = new_tag.to_s
-    code = "?"
+  # Duplicates array
+  def get_tag_ids_from_uncertain_array(tags)
+    tags = [tags] unless tags.is_a? Array
+    tags.map do |tag|
+      tag = tag.id if tag.is_a? Tag
+      tag = tag.to_i if tag.is_a? String
+    end
+  end
 
-    old_tag_array.each do |tag|
-      if tag == new_tag
-        remove = true
-        next
-      end
-      code += "tag_ids[]=#{tag}&"
+  # Duplicates array
+  def get_tag_names_from_uncertain_array(tags)
+    tags = [tags] unless tags.is_a? Array
+    return tags
+  end
+
+  def tag_cloud(tags, classes)
+    max, min = 0, 0
+    tags.each do |tag|
+      max = tag.taggings_count.to_i if tag.taggings_count.to_i > max
+      min = tag.taggings_count.to_i if tag.taggings_count.to_i < min
     end
 
-    if remove
-      code = code.chomp('?')
-      code = code.chomp('&')
-    else
-      code += "tag_ids[]=#{new_tag}"
-    end
+    divisor = ((max - min) / classes.size) + 1
 
-    code
+    tags.each { |tag|
+      yield tag.name, classes[(tag.taggings_count.to_i - min) / divisor]
+    }
   end
 
 end

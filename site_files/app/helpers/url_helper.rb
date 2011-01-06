@@ -1,23 +1,39 @@
 module UrlHelper
   def posts_path(options = {})
-    if options[:tag]
-      options[:tag] = options[:tag].name if options[:tag].respond_to?(:name)
-      options[:tag] = options[:tag].downcase
-      posts_with_tag_path(options)
+    tags = options[:tags] ? get_tag_names_from_uncertain_array(options.delete(:tags)) : []
+    if this_tag = options.delete(:this_tag)
+      tags = add_or_remove_tag(tags, this_tag)
+    end
+    if tags.length > 0
+      options[:tags] = tags.join(",")
+      posts_with_tags_path(options)
     else
       super
     end
   end
 
-  def formatted_posts_path(options = {})
-    if options[:tag]
-      options[:tag] = options[:tag].name if options[:tag].respond_to?(:name)
-      options[:tag] = options[:tag].downcase
-      formatted_posts_with_tag_path(options)
+  def admin_posts_path(options = {})
+    tag_ids = options[:tag_ids] ? get_tag_ids_from_uncertain_array(options.delete(:tag_ids)) : []
+    if this_tag_id = options.delete(:this_tag_id)
+      tag_ids = add_or_remove_tag(tag_ids, this_tag_id)
+    end
+    if tag_ids.length > 0
+      options[:tag_ids] = tag_ids.join(",")
+      admin_posts_with_tags_path(options)
     else
-      posts_path(options)
+      super
     end
   end
+
+#  def formatted_posts_path(options = {})
+#    if options[:tag]
+#      options[:tag] = options[:tag].name if options[:tag].respond_to?(:name)
+#      options[:tag] = options[:tag].downcase
+#      formatted_posts_with_tags_path(options)
+#    else
+#      posts_path(options)
+#    end
+#  end
 
   def post_path(post, options = {})
     suffix = options[:anchor] ? "##{options[:anchor]}" : ""
@@ -46,7 +62,7 @@ module UrlHelper
     if tag.blank?
       formatted_posts_path(:format => 'atom')
     else
-      formatted_posts_with_tag_path(:tag => tag, :format => 'atom')
+      formatted_posts_with_tags_path(:tags => tag, :format => 'atom')
     end
   end
 end

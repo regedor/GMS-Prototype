@@ -36,7 +36,7 @@
 
 /* Other */
 .content .actions input[type=text]  { background: url("icons/magnifier.png") no-repeat;padding-left: 16px;background-position:1px 1px; }
-#sidebar .block a.float_right       { background: url("icons/tag_blue_edit.png") no-repeat;padding-left: 16px;background-position:1px 1px; }
+#sidebar .block a.float-right       { background: url("icons/tag_blue_edit.png") no-repeat;padding-left: 16px;background-position:1px 1px; }
 
 /* Announcements */
 #as_admin__announcements-content a.show   { background: url("icons/date.png") no-repeat;padding-left: 16px;background-position:1px 2px;}

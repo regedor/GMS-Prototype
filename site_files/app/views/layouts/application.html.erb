@@ -7,9 +7,15 @@
 
   <title> <%= yield(:page_title) || h(configatron.title)%> </title>
 
-  <% configatron.theme = "nemum"%> <!-- remover -->
+  <% configatron.theme = "nemum" %> <!-- remover -->
 
   <%= javascript_include_tag 'jquery' %>
+
+  <%= javascript_include_tag "announcements" %>
+  <% announcements = Announcement.active %>
+  <% javascript_tag do %>
+    window.onload = setTimeout(function() { announcementsRoutine(<%= announcements.size %>) }, 0);
+  <% end %>
 
   <%= stylesheet_link_tag 'reset', :cache => "frontend" %>
   <%= stylesheet_link_tag 'formtastic/formtastic', :cache => "frontend" %>
@@ -73,7 +79,6 @@
       </div>
       <% end %>
 
-      <% announcements = Announcement.active %>
       <div id="announcements">
         <% if(announcements.size > 0) %>
           <div class="announcements-bar">

@@ -31,7 +31,7 @@
 #as_admin__posts-content a.show            { background: url("icons/pencil.png") no-repeat;padding-left: 16px;}
 #as_admin__posts-content a.delete          { background: url("icons/pencil_delete.png") no-repeat;padding-left: 16px;}
 #as_admin__posts-content a.edit            { background: url("icons/pencil.png") no-repeat;padding-left: 16px;}
-.active-scaffold-header div.actions a.new  { background: url("icons/add.png") no-repeat;padding-left: 16px;}
+.active-scaffold-header div.actions a.new  { background: url("icons/add.png") no-repeat;padding-left: 16px;background-position:1px 2px;}
 
 /* Order */
 .active-scaffold th.desc a, 
@@ -41,7 +41,7 @@
 
 /* Other */
 .content .actions input[type=text]  { background: url("icons/magnifier.png") no-repeat;padding-left: 16px;background-position:1px 1px; }
-#sidebar .block a.float_right       { background: url("icons/tag_blue_edit.png") no-repeat;padding-left: 16px;background-position:1px 1px; }
+#sidebar .block a.float-right       { background: url("icons/tag_blue_edit.png") no-repeat;padding-left: 16px;background-position:1px 1px; }
 
 
 

@@ -1,6 +1,12 @@
 module PageTitleHelper
-  def posts_title(tag)
-    compose_title((tag || "").to_s.titleize)
+  def posts_title(tags)
+    if tags
+      tag_list = (tags.is_a? Array) ? tags : [tags]
+      tag_list = tag_list.join(", ")
+    else
+      tag_list = ""
+    end
+    compose_title(tag_list.titleize)
   end
 
   def post_title(post)

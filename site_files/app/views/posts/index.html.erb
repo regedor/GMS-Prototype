@@ -1,17 +1,23 @@
 <% content_for(:page_title) do %>
-  <%= posts_title(@tag) %>
+  <%= posts_title(@tags) %>
 <% end -%>
 
 <% content_for :head do %>
-  <%= auto_discovery_link_tag(:atom, @tag.nil? ? formatted_posts_path(:format => 'atom') : posts_path(:tag => @tag, :format => 'atom')) %>
-  <%= javascript_include_tag "announcements" %>
-  <% javascript_tag do %>
-    window.onload = setTimeout(function() { announcementsRoutine(<%= @announcements.size %>) }, 0);
-  <% end %>
+  <%= auto_discovery_link_tag(:atom, @tags.nil? ? posts_path(:format => 'atom') : posts_path(:tags => @tags, :format => 'atom')) %>
 <% end %>
+
 <div id="sidebar">
-  cenassa, já fostes
+
+  <div id="tag-cloud">
+    <h3>Tag Cloud</h3>
+    <% tag_cloud @tags_for_cloud, ['nube1', 'nube2', 'nube3', 'nube4', 'nube5', 'nube6'] do |name, css_class| %>
+      <% classes = (@tags && (@tags.include? name)) ? (css_class + ' selected') : css_class %>
+      <%= link_to name, posts_path(:tags => @tags, :this_tag => name), :class => classes %>
+    <% end %>
+  </div>
+
 </div>
+
 <div id="content">
   
   <div id="posts">
