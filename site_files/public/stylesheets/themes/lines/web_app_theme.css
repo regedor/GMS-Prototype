@@ -131,6 +131,9 @@ a img          { border: none; }
 #main-navigation ul, 
 .secondary-navigation ul, 
 #sidebar ul.navigation              { margin: 0; padding: 0; list-style-type: none;}
+#sidebar ul li a.float-right        { float: right; }
+
+#sidebar .pagination                { float: right; }
 
 /* Tables
    ============================= */

@@ -17,14 +17,6 @@ class Post < ActiveRecord::Base
   named_scope :not_deleted, :conditions => {:deleted => false}
 
 
-  # If a post is destroyed, associated comments are also destroyed.
-  def destroy
-    self.comments.each do |comment|
-      comment.destroy
-    end
-    self.save
-  end
-
   def authorized_for?(*args)
     #!deleted
     true
@@ -52,7 +44,35 @@ class Post < ActiveRecord::Base
     @published_at_natural ||= published_at.send_with_default(:strftime, 'now', "%Y-%m-%d %H:%M")
   end
 
+  def month
+    published_at.beginning_of_month
+  end
+
+  def apply_filter
+    self.body_html = EnkiFormatter.format_as_xhtml(self.body)
+  end
+
+  def set_dates
+    self.edited_at = Time.now if self.edited_at.nil? || !minor_edit?
+    self.published_at = Chronic.parse(self.published_at_natural)
+  end
+
+  def denormalize_comments_count!
+    Post.update_all(["approved_comments_count = ?", self.approved_comments.count], ["id = ?", self.id])
+  end
+
+  def generate_slug
+    self.slug = self.title.dup if self.slug.blank?
+    self.slug.slugorize!
+  end
+
+  def tag_list=(value)
+    value = value.join(", ") if value.respond_to?(:join)
+    super(value)
+  end
+
   class << self
+
     def build_for_preview(params)
       post = Post.new(params)
       post.generate_slug
@@ -62,20 +82,6 @@ class Post < ActiveRecord::Base
         post.tags << Tag.new(:name => tag)
       end
       post
-    end
-
-    def find_recent(options = {})
-      tag = options.delete(:tag)
-      options = {
-        :order      => 'posts.published_at DESC',
-        :conditions => ['published_at < ?', Time.zone.now],
-        :limit      => DEFAULT_LIMIT
-      }.merge(options)
-      if tag
-        find_tagged_with(tag, options)
-      else
-        find(:all, options)
-      end
     end
 
     def find_by_permalink(year, month, day, slug, options = {})
@@ -99,44 +105,49 @@ class Post < ActiveRecord::Base
       month = Struct.new(:date, :posts)
       posts.group_by(&:month).inject([]) {|a, v| a << month.new(v[0], v[1])}
     end
-  end
-    def self.paginate_by_published_date(page)
-    paginate :per_page => 5, :page => page,
-             :order => "published_at DESC"
-  end
 
-  #def destroy_with_undo
-  #  transaction do
-  #    self.destroy
-  #    return DeletePostUndo.create_undo(self)
-  #  end
-  #end
+    def paginate_by_published_date(page)
+      paginate :per_page => 5, :page => page,
+               :order => "published_at DESC"
+    end
 
-  def month
-    published_at.beginning_of_month
-  end
+    def paginate_with_tag_names(tags, page = 1)
+      tag_ids = Tag.all :select => "id",
+                        :conditions => { :name => tags }
+      paginate_with_tag_ids(tag_ids, page)
+    end
 
-  def apply_filter
-    self.body_html = EnkiFormatter.format_as_xhtml(self.body)
-  end
+    def paginate_with_tag_ids(tags, page = 1)
+      options =  { :page       => page,
+                   :per_page   => DEFAULT_LIMIT,
+                   :order      => 'posts.published_at DESC',
+                   :conditions => ['published_at < ?', Time.zone.now] }
+      options.merge! tags_filter(tags)
+      Post.paginate options
+    end
 
-  def set_dates
-    self.edited_at = Time.now if self.edited_at.nil? || !minor_edit?
-    self.published_at = Chronic.parse(self.published_at_natural)
-  end
+    def tags_filter(tags)
+      if tags.empty?
+        return {}
 
-  def denormalize_comments_count!
-    Post.update_all(["approved_comments_count = ?", self.approved_comments.count], ["id = ?", self.id])
-  end
+      elsif tags.size == 1
+        return {
+           :joins      => :taggings,
+           :conditions => { "taggings.tag_id" => tags }
+        }
 
-  def generate_slug
-    self.slug = self.title.dup if self.slug.blank?
-    self.slug.slugorize!
-  end
-
-  # TODO: Contribute this back to acts_as_taggable_on_steroids plugin
-  def tag_list=(value)
-    value = value.join(", ") if value.respond_to?(:join)
-    super(value)
+      else
+        return {
+           :conditions => { "tag_count" => tags.size },
+           :from       => "(" + Post.send(:construct_finder_sql,
+           {
+             :select     => "*, COUNT(*) as tag_count",
+             :group      => "taggings.taggable_id",
+             :joins      => :taggings,
+             :conditions => { "taggings.tag_id" => tags }
+           }) + ") as posts"
+        }
+      end
+    end
   end
 end

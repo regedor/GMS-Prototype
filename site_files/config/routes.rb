@@ -13,8 +13,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.connect ':year/:month/:day/:slug/comments', :controller => 'comments', :action => 'create', :method => :post
   map.connect ':year/:month/:day/:slug', :controller => 'posts', :action => 'show', :requirements => { :year => /\d+/ }
-  map.posts_with_tag ':tag', :controller => 'posts', :action => 'index'
-  map.formatted_posts_with_tag ':tag.:format', :controller => 'posts', :action => 'index'
+  map.posts_with_tags 'tags/:tags', :controller => 'posts', :action => 'index'
+  #map.formatted_posts_with_tags 'tags/:tags.:format', :controller => 'posts', :action => 'index'
 
   map.archives '/archives', :controller => 'archives', :action => 'index'
 
@@ -66,9 +66,10 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :comments,       :active_scaffold => true, :active_scaffold_sortable => true,
                                      :only            => :destroy,
                                      :member          => { :mark_as_spam => :put, :mark_as_ham => :put }
-    admin.resources :tags,           :has_many        => :posts
     admin.resources :history_entries
     admin.resources :yaml_editors
+
+    admin.posts_with_tags 'posts/tags/:tag_ids', :controller => 'posts', :action => 'index'
   end
 
   
