@@ -55,14 +55,14 @@
         <span class="options">
         <% if logged_in? %>
           <%= @current_user.small_name %> |	      
-          <%= link_to icon_tag('user')+t('user_session.bar.account_link'), user_session_path             %> |
-          <%= link_to icon_tag('door_out')+t('user_session.bar.logout'), user_logout_path                     %> 
+          <%= link_to t('user_session.bar.account_link'), user_session_path, :id => "user_ico"           %> |
+          <%= link_to t('user_session.bar.logout'), user_logout_path,    :id => "logout_ico"             %> 
         <% else %>
-          <%= link_to '<img src="/images/google.ico" alt=""/>'+t('user_session.bar.google_signin'),
+          <%= link_to t('user_session.bar.google_signin'),
                       "/user/session?user_session%5Bopenid_identifier%5D=https://www.google.com/accounts/o8/id", 
-                      :class => "positive create", :method => 'post'                                             %> |
-          <%= link_to icon_tag('door_in')+t("user_session.bar.signin"), new_user_session_path            %> |
-          <%= link_to icon_tag('user_add')+t("user_session.bar.signup"), new_user_account_path                   %>
+                      :class => "positive create", :method => 'post', :id => "google_ico"                %> |
+          <%= link_to t("user_session.bar.signin"), new_user_session_path, :id => "login_ico"            %> |
+          <%= link_to t("user_session.bar.signup"), new_user_account_path, :id => "user_add_ico"         %>
         <% end %>
         </span>
       </div>

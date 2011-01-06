@@ -20,8 +20,14 @@ h4                          { font-size:1.7em; margin-bottom:1em; color:#e22;}
 h5                          { font-size:1.5em;}
 #account-info               { font-size:1em;}
 #account-info               { text-align:right; line-height:16px;}
-#navigation                 { font-size:1.5em; margin-bottom:1em;}
-#navivation a               { text-decoration: none;}
+#navigation                 { font-size:1.1em; margin-bottom:1em; color: #fff; }
+
+#navigation a:visited,
+#navigation a:link,
+#navigation a:hover,
+#navigation a:active,
+#navigation a               { text-decoration: none;color: #fff;}
+#navigation a.active        { text-decoration: none;color: #F8DA00;}
 #admin-navigation           { font-size:1.5em; margin-bottom: 1em;}
 #admin-navigation a         { text-decoration: none;}
 #content p                  { font-size:1.3em; text-align:justify;}
@@ -43,6 +49,12 @@ h5                          { font-size:1.5em;}
 #about p                    { margin-bottom: 0.5em;}
 #about h4                   { margin-top: 1em; margin-bottom:0.1em}
 
+div.announcement-text,
+div.announcements-bar a,
+div.announcements-bar a:active,
+div.announcements-bar a:hover,
+div.announcements-bar a:visited,
+div.announcements-bar       { color: #fff; font-size: 12px;}
 
 
 /*
