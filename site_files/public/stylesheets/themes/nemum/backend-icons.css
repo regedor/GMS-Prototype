@@ -20,6 +20,11 @@
 #as_admin__users-content a.edit   { background: url("icons/user_edit.png") no-repeat;padding-left: 16px;}
 #as_admin__users-content a.delete { background: url("icons/user_delete.png") no-repeat;padding-left: 16px;}
 
+/* Deleted users */
+
+#as_admin__deleted_users-content a.show   { background: url("icons/user.png") no-repeat; padding-left: 16px;}
+#as_admin__deleted_users-content a.delete { background: url("icons/user_delete.png") no-repeat; padding-left: 16px;}
+#as_admin__deleted_users-content a.undelete { background: url("icons/user_add.png") no-repeat; padding-left: 16px;}
 
 /* Groups */
 #as_admin__groups-content a.show   { background: url("icons/group.png") no-repeat;padding-left: 16px;}
@@ -43,6 +48,10 @@
 .content .actions input[type=text]  { background: url("icons/magnifier.png") no-repeat;padding-left: 16px;background-position:1px 1px; }
 #sidebar .block a.float-right       { background: url("icons/tag_blue_edit.png") no-repeat;padding-left: 16px;background-position:1px 1px; }
 
+/* Announcements */
+#as_admin__announcements-content a.show   { background: url("icons/date.png") no-repeat;padding-left: 16px;background-position:1px 2px;}
+#as_admin__announcements-content a.edit   { background: url("icons/date_edit.png") no-repeat;padding-left: 16px;background-position:1px 2px;}
+#as_admin__announcements-content a.delete { background: url("icons/date_delete.png") no-repeat;padding-left: 16px;background-position:1px 2px;}
 
 
 /* Icons on hover */

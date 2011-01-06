@@ -12,12 +12,12 @@
 
   <%= active_scaffold_includes %>
 
-  <%= stylesheet_link_tag "themes/"+configatron.theme+"/formtastic", :cache => true %>
-  <%= stylesheet_link_tag "themes/"+configatron.theme+"/formtastic_changes", :cache => true %>
-  <%= stylesheet_link_tag "themes/"+configatron.theme+"/web_app_theme", :cache => true %>
-  <%= stylesheet_link_tag "themes/"+configatron.theme+"/active_scaffold_override/stylesheet", :cache => true %>
-  <%= stylesheet_link_tag "themes/"+configatron.theme+"/backend-theme", :cache => true %>
-  <%= stylesheet_link_tag "themes/"+configatron.theme+"/default", :cache => true %>
+  <%= stylesheet_link_tag "formtastic/formtastic", :cache => "backend" %>
+  <%= stylesheet_link_tag "themes/"+configatron.theme+"/formtastic-changes", :cache => "backend" %>
+  <%= stylesheet_link_tag "themes/"+configatron.theme+"/active_scaffold_override/stylesheet", :cache => "backend" %>
+  <%= stylesheet_link_tag "themes/"+configatron.theme+"/backend-base", :cache => "backend" %>
+  <%= stylesheet_link_tag "themes/"+configatron.theme+"/backend-theme", :cache => "backend" %>
+  <%= stylesheet_link_tag "themes/"+configatron.theme+"/backend-icons", :cache => "backend" %>
 
   <%= yield :head %>
 
@@ -25,8 +25,7 @@
 <body id="<%= @controller.controller_name + "_" + @controller.action_name  %>">
   <div id="container">
     <div id="header">
-      <div id="user-navigation">
- 
+      <div id="user-navigation"> 
         <%= link_to icon_tag('user')+t('user_session.bar.account_link'), user_session_path %> |
         <%= link_to icon_tag('door_out')+t('user_session.bar.logout'), user_logout_path         %> 
       </div>
@@ -49,8 +48,7 @@
                                 'admin/action_entries',
                                 'admin/users',
                                 'admin/deleted_users',
-                                'admin/groups',
- 								'admin/yaml_editors'],
+                                'admin/groups'],
                               admin_users_path %>
         </ul>
       </div>
@@ -92,11 +90,7 @@
                                               
                                             { :controller_paths => 'admin/settings',
                                               :i18n_path => 'admin.navigation.secondary.settings',
-                                              :link_to_path => admin_settings_path   },
-
- 											{ :controller_paths => 'admin/yaml_editors',
-                                              :i18n_path => 'admin.navigation.secondary.yaml_editors',
-                                              :link_to_path => admin_yaml_editors_path  }],
+                                              :link_to_path => admin_settings_path }],
 
                                           :specify_first => true %>
           </ul>

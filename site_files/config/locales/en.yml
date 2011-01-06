@@ -3,7 +3,6 @@
 
 en:
   navigation:
-    title: "Regedor"
     home: "Home"
     about: "About"
     administration: "Administration"
@@ -50,6 +49,7 @@ en:
       signin: "Sign In"
       signup: "Sign Up"
       google_signin: "Google Sign In"
+      change_language: "Change language:"
     new:
       title: "Login"
       form_inputs_name: "Please enter your email address and password:"
@@ -110,7 +110,6 @@ en:
         static_pages: "Static Pages"
         settings: "Settings"
         undo_items: "Actions"
-        yaml_editors: "Configration editors"
     users:
       index:
         title: "Users List"
@@ -150,7 +149,30 @@ en:
           more: "%{count} Users Found"
           one: "%{count} User Found"            
         noentries: "No entries found"
-    
+    deleted_users:
+      index:
+        title: "Deleted Users List"
+        search: "Find users"
+        create: "Create user"
+        columns:
+          created_at: "Created at"
+          email: "Email"
+          active: "Active"
+          language: "Language"
+          name: "Name"
+          role: "User Role"
+        destroy_link: "Delete"
+        show_link: "Details"
+        undelete_link: "Undelete"
+      destroy_by_ids: "Delete"
+      activate!: "Activate"
+      undelete_by_ids: "Re activate"
+      list:
+        found:
+          more: "%{count} Users Found"
+          one: "%{count} User Found"            
+        noentries: "No entries found"
+          
     groups:
       index:
         title: "Groups List"
@@ -258,9 +280,9 @@ en:
     announcements:
       index:
         title: "Display Announcements"
-        update_link: "<img src='/images/icons/date_edit.png'/>Edit"
-        destroy_link: "<img src='/images/icons/date_delete.png'/>Delete"
-        show_link: "<img src='/images/icons/date.png'/>Details"
+        update_link: "Edit"
+        destroy_link: "Delete"
+        show_link: "Details"
         search: "Search Announcements"
         create: "New Announcement"
         columns:
@@ -330,6 +352,7 @@ en:
     group_created: "Succefully created a group"
     tag_changed: "Successfully updated tag %{old}'s name to %{new}."
     invalid_tag_change: "Could not change tag %{old}'s name to %{new} because tag %{new} already exists."
+    changes_saved_successful_with_delay: "Changes were successfully saved and will eventually take effect"
   
   
   notifier: 

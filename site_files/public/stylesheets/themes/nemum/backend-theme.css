@@ -155,7 +155,7 @@ a                         { -moz-outline: none; }
 .form textarea:hover { -webkit-box-shadow: rgba(0,0,0,0.3) 0 0 3px; -moz-box-shadow: rgba(0,0,0,0.3) 0 0 3px; box-shadow: 0 0 3px rgba(0,0,0,0.3); border: 1px solid #a2a294; }
 .form input:focus,
 .form textarea:focus               { border: 1px solid #a2a294; }
-.form input.button:hover           { border: 1px solid #666; }
+f.form input.button:hover           { border: 1px solid #666; }
 
 /* buttons */
 a.button,

@@ -18,7 +18,7 @@ class Admin::DeletedUsersController < Admin::BaseController
 
       config.action_links.add 'undelete', :type => :member, :page => true, :crud_type => :delete, :method => :put,
                                           :confirm => :are_you_sure_to_delete,
-                                          :label => "admin.deleted_users.index.undelete_link"
+                                          :label => I18n::t("admin.deleted_users.index.undelete_link")
   end
 
   # Override this method to define conditions to be used when querying a recordset (e.g. for List).

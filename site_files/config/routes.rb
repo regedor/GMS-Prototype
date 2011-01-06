@@ -67,8 +67,7 @@ ActionController::Routing::Routes.draw do |map|
                                      :only            => :destroy,
                                      :member          => { :mark_as_spam => :put, :mark_as_ham => :put }
     admin.resources :history_entries
-    admin.resources :yaml_editors
-
+    admin.resources :settings
     admin.posts_with_tags 'posts/tags/:tag_ids', :controller => 'posts', :action => 'index'
   end
 

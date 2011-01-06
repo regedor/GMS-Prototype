@@ -2,7 +2,6 @@ class PostsController < ApplicationController
   def index
     @tags = params[:tags].split(",") if params[:tags]
     @posts = Post.paginate_with_tag_names(@tags, params[:page])
-    @announcements = Announcement.active
     @tags_for_cloud = Tag.tags_for_cloud(@tags)
 
     respond_to do |format|

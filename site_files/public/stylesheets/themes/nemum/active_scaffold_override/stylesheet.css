@@ -159,12 +159,12 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 #as_admin__posts-active-scaffold                        { padding: 0; margin: 0px;}
 #main .block .content .inner                            { padding: 0; padding-bottom: 5px;}
 
-#new_post                                               { padding-left: 5px;}
-#main .block .content .inner h2                         { padding-left: 10px;}
+/*#new_post                                               { padding-left: 5px;}*/
+#main .block .content .inner h2                         { padding-left: 15px;}
 
 #main .block .content .inner .active-scaffold-header h2 { padding: 0;}
-#main .block .content .inner .active-scaffold-header    { padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;}
-#main .block .content .inner .active-scaffold-found     { padding-left: 10px; padding-bottom: 10px;}
+#main .block .content .inner .active-scaffold-header    { padding-left: 15px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;}
+#main .block .content .inner .active-scaffold-found     { padding-left: 15px; padding-bottom: 10px;}
 
 /* Table :: Column Headers */
 .active-scaffold th.sorted          { background-color: #EAEAEA;}
@@ -243,7 +243,7 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold form p                                  { clear: both;}
 .active-scaffold fieldset                                { border: none;}
 .active-scaffold h4,
-.active-scaffold ol                                      { clear: both;float: none;padding: 2px;margin-left: 5px;list-style: none;}
+.active-scaffold ol                                      { clear: both;float: none;padding: 2px;margin-left: 14px;list-style: none;}
 .active-scaffold p.form-footer                           { clear: both;}
 
 .actions input[type=text]                                { width: 100px; height: 20px; padding:0; margin:0;}
@@ -269,6 +269,13 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold .draggable-list li                      { display: block;}
 .active-scaffold .draggable-list input                   { display: none;}
 .active-scaffold-header .actions select                  { height: 20px;padding: -1;margin: -1px; }
+
+/********************************************************************************************************************************/
+
+.active-scaffold input[type=file]                        { width: 270px;}
+.active-scaffold input[type=file]:hover                  { }
+   
+
 /* Form :: Sub-Sections */
 .active-scaffold li.sub-section                          { clear: left;padding: 5px 0;}
 
@@ -325,26 +332,27 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .form-footer a:active,
 .form-footer a:visited,
 .form-footer a:link,
-.form-footer input.submit                                { font-size:100%;line-height:130%;text-decoration:none;} 
+.form-footer input.submit                                { font-weight:bold;  cursor:pointer; padding:5px 10px 6px 7px;} 
 
-  /*FIXME: Wrong height on chrome, right on firefox (?)*/
 .active-scaffold a.cancel, 
 .active-scaffold p.form-footer a,
 .form-footer a,
 .form-footer a:active,
 .form-footer a:visited,
-.form-footer a:link                { font-weight:bold; cursor:pointer; padding:6px 10px 6px 7px; margin-left: 5px;margin-bottom: 6px;} 
+.form-footer a:link,
+.form-footer input.submit                { margin-left: 16px;margin-bottom: 6px;} 
 
-.form-footer input.submit          { font-weight:bold; cursor:pointer; padding:5px 10px 5px 7px; margin-left: 5px;margin-bottom: 6px;} 
+/*FIXME: Wrong height on chrome, right on firefox (?)*/
 
-/*buttons on hover*/
-.active-scaffold a.cancel:hover,
-.active-scaffold p.form-footer a:hover,
-.form-footer a:hover,
-.form-footer input.submit:hover    { background-color:#eef; border:1px solid #ccf; color:#369;}
+/* Positive */
 
-/*buttons on active*/
-.active-scaffold a.cancel:active,
-.active-scaffold p.form-footer a:active,
-.form-footer a:active,
-.form-footer input.submit:active   { background-color:#58b; border:1px solid #7ad; color:#fff;}
+.form-footer input.submit                     { color:#591;}
+.form-footer input.submit:hover               { background-color:#efe; border:1px solid #cfc; color:#591;}
+.form-footer input.submit:active              { background-color:#7b3; border:1px solid #9d5; color:#fff;}
+
+
+/* Negative */
+
+.active-scaffold a.cancel                     { color:#d32;}
+.active-scaffold a.cancel:hover               { background-color:#fee; border:1px solid #fcc; color:#d32;}
+.active-scaffold a.cancel:active              { background-color:#f54; border:1px solid #f76; color:#fff;}
