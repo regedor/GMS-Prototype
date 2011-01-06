@@ -3,7 +3,6 @@
 
 en:
   navigation:
-    title: "Regedor"
     home: "Home"
     about: "About"
     administration: "Administration"
@@ -50,6 +49,7 @@ en:
       signin: "Sign In"
       signup: "Sign Up"
       google_signin: "Google Sign In"
+      change_language: "Change language:"
     new:
       title: "Login"
       form_inputs_name: "Please enter your email address and password:"
@@ -161,6 +161,9 @@ en:
           language: "Language"
           name: "Name"
           role: "User Role"
+        destroy_link: "Delete"
+        show_link: "Details"
+        undelete_link: "Undelete"
       destroy_by_ids: "Delete"
       activate!: "Activate"
       undelete_by_ids: "Re activate"

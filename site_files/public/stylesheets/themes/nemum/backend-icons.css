@@ -20,6 +20,11 @@
 #as_admin__users-content a.edit   { background: url("icons/user_edit.png") no-repeat;padding-left: 16px;}
 #as_admin__users-content a.delete { background: url("icons/user_delete.png") no-repeat;padding-left: 16px;}
 
+/* Deleted users */
+
+#as_admin__deleted_users-content a.show   { background: url("icons/user.png") no-repeat; padding-left: 16px;}
+#as_admin__deleted_users-content a.delete { background: url("icons/user_delete.png") no-repeat; padding-left: 16px;}
+#as_admin__deleted_users-content a.undelete { background: url("icons/user_add.png") no-repeat; padding-left: 16px;}
 
 /* Groups */
 #as_admin__groups-content a.show   { background: url("icons/group.png") no-repeat;padding-left: 16px;}

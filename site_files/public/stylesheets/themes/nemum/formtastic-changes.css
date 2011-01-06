@@ -55,7 +55,7 @@ input.create:active,
 
 h1                                               { padding: 2px;margin: 0;text-transform: none;}
 h1                                               { color: black; letter-spacing: -1px; font: bold 16px arial;}
-input[type=text], textarea                       { background-color: #F1F1F1;border: 1px solid #9E9E9E;}
+input[type=text], textarea, input[type=password] { background-color: #F1F1F1;border: 1px solid #9E9E9E;}
 input[type=text], textarea                       { font-size:15px;padding:2px;letter-spacing: -1;}
 input[type=text]                                 { width: 270px; font: bold 16px arial; }
 form.formtastic fieldset ol li p.inline-hints    { color:#A1A1A1; font-size: 11px; margin-top:0; margin-left: 100px; }
