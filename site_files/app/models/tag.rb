@@ -51,15 +51,20 @@ class Tag < ActiveRecord::Base
     end
   
     def paginate_filtered_tags(tags, page = 1)
-      Tag.paginate tags_filter(tags, page)
+      Tag.paginate tags_filter(tags).merge :page     => page,
+                                           :per_page => DEFAULT_LIMIT,
+                                           :order    => 'taggings_count DESC'
+    end
+
+    def tags_for_cloud(tags)
+      tag_ids = tags ? (Tag.all :select => "id", :conditions => { :name => tags }) : []
+      Tag.all( tags_filter(tag_ids).merge :limit => 100,
+                                          :order => 'taggings_count DESC, name'
+             ).sort_by { |tag| tag.name.downcase }
     end
   
-    def tags_filter(tags, page = 1)
-      # DEFAULT OPTIONS
-      filter = { :page     => page,
-                 :per_page => DEFAULT_LIMIT,
-                 :order    => 'taggings_count DESC'
-               }
+    def tags_filter(tags)
+      filter = { }
   
       if tags.empty?
         # OPTIONS IF NO FILTER IS NEEDED

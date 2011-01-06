@@ -24,7 +24,21 @@ module TagHelper
   # Duplicates array
   def get_tag_names_from_uncertain_array(tags)
     tags = [tags] unless tags.is_a? Array
-    tags.map { |tag| tag = tag.name if tag.is_a? Tag }
+    return tags
+  end
+
+  def tag_cloud(tags, classes)
+    max, min = 0, 0
+    tags.each do |tag|
+      max = tag.taggings_count.to_i if tag.taggings_count.to_i > max
+      min = tag.taggings_count.to_i if tag.taggings_count.to_i < min
+    end
+
+    divisor = ((max - min) / classes.size) + 1
+
+    tags.each { |tag|
+      yield tag.name, classes[(tag.taggings_count.to_i - min) / divisor]
+    }
   end
 
 end
