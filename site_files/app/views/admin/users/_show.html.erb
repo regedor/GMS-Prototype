@@ -1,17 +1,19 @@
-<%= @record.name %>
-
-
- <p><%= @record.email              %></p>
- <p><%= @record.name               %></p>
- <p><%= @record.nickname           %></p>
- <p><%= @record.gender             %></p>
- <p><%= @record.profile            %></p>
- <p><%= @record.website            %></p>
- <p><%= @record.country            %></p>
- <p><%= @record.phone              %></p>
- <p><%= @record.emails             %></p>
- <p><%= @record.language           %></p>
- <p><%= @record.groups             %></p>
- <p><%= @record.role               %></p>
-
-
+<h4><%= @record.name %></h4>
+  <dl>
+    <dt><%= t("admin.users.view.email") %></dt>    <dd> <%= @record.email              %></dd>
+    <dt><%= t("admin.users.view.name") %></dt>     <dd> <%= @record.name               %></dd>
+    <dt><%= t("admin.users.view.nickname") %></dt> <dd> <%= @record.nickname           %></dd>
+    <dt><%= t("admin.users.view.gender") %></dt>   <dd> <%= @record.gender             %></dd>
+    <dt><%= t("admin.users.view.profile") %></dt>  <dd> <%= @record.profile            %></dd>
+    <dt><%= t("admin.users.view.website") %></dt>  <dd> <%= @record.website            %></dd>
+    <dt><%= t("admin.users.view.country") %></dt>  <dd> <%= @record.country            %></dd>
+    <dt><%= t("admin.users.view.phone") %></dt>    <dd> <%= @record.phone              %></dd>
+    <dt><%= t("admin.users.view.emails") %></dt>   <dd> <%= @record.emails             %></dd>
+    <dt><%= t("admin.users.view.language") %></dt> <dd> <%= @record.language           %></dd>
+    <dt><%= t("admin.users.view.groups") %></dt>   <dd> <%= @record.groups             %></dd>
+    <dt><%= t("admin.users.view.role") %></dt>     <dd> <%= @record.role               %></dd>
+  </dl>
+  
+<p class="form-footer">
+  <%= link_to t("admin.users.view.cancel"), admin_users_path, :class => "cancel" %>  
+</p>

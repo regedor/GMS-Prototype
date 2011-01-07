@@ -26,8 +26,8 @@
   <div id="container">
     <div id="header">
       <div id="user-navigation"> 
-        <%= link_to icon_tag('user')+t('user_session.bar.account_link'), user_session_path %> |
-        <%= link_to icon_tag('door_out')+t('user_session.bar.logout'), user_logout_path         %> 
+        <%= link_to t('user_session.bar.account_link'), user_session_path, :class => "user_ico" %> |
+        <%= link_to t('user_session.bar.logout'), user_logout_path, :class => "logout_ico"         %> 
       </div>
       <h1><a href="/"><%= configatron.site_name %></a></h1>
       <div id="main-navigation">

@@ -32,8 +32,8 @@ div#sidebar           { float: right; width: 170px; height: auto;padding: 15px; 
 div#main              { z-index: 2; position: relative;}
 div#announcements     { margin-left:15px; margin-right: 15px; margin-bottom: 0; height: 250px; overflow: hidden;z-index: 0; position: relative;}
 div#posts             { }
-div#secondary-sidebar { float: left;width: 544px; height: 100px;}
-div#whitespace        { min-height: 100px; margin-left: 15px; margin-right: 15px; }
+div#secondary-sidebar { float: left;width: 544px; }
+div#whitespace        { margin-left: 15px; margin-right: 15px; }
 div#footer            { margin-left: 15px; margin-right: 15px; padding: 15px; padding-top: 20px;text-align: center;}
 
 #announcements        { position: absolute; top: 0;}
@@ -41,7 +41,7 @@ div#footer            { margin-left: 15px; margin-right: 15px; padding: 15px; pa
 .announcements-bar    { position: absolute; top: 5px; left: 5px; padding: 5px; z-index: 1; background: url("../../../images/announcements/transparent.png"); }
 /*.announcement-block   { position: absolute; top: 0; }*/
 .announcement-block img { width: 730px; height: 250px; z-index: 0; }
-.announcement-text      { position: absolute; bottom: 0px; right: 0; z-index: 1; background: url("../../../images/announcements/transparent.png");  }
+.announcement-text      { position: absolute; bottom: 0px; right: 0; z-index: 1; background: url("../../../images/announcements/transparent.png"); float:right; width: 300px; padding: 5px; }
 
-#posts .post            { padding-top: 15px; }
+div.meta                { padding-bottom: 15px; }
 

@@ -91,7 +91,18 @@ button.button:active      { font-weight: normal; background-color: #f4f4f4; }
 = Specific Sections Structure
 ============================================================================
 */
+.inner>p,
+.inner>h3                 { padding-left: 15px; }
+
+.block>form>p             { padding:0; margin: 0px;}
+.block>form               { padding-left: 15px; padding-bottom: 15px; margin: 0px;}
+
 a                         { -moz-outline: none; }
+
+
+div.show-view dl           { padding-left: 10px; padding-right: 10px; }
+div.show-view h4           { padding: 15px; margin-left:0; }
+div.show-view .form-footer { margin-bottom: 15px;}
 
 /* HEADER */
 #header                   { background: #2E2A2B; background: -webkit-gradient(linear,left bottom,left top,color-stop(1, #2E2A2B),color-stop(0, #423D3E));
@@ -155,7 +166,29 @@ a                         { -moz-outline: none; }
 .form textarea:hover { -webkit-box-shadow: rgba(0,0,0,0.3) 0 0 3px; -moz-box-shadow: rgba(0,0,0,0.3) 0 0 3px; box-shadow: 0 0 3px rgba(0,0,0,0.3); border: 1px solid #a2a294; }
 .form input:focus,
 .form textarea:focus               { border: 1px solid #a2a294; }
-f.form input.button:hover           { border: 1px solid #666; }
+f.form input.button:hover          { border: 1px solid #666; }
+
+/* Preview */
+div#preview                        { padding: 15px; }
+div#preview .content h1 a,
+div#preview .content h2 a,
+div#preview .content h3 a,
+div#preview .content h4 a,
+div#preview .content h5 a,
+div#preview .content h6 a           { margin-left: -15px; text-decoration: none; }
+
+#main .block .content div.entrybody h1,
+#main .block .content div.entrybody h2,
+#main .block .content div.entrybody h3,
+#main .block .content div.entrybody h4,
+#main .block .content div.entrybody h5,
+#main .block .content div.entrybody h6 { margin-left: 0px; padding-left: 0px;}
+
+div#preview .entrybody ul li      { margin-left: 15px; list-style: circle; font: Verdana; }
+div#preview .content              { background-color: #f8f8f8; border: 1px solid #eee; }
+
+div.content .meta ul li           { list-style: none; margin-left:0; }
+
 
 /* buttons */
 a.button,

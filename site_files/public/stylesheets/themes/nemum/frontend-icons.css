@@ -6,8 +6,8 @@
 
 
 /* account-info */
-#user_ico     { background: url("icons/user.png") no-repeat; padding-left: 16px;}
-#logout_ico   { background: url("icons/door_in.png") no-repeat; padding-left: 16px;}
-#user_add_ico { background: url("icons/user.png") no-repeat; padding-left: 16px;}
-#login_ico    { background: url("icons/door_out.png") no-repeat; padding-left: 16px;}
-#google_ico   { background: url("icons/google.ico") no-repeat; padding-left: 16px;}
+.user_ico     { background: url("icons/user.png") no-repeat; padding-left: 16px;}
+.logout_ico   { background: url("icons/door_in.png") no-repeat; padding-left: 16px;}
+.user_add_ico { background: url("icons/user.png") no-repeat; padding-left: 16px;}
+.login_ico    { background: url("icons/door_out.png") no-repeat; padding-left: 16px;}
+.google_ico   { background: url("icons/google.ico") no-repeat; padding-left: 16px;}

@@ -149,6 +149,21 @@ en:
           more: "%{count} Users Found"
           one: "%{count} User Found"            
         noentries: "No entries found"
+      view:
+        email:    "Email"
+        name:     "Name"
+        nickname: "Nickname"
+        gender:   "Gender"
+        profile:  "Profile"
+        website:  "Website"
+        country:  "Country"
+        phone:    "Phone"
+        emails:   "Emails"
+        language: "Language"
+        groups:   "Groups"
+        role:     "Role"
+        cancel:   "Close"
+        
     deleted_users:
       index:
         title: "Deleted Users List"
