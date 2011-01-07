@@ -19,5 +19,12 @@ module ApplicationHelper
   def select_language_collection
     UserSession::LANGUAGES
   end
+  
+  def avatar_url(record, options={})
+    options[:size] ||= 100
+    default_url    ||= options[:default_url] || "#{root_url}images/guest-#{options[:size]}.png"
+    gravatar_id      = Digest::MD5.hexdigest(record.email.downcase)
+    "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{options[:size]}&d=#{CGI.escape(default_url)}"
+  end
 
 end
