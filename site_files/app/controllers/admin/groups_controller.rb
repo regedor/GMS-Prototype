@@ -12,7 +12,7 @@ class Admin::GroupsController < Admin::BaseController
     
     Scaffoldapp::active_scaffold config, "admin.groups",
       :list     => [ :name, :mailable, :description ],
-      :show     => [ :name, :description, :mailable, :users, :all_users_names ],
+      :show     => [ :name, :description, :mailable, :direct_users],
       :create   => [ :name, :description, :mailable, :user_choosable, :groups, :direct_users ],
       :edit     => [ :name, :description, :mailable, :user_choosable, :groups, :direct_users ],
       :row_mark => [ :delete_by_ids ]
