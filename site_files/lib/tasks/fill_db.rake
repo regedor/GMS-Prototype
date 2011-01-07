@@ -4,11 +4,12 @@ namespace :db do
 
       task :posts => :environment do
         load 'lib/tasks/posts.rb'
-        gets.chomp.to_i.times do 
-          i = (rand * posts_titles.size).to_i
+        puts "How many posts to fake?"
+        STDIN.gets.chomp.to_i.times do 
+          i = (rand * @posts_titles.size).to_i
           Post.create(
-            :title                   => posts_titles[i], 
-            :body                    => posts_bodies[i], 
+            :title                   => @posts_titles[i], 
+            :body                    => @posts_bodies[i], 
             :active                  => true, 
             :approved_comments_count => 0, 
             :published_at            => Time.now, 
@@ -16,9 +17,11 @@ namespace :db do
             :updated_at              => nil
           ) 
         end
-        puts "Concluido!"
+        puts "Done"
       end
+
       task :all => [:posts]
+
     end
 
     task :all => []
