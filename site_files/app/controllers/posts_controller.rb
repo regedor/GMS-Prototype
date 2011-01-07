@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
   def index
-    @tag = params[:tag]
-    @posts = Post.find_recent(:tag => @tag, :include => :tags)
-    @announcements = Announcement.active
+    @tags = params[:tags].split(",") if params[:tags]
+    @posts = Post.paginate_with_tag_names(@tags, params[:page])
+    @tags_for_cloud = Tag.tags_for_cloud(@tags)
 
     respond_to do |format|
       format.html

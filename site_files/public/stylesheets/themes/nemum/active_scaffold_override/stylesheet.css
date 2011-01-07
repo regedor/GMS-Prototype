@@ -42,7 +42,7 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold th p                              { display: block;background-color: #EAEAEA;/*font-size: 14px;*/ color: #676766;}
 .active-scaffold th a, 
 .active-scaffold th a:visited                      { color: #676766;padding: 2px 15px 2px 5px;}
-.active-scaffold th p                              { color: #eee;padding: 2px 5px;}
+.active-scaffold th p                              { color: #111;padding: 2px 5px;}
 .active-scaffold th a:hover                        { background-color: #EAEAEA;color: black;}
 .active-scaffold tr.record                         { background-color: #fff;color: #111;}
 .active-scaffold tr.record td                      { padding: 0.5em 0.5em;padding-left: 1.4em;color: #333;font-family: Verdana, sans-serif;}
@@ -105,10 +105,11 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold select                                  { font-size: 14px;}
 .content input[type=text]                                { font-size: 14px;}
 
+#main #as_admin__posts-content th p,
 .active-scaffold a,
 .active-scaffold a:link,
 .active-scaffold a:active,
-.active-scaffold a:visited   { color: #111;}
+.active-scaffold a:visited   { color: #111;font: bold 11px arial,sans-serif;}
 #wrapper.wat-cf td > a:hover { background-color: #111; color: #fff; }
 /*
 ============================================================================
@@ -163,8 +164,8 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 #main .block .content .inner h2                         { padding-left: 15px;}
 
 #main .block .content .inner .active-scaffold-header h2 { padding: 0;}
-#main .block .content .inner .active-scaffold-header    { padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;}
-#main .block .content .inner .active-scaffold-found     { padding-left: 10px; padding-bottom: 10px;}
+#main .block .content .inner .active-scaffold-header    { padding-left: 15px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;}
+#main .block .content .inner .active-scaffold-found     { padding-left: 15px; padding-bottom: 10px;}
 
 /* Table :: Column Headers */
 .active-scaffold th.sorted          { background-color: #EAEAEA;}
@@ -340,7 +341,7 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .form-footer a:active,
 .form-footer a:visited,
 .form-footer a:link,
-.form-footer input.submit                { margin-left: 16px;margin-bottom: 6px;} 
+.form-footer input.submit                { margin-left: 15px;margin-bottom: 15px;} 
 
 /*FIXME: Wrong height on chrome, right on firefox (?)*/
 

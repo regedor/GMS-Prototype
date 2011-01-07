@@ -113,8 +113,8 @@ hr          { background: #f0f0ee; color: #f0f0ee;}
 .flash .notice { border: 1px solid #1FDF00; background-color: #BBFFB6;}
 
 /* lists */
-ul.list li { border-bottom-color: #F0F0EE; border-bottom-width: 1px; border-bottom-style: solid;}
-ul.list li .item .avatar { border-color: #F0F0EE; border-width: 1px; border-style: solid; padding: 2px;}
+ul.list li { border-bottom-color: #F0F0EE; border-bottom-width: 1px; border-bottom-style: solid; margin-top: 6px; }
+ul.list li .item .avatar { border-color: #F0F0EE; border-width: 1px; border-style: solid; padding: 2px; margin-top: 6px; }
 
 /* box */
 #box .block { background: #FFF;}

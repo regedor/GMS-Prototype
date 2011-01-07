@@ -11,7 +11,7 @@ module PostSpecHelper
 
   def valid_published_attribute
     {
-      :published_at => '2011-01-04 18:41:08'
+      :published_at => '2010-08-26 18:41:08'
     }
   end
 
@@ -84,5 +84,18 @@ describe Post do
   end
 
   ## Find by permalink
+  it "finding from permalink should work" do
+    @post.attributes = valid_post_attributes.merge(valid_published_attribute)
+    @post.save!
+    @post2 = Post.new
+    @post2.attributes = {:title => 'segundo post', :body => 'body do segundo post'}
+    @post2.save!
+    
+    time1 = @post.published_at
+    time2 = Time.now
+
+    Post.find_by_permalink(time1.year, time1.mon, time1.day, @post.slug).should == @post
+    Post.find_by_permalink(time2.year, time2.mon, time2.day, @post2.slug).should == @post2
+  end
 
 end
