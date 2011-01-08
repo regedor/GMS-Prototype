@@ -1,68 +1,16 @@
 class Admin::PostsController < Admin::BaseController
-  before_filter :find_post,                 :only => [ :show, :update, :destroy ]
   before_filter :tags_in_instance_variable, :only => [ :list, :index ]
   before_filter :list_tags,                 :only =>   :index 
 
   active_scaffold :post do |config|
     Scaffoldapp::active_scaffold config, "admin.posts",
       :list   => [ :title, :excert, :published_at, :total_approved_comments ],
-      :create => [  ],
+      :create => [ :title, :body, :tag_list, :published_at_natural, :slug ],
       :edit   => [  ]
   end
 
   def custom_finder_options
     return Post.tags_filter @tag_ids
-  end
-
-  def create
-    @post = Post.new(params[:post])
-    if @post.save
-      respond_to do |format|
-        format.html {
-          flash[:notice] = I18n::t('active_scaffold.created_model', :model => "post #{@post.title}")
-          redirect_to(:action => 'edit', :id => @post)
-        }
-      end
-    else
-      respond_to do |format|
-        format.html { render :action => 'new',         :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  def update
-    if @post.update_attributes(params[:post])
-      respond_to do |format|
-        format.html {
-          flash[:notice] = I18n::t('active_scaffold.updated_model', :model => "post #{@post.title}")
-          redirect_to(:action => 'edit', :id => @post)
-        }
-      end
-    else
-      respond_to do |format|
-        format.html { render :action => 'show',        :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  def destroy
-    @post.comments.each { |comment| comment.destroy }
-    @post.destroy
-
-    respond_to do |format|
-      format.html {
-        flash[:notice] = I18n::t('active_scaffold.deleted_model', :model => "post #{@post.title}")
-        redirect_to(:action => 'index')
-      }
-    end
-  end
-
-  def edit
-    @post = Post.find params[:id]
-  end
-
-  def new
-    @post = Post.new
   end
 
   def preview
@@ -113,9 +61,5 @@ class Admin::PostsController < Admin::BaseController
       @tags = Tag.paginate_filtered_tags @tag_ids, params[:tag_page]
     end
   
-    def find_post
-      @post = Post.find(params[:id])
-    end
-
 end
 

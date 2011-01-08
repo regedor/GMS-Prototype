@@ -61,23 +61,21 @@
             <%= secondary_navigation_menu [ { :controller_paths => 'admin/dashboard',
                                               :i18n_path => 'admin.navigation.secondary.dashboard',
                                               :link_to_path => admin_root_path } ],
-
-                                          :specify_first => true %>
+                                              :specify_first => true %>
 
             <%= secondary_navigation_menu [ { :controller_paths => 'admin/announcements',
                                               :i18n_path => 'admin.navigation.secondary.announcements',
                                               :link_to_path => admin_announcements_path },
 
-                                            { :controller_paths => [ 'admin/posts',
-                                                                     'admin/comments'],
+                                            { :controller_paths => [ 'admin/posts', 'admin/comments'],
                                               :i18n_path => 'admin.navigation.secondary.posts',
                                               :link_to_path => admin_posts_path },
 
-                                            { :controller_paths => '',
+                                            { :controller_paths => 'admin/pages',
                                               :i18n_path => 'admin.navigation.secondary.static_pages',
-                                              :link_to_path => '' } ],
+                                              :link_to_path => admin_pages_path } ],
 
-                                          :specify_first => true %>
+                                              :specify_first => true %>
 
             <%= secondary_navigation_menu [ { :controller_paths => [ 'admin/users',
                                                                    'admin/deleted_users' ],
@@ -92,7 +90,7 @@
                                               :i18n_path => 'admin.navigation.secondary.settings',
                                               :link_to_path => admin_settings_path }],
 
-                                          :specify_first => true %>
+                                              :specify_first => true %>
           </ul>
         </div>
       <div id="flash" class="flash">
