@@ -2,10 +2,10 @@
   <div class="content">
     <div class="inner">
 
-      <h2><%= I18n::t('admin.posts.form.edit') + ' - ' + link_to(h(@post.title), admin_post_path(@post)) %></h2>
+      <h2><%= I18n::t('admin.posts.form.new') %></h2>
 
-      <% semantic_form_for([:admin, @post]) do |form| -%>
-        <%= render :partial => 'form', :locals => {:form => form} %>
+      <% semantic_form_for 'record',  @record, :url => admin_posts_path, :html => { :class => 'create' }  do |form| -%>
+        <%= render :partial => 'form', :locals => {:form => form} -%>
         <% form.button_field_set do -%>
           <%= form.commit_button(I18n::t('admin.posts.form.submit')) -%>
         <% end -%>

@@ -1,0 +1,15 @@
+<div class="block">
+  <div class="content">
+    <div class="inner">
+
+      <h2><%= I18n::t('admin.posts.form.edit') + ' - ' + link_to(h(@record.title), post_path(@record)) %></h2>
+
+      <% semantic_form_for :record, @record, :url => admin_post_path(@record), :html => {:method => :put} do |form| -%>
+        <%= render :partial => 'form', :locals => {:form => form} %>
+        <% form.button_field_set do -%>
+          <%= form.commit_button(I18n::t('admin.posts.form.submit')) -%>
+        <% end -%>
+      <% end -%>
+    </div>
+  </div>
+</div>

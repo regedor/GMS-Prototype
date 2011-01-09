@@ -10,5 +10,5 @@
 <% form.input_field_set do -%>
   <%= form.input :published_at_natural, :label => I18n::t('admin.posts.form.fields.published_at_natural'), :as => 'string', :hint => I18n::t('admin.posts.form.hints.published_at_natural').html_safe -%>
   <%= form.input :slug, :hint => I18n::t('admin.posts.form.hints.slug'), :required => false -%>
-  <%= form.input :minor_edit, :as => 'boolean', :hint => I18n::t('admin.posts.form.hints.minor_edit') unless @post.new_record? -%>
+  <%= form.input :minor_edit, :as => 'boolean', :hint => I18n::t('admin.posts.form.hints.minor_edit') unless @record.new_record? -%>
 <% end -%>
