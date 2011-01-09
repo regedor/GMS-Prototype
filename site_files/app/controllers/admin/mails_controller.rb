@@ -1,7 +1,7 @@
-class Admin::MailsController < Admin::BaseController
+class Admin::MailsController < Admin::BaseController 
   
   def index
-    @mail = Mail.new
+    @mail = Mail.new  
   end  
  
   def update

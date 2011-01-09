@@ -10,7 +10,7 @@
   <% configatron.theme = "nemum" %> <!-- remover -->
 
   <%= javascript_include_tag 'jquery' %>
-
+  <%= javascript_include_tag 'jquery-ui-1.8.7.custom.min' %>
   <%= javascript_include_tag "announcements" %>
   <% announcements = Announcement.active %>
   <% javascript_tag do %>
@@ -18,6 +18,7 @@
   <% end %>
 
   <%= stylesheet_link_tag 'reset', :cache => "frontend" %>
+  <%= stylesheet_link_tag 'smoothness/jquery-ui-1.8.7.custom', :cache => "frontend" %>
   <%= stylesheet_link_tag 'formtastic/formtastic', :cache => "frontend" %>
   <%= stylesheet_link_tag "themes/"+configatron.theme+"/formtastic-changes", :cache => "frontend" %>
   <%= stylesheet_link_tag "themes/"+configatron.theme+"/frontend-base", :cache => "frontend"%>

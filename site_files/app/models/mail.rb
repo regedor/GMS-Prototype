@@ -15,15 +15,21 @@ class Mail < ActiveRecord::Base
   # Attributes Accessors
   # ==========================================================================
   
-  attr_accessible :sent_on, :subject, :message, :user
+  attr_accessor :sent_on, :subject, :message, :user, :mailable_users
   
 
   # ==========================================================================
   # Instance Methods
   # ==========================================================================
   
-  
-   
+  def initialize
+    super
+    users = []
+    User.all.each do |user|
+      users << user.to_label
+    end
+    @mailable_users = users.join(",")
+  end 
 
   # ==========================================================================
   # Class Methods

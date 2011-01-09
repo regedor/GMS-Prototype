@@ -2,8 +2,6 @@ class Admin::GroupsController < Admin::BaseController
   
   active_scaffold :group do |config|
     config.subform.columns = [:name]
-
-    config.nested.add_link("<img src='/images/icons/book_open.png'/>History", [:action_entries])
    
     config.columns[:groups].form_ui = :select
     config.columns[:groups].options = {:draggable_lists => true}
