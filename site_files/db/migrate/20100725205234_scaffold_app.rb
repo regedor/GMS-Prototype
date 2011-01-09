@@ -171,6 +171,18 @@ class ScaffoldApp < ActiveRecord::Migration
     end
     add_index :history_entries, ["created_at"], :name => 'index_history_entries_on_created_at'
 
+    create_table :mails do |t|
+      t.datetime :sent_on,     :null => false
+      t.text     :message
+      t.string   :subject,     :null => false
+      t.integer  :user_id      #sender
+    end 
+    
+    create_table :mails_users, :id => false do |t|
+      t.integer :mail_id
+      t.integer :user_id
+    end   
+
   end
 
   def self.down

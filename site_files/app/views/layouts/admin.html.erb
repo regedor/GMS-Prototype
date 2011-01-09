@@ -50,6 +50,10 @@
                                 'admin/deleted_users',
                                 'admin/groups'],
                               admin_users_path %>
+
+		  <%= navigation_menu 'admin.navigation.main.communication',
+					          [ 'admin/mails' ],
+					          admin_mails_path %>
         </ul>
       </div>
     </div>    
@@ -93,6 +97,12 @@
                                               :link_to_path => admin_settings_path }],
 
                                           :specify_first => true %>
+
+			<%= secondary_navigation_menu [ { :controller_paths => 'admin/mails',
+			                                  :i18n_path => 'admin.navigation.secondary.mails',
+			                                  :link_to_path => admin_mails_path } ]
+            
+			                              %>
           </ul>
         </div>
       <div id="flash" class="flash">

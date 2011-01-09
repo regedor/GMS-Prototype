@@ -1,0 +1,7 @@
+<% form_for @mail, :url=>admin_mails_path(@mail) do |f| -%>
+  To:      <%= f.text_field :recipients %><br/> 
+  Subject: <%= f.text_field :subject %><br/>
+  Message: <%= f.text_area :message %><br/>
+
+  <%= f.submit "Submit", :disable_with => 'Submiting...' %>
+<% end -%>
