@@ -97,7 +97,8 @@
       <div id="main" class="selfclear">
         <%= '<div class="flash_wrapper"><div class="flash_text notice" style="display:none">'+flash[:notice]+'</div></div>' unless flash[:notice].blank? %>
         <%= '<div class="flash_text error" style="display: none">' +flash[:error] +'</div>' unless flash[:error].blank?  %>
-        <%= '<script>$(".flash_text").show(1000);</script>' unless flash[:notice].blank? and flash[:error].blank? %>
+        <%= '<script>$(".flash_text").show("slide", {direction: "up"}, 1000).delay(2000);</script>' unless flash[:notice].blank? and flash[:error].blank? %>
+        <%= '<script>$(".flash_text").hide("slide", {direction: "up"}, 1000);</script>' unless flash[:notice].blank? and flash[:error].blank? %>
         <%= yield %>
       </div>
       <div id="whitespace">

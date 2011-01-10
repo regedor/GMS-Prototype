@@ -54,12 +54,9 @@ h5                          { font-size:1.5em;}
 /* TODO */
 .flash_text.error           { color:#e22;}
 .flash_text.error           { background: url(images/boxbar-background.png) 150% 0;}
-/*.flash_text.error .wrapper  { }*/
 
 .flash_text.notice          { color:#591;}
 .flash_text.notice          { background: url(images/boxbar-background.png) 150% 0;}
-
-/*.flash_wrapper              { background: url(/images/Info.png) no-repeat 0 50%;}*/
 
 .resource-list a            { text-decoration:none;}
 .resource-list th           { font-size:1.6em; color:#e22;}             
