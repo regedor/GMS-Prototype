@@ -46,7 +46,7 @@ class Mail < ActiveRecord::Base
       users.each do |user|
         begin 
           notifier.deliver_mail(user,mail) 
-        rescue 
+        rescue Exception
           return false   #FIXME Do not fail if only one fails
         end
       end
