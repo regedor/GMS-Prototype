@@ -27,8 +27,7 @@ class Admin::MailsController < Admin::BaseController
     users_to_send.uniq!
     mail.subject = params[:mail][:subject]
     mail.message = params[:mail][:message]
-    mail.sent_on = Time.now
-    mail.user    = current_user.id 
+    mail.user_id = current_user.id
     @result = (Mail.send_emails(users_to_send,mail)) ? users_to_send.map(&:email) : "fail"
   end  
   

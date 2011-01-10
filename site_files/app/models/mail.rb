@@ -3,7 +3,7 @@ class Mail < ActiveRecord::Base
   # Relationships
   # ==========================================================================
 
-  has_one :user
+  belongs_to :user
   has_and_belongs_to_many :recipients, :class_name=>"User"
 
   # ==========================================================================
@@ -15,8 +15,8 @@ class Mail < ActiveRecord::Base
   # Attributes Accessors
   # ==========================================================================
   
-  attr_accessor :sent_on, :subject, :message, :user, :mailable
-  
+  attr_accessor :mailable
+  attr_accessible :sent_on, :subject, :message, :user
 
   # ==========================================================================
   # Instance Methods
@@ -41,11 +41,13 @@ class Mail < ActiveRecord::Base
   class << self
     
     def send_emails(users,mail)
-      notifier = Notifier.new 
+      mail.recipients = users
+      mail.sent_on = Time.now
+      mail.save!
       
       users.each do |user|
         begin 
-          notifier.deliver_mail(user,mail) 
+          Notifier.deliver_mail(user,mail) 
         rescue Exception
           return false   #FIXME Do not fail if only one fails
         end

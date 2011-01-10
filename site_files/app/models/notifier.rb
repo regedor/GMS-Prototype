@@ -27,7 +27,7 @@ class Notifier < ActionMailer::Base
    
   def mail(user,mail)
     setup_email(user)
-    @from     = mail.user
+    @from     = mail.user.name
     @subject += mail.subject
     @body     = mail.message  
   end   
