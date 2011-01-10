@@ -1,24 +1,14 @@
 class Comment < ActiveRecord::Base
   DEFAULT_LIMIT = 15
 
-  attr_accessor         :openid_error
-  attr_accessor         :openid_valid
-
   belongs_to            :post
+  belongs_to            :user
 
   before_save           :apply_filter
   after_save            :denormalize
   after_destroy         :denormalize
 
-  validates_presence_of :author, :body, :post
-
-  #named_scope :not_deleted, :conditions => {:deleted => false}
-
-  # validate :open_id_thing
-  def validate
-    super
-    errors.add(:base, openid_error) unless openid_error.blank?
-  end
+  validates_presence_of :user_id, :body, :post
 
   ##FIXME Authorization to comment
   def authorized_for?(*args)
@@ -26,27 +16,9 @@ class Comment < ActiveRecord::Base
     true
   end
 
-  #FIXME Comments don't have deleted field
-  def destroy
-    self.deleted = true
-    self.post.approved_comments
-    self.save
-  end
-
-  # # Sets body_html formatting body as html.
+  # Sets body_html formatting body as html.
   def apply_filter
     self.body_html = Lesstile.format_as_xhtml(self.body, :code_formatter => Lesstile::CodeRayFormatter)
-  end
-
-  # Erases author and author's email fields
-  def blank_openid_fields
-    self.author_url = ""
-    self.author_email = ""
-  end
-
-  # Checks if OpenID is required
-  def requires_openid_authentication?
-    !!self.author.index(".")
   end
 
   def trusted_user?
@@ -64,15 +36,6 @@ class Comment < ActiveRecord::Base
   def denormalize
     self.post.denormalize_comments_count!
   end
-
-  #def destroy_with_undo
-  #  undo_item = nil
-  #  transaction do
-  #    self.destroy
-  #    undo_item = DeleteCommentUndo.create_undo(self)
-  #  end
-  #  undo_item
-  #end
 
   def to_s
     "#{author} (#{id})"

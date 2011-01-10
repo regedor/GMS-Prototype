@@ -1,34 +1,31 @@
 --- 
 production: 
-  title: Simon
-  company_name: BaseApp2 Ltd
   theme: simon
-  site_url: www.regedor.com
-  support_email: support@baseapp2.com
-  site_namemobile: BaseApp2
-  admin_email: admin@baseapp2.com
-  support_name: BaseApp2 Support
-  site_name: Simon Administration
-  site_envnote: Production Server
-development: 
-  title: Simon
-  company_name: BaseApp2 Ltd
-  theme: simon
-  site_url: Simon Administration.local
+  site_name: Simon
+  site_url: http://localhost:3000/
   support_email: support@baseapp2.local
-  site_namemobile: Simon Administration
-  admin_email: admin@baseapp2.local
-  support_name: BaseApp2 Support
-  site_name: Simon Administration
-  site_envnote: Local Server
+  root_email: admin@baseapp2.local
+  mailer: miguelregedor@gmail.com
+  mailer_domain: gmail.com
+  mailer_username: miguelregedor
+  mailer_password: 123456
+development: 
+  theme: simon
+  site_name: Simon
+  site_url: http://localhost:3000/
+  support_email: support@baseapp2.local
+  root_email: admin@baseapp2.local
+  mailer: miguelregedor@gmail.com
+  mailer_domain: gmail.com
+  mailer_username: miguelregedor
+  mailer_password: 123456
 test: 
   theme: simon
-  company_name: BaseApp2 Ltd
-  title: Simon
+  site_name: Simon
+  site_url: http://localhost:3000/
   support_email: support@baseapp2.local
-  site_url: Simon Administration.local
-  support_name: BaseApp2 Support
-  admin_email: admin@baseapp2.local
-  site_namemobile: Simon Administration
-  site_name: Simon Administration
-  site_envnote: Local Server
+  root_email: admin@baseapp2.local
+  mailer: miguelregedor@gmail.com
+  mailer_domain: gmail.com
+  mailer_username: miguelregedor
+  mailer_password: 123456
