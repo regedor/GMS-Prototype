@@ -15,7 +15,7 @@ class Mail < ActiveRecord::Base
   # Attributes Accessors
   # ==========================================================================
   
-  attr_accessor :sent_on, :subject, :message, :user, :mailable_users
+  attr_accessor :sent_on, :subject, :message, :user, :mailable
   
 
   # ==========================================================================
@@ -24,11 +24,14 @@ class Mail < ActiveRecord::Base
   
   def initialize
     super
-    users = []
+    entities = []
     User.all.each do |user|
-      users << user.to_label
+      entities << user.to_label
     end
-    @mailable_users = users.join(",")
+    Group.all.each do |group|
+      entities << group.name + I18n::t("admin.mails.group")
+    end
+    @mailable = entities.join(",")
   end 
 
   # ==========================================================================
@@ -36,7 +39,21 @@ class Mail < ActiveRecord::Base
   # ==========================================================================
 
   class << self
-
+    
+    def send_emails(users,mail)
+      notifier = Notifier.new 
+      
+      users.each do |user|
+        begin 
+          notifier.deliver_mail(user,mail) 
+        rescue 
+          return false   #FIXME Do not fail if only one fails
+        end
+      end
+      
+      return true
+    end  
+    
   end
   
 end

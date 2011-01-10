@@ -25,11 +25,18 @@ class Notifier < ActionMailer::Base
     @body[:root_url]  = root_url
   end  
    
+  def mail(user,mail)
+    setup_email(user)
+    @from     = mail.user
+    @subject += mail.subject
+    @body     = mail.message  
+  end   
+   
   protected
     def setup_email(user)
       @recipients  = "#{user.email}"
       @from        = "info@regedor.com"
-      @subject     = "[Regedor] "
+      @subject     = "[Simon] "
       @sent_on     = Time.now
       @body[:user] = user
       I18n.locale  = user.language

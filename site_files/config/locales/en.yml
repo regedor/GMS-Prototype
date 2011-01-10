@@ -112,6 +112,11 @@ en:
         settings: "Settings"
         undo_items: "Actions"
         mails: "Send E-Mail"
+    mails:
+      group: " (Group)"
+      send_ok: "Email successfully sent to the following e-mail addresses:"
+      send_fail: "The email could not be sent, try again!"            
+        
     users:
       index:
         title: "Users List"
@@ -315,8 +320,6 @@ en:
         found:
           more: "%{count} Announcements Found"
           one: "%{count} Announcements Found"
-
-
 
 
   authlogic:
