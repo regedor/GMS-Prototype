@@ -1,15 +1,5 @@
 /*
 ============================================================================
-= Typography
-============================================================================
-*/
-/*
-============================================================================
-= Specific Sections Structure
-============================================================================
-*/
-/*
-============================================================================
 = Resources
 ============================================================================
 */
@@ -53,5 +43,11 @@
 #as_admin__announcements-content a.edit   { background: url("icons/date_edit.png") no-repeat;padding-left: 16px;background-position:1px 2px;}
 #as_admin__announcements-content a.delete { background: url("icons/date_delete.png") no-repeat;padding-left: 16px;background-position:1px 2px;}
 
+/* account-info */
+.user_ico     { background: url("icons/user.png") no-repeat; padding-left: 16px;}
+.logout_ico   { background: url("icons/door_in.png") no-repeat; padding-left: 16px;}
+.user_add_ico { background: url("icons/user.png") no-repeat; padding-left: 16px;}
+.login_ico    { background: url("icons/door_out.png") no-repeat; padding-left: 16px;}
+.google_ico   { background: url("icons/google.ico") no-repeat; padding-left: 16px;}
 
 /* Icons on hover */

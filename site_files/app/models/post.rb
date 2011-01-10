@@ -84,7 +84,7 @@ class Post < ActiveRecord::Base
 
   class << self
 
-    # Builds preview
+    # Builds preview from params
     def build_for_preview(params)
       post = Post.new(params)
       post.generate_slug

@@ -1,0 +1,8 @@
+<%if @result=="fail" %>
+	<%= t("admin.mails.send_fail") %>
+<% else %>	
+	<%= t("admin.mails.send_ok") %> <br/>
+	<% @result.each do |mail|%>
+		<%= mail %><br/>
+	<% end %>
+<% end %>		

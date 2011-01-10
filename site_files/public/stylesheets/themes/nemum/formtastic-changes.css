@@ -91,7 +91,9 @@ li.commit input        { border-top: 1px solid #eee; border-left:1px solid #eee;
 
 .buttons a, 
 .buttons button, 
-li.commit input        { font-size: 14px;font-weight:bold; }
+li.commit input                     { font-size: 14px;font-weight:bold; }
+
+li.commit input                     { margin-bottom: 10px;}
 
 .buttons button,
 li.commit input                     { width:auto; overflow:visible; padding:5px 10px 5px 7px;} /* IE6 */
@@ -117,6 +119,7 @@ form.formtastic fieldset.buttons       { padding-left: 0;}
 form.formtastic fieldset ol li.string input,
 form.formtastic fieldset ol li.text textarea {  }
 
+form.formtastic fieldset ol li.password input,
 form.formtastic fieldset ol li.string input  { width: 270px; font: bold 16px verdana,arial;  letter-spacing: -1px;padding: 2px; }
 
 form.formtastic fieldset ol li.text textarea { width: 320px;border: 1px solid #9E9E9E;font-family: Verdana,Arial,sans-serif;font-size: 12px;padding: 1px; }

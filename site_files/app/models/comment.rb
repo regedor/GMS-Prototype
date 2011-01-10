@@ -10,13 +10,13 @@ class Comment < ActiveRecord::Base
 
   validates_presence_of :user_id, :body, :post
 
-  #named_scope :not_deleted, :conditions => {:deleted => false}
-
+  ##FIXME Authorization to comment
   def authorized_for?(*args)
     #!deleted
     true
   end
 
+  # Sets body_html formatting body as html.
   def apply_filter
     self.body_html = Lesstile.format_as_xhtml(self.body, :code_formatter => Lesstile::CodeRayFormatter)
   end
@@ -51,6 +51,7 @@ class Comment < ActiveRecord::Base
       [:author, :body].include?(attribute.to_sym)
     end
 
+    # Creates new comment with filter
     def new_with_filter(params)
       comment = Comment.new(params)
       comment.created_at = Time.now
@@ -58,6 +59,7 @@ class Comment < ActiveRecord::Base
       comment
     end
 
+    # Builds preview from params
     def build_for_preview(params)
       comment = Comment.new_with_filter(params)
       if comment.requires_openid_authentication?
@@ -67,6 +69,7 @@ class Comment < ActiveRecord::Base
       comment
     end
 
+    # Finds recent comments 
     def find_recent(options = {})
       find(:all, {
         :limit => DEFAULT_LIMIT,

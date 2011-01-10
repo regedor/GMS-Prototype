@@ -43,9 +43,7 @@ class YamlEditor
   # Returns the inline string to be rendered by the controller
   def render
     str = "<% form_tag({:controller => \"settings\", :action => \"update\", :id=>1}, :method => \"put\") do %>"
-    
     str += "<h2>#{@global_title}</h2>"
-    
     if @options_hash == :all
       get_all_values_nested.each_pair do |k,v|
         str += "<br/><br/>#{k.split(".").last}: " 
@@ -57,7 +55,6 @@ class YamlEditor
     	  str += self.get_value_from_path(path)
     	end  
     end
-
     str += "<p><input id=\"person_submit\" name=\"commit\" type=\"submit\" value=\"Save Changes\" /></p>\n<% end -%>"
     
     return str
@@ -106,16 +103,17 @@ class YamlEditor
   end  
 
   # Gets all the final values in a nested hash and returns them as an array
-  def get_all_values_nested(file_hash=@file_hash)
-    
+  def get_all_values_nested(file_hash=@file_hash)  
     file_hash.each_pair do |k,v|
-      
       @path << k
       case v
-        when String then @all_values.merge!({"#{@path.join(".")}" => "#{v}"}) 
+        when String then 
+          @all_values.merge!({"#{@path.join(".")}" => "#{v}"}) 
           @path.pop
-        #when Array  then get_array_values(v,file_hash[k]) if file_hash[k]
-        when Hash   then get_all_values_nested(file_hash[k]) if file_hash
+        when Fixnum then
+          @all_values.merge!({"#{@path.join(".")}" => "#{v.to_s}"}) 
+          @path.pop
+        when Hash   then get_all_values_nested(file_hash[k]) if file_hash[k]
         else raise ArgumentError, "Unhandled type #{v.class}"
       end
     end

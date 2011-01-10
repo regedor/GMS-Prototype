@@ -26,22 +26,29 @@ div#site-title        { margin-bottom: 80px; margin-top: 100px;}
 #site-title h1 a      { background: url(""); height: 120px; max-width: 200px;}
 div#account-info      { text-align: right; padding: 5px 15px 10px 15px;}
 #account-info .title  { float: left;}
-div#content           { padding: 15px; margin-right: 200px;}
+div#content           { padding: 15px; margin-right: 200px;min-height: 200px;}
 div#content p         { margin-bottom: 0;}
 div#sidebar           { float: right; width: 170px; height: auto;padding: 15px; padding-top: 15px;}
-div#main              { z-index: 2; position: relative;}
+div#main              { z-index: 2; position: relative; margin-bottom: 15px;}
 div#announcements     { margin-left:15px; margin-right: 15px; margin-bottom: 0; height: 250px; overflow: hidden;z-index: 0; position: relative;}
 div#posts             { }
-div#secondary-sidebar { float: left;width: 544px; height: 100px;}
-div#whitespace        { min-height: 100px; margin-left: 15px; margin-right: 15px; }
-div#footer            { margin-left: 15px; margin-right: 15px; padding: 15px; padding-top: 20px;text-align: center;}
+div#secondary-sidebar { float: left;width: 544px; }
+div#whitespace        { margin-left: 15px; margin-right: 15px; }
+div#footer            { margin-left: 15px; margin-right: 15px; padding: 15px; padding-top: 0px;text-align: center;}
+
+div#login-form        { padding-left: 15px; padding-right: 15px; padding-top: 15px; }
 
 #announcements        { position: absolute; top: 0;}
 .announcement-tail    { display: none; }
 .announcements-bar    { position: absolute; top: 5px; left: 5px; padding: 5px; z-index: 1; background: url("../../../images/announcements/transparent.png"); }
+
+
 /*.announcement-block   { position: absolute; top: 0; }*/
 .announcement-block img { width: 730px; height: 250px; z-index: 0; }
-.announcement-text      { position: absolute; bottom: 0px; right: 0; z-index: 1; background: url("../../../images/announcements/transparent.png");  }
+.announcement-text      { position: absolute; bottom: 0px; right: 0; z-index: 1; background: url("../../../images/announcements/transparent.png"); float:right; width: 300px; padding: 5px; }
 
-#posts .post            { padding-top: 15px; }
+/* truque */
+.announcement-text       { width: 150px; height: 240px; padding-top: 15px; } /**/
+
+div.meta                { padding-bottom: 15px; }
 

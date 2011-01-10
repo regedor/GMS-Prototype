@@ -10,7 +10,7 @@
   <% configatron.theme = "nemum" %> <!-- remover -->
 
   <%= javascript_include_tag 'jquery' %>
-
+  <%= javascript_include_tag 'jquery-ui-1.8.7.custom.min' %>
   <%= javascript_include_tag "announcements" %>
   <% announcements = Announcement.active %>
   <% javascript_tag do %>
@@ -18,6 +18,7 @@
   <% end %>
 
   <%= stylesheet_link_tag 'reset', :cache => "frontend" %>
+  <%= stylesheet_link_tag 'smoothness/jquery-ui-1.8.7.custom', :cache => "frontend" %>
   <%= stylesheet_link_tag 'formtastic/formtastic', :cache => "frontend" %>
   <%= stylesheet_link_tag "themes/"+configatron.theme+"/formtastic-changes", :cache => "frontend" %>
   <%= stylesheet_link_tag "themes/"+configatron.theme+"/frontend-base", :cache => "frontend"%>
@@ -61,14 +62,14 @@
         <span class="options">
         <% if logged_in? %>
           <%= @current_user.small_name %> |	      
-          <%= link_to icon_tag('user')+t('user_session.bar.account_link'), user_session_path             %> |
-          <%= link_to icon_tag('door_out')+t('user_session.bar.logout'), user_logout_path                     %> 
+          <%= link_to t('user_session.bar.account_link'), user_session_path, :class => "user_ico"           %> |
+          <%= link_to t('user_session.bar.logout'), user_logout_path,    :class => "logout_ico"             %> 
         <% else %>
-          <%= link_to '<img src="/images/google.ico" alt=""/>'+t('user_session.bar.google_signin'),
+          <%= link_to t('user_session.bar.google_signin'),
                       "/user/session?user_session%5Bopenid_identifier%5D=https://www.google.com/accounts/o8/id", 
-                      :class => "positive create", :method => 'post'                                             %> |
-          <%= link_to icon_tag('door_in')+t("user_session.bar.signin"), new_user_session_path            %> |
-          <%= link_to icon_tag('user_add')+t("user_session.bar.signup"), new_user_account_path                   %>
+                      :class => "positive create google_ico", :method => 'post'                                        %> |
+          <%= link_to t("user_session.bar.signin"), new_user_session_path, :class => "login_ico"            %> |
+          <%= link_to t("user_session.bar.signup"), new_user_account_path, :class => "user_add_ico"         %>
         <% end %>
         </span>
       </div>

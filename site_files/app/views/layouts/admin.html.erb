@@ -8,11 +8,13 @@
 
   <%= javascript_include_tag :defaults %>
   <%= javascript_include_tag 'jquery' %>
+  <%= javascript_include_tag 'jquery-ui-1.8.7.custom.min' %>
   <%= javascript_include_tag 'utils' %>
 
   <%= active_scaffold_includes %>
 
   <%= stylesheet_link_tag "formtastic/formtastic", :cache => "backend" %>
+  <%= stylesheet_link_tag 'smoothness/jquery-ui-1.8.7.custom', :cache => "frontend" %>
   <%= stylesheet_link_tag "themes/"+configatron.theme+"/formtastic-changes", :cache => "backend" %>
   <%= stylesheet_link_tag "themes/"+configatron.theme+"/active_scaffold_override/stylesheet", :cache => "backend" %>
   <%= stylesheet_link_tag "themes/"+configatron.theme+"/backend-base", :cache => "backend" %>
@@ -26,8 +28,8 @@
   <div id="container">
     <div id="header">
       <div id="user-navigation"> 
-        <%= link_to icon_tag('user')+t('user_session.bar.account_link'), user_session_path %> |
-        <%= link_to icon_tag('door_out')+t('user_session.bar.logout'), user_logout_path         %> 
+        <%= link_to t('user_session.bar.account_link'), user_session_path, :class => "user_ico" %> |
+        <%= link_to t('user_session.bar.logout'), user_logout_path, :class => "logout_ico"         %> 
       </div>
       <h1><a href="/"><%= configatron.site_name %></a></h1>
       <div id="main-navigation">
@@ -50,6 +52,10 @@
                                 'admin/deleted_users',
                                 'admin/groups'],
                               admin_users_path %>
+
+		  <%= navigation_menu 'admin.navigation.main.communication',
+					          [ 'admin/mails' ],
+					          admin_mails_path %>
         </ul>
       </div>
     </div>    
@@ -61,23 +67,21 @@
             <%= secondary_navigation_menu [ { :controller_paths => 'admin/dashboard',
                                               :i18n_path => 'admin.navigation.secondary.dashboard',
                                               :link_to_path => admin_root_path } ],
-
-                                          :specify_first => true %>
+                                              :specify_first => true %>
 
             <%= secondary_navigation_menu [ { :controller_paths => 'admin/announcements',
                                               :i18n_path => 'admin.navigation.secondary.announcements',
                                               :link_to_path => admin_announcements_path },
 
-                                            { :controller_paths => [ 'admin/posts',
-                                                                     'admin/comments'],
+                                            { :controller_paths => [ 'admin/posts', 'admin/comments'],
                                               :i18n_path => 'admin.navigation.secondary.posts',
                                               :link_to_path => admin_posts_path },
 
-                                            { :controller_paths => '',
+                                            { :controller_paths => 'admin/pages',
                                               :i18n_path => 'admin.navigation.secondary.static_pages',
-                                              :link_to_path => '' } ],
+                                              :link_to_path => admin_pages_path } ],
 
-                                          :specify_first => true %>
+                                              :specify_first => true %>
 
             <%= secondary_navigation_menu [ { :controller_paths => [ 'admin/users',
                                                                    'admin/deleted_users' ],
@@ -93,6 +97,12 @@
                                               :link_to_path => admin_settings_path }],
 
                                           :specify_first => true %>
+
+			<%= secondary_navigation_menu [ { :controller_paths => 'admin/mails',
+			                                  :i18n_path => 'admin.navigation.secondary.mails',
+			                                  :link_to_path => admin_mails_path } ]
+            
+			                              %>
           </ul>
         </div>
       <div id="flash" class="flash">
