@@ -95,7 +95,10 @@ class ScaffoldApp < ActiveRecord::Migration
       t.string :title,         :null => false
       t.text :headline,        :null => false
       t.text :message,         :null => false
-      t.string :background,    :null => false
+      t.string :avatar_file_name
+      t.string :avatar_content_type
+      t.integer :avatar_file_size
+      t.datetime :avatar_updated_at
       t.datetime :starts_at
       t.datetime :ends_at
       t.timestamps
@@ -103,11 +106,13 @@ class ScaffoldApp < ActiveRecord::Migration
 
 
     create_table :pages do |t|
-      t.string   :title,      :null    => false
-      t.string   :slug,       :null    => false
-      t.text     :body,       :null    => false
-      t.text     :body_html,  :null    => false
-      t.integer  :group_id,    :default => nil
+      t.string   :title,        :null    => false
+      t.string   :slug,         :null    => false
+      t.text     :body,         :null    => false
+      t.text     :body_html,    :null    => false
+      t.boolean  :show_in_menu, :null    => false
+      t.boolean  :has_comments, :null    => false
+      t.integer  :group_id,     :default => nil
       t.timestamps
     end
     add_index :pages, ["title"], :name => 'index_pages_on_title'
@@ -147,12 +152,12 @@ class ScaffoldApp < ActiveRecord::Migration
 
     create_table :comments do |t|
       t.integer  :post_id,                 :null => false
-      t.integer  :user_id
-      t.string   :author,                  :null => false
-      t.string   :author_url,              :null => false
-      t.string   :author_email,            :null => false
+      #t.string   :author,                  :null => false
+      #t.string   :author_url,              :null => false
+      #t.string   :author_email,            :null => false
       t.text     :body,                    :null => false
       t.text     :body_html,               :null => false
+      t.integer  :user_id
       t.datetime :created_at
       t.datetime :updated_at
     end

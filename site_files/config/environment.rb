@@ -21,6 +21,8 @@ Rails::Initializer.run do |config|
   config.gem "lesstile"
   config.gem "calendar_date_select"
   config.gem "post_commit"
+  config.gem "paperclip"
+
 
   # Skip frameworks you're not going to use. To use Rails without a database,
   # you must remove the Active Record framework.

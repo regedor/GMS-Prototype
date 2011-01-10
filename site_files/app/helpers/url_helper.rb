@@ -38,7 +38,7 @@ module UrlHelper
   def post_path(post, options = {})
     suffix = options[:anchor] ? "##{options[:anchor]}" : ""
     path = post.published_at.strftime("/%Y/%m/%d/") + post.slug + suffix
-    path = URI.join(config[:url], path) if options[:only_path] == false
+    path = URI.join(configatron.site_url, path) if options[:only_path] == false
     path.untaint
   end
 
@@ -49,14 +49,6 @@ module UrlHelper
   #def page_path(page)
   #  "/pages/#{page.slug}"
   #end
-
-  def author_link(comment)
-    if comment.author_url.blank?
-      h(comment.author)
-    else
-      link_to(h(comment.author), h(comment.author_url), :class => 'openid')
-    end
-  end
 
   def posts_atom_path(tag)
     if tag.blank?

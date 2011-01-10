@@ -165,13 +165,5 @@ module ActiveScaffold
       end
     end
   end
-
-  module Helpers
-    module FormColumnHelpers
-      def active_scaffold_input_file(column, options)
-        file_field(:record, column.name, options.merge(column.options))
-      end
-    end
-  end
 end
 
