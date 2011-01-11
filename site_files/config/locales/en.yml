@@ -25,6 +25,8 @@ en:
     edit:
       title: "Edit account"
       commit_button: "Update account"
+    comment:
+      cancel: "Cancel"
     new:
       title: "Create new account"
       openid: "Sign up using OpenID"

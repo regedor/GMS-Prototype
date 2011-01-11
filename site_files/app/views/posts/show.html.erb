@@ -25,9 +25,17 @@
     </ul>
   </div>
   <% end -%>
-<% form_for([@post, @comment]) do |form| %>
-  <div>
-    <p><%= form.text_area 'body' %><br><small>(<a href="http://lesstile.rubyforge.org">lesstile enabled</a> - surround code blocks with ---)</small></p>
-    <p><%= submit_tag "Add Comment" %></p>
-  </div>
-<% end -%>
+    <% form_for([@post, @comment]) do |form| %>
+      <div>
+        <p><%= form.text_area 'body' %><br><small>(<a href="http://lesstile.rubyforge.org">lesstile enabled</a> - surround code blocks with ---)</small></p>
+        <fieldset class="buttons">
+          <ol>
+            <li class="commit">
+              <%= submit_tag "Add Comment", :class => "positive create"%>
+              <a href="<%= posts_path %>" class="negative create"> <%= I18n::t("users.comment.cancel") %> </a>            
+            </li>
+          </ol>
+        </fieldset>
+      </div>
+    <% end -%>
+

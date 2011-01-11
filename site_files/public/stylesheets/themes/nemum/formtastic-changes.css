@@ -97,7 +97,7 @@ li.commit input                     { margin-bottom: 10px;}
 
 .buttons button,
 li.commit input                     { width:auto; overflow:visible; padding:5px 10px 5px 7px;} /* IE6 */
-.buttons button[type]               { padding:5px 10px 5px 7px; line-height:17px;}/* Firefox & Safari */
+.buttons button[type]               { padding:5px 10px 6px 7px; line-height:17px;}/* Firefox & Safari */
 *:first-child+html button[type]     { padding:4px 10px 3px 7px;}/* IE7 */
 .buttons button img, .buttons a img { margin:0 3px -3px 0 !important;padding:0;border:none;width:16px;height:16px;}
 

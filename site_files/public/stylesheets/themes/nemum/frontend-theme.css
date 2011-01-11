@@ -120,9 +120,15 @@ div#whitespace        { background-color: #E5E5E5;}
 
 
 
-div#posts .post h2                 { text-shadow: -1px -1px 6px #ccc; }
-div#posts .post .entrybody ul      { padding-left: 15px; list-style: circle;}
-div#posts .post .entrybody         { margin-bottom: 15px; padding-left: 15px;}
+div#posts .post h2    { text-shadow: -1px -1px 6px #ccc; }
+.entrybody ul         { padding-left: 15px; list-style: circle;}
+.entrybody            { margin-bottom: 15px; padding-left: 15px; padding-right: 15px;}
+.related              { padding-bottom: 15px;}
+.new_comment fieldset { padding: 0px; margin: 0px;  }
+.new_comment li input { margin-bottom: 0;}
+.new_comment>div>p    { padding-bottom: 15px; }
+
+
 
 /* tag cloud classes */
 
