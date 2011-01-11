@@ -3,12 +3,30 @@
 <% end -%>
 
 <% form.input_field_set do -%>
-  <%= form.input :title -%>
-  <%= form.input :body, :hint => I18n::t('admin.posts.form.hints.body').html_safe -%>
-  <%= form.input :tag_list, :as => 'string', :required => false, :hint => I18n::t('admin.posts.form.hints.tag_list') -%>
+  <%= form.input :title,
+                 :label    => I18n::t('admin.posts.index.columns.title') %>
+  <%= form.input :body,
+                 :label    => I18n::t('admin.posts.index.columns.body'),
+                 :hint     => I18n::t('admin.posts.form.hints.body').html_safe %>
+  <%= form.input :tag_list,
+                 :as       => 'string',
+                 :required => false,
+                 :label    => I18n::t('admin.posts.index.columns.tag_list'),
+                 :hint     => I18n::t('admin.posts.form.hints.tag_list') %>
 <% end -%>
+
 <% form.input_field_set do -%>
-  <%= form.input :published_at_natural, :label => I18n::t('admin.posts.form.fields.published_at_natural'), :as => 'string', :hint => I18n::t('admin.posts.form.hints.published_at_natural').html_safe -%>
-  <%= form.input :slug, :hint => I18n::t('admin.posts.form.hints.slug'), :required => false -%>
-  <%= form.input :minor_edit, :as => 'boolean', :hint => I18n::t('admin.posts.form.hints.minor_edit') unless @record.new_record? -%>
+  <%= form.input :published_at_natural,
+                 :as       => 'string',
+                 :label    => I18n::t('admin.posts.index.columns.published_at'),
+                 :hint     => I18n::t('admin.posts.form.hints.published_at').html_safe %>
+  <%= form.input :slug,
+                 :required => false,
+                 :label    => I18n::t('admin.posts.index.columns.slug'),
+                 :hint     => I18n::t('admin.posts.form.hints.slug') %>
+  <%= form.input(:minor_edit,
+                 :as       => 'boolean',
+                 :label    => I18n::t('admin.posts.index.columns.minor_edit'),
+                 :hint     => I18n::t('admin.posts.form.hints.minor_edit')
+                 ) unless @record.new_record? %>
 <% end -%>

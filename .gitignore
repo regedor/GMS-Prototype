@@ -1,5 +1,6 @@
 # Project specific ignores
 /site_files/public/images/announcements/*
+/site_files/public/system/*
 /site_files/doc/implementation_guidelines/simon_wfreport.aux
 /site_files/doc/implementation_guidelines/simon_wfreport.log
 /site_files/doc/implementation_guidelines/simon_wfreport.nav

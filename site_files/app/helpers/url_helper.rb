@@ -46,9 +46,13 @@ module UrlHelper
     post_path(post) + "/comments"
   end
 
-  #def page_path(page)
-  #  "/pages/#{page.slug}"
-  #end
+  def page_path(page)
+    if page.is_a? Page
+      "/pages/#{page.slug}"
+    else
+      "/pages/#{page}"
+    end
+  end
 
   def posts_atom_path(tag)
     if tag.blank?

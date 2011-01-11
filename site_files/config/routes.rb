@@ -7,10 +7,10 @@ ActionController::Routing::Routes.draw do |map|
   # Frontend Resources
   # ==========================================================================
 
-  map.resources :announcements
   map.resources :posts
-  map.resources :pages
   map.resources :users, :as => :members
+
+  map.connect 'pages/:slug', :controller => 'pages', :action => 'show', :method => :get
 
   map.connect ':year/:month/:day/:slug/comments', :controller => 'comments', :action => 'create', :method => :post
   map.connect ':year/:month/:day/:slug', :controller => 'posts', :action => 'show', :requirements => { :year => /\d+/ }

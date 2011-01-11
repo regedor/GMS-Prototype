@@ -9,9 +9,10 @@ class Page < ActiveRecord::Base
   # ==========================================================================
   # Validations
   # ==========================================================================
-  
-  validates_presence_of :title, :slug, :body
-  before_validation     :generate_slug
+
+  validates_presence_of   :title, :slug, :body
+  validates_uniqueness_of :slug
+  before_validation       :generate_slug
 
 
   # ==========================================================================
@@ -33,13 +34,6 @@ class Page < ActiveRecord::Base
     true
   end
 
-  def destroy_with_undo
-    transaction do
-      self.destroy
-      return DeletePageUndo.create_undo(self)
-    end
-  end
-
   def generate_slug
     self.slug = self.title.dup if self.slug.blank?
     self.slug.slugorize!
@@ -56,8 +50,11 @@ class Page < ActiveRecord::Base
       page.apply_filter
       page
     end
+
+    def find_by_slug slug
+      (Page.all :conditions => { :slug => slug }).first
+    end
   end
 
 end
-
 

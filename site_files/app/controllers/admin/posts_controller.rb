@@ -6,7 +6,7 @@ class Admin::PostsController < Admin::BaseController
     Scaffoldapp::active_scaffold config, "admin.posts",
       :list   => [ :title, :excert, :published_at, :total_approved_comments ],
       :create => [ :title, :body, :tag_list, :published_at_natural, :slug ],
-      :edit   => [  ]
+      :edit   => [ :title, :body, :tag_list, :published_at_natural, :slug, :minor_edit ]
   end
 
   def custom_finder_options
@@ -14,7 +14,7 @@ class Admin::PostsController < Admin::BaseController
   end
 
   def preview
-    @post = Post.build_for_preview(params[:post])
+    @post = Post.build_for_preview(params[:record])
 
     respond_to do |format|
       format.js {
