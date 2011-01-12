@@ -36,3 +36,17 @@ jQuery.fn.renderFlash = function(path,status,pairs){
 	asyncTranslate(path,function(data){renderedObject.html("<div class=\"message "+status+"\"><p>"+data+"</p></div>");},pairs)
 }
 
+function float_bar(element,top) {
+  $=jQuery;
+  $(window).scroll(function(e){ 
+    $el = $(element); 
+
+    if ($(this).scrollTop() > 250 && $el.css('position') != 'fixed'){ 
+      $(element).css({'position': 'fixed', 'top': top}); 
+    }
+    if ($(this).scrollTop() < 250){ 
+      $(element).css({'position': 'relative', 'top': '0px'}); 
+    }
+    
+  });
+}

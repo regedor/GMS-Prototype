@@ -1,6 +1,6 @@
 <div id="announcement<%= announcement_counter+1 %>" class="announcement-block <%= 'announcement-tail' if announcement_counter > 0 %>">
   <img src="<%= announcement.avatar.url(:medium) %>"  />
   <div class="announcement-text">
-    <p><%= announcement.headline %></p>
+    <p class="title"><%= announcement.title %></p><p><%= announcement.message %></p>
   </div>
 </div>

@@ -67,7 +67,7 @@ en:
       openid: "Sign in using OpenID"
       remember_me: "remember me"
       forgot_pass: "I forgot my password"
-      new_account: "I don't have an account yet"
+      new_account: "Create account"
       commit_button: "Sign in"
 
 
@@ -118,6 +118,10 @@ en:
       group: " (Group)"
       send_ok: "Email successfully sent to the following e-mail addresses:"
       send_fail: "The email could not be sent, try again!"            
+    
+    dashboard:
+      sidebar:
+        go_to_frontend: "Go to frontend"
         
     users:
       index:
