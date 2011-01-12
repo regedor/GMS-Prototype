@@ -42,20 +42,28 @@ class YamlEditor
 
   # Returns the inline string to be rendered by the controller
   def render
-    str = "<% form_tag({:controller => \"settings\", :action => \"update\", :id=>1}, :method => \"put\") do %>"
-    str += "<h2>#{@global_title}</h2>"
+    str = "<div class=\"active-scaffold\" >"
+    str += "<% form_tag({:controller => \"settings\", :action => \"update\", :id=>1}, :method => \"put\") do %>"
+    str += "<h4>#{@global_title}</h4>"
+    str += "<ol class=\"form\">"
     if @options_hash == :all
       get_all_values_nested.each_pair do |k,v|
-        str += "<br/><br/>#{k.split(".").last}: " 
-    	  str += "<input name=#{k} type=\"text\" value=#{v} />"
+        str += "<li class=\"form-element\"><dl>"
+        str += "<dt>#{k.split(".").last}: </dt>" 
+    	  str += "<dd><input name=#{k} type=\"text\" value=#{v} /></dd>"
+    	  str += "</dl></li>"
       end  
     else
       @options_hash.keys.each do |path|	
-        str += "#{self.options_hash[path]['title']}: " 
-    	  str += self.get_value_from_path(path)
+        str += "<li class=\"form-element\"><dl>"
+        str += "<dt>#{self.options_hash[path]['title']}: </dt>" 
+    	  str += "<dd>"+self.get_value_from_path(path)+"</dt>"
+    	  str += "</dl></li>"
     	end  
     end
-    str += "<p><input id=\"person_submit\" name=\"commit\" type=\"submit\" value=\"Save Changes\" /></p>\n<% end -%>"
+    str += "</ol>"
+    str += "<p class=\"form-footer\"><input id=\"person_submit\" name=\"commit\" type=\"submit\" value=\"Save Changes\" class=\"submit\" /></p>\n<% end -%>"
+    str += "</div>"
     
     return str
   end  
