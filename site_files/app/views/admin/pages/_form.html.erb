@@ -4,24 +4,24 @@
 
 <% form.input_field_set do -%>
   <%= form.input :title,
-                 :label    => I18n::t('admin.pages.index.columns.title') %>
+                 :label    => I18n::t('admin.pages.columns.title') %>
   <%= form.input :body,
                  :as       => 'text',
-                 :label    => I18n::t('admin.pages.index.columns.body'),
+                 :label    => I18n::t('admin.pages.columns.body'),
                  :hint     => I18n::t('admin.pages.form.hints.body').html_safe %>
 <% end -%>
 
 <% form.input_field_set do -%>
   <%= form.input :slug, 
                  :required => false,
-                 :label    => I18n::t('admin.pages.index.columns.slug'),
+                 :label    => I18n::t('admin.pages.columns.slug'),
                  :hint     => I18n::t('admin.pages.form.hints.slug') %>
   <%= form.input :show_in_menu,
                  :as       => 'boolean',
-                 :label    => I18n::t('admin.pages.index.columns.show_in_menu'),
+                 :label    => I18n::t('admin.pages.columns.show_in_menu'),
                  :hint     => I18n::t('admin.pages.form.hints.show_in_menu') %>
   <%= form.input :has_comments,
                  :as       => 'boolean',
-                 :label    => I18n::t('admin.pages.index.columns.has_comments'),
+                 :label    => I18n::t('admin.pages.columns.has_comments'),
                  :hint     => I18n::t('admin.pages.form.hints.has_comments') %>
 <% end -%>
