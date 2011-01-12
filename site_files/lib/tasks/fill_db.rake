@@ -22,14 +22,14 @@ namespace :db do
 
       task :announcements => :environment do
         load 'lib/tasks/fake_data/announcements.rb'
-        puts "How many posts to fake?"
+        puts "How many announcements to fake?"
         STDIN.gets.chomp.to_i.times do
           i = (rand * @announcements_titles.size).to_i
           year  = 2000+(rand * 5).to_i
           month = ((rand * 11)+1).to_i
           day   = ((rand * 25)+1).to_i
           
-          year2  = 2010+(rand * 5).to_i
+          year2  = 2011+(rand * 5).to_i
           month2 = ((rand * 11)+1).to_i
           day2   = ((rand * 25)+1).to_i
             
@@ -37,7 +37,7 @@ namespace :db do
             :title      => @announcements_titles[i], 
             :headline   => @announcements_headlines[i], 
             :message    => @announcements_messages[i], 
-            :background => i.to_s+".png",
+            :avatar     => File.open( "public/images/announcements/"+i.to_s+".png" ),
             :starts_at  => Time.local(year, month, day),
             :ends_at    => Time.local(year2,month2 ,day2),
             :created_at => Time.now
