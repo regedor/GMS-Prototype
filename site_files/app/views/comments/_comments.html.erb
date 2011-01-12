@@ -19,6 +19,7 @@
   <% end -%>
 <% form_for([commentable, comment]) do |form| %>
   <div>
+    <%= form.hidden_field 'type', :value => commentable.class %>
     <p><%= form.text_area 'body' %><br><small>(<a href="http://lesstile.rubyforge.org">lesstile enabled</a> - surround code blocks with ---)</small></p>
     <p><%= submit_tag "Add Comment" %></p>
   </div>

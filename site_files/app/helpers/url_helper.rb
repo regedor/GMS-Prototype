@@ -54,6 +54,10 @@ module UrlHelper
     end
   end
 
+  def page_comments_path(post)
+    page_path(post) + "/comments"
+  end
+
   def posts_atom_path(tag)
     if tag.blank?
       formatted_posts_path(:format => 'atom')

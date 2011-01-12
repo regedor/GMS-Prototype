@@ -241,6 +241,7 @@ en:
         columns:
           title: "Title"
           excert: "Excert"
+          total_approved_comments: "Comments"
           created_at: "Date"
           body: "Body"
           slug: "Slug"
@@ -257,7 +258,7 @@ en:
         noentries: "No Pages Found"
         found:
           more: "%{count} Pages Found"
-          one: "%{count} Pages Found"
+          one: "%{count} Page Found"
 
     posts:
       index:
@@ -315,8 +316,8 @@ en:
     comments:
       index:
         title: "All Comments for %{title}"
-        destroy_link: "<img src='/images/icons/comment_delete.png'/>Delete"
-        update_link: "<img src='/images/icons/comment.png'/>Edit"
+        destroy_link: "Delete"
+        update_link: "Edit"
         search: "Search Comments"
         create: "New Comment"
         columns:

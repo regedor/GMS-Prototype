@@ -1,14 +1,14 @@
 class Comment < ActiveRecord::Base
   DEFAULT_LIMIT = 15
 
-  belongs_to            :post
+  belongs_to            :commentable, :polymorphic => true
   belongs_to            :user
 
   before_save           :apply_filter
   after_save            :denormalize
   after_destroy         :denormalize
 
-  validates_presence_of :user_id, :body, :post
+  validates_presence_of :user_id, :body, :commentable
 
   ##FIXME Authorization to comment
   def authorized_for?(*args)
@@ -34,7 +34,11 @@ class Comment < ActiveRecord::Base
   end
 
   def denormalize
-    self.post.denormalize_comments_count!
+    self.commentable.update_attribute :approved_comments_count,
+                                      Comment.all( :select     =>   'COUNT(*) as count',
+                                                   :conditions => { :commentable_type => self.commentable_type,
+                                                                    :commentable_id   => self.commentable_id  }
+                                                 ).first.count
   end
 
   def to_s
@@ -42,8 +46,8 @@ class Comment < ActiveRecord::Base
   end
 
   # Delegates
-  def post_title
-    post.title
+  def author
+    user.nickname_or_first_and_last_name
   end
 
   class << self

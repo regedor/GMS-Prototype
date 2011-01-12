@@ -106,16 +106,17 @@ class ScaffoldApp < ActiveRecord::Migration
 
 
     create_table :pages do |t|
-      t.string   :title,        :null    => false
-      t.string   :slug,         :null    => false
-      t.text     :body,         :null    => false
-      t.text     :body_html,    :null    => false
-      t.boolean  :show_in_menu, :null    => false
-      t.boolean  :has_comments, :null    => false
-      t.integer  :group_id,     :default => nil
+      t.string   :title,                                   :null => false
+      t.string   :slug,                                    :null => false
+      t.text     :body,                                    :null => false
+      t.text     :body_html,                               :null => false
+      t.boolean  :show_in_menu,                            :null => false
+      t.boolean  :has_comments,                            :null => false
+      t.integer  :approved_comments_count, :default => 0,  :null => false
+      t.integer  :group_id,                :default => nil
       t.timestamps
     end
-    add_index :pages, ["title"], :name => 'index_pages_on_title'
+    add_index :pages, ["slug"], :name => 'index_pages_on_slug'
     add_index :pages, ["created_at"], :name => 'index_pages_on_created_at'
 
 
@@ -151,7 +152,8 @@ class ScaffoldApp < ActiveRecord::Migration
 
 
     create_table :comments do |t|
-      t.integer  :post_id,                 :null => false
+      t.integer  :commentable_id,          :null => false
+      t.string   :commentable_type,        :null => false
       #t.string   :author,                  :null => false
       #t.string   :author_url,              :null => false
       #t.string   :author_email,            :null => false
@@ -161,7 +163,7 @@ class ScaffoldApp < ActiveRecord::Migration
       t.datetime :created_at
       t.datetime :updated_at
     end
-    add_index :comments, ["post_id"], :name => 'index_comments_on_post_id'
+    add_index :comments, ["commentable_type", "commentable_id"], :name => 'index_comments_on_commentable'
     add_index :comments, ["created_at"], :name => 'index_comments_on_created_at'
 
 

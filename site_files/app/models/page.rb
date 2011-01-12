@@ -4,6 +4,7 @@ class Page < ActiveRecord::Base
   # ==========================================================================
   
   belongs_to :group
+  has_many   :approved_comments, :as => 'commentable', :dependent => :destroy, :class_name => 'Comment'
 
 
   # ==========================================================================

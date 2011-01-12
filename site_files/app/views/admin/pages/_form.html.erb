@@ -6,6 +6,7 @@
   <%= form.input :title,
                  :label    => I18n::t('admin.pages.index.columns.title') %>
   <%= form.input :body,
+                 :as       => 'text',
                  :label    => I18n::t('admin.pages.index.columns.body'),
                  :hint     => I18n::t('admin.pages.form.hints.body').html_safe %>
 <% end -%>

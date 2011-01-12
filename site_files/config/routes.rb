@@ -10,6 +10,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :posts
   map.resources :users, :as => :members
 
+  map.connect 'pages/:slug/comments', :controller => 'comments', :action => 'create', :method => :post
   map.connect 'pages/:slug', :controller => 'pages', :action => 'show', :method => :get
 
   map.connect ':year/:month/:day/:slug/comments', :controller => 'comments', :action => 'create', :method => :post
@@ -62,6 +63,7 @@ ActionController::Routing::Routes.draw do |map|
                                      :member          => { :check_delete => [:get, :post], :edit_tag => :get, :update_tag => :put },
                                      :collection      => { :list_action => :post }
     admin.resources :pages,          :active_scaffold => true, :active_scaffold_sortable => true,
+                                     :has_many        => :comments,
                                      :new             => { :preview => :post },
                                      :collection      => { :list_action => :post }
     admin.resources :comments,       :active_scaffold => true, :active_scaffold_sortable => true,
