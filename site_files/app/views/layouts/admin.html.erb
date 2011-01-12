@@ -55,7 +55,7 @@
 
 		  <%= navigation_menu 'admin.navigation.main.communication',
 					          [ 'admin/mails' ],
-					          admin_mails_path %>
+					          new_admin_mail_path %>
         </ul>
       </div>
     </div>    
@@ -100,7 +100,7 @@
 
 			<%= secondary_navigation_menu [ { :controller_paths => 'admin/mails',
 			                                  :i18n_path => 'admin.navigation.secondary.mails',
-			                                  :link_to_path => admin_mails_path } ]
+			                                  :link_to_path => new_admin_mail_path } ]
             
 			                              %>
           </ul>

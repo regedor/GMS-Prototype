@@ -112,11 +112,29 @@ en:
         settings: "Settings"
         undo_items: "Actions"
         mails: "Send E-Mail"
+   
     mails:
       group: " (Group)"
       send_ok: "Email successfully sent to the following e-mail addresses:"
-      send_fail: "The email could not be sent, try again!"            
-        
+      send_fail: "The email could not be sent, try again!"
+      list:
+        found:
+          more: "%{count} Mails Found"
+          one: "%{count} Mail Found"            
+        noentries: "No entries found"              
+      index:
+        destroy_link: "Delete"
+        show_link: "Details" 
+        title: "Sent Mails" 
+      columns:    
+        sent_on: "Sent on"
+        subject: "Subject"
+        message: "Message"
+        xml_groups_and_users: "To"
+        user_id: "From"      
+      create:
+        title: "Mail"          
+                    
     users:
       index:
         title: "Users List"
@@ -125,13 +143,13 @@ en:
         show_link: "Details"
         search: "Find users"
         create: "Create user"
-        columns:
-          created_at: "Created at"
-          email: "Email"
-          active: "Active"
-          language: "Language"
-          name: "Name"
-          role: "User Role"
+      columns:
+        created_at: "Created at"
+        email: "Email"
+        active: "Active"
+        language: "Language"
+        name: "Name"
+        role: "User Role"
       sidebar:
         history:
           title: "Actions history"
@@ -176,13 +194,13 @@ en:
         title: "Deleted Users List"
         search: "Find users"
         create: "Create user"
-        columns:
-          created_at: "Created at"
-          email: "Email"
-          active: "Active"
-          language: "Language"
-          name: "Name"
-          role: "User Role"
+      columns:
+        created_at: "Created at"
+        email: "Email"
+        active: "Active"
+        language: "Language"
+        name: "Name"
+        role: "User Role"
         destroy_link: "Delete"
         show_link: "Details"
         undelete_link: "Undelete"
@@ -203,11 +221,11 @@ en:
         destroy_link: "Delete"      
         search: "Find groups"
         create: "New Group"
-        columns:
-          parent_name: "Parent"
-          name: "Name"
-          mailable: "Mailable"
-          description: "Description"
+      columns:
+        parent_name: "Parent"
+        name: "Name"
+        mailable: "Mailable"
+        description: "Description"
         sidebar:
           hierarchy:
             name: "Hierarchy"
@@ -241,11 +259,11 @@ en:
           one: "%{count} Comment"
         search: "Search Posts"
         create: "New Post"
-        columns:
-          published_at: "Published At"
-          title: "Title"
-          excert: "Excert"
-          total_approved_comments: "Comments"
+      columns:
+        published_at: "Published At"
+        title: "Title"
+        excert: "Excert"
+        total_approved_comments: "Comments"
       list:
         noentries: "No Posts Found"
         found:
@@ -288,11 +306,11 @@ en:
         update_link: "<img src='/images/icons/comment.png'/>Edit"
         search: "Search Comments"
         create: "New Comment"
-        columns:
-          created_at: "Date"
-          commenter: "Commenter"
-          excert: "Excert"
-          post: "Post"
+      columns:
+        created_at: "Date"
+        commenter: "Commenter"
+        excert: "Excert"
+        post: "Post"
       list:
         noentries: "No Comments Found"
         found:
@@ -307,12 +325,12 @@ en:
         show_link: "Details"
         search: "Search Announcements"
         create: "New Announcement"
-        columns:
-          title: "Title"
-          headline: "Headline"
-          message: "Message"
-          starts_at: "Start Date"
-          ends_at: "End Date"
+      columns:
+        title: "Title"
+        headline: "Headline"
+        message: "Message"
+        starts_at: "Start Date"
+        ends_at: "End Date"
       create:
         title: "Announcement"
       list:

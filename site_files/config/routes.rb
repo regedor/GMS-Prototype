@@ -68,7 +68,7 @@ ActionController::Routing::Routes.draw do |map|
                                      :member          => { :mark_as_spam => :put, :mark_as_ham => :put }
     admin.resources :history_entries
     admin.resources :settings
-    admin.resources :mails,          :member          => { :send_mail => :put }
+    admin.resources :mails,          :active_scaffold => true, :active_scaffold_sortable => true      
     admin.posts_with_tags 'posts/tags/:tag_ids', :controller => 'posts', :action => 'index'
   end
 

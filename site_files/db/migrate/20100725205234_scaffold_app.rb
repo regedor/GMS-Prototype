@@ -57,7 +57,7 @@ class ScaffoldApp < ActiveRecord::Migration
 
 
     create_table :groups, :force => true do |t|
-      t.string  :name,                        :null => false
+      t.string  :name,                        :null => false, :uniq => true
       t.text    :description
       t.boolean :mailable,                    :null => false, :default => false
       t.boolean :show_in_user_actions,        :null => false, :default => false
@@ -172,16 +172,13 @@ class ScaffoldApp < ActiveRecord::Migration
     add_index :history_entries, ["created_at"], :name => 'index_history_entries_on_created_at'
 
     create_table :mails do |t|
-      t.datetime :sent_on,     :null => false
+      t.datetime :sent_on,              :null => false
       t.text     :message
-      t.string   :subject,     :null => false
-      t.integer  :user_id      #sender
+      t.string   :subject,              :null => false
+      t.integer  :user_id #sender
+      t.text     :xml_groups_and_users
+      t.text     :xml_users
     end 
-    
-    create_table :mails_users, :id => false do |t|
-      t.integer :mail_id
-      t.integer :user_id
-    end   
 
   end
 
