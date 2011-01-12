@@ -47,11 +47,11 @@ module Admin::BaseHelper
     h comment.author
   end
 
-  def total_approved_comments_column(post)
-    comments = post.approved_comments.size
+  def total_approved_comments_column(commentable)
+    comments = commentable.approved_comments_count
     message = I18n::t('admin.posts.index.comments_link.' + ((comments == 1) ? 'one' : 'more'), :count => comments)
     if comments > 0
-      link_to(message, admin_post_comments_path(post))
+      link_to(message, send("admin_#{commentable.class.to_s.downcase}_comments_path", commentable))
     else
       message
     end

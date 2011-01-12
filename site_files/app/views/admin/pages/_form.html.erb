@@ -1,9 +1,27 @@
 <% content_for(:head) do -%>
-  <%= javascript_include_tag 'admin/edit-preview' %>
+  <%= javascript_include_tag 'edit_preview' %>
 <% end -%>
 
 <% form.input_field_set do -%>
-  <%= form.input :title %>
-  <%= form.input :slug, :hint => "Leave blank for an auto-generated slug based on the title." %>
-  <%= form.input :body, :hint => "<a href='http://hobix.com/textile/quick.html'>Textile enabled</a>. Use Ctrl+E to switch between preview and edit mode." %>
+  <%= form.input :title,
+                 :label    => I18n::t('admin.pages.index.columns.title') %>
+  <%= form.input :body,
+                 :as       => 'text',
+                 :label    => I18n::t('admin.pages.index.columns.body'),
+                 :hint     => I18n::t('admin.pages.form.hints.body').html_safe %>
+<% end -%>
+
+<% form.input_field_set do -%>
+  <%= form.input :slug, 
+                 :required => false,
+                 :label    => I18n::t('admin.pages.index.columns.slug'),
+                 :hint     => I18n::t('admin.pages.form.hints.slug') %>
+  <%= form.input :show_in_menu,
+                 :as       => 'boolean',
+                 :label    => I18n::t('admin.pages.index.columns.show_in_menu'),
+                 :hint     => I18n::t('admin.pages.form.hints.show_in_menu') %>
+  <%= form.input :has_comments,
+                 :as       => 'boolean',
+                 :label    => I18n::t('admin.pages.index.columns.has_comments'),
+                 :hint     => I18n::t('admin.pages.form.hints.has_comments') %>
 <% end -%>

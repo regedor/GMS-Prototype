@@ -6,48 +6,48 @@
 /* TODO: Complete all the other views, as they became avaliable. After that the hover section will be completed */
 
 /* Users */
-#as_admin__users-content a.show   { background: url("icons/user.png") no-repeat; padding-left: 16px;}
-#as_admin__users-content a.edit   { background: url("icons/user_edit.png") no-repeat;padding-left: 16px;}
-#as_admin__users-content a.delete { background: url("icons/user_delete.png") no-repeat;padding-left: 16px;}
+#as_admin__users-content a.show   { background: url("icons/user.png") no-repeat; padding-left: 18px;}
+#as_admin__users-content a.edit   { background: url("icons/user_edit.png") no-repeat;padding-left: 18px;}
+#as_admin__users-content a.delete { background: url("icons/user_delete.png") no-repeat;padding-left: 18px;}
 
 /* Deleted users */
 
-#as_admin__deleted_users-content a.show   { background: url("icons/user.png") no-repeat; padding-left: 16px;}
-#as_admin__deleted_users-content a.delete { background: url("icons/user_delete.png") no-repeat; padding-left: 16px;}
-#as_admin__deleted_users-content a.undelete { background: url("icons/user_add.png") no-repeat; padding-left: 16px;}
+#as_admin__deleted_users-content a.show   { background: url("icons/user.png") no-repeat; padding-left: 18px;}
+#as_admin__deleted_users-content a.delete { background: url("icons/user_delete.png") no-repeat; padding-left: 18px;}
+#as_admin__deleted_users-content a.undelete { background: url("icons/user_add.png") no-repeat; padding-left: 18px;}
 
 /* Groups */
-#as_admin__groups-content a.show   { background: url("icons/group.png") no-repeat;padding-left: 16px;}
-#as_admin__groups-content a.edit   { background: url("icons/group_edit.png") no-repeat;padding-left: 16px;}
-#as_admin__groups-content a.delete { background: url("icons/group_delete.png") no-repeat;padding-left: 16px;}
+#as_admin__groups-content a.show   { background: url("icons/group.png") no-repeat;padding-left: 18px;}
+#as_admin__groups-content a.edit   { background: url("icons/group_edit.png") no-repeat;padding-left: 18px;}
+#as_admin__groups-content a.delete { background: url("icons/group_delete.png") no-repeat;padding-left: 18px;}
 
 /* Posts */
-#as_admin__posts-content a.comments        { background: url("icons/comments.png") no-repeat;padding-left: 16px;}
-#as_admin__posts-content a.show            { background: url("icons/pencil.png") no-repeat;padding-left: 16px;}
-#as_admin__posts-content a.delete          { background: url("icons/pencil_delete.png") no-repeat;padding-left: 16px;}
-#as_admin__posts-content a.edit            { background: url("icons/pencil.png") no-repeat;padding-left: 16px;}
-.active-scaffold-header div.actions a.new  { background: url("icons/add.png") no-repeat;padding-left: 16px;background-position:1px 2px;}
+#as_admin__posts-content a.comments        { background: url("icons/comments.png") no-repeat;padding-left: 18px;}
+#as_admin__posts-content a.show            { background: url("icons/pencil.png") no-repeat;padding-left: 18px;}
+#as_admin__posts-content a.delete          { background: url("icons/pencil_delete.png") no-repeat;padding-left: 18px;}
+#as_admin__posts-content a.edit            { background: url("icons/pencil.png") no-repeat;padding-left: 18px;}
+.active-scaffold-header div.actions a.new  { background: url("icons/add.png") no-repeat;padding-left: 18px;background-position:1px 2px;}
 
 /* Order */
 .active-scaffold th.desc a, 
-.active-scaffold th.desc a:hover    { background: #EAEAEA url("icons/arrow_down.gif") no-repeat 0px 4px; padding-left: 16px;}
+.active-scaffold th.desc a:hover    { background: #EAEAEA url("icons/arrow_down.gif") no-repeat 0px 4px; padding-left: 18px;}
 .active-scaffold th.asc a,
-.active-scaffold th.asc a:hover     { background: #EAEAEA url("icons/arrow_up.gif") no-repeat 0px 4px;padding-left: 16px; }
+.active-scaffold th.asc a:hover     { background: #EAEAEA url("icons/arrow_up.gif") no-repeat 0px 4px;padding-left: 18px; }
 
 /* Other */
-.content .actions input[type=text]  { background: url("icons/magnifier.png") no-repeat;padding-left: 16px;background-position:1px 1px; }
-#sidebar .block a.float-right       { background: url("icons/tag_blue_edit.png") no-repeat;padding-left: 16px;background-position:1px 1px; }
+.content .actions input[type=text]  { background: url("icons/magnifier.png") no-repeat;padding-left: 18px;background-position:1px 1px; }
+#sidebar .block a.float-right       { background: url("icons/tag_blue_edit.png") no-repeat;padding-left: 18px;background-position:1px 1px; }
 
 /* Announcements */
-#as_admin__announcements-content a.show   { background: url("icons/date.png") no-repeat;padding-left: 16px;background-position:1px 2px;}
-#as_admin__announcements-content a.edit   { background: url("icons/date_edit.png") no-repeat;padding-left: 16px;background-position:1px 2px;}
-#as_admin__announcements-content a.delete { background: url("icons/date_delete.png") no-repeat;padding-left: 16px;background-position:1px 2px;}
+#as_admin__announcements-content a.show   { background: url("icons/date.png") no-repeat;padding-left: 18px;background-position:1px 2px;}
+#as_admin__announcements-content a.edit   { background: url("icons/date_edit.png") no-repeat;padding-left: 18px;background-position:1px 2px;}
+#as_admin__announcements-content a.delete { background: url("icons/date_delete.png") no-repeat;padding-left: 18px;background-position:1px 2px;}
 
 /* account-info */
-.user_ico     { background: url("icons/user.png") no-repeat; padding-left: 16px;}
-.logout_ico   { background: url("icons/door_in.png") no-repeat; padding-left: 16px;}
-.user_add_ico { background: url("icons/user.png") no-repeat; padding-left: 16px;}
-.login_ico    { background: url("icons/door_out.png") no-repeat; padding-left: 16px;}
-.google_ico   { background: url("icons/google.ico") no-repeat; padding-left: 16px;}
+.user_ico     { background: url("icons/user.png") no-repeat; padding-left: 18px;}
+.logout_ico   { background: url("icons/door_in.png") no-repeat; padding-left: 18px;}
+.user_add_ico { background: url("icons/user.png") no-repeat; padding-left: 18px;}
+.login_ico    { background: url("icons/door_out.png") no-repeat; padding-left: 18px;}
+.google_ico   { background: url("icons/google.ico") no-repeat; padding-left: 18px;}
 
 /* Icons on hover */

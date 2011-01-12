@@ -24,7 +24,7 @@ class Factory
   end
   def self.give_me_an_admin_user(hash=nil)
     u=Factory(:user, hash)
-    u.set_role! :admin
+    u.role_id = 1
     u.activate!
     return u
   end

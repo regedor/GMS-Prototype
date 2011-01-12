@@ -2,3 +2,6 @@
 <%= page_title(@page) -%>
 <% end -%>
 <%= render :partial => 'pages/page', :locals => {:page => @page} %>
+<% if @page.has_comments -%>
+  <%= render :partial => 'comments/comments', :locals => { :commentable => @page, :comment => @comment } %>
+<% end -%>

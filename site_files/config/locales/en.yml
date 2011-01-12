@@ -108,7 +108,7 @@ en:
         posts: "Posts"
         comments: "Comments"
         announcements: "Announcements"
-        static_pages: "Static Pages"
+        pages: "Static Pages"
         settings: "Settings"
         undo_items: "Actions"
         mails: "Send E-Mail"
@@ -247,7 +247,37 @@ en:
       list:
         found:
           more: "%{count} Groups Found"
-          one: "%{count} Group Found"      
+          one: "%{count} Group Found"
+
+    pages:
+      index:
+        title: "Static Pages List"
+        destroy_link: "Delete"
+        update_link: "Edit"
+        search: "Search Pages"
+        create: "New Page"
+        columns:
+          title: "Title"
+          excert: "Excert"
+          total_approved_comments: "Comments"
+          created_at: "Date"
+          body: "Body"
+          slug: "Slug"
+          show_in_menu: "Show in the Menu"
+          has_comments: "Has Comments"
+      form:
+        new: "New Page"
+        edit: "Editing Page"
+        submit: "Save"
+        hints:
+          body: "<a href='http://hobix.com/textile/quick.html'>Textile enabled</a>. Use Ctrl+E to switch between preview and edit mode."
+          slug: "Leave blank for an auto-generated slug based on the title."
+      list:
+        noentries: "No Pages Found"
+        found:
+          more: "%{count} Pages Found"
+          one: "%{count} Page Found"
+
     posts:
       index:
         title: "News List"
@@ -264,6 +294,10 @@ en:
         title: "Title"
         excert: "Excert"
         total_approved_comments: "Comments"
+        body: "Body"
+        slug: "Slug"
+        tag_list: "Tag List"
+        minor_edit: "Minor Edit"
       list:
         noentries: "No Posts Found"
         found:
@@ -274,8 +308,6 @@ en:
         edit: "Editing Post"
         edit_tag: "Editing Tag - %{name}"
         submit: "Save"
-        fields:
-          published_at_natural: "Published at"
         hints:
           body: '<a href="http://hobix.com/textile/quick.html">Textile enabled</a>. Use Ctrl+E to switch between preview and edit mode.'
           tag_list: "Comma separated: ruby, rails&hellip;"
@@ -302,8 +334,8 @@ en:
     comments:
       index:
         title: "All Comments for %{title}"
-        destroy_link: "<img src='/images/icons/comment_delete.png'/>Delete"
-        update_link: "<img src='/images/icons/comment.png'/>Edit"
+        destroy_link: "Delete"
+        update_link: "Edit"
         search: "Search Comments"
         create: "New Comment"
       columns:
@@ -331,6 +363,7 @@ en:
         message: "Message"
         starts_at: "Start Date"
         ends_at: "End Date"
+        url: "URL"
       create:
         title: "Announcement"
       list:

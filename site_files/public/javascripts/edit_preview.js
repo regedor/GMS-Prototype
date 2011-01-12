@@ -4,9 +4,9 @@ $(document).ready(function() {
   var form = $('form.formtastic');
 
   if (form.length > 0 && form.attr('id').match(/^(new_post|edit_post|new_page|edit_page)/)) {
-    var dest = window.location.href;
+    var dest = window.location.href.replace(/\/$/, '');
     if (!dest.match(/\/new$/)) {
-      dest = dest.replace(/\/\d+$/, '');
+      dest = dest.replace(/\/\d+\/edit$/, '');
       dest = dest + '/new';
     }
     dest = dest + '/preview'

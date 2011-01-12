@@ -1,0 +1,26 @@
+<ol class="commentlist">
+  <% commentable.approved_comments.each do |_comment| -%>
+  <li<%=raw cycle(' class="alt"', '') %> id="comment-<%= _comment.id %>">
+    <%= render :partial => 'comments/comment', :locals => {:comment => _comment} %>
+  </li>
+  <% end -%>
+</ol>
+
+<h2>Post a comment</h2>
+  <% unless comment.errors.empty? -%>
+  <div class="errors">
+    <h3>Comment not added!</h3>
+    <ul>
+      <% comment.errors.sort_by(&:first).each do |error| -%>
+        <li><%= format_comment_error(error) %></li>
+      <% end -%>
+    </ul>
+  </div>
+  <% end -%>
+<% form_for([commentable, comment]) do |form| %>
+  <div>
+    <%= form.hidden_field 'type', :value => commentable.class %>
+    <p><%= form.text_area 'body' %><br><small>(<a href="http://lesstile.rubyforge.org">lesstile enabled</a> - surround code blocks with ---)</small></p>
+    <p><%= submit_tag "Add Comment" %></p>
+  </div>
+<% end -%>
