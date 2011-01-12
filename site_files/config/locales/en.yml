@@ -345,6 +345,7 @@ en:
           message: "Message"
           starts_at: "Start Date"
           ends_at: "End Date"
+          url: "URL"
       create:
         title: "Announcement"
       list:

@@ -92,15 +92,15 @@ class ScaffoldApp < ActiveRecord::Migration
 
     
     create_table :announcements do |t|
-      t.string :title,         :null => false
-      t.text :headline,        :null => false
-      t.text :message,         :null => false
-      t.string :avatar_file_name
-      t.string :avatar_content_type
-      t.integer :avatar_file_size
+      t.string   :title,              :null => false
+      t.text     :message,            :null => false
+      t.string   :avatar_file_name
+      t.string   :avatar_content_type
+      t.integer  :avatar_file_size
       t.datetime :avatar_updated_at
       t.datetime :starts_at
       t.datetime :ends_at
+      t.string   :url
       t.timestamps
     end
 
