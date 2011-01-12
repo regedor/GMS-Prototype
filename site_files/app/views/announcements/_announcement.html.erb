@@ -4,7 +4,7 @@
   <%= "</a>" if announcement.url %>
   <%= "<a href='#{announcement.url}'>" if announcement.url %>
   <div class="announcement-text">
-    <p><%= announcement.message %></p>
+    <p class="title"><%= announcement.title %></p><p><%= announcement.message %></p>
   </div>
   <%= "</a>" if announcement.url %>
 </div>

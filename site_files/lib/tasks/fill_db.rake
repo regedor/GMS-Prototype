@@ -35,7 +35,6 @@ namespace :db do
             
           Announcement.create(
             :title      => @announcements_titles[i], 
-            :headline   => @announcements_headlines[i], 
             :message    => @announcements_messages[i], 
             :avatar     => File.open( "public/images/announcements/"+i.to_s+".png" ),
             :starts_at  => Time.local(year, month, day),
