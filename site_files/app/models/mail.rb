@@ -4,7 +4,6 @@ class Mail < ActiveRecord::Base
   # ==========================================================================
 
   belongs_to :user
-  has_and_belongs_to_many :recipients, :class_name=>"User"
 
   # ==========================================================================
   # Validations
@@ -15,7 +14,7 @@ class Mail < ActiveRecord::Base
   # Attributes Accessors
   # ==========================================================================
   
-  attr_accessor :mailable
+  attr_accessor :mailable, :recipients
   attr_accessible :sent_on, :subject, :message, :user
 
   # ==========================================================================
@@ -32,7 +31,24 @@ class Mail < ActiveRecord::Base
       entities << group.name + I18n::t("admin.mails.group")
     end
     @mailable = entities.join(",")
+    @recipients = []
   end 
+  
+  def set_xmls(just_users)
+    self.xml_users = just_users.to_xml(:only=>[:name, :id, :email]) if just_users
+    final_xml = "<entities>\n"
+    if self.recipients
+        self.recipients.each do |entity|
+          case entity
+            when User then final_xml +=  entity.to_xml(:skip_instruct => true, :only=>[:name, :id, :email])
+            when Group then final_xml +=  entity.to_xml(:skip_instruct => true, :only=>[:name, :id])  
+          end
+        end  
+      self.xml_groups_and_users = final_xml+"</entities>"
+    end  
+    
+  end  
+  
 
   # ==========================================================================
   # Class Methods
@@ -41,8 +57,8 @@ class Mail < ActiveRecord::Base
   class << self
     
     def send_emails(users,mail)
-      mail.recipients = users
       mail.sent_on = Time.now
+      mail.set_xmls(users)
       mail.save!
       
       users.each do |user|

@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   before_filter :find_page
-  filter_access_to :show, :attribute_check => true
+  #filter_access_to :show, :attribute_check => true
 
 
   # ==========================================================================
@@ -9,7 +9,8 @@ class PagesController < ApplicationController
   protected
 
   def find_page
-    @page = Page.find_by_slug(params[:id]) || raise(ActiveRecord::RecordNotFound)
+    @page = Page.find_by_slug(params[:slug]) || raise(ActiveRecord::RecordNotFound)
+    @comment = Comment.new if @page.has_comments
   end
 
 end

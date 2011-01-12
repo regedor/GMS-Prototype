@@ -6,9 +6,6 @@ class User < ActiveRecord::Base
   
   has_and_belongs_to_many :groups
   belongs_to              :role
-  has_and_belongs_to_many :mails
-  #has_many :action_entries, :class_name => "ActionEntry", :foreign_key => "entity_id", 
-  # :conditions => "'action_entries'.'controller'='admin/users' AND 'action_entries'.'action' is not 'delete' "
 
 
   # ==========================================================================

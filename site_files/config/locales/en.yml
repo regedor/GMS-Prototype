@@ -110,19 +110,37 @@ en:
         posts: "Posts"
         comments: "Comments"
         announcements: "Announcements"
-        static_pages: "Static Pages"
+        pages: "Static Pages"
         settings: "Settings"
         undo_items: "Actions"
         mails: "Send E-Mail"
-    mails:
-      group: " (Group)"
-      send_ok: "Email successfully sent to the following e-mail addresses:"
-      send_fail: "The email could not be sent, try again!"            
-    
+   
     dashboard:
       sidebar:
         go_to_frontend: "Go to frontend"
-        
+
+    mails:
+      group: " (Group)"
+      send_ok: "Email successfully sent to the following e-mail addresses:"
+      send_fail: "The email could not be sent, try again!"
+      list:
+        found:
+          more: "%{count} Mails Found"
+          one: "%{count} Mail Found"            
+        noentries: "No entries found"              
+      index:
+        destroy_link: "Delete"
+        show_link: "Details" 
+        title: "Sent Mails" 
+      columns:    
+        sent_on: "Sent on"
+        subject: "Subject"
+        message: "Message"
+        xml_groups_and_users: "To"
+        user_id: "From"      
+      create:
+        title: "Mail"
+                            
     users:
       index:
         title: "Users List"
@@ -131,13 +149,13 @@ en:
         show_link: "Details"
         search: "Find users"
         create: "Create user"
-        columns:
-          created_at: "Created at"
-          email: "Email"
-          active: "Active"
-          language: "Language"
-          name: "Name"
-          role: "User Role"
+      columns:
+        created_at: "Created at"
+        email: "Email"
+        active: "Active"
+        language: "Language"
+        name: "Name"
+        role: "User Role"
       sidebar:
         history:
           title: "Actions history"
@@ -182,13 +200,13 @@ en:
         title: "Deleted Users List"
         search: "Find users"
         create: "Create user"
-        columns:
-          created_at: "Created at"
-          email: "Email"
-          active: "Active"
-          language: "Language"
-          name: "Name"
-          role: "User Role"
+      columns:
+        created_at: "Created at"
+        email: "Email"
+        active: "Active"
+        language: "Language"
+        name: "Name"
+        role: "User Role"
         destroy_link: "Delete"
         show_link: "Details"
         undelete_link: "Undelete"
@@ -209,11 +227,11 @@ en:
         destroy_link: "Delete"      
         search: "Find groups"
         create: "New Group"
-        columns:
-          parent_name: "Parent"
-          name: "Name"
-          mailable: "Mailable"
-          description: "Description"
+      columns:
+        parent_name: "Parent"
+        name: "Name"
+        mailable: "Mailable"
+        description: "Description"
         sidebar:
           hierarchy:
             name: "Hierarchy"
@@ -235,7 +253,37 @@ en:
       list:
         found:
           more: "%{count} Groups Found"
-          one: "%{count} Group Found"      
+          one: "%{count} Group Found"
+
+    pages:
+      index:
+        title: "Static Pages List"
+        destroy_link: "Delete"
+        update_link: "Edit"
+        search: "Search Pages"
+        create: "New Page"
+        columns:
+          title: "Title"
+          excert: "Excert"
+          total_approved_comments: "Comments"
+          created_at: "Date"
+          body: "Body"
+          slug: "Slug"
+          show_in_menu: "Show in the Menu"
+          has_comments: "Has Comments"
+      form:
+        new: "New Page"
+        edit: "Editing Page"
+        submit: "Save"
+        hints:
+          body: "<a href='http://hobix.com/textile/quick.html'>Textile enabled</a>. Use Ctrl+E to switch between preview and edit mode."
+          slug: "Leave blank for an auto-generated slug based on the title."
+      list:
+        noentries: "No Pages Found"
+        found:
+          more: "%{count} Pages Found"
+          one: "%{count} Page Found"
+
     posts:
       index:
         title: "News List"
@@ -247,11 +295,15 @@ en:
           one: "%{count} Comment"
         search: "Search Posts"
         create: "New Post"
-        columns:
-          published_at: "Published At"
-          title: "Title"
-          excert: "Excert"
-          total_approved_comments: "Comments"
+      columns:
+        published_at: "Published At"
+        title: "Title"
+        excert: "Excert"
+        total_approved_comments: "Comments"
+        body: "Body"
+        slug: "Slug"
+        tag_list: "Tag List"
+        minor_edit: "Minor Edit"
       list:
         noentries: "No Posts Found"
         found:
@@ -262,8 +314,6 @@ en:
         edit: "Editing Post"
         edit_tag: "Editing Tag - %{name}"
         submit: "Save"
-        fields:
-          published_at_natural: "Published at"
         hints:
           body: '<a href="http://hobix.com/textile/quick.html">Textile enabled</a>. Use Ctrl+E to switch between preview and edit mode.'
           tag_list: "Comma separated: ruby, rails&hellip;"
@@ -290,15 +340,15 @@ en:
     comments:
       index:
         title: "All Comments for %{title}"
-        destroy_link: "<img src='/images/icons/comment_delete.png'/>Delete"
-        update_link: "<img src='/images/icons/comment.png'/>Edit"
+        destroy_link: "Delete"
+        update_link: "Edit"
         search: "Search Comments"
         create: "New Comment"
-        columns:
-          created_at: "Date"
-          commenter: "Commenter"
-          excert: "Excert"
-          post: "Post"
+      columns:
+        created_at: "Date"
+        commenter: "Commenter"
+        excert: "Excert"
+        post: "Post"
       list:
         noentries: "No Comments Found"
         found:
@@ -313,12 +363,13 @@ en:
         show_link: "Details"
         search: "Search Announcements"
         create: "New Announcement"
-        columns:
-          title: "Title"
-          headline: "Headline"
-          message: "Message"
-          starts_at: "Start Date"
-          ends_at: "End Date"
+      columns:
+        title: "Title"
+        headline: "Headline"
+        message: "Message"
+        starts_at: "Start Date"
+        ends_at: "End Date"
+        url: "URL"
       create:
         title: "Announcement"
       list:

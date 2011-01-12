@@ -1,5 +1,34 @@
 module Admin::BaseHelper
 
+  def user_id_show_column(record)
+    User.find(record.user_id).to_label
+  end 
+  
+  def xml_groups_and_users_show_column(record)
+    final_str = ""
+    Hash.from_xml(record.xml_groups_and_users)['entities'].each do |k,v|
+      case k
+        when "group" then final_str += v['name'] + I18n::t("admin.mails.group")+", "
+        when "user"  then final_str += "#{v['name']} < #{v['email']} >, "
+      end       
+    end  
+    final_str.chop!.chop!
+    #record.xml_groups_and_users.inspect
+    #"<cenas>valor</cenas>"
+    #Hash.from_xml(record.xml_groups_and_users)['entities']
+  end
+
+  def sent_on_column(record)
+    if (Time.now - record.sent_on) < 30.days
+      I18n::t "generic_sentence.time_ago", :time_ago => time_ago_in_words(record.sent_on)
+    else
+      record.sent_on.strftime('%d %b, %Y')
+    end
+  end  
+  
+  def message_column(record)
+    truncate(record.message,50,"...")
+  end  
 
   def role_column(user)
     t("users.roles." + user.role.label)
@@ -18,11 +47,11 @@ module Admin::BaseHelper
     h comment.author
   end
 
-  def total_approved_comments_column(post)
-    comments = post.approved_comments.size
+  def total_approved_comments_column(commentable)
+    comments = commentable.approved_comments_count
     message = I18n::t('admin.posts.index.comments_link.' + ((comments == 1) ? 'one' : 'more'), :count => comments)
     if comments > 0
-      link_to(message, admin_post_comments_path(post))
+      link_to(message, send("admin_#{commentable.class.to_s.downcase}_comments_path", commentable))
     else
       message
     end

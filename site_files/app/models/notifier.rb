@@ -29,12 +29,12 @@ class Notifier < ActionMailer::Base
     setup_email(user)
     @from     = mail.user.name
     @subject += mail.subject
-    @body     = mail.message  
+    @body[:message] = mail.message  
   end   
    
   protected
     def setup_email(user)
-      @recipients  = "#{user.email}"
+      @recipients  = "#{user.name}"
       @from        = "info@regedor.com"
       @subject     = "[Simon] "
       @sent_on     = Time.now

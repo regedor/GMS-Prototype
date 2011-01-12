@@ -88,11 +88,15 @@
         <% if(announcements.size > 0) %>
           <div class="announcements-bar">
             <% announcements.each_with_index do |announcement,i| -%>
-              <%= link_to announcement.title, announcement_path(announcement), :onmouseover => "changeAnnouncement(#{i})" %>
+              <% if announcement.url -%>
+                <a href="<%= announcement.url %>" onMouseOver="changeAnnouncement(<%= i %>)"><%= i+1 %></a>
+              <% else -%>
+                <span onMouseOver="changeAnnouncement(<%= i %>)"><%= i+1 %></span>
+              <% end -%>
               <%= "|" unless i+1 == announcements.size %>
             <% end -%>
           </div>
-          <%= render :partial => 'posts/announcement', :collection => announcements %>
+          <%= render :partial => 'announcements/announcement', :collection => announcements %>
         <% else %>
           <p>There are no current announcements!</p>
         <% end %>

@@ -3,8 +3,9 @@ class Post < ActiveRecord::Base
 
   acts_as_taggable
 
-  has_many                :comments, :dependent => :destroy
-  has_many                :approved_comments, :class_name => 'Comment'
+  ##FIXME: Need review!!!
+  has_many                :approved_comments, :as => 'commentable', :dependent => :destroy, :class_name => 'Comment'
+  #has_many                :approved_comments, :class_name => 'Comment'
 
   before_validation       :generate_slug
   before_validation       :set_dates
@@ -16,6 +17,9 @@ class Post < ActiveRecord::Base
 
   named_scope :not_deleted, :conditions => {:deleted => false}
 
+#  def approved_comments
+#    comments
+#  end
 
   # Authorization for post
   def authorized_for?(*args)
@@ -63,11 +67,6 @@ class Post < ActiveRecord::Base
   def set_dates
     self.edited_at = Time.now if self.edited_at.nil? || !minor_edit?
     self.published_at = Chronic.parse(self.published_at_natural)
-  end
-
-  # Updates number of comments
-  def denormalize_comments_count!
-    Post.update_all(["approved_comments_count = ?", self.approved_comments.count], ["id = ?", self.id])
   end
 
   # Generates slug

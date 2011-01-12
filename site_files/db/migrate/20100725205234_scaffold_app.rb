@@ -57,7 +57,7 @@ class ScaffoldApp < ActiveRecord::Migration
 
 
     create_table :groups, :force => true do |t|
-      t.string  :name,                        :null => false
+      t.string  :name,                        :null => false, :uniq => true
       t.text    :description
       t.boolean :mailable,                    :null => false, :default => false
       t.boolean :show_in_user_actions,        :null => false, :default => false
@@ -92,30 +92,31 @@ class ScaffoldApp < ActiveRecord::Migration
 
     
     create_table :announcements do |t|
-      t.string :title,         :null => false
-      t.text :headline,        :null => false
-      t.text :message,         :null => false
-      t.string :avatar_file_name
-      t.string :avatar_content_type
-      t.integer :avatar_file_size
+      t.string   :title,              :null => false
+      t.text     :message,            :null => false
+      t.string   :avatar_file_name
+      t.string   :avatar_content_type
+      t.integer  :avatar_file_size
       t.datetime :avatar_updated_at
       t.datetime :starts_at
       t.datetime :ends_at
+      t.string   :url
       t.timestamps
     end
 
 
     create_table :pages do |t|
-      t.string   :title,        :null    => false
-      t.string   :slug,         :null    => false
-      t.text     :body,         :null    => false
-      t.text     :body_html,    :null    => false
-      t.boolean  :show_in_menu, :null    => false
-      t.boolean  :has_comments, :null    => false
-      t.integer  :group_id,     :default => nil
+      t.string   :title,                                   :null => false
+      t.string   :slug,                                    :null => false
+      t.text     :body,                                    :null => false
+      t.text     :body_html,                               :null => false
+      t.boolean  :show_in_menu,                            :null => false
+      t.boolean  :has_comments,                            :null => false
+      t.integer  :approved_comments_count, :default => 0,  :null => false
+      t.integer  :group_id,                :default => nil
       t.timestamps
     end
-    add_index :pages, ["title"], :name => 'index_pages_on_title'
+    add_index :pages, ["slug"], :name => 'index_pages_on_slug'
     add_index :pages, ["created_at"], :name => 'index_pages_on_created_at'
 
 
@@ -151,7 +152,8 @@ class ScaffoldApp < ActiveRecord::Migration
 
 
     create_table :comments do |t|
-      t.integer  :post_id,                 :null => false
+      t.integer  :commentable_id,          :null => false
+      t.string   :commentable_type,        :null => false
       #t.string   :author,                  :null => false
       #t.string   :author_url,              :null => false
       #t.string   :author_email,            :null => false
@@ -161,7 +163,7 @@ class ScaffoldApp < ActiveRecord::Migration
       t.datetime :created_at
       t.datetime :updated_at
     end
-    add_index :comments, ["post_id"], :name => 'index_comments_on_post_id'
+    add_index :comments, ["commentable_type", "commentable_id"], :name => 'index_comments_on_commentable'
     add_index :comments, ["created_at"], :name => 'index_comments_on_created_at'
 
 
@@ -177,16 +179,13 @@ class ScaffoldApp < ActiveRecord::Migration
     add_index :history_entries, ["created_at"], :name => 'index_history_entries_on_created_at'
 
     create_table :mails do |t|
-      t.datetime :sent_on,     :null => false
+      t.datetime :sent_on,              :null => false
       t.text     :message
-      t.string   :subject,     :null => false
-      t.integer  :user_id      #sender
+      t.string   :subject,              :null => false
+      t.integer  :user_id #sender
+      t.text     :xml_groups_and_users
+      t.text     :xml_users
     end 
-    
-    create_table :mails_users, :id => false do |t|
-      t.integer :mail_id
-      t.integer :user_id
-    end   
 
   end
 

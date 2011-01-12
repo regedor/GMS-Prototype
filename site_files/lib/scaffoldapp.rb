@@ -9,10 +9,17 @@ module Scaffoldapp
       config.actions.exclude :search
       config.actions << :live_search
       config.list.always_show_search = true
+    
 
       # MAIN LABELS
       config.label             = I18n::t(i18n_scope+".create.title")
       config.list.label        = I18n::t(i18n_scope+".index.title")
+
+      columns = []
+      options.each do |k,v|
+        columns << v if v && [:list,:create,:edit,:show].member?(k) 
+      end  
+      self.active_scaffold_columns(config, i18n_scope,columns.flatten.uniq)
 
       # ROW MARK
       if (value = options[:actions_list]) && !value.empty?
@@ -25,7 +32,8 @@ module Scaffoldapp
 
       # LIST
       if value = options[:list]
-        self.active_scaffold_list_columns(config, i18n_scope + ".index.columns", value)
+        #self.active_scaffold_columns(config, i18n_scope + ".index.columns", value)
+        config.list.columns = value
       end
 
       # CREATE
@@ -39,6 +47,7 @@ module Scaffoldapp
 
       # SHOW
       if value = options[:show]
+        #self.active_scaffold_columns(config, i18n_scope + ".show.columns", value)
         config.show.columns = value
         config.action_links.add 'show', :type => :member, :page => true,
                                         :label => I18n::t(i18n_scope+".index.show_link")
@@ -64,14 +73,13 @@ module Scaffoldapp
       end
     end
 
-    def active_scaffold_list_columns(config, i18n_scope, columns)
+    def active_scaffold_columns(config, i18n_scope, columns)
       columns.each do |column| 
         unless column == :row_mark
           config.columns << column unless config.columns[column]
-          config.columns[column].label = I18n::t(i18n_scope+"."+column.to_s) 
+          config.columns[column].label = I18n::t(i18n_scope+".columns."+column.to_s) 
         end
-      end  
-      config.list.columns = columns  
+      end     
     end
   
   end

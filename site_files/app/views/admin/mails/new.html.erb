@@ -39,7 +39,7 @@ jQuery(document).ready(function($) {
 	 			// remove the current input
 	 			terms.pop();
 	 			// add the selected item
-	 			terms.push( ui.item.value.split("<")[0] );
+	 			terms.push( ui.item.value );
 	 			// add placeholder to get the comma-and-space at the end
 	 			terms.push( "" );
 	 			this.value = terms.join( ", " );
@@ -50,10 +50,12 @@ jQuery(document).ready(function($) {
 </script>
 
 <% form_for @mail, :url=>admin_mails_path, :method=>"post" do |f| -%>
-  To:      <%= f.text_field :recipients %><br/> 
+  To:      <%= text_field_tag :mail_recipients, "", :size => 30 %><br/> 
   Subject: <%= f.text_field :subject %><br/>
   Message: <%= f.text_area :message %><br/>	
   <%= f.hidden_field(:mailable) %>
 
   <%= f.submit "Send email" %>
 <% end -%>
+
+<%= link_to "Sent Mails", admin_mails_path %>
