@@ -48,14 +48,41 @@ jQuery(document).ready(function($) {
 	 	});
 	});
 </script>
+<div class="active-scaffold">
+  <div class="view">
+    <% form_for @mail, :url=>admin_mails_path, :method=>"post" do |f| -%>
+      <h4><%= t("admin.mails.title") %></h4>
+        <ol class="form">
+          <li class="form-element">
+            <dl>
+              <dt><label>To:</label></dt> 
+              <dd> <%= text_field_tag :mail_recipients, "", :size => 30 %></dd> 
+            </dl>
+          </li>
 
-<% form_for @mail, :url=>admin_mails_path, :method=>"post" do |f| -%>
-  To:      <%= text_field_tag :mail_recipients, "", :size => 30 %><br/> 
-  Subject: <%= f.text_field :subject %><br/>
-  Message: <%= f.text_area :message %><br/>	
-  <%= f.hidden_field(:mailable) %>
+          <li class="form-element">
+            <dl>
+              <dt><label>Subject:</label></dt> 
+              <dd> <%= f.text_field :subject %></dd> 
+            </dl>
+          </li>
+          
+          <li class="form-element">
+            <dl>
+              <dt><label>Message:</label></dt> 
+              <dd> <%= f.text_area :message %></dd> 
+              <%= f.hidden_field(:mailable) %>
+            </dl>
+          </li>
+        </ol>
+        
+       <p class="form-footer">
+        <%= f.submit "Send email", :class => "submit" %>
+        <%= link_to "Sent Mails", admin_mails_path, :class => "cancel" %>
+      </p>
+    <% end -%>
 
-  <%= f.submit "Send email" %>
-<% end -%>
 
-<%= link_to "Sent Mails", admin_mails_path %>
+
+  </div>
+</div>

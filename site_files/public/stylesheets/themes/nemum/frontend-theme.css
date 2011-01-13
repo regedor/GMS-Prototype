@@ -82,22 +82,17 @@ h2                          { color: #2E2A2B; }
 h2 a                        { color: #2E2A2B;}
 
 div#navigation a:hover,
-div#site-title a:hover          { border-bottom: 0px;}
+div#site-title a:hover      { border-bottom: 0px;}
 /*
 ============================================================================
 = General Structure
 ============================================================================
 */
 
+html, body                      { background-color: #2E2A2B; }
+div#navigation                  { background-color: #555;}
 
-html, body                   { background-color: #2E2A2B; }
-
-div#container                { }
-div#wrapper                  { }
-div#site-title               { }
-div#navigation               { background-color: #555;}
-
-#site-title h1 a             { background: url("images/bg_logo.png") no-repeat; display:block; text-indent: -6000px;   }
+#site-title h1 a                { background: url("images/bg_logo.png") no-repeat; display:block; text-indent: -6000px;   }
 
 .form_with_notes                { width:70%; }
 .form_side_notes                { width:27%; float:right; margin-left: 2%; }
@@ -123,7 +118,6 @@ div#sidebar           { background-color: white; }
 div#main              { background-color: white;}
 div#announcements     { background-color: #E5E5E5;}
 div#posts             { background-color: white; }
-/*div#secondary-sidebar { border-right: 1px solid #868686;}*/
 div#whitespace        { background-color: #E5E5E5;}
 
 /* posts */
@@ -136,43 +130,38 @@ div#whitespace        { background-color: #E5E5E5;}
 .new_comment li input { margin-bottom: 0;}
 .new_comment>div>p    { padding-bottom: 15px; }
 
-.commentlist li      { padding-bottom: 15px; }
-.commentlist li p    { padding-left: 15px;/*border-left: 1px solid #444;*/}
+.commentlist li       { padding-bottom: 15px; }
+.commentlist li p     { padding-left: 15px;/*border-left: 1px solid #444;*/}
 /*.commentlist cite    { background-color: lime;}*/
 
 /* tag cloud classes */
 
-.nube1 { font-size: 1.0em; }
-.nube2 { font-size: 1.2em; }
-.nube3 { font-size: 1.4em; }
-.nube4 { font-size: 1.6em; }
-.nube5 { font-size: 1.8em; }
-.nube6 { font-size: 2.0em; }
-.selected { font-weight: bold; color: #999; }
+.nube1                { font-size: 1.0em; }
+.nube2                { font-size: 1.2em; }
+.nube3                { font-size: 1.4em; }
+.nube4                { font-size: 1.6em; }
+.nube5                { font-size: 1.8em; }
+.nube6                { font-size: 2.0em; }
+.selected             { font-weight: bold; color: #999; }
 
 /* rounded borders */
 
 div#main,
 div#content,
 div#account-info  { -moz-border-radius-bottomleft: 12px; -webkit-border-bottom-left-radius: 12px; border-bottom-left-radius: 12px;}
-
 div#main,
 div#account-info  { -moz-border-radius-bottomright: 12px; -webkit-border-bottom-right-radius: 12px; border-bottom-right-radius: 12px;  }
-
 .flash_text,
 div#main,
 div#content       { -moz-border-radius-topleft: 12px; -webkit-border-top-left-radius: 12px; border-top-left-radius: 12px;}
-
 .flash_text,
 div#main,
 div#sidebar,
 div#class         { -moz-border-radius-topright: 12px; -webkit-border-top-right-radius: 12px; border-top-right-radius: 12px;  }
-
 div#navigation    { -moz-border-radius-topleft: 12px; -webkit-border-top-left-radius: 12px; border-top-left-radius: 12px;
                     -moz-border-radius-bottomleft: 12px; -webkit-border-bottom-left-radius: 12px; border-bottom-left-radius: 12px; }
 
 /* shadows */
-/*div#navigation,*/
 div#main,
 #account-info     { -moz-box-shadow: 0px 0px 15px #111; -webkit-box-shadow: 0px 2px 15px #111; box-shadow: 0px 0px 15px #111;}
                         

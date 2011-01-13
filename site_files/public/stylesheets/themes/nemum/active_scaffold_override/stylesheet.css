@@ -342,7 +342,7 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .form-footer a:active,
 .form-footer a:visited,
 .form-footer a:link,
-.form-footer input.submit                { margin-left: 15px;margin-bottom: 15px;} 
+.form-footer input.submit                { margin-left: 15px;margin-bottom: 10px;} 
 
 /*FIXME: Wrong height on chrome, right on firefox (?)*/
 
