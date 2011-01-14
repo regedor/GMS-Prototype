@@ -22,8 +22,12 @@ Given /^I18n is set to test$/ do
   I18n.locale = :test
 end
 
-Given /^the following posts exists?$/ do |table|
+Given /^the DB has been initialized$/ do
+  load "db/seeds.rb"
+end
+
+Given /^the following activated users? exists?$/ do |table|
   table.hashes.each do |hash|
-    Factory.give_me_a_post(hash)
+    Factory.give_me_an_active_user(hash)
   end
 end

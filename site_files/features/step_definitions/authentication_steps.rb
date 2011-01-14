@@ -9,7 +9,7 @@ end
 
 Given /^I am logged in as admin$/ do 
   user = Factory.give_me_an_admin_user(:email => "root@example.com")
-  visit("/user_session")
+  visit("/user/session/new")
   fill_in("email", :with => user.email)
   fill_in("password", :with => user.password)
   click_button("Sign in")
@@ -17,12 +17,10 @@ end
 
 Given /^I am logged in as "(.*)"$/ do |email|
   user = User.find_by_email email
-  user.password = user.password_confirmation = "password"
-  user.save
-  visit("/login")
+  visit("/user/session/new")
   fill_in("email", :with => user.email)
   fill_in("password", :with => user.password)
-  click_button("Sign")
+  click_button("Sign in")
 end
 
 # Needs tweaking
@@ -37,11 +35,5 @@ end
 Given /^the following (.+) records?$/ do |factory, table|
   table.hashes.each do |hash|
     Factory(factory, hash)
-  end
-end
-
-Given /^the following activated users exists?$/ do |table|
-  table.hashes.each do |hash|
-    Factory.give_me_an_active_user(hash)
   end
 end
