@@ -13,7 +13,7 @@ class ScaffoldApp < ActiveRecord::Migration
       t.string    :phone
       t.boolean   :emails               # wanna receive emails
       # User values
-      t.integer   :role_id 
+      t.integer   :role_id,             :null => false, :default => 3 # Normal user. Role is created in seeds 
       t.boolean   :deleted,             :null => false, :default => false 
       t.string    :language,            :null => false, :default => "en" 
       t.boolean   :active,              :null => false, :default => false 

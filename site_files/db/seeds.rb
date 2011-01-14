@@ -59,7 +59,7 @@ puts "Creating admins..."
   admin.country               = 'PT'
   admin.phone                 = "123456789"
   admin.gender                =  true
-  admin.role_id               =  2
+  admin.role_id               =  6
   admin.save
   admin.activate!
   default_group.direct_users << admin
