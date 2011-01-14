@@ -140,6 +140,12 @@ en:
         user_id: "From"      
       create:
         title: "Mail"
+      new:
+        sidebar:
+          title: "Mail Management"
+          content: "Cenas espectaculares a ver com mails"
+          sent_mails: "Outbox"
+          go_to_sent_mails: "Sent Mails"
                             
     users:
       index:
@@ -336,6 +342,15 @@ en:
             generic: "Couldn't change the tag name."
             tag_exists: "A tag with the specified name already exists."
             no_server: "Couldn't connect to the server."
+      sidebar:
+            history:
+              title: "Actions history"
+              paragraph: "See below the changes made to this user"
+            reversion:
+              title: "Reverting"
+              subtitle: "You are reverting information"
+              message: "If you click \"Revert\" below, you are making your actions permanent!"
+              link: "Revert"            
 
     comments:
       index:
@@ -430,6 +445,7 @@ en:
     tag_changed: "Successfully updated tag %{old}'s name to %{new}."
     invalid_tag_change: "Could not change tag %{old}'s name to %{new} because tag %{new} already exists."
     changes_saved_successful_with_delay: "Changes were successfully saved and will eventually take effect"
+    reverted_with_success: "Successfully reverted"
   
   
   notifier: 

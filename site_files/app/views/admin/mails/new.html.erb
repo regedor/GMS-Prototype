@@ -58,4 +58,8 @@ jQuery(document).ready(function($) {
   <%= f.submit "Send email" %>
 <% end -%>
 
-<%= link_to "Sent Mails", admin_mails_path %>
+<% if File.exists?(Rails.root.join("app", "views", params[:controller], "_sidebar.html.erb")) %>
+  <% content_for :sidebar do -%>
+    <%= render :partial => 'sidebar'  %>
+  <% end -%>
+<% end -%>

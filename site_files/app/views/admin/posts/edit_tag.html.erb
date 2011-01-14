@@ -1,4 +1,12 @@
-<div class="block">
+<% if File.exists?(Rails.root.join("app", "views", params[:controller], "_update_sidebar.html.erb")) %>
+  <% content_for :sidebar do -%>
+    <%= render :partial => 'update_sidebar'  %>
+  <% end -%>
+<% elsif File.exists?(Rails.root.join("app", "views", params[:controller], "_sidebar.html.erb")) %>
+  <% content_for :sidebar do -%>
+    <%= render :partial => 'sidebar'  %>
+  <% end -%>
+<% end -%>
   <div class="content">
     <div class="inner">
 
@@ -14,4 +22,3 @@
       <% end -%>
     </div>
   </div>
-</div>

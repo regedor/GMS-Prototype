@@ -21,6 +21,9 @@ class Post < ActiveRecord::Base
 #    comments
 #  end
 
+  # Makes this model historicable
+  include HistoryEntry::Historicable
+
   # Authorization for post
   def authorized_for?(*args)
     true

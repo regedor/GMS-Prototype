@@ -1,0 +1,18 @@
+<%# New page %>
+<% if @mail -%>
+  <div class="block">
+    <div id="sidebar_head">
+      <h3><%= h t("admin.mails.new.sidebar.title") %></h3>
+    </div>
+    <div class="content">
+      <p><%= h t("admin.mails.new.sidebar.content") %></p>
+    </div>
+  </div>
+
+  <div class="block">
+    <h3><%=h t("admin.mails.new.sidebar.sent_mails") %></h3>
+      <ul class="navigation"> 
+		<li><%= link_to h(t("admin.mails.new.sidebar.go_to_sent_mails")), admin_mails_path %></li> 
+     </ul> 
+  </div>
+<% end -%>
