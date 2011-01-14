@@ -24,7 +24,7 @@ h3                          { font-size:1.8em; margin-bottom:1em;}
 h4                          { font-size:1.7em; margin-bottom:1em; color:#e22;}
 h5                          { font-size:1.5em;}
 #account-info               { font-size:1em;}
-#account-info               { text-align:right; line-height:16px;}
+#account-info               { /*text-align:right;*/ line-height:16px;}
 
 /*#account-info a:active,
 #account-info a:link,
