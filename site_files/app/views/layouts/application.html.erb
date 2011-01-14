@@ -11,8 +11,8 @@
 
   <%= javascript_include_tag 'jquery' %>
   <%= javascript_include_tag 'jquery-ui-1.8.7.custom.min' %>
-  <%= javascript_include_tag "announcements" %>
-  <%= javascript_include_tag "utils" %>
+  <%= javascript_include_tag 'announcements' %>
+  <%= javascript_include_tag 'utils' %>
   <% announcements = Announcement.active %>
   <% javascript_tag do %>
     window.onload = setTimeout(function() { announcementsRoutine(<%= announcements.size %>);float_bar("#navigation","60px"); }, 0);
