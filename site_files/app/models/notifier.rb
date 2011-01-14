@@ -2,7 +2,7 @@ class Notifier < ActionMailer::Base
   def activation_instructions(user)
     setup_email(user)
     @subject += I18n.translate 'notifier.activation_instructions.subject'
-    @body[:account_activation_url]  = activate_url(user.perishable_token)
+    @body[:account_activation_url]  = user_activate_url(user.perishable_token)
   end
   
   def activation_confirmation(user)

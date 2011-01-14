@@ -279,3 +279,13 @@ end
 Then /^show me the page$/ do
   save_and_open_page
 end
+
+Then /^the flash "([^"]*)" should contain "([^"]*)"$/ do |type, value|
+  within("#flash") do |content|
+#    content.methods.sort.each do |lol|
+#    content.instance_variables.each do |lol|
+    content.should contain(value)
+#      print lol+'===='
+#    end
+  end
+end

@@ -17,9 +17,12 @@ class Post < ActiveRecord::Base
 
   named_scope :not_deleted, :conditions => {:deleted => false}
 
-#  def approved_comments
-#    comments
-#  end
+  #  def approved_comments
+  #    comments
+  #  end
+
+  # Makes this model historicable
+  include HistoryEntry::Historicable
 
   # Authorization for post
   def authorized_for?(*args)
@@ -81,6 +84,14 @@ class Post < ActiveRecord::Base
     super(value)
   end
 
+  def attributes=(new_attributes, guard_protected_attributes = true) 
+    super(new_attributes,guard_protected_attributes)
+    if new_attributes
+      self.cached_tag_list = "" unless new_attributes["cached-tag-list"]
+    end
+  end  
+
+
   class << self
 
     # Builds preview from params
@@ -113,8 +124,8 @@ class Post < ActiveRecord::Base
     # Find all posts grouped by month
     def find_all_grouped_by_month
       posts = find :all,
-                   :order      => 'posts.published_at DESC',
-                   :conditions => ['published_at < ?', Time.now]
+        :order      => 'posts.published_at DESC',
+        :conditions => ['published_at < ?', Time.now]
       month = Struct.new(:date, :posts)
       posts.group_by(&:month).inject([]) {|a, v| a << month.new(v[0], v[1])}
     end
@@ -122,13 +133,13 @@ class Post < ActiveRecord::Base
     # Paginate by publication date
     def paginate_by_published_date(page)
       paginate :per_page => 5, :page => page,
-               :order => "published_at DESC"
+        :order => "published_at DESC"
     end
 
     # Paginates posts that contain the argument tag names
     def paginate_with_tag_names(tags, page = 1)
       tag_ids = Tag.all :select => "id",
-                        :conditions => { :name => tags }
+        :conditions => { :name => tags }
       paginate_with_tag_ids(tag_ids, page)
     end
 
@@ -149,20 +160,20 @@ class Post < ActiveRecord::Base
 
       elsif tags.size == 1
         return {
-           :joins      => :taggings,
-           :conditions => { "taggings.tag_id" => tags }
+          :joins      => :taggings,
+          :conditions => { "taggings.tag_id" => tags }
         }
 
       else
         return {
-           :conditions => { "tag_count" => tags.size },
-           :from       => "(" + Post.send(:construct_finder_sql,
-           {
-             :select     => "*, COUNT(*) as tag_count",
-             :group      => "taggings.taggable_id",
-             :joins      => :taggings,
-             :conditions => { "taggings.tag_id" => tags }
-           }) + ") as posts"
+          :conditions => { "tag_count" => tags.size },
+          :from       => "(" + Post.send(:construct_finder_sql,
+                                         {
+                                           :select     => "*, COUNT(*) as tag_count",
+                                           :group      => "taggings.taggable_id",
+                                           :joins      => :taggings,
+                                           :conditions => { "taggings.tag_id" => tags }
+          }) + ") as posts"
         }
       end
     end

@@ -12,10 +12,6 @@ Factory.define :post do |p|
   p.published_at 'now'  
 end
 
-#Factory.define :user do |f|
-#  f.sequence(:username) { |n| "foo#{n}" }
-#  f.sequence(:email) { |n| "foo#{n}@example.com" }
-#end
 class Factory
   def self.give_me_an_active_user(hash=nil)
     u=Factory(:user, hash)

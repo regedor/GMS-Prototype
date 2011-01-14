@@ -51,6 +51,17 @@ class Admin::PostsController < Admin::BaseController
     end
   end
 
+  def edit
+    if params[:history_entry_id]
+      @actual_record = Post.find params[:id] 
+      @history_entry = HistoryEntry.find(params[:history_entry_id])
+      @record        = @history_entry.historicable_preview
+      render :action => "update"
+    else
+     super   
+    end
+  end
+
   protected
 
     def tags_in_instance_variable

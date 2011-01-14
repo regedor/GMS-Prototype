@@ -1,15 +1,24 @@
-<div class="block">
-  <div class="content">
-    <div class="inner">
+<% if File.exists?(Rails.root.join("app", "views", params[:controller], "_new_sidebar.html.erb")) %>
+  <% content_for :sidebar do -%>
+    <%= render :partial => 'new_sidebar'  %>
+  <% end -%>
+<% elsif File.exists?(Rails.root.join("app", "views", params[:controller], "_sidebar.html.erb")) %>
+  <% content_for :sidebar do -%>
+    <%= render :partial => 'sidebar'  %>
+  <% end -%>
+<% end -%>
 
-      <h2><%= I18n::t('admin.posts.form.new') %></h2>
+<div class="content">
+  <div class="inner">
 
-      <% semantic_form_for 'record',  @record, :url => admin_posts_path, :html => { :class => 'create', :id => 'new_post' }  do |form| -%>
-        <%= render :partial => 'form', :locals => {:form => form} -%>
-        <% form.button_field_set do -%>
-          <%= form.commit_button(I18n::t('admin.posts.form.submit')) -%>
-        <% end -%>
+    <h2><%= I18n::t('admin.posts.form.new') %></h2>
+
+    <% semantic_form_for 'record',  @record, :url => admin_posts_path, :html => { :class => 'create', :id => 'new_post' }  do |form| -%>
+      <%= render :partial => 'form', :locals => {:form => form} -%>
+      <% form.button_field_set do -%>
+        <%= form.commit_button(I18n::t('admin.posts.form.submit')) -%>
       <% end -%>
-    </div>
+    <% end -%>
   </div>
 </div>
+

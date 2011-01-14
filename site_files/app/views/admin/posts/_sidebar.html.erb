@@ -30,6 +30,46 @@
   </div>
 <% end -%>
 
+
+<%# Revert Preview, show and delete pages %>
+<%# History list %>
+<% if (@history_entry or @record && !@record.new_record?) -%>
+  <div class="block">
+    <h3><%= t "admin.posts.sidebar.history.title", :name => @record.title %></h3>
+    <div class="content">
+      <p><%= t("admin.posts.sidebar.history.paragraph") %></p>
+      <ul class="options">
+        <% history_rows = ( @actual_record || @record ).history_entries_list -%>
+        <% if (first_entry = history_rows.shift) -%>
+          <li class="<%= 'selected' unless params[:history_entry_id] %>">
+            <%= link_to t("generic_sentence.time_ago", {:time_ago => time_ago_in_words(first_entry.created_at)}), 
+                        edit_admin_post_path(first_entry.historicable) %>
+            <%= first_entry.user_name %>
+          </li>
+        <% end -%>
+        <% history_rows.each do |entry| -%>
+          <li class="<%= 'selected' if params[:history_entry_id].to_s == entry.id.to_s %>">
+            <%= link_to t("generic_sentence.time_ago", {:time_ago => time_ago_in_words(entry.created_at)}), 
+                        edit_admin_post_path(entry.historicable,{:history_entry_id => entry.id}) %>
+            <%= entry.user_name %>
+          </li>
+        <% end -%>
+      </ul> 
+    </div>
+  </div>
+<% end -%>
+
+<%# History edit preview page %>
+<% if  @history_entry -%>
+  <div class="block notice">
+<!--    <h3><%= t "admin.posts.sidebar.reversion.title"%></h3> not coherent with pilu themes! -->
+    <h4><%= t "admin.posts.sidebar.reversion.subtitle"%></h4>
+    <p><%= t "admin.posts.sidebar.reversion.message"%></p>
+    <%= link_to t("admin.posts.sidebar.reversion.link"), admin_history_entries_path({:id => @history_entry.id, :redirect_url => edit_admin_post_url(@actual_record.id)}),
+                 :method => :post %>
+  </div>
+<% end -%>
+
 <script type="text/javascript">
   function edit_tag_js(id, old_name) {
     var new_name = prompt(<%= '"' + I18n::t("#{i_env}.edit.prompt") + '"' %> + ' "' + old_name + '"', "");

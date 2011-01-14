@@ -78,11 +78,15 @@ jQuery(document).ready(function($) {
         
        <p class="form-footer">
         <%= f.submit "Send email", :class => "submit" %>
-        <%= link_to "Sent Mails", admin_mails_path, :class => "cancel" %>
       </p>
     <% end -%>
-
-
-
   </div>
 </div>
+
+<% if File.exists?(Rails.root.join("app", "views", params[:controller], "_sidebar.html.erb")) %>
+  <% content_for :sidebar do -%>
+    <%= render :partial => 'sidebar'  %>
+  <% end -%>
+<% end -%>
+
+
