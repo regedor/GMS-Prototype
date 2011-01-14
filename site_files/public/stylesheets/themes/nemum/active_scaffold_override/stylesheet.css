@@ -164,7 +164,7 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 #main .block .content .inner h2                         { padding-left: 15px;}
 
 #main .block .content .inner .active-scaffold-header h2 { padding: 0;}
-#main .block .content .inner .active-scaffold-header    { padding-left: 15px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;}
+#main .block .content .inner .active-scaffold-header    { padding-left: 15px; padding-right: 15px; padding-bottom: 0px; padding-top: 10px;}
 #main .block .content .inner .active-scaffold-found     { padding-left: 15px; padding-bottom: 10px;}
 
 /* Table :: Column Headers */
@@ -342,7 +342,7 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .form-footer a:active,
 .form-footer a:visited,
 .form-footer a:link,
-.form-footer input.submit                { margin-left: 15px;margin-bottom: 15px;} 
+.form-footer input.submit                { margin-left: 15px;margin-bottom: 10px;} 
 
 /*FIXME: Wrong height on chrome, right on firefox (?)*/
 

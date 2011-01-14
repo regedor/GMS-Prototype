@@ -39,7 +39,7 @@ hr                       {  color: #e2e2e2;background: #e2e2e2; }
 #user-navigation a:active,
 #user-navigation a:visited,
 #user-navigation a:hover,
-#user-navigation a:link     { color: #fff; text-decoration: none;}
+#user-navigation a:link     { color: #fff; text-decoration: none; padding-bottom: 2px;}
 #main .block .content h2    { margin-left: 15px; font-size: 22px; font-style: normal;} 
 #main .block .content h2    { font-weight: bold; text-transform: none; letter-spacing: -1px; line-height: 1.2em; }
 #main .block .content p     { font-size: 13px; font-style: normal; font-weight: normal;}
@@ -216,6 +216,9 @@ ul.list li .item .avatar { border-color: #d8d8d8; border-width: 1px; border-styl
 /* box */
 #box .block { background: #fff; -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.4);}
 #box .block { -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.4); box-shadow: 0 1px 3px rgba(0,0,0,0.4); }
+
+/* User image */
+.active-scaffold img { float:right; padding-right: 0px; }
 
 /* rounded borders */
 #main,

@@ -1,7 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
 
   map.root :controller => 'posts', :action => 'index'
-
+  # sparklines route
+  map.sparklines '/sparklines', :controller => 'admin/sparklines', :action => 'index'
 
   # ==========================================================================
   # Frontend Resources

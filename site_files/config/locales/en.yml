@@ -120,6 +120,7 @@ en:
         go_to_frontend: "Go to frontend"
 
     mails:
+      title: "Emails"
       group: " (Group)"
       send_ok: "Email successfully sent to the following e-mail addresses:"
       send_fail: "The email could not be sent, try again!"
