@@ -15,13 +15,21 @@ jQuery(document).ready(function($) {
 	 	return term
 	}
 	
-    
+	window.onload = reset_hidden; 
+	function reset_hidden() { 
+		jQuery("#mail_to").val("");
+	}	
+	
 	$( "#mail_recipients" ).keydown( function( event ) 
 	{
 		var code = (event.keyCode ? event.keyCode : event.which);
 		
 		if ( code == 8 )
 		{
+			newValue = $("#mail_to").val().split(",");
+			newValue.pop();
+			newValue.pop();
+			$("#mail_to").val(newValue.join(",")+",");
 			$(".last").parent().remove();
 			$("#outer_holder span span").last().addClass("last");
 		}
@@ -47,9 +55,9 @@ jQuery(document).ready(function($) {
 
 				masterspan = $("<span>").addClass("master").insertBefore("#recipients_holder")
 				$("<span id=\"rec\">").addClass("last").text(ui.item.value).appendTo(masterspan);
-				$("<a>").addClass("remove").text("x").attr({onclick: "this.parentNode.remove(true);jQuery(\"#outer_holder span span\").last().addClass(\"last\");return false;"}).appendTo(masterspan);	
+				$("<a>").addClass("remove").text("x").attr({onclick: "newValue = jQuery(\"#mail_to\").val().split(\",\");newValue.pop();newValue.pop();jQuery(\"#mail_to\").val(newValue.join(\",\")+\",\"); this.parentNode.remove(true);jQuery(\"#outer_holder span span\").last().addClass(\"last\");return false;"}).appendTo(masterspan);	
 
-				$("#mail_to").val($("#mail_to").val()+","+ui.item.value)
+				$("#mail_to").val($("#mail_to").val()+ui.item.value+",")
 				
 	 			return false;
 	 		}
