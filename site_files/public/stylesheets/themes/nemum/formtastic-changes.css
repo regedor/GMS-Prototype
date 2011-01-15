@@ -55,9 +55,16 @@ input.create:active,
 
 h1                                               { padding: 2px;margin: 0;text-transform: none;}
 h1                                               { color: black; letter-spacing: -1px; font: bold 16px arial;}
+
+div #outer_holder a								 { padding-left:2px; color:#828282; }
+div #outer_holder .master                        { -moz-border-radius: 5px; border-radius: 5px; border: 1px solid; border-color:#0099CC; padding:2px; background-color:#C6E2FF; }/*#C3E4ED*/
+div #outer_holder								 { width:324px; background-color: #F1F1F1; border: 1px solid #9E9E9E;font:bold 12	px arial;  margin-top:0; margin-left: 144px; padding-left: 0px; }
+#mail_recipients         { width: 1px; border: none;background-color: #F1F1F1;}
+#mail_recipients:hover   { border: none; -moz-box-shadow:none; box-shadow:none;}
+
 input[type=text], textarea, input[type=password] { background-color: #F1F1F1;border: 1px solid #9E9E9E;}
 input[type=text], textarea                       { font-size:15px;padding:2px;letter-spacing: -1;}
-input[type=text]                                 { width: 270px; font: bold 16px arial; }
+input[type=text]                                 { width: 320px; font: bold 16px arial; }
 form.formtastic fieldset ol li p.inline-hints    { color:#A1A1A1; font-size: 11px; margin-top:0; margin-left: 11em; padding-left: 0px;}
 
 #main .block .content .inner h2                  { color: #333;font: bold 16px arial;letter-spacing: -1px; }
