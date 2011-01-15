@@ -14,7 +14,7 @@ class Admin::MailsController < Admin::BaseController
   end   
  
   def create
-    recipients_array = params[:mail_recipients].split(",")
+    recipients_array = params[:mail_to].split(",")
     users_to_send = []
     @result = []
     users_and_groups = [] 
