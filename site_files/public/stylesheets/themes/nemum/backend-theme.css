@@ -218,7 +218,7 @@ ul.list li .item .avatar { border-color: #d8d8d8; border-width: 1px; border-styl
 #box .block { -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.4); box-shadow: 0 1px 3px rgba(0,0,0,0.4); }
 
 /* User image */
-.active-scaffold img { float:right; padding-right: 0px; }
+.active-scaffold>div>dl>img { float:right; padding-right: 0px; margin-right: 5px; }
 
 /* rounded borders */
 #main,

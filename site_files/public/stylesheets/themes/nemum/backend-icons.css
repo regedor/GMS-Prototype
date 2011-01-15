@@ -28,6 +28,14 @@
 #as_admin__posts-content a.edit            { background: url("icons/pencil.png") no-repeat;padding-left: 18px;}
 .active-scaffold-header div.actions a.new  { background: url("icons/add.png") no-repeat;padding-left: 18px;background-position:1px 2px;}
 
+/* Static pages */
+#as_admin__pages-content a.delete          { background: url("icons/page_delete.png") no-repeat;padding-left: 18px;}
+#as_admin__pages-content a.edit            { background: url("icons/page_edit.png") no-repeat;padding-left: 18px;}
+
+/* Mails */
+#as_admin__mails-content a.show            { background: url("icons/email.png") no-repeat;padding-left: 18px;}
+#as_admin__mails-content a.delete          { background: url("icons/email_delete.png") no-repeat;padding-left: 18px;}
+
 /* Order */
 .active-scaffold th.desc a, 
 .active-scaffold th.desc a:hover    { background: #EAEAEA url("icons/arrow_down.gif") no-repeat 0px 4px; padding-left: 18px;}

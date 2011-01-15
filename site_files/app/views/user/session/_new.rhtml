@@ -34,11 +34,11 @@
                     :as => :boolean, :required => false %>
       <% end %>
       <% f.buttons do %>
-        <%= f.commit_button :label => t('user_session.new.commit_button') %>  
-        <%= f.button_link icon_tag('door')+t('user_session.new.forgot_pass'), new_user_password_reset_path, 
-                         :button_html => {:class => "negative"} %> 
-        <%= f.button_link icon_tag('door_open')+t('user_session.new.new_account'), new_user_account_path, 
-                         :button_html => {:class => "negative"} %> 
+        <%= f.commit_button :label => t('user_session.new.commit_button'), :class => 'login_ico' %>  
+        <%= f.button_link t('user_session.new.forgot_pass'), new_user_password_reset_path, 
+                         :button_html => {:class => "negative login_ico"} %> 
+        <%= f.button_link t('user_session.new.new_account'), new_user_account_path, 
+                         :button_html => {:class => "negative logout_ico"} %> 
       <% end %>
   <% end %>
 </div>

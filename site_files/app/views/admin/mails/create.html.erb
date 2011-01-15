@@ -1,8 +1,18 @@
-<%if @result=="fail" %>
-	<%= t("admin.mails.send_fail") %>
-<% else %>	
-	<%= t("admin.mails.send_ok") %> <br/>
-	<% @result.each do |mail|%>
-		<%= mail %><br/>
-	<% end %>
-<% end %>		
+<div class="content">
+  <div class="inner">
+    <div class="active-scaffold">
+      <div class="view"> 
+        <h4>
+          <%if @result=="fail" %>
+            <%= t("admin.mails.send_fail") %>
+          <% else %>	
+            <%= t("admin.mails.send_ok") %> <br/>
+            <% @result.each do |mail|%>
+	            <%= mail %><br/>
+            <% end %>
+          <% end %>		
+	      </h4>
+      </div>
+    </div>
+  </div>
+</div>

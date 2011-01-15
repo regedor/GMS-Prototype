@@ -20,12 +20,13 @@ div#footer            { margin: 0px; padding: 0px; border: 0px; width: auto;}
 div#container         { width: 960px; margin: auto; }
 div#wrapper           { width: 760px; margin-left: 200px;z-index: 1; position: relative; }
 div#header            { float:left;width: 200px; z-index: 0; position: relative;}
-div#header #navigation ul li { text-align: right; }
+span.options          { float: right; }
+/*div#header #navigation ul li { text-align: right; }*/
 div#navigation        { padding: 15px; width: 170px;}
 div#site-title        { margin-bottom: 80px; margin-top: 100px;}
 #site-title h1 a      { background: url(""); height: 120px; max-width: 200px;}
-div#account-info      { text-align: right; padding: 5px 15px 10px 15px;}
-#account-info .title  { float: left;}
+div#account-info      { /*text-align: right;*/ padding: 5px 15px 10px 15px;}
+/*#account-info .title  { float: left;}*/
 div#content           { /*padding: 15px;*/ margin-right: 185px;min-height: 200px;}
 div#content p         { margin-bottom: 0;}
 div#sidebar           { float: right; width: 170px; height: auto;padding: 0px;}

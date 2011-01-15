@@ -231,7 +231,16 @@ class User < ActiveRecord::Base
     user_hash = Hash.from_xml(xmlUser)
     self.update_attributes user_hash["user"]
   end  
-  
+ 
+  def list_groups
+    r = []
+    self.groups.each do |f|
+      r << f.name
+    end
+    r.join ', '
+      
+  end
+   
  
   # ==========================================================================
   # Class Methods

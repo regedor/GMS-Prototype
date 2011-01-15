@@ -386,6 +386,7 @@ en:
         starts_at: "Start Date"
         ends_at: "End Date"
         url: "URL"
+        avatar: "Image"
       create:
         title: "Announcement"
       list:

@@ -24,7 +24,7 @@ h3                          { font-size:1.8em; margin-bottom:1em;}
 h4                          { font-size:1.7em; margin-bottom:1em; color:#e22;}
 h5                          { font-size:1.5em;}
 #account-info               { font-size:1em;}
-#account-info               { text-align:right; line-height:16px;}
+#account-info               { /*text-align:right;*/ line-height:16px;}
 
 /*#account-info a:active,
 #account-info a:link,
@@ -76,7 +76,8 @@ a,
 a:visited,
 a:link,
 a:active                    { color: lime; color: #2E2A2B; line-height: 1em;}
-a:hover                     { border-bottom: 1px solid #F8DA00; color: #555;}
+a:hover                     { border-bottom: 3px solid #F8DA00; color: #555;}
+.options a:hover            { border-bottom: 1px solid #F8DA00; color: #555;}
 
 h2                          { color: #2E2A2B; }
 h2 a                        { color: #2E2A2B;}
@@ -151,6 +152,8 @@ div#content,
 div#account-info  { -moz-border-radius-bottomleft: 12px; -webkit-border-bottom-left-radius: 12px; border-bottom-left-radius: 12px;}
 div#main,
 div#account-info  { -moz-border-radius-bottomright: 12px; -webkit-border-bottom-right-radius: 12px; border-bottom-right-radius: 12px;  }
+
+div.announcement-text,
 .flash_text,
 div#main,
 div#content       { -moz-border-radius-topleft: 12px; -webkit-border-top-left-radius: 12px; border-top-left-radius: 12px;}
