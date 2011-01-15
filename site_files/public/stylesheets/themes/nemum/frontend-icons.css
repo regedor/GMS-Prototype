@@ -10,8 +10,5 @@
 .logout_ico          { background: url("icons/door_out.png") no-repeat; padding-left: 18px;}
 li a.logout_ico    { background: #F5F5F5 url("icons/door_out.png") no-repeat 2px 4px;  padding-left: 20px;}
 li a.login_ico     { background: #F5F5F5 url("icons/door_in.png") no-repeat 2px 4px;  padding-left: 20px;}
-a.login_ico          { background: url("icons/door_in.png") no-repeat;  padding-left: 18px;}
-.user_add_ico      { background: url("icons/user.png") no-repeat;     padding-left: 18px;}
 li.login_ico input { background: #F5F5F5 url("icons/door_in.png") no-repeat 2px 4px; padding-left: 20px; padding-top: 5px;} 
-.google_ico        { background: url("icons/google.ico") no-repeat;   padding-left: 18px;}
 .key_ico           { background: url("icons/key.png") no-repeat;   padding-left: 18px; }
