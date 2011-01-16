@@ -93,7 +93,7 @@ div#site-title a:hover      { border-bottom: 0px;}
 html, body                      { background-color: #2E2A2B; }
 div#navigation                  { background-color: #555;}
 
-#site-title h1 a                { background: url("images/bg_logo.png") no-repeat; display:block; text-indent: -6000px;   }
+#site-title h1 a                { background: url("/stylesheets/themes/nemum/images/bg_logo.png") no-repeat; display:block; text-indent: -6000px;   }
 
 .form_with_notes                { width:70%; }
 .form_side_notes                { width:27%; float:right; margin-left: 2%; }

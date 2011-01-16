@@ -34,7 +34,7 @@ hr                       {  color: #e2e2e2;background: #e2e2e2; }
 #header h1 a:active,
 #header h1 a:hover,
 #header h1 a:visited     { color: #fff;}
-#header h1 a             { text-indent: -6000px; display: block; height: 100px; width: 350px; background: url("images/bg_logo_admin.png") no-repeat;}
+#header h1 a             { text-indent: -6000px; display: block; height: 100px; width: 350px; background: url("/stylesheets/themes/nemum/images/bg_logo_admin.png") no-repeat;}
 #user-navigation a,
 #user-navigation a:active,
 #user-navigation a:visited,
