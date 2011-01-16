@@ -8,7 +8,7 @@ namespace :db do
           :body                    => "Já está no ar o novo site do Núcleo de Estudantes de Medicina da Universidade do Minho. O Portal apresenta novo layout, mais dinamicidade e conteúdo. Aqui poderás encontrar toda a informação sobre o teu curso.",
           :active                  => true,
           :approved_comments_count => 0,
-          :published_at            => Time.now - 2.day,
+          :published_at            => Time.local(2011, 1, 16),
           :edited_at               => nil,
           :updated_at              => nil
         )
@@ -18,7 +18,7 @@ namespace :db do
           :body                    => "Queres aprender a dançar o Tango ou a Valsa? O NEMUM está a promover um curso de danças de salão. As aulas decorrem durante os dias úteis, das 18:30 às 20:00. O custo é de 10€ mensais.<br /><br />Inscreve-te já em nemum@ecsaude.uminho.pt e indica o dia da tua preferência.",
           :active                  => true,
           :approved_comments_count => 0,
-          :published_at            => Time.now,
+          :published_at            => Time.local(2011, 1, 16),
           :edited_at               => nil,
           :updated_at              => nil
         )
@@ -28,7 +28,7 @@ namespace :db do
           :body                    => "O Núcleo de Estudantes de Medicina da Universidade do Minho (NEMUM) realizará a sessão solene de tomada de posse dos seus novos órgãos sociais no próximo dia 17 de Janeiro de 2011 (segunda-feira), pelas 19h, no Anfiteatro A0.01 da Escola de Ciências da Saúde da Universidade do Minho, sito no Campus de Gualtar, em Braga.",
           :active                  => true,
           :approved_comments_count => 0,
-          :published_at            => Time.now + 1.minute,
+          :published_at            => Time.local(2011, 1, 16),
           :edited_at               => nil,
           :updated_at              => nil
         )
@@ -54,6 +54,27 @@ namespace :db do
           :has_comments => false,
           :body         => "Criado por uma comissão instaladora constituída por sete elementos, no ano do início do curso de Medicina da Universidade do Minho, o esboço do NEMUM começou a tomar forma em Abril de 2001, movido pela necessidade de uma instituição que representasse os alunos de Medicina e pelo desejo de oferecer actividades aos estudantes e à comunidade. É seis meses depois, no dia 8 de Outubro de 2002, que o NEMUM realiza as suas primeiras eleições, embora os estatutos só tenham sido publicados em Diário da República no ano seguinte.\n\nAs principais dificuldades que este projecto encontrou, no seu início, foram a falta de financiamento e de uma estrutura física. Aliás, no que toca a instalações, o NEMUM começou por confinar-se a um armário numa sala de aulas. A entrada oficial do NEMUM na Associação Nacional de Estudantes de Medicina (ANEM) acontece em 2003, numa Assembleia Geral (AG) realizada na Foz do Arelho.\n\nEntre as primeiras actividades organizadas pelo Núcleo, destacam-se os momentos de convívio com os Globos de Ouro e a Gala Adeus SOFs (com a sua polémica aprovação em AG) e o protocolo com a Ordem dos Médicos.\n\nNos anos seguintes, estabelecem-se protocolos com diversos cursos da Universidade do Minho, iniciam-se algumas acções de promoção da saúde junto da população e publica-se o primeiro Sótão do Pensamento (2003), uma colectânea de poemas dos alunos e docentes da escola, seguido do 2º volume, três anos mais tarde.\n\nEm Janeiro de 2005, a sede do NEMUM muda-se para a zona das “pirâmides” na Universidade e, já em 2007, desloca-se para a sua morada actual, no Edifício da Escola de Ciências da Saúde. Acompanhando o aumento do número de alunos no curso, o núcleo tem diversificado as suas actividades e expandindo a sua área de actuação.\n\nDe entre as muitas pessoas que já contribuíram para o NEMUM de hoje, destacamos os Presidentes, como seus representantes, desde o primeiro ao actual:\n\n* 1.Pedro Morgado (Interno de Psiquiatria, Hospital de Braga)\n*  2.Marina Gonçalves (Interna de MGF, USF + Carandá)\n* 3.Ana Daniela Marques (Interna de Oncologia Médica, Hospital de Braga)\n* 4.Sónia Duarte\n* 5.Teresa Pinto\n* 6.Luísa Azevedo\n* 7.Firmino Machado",
           :show_in_menu => true
+        )
+      end
+
+      task :announcements => :environment do
+        Announcement.create(
+          :title      => "Tomada de Posse",
+          :message    => "O NEMUM realiza a sessão solene de tomada de posse dos seus novos órgãos sociais no dia 17 de Janeiro de 2011.",
+#          :avatar     => File.open( "public/images/announcements/tomada_posse.png" ),
+          :avatar     => File.open( "public/images/announcements/6.png" ),
+          :starts_at  => Time.local(2011, 1, 16),
+          :ends_at    => Time.local(2011, 2, 1),
+          :created_at => Time.now
+        )
+        Announcement.create(
+          :title      => "NEMUM",
+          :message    => "Este é o novo portal de Núcleo de Estudantes de Medicina da Universidade do Minho, aqui encontrarás toda a informação sobre o teu curso.",
+#          :avatar     => File.open( "public/images/announcements/studying.png" ),
+          :avatar     => File.open( "public/images/announcements/5.png" ),
+          :starts_at  => Time.local(2011, 1, 16),
+          :ends_at    => Time.local(2011, 2, 1),
+          :created_at => Time.now
         )
       end
     end
