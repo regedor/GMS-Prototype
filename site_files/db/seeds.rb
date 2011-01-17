@@ -8,7 +8,7 @@
 #
 
 puts "Creating settings..."
-  Setting.create :identifier => "frontend_navigation", :field_type => "string", :value => "__SelectedPages__"
+  Setting.create :identifier => "frontend_navigation", :field_type => "string", :value => "<li><a href=\"/\">Notícias</a></li>__SelectedPages__"
 
 puts "Creating standard roles..."
   File.open( "config/authorization_rules.rb" ) do |f| 
