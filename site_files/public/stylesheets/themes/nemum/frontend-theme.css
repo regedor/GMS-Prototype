@@ -192,5 +192,6 @@ div#main,
 * html .selfclear { height: 1px; /* IE < 7 */ }
 * html .resource-list tr.table-header { background: #000; /* IE < 7 */}
 
-#pages_show #main table { margin: 10px;  }
-#pages_show #main td    { text-align: left; vertical-align: middle; width: 240px; }
+#pages_show #main table { margin: 10px; border-collapse: collapse; display: table; width: 98%; } /* it's sort of a hack... */
+#pages_show #main td,
+#pages_show #main th    { text-align: left; vertical-align: middle; border: solid 1px #DDD; padding: 5px 7px 5px; }

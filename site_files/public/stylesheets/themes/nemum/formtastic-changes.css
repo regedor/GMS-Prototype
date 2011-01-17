@@ -111,7 +111,7 @@ input#user_session_openid_identifier { background: url("/images/openid.gif") no-
 input#user_session_openid_identifier { background-position: 0 50%; color: #000; text-indent: 18px; }
 form.formtastic legend               { padding-bottom: 15px; }
 
-.inner li.commit input               { margin-bottom: 10px; }
+.inner li.commit input               { margin-bottom: 2px; }
 
 .buttons button,
 li.commit input                      { width: auto; overflow: visible; padding: 5px 10px 5px 7px; } /* IE6 */
