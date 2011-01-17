@@ -1,4 +1,5 @@
 class Admin::MailsController < Admin::BaseController 
+  filter_access_to :all, :require => any_as_privilege
   
   active_scaffold :mail do |config|
     config.subform.columns = [:name]

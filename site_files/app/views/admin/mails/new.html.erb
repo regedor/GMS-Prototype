@@ -20,20 +20,6 @@ jQuery(document).ready(function($) {
 		jQuery("#mail_to").val("");
 	}	
 	
-	$( "#mail_recipients" ).keydown( function( event ) 
-	{
-		var code = (event.keyCode ? event.keyCode : event.which);
-		
-		if ( code == 8 )
-		{
-			newValue = $("#mail_to").val().split(",");
-			newValue.pop();
-			newValue.pop();
-			$("#mail_to").val(newValue.join(",")+",");
-			$(".last").parent().remove();
-			$("#outer_holder span span").last().addClass("last");
-		}
-	 });
 	$( "#mail_recipients" ).autocomplete(
 	 	{
 	 		minLength: 0,
@@ -61,7 +47,26 @@ jQuery(document).ready(function($) {
 				
 	 			return false;
 	 		}
-	 	});
+	 	}).keydown( function( event ) 
+			{
+				var code = (event.keyCode ? event.keyCode : event.which);
+
+				if( code == 13 )
+					alert($("#mail_to").val());
+
+				if ( code == 8 )
+				{
+					if($("#mail_to").val() != "")
+					{
+						newValue = $("#mail_to").val().split(",");
+						newValue.pop();
+						newValue.pop();
+						$("#mail_to").val(newValue.join(",")+",");
+						$("#outer_holder span .last").parent().remove();
+						$("#outer_holder span span").last().addClass("last");
+					}
+				}
+			 });
 	});
 </script>
 <div class="active-scaffold">

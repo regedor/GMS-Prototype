@@ -1,5 +1,6 @@
 ( function($) {
 
+
 $(document).ready(function() {
   var form = $('form.formtastic');
 
@@ -13,8 +14,10 @@ $(document).ready(function() {
 
     var toggle_preview = function() {
       if ($('#preview').length == 0) {
-        form.hide();
-        form.after('<div id="preview"><h3>Your entry will be formatted like this:</h3><p>Use Ctrl+E to return to edit mode.</p><div class="content"><p>Please wait...</p></div></div>');
+        $(".inputs").hide();
+		$(".edit_button").show();
+		$(".preview_button").hide();
+        form.before('<div id="preview"><h3>Your entry will be formatted like this:</h3><p>Use Ctrl+E to return to edit mode.</p><div class="content"><p>Please wait...</p></div></div>');
 
         jQuery.ajax({
           type: 'POST',
@@ -30,9 +33,19 @@ $(document).ready(function() {
       }
       else {
         $('#preview').remove();
-        form.show();
+        $(".inputs").show();
+		$(".edit_button").hide();
+		$(".preview_button").show();
       }
     }
+
+	$('.preview_button').click(function(){
+		toggle_preview();
+	});
+	
+	$('.edit_button').click(function(){
+		toggle_preview();
+	});
 
     $(document).keyup(function(e) {
       if (e.metaKey && (e.which == 69)) { // Works in recent Safari and FF, unsure about IE

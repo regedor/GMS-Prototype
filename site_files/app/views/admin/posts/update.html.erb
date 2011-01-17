@@ -15,10 +15,16 @@
 
       <h2><%= I18n::t('admin.posts.form.edit') + ' - ' + link_to(h(@record.title), post_path(@record)) %></h2>
 
-      <% semantic_form_for :record, @record, :url => admin_post_path(@actual_record || @record), :html => {:method => :put, :id => "edit_post_#{(@actual_record || @record).id}"} do |form| -%>
+      <% semantic_form_for :record, @record, 
+                           :url => admin_post_path(@actual_record || @record), 
+                           :html => {:method => :put, :id => "edit_post_#{(@actual_record || @record).id}"} do |form| -%>
         <%= render :partial => 'form', :locals => {:form => form} %>
-        <% form.button_field_set do -%>
-          <%= form.commit_button(I18n::t('admin.posts.form.submit')) -%>
+		<% form.buttons do -%>
+          <%= form.commit_button :label => t('admin.posts.form.submit'), :class => 'login_ico' %>  
+          <%= form.button_link t('admin.posts.form.preview_button'), "#", 
+                         :button_html => {:class => "preview_button"} %>
+		  <%= form.button_link t('admin.posts.form.edit_button'), "#", 
+				         :button_html => {:style => "display: none;", :class => "edit_button"} %> 
         <% end -%>
       <% end -%>
     </div>
