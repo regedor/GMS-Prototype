@@ -2,6 +2,7 @@ class Admin::TagsController < Admin::BaseController
   filter_access_to :all, :require => any_as_privilege
 
   active_scaffold :tag do |config|
+    Scaffoldapp::active_scaffold config, "admin.tags",
     :list         => [ :name, :taggings_count ], 
     :show         => [ :name, :taggings_count ],
     :edit         => [ :name ]
@@ -28,4 +29,5 @@ class Admin::TagsController < Admin::BaseController
 #      :page => params[:page]
 #    )
 #  end
+
 end
