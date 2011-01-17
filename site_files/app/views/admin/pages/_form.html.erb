@@ -20,6 +20,12 @@
                  :as       => 'boolean',
                  :label    => I18n::t('admin.pages.columns.show_in_navigation'),
                  :hint     => I18n::t('admin.pages.form.hints.show_in_navigation') %>
+  <%= form.input :priority,
+                 :as         => 'select',
+				 :collection => (1..99),
+				 :selected   => @record.priority,
+				 :label      => I18n::t('admin.pages.columns.priority'),
+                 :hint       => I18n::t('admin.pages.form.hints.priority') %>
   <%= form.input :has_comments,
                  :as       => 'boolean',
                  :label    => I18n::t('admin.pages.columns.has_comments'),
