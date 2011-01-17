@@ -4,6 +4,7 @@ module NavigationHelper
     return configatron.frontend_navigation.gsub(/__SelectedPages__/) { |match|
       html = ""
       html += tag("ul",nil,true)
+      html+=tag("li",nil,true)+link_to("Home",root_path)+tag("/li",nil,true)
       Page.navigation_pages.each do |page|
         html += tag("li",nil,true)+link_to(page.title, page_path(page))+tag("/li",nil,true) 
       end  
