@@ -29,15 +29,16 @@ en:
       cancel: "Cancel"
     new:
       title: "Create new account"
-      openid: "Sign up using OpenID"
+      openid: "OpenID"
       form_inputs_name: "Please enter your email address and choose a password:"
       form_openid_inputs_name: "Be aware that the email in the OpenID form page, will override this."
       form_side_notes: 
-        first: "Because no one wants to memorize thousands of different passwords, we recommend you to use a third party authentication system!"
+        first: "Because no one wants to memorize thousands of different passwords, we recommend you
+                to use a third party authentication system!"
         second: "We are using cutting edge techniques to ensure no one (including ourselves) will
                  have access to your password or personal data."
-        google_signup: "Sign up using Google"
-        yahoo_signup: "Sign up using Yahoo"
+        google_signup: "Google Sign up"
+        yahoo_signup: "Yahoo Sign up"
       commit_button: "Register account"
   
 
@@ -47,25 +48,26 @@ en:
     bar:
       last_session_paragraph: "Your last login was %{time_ago} ago, your ip was %{ip}"
       account_link: "Account details"
-      logout: "Sign Out"
-      signin: "Sign In"
-      signup: "Sign Up"
-      google_signin: "Google Sign In"
+      logout: "Sign out"
+      signin: "Sign in"
+      signup: "Sign up"
+      google_signin: "Google Sign in"
       change_language: "Change language:"
     new:
       title: "Login"
       form_inputs_name: "Please enter your email address and password:"
-      form_openid_inputs_name: "<b>OR</b>"
+      form_openid_inputs_name: "You can also sign in using OpenID:"
       form_side_notes: 
-        first: "Because no one wants to memorize thousands of different passwords, we recommend you to use a third party authentication system!"
+        first: "Because no one wants to memorize thousands of different passwords, we recommend you
+                to use a third party authentication system!"
         second: "We are using cutting edge techniques to ensure no one (including ourselves) will
                  have access to your password or personal data."
-        google_signin: "Sign in using Google"
-        yahoo_signin: "Sign in using Yahoo"
+        google_signin: "Google Sign in"
+        yahoo_signin: "Yahoo Sign in"
       email: "Email"
       password: "Password"
-      openid: "Sign in using OpenID"
-      remember_me: "remember me"
+      openid: "OpenID"
+      remember_me: "Remember me"
       forgot_pass: "I forgot my password"
       new_account: "Create account"
       commit_button: "Sign in"

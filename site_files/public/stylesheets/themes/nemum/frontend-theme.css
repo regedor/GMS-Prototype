@@ -91,29 +91,24 @@ div#site-title a:hover      { border-bottom: 0px;}
 ============================================================================
 */
 
-html, body                      { background-color: #2E2A2B; }
-div#navigation                  { background-color: #555; }
+html, body       { background-color: #2E2A2B; }
+div#navigation   { background-color: #555; }
+#site-title h1 a { background: url("/stylesheets/themes/nemum/images/bg_logo.png") no-repeat; display:block; text-indent: -6000px; }
 
-#site-title h1 a                { background: url("/stylesheets/themes/nemum/images/bg_logo.png") no-repeat; display:block; text-indent: -6000px; }
+.form_with_notes                    { width: 70%; }
+.form_side_notes                    { width: 27%; float: right; margin-left: 15px; margin-right: 15px; }
+.form_side_notes > .note            { margin-bottom: 15px; }
+.form_side_notes > .note > *        { margin-top: 0; }
+.form_side_notes > .note > .buttons { margin-bottom: 15px; }
+.form_side_notes .buttons a         { float: none; display: block; margin-bottom: 15px; }
+.required_field_note                { margin-left: 25%; margin-bottom: 1em; }
 
-.form_with_notes                { width: 70%; }
-.form_side_notes                { width: 27%; float: right; margin-left: 2%; }
-.form_side_notes > .note        { /*border: #ddd solid 1px;*/ padding-top: 14px; margin-bottom: 15px; }
-.form_side_notes > .note > *    { /*margin: 15px;*/ margin-top: 0; }
-.form_side_notes>.note>.buttons { /*margin: 15px;*/ margin-bottom: 15px; }
-.form_side_notes .buttons a     { float:none; display:block; margin: 0; }
-.required_field_note            { margin-left: 25%; margin-bottom: 1em; }
+div#account-info                    { background-color: white; z-index: 1; position: relative; }
+div#account-info  .options a        { padding-bottom: 2px; }
 
-div#account-info                { background-color: white; z-index: 1; position: relative; }
-div#account-info  .options a    { padding-bottom: 2px; }
-
-h2                              { margin-top: 0px; margin-bottom: 15px; }
-.meta                           { background-color: #EEE; padding: 10px; }
-div.form_with_notes>.formtastic { padding: 0px; }
-
-/*div#content           { border-right: 1px solid #868686; margin-right: 200px;} /*Darker line*/
-/*div#content           { border-right: 1px solid #E4E4E4; margin-right: 200px;} /*Darker lights*/
-/*div#content           { border-right: 1px solid #F8DA00; margin-right: 200px;} /*Darker yellow*/
+h2                                  { margin-top: 0px; margin-bottom: 15px; }
+.meta                               { background-color: #EEE; padding: 10px; }
+div.form_with_notes > .formtastic   { padding: 0px; border-right: solid 1px #DDD }
 
 div#content p         { margin-bottom: 0; }
 div#sidebar           { background-color: white; }
@@ -132,8 +127,7 @@ div#whitespace        { background-color: #E5E5E5; }
 .new_comment>div>p    { padding-bottom: 15px; }
 
 .commentlist li       { padding-bottom: 15px; }
-.commentlist li p     { padding-left: 15px;/*border-left: 1px solid #444;*/}
-/*.commentlist cite    { background-color: lime;}*/
+.commentlist li p     { padding-left: 15px; }
 
 /* tag cloud classes */
 
