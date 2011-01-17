@@ -111,7 +111,7 @@ input#user_session_openid_identifier { background: url("/images/openid.gif") no-
 input#user_session_openid_identifier { background-position: 0 50%; color: #000; text-indent: 18px; }
 form.formtastic legend               { padding-bottom: 15px; }
 
-.inner li.commit input               { margin-bottom: 10px; }
+.inner li.commit input               { margin-bottom: 2px; }
 
 .buttons button,
 li.commit input                      { width: auto; overflow: visible; padding: 5px 10px 5px 7px; } /* IE6 */
@@ -128,7 +128,7 @@ ol li                                  { margin: 0; list-style-type: none; }
 .inputs ol li                          { padding-bottom: 15px; }
 
 form.formtastic fieldset.buttons       { padding-left: 0; }
-form.formtastic fieldset.buttons li    { margin-right: 1em; }
+/*form.formtastic fieldset.buttons li    { margin-right: 1em; }*/
 
 #main .block .content .inner h2        { padding-left: 2px; padding-top: 2px; padding-bottom: 0; margin-left: 0; margin-top: 0; margin-bottom: 4px; }
 
