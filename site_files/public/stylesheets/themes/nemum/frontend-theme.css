@@ -15,7 +15,7 @@
 ============================================================================
 */
 
-body                        { font-family: Verdana, HelveticaNeue, Helvetica, Arial, sans-serif; color: #333; }
+body                        { font-family: Verdana, HelveticaNeue, Helvetica, Arial, Sans-Serif; color: #333; }
 a                           { text-decoration: none; color: #555; }
 a:hover                     { color: #2E2A2B; }
 h1                          { font-size: 2.5em; }
@@ -31,7 +31,8 @@ h5                          { font-size: 1.5em; }
 #account-info a:visited     { text-decoration: none; color: #6A6A6A;}
 #account-info a:hover       { color: #2E2A2B;}*/
 
-#navigation                 { font-size: 1.1em; margin-bottom: 1em; color: #fff; }
+#navigation                 { font-size: 1.1em; color: #fff; }
+#navigation li              { margin-bottom: 0.5em; text-align: right; }
 #navigation a:visited,
 #navigation a:link,
 #navigation a:active,
@@ -41,7 +42,7 @@ h5                          { font-size: 1.5em; }
 
 #admin-navigation           { font-size: 1.5em; margin-bottom: 1em; }
 #admin-navigation a         { text-decoration: none; }
-#content p                  { font-size: 1.3em; text-align: justify; }
+#content p                  { font-size: 1.1em; text-align: justify; }
 #content p                  { margin-bottom: 1em; line-height: 1.15em; }
 #content table              { margin-bottom: 1em; }
 #footer                     { font-size: 1em; text-align: left; line-height: 1.1em; color: #fff; }
@@ -52,10 +53,10 @@ h5                          { font-size: 1.5em; }
 /* TODO */
 .flash_text                 { padding-top: 15px; padding-bottom: 15px; }
 .flash_text.error           { color: #e22; }
-.flash_text.error           { background: url(images/boxbar-background-big.png) 150% 0; }
+.flash_text.error           { background: url("/images/boxbar-background-big.png") 150% 0; }
 
 .flash_text.notice          { color: #591;}
-.flash_text.notice          { background: url(images/boxbar-background-big.png) 150% 0; }
+.flash_text.notice          { background: url("/images/boxbar-background-big.png") 150% 0; }
 
 .resource-list a            { text-decoration: none; }
 .resource-list th           { font-size: 1.6em; color: #e22; }
