@@ -10,8 +10,8 @@ production:
   mailer_username: miguelregedor
   mailer_password: 123456
 development: 
-  theme: simon
-  site_name: Simon
+  theme: nemum
+  site_name: Nemum
   site_url: http://localhost:3000/
   support_email: support@baseapp2.local
   root_email: admin@baseapp2.local
