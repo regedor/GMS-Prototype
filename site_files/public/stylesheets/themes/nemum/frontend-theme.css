@@ -78,6 +78,10 @@ a:link,
 a:active                    { color: lime; color: #2E2A2B; line-height: 1em;}
 a:hover                     { border-bottom: 3px solid #F8DA00; color: #555;}
 .options a:hover            { border-bottom: 1px solid #F8DA00; color: #555;}
+.pagination a:hover,
+.meta a:hover,
+#footer a:hover            { border-bottom: 1px solid #F8DA00;}
+
 
 h2                          { color: #2E2A2B; }
 h2 a                        { color: #2E2A2B;}
@@ -97,7 +101,7 @@ div#navigation                  { background-color: #555;}
 
 .form_with_notes                { width:70%; }
 .form_side_notes                { width:27%; float:right; margin-left: 2%; }
-.form_side_notes > .note        { /*border: #ddd solid 1px;*/ padding-top: 14px; margin-bottom: 15px;}
+div.note ul li                   { margin-bottom: 6px;}
 .form_side_notes > .note > *    { /*margin: 15px;*/ margin-top:0; }
 .form_side_notes>.note>.buttons { /*margin: 15px;*/ margin-bottom:15px; }
 .form_side_notes .buttons a     { float:none; display:block; margin:0; }
