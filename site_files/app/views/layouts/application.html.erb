@@ -41,9 +41,7 @@
       </div>
       
       <div id="navigation" >
-        <ul>
-          <li><%= link_to t('navigation.about'),          page_path(:about) %></li>
-        </ul>
+        <%= frontend_navigation_content %>
       </div>
       
     </div>
@@ -60,17 +58,17 @@
         <span class="options">
         <% if logged_in? %>
           <%= @current_user.small_name %> |	      
-          <% unless ["user","guest"].member? Role.find(@current_user.role_id).label  %>
-            <%= link_to t('navigation.administration'), admin_root_path, :class => "key_ico"  %> |
+          <% unless ["user","guest"].member? Role.find(@current_user.role_id).label                                %>
+            <%= link_to t('navigation.administration'), admin_root_path, :class => "key_ico"                       %> |
           <% end %>
-          <%= link_to t('user_session.bar.account_link'), user_session_path, :class => "user_ico"           %> |
-          <%= link_to t('user_session.bar.logout'), user_logout_path,    :class => "logout_ico"             %> 
+          <%# link_to t('user_session.bar.account_link'), user_session_path, :class => "user_ico"                  %> 
+          <%= link_to t('user_session.bar.logout'), user_logout_path,    :class => "logout_ico"                    %> 
         <% else %>
           <%= link_to t('user_session.bar.google_signin'),
-                      "/user/session?user_session%5Bopenid_identifier%5D=https://www.google.com/accounts/o8/id", 
-                      :class => "positive create google_ico", :method => 'post'                                        %> |
-          <%= link_to t("user_session.bar.signin"), new_user_session_path, :class => "login_ico"            %> |
-          <%= link_to t("user_session.bar.signup"), new_user_account_path, :class => "user_add_ico"         %>
+                        "/user/session?user_session%5Bopenid_identifier%5D=https://www.google.com/accounts/o8/id", 
+                        :class => "positive create google_ico", :method => 'post'                                  %> |
+          <%= link_to t("user_session.bar.signin"), new_user_session_path, :class => "login_ico"                   %> |
+          <%= link_to t("user_session.bar.signup"), new_user_account_path, :class => "user_add_ico"                %>
         <% end %>
         </span>
         

@@ -59,7 +59,7 @@ h1                          { color: black; letter-spacing: -1px; font: bold 16p
 div #outer_holder a         { padding-left: 2px; color: #828282; }
 div #outer_holder .master   { -moz-border-radius: 5px; border-radius: 5px; border: 1px solid; border-color: #0099CC; padding: 2px; background-color: #C6E2FF; }/*#C3E4ED*/
 div #outer_holder           { width:324px; background-color: #F1F1F1; border: 1px solid #9E9E9E; font: bold 12px Arial; margin-top: 0; margin-left: 144px; padding-left: 0px; }
-#mail_recipients            { width: 1px; border: none; background-color: #F1F1F1; }
+#mail_recipients            { border: none; background-color: #F1F1F1; }
 #mail_recipients:hover      { border: none; -moz-box-shadow: none; box-shadow: none; }
 
 input[type=text], textarea, input[type=password] { background-color: #F1F1F1; border: 1px solid #9E9E9E; }

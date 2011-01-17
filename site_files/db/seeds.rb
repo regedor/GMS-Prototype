@@ -6,6 +6,10 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Major.create(:name => 'Daley', :city => cities.first)
 #
+
+puts "Creating settings..."
+  Setting.create :identifier => "frontend_navigation", :field_type => "string", :value => "__SelectedPages__"
+
 puts "Creating standard roles..."
   File.open( "config/authorization_rules.rb" ) do |f| 
     f.grep( /role :([a-z_0-9]*) do/ ) do |line| 

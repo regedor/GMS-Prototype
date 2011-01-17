@@ -1,5 +1,5 @@
 class Admin::DeletedUsersController < Admin::BaseController
-#  filter_access_to :all, :require => any_as_privilege #FIXME: uncomment this line
+  filter_access_to :all, :require => any_as_privilege
 
   active_scaffold :user do |config|
     config.subform.columns = [:email]

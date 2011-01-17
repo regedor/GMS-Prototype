@@ -45,6 +45,9 @@ Rails::Initializer.run do |config|
 end
 
 configatron.configure_from_yaml("config/config.yml", :hash => Rails.env)
+
+begin; Setting.load_settings_to_configatron; rescue Exception; end
+
 require 'string_extensions'
 require 'formtastic_extensions'
 require 'sparklines'
