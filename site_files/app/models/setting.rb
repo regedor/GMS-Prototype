@@ -1,61 +1,44 @@
-class Page < ActiveRecord::Base
+class Setting < ActiveRecord::Base
   # ==========================================================================
   # Relationships
   # ==========================================================================
   
-  belongs_to :group
-  has_many   :approved_comments, :as => 'commentable', :dependent => :destroy, :class_name => 'Comment'
-
+  
 
   # ==========================================================================
   # Validations
   # ==========================================================================
 
-  validates_presence_of   :title, :slug, :body
-  validates_uniqueness_of :slug
-  before_validation       :generate_slug
 
 
   # ==========================================================================
   # Extra definitions
   # ==========================================================================
 
-  before_save           :apply_filter
-  named_scope :navigation_pages, :conditions => {:show_in_navigation => true}, :order => "priority desc"
+
 
   # ==========================================================================
   # Instance Methods
   # ==========================================================================
 
-  def apply_filter
-    self.body_html = EnkiFormatter.format_as_xhtml(self.body)
-  end
-
-  def active?
-    true
-  end
-
-  def generate_slug
-    self.slug = self.title.dup if self.slug.blank?
-    self.slug.slugorize!
-  end
-
+  def convert_value
+    case self.field_type.downcase
+      when "integer" then return self.value.to_i
+      when "float" then return self.value.to_f
+      else return self.value.to_s  
+    end  
+  end  
 
   # ==========================================================================
   # Class Methods
   # ==========================================================================
 
   class << self
-    def build_for_preview(params)
-      page = Page.new(params)
-      page.apply_filter
-      page
-    end
-
-    def find_by_slug slug
-      (Page.all :conditions => { :slug => slug }).first
-    end
+    def load_settings_to_configatron
+       Setting.all.each do |setting|     
+         configatron.send(setting.identifier+"=",setting.convert_value)
+       end 
+    end  
   end
 
 end
-
