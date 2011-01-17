@@ -73,6 +73,9 @@ namespace :db do
           :created_at  => Time.now
         )
       end
+
+      task :all => [:pages, :posts, :announcements]
+
     end
   end
 end
