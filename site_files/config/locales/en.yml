@@ -338,6 +338,8 @@ en:
         edit: "Editing Post"
         edit_tag: "Editing Tag - %{name}"
         submit: "Save"
+        preview_button: "Preview"
+        edit_button: "Edit"
         hints:
           body: '<a href="http://hobix.com/textile/quick.html">Textile enabled</a>. Use Ctrl+E to switch between preview and edit mode.'
           tag_list: "Comma separated: ruby, rails&hellip;"
