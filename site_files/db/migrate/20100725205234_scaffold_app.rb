@@ -3,7 +3,7 @@ class ScaffoldApp < ActiveRecord::Migration
 
     create_table :users do |t|
       # User info
-      t.string    :email,               :null => false,                   :limit => 100  
+      t.string    :email,               :null => false,                   :limit => 100
       t.string    :name
       t.string    :nickname
       t.boolean   :gender,              :null => false, :default => true # True = Male and False = Female
@@ -13,24 +13,24 @@ class ScaffoldApp < ActiveRecord::Migration
       t.string    :phone
       t.boolean   :emails               # wanna receive emails
       # User values
-      t.integer   :role_id,             :null => false, :default => 3 # Normal user. Role is created in seeds 
-      t.boolean   :deleted,             :null => false, :default => false 
-      t.string    :language,            :null => false, :default => "en" 
-      t.boolean   :active,              :null => false, :default => false 
+      t.integer   :role_id,             :null => false, :default => 3 # Normal user. Role is created in seeds
+      t.boolean   :deleted,             :null => false, :default => false
+      t.string    :language,            :null => false, :default => "en"
+      t.boolean   :active,              :null => false, :default => false
       t.string    :openid_identifier
       t.string    :crypted_password
       t.string    :password_salt
       t.string    :persistence_token,   :null => false  # required
       t.string    :single_access_token, :null => false  # optional, see Authlogic::Session::Params
-      t.string    :perishable_token,    :null => false  # optional, see Authlogic::Session::Perishability      
+      t.string    :perishable_token,    :null => false  # optional, see Authlogic::Session::Perishability
       t.timestamps
       # optional, see Authlogic::Session::MagicColumns
-      t.integer   :login_count,         :null => false, :default => 0 
+      t.integer   :login_count,         :null => false, :default => 0
       t.integer   :failed_login_count,  :null => false, :default => 0
-      t.datetime  :last_request_at                                    
-      t.datetime  :current_login_at                                   
-      t.datetime  :last_login_at                                      
-      t.string    :current_login_ip                                   
+      t.datetime  :last_request_at
+      t.datetime  :current_login_at
+      t.datetime  :last_login_at
+      t.string    :current_login_ip
       t.string    :last_login_ip
     end
     add_index :users, :email, :unique => true
@@ -65,11 +65,11 @@ class ScaffoldApp < ActiveRecord::Migration
       t.boolean :root_edit_only,              :null => false, :default => false #root field
       t.boolean :blocks_direct_users_access,  :null => false, :default => false #root field
       t.timestamps
-    end  
+    end
 
 
     create_table :user_optional_group_picks, :force => true do |t|
-      t.integer :role     #limit by user role 
+      t.integer :role     #limit by user role
     end
 
 
@@ -90,7 +90,7 @@ class ScaffoldApp < ActiveRecord::Migration
       t.integer :include_group_id
     end
 
-    
+
     create_table :announcements do |t|
       t.string   :title,              :null => false
       t.text     :message,            :null => false
@@ -100,7 +100,9 @@ class ScaffoldApp < ActiveRecord::Migration
       t.datetime :avatar_updated_at
       t.datetime :starts_at
       t.datetime :ends_at
+      t.boolean  :always_show
       t.string   :url
+      t.integer  :priority,           :default => 0
       t.timestamps
     end
 
@@ -110,10 +112,11 @@ class ScaffoldApp < ActiveRecord::Migration
       t.string   :slug,                                    :null => false
       t.text     :body,                                    :null => false
       t.text     :body_html,                               :null => false
-      t.boolean  :show_in_menu,                            :null => false
+      t.boolean  :show_in_navigation,                      :null => false
       t.boolean  :has_comments,                            :null => false
       t.integer  :approved_comments_count, :default => 0,  :null => false
       t.integer  :group_id,                :default => nil
+      t.integer  :priority,                :default => 0
       t.timestamps
     end
     add_index :pages, ["slug"], :name => 'index_pages_on_slug'
@@ -169,7 +172,7 @@ class ScaffoldApp < ActiveRecord::Migration
 
     create_table :history_entries, :force => true do |t|
       t.datetime :created_at,           :null => false
-      t.string   :historicable_type,    :null => false   
+      t.string   :historicable_type,    :null => false
       t.integer  :historicable_id,      :null => false
       t.boolean  :historicable_deleted,                            :default => false
       t.text     :message,              :null => false
@@ -185,11 +188,18 @@ class ScaffoldApp < ActiveRecord::Migration
       t.integer  :user_id #sender
       t.text     :xml_groups_and_users
       t.text     :xml_users
-    end 
+    end
+
+    create_table :settings do |t|
+      t.string :identifier
+      t.string :field_type, :default => 'string'
+      t.text   :value
+      t.timestamps
+    end
 
   end
 
   def self.down
-    raise IrreversibleMigration, "Regedor has mythical powers!"
+    raise IrreversibleMigration, "Simon logo sucks!"
   end
 end

@@ -12,7 +12,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users, :as => :members
 
   map.connect 'pages/:slug/comments', :controller => 'comments', :action => 'create', :method => :post
-  map.connect 'pages/:slug', :controller => 'pages', :action => 'show', :method => :get
+  map.pages 'pages/:slug', :controller => 'pages', :action => 'show', :method => :get
 
   map.connect ':year/:month/:day/:slug/comments', :controller => 'comments', :action => 'create', :method => :post
   map.connect ':year/:month/:day/:slug', :controller => 'posts', :action => 'show', :requirements => { :year => /\d+/ }

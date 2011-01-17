@@ -276,7 +276,7 @@ en:
         created_at: "Date"
         body: "Body"
         slug: "Slug"
-        show_in_menu: "Show in the Menu"
+        show_in_navigation: "Show in the Menu"
         has_comments: "Has Comments"
       form:
         new: "New Page"
