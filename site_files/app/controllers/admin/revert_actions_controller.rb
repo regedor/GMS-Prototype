@@ -1,4 +1,6 @@
-class Admin::HistoryEntriesController < Admin::BaseController
+class Admin::RevertActionsController < Admin::BaseController
+  filter_access_to :all, :require => any_as_privilege
+
   def create
     @history_entry  = HistoryEntry.find(params[:id])
     @history_entry.revert!

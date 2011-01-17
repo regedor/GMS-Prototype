@@ -1,4 +1,5 @@
 class Admin::GroupsController < Admin::BaseController
+  filter_access_to :all, :require => any_as_privilege
   
   active_scaffold :group do |config|
     config.subform.columns = [:name]
