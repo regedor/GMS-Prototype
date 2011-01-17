@@ -86,6 +86,8 @@ h2 a                        { color: #2E2A2B; }
 div#navigation a:hover,
 div#site-title a:hover      { border-bottom: 0px;}
 
+#pages_show #main table     { font-size: 1.1em; }
+
 /*
 ============================================================================
 = General Structure
@@ -169,3 +171,6 @@ div#main,
 .selfclear        { display: block; }
 * html .selfclear { height: 1px; /* IE < 7 */ }
 * html .resource-list tr.table-header { background: #000; /* IE < 7 */}
+
+#pages_show #main table { margin: 10px;  }
+#pages_show #main td    { text-align: left; vertical-align: middle; width: 240px; }
