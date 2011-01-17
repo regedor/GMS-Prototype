@@ -2,14 +2,20 @@
 
 <div class="form_side_notes">
   <div class="note">
-    <p class="buttons">
-      <%= link_to '<img src="/images/google.ico" alt=""/>'+t('user_session.new.form_side_notes.google_signin'),
-        "/user/session?user_session%5Bopenid_identifier%5D=https://www.google.com/accounts/o8/id", 
-        :class => "positive create", :method => 'post' %> 
-      <%= link_to '<img src="/images/yahoo.ico" alt=""/>'+t('user_session.new.form_side_notes.yahoo_signin'), 
-        "/user/session?user_session%5Bopenid_identifier%5D=https://www.yahoo.com", 
-        :class => "positive create", :method => 'post' %> 
-    </p>
+    <fieldset class="buttons">
+      <ul>
+        <li class="commit">
+          <%= link_to '<img src="/images/google.ico" alt=""/>'+t('user_session.new.form_side_notes.google_signin'),
+            "/user/session?user_session%5Bopenid_identifier%5D=https://www.google.com/accounts/o8/id", 
+            :class => "positive create", :method => 'post' %> 
+        </li>
+        <li class="commit">
+          <%= link_to '<img src="/images/yahoo.ico" alt=""/>'+t('user_session.new.form_side_notes.yahoo_signin'), 
+            "/user/session?user_session%5Bopenid_identifier%5D=https://www.yahoo.com", 
+            :class => "positive create", :method => 'post' %> 
+         </li>
+      </ul>
+    </fieldset>
     <p><%= t('user_session.new.form_side_notes.first') %></p>
   </div>
   <div class="note">
@@ -36,9 +42,9 @@
       <% f.buttons do %>
         <%= f.commit_button :label => t('user_session.new.commit_button'), :class => 'login_ico' %>  
         <%= f.button_link t('user_session.new.forgot_pass'), new_user_password_reset_path, 
-                         :button_html => {:class => "negative login_ico"} %> 
+                         :button_html => {:class => "negative forgot_ico"} %> 
         <%= f.button_link t('user_session.new.new_account'), new_user_account_path, 
-                         :button_html => {:class => "negative logout_ico"} %> 
+                         :button_html => {:class => "negative new_user_ico"} %> 
       <% end %>
   <% end %>
 </div>

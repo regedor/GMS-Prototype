@@ -1,16 +1,15 @@
-<div class="block">
-  <div class="content">
-    <div class="inner">
+<div class="content">
+  <div class="inner">
 
-      <h2><%= I18n::t('admin.pages.form.new') %></h2>
-      
-      <% semantic_form_for 'record',  @page, :url => admin_pages_path, :html => { :class => 'create', :id => 'new_page' }  do |form| -%>
-        <%= render :partial => 'form', :locals => {:form => form} %>
-        <% form.button_field_set do -%>
-          <%= form.commit_button(I18n::t('admin.pages.form.submit')) -%>
-        <% end -%>
+    <h2><%= I18n::t('admin.pages.form.new') %></h2>
+    
+    <%# É preciso um truque aqui para o botão ficar bonito %>
+    <% semantic_form_for 'record',  @page, :url => admin_pages_path, :html => { :class => 'create', :id => 'new_page' }  do |form| -%>
+      <%= render :partial => 'form', :locals => {:form => form} %>
+      <% form.button_field_set do -%>
+        <%= form.commit_button(I18n::t('admin.pages.form.submit')) -%>
       <% end -%>
-    </div>
+    <% end -%>
   </div>
 </div>
 
