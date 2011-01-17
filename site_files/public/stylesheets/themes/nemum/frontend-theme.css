@@ -144,6 +144,14 @@ div#whitespace        { background-color: #E5E5E5; }
 .commentlist li       { padding-bottom: 15px; }
 .commentlist li p     { padding-left: 15px; }
 
+/* Frontend Pages */
+
+#pages_show #main p      { margin: 20px 10px; text-align: justify; }
+#pages_show #main ul     { margin: 20px 10px; }
+#pages_show #main ul li  { margin-bottom: 10px; padding-top: 10px; list-style-type: disc; list-style-position: inside; border-top: 1px solid #CCCCCC; }
+#pages_show #main ol     { margin: 20px 10px; }
+#pages_show #main ol li  { margin-bottom: 10px; padding-top: 10px; list-style-type: decimal; list-style-position: inside; border-top: 1px solid #CCCCCC; }
+
 /* tag cloud classes */
 
 .nube1                { font-size: 1.0em; }
@@ -184,5 +192,6 @@ div#main,
 * html .selfclear { height: 1px; /* IE < 7 */ }
 * html .resource-list tr.table-header { background: #000; /* IE < 7 */}
 
-#pages_show #main table { margin: 10px;  }
-#pages_show #main td    { text-align: left; vertical-align: middle; width: 240px; }
+#pages_show #main table { margin: 10px; border-collapse: collapse; display: table; width: 98%; } /* it's sort of a hack... */
+#pages_show #main td,
+#pages_show #main th    { text-align: left; vertical-align: middle; border: solid 1px #DDD; padding: 5px 7px 5px; }
