@@ -117,7 +117,15 @@ en:
    
     dashboard:
       sidebar:
+        title: "Simon backend"
+        text:  "Look on these sidebars for location relative help."
         go_to_frontend: "Go to frontend"
+        user_management:
+          title: "User management"
+          manage_user_accounts: "Manage user accounts"
+          manage_groups: "Manage groups"
+        settings:
+          title: "Settings"
 
     mails:
       title: "Emails"
@@ -144,7 +152,7 @@ en:
       new:
         sidebar:
           title: "Mail Management"
-          content: "Cenas espectaculares a ver com mails"
+          content: "Here you can manage and send emails."
           sent_mails: "Outbox"
           go_to_sent_mails: "Sent Mails"
                             
@@ -172,6 +180,8 @@ en:
           subtitle: "You are reverting information"
           message: "If you click \"Revert\" below, you are making your actions permanent!"
           link: "Revert"
+        title: "User management"
+        text: "On this page you can manage the users."
       delete:
         title: "Delete User"
         question: "Are you sure you want to delete %{username}?"
@@ -225,6 +235,9 @@ en:
           more: "%{count} Users Found"
           one: "%{count} User Found"            
         noentries: "No entries found"
+      sidebar:
+        title: "Deleted users"
+        text: "Here you can manage deleted users."
           
     groups:
       index:
@@ -234,11 +247,6 @@ en:
         destroy_link: "Delete"      
         search: "Find groups"
         create: "New Group"
-      columns:
-        parent_name: "Parent"
-        name: "Name"
-        mailable: "Mailable"
-        description: "Description"
         sidebar:
           hierarchy:
             name: "Hierarchy"
@@ -248,6 +256,11 @@ en:
             go_to_users: "Go to users"
             deleted_users: "Deleted users"
             undo_deleted_users: "Recover users"
+      columns:
+        parent_name: "Parent"
+        name: "Name"
+        mailable: "Mailable"
+        description: "Description"
       delete:
         title: "Delete Group"
         question: "Are you sure you want to delete %{username}?"
@@ -394,6 +407,9 @@ en:
         found:
           more: "%{count} Announcements Found"
           one: "%{count} Announcements Found"
+      sidebar:
+        title: "Announcements"
+        text: "On this page you can create announcements that will appear on frontend."
 
 
   authlogic:
