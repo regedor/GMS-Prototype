@@ -52,9 +52,8 @@
         <span class="options">
         <% if logged_in? %>
           <%= @current_user.small_name %> |	      
-          <% unless ["user","guest"].member? Role.find(@current_user.role_id).label                                %>
-            <%= link_to t('navigation.administration'), admin_root_path, :class => "key_ico"                       %> |
-          <% end %>
+
+          <%= link_to t('navigation.administration'), admin_root_path, :class => "key_ico" if permitted_to? :read, :admin_dashboard %> |
           <%# link_to t('user_session.bar.account_link'), user_session_path, :class => "user_ico"                  %> 
           <%= link_to t('user_session.bar.logout'), user_logout_path,    :class => "logout_ico"                    %> 
         <% else %>

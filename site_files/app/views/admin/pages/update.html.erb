@@ -3,12 +3,20 @@
     <div class="inner">
 
       <h2><%= I18n::t('admin.pages.form.edit') + ' - ' + link_to(h(@record.title), page_path(@record)) %></h2>
+      <% semantic_form_for :record, @record, 
+                           :url => admin_page_path(@record), 
+                           :html => {:method => :put, :id => "edit_page_#{@record.id}"} do |form| -%>
 
-      <% semantic_form_for :record, @record, :url => admin_page_path(@record), :html => {:method => :put, :id => "edit_page_#{@record.id}"} do |form| -%>
         <%= render :partial => 'form', :locals => {:form => form} %>
-        <% form.button_field_set do -%>
-          <%= form.commit_button(I18n::t('admin.pages.form.submit')) -%>
+
+        <% form.buttons do -%>
+          <%= form.commit_button :label => t('admin.pages.form.submit'), :class => 'login_ico' %>  
+          <%= form.button_link t('admin.pages.form.preview_button'), "#", 
+                         :button_html => {:class => "preview_button"} %>
+		  <%= form.button_link t('admin.pages.form.edit_button'), "#", 
+				         :button_html => {:style => "display: none;", :class => "edit_button"} %> 
         <% end -%>
+
       <% end -%>
     </div>
   </div>
