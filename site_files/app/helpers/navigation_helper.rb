@@ -5,10 +5,9 @@ module NavigationHelper
       html = ""
       html += tag("ul",nil,true)
       Page.navigation_pages.each do |page|
-        html += tag("li",nil,true)+link_to(page.title, page_path(page))+tag("li") 
+        html += tag("li",nil,true)+link_to(page.title, page_path(page))+tag("/li",nil,true) 
       end  
-      html += tag("ul")
-      html
+      html += tag("/ul",nil,true)
     }
   end  
   
