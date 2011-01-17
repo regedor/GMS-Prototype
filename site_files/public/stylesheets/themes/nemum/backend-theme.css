@@ -69,6 +69,7 @@ hr                       {  color: #e2e2e2;background: #e2e2e2; }
 .table th                  { background: #eaeaea; color: #222; font-weight: normal; }
 .table td                  { border-bottom: 1px solid #eaeaea; }
 .form label.label          { color: #666666; }
+
 .form input.button         { cursor: pointer; color: #111; font-weight: bold; font-size: 11px; }
 .form input.button         { background: #e2e2e2; border: 1px solid #c1c1c1; padding: 2px 5px;}
 .form .description         { font-style: italic; color: #8C8C8C; font-size: .9em; }
@@ -82,6 +83,7 @@ button.button:link,
 button.button:visited,
 button.button:hover,
 button.button:active      { font-weight: normal; background-color: #f4f4f4; }
+
 .flash .message           { text-align:center; margin: 0 auto 15px; }
 #box .block h2            { background: #002134; color: #fff; }
 
@@ -102,7 +104,7 @@ a                         { -moz-outline: none; }
 
 div.show-view dl           { padding-left: 10px; padding-right: 10px; }
 div.show-view h4           { padding: 15px; margin-left:0; }
-div.show-view .form-footer { margin-bottom: 15px;}
+/*div.show-view .form-footer { margin-bottom: 15px;}*/
 
 /* HEADER */
 #header                   { background: #2E2A2B; background: -webkit-gradient(linear,left bottom,left top,color-stop(1, #2E2A2B),color-stop(0, #423D3E));

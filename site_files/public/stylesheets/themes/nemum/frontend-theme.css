@@ -76,9 +76,12 @@ div.announcements-bar       { color: #fff; font-size: 12px; text-align: justify;
 a,
 a:visited,
 a:link,
-a:active                    { color: lime; color: #2E2A2B; line-height: 1em; }
-a:hover                     { border-bottom: 3px solid #F8DA00; color: #555; }
-.options a:hover            { border-bottom: 1px solid #F8DA00; color: #555; }
+a:active                    { color: lime; color: #2E2A2B; line-height: 1em;}
+a:hover                     { border-bottom: 3px solid #F8DA00; color: #555;}
+.options a:hover            { border-bottom: 1px solid #F8DA00; color: #555;}
+.pagination a:hover,
+.meta a:hover,
+#footer a:hover            { border-bottom: 1px solid #F8DA00;}
 
 h2                          { color: #2E2A2B; }
 h2 a                        { color: #2E2A2B; }
@@ -86,15 +89,26 @@ h2 a                        { color: #2E2A2B; }
 div#navigation a:hover,
 div#site-title a:hover      { border-bottom: 0px;}
 
+#pages_show #main table     { font-size: 1.1em; }
+
 /*
 ============================================================================
 = General Structure
 ============================================================================
 */
 
-html, body       { background-color: #2E2A2B; }
-div#navigation   { background-color: #555; }
-#site-title h1 a { background: url("/stylesheets/themes/nemum/images/bg_logo.png") no-repeat; display:block; text-indent: -6000px; }
+html, body                      { background-color: #2E2A2B; }
+div#navigation                  { background-color: #555;}
+
+#site-title h1 a                { background: url("/stylesheets/themes/nemum/images/bg_logo.png") no-repeat; display:block; text-indent: -6000px;   }
+
+.form_with_notes                { width:70%; }
+.form_side_notes                { width:27%; float:right; margin-left: 2%; }
+div.note ul li                   { margin-bottom: 6px;}
+.form_side_notes > .note > *    { /*margin: 15px;*/ margin-top:0; }
+.form_side_notes>.note>.buttons { /*margin: 15px;*/ margin-bottom:15px; }
+.form_side_notes .buttons a     { float:none; display:block; margin:0; }
+.required_field_note            { margin-left:25%; margin-bottom:1em; }
 
 .form_with_notes                    { width: 70%; }
 .form_side_notes                    { width: 27%; float: right; margin-left: 15px; margin-right: 15px; }
@@ -177,3 +191,6 @@ div#main,
 .selfclear        { display: block; }
 * html .selfclear { height: 1px; /* IE < 7 */ }
 * html .resource-list tr.table-header { background: #000; /* IE < 7 */}
+
+#pages_show #main table { margin: 10px;  }
+#pages_show #main td    { text-align: left; vertical-align: middle; width: 240px; }

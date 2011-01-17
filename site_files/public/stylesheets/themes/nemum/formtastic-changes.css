@@ -7,54 +7,72 @@
 = Typography
 ============================================================================
 */
-input#user_session_openid_identifier             { background-position: 0 50%; color: #000; text-indent: 18px; }
-#content form.formtastic p                       { line-height: 1em; margin-bottom: 0; font-size: 1em; text-align: left; }
-form.formtastic abbr, form.formtastic acronym    { color: #e22; }
-form.formtastic                                  { font-size: 1.3em; background-color: #FCFCFC; }
-form.formtastic fieldset ol li p.inline-hints    { color: #555; }
-form.formtastic fieldset ol li p.inline-errors   { color: #d32; }
+input#user_session_openid_identifier             { color: #000; text-indent: 18px; padding-left: 18px; }
+#content form.formtastic p                       { line-height:1em; margin-bottom:0; font-size:1em; text-align:left; }
+form.formtastic abbr, form.formtastic acronym    { color:#e22;}
+form.formtastic                                  { font-size:1.3em;  background-color: #FCFCFC;}
+form.formtastic fieldset ol li p.inline-hints    { color:#555;}
+form.formtastic fieldset ol li p.inline-errors   { color:#d32;}
 
-.commit input,
-.buttons a, 
-.buttons button             { color: #666; background-color: #f5f5f5; border: 1px solid #ccc; }
-
-.commit input,
+/* Buttons */
 .buttons a,
-.buttons button             { font-family: "Lucida Grande", Tahoma, Arial, Verdana, Sans-Serif; }
- 
-.commit input,
-.buttons a,
-.buttons button             { font-size: 100%; line-height: 130%; text-decoration: none; }
- 
-.commit input,
-.buttons a,
-.buttons button             { font-weight: bold; cursor: pointer; padding: 5px 10px 6px 7px; }
- 
-button:hover,
-.buttons a:hover            { background-color: #eef; border: 1px solid #ccf; color: #369; }
- 
-.buttons a:active           { background-color: #58b; border: 1px solid #7ad; color: #fff; }
+fieldset.buttons li.commit input.create,
+fieldset.buttons li.commit input.update,
+fieldset.buttons li.commit a  { color:#666;background-color: #f5f5f5; border: 1px solid #ccc;
+                                font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+                                font-size:0.9em;line-height:130%;text-decoration:none; 
+                                font-weight:bold;  cursor:pointer; padding:3px 10px 3px 7px;
+                                border-top: 1px solid #eee; border-left:1px solid #eee;}
 
-input.create,
-.buttons a.positive,
-button.positive             { color: #591; }
+/* Neutral: #F8DA00 */
+.buttons a:hover,
+fieldset.buttons li.commit input.create:hover,
+fieldset.buttons li.commit input.update:hover,
+fieldset.buttons li.commit a:hover  { background-color:#F7F2CF; border:1px solid #F8DA00; color:#369;}
 
-input.create:hover,
-.buttons a.positive:hover,
-button.positive:hover       { background-color: #efe; border: 1px solid #cfc; color: #591; }
-input.create:active,
-.buttons a.positive:active  { background-color: #7b3; border: 1px solid #9d5; color: #fff; }
+.buttons a:active,
+fieldset.buttons li.commit input.create:active,
+fieldset.buttons li.commit input.update:active,
+fieldset.buttons li.commit a:active { background-color:#F8DA00; border:1px solid #F7F2CF; color:#fff;}
 
-.buttons a.negative,
- button.negative            { color: #d32; }
- 
-.buttons a.negative:hover,
- button.negative:hover      { background-color: #fee; border: 1px solid #fcc; color: #d32; }
- 
-.buttons a.negative:active  { background-color: #f54; border: 1px solid #f76; color: #fff; }
+/* positive */
+fieldset.buttons li.commit input.positive,
+fieldset.buttons li.commit input.create,
+fieldset.buttons li.commit input.update,
+fieldset.buttons li.commit a.positive { color:#591;}
 
-h1                          { padding: 2px; margin: 0; text-transform: none; }
-h1                          { color: black; letter-spacing: -1px; font: bold 16px arial; }
+fieldset.buttons li.commit input.positive:hover,
+fieldset.buttons li.commit input.create:hover,
+fieldset.buttons li.commit input.update:hover,
+fieldset.buttons li.commit a.positive:hover { background-color:#efe; border:1px solid #cfc; color:#591;}
+
+fieldset.buttons li.commit input.positive:active,
+fieldset.buttons li.commit input.create:active,
+fieldset.buttons li.commit input.update:active,
+fieldset.buttons li.commit a.positive:active { background-color:#7b3; border:1px solid #9d5; color:#fff;}
+
+/* negative */
+fieldset.buttons li.commit input.negative,
+fieldset.buttons li.commit a.negative { color:#d32;}
+
+fieldset.buttons li.commit input.negative:hover,
+fieldset.buttons li.commit a.negative:hover { background-color:#fee; border:1px solid #fcc; color:#d32;}
+
+fieldset.buttons li.commit input.negative:active,
+fieldset.buttons li.commit a.negative:active { background-color:#f54; border:1px solid #f76; color:#fff;}
+
+/* Fixes */
+.buttons button,
+li.commit input                     { width:auto; overflow:visible; padding:5px 10px 5px 7px;} /* IE6 */
+.buttons button[type]               { padding:5px 10px 6px 7px; line-height:17px;}/* Firefox & Safari */
+*:first-child+html button[type]     { padding:4px 10px 3px 7px;}/* IE7 */
+.buttons button img, .buttons a img { margin:0 3px -3px 0 !important;padding:0;border:none;width:16px;height:16px;}
+
+#main .block .content fieldset.buttons  { margin-bottom: 10px;}
+/* ************************************************************************************************************************************ */
+/* headers */
+h1                                               { padding: 2px;margin: 0;text-transform: none;}
+h1                                               { color: black; letter-spacing: -1px; font: bold 16px arial;}
 
 div #outer_holder a         { padding-left: 2px; color: #828282; }
 div #outer_holder .master   { -moz-border-radius: 5px; border-radius: 5px; border: 1px solid; border-color: #0099CC; padding: 2px; background-color: #C6E2FF; }/*#C3E4ED*/
@@ -92,15 +110,6 @@ input#user_openid_identifier         { background-position: 0 50%; color: #000; 
 input#user_session_openid_identifier { background: url("/images/openid.gif") no-repeat; background-color: #fff; }
 input#user_session_openid_identifier { background-position: 0 50%; color: #000; text-indent: 18px; }
 form.formtastic legend               { padding-bottom: 15px; }
-
-/* BUTTONS */
-.buttons a,
-.buttons button,
-li.commit input { border-top: 1px solid #eee; border-left: 1px solid #eee; font-family: "Lucida Grande", Tahoma, Arial, Verdana, Sans-Serif; }
-
-.buttons a,
-.buttons button,
-li.commit input                      { font-size: 14px; font-weight: bold; }
 
 .inner li.commit input               { margin-bottom: 10px; }
 

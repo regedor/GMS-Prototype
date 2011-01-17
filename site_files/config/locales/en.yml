@@ -263,6 +263,9 @@ en:
         name: "Name"
         mailable: "Mailable"
         description: "Description"
+        groups: "Groups"
+        direct_users: "Users"
+        user_choosable: "User choosable"
       delete:
         title: "Delete Group"
         question: "Are you sure you want to delete %{username}?"
