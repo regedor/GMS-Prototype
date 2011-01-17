@@ -128,7 +128,7 @@ ol li                                  { margin: 0; list-style-type: none; }
 .inputs ol li                          { padding-bottom: 15px; }
 
 form.formtastic fieldset.buttons       { padding-left: 0; }
-form.formtastic fieldset.buttons li    { margin-right: 1em; }
+/*form.formtastic fieldset.buttons li    { margin-right: 1em; }*/
 
 #main .block .content .inner h2        { padding-left: 2px; padding-top: 2px; padding-bottom: 0; margin-left: 0; margin-top: 0; margin-bottom: 4px; }
 
