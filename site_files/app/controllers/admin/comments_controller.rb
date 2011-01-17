@@ -1,13 +1,11 @@
 class Admin::CommentsController < Admin::BaseController
-
+  filter_access_to :all, :require => any_as_privilege
   before_filter :calculate_commentable_and_title, :only => [ :index, :list ]
 
   active_scaffold :comments do |config|
-
     Scaffoldapp::active_scaffold config, "admin.comments", 
       :list         => [ :commenter, :excert, :created_at ], 
       :edit         => [ :body ]
-
   end
 
   # Override this method to define conditions to be used when querying a recordset (e.g. for List).

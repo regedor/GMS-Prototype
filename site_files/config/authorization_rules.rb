@@ -8,7 +8,9 @@ authorization do
   role :admin do
     includes :users_manager
     includes :website_manager 
+    has_permission_on [:admin_revert_actions],      :to =>  [ :as_manage ]
     has_permission_on [:user_roles],                :to =>  [ :as_manage ]
+    has_permission_on [:admin_mails],               :to =>  [ :as_manage ]
   end
 
 
@@ -16,10 +18,11 @@ authorization do
 
   role :users_manager do
     includes :user
-    has_permission_on [:admin_dashboard],           :to => [:read]
+    has_permission_on [:admin_dashboard],           :to =>  [:read]
     has_permission_on [:admin_users],               :to =>  [ :as_manage ]
-    has_permission_on [:admin_deleted_users],               :to =>  [ :as_manage ]
+    has_permission_on [:admin_deleted_users],       :to =>  [ :as_manage ]
     has_permission_on [:admin_groups],              :to =>  [ :as_manage ]
+    has_permission_on [:revert_actions],            :to =>  [ :as_manage ]
   end
 
 
@@ -28,6 +31,7 @@ authorization do
   role :website_manager do
     includes :blogger
     has_permission_on [:admin_posts],               :to =>  [ :as_manage ]
+    has_permission_on [:admin_comments],            :to =>  [ :as_manage ]
     has_permission_on [:admin_announcements],       :to =>  [ :as_manage ]
     has_permission_on [:admin_pages],               :to =>  [ :as_manage ]
     has_permission_on [:admin_users],               :to =>  [ :as_read ]
@@ -37,7 +41,7 @@ authorization do
 
   role :blogger do
     includes :user
-    has_permission_on [:admin_dashboard],           :to => [:read]
+    has_permission_on [:admin_dashboard],           :to =>  [:read]
     has_permission_on [:admin_unpublished_posts],   :to =>  [ :as_manage ]
   end
 
@@ -49,7 +53,7 @@ authorization do
   role :guest do
     has_permission_on :posts,                       :to =>  [ :read ]
     has_permission_on :pages,                       :to =>  [ :read ]
-    #has_permission_on :pagess,                     :to => [:read] do
+    #has_permission_on :pagess,                     :to =>  [:read] do
     #  if_attribute :user => is { user }
     #end
   end
