@@ -173,6 +173,12 @@ en:
         language: "Language"
         name: "Name"
         role: "User Role"
+        nickname: "Nickname"
+        profile: "Profile"
+        website: "Website"
+        country: "Country"
+        gender: "Gender"
+        groups: "Groups"
       sidebar:
         history:
           title: "Actions history"
