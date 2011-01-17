@@ -8,7 +8,7 @@ namespace :db do
           :body                    => "Já está no ar o novo site do Núcleo de Estudantes de Medicina da Universidade do Minho. O Portal apresenta novo layout, mais dinamicidade e conteúdo. Aqui poderás encontrar toda a informação sobre o teu curso.",
           :active                  => true,
           :approved_comments_count => 0,
-          :published_at            => Time.now - 2,
+          :published_at            => Time.now - 2.days,
           :edited_at               => nil,
           :updated_at              => nil
         )
@@ -18,7 +18,7 @@ namespace :db do
           :body                    => "Queres aprender a dançar o Tango ou a Valsa? O NEMUM está a promover um curso de danças de salão. As aulas decorrem durante os dias úteis, das 18:30 às 20:00. O custo é de 10€ mensais.<br /><br />Inscreve-te já em nemum@ecsaude.uminho.pt e indica o dia da tua preferência.",
           :active                  => true,
           :approved_comments_count => 0,
-          :published_at            => Time.now,
+          :published_at            => Time.now - 1.day,
           :edited_at               => nil,
           :updated_at              => nil
         )
@@ -28,7 +28,7 @@ namespace :db do
           :body                    => "O Núcleo de Estudantes de Medicina da Universidade do Minho (NEMUM) realizará a sessão solene de tomada de posse dos seus novos órgãos sociais no próximo dia 17 de Janeiro de 2011 (segunda-feira), pelas 19h, no Anfiteatro A0.01 da Escola de Ciências da Saúde da Universidade do Minho, sito no Campus de Gualtar, em Braga.",
           :active                  => true,
           :approved_comments_count => 0,
-          :published_at            => Time.now - 1,
+          :published_at            => Time.now,
           :edited_at               => nil,
           :updated_at              => nil
         )
@@ -63,14 +63,18 @@ namespace :db do
           :message     => "O NEMUM realiza a sessão solene de tomada de posse dos seus novos órgãos sociais no dia 17 de Janeiro de 2011.",
           :avatar      => File.open("public/images/announcements/tomada_posse.png"),
           :always_show => true,
-          :created_at  => Time.now
+          :created_at  => Time.now,
+          :starts_at   => Time.now,
+          :ends_at     => Time.now + 1.year
         )
         Announcement.create(
           :title       => "NEMUM",
           :message     => "Este é o novo portal de Núcleo de Estudantes de Medicina da Universidade do Minho, aqui encontrarás toda a informação sobre o teu curso.",
           :avatar      => File.open("public/images/announcements/studying.png"),
           :always_show => true,
-          :created_at  => Time.now
+          :created_at  => Time.now,
+          :starts_at   => Time.now,
+          :ends_at     => Time.now + 1.year
         )
       end
 
