@@ -18,7 +18,6 @@ class User::AccountController < ApplicationController
       if result 
         session[:language] = @user.language
         if request["openid.op_endpoint"] == "https://www.google.com/accounts/o8/ud"
-          puts ">>>>>>>>>>>>>>>>>>>> OPENID MAN!"
           @user.activate!
           @user.deliver_activation_confirmation!
           UserSession.new(@user,true).save
