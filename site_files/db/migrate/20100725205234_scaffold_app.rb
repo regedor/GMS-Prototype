@@ -196,6 +196,13 @@ class ScaffoldApp < ActiveRecord::Migration
       t.text   :value
       t.timestamps
     end
+    
+    create_table :activities do |t|
+      t.string  :name,           :null => false
+      t.integer :user_id
+      t.text    :description
+      t.timestamps
+    end  
 
   end
 
