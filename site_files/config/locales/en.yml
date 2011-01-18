@@ -312,6 +312,7 @@ en:
         slug: "Slug"
         show_in_navigation: "Show in the Menu"
         has_comments: "Has Comments"
+        priority: "Priority"
       form:
         new: "New Page"
         edit: "Editing Page"
@@ -321,6 +322,9 @@ en:
         hints:
           body: "<a href='http://hobix.com/textile/quick.html'>Textile enabled</a>. Use Ctrl+E to switch between preview and edit mode."
           slug: "Leave blank for an auto-generated slug based on the title."
+          show_in_navigation: "Show in navigation"
+          priority: "Priority"
+          has_comments: "Has comments"
       list:
         noentries: "No Pages Found"
         found:
