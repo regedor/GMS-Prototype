@@ -4,10 +4,10 @@
   <div class="note">
     <p class="buttons">
       <%= link_to '<img src="/images/google.ico" alt=""/>'+t('users.new.form_side_notes.google_signup'),
-        "/users?user%5Bopenid_identifier%5D=https://www.google.com/accounts/o8/id", 
+        "/user/account?user%5Bopenid_identifier%5D=https://www.google.com/accounts/o8/id", 
         :class => "positive create", :method => 'post' %> 
       <%= link_to '<img src="/images/yahoo.ico" alt=""/>'+t('users.new.form_side_notes.yahoo_signup'), 
-        "/users?user%5Bopenid_identifier%5D=https://www.yahoo.com", 
+        "/user/account?user%5Bopenid_identifier%5D=https://www.yahoo.com", 
         :class => "positive create", :method => 'post' %> 
     </p>
     <p><%= t('users.new.form_side_notes.first') %></p>
