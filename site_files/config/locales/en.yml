@@ -132,7 +132,7 @@ en:
         name: "Name"
         description: "Description"
         groups: "Assigned Groups"
-        created_by: "Created by"
+        user_id: "Created by"
       list:
         noentries: "No entries found"
         found:
