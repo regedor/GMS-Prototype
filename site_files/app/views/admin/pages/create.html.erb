@@ -3,7 +3,6 @@
 
     <h2><%= I18n::t('admin.pages.form.new') %></h2>
     
-    <%# É preciso um truque aqui para o botão ficar bonito %>
     <% semantic_form_for 'record',  @record, :url => admin_pages_path, :html => { :class => 'create', :id => 'new_page' }  do |form| -%>
       <%= render :partial => 'form', :locals => {:form => form} %>
       <% form.button_field_set do -%>
