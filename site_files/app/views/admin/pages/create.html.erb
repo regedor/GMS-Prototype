@@ -15,7 +15,7 @@
       
       <% semantic_form_for 'record',  @record,
                            :url => admin_pages_path,
-                           :html => { :class => 'create', :id => 'new_page' }  do |form| -%>
+                           :html => { :class => 'create', :id => 'new_page' } do |form| -%>
 
         <%= render :partial => 'form', :locals => {:form => form} %>
 
@@ -28,6 +28,6 @@
         <% end -%>
 
       <% end -%>
-    <% end -%>
+    </div>
   </div>
 
