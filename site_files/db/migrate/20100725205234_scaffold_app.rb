@@ -205,6 +205,11 @@ class ScaffoldApp < ActiveRecord::Migration
       t.timestamps
     end  
     
+    create_table :activities_groups, :id => false do |t|
+      t.integer :group_id
+      t.integer :activity_id
+    end  
+    
     create_table :to_do_lists do |t|
       t.string  :name,          :null => false
       t.text    :description

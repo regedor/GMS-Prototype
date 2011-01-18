@@ -3,8 +3,9 @@ class Activity < ActiveRecord::Base
   # Relationships
   # ==========================================================================
   
-  belongs_to :created_by, :class_name => "User"
+  belongs_to :created_by, :class_name => "User", :foreign_key => "user_id"
   belongs_to :blackboard
+  has_and_belongs_to_many :groups
 
   # ==========================================================================
   # Validations

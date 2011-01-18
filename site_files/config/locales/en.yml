@@ -105,6 +105,7 @@ en:
         website: "Website"
         system: "System"
         communication: "Communication"
+        activities: "Activities"
       secondary:
         dashboard: "Dashboard"
         users: "Users"
@@ -116,6 +117,27 @@ en:
         settings: "Settings"
         undo_items: "Actions"
         mails: "Send E-Mail"
+        activities: "View Activities"
+    
+    activity:
+      index:
+        title: "Activities" 
+        create: "New Activity"
+        update_link: "Edit"
+        destroy_link: "Delete"
+        show_link: "Details"
+      create:
+        title: "New Activity"      
+      columns:
+        name: "Name"
+        description: "Description"
+        groups: "Assigned Groups"
+        created_by: "Created by"
+      list:
+        noentries: "No entries found"
+        found:
+          more: "%{count} Activities Found"
+          one: "%{count} Activity Found"                              
    
     dashboard:
       sidebar:
