@@ -1,10 +1,8 @@
-class Activity < ActiveRecord::Base
+class Blackboard < ActiveRecord::Base
   # ==========================================================================
   # Relationships
   # ==========================================================================
   
-  belongs_to :created_by, :class_name => "User"
-  belongs_to :blackboard
 
   # ==========================================================================
   # Validations

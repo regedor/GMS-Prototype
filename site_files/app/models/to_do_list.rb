@@ -1,10 +1,9 @@
-class Activity < ActiveRecord::Base
+class ToDoList < ActiveRecord::Base
   # ==========================================================================
   # Relationships
   # ==========================================================================
   
-  belongs_to :created_by, :class_name => "User"
-  belongs_to :blackboard
+  belongs_to :activity
 
   # ==========================================================================
   # Validations
