@@ -118,6 +118,8 @@ en:
         mails: "Send E-Mail"
    
     dashboard:
+      title: "You are logged in as an Administrator, you are now viewing the Administration dashboard."
+      text: "<p>On this backend you can manage all information. You can manage users, groups, communication and frontend items. On the sidebar you can find useful information </p>"
       sidebar:
         title: "Simon backend"
         text:  "Look on these sidebars for location relative help."
@@ -128,9 +130,14 @@ en:
           manage_groups: "Manage groups"
         settings:
           title: "Settings"
+          manage_settings: "Manage %{site_name} settings"
 
     mails:
       title: "Emails"
+      to: "To:"
+      subject: "Subject:"
+      message: "Message:"
+      send: "Send emails"
       group: " (Group)"
       send_ok: "Email successfully sent to the following e-mail addresses:"
       send_fail: "The email could not be sent, try again!"
@@ -173,6 +180,12 @@ en:
         language: "Language"
         name: "Name"
         role: "User Role"
+        nickname: "Nickname"
+        profile: "Profile"
+        website: "Website"
+        country: "Country"
+        gender: "Gender"
+        groups: "Groups"
       sidebar:
         history:
           title: "Actions history"
@@ -184,6 +197,9 @@ en:
           link: "Revert"
         title: "User management"
         text: "On this page you can manage the users."
+        edit:
+          title: "User edit"
+          text: "On this page you can edir user information. You can also view previous versions of user details."
       delete:
         title: "Delete User"
         question: "Are you sure you want to delete %{username}?"
@@ -263,6 +279,9 @@ en:
         name: "Name"
         mailable: "Mailable"
         description: "Description"
+        groups: "Groups"
+        direct_users: "Users"
+        user_choosable: "User choosable"
       delete:
         title: "Delete Group"
         question: "Are you sure you want to delete %{username}?"
@@ -293,6 +312,7 @@ en:
         slug: "Slug"
         show_in_navigation: "Show in the Menu"
         has_comments: "Has Comments"
+        priority: "Priority"
       form:
         new: "New Page"
         edit: "Editing Page"
@@ -302,6 +322,9 @@ en:
         hints:
           body: "<a href='http://hobix.com/textile/quick.html'>Textile enabled</a>. Use Ctrl+E to switch between preview and edit mode."
           slug: "Leave blank for an auto-generated slug based on the title."
+          show_in_navigation: "Show in navigation"
+          priority: "Priority"
+          has_comments: "Has comments"
       list:
         noentries: "No Pages Found"
         found:
@@ -421,6 +444,11 @@ en:
       sidebar:
         title: "Announcements"
         text: "On this page you can create announcements that will appear on frontend."
+    settings:
+      title: "Settings management"
+      theme: "Theme"
+      site_title: "Site title"
+      save: "Save"
 
 
   authlogic:
@@ -516,6 +544,10 @@ en:
     are_you_sure: "Are you sure?"
     scaffold_do_actions: "More actions"
     time_ago: "%{time_ago} ago"
+    true_value: "True"
+    false_value: "False"
+    male_value: "Male"
+    female_value: "Female"
 
 #data
 

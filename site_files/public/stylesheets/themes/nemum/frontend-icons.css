@@ -7,8 +7,7 @@
 
 /* account-info */
 
-
-li a.logout_ico    { background: #F5F5F5 url("icons/door_out.png") no-repeat 2px 4px;  padding-left: 20px;}
-li a.login_ico     { background: #F5F5F5 url("icons/door_in.png") no-repeat 2px 4px;  padding-left: 20px;}
-li.login_ico input { background: #F5F5F5 url("icons/door_in.png") no-repeat 2px 4px; padding-left: 20px; padding-top: 5px;} 
+fieldset.buttons li a.new_user_ico    { background: #F5F5F5 url("/stylesheets/themes/nemum/icons/user_add.png") no-repeat 2px 4px;  padding-left: 20px;}
+fieldset.buttons li a.forgot_ico     { background: #F5F5F5 url("/stylesheets/themes/nemum/icons/door.png") no-repeat 2px 4px;  padding-left: 20px;}
+fieldset.buttons li.login_ico input.create { background: #F5F5F5 url("/stylesheets/themes/nemum/icons/door_in.png") no-repeat 2px 4px; padding-left: 20px;}
 

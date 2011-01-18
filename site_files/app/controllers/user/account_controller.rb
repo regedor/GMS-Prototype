@@ -8,9 +8,11 @@ class User::AccountController < ApplicationController
   
   def new
     @user = User.new
+    #redirect_to root_path
   end
   
   def create
+    #redirect_to root_path
     @user = User.new(params[:user])
     @user.save do | result | 
       if result 

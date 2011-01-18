@@ -83,7 +83,7 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold h5                      { padding: 2px;margin: 0;text-transform: none;color: black;letter-spacing: -1px;}
 .active-scaffold h5                      { font: bold 16px verdana,arial; padding: 0;margin: 5px 0 2px 0;font-size: 14px;letter-spacing: 0;}
 .active-scaffold a.cancel,
-.active-scaffold p.form-footer a         { font: bold 14px verdana,arial, sans-serif;letter-spacing: 0;}
+/*.active-scaffold p.form-footer a         { font: bold 14px verdana,arial, sans-serif;letter-spacing: 0;}*/
 .active-scaffold label                   { font: normal 11px verdana, sans-serif;color: #555;}
 .active-scaffold .description            { color: #999;font-size: 10px;margin-left: 5px;}
 .active-scaffold .required label         { font-weight: bold;}
@@ -158,7 +158,7 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold-header div.actions                     { right: 0px; top: 0;}
 
 #as_admin__posts-active-scaffold                        { padding: 0; margin: 0px;}
-#main .block .content .inner                            { padding: 0; padding-bottom: 5px;}
+#main .block .content .inner                            { padding: 0; padding-bottom: 1px;}
 
 /*#new_post                                               { padding-left: 5px;}*/
 #main .block .content .inner h2                         { padding-left: 15px;}
@@ -301,60 +301,35 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .actions .search .dropdownmenu                           { height: 20px; vertical-align: top; margin-right: 10px; }
 
 /* Buttons */
-.content a.disabled                                      {display: none;}
+.content a.disabled                                      { display: none;}
 
-.active-scaffold a.cancel,
-.active-scaffold p.form-footer a,
-.active-scaffold .submit a,
-.form-footer a,
-.form-footer a:active,
-.form-footer a:visited,
-.form-footer a:link,
-.form-footer input.submit                                { border:0; margin:0; padding:0; color:#666; background-color: #f5f5f5; border: 1px solid #ccc; } 
+.active-scaffold p.form-footer { margin-left: 14px; padding-bottom: 14px;}
 
-.active-scaffold a.cancel,
- .active-scaffold p.form-footer a,
-.form-footer a,
-.form-footer a:active,
-.form-footer a:visited,
-.form-footer a:link,
-.form-footer input.submit                                { font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;}
+.active-scaffold p.form-footer .submit,
+p.form-footer a,
+p.form-footer a:link,
+p.form-footer a:visited        { color:#666;background-color: #f5f5f5; border: 1px solid #ccc;
+                                 font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+                                 font-size:1.1em;line-height:130%;text-decoration:none; 
+                                 font-weight:bold;  cursor:pointer; padding:3px 10px 3px 7px;
+                                 border-top: 1px solid #eee; border-left:1px solid #eee; margin: 0px; margin-right: 8px;}
 
-.active-scaffold a.cancel,
- .active-scaffold p.form-footer a,
-.form-footer a,
-.form-footer a:active,
-.form-footer a:visited,
-.form-footer a:link,
-.form-footer input.submit                                { border-top: 1px solid #eee; border-left:1px solid #eee;}
+/* Neutral */
+.active-scaffold p.form-footer .submit:hover,
+p.form-footer a:hover,
+p.form-footer a:hover          { background-color:#eef; border:1px solid #ccf; color:#369; }
 
-.active-scaffold a.cancel,
-.active-scaffold p.form-footer a,
-.form-footer a,
-.form-footer a:active,
-.form-footer a:visited,
-.form-footer a:link,
-.form-footer input.submit                                { font-weight:bold;  cursor:pointer; padding:5px 10px 6px 7px;} 
+.active-scaffold p.form-footer .submit:active,
+p.form-footer a:active,
+p.form-footer a:active         { background-color:#58b; border:1px solid #7ad; color:#fff; }
 
-.active-scaffold a.cancel, 
-.active-scaffold p.form-footer a,
-.form-footer a,
-.form-footer a:active,
-.form-footer a:visited,
-.form-footer a:link,
-.form-footer input.submit                { margin-left: 15px;margin-bottom: 10px;} 
-
-/*FIXME: Wrong height on chrome, right on firefox (?)*/
 
 /* Positive */
-
-.form-footer input.submit                     { color:#591;}
-.form-footer input.submit:hover               { background-color:#efe; border:1px solid #cfc; color:#591;}
-.form-footer input.submit:active              { background-color:#7b3; border:1px solid #9d5; color:#fff;}
-
+.active-scaffold p.form-footer .submit        { color:#591; }
+.active-scaffold p.form-footer .submit:hover  { background-color:#efe; border:1px solid #cfc; color:#591;}
+.active-scaffold p.form-footer .submit:active { background-color:#7b3; border:1px solid #9d5; color:#fff;}
 
 /* Negative */
-
-.active-scaffold a.cancel                     { color:#d32;}
-.active-scaffold a.cancel:hover               { background-color:#fee; border:1px solid #fcc; color:#d32;}
-.active-scaffold a.cancel:active              { background-color:#f54; border:1px solid #f76; color:#fff;}
+p.form-footer a.cancel           { color:#d32;}
+p.form-footer a:hover.cancel     { background-color:#fee; border:1px solid #fcc; color:#d32;}
+p.form-footer a:active.cancel    { background-color:#f54; border:1px solid #f76; color:#fff;}

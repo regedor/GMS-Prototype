@@ -69,9 +69,9 @@
 <%# Edit page %>
 <% if controller.action_name == "edit" and @record -%>
   <div class="block">
-    <h3>Falar sobre a edição de users</h3>
+    <h3><%= t("admin.users.sidebar.edit.title") %></h3>
     <div class="content">
-      <p>Esta aplicação é um espetaculo para gerir users. Falar do historico e mais promenores dos users</p>
+      <p><%= t("admin.users.sidebar.edit.text") %></p>
     </div>
   </div>
 <% end -%>
