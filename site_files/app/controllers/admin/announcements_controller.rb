@@ -8,4 +8,9 @@ class Admin::AnnouncementsController < Admin::BaseController
       :create       => [ :title, :starts_at, :ends_at, :url, :avatar, :message ],
       :edit         => [  ]
   end
+
+  def do_new
+    super
+    @record[:starts_at] = Time.now
+  end
 end

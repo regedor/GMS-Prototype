@@ -311,6 +311,7 @@ en:
     posts:
       index:
         title: "News List"
+        show_link: "Details"
         destroy_link: "Delete"
         update_link: "Edit"
         comments_link:
@@ -334,12 +335,16 @@ en:
           more: "%{count} Posts Found"
           one: "%{count} Post Found"
       form:
+        show: "Show Post"
         new: "New Post"
         edit: "Editing Post"
         edit_tag: "Editing Tag - %{name}"
-        submit: "Save"
         preview_button: "Preview"
         edit_button: "Edit"
+        create_button: "Create"
+        update_button: "Update"
+        cancel_button: "Cancel"
+        close_button: "Close"
         hints:
           body: '<a href="http://hobix.com/textile/quick.html">Textile enabled</a>. Use Ctrl+E to switch between preview and edit mode.'
           tag_list: "Comma separated: ruby, rails&hellip;"

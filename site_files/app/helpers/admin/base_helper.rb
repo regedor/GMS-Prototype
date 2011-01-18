@@ -1,5 +1,16 @@
 module Admin::BaseHelper
 
+  def title_column(record)
+    return case record.class.to_s
+      when 'Post' then
+        link_to(record.title, post_path(record))
+      when 'Page' then
+        link_to(record.title, page_path(record))
+      else
+        record.title
+    end
+  end
+
   def user_id_show_column(record)
     User.find(record.user_id).to_label
   end 

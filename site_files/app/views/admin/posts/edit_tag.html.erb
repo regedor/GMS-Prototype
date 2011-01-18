@@ -1,12 +1,13 @@
-<% if File.exists?(Rails.root.join("app", "views", params[:controller], "_update_sidebar.html.erb")) %>
+<% if File.exists?(Rails.root.join("app", "views", params[:controller], "_edit_sidebar.html.erb")) %>
   <% content_for :sidebar do -%>
-    <%= render :partial => 'update_sidebar'  %>
+    <%= render :partial => 'edit_sidebar'  %>
   <% end -%>
 <% elsif File.exists?(Rails.root.join("app", "views", params[:controller], "_sidebar.html.erb")) %>
   <% content_for :sidebar do -%>
     <%= render :partial => 'sidebar'  %>
   <% end -%>
 <% end -%>
+
   <div class="content">
     <div class="inner">
 
@@ -16,9 +17,17 @@
         <% form.input_field_set do -%>
           <%= form.input :name %>
         <% end -%>
-        <% form.button_field_set do -%>
-          <%= form.commit_button(I18n::t('admin.posts.form.submit')) -%>
-        <% end -%>
+
+        <p class="form-footer">
+          <% form.buttons do -%>
+            <%= form.commit_button t('admin.posts.form.update_button'),
+                                   :button_html => {:class => "submit"} %>
+            <%= form.button_link   t('admin.posts.form.cancel_button'), admin_posts_path,
+                                   :button_html => {:class => "cancel"} %>
+          <% end -%>
+        </p>
+
       <% end -%>
     </div>
   </div>
+
