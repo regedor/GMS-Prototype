@@ -5,7 +5,12 @@
     <% if @record.email    %> <dt><%= t("admin.users.view.email")    %></dt> <dd> <%= @record.email       %></dd> <% end %>
     <% if @record.name     %> <dt><%= t("admin.users.view.name")     %></dt> <dd> <%= @record.name        %></dd> <% end %>
     <% if @record.nickname %> <dt><%= t("admin.users.view.nickname") %></dt> <dd> <%= @record.nickname    %></dd> <% end %>
-    <% if @record.gender   %> <dt><%= t("admin.users.view.gender")   %></dt> <dd> <%= @record.gender      %></dd> <% end %>
+    <dt><%= t("admin.users.view.gender")   %></dt> <dd> 
+      <% if @record.gender %>
+        <p class="true-male"><%= t("generic_sentence.male_value") %> </p>
+      <% else %>
+        <p class="false-female"><%= t("generic_sentence.female_value")      %> </p>
+      <% end %></dd>
     <% if @record.profile  %> <dt><%= t("admin.users.view.profile")  %></dt> <dd> <%= @record.profile     %></dd> <% end %>
     <% if @record.website  %> <dt><%= t("admin.users.view.website")  %></dt> <dd> <%= @record.website     %></dd> <% end %>
     <% if @record.country  %> <dt><%= t("admin.users.view.country")  %></dt> <dd> <%= @record.country     %></dd> <% end %>

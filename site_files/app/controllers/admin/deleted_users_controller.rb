@@ -27,7 +27,7 @@ class Admin::DeletedUsersController < Admin::BaseController
     return { :deleted => true }
   end
 
-  # I are Overriding this action to use it as befor revert preview too
+  # Overrided this action to show revertion previews and revert option
   def show
     if params[:history_entry_id]
       @actual_record = User.find params[:id] 

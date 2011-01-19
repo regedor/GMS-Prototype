@@ -1,4 +1,4 @@
-class Admin::RevertActionsController < Admin::BaseController
+class Admin::HistoryEntriesController < Admin::BaseController
   filter_access_to :all, :require => any_as_privilege
 
   def create

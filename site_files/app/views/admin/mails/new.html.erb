@@ -76,7 +76,7 @@ jQuery(document).ready(function($) {
         <ol class="form">
           <li class="form-element">
             <dl>
-              <dt><label>To:</label></dt> 
+              <dt><label><%= I18n::t("admin.mails.to") %></label></dt> 
               <dd>	
                   <div id="outer_holder">
                      <span id="recipients_holder">
@@ -89,14 +89,14 @@ jQuery(document).ready(function($) {
 
           <li class="form-element">
             <dl>
-              <dt><label>Subject:</label></dt> 
+              <dt><label><%= I18n::t("admin.mails.subject") %></label></dt> 
               <dd> <%= f.text_field :subject %></dd> 
             </dl>
           </li>
           
           <li class="form-element">
             <dl>
-              <dt><label>Message:</label></dt> 
+              <dt><label><%= I18n::t("admin.mails.message") %></label></dt> 
               <dd> <%= f.text_area :message %></dd> 
               <%= f.hidden_field(:mailable) %>
 			  <%= hidden_field_tag(:mail_to) %>
@@ -105,7 +105,7 @@ jQuery(document).ready(function($) {
         </ol>
         
        <p class="form-footer">
-        <%= f.submit "Send email", :class => "submit" %>
+        <%= f.submit I18n::t("admin.mails.send"), :class => "submit" %>
       </p>
     <% end -%>
   </div>

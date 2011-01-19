@@ -1,5 +1,16 @@
 module Admin::BaseHelper
 
+  def title_column(record)
+    return case record.class.to_s
+      when 'Post' then
+        link_to(record.title, post_path(record))
+      when 'Page' then
+        link_to(record.title, page_path(record))
+      else
+        record.title
+    end
+  end
+
   def user_id_show_column(record)
     User.find(record.user_id).to_label
   end 
@@ -75,6 +86,22 @@ module Admin::BaseHelper
   
   def type_column(action)
     action.complete_description
+  end
+  
+  def active_column(record)
+    if record.active
+      '<p class = "true-tick">'+I18n::t('generic_sentence.true_value')+'</p>'
+    else
+      '<p class = "false-cross">'+I18n::t("generic_sentence.false_value")+'</p>'
+    end
+  end
+  
+  def mailable_column(record)
+    if record.mailable
+      '<p class = "true-tick">'+I18n::t('generic_sentence.true_value')+'</p>'
+    else
+      '<p class = "false-cross">'+I18n::t("generic_sentence.false_value")+'</p>'
+    end  
   end
 
   # Generates html containing the flash messages with the correct classes.

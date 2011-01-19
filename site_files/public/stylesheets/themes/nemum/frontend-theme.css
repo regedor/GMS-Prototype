@@ -128,7 +128,7 @@ div.form_with_notes > .formtastic   { padding: 0px; border-right: solid 1px #DDD
 div#content p         { margin-bottom: 0; }
 div#sidebar           { background-color: white; }
 div#main              { background-color: white; }
-div#announcements     { background-color: #E5E5E5; border-left: 1px solid #999; border-right: 1px solid #999; }
+div#announcements     { background-color: #E5E5E5; border-left: 1px solid #555; border-right: 1px solid #555; }
 div#posts             { background-color: white; }
 div#whitespace        { background-color: #E5E5E5; }
 
