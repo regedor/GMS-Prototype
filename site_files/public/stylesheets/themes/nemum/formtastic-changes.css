@@ -138,7 +138,7 @@ form.formtastic fieldset ol li.string input,
 form.formtastic fieldset ol li.email input   { width: 250px; padding: 2px; }
 form.formtastic fieldset ol li.text textarea { width: 320px; border: 1px solid #9E9E9E; font-size: 12px; }
 form.formtastic fieldset ol li               { margin-bottom: -1px; }
-form.formtastic fieldset ol li label         { width: 13em; margin-top: 5px; }
+form.formtastic fieldset ol li label         { width: 35%; margin-top: 5px; }
 
 #main .block .content .inner                 { padding: 0; margin: 0; padding-left: 5px; padding-bottom: 5px; }
 
