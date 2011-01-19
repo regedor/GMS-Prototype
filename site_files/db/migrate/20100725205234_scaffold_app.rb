@@ -197,11 +197,6 @@ class ScaffoldApp < ActiveRecord::Migration
       t.timestamps
     end
     
-    create_table :activities_groups, :id => false do |t|
-        t.integer :group_id
-        t.integer :activity_id
-    end
-    
   end
 
   def self.down

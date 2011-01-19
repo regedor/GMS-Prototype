@@ -25,6 +25,10 @@ class AddActivitiesTables < ActiveRecord::Migration
       t.text     :content
     end
     
+    create_table :activities_groups, :id => false do |t|
+      t.integer :group_id
+      t.integer :activity_id
+    end
     
   end
 

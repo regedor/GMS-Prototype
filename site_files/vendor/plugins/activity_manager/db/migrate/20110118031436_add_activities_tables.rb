@@ -1,6 +1,6 @@
 class AddActivitiesTables < ActiveRecord::Migration
   def self.up
-    create_table :activities do |t|
+    create_table :projects do |t|
       t.string  :name,           :null => false
       t.integer :user_id
       t.integer :blackboard_id
@@ -11,7 +11,7 @@ class AddActivitiesTables < ActiveRecord::Migration
     create_table :to_do_lists do |t|
       t.string  :name,          :null => false
       t.text    :description
-      t.integer :activity_id 
+      t.integer :project_id 
     end
     
     create_table :to_dos do |t|
@@ -25,6 +25,10 @@ class AddActivitiesTables < ActiveRecord::Migration
       t.text     :content
     end
     
+    create_table :projects_groups, :id => false do |t|
+      t.integer :group_id
+      t.integer :project_id
+    end
     
   end
 

@@ -3,8 +3,8 @@ class Admin::ActivitiesController < Admin::BaseController
   
   active_scaffold :activity do |config|
     
-    #config.columns[:groups].form_ui = :select
-    #config.columns[:groups].options = {:draggable_lists => true}
+    config.columns[:groups].form_ui = :select
+    config.columns[:groups].options = {:draggable_lists => true}
     
     Scaffoldapp::active_scaffold config, "admin.activity",
       :list     => [ :name, :description ],
@@ -14,14 +14,20 @@ class Admin::ActivitiesController < Admin::BaseController
       :row_mark => [  ]
   end
   
+  def show
+    @activity = Activity.find(params[:id])
+  end  
+  
   def create
     activity = Activity.new
     record = params[:record]
     activity.name = record[:name]
     activity.description = record[:description]
-    activity.created_by = current_user
-    record[:groups].each do |k,v|
-      activity.groups << Group.find(v[:id])
+    activity.user_id = current_user.id
+    if record[:groups]
+      record[:groups].each do |k,v|
+        activity.groups << Group.find(v[:id])
+      end  
     end  
     activity.save
     

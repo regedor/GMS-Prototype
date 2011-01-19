@@ -3,7 +3,7 @@ class ToDoList < ActiveRecord::Base
   # Relationships
   # ==========================================================================
   
-  belongs_to :activity
+  belongs_to :project
 
   # ==========================================================================
   # Validations
