@@ -128,11 +128,12 @@ ol li                                  { margin: 0; list-style-type: none; }
 .inputs ol li                          { padding-bottom: 15px; }
 
 form.formtastic fieldset.buttons       { padding-left: 0; }
-/*form.formtastic fieldset.buttons li    { margin-right: 1em; }*/
+
 
 #main .block .content .inner h2        { padding-left: 2px; padding-top: 2px; padding-bottom: 0; margin-left: 0; margin-top: 0; margin-bottom: 4px; }
 
-form.formtastic fieldset.inputs ol li        { margin-left: 15px; }
+/* Atenção aqui do here this pleas do stuff!!!*/
+/*form.formtastic fieldset.inputs ol li        { margin-left: 15px; }*/
 form.formtastic fieldset ol li.password input,
 form.formtastic fieldset ol li.string input,
 form.formtastic fieldset ol li.email input   { width: 250px; padding: 2px; }
@@ -146,6 +147,10 @@ form.formtastic                              { margin-left: 15px; margin-right: 
 
 form.formtastic fieldset ol li.boolean label { margin-left: 24px; }
 
+#login-form form.formtastic { margin-left: 0px;}
+
 /* css 3 */
 form.formtastic fieldset ol li.string input:hover,
 form.formtastic fieldset ol li.text textarea:hover { -webkit-box-shadow: rgba(0,0,0,0.3) 0 0 3px; -moz-box-shadow: rgba(0,0,0,0.3) 0 0 3px; box-shadow: 0 0 3px rgba(0,0,0,0.3); border: 1px solid #a2a294; }
+
+
