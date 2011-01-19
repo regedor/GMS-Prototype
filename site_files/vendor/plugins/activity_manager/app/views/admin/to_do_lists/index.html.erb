@@ -12,15 +12,16 @@ jQuery(document).ready(function($){
         $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"uncheck"});
       },
       success: function(r) {
-		
+		$(".done_todos .done_todo #"+r).parent().appendTo(".not_done");
+		$(".done_todos .done_todo #"+r).parent().remove();
+		$(".not_done .done_todo #"+r).parent().addClass("todo");
+		$(".not_done .done_todo #"+r).parent().removeClass("done_todo");
+		$(".not_done .todo #"+r).removeAttr("checked");
       }
     });
-	$(this).parent().remove();
-	$(this).parent().appendTo(".not_done");
-	$(this).parent().removeClass("done_todo");
-	$(this).parent().addClass("todo");
-	$(this).removeAttr("checked");
+
 	$(this).bind("click",check);
+	
   });
 	
   $(".todos .todo [type=checkbox]").click(check=function(){
@@ -32,14 +33,13 @@ jQuery(document).ready(function($){
         $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"check"});
       },
       success: function(r) {
-	    	
+		$(".not_done .todo #"+r).parent().appendTo(".done_todos");
+	    $(".not_done .todo #"+r).parent().remove();	
+		$(".done_todos .todo #"+r).parent().addClass("done_todo");
+		$(".done_todos .todo #"+r).parent().removeClass("todo");			
       }
     });
 	
-	$(this).parent().remove();
-	$(this).parent().appendTo(".done_todos");
-	$(this).parent().addClass("done_todo");
-	$(this).parent().removeClass("todo");
 	$(this).bind("click",uncheck);
   });
 	
@@ -60,7 +60,7 @@ jQuery(document).ready(function($){
   <div class="not_done">	
     <% divided_hash[:notDone].each do |todo| %>
       <div class="todo">
-        <input type="checkbox" value="<%= todo.id %>" /> 	
+        <input type="checkbox" id="<%= todo.id %>" value="<%= todo.id %>" /> 	
         <span class="todo_desc"><%= todo.description %></span>
       </div>
     <% end %>
@@ -69,7 +69,7 @@ jQuery(document).ready(function($){
   <div class="done_todos">
 	<% divided_hash[:done].each do |todo| %>
 	  <div class="done_todo">
-	    <input type="checkbox" value="<%= todo.id %>" checked="yes" />
+	    <input type="checkbox" id="<%= todo.id %>" value="<%= todo.id %>" checked="yes" />
 	    <span class="todo_desc"><%= todo.description %></span>
 	  </div>
 	<% end %>

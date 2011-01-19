@@ -17,9 +17,7 @@ class Admin::ToDoListsController < Admin::BaseController
     
     @lists = ToDoList.all
     respond_to do |format|
-      format.js {
-        render :text => "Hello"
-      }
+      format.js { render :text => params[:id].to_s }
     end  
     
     #redirect_to :action  => :index
