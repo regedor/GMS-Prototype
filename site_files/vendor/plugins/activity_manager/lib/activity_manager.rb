@@ -1,1 +1,3 @@
-# ActivityManager
+module ActivityManager
+  
+end

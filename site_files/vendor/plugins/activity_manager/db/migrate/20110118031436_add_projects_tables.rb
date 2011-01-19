@@ -1,4 +1,4 @@
-class AddActivitiesTables < ActiveRecord::Migration
+class AddProjectsTables < ActiveRecord::Migration
   def self.up
     create_table :projects do |t|
       t.string  :name,           :null => false
@@ -16,7 +16,7 @@ class AddActivitiesTables < ActiveRecord::Migration
     
     create_table :to_dos do |t|
       t.boolean    :done,         :default => false
-      t.text       :desciption,                      :null => false
+      t.text       :description,                      :null => false
       t.integer    :to_do_list_id
       t.timestamps
     end
@@ -25,7 +25,7 @@ class AddActivitiesTables < ActiveRecord::Migration
       t.text     :content
     end
     
-    create_table :projects_groups, :id => false do |t|
+    create_table :groups_projects, :id => false do |t|
       t.integer :group_id
       t.integer :project_id
     end
@@ -33,10 +33,10 @@ class AddActivitiesTables < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table "activities"
+    drop_table "projects"
     drop_table "to_do_lists"
     drop_table "to_do"
     drop_table "blackboards"
-    drop_table "activities_groups"
+    drop_table "groups_projects"
   end
 end

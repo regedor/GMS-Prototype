@@ -1,0 +1,80 @@
+<script>
+jQuery.noConflict();
+
+jQuery(document).ready(function($){
+  
+  $(".done_todos .done_todo [type=checkbox]").click(uncheck=function(){
+	jQuery.ajax({
+      type: 'POST',
+      data: "id="+$(this).val()+"&state=notdone",
+      url: window.location.href+"/changeState",
+      error: function() {
+        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"uncheck"});
+      },
+      success: function(r) {
+		
+      }
+    });
+	$(this).parent().remove();
+	$(this).parent().appendTo(".not_done");
+	$(this).parent().removeClass("done_todo");
+	$(this).parent().addClass("todo");
+	$(this).removeAttr("checked");
+	$(this).bind("click",check);
+  });
+	
+  $(".todos .todo [type=checkbox]").click(check=function(){
+	jQuery.ajax({
+      type: 'POST',
+      data: "id="+$(this).val()+"&state=done",
+      url: window.location.href+"/changeState",
+      error: function() {
+        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"check"});
+      },
+      success: function(r) {
+	    	
+      }
+    });
+	
+	$(this).parent().remove();
+	$(this).parent().appendTo(".done_todos");
+	$(this).parent().addClass("done_todo");
+	$(this).parent().removeClass("todo");
+	$(this).bind("click",uncheck);
+  });
+	
+}); 
+</script>
+
+
+<% @lists.each do |list| %>
+<div class="title">
+	<h2><%= link_to list.name, admin_project_to_do_lists_path %></h2>
+</div>
+<div class="description">
+  <%= list.description %>
+</div>
+<div class="todos">
+  <% divided_hash = list.divide_done_todos %>	
+  
+  <div class="not_done">	
+    <% divided_hash[:notDone].each do |todo| %>
+      <div class="todo">
+        <input type="checkbox" value="<%= todo.id %>" /> 	
+        <span class="todo_desc"><%= todo.description %></span>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="done_todos">
+	<% divided_hash[:done].each do |todo| %>
+	  <div class="done_todo">
+	    <input type="checkbox" value="<%= todo.id %>" checked="yes" />
+	    <span class="todo_desc"><%= todo.description %></span>
+	  </div>
+	<% end %>
+  </div>	
+</div>
+<% end %>	
+
+

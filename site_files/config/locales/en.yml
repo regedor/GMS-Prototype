@@ -105,7 +105,7 @@ en:
         website: "Website"
         system: "System"
         communication: "Communication"
-        activities: "Activities"
+        projects: "Projects"
       secondary:
         dashboard: "Dashboard"
         users: "Users"
@@ -117,9 +117,9 @@ en:
         settings: "Settings"
         undo_items: "Actions"
         mails: "Send E-Mail"
-        activities: "View Activities"
+        projects: "View Projects"
     
-    activity:
+    project:
       index:
         title: "Activities" 
         create: "New Activity"

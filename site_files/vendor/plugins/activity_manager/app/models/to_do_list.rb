@@ -4,6 +4,7 @@ class ToDoList < ActiveRecord::Base
   # ==========================================================================
   
   belongs_to :project
+  has_many :to_dos
 
   # ==========================================================================
   # Validations
@@ -21,7 +22,19 @@ class ToDoList < ActiveRecord::Base
   # Instance Methods
   # ==========================================================================
 
-
+  def divide_done_todos
+    done    = []
+    notDone = []
+    self.to_dos.each do |todo|
+      if todo.done?
+        done << todo
+      else
+        notDone << todo
+      end    
+    end
+    
+    return {:done => done, :notDone => notDone}
+  end  
 
   # ==========================================================================
   # Class Methods

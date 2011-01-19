@@ -1,12 +1,12 @@
-class Admin::ActivitiesController < Admin::BaseController
+class Admin::ProjectsController < Admin::BaseController
   #filter_access_to :all, :require => any_as_privilege
   
-  active_scaffold :activity do |config|
+  active_scaffold :project do |config|
     
     config.columns[:groups].form_ui = :select
     config.columns[:groups].options = {:draggable_lists => true}
     
-    Scaffoldapp::active_scaffold config, "admin.activity",
+    Scaffoldapp::active_scaffold config, "admin.project",
       :list     => [ :name, :description ],
       :show     => [ :name, :description, :user_id, :groups ],
       :create   => [ :name, :description, :groups ],
@@ -15,23 +15,23 @@ class Admin::ActivitiesController < Admin::BaseController
   end
   
   def show
-    @activity = Activity.find(params[:id])
+    @project = Project.find(params[:id])
   end  
   
   def create
-    activity = Activity.new
+    project = Project.new
     record = params[:record]
-    activity.name = record[:name]
-    activity.description = record[:description]
-    activity.user_id = current_user.id
+    project.name = record[:name]
+    project.description = record[:description]
+    project.user_id = current_user.id
     if record[:groups]
       record[:groups].each do |k,v|
-        activity.groups << Group.find(v[:id])
+        project.groups << Group.find(v[:id])
       end  
     end  
-    activity.save
+    project.save
     
-    redirect_to admin_activities_path
+    redirect_to admin_projects_path
   end  
   
 end
