@@ -63,6 +63,7 @@ class Comment < ActiveRecord::Base
       comment
     end
 
+    #FIXME This method uses requires_openid_authentication? that is no longer available!
     # Builds preview from params
     def build_for_preview(params)
       comment = Comment.new_with_filter(params)
