@@ -18,6 +18,9 @@ class AddProjectsTables < ActiveRecord::Migration
       t.boolean    :done,         :default => false
       t.text       :description,                      :null => false
       t.integer    :to_do_list_id
+      t.integer    :user_id   #assigned_to
+      t.datetime   :due_date
+      t.datetime   :finished_date
       t.timestamps
     end
     
@@ -27,6 +30,11 @@ class AddProjectsTables < ActiveRecord::Migration
     
     create_table :groups_projects, :id => false do |t|
       t.integer :group_id
+      t.integer :project_id
+    end
+    
+    create_table :projects_users, :id => false do |t|
+      t.integer :user_id
       t.integer :project_id
     end
     

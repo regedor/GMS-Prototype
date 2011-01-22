@@ -4,6 +4,7 @@ class ToDo < ActiveRecord::Base
   # ==========================================================================
   
   belongs_to :to_do_list
+  belongs_to :user
 
   # ==========================================================================
   # Validations
@@ -15,7 +16,7 @@ class ToDo < ActiveRecord::Base
   # Extra defnitions
   # ==========================================================================
 
-
+  named_scope :ordered_finished, lambda{ |id| {:conditions => :to_do_list_id , :order => "finished_date desc"}}
 
   # ==========================================================================
   # Instance Methods

@@ -6,6 +6,8 @@ class Project < ActiveRecord::Base
   belongs_to :user
   belongs_to :blackboard
   has_and_belongs_to_many :groups
+  has_and_belongs_to_many :users
+  has_many :to_do_lists
 
   # ==========================================================================
   # Validations

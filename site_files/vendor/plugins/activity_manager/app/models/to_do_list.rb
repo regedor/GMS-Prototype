@@ -4,7 +4,7 @@ class ToDoList < ActiveRecord::Base
   # ==========================================================================
   
   belongs_to :project
-  has_many :to_dos
+  has_many :to_dos, :order => "finished_date desc"
 
   # ==========================================================================
   # Validations

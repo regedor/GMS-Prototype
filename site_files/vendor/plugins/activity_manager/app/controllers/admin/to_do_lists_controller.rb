@@ -5,22 +5,14 @@ class Admin::ToDoListsController < Admin::BaseController
   end  
   
   def changeState
-    if params[:state] == "done"
-      todo = ToDo.find(params[:id])
-      todo.done = true;
-      todo.save
-    else
-      todo = ToDo.find(params[:id])
-      todo.done = false;
-      todo.save  
-    end
+    todo = ToDo.find(params[:id])
+    todo.done = (params[:state] == "done") ? true : false   
+    todo.finished_date = Time.now
+    todo.save 
     
-    @lists = ToDoList.all
     respond_to do |format|
-      format.js { render :text => params[:id].to_s }
+      format.js { render :text => params[:id]+"&"+I18n::l(todo.finished_date, :format => :short) }
     end  
-    
-    #redirect_to :action  => :index
   end   
   
 end  
