@@ -52,9 +52,9 @@
                                 'admin/groups'],
                               admin_users_path %>
 
-		  <%= navigation_menu 'admin.navigation.main.communication',
-					          [ 'admin/mails' ],
-					          new_admin_mail_path %>
+          <%= navigation_menu 'admin.navigation.main.communication',
+                              [ 'admin/mails' ],
+                              new_admin_mail_path %>
         </ul>
       </div>
     </div>    
@@ -95,13 +95,13 @@
                                               :i18n_path => 'admin.navigation.secondary.settings',
                                               :link_to_path => admin_settings_path }],
 
-                                          :specify_first => true %>
+                                              :specify_first => true %>
 
-			<%= secondary_navigation_menu [ { :controller_paths => 'admin/mails',
-			                                  :i18n_path => 'admin.navigation.secondary.mails',
-			                                  :link_to_path => new_admin_mail_path } ],
-            
-                                          :specify_first => true %>
+            <%= secondary_navigation_menu [ { :controller_paths => 'admin/mails',
+                                              :i18n_path => 'admin.navigation.secondary.mails',
+                                              :link_to_path => new_admin_mail_path } ],
+
+                                              :specify_first => true %>
           </ul>
         </div>
       <div id="flash" class="flash">

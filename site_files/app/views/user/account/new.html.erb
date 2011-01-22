@@ -1,26 +1,11 @@
-<% content_for :page_title, h(configatron.title + ' | ' + t('users.new.title')) %>
+<% content_for :page_title, h(t('users.new.title')) %>
 
 <h2><%= t('users.new.title') %></h2>
 
-<div class="form_side_notes">
-  <div class="note">
-    <p class="buttons">
-      <%= link_to '<img src="/images/google.ico" alt=""/>'+t('users.new.form_side_notes.google_signup'),
-        "/user/account?user%5Bopenid_identifier%5D=https://www.google.com/accounts/o8/id", 
-        :class => "positive create", :method => 'post' %> 
-      <%= link_to '<img src="/images/yahoo.ico" alt=""/>'+t('users.new.form_side_notes.yahoo_signup'), 
-        "/user/account?user%5Bopenid_identifier%5D=https://www.yahoo.com", 
-        :class => "positive create", :method => 'post' %> 
-    </p>
-    <p><%= t('users.new.form_side_notes.first') %></p>
-  </div>
-  <div class="note">
-    <p><%= t('users.new.form_side_notes.second') %></p>
-  </div>
-</div>
+<%= render :partial => 'shared/form_side_notes' %>
 
 <div class="form_with_notes">
-<% semantic_form_for @user, :url => user_accounts_url do |f| %>
+  <% semantic_form_for @user, :url => user_accounts_url do |f| %>
     <% if @user.openid_identifier.blank? -%>
       <% f.inputs :name => t('users.new.form_inputs_name') do %>
         <%= f.input :email, :label => t('users.form.email') %>

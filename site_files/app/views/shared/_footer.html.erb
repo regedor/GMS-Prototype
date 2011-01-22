@@ -1,28 +1,28 @@
-  <div id="footer">
-  <div class="block">
-    <p>
-    Copyright © 2010-<%= Time.now.year %>
-    <%= link_to "NEMUM", 'http://www.nemum.com/'%>, 
-    all rights reserved. 
-    <%= link_to "XHTML", 'http://validator.w3.org/check/referer'%>, 
-    <%= link_to "CSS", 'http://jigsaw.w3.org/css-validator/check/referer?warning=no&profile=css2'%>. 
-      <br />
-    <% if current_user -%>
-      <span><%=h t 'user_session.bar.last_session_paragraph',
-        :time_ago => time_ago_in_words(current_user.last_login_at || Time.now),
-        :ip       => current_user.last_login_ip %>
-      </span>
-      <br />
-    <% end -%>
-    <!--[if lt IE 8]>
-      <br /> <br />
-      The web site is not rendering correctly because you are using an old version of
-      <span style="color:red;">Microsoft Internet Explorer</span>.<br />  
-      Upgrade your browser or download 
-      <a href="htttp://www.mozilla.com/firefox/">Mozilla Firefox</a>.
-    <![endif]-->
-    </p>
-  </div>
-  </div>
-  <% javascript_include_tag "analytics/one" %>
-  <% javascript_include_tag "analytics/two" %>
+<div id="footer">
+<div class="block">
+  <p>
+  Copyright © 2010-<%= Time.now.year %>
+  <%= link_to "NEMUM", 'http://www.nemum.com/'%>, 
+  all rights reserved. 
+  <%= link_to "XHTML", 'http://validator.w3.org/check/referer'%>, 
+  <%= link_to "CSS", 'http://jigsaw.w3.org/css-validator/check/referer?warning=no&profile=css2'%>. 
+  <br />
+  <% if current_user -%>
+    <span><%=h t 'user_session.bar.last_session_paragraph',
+      :time_ago => time_ago_in_words(current_user.last_login_at || Time.now),
+      :ip       => current_user.last_login_ip %>
+    </span>
+    <br />
+  <% end -%>
+  <!--[if lt IE 8]>
+    <br /> <br />
+    The web site is not rendering correctly because you are using an old version of
+    <span style="color:red;">Microsoft Internet Explorer</span>.<br />  
+    Upgrade your browser or download 
+    <a href="htttp://www.mozilla.com/firefox/">Mozilla Firefox</a>.
+  <![endif]-->
+  </p>
+</div>
+</div>
+<% javascript_include_tag "analytics/one" %>
+<% javascript_include_tag "analytics/two" %>
