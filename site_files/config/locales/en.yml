@@ -27,6 +27,7 @@ en:
     formats:
       default: "%a, %d %b %Y %H:%M:%S %z"
       short: "%d %b %H:%M"
+      medium: "%d %b %Y"
       long: "%B %d, %Y %H:%M"
     am: "am"
     pm: "pm"
@@ -694,11 +695,6 @@ en:
       hour:   "Hour"
       minute: "Minute"
       second: "Seconds"
-
-  time:
-   formats:
-     short: "%b %d"
-     short_js: "%{month} %{day}"             
 
   activerecord:
     errors:

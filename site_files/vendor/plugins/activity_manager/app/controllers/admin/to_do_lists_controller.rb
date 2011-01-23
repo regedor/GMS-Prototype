@@ -10,8 +10,10 @@ class Admin::ToDoListsController < Admin::BaseController
     todo.finished_date = Time.now
     todo.save 
     
+    date = (params[:state] == "done") ? I18n::l(todo.finished_date, :format => :short) : I18n::l(todo.due_date, :format => :medium)
+    
     respond_to do |format|
-      format.js { render :text => params[:id]+"&"+I18n::l(todo.finished_date, :format => :short) }
+      format.js { render :text => params[:id]+"&"+date }
     end  
   end   
   

@@ -20,7 +20,9 @@ jQuery(document).ready(function($){
 		return false;
       },
       success: function(r) {
-	
+		var res = r.split("&");
+		
+		$("#"+res[0]).next().next().append(" <span>"+res[1]+"</span>");	
       }
     });
 
@@ -31,6 +33,7 @@ jQuery(document).ready(function($){
 	$(this).next().remove();
 	$(this).parent().addClass("todo");
 	$(this).parent().removeClass("done_todo");
+	$(this).next().next().children(':nth-child(1)').text($(this).next().next().children(':nth-child(1)').text().replace("(","").replace(")",""));
 	$(this).removeAttr("checked");
 	$(this).bind("click",check);
 	
@@ -56,10 +59,15 @@ jQuery(document).ready(function($){
 	
 	var listId = $(this).parent().parent().attr("class").split("-")[1];
 	
+	
 	$(this).parent().remove();	
 	$(this).parent().prependTo(".done_todos-"+listId);
+	$(this).next().next().children(':nth-child(1)').text("("+$(this).next().next().children(':nth-child(1)').text()+")");
+	$(this).next().next().children(':nth-child(2)').remove();
 	$(this).parent().addClass("done_todo");
 	$(this).parent().removeClass("todo");
+	
+	
 	$(this).bind("click",uncheck);
   });
 
@@ -76,8 +84,8 @@ jQuery(document).ready(function($){
   });
 
  $(".done_adding_link").click(function(){
-	$(this).parent().parent().hide();
-	$(this).parent().parent().prev().show();
+	$(this).parent().parent().parent().parent().hide();
+	$(this).parent().parent().parent().parent().prev().show();
 	
 	return false;
  });
@@ -86,7 +94,6 @@ jQuery(document).ready(function($){
 </script>
 
 <% counter = 0%>
-<div id="temp" style="display:none;"></div>
 <% @lists.each do |list| %>
 <div class="title">
 	<h2><%= link_to list.name, admin_project_to_do_lists_path %></h2>
@@ -100,9 +107,23 @@ jQuery(document).ready(function($){
     
     <div class="not_done-<%= counter %>">	
       <% divided_hash[:notDone].each do |todo| %>
-        <div class="todo">
+		<% if todo.user && todo.user == current_user %>
+			<div class="todo highlight">
+		  <% else %>		
+	  	  	<div class="todo">
+		  <% end %>
           <input type="checkbox" id="<%= todo.id %>" value="<%= todo.id %>" /> 	
           <span class="todo_desc"><%= todo.description %></span>
+		  <% if todo.user || todo.due_date %>
+		  <span class="todo_info">
+		  	<% if todo.user %>
+		  	 <span><%= todo.user.name %></span>
+		  	<% end %>
+		  	<% if todo.due_date %>
+		  		<span><%= l(todo.due_date, :format => :medium) %></span>
+		  	<% end %>	
+		  </span>	 
+		  <% end %>
         </div>
       <% end %>
     </div>
@@ -111,31 +132,12 @@ jQuery(document).ready(function($){
 		<%= link_to t("admin.to_do.add_new.link"), "#", {:class => "add_link" } %>
 	</div>	
 	<div class="add_todo-<%= counter %>" style="display:none;">
-		<!--><%= form_tag({:controller => "to_dos", :action => "create"}, :method => "post", :class => "new_todo_form-#{counter}") %>
-		<p>
-			<%=h t("admin.to_do.add_new.title") %><br/>
-			<%= text_area_tag 'new_todo_description', nil, :rows => 3, :cols => 40 %>			
-		</p>
-		<ul>
-			<li>
-				<p>
-					<%=h t("admin.to_do.add_new.responsible") %><br/>
-					<%= select_tag "users", "<option>Devid</option>" %>
-				</p>	
-			</li>	
-		</ul>
-		<p class="submit-<%= counter %>">
-			<%= submit_tag t("admin.to_do.add_new.add_button") %>
-			<span>or</span>
-			<%= link_to t("admin.to_do.add_new.done_adding"), "#",{:class => "done_adding_link"} %>
-		</p><-->		
-		
 		<% semantic_form_for(:todo, :url => new_admin_project_to_do_path) do |f| %>
-		  <% f.inputs :name => "new_to_do" do %>
+		  <% f.inputs do %>
 		    <%= f.input :description, :as => :text, :input_html => {:rows => 3, :cols => 40}, :label => t("admin.to_do.add_new.title") %>
 			<%= f.input :responsible, :as => :select, :collection => User.all, :include_blank => false %>
 		  <% end  %>
-		  <% f.buttons :name => "submit" do %>
+		  <% f.buttons do %>
 		    <%= f.commit_button :label => t("admin.to_do.add_new.add_button") %>
 		    <span>or</span>
 			<%= link_to t("admin.to_do.add_new.done_adding"), "#",{:class => "done_adding_link"} %>
@@ -146,10 +148,21 @@ jQuery(document).ready(function($){
 
     <div class="done_todos-<%= counter %>">
   	<% divided_hash[:done].each do |todo| %>
-  	  <div class="done_todo">
+	  <% if todo.user && todo.user == current_user %>
+		<div class="done_todo highlight">
+	  <% else %>		
+  	  	<div class="done_todo">
+	  <% end %>
   	    <input type="checkbox" id="<%= todo.id %>" value="<%= todo.id %>" checked="yes" />
 		<strong class="date_finished"><%= l(todo.finished_date, :format => :short) if todo.finished_date %></strong>
-  	    <span class="todo_desc"><%= todo.description %></span>
+  	    <span class="done_todo_desc"><%= todo.description %></span>
+		<% if todo.user  %>
+		  <span class="done_todo_info">
+				<% if todo.user %>
+				 <span>(<%= todo.user.name %>)</span>
+				<% end %>
+		  </span>	 
+		  <% end %>
   	  </div>
   	<% end %>
     </div>	

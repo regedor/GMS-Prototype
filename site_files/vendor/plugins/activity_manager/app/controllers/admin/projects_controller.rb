@@ -16,6 +16,8 @@ class Admin::ProjectsController < Admin::BaseController
   
   def show
     @project = Project.find(params[:id])
+    
+    redirect_to admin_project_to_do_lists_path(@project)
   end  
   
   def create
