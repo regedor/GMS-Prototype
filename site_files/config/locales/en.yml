@@ -122,7 +122,7 @@ en:
       text: "<p>On this backend you can manage all information. You can manage users, groups, communication and frontend items. On the sidebar you can find useful information </p>"
       sidebar:
         title: "Simon backend"
-        text:  "Look on these sidebars for location relative help."
+        paragraph:  "Look on these sidebars for location relative help."
         go_to_frontend: "Go to frontend"
         user_management:
           title: "User management"
@@ -161,7 +161,7 @@ en:
       new:
         sidebar:
           title: "Mail Management"
-          content: "Here you can manage and send emails."
+          paragraph: "Here you can manage and send emails."
           sent_mails: "Outbox"
           go_to_sent_mails: "Sent Mails"
                             
@@ -189,17 +189,17 @@ en:
       sidebar:
         history:
           title: "Actions history"
-          paragraph: "See below the changes made to this user"
+          paragraph: "Here you can revert information. Click below on the dates to see user information on that date. Click on <b>\"Revert\"</b> to complete the reversion process."
         reversion:
           title: "Reverting"
           subtitle: "You are reverting information"
-          message: "If you click \"Revert\" below, you are making your actions permanent!"
+          paragraph: "If you click <b title=\"The revert link button is below.\">\"Revert\"</b> below, you are making your actions permanent!"
           link: "Revert"
         title: "User management"
-        text: "On this page you can manage the users."
+        paragraph: "Users can be managed on this page. You can <b>disable</b>, <b>enable</b>, <b>delete</b> and <b>undelete</b> users (see <b>\"go to deleted users\"</b> below). Also you can edit user information on <b>\"Edit\"</b> and see users information on <b>\"Details\"</b>.<br/> <b>Delete</b>, <b>activate</b> and <b>deactivate</b> actions can be selected from the drop-down menu.<br/><br/>If you see a red cross in front of the user it means that the user is <b>inactive</b>, otherwise is <b>active</b>."
         edit:
           title: "User edit"
-          text: "On this page you can edir user information. You can also view previous versions of user details."
+          paragraph: "You can edit user details here, changing all details.<br/> The <b>email</b> field specifies the user personal email.<br/> The <b>active</b> option specifies if the user is either active or not.<br/> The <b>nickname</b> will be the show name. <br/> On the <b>profile</b> field is a shot user description. <br/> A <b>website</b> can also be specified, as well as the <b>country</b>. <br/> The user <b>gender</b> is also defined. <br/> You can add the user to <b>groups</b> by dragging the group from the yellow field to the green field. "
       delete:
         title: "Delete User"
         question: "Are you sure you want to delete %{username}?"
@@ -235,6 +235,9 @@ en:
         title: "Deleted Users List"
         search: "Find users"
         create: "Create user"
+        show_link: "Details"
+        destroy_link: "Destroy"
+        undelete_link: "Recover"
       columns:
         created_at: "Created at"
         email: "Email"
@@ -255,7 +258,7 @@ en:
         noentries: "No entries found"
       sidebar:
         title: "Deleted users"
-        text: "Here you can manage deleted users."
+        paragraph: "Here you can see deleted users. You can <b>\"undelete\"</b> a user by clicking on <b>\"Recover\"</b> from the drop down menu. You can also <b>edit</b> and view users <b>details</b>.<br/><br/>A user can also be permanently deleted by clicking on <b>destroy</b>. That action is <b>not reversible</b>."
           
     groups:
       index:
@@ -266,14 +269,25 @@ en:
         search: "Find groups"
         create: "New Group"
         sidebar:
+          edit:
+            title: "Editing group"
+            paragraph: "By editing a group you can change it's <b>name</b>. <br/> A <b>description</b> can be added. <br/> You can decide if a group will be or not <b>mailable</b>, that is, you can send an email to all users of the group at once.<br/> To decide if a user can decide to became part of it, define true on <b>User choosable</b>.<br/> You can create <b>group</b> hierarchies by dragging groups which will subgroups of it from the yellow field to the green field. <br/> The group <b>users</b> are managed on the same way of the subgroups. "
           hierarchy:
             name: "Hierarchy"
-            subname: "All groups"
+            index:
+              title: "Groups"
+              paragraph: "You are viewing system groups information. From here you can <b>create</b> a new group. You can also view a group <b>details</b> and it's hierarchy. To edit a group details click on <b>edit</b>. To eliminate a group simply click on <b>delete</b>. "
+            empty:
+              subname: "All groups"
+              paragraph: "When viewing details of a group containing subgroups, you can see here the hierarchy."
+            info:
+              subname: "All groups"
+              paragraph: "Below is the group and subgroup relationship hierarchy. "
           users:
             go_to_deleted_users: "Go to deleted users"
-            go_to_users: "Go to users"
+            go_to_users: "Go back to users"
             deleted_users: "Deleted users"
-            undo_deleted_users: "Recover users"
+            undo_deleted_users: "You can manage deleted users by clicking on the link below."
       columns:
         parent_name: "Parent"
         name: "Name"
@@ -391,14 +405,20 @@ en:
             tag_exists: "A tag with the specified name already exists."
             no_server: "Couldn't connect to the server."
       sidebar:
-            history:
-              title: "Actions history"
-              paragraph: "See below the changes made to this user"
-            reversion:
-              title: "Reverting"
-              subtitle: "You are reverting information"
-              message: "If you click \"Revert\" below, you are making your actions permanent!"
-              link: "Revert"            
+        index:
+          title: "Posts"
+          paragraph: "On this page you can manage posts. You can <b title=\"The view details button is on the right side of the row.\" >view</b> and <b title=\"The remove button is on the right side of the row.\">edit</b> current posts details.<br/> You can also <b title=\"The create button is on the top right of the table.\">create</b> new posts which will appear on frontend, available to all users. If you want to remove a post simply click on <b title=\"The remove button is on the right side of the row.\">delete</b>. "
+        history:
+          title: "Revert post information"
+          paragraph: "Here you can revert information. Click below on the dates to see the post on that date. Click on <b title=\"The revert link will appear when you click on a previous date.\">\"Revert\"</b> to complete the reversion process."
+        reversion:
+          title: "Reverting"
+          subtitle: "You are reverting information"
+          message: "If you click <b title=\"The revert link button is below.\">\"Revert\"</b> below, you are making your actions permanent!"
+          link: "Revert"
+        edit:
+          title: "Editing a post"
+          paragraph: "You are editing a post information. You can change this post <b title=\"The title is the post identification.\">title</b> and <b title=\"The body corresponds to the post content\">body</b> or content of a post.<br/> The <b title=\"The tags are the elements which you can use to filter posts.\">tag list</b>, corresponding to the list of words associate with the post, can also be changed here. The <b title=\"The slug is the unique identification of the post, useful for links.\">slug</b> which is a short description of all content is also editable here."
 
     comments:
       index:
@@ -443,7 +463,7 @@ en:
           one: "%{count} Announcements Found"
       sidebar:
         title: "Announcements"
-        text: "On this page you can create announcements that will appear on frontend."
+        paragraph: "On this page you can create announcements that will appear on frontend."
     settings:
       title: "Settings management"
       theme: "Theme"

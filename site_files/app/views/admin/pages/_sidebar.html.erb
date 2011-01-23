@@ -1,0 +1,33 @@
+<% if (controller.action_name == "index") %>
+ <div class="block">
+    <h3><%=h t("admin.pages.index.sidebar.hierarchy.index.title") %></h3>
+    <div class="content">
+      <p>
+        <%= t("admin.pages.index.sidebar.hierarchy.index.paragraph") %>
+      </p>
+    </div>
+  </div>
+<% end %>
+
+<% if (controller.action_name != "edit") %>
+
+  <div class="block">
+    <h3><%=h t("admin.pages.index.sidebar.hierarchy.name") %></h3>
+    <div class="content">
+      <p>
+      </p>
+    </div>
+  </div>
+
+<% else %>
+
+  <div class="block">
+    <h3><%=h t("admin.pages.index.sidebar.edit.title") %></h3>
+    <div class="content">
+      <p>
+        <%= t("admin.pages.index.sidebar.edit.paragraph") %>
+      </p>
+    </div>
+  </div>
+
+<% end %>

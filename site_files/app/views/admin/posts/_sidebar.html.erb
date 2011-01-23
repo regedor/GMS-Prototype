@@ -1,6 +1,15 @@
 <% i_env = "admin.posts.tags" -%>
 <% if @tags -%>
   <div class="block">
+    <h3><%= t("admin.posts.sidebar.index.title") %></h3>
+    <div class="content">
+      <p><%= t("admin.posts.sidebar.index.paragraph") %></p>
+    </div>
+  </div>
+
+
+
+  <div class="block">
     <h3>
       <%= I18n::t("#{i_env}.title") %>
       <% if @tags.total_pages > 1 -%>
@@ -58,6 +67,18 @@
     </div>
   </div>
 <% end -%>
+
+<% if (controller.action_name == "edit")-%>
+  <div class="block">
+    <h3><%= t "admin.posts.sidebar.edit.title", :name => @record.title %></h3>
+    <div class="content">
+      <p><%= t("admin.posts.sidebar.edit.paragraph") %></p>
+    </div>
+  </div>
+<% end -%>
+
+
+
 
 <%# History edit preview page %>
 <% if  @history_entry -%>
