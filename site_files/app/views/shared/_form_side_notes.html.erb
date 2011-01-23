@@ -1,0 +1,22 @@
+<div class="form_side_notes">
+  <div class="note">
+    <fieldset class="buttons">
+      <ul>
+        <li class="commit">
+          <%= link_to t('user_session.new.form_side_notes.google_signin'),
+              "/user/session?user_session%5Bopenid_identifier%5D=https://www.google.com/accounts/o8/id",
+              :class => "positive google_ico create", :method => 'post' %>
+        </li>
+        <li class="commit">
+          <%= link_to t('user_session.new.form_side_notes.yahoo_signin'),
+              "/user/session?user_session%5Bopenid_identifier%5D=https://www.yahoo.com",
+              :class => "positive yahoo_ico create", :method => 'post' %>
+        </li>
+      </ul>
+    </fieldset>
+    <p><%= t('user_session.new.form_side_notes.first') %></p>
+  </div>
+  <div class="note">
+    <p><%= t('user_session.new.form_side_notes.second') %></p>
+  </div>
+</div>                            

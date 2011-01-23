@@ -8,7 +8,7 @@ authorization do
   role :admin do
     includes :users_manager
     includes :website_manager 
-    has_permission_on [:admin_revert_actions],      :to =>  [ :as_manage ]
+    has_permission_on [:admin_history_entries],     :to =>  [ :as_manage ]
     has_permission_on [:user_roles],                :to =>  [ :as_manage ]
     has_permission_on [:admin_mails],               :to =>  [ :as_manage ]
   end
