@@ -132,7 +132,7 @@ jQuery(document).ready(function($){
 		<%= link_to t("admin.to_do.add_new.link"), "#", {:class => "add_link" } %>
 	</div>	
 	<div class="add_todo-<%= counter %>" style="display:none;">
-		<% semantic_form_for(:todo, :url => new_admin_project_to_do_path) do |f| %>
+		<% semantic_form_for(:todo, :url => new_admin_project_to_do_path + "?parentlist=" + list.id.to_s) do |f| %>
 		  <% f.inputs do %>
 		    <%= f.input :description, :as => :text, :input_html => {:rows => 3, :cols => 40}, :label => t("admin.to_do.add_new.title") %>
 			<%= f.input :responsible, :as => :select, :collection => User.all, :include_blank => false %>

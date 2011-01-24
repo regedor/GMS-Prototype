@@ -8,7 +8,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :projects,          :active_scaffold => true, :active_scaffold_sortable => true 
     admin.resources :projects do |project|
       project.resources :to_do_lists,   :collection => { :changeState => :post }    
-      project.resources :to_dos
+      project.resources :to_dos,        :collection => { :new         => :post }
     end
     
   end
