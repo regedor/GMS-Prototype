@@ -5,6 +5,7 @@ class Group < ActiveRecord::Base
 
   has_and_belongs_to_many :groups,       :association_foreign_key => "include_group_id"
   has_and_belongs_to_many :direct_users, :class_name => "User"
+  #has_and_belongs_to_many :projects
 
 
   # ==========================================================================

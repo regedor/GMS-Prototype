@@ -1,0 +1,173 @@
+<script>
+jQuery.noConflict();
+
+//FIXME Ajax request every second(or more) to ask the server for the most recent updated_at, and compare with ours. Reload content if newer.  
+/*jQuery(document).ready(function(){
+	setTimeout("window.location.reload()",60000*5);
+});*/
+
+jQuery(document).ready(function($){
+ 
+
+  $(".todos .done_todo [type=checkbox]").click(uncheck=function(){
+	jQuery.ajax({
+      type: 'POST',
+      data: "id="+$(this).val()+"&state=notdone",
+      url: window.location.href.replace("#","")+"/changeState",
+      error: function() {
+        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"uncheck"});
+		$(this).bind("click",check);
+		return false;
+      },
+      success: function(r) {
+		var res = r.split("&");
+		
+		$("#"+res[0]).next().next().append(" <span>"+res[1]+"</span>");	
+      }
+    });
+
+	var listId = $(this).parent().parent().attr("class").split("-")[1];
+
+	$(this).parent().remove();
+	$(this).parent().appendTo(".not_done-"+listId);
+	$(this).next().remove();
+	$(this).parent().addClass("todo");
+	$(this).parent().removeClass("done_todo");
+	$(this).next().next().children(':nth-child(1)').text($(this).next().next().children(':nth-child(1)').text().replace("(","").replace(")",""));
+	$(this).removeAttr("checked");
+	$(this).bind("click",check);
+	
+  });
+	
+  $(".todos .todo [type=checkbox]").click(check=function(){
+	$("#temp").text("");
+	jQuery.ajax({
+      type: 'POST',
+      data: "id="+$(this).val()+"&state=done",
+      url: window.location.href.replace("#","")+"/changeState",
+      error: function() {
+        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"check"});
+		$(this).bind("click",uncheck);
+		return false;
+      },
+      success: function(r) {
+	    var res = r.split("&");
+	    
+		$("#"+res[0]).after(" <strong class=\"date_finished\">"+res[1]+"</strong>");		
+      }
+    });
+	
+	var listId = $(this).parent().parent().attr("class").split("-")[1];
+	
+	
+	$(this).parent().remove();	
+	$(this).parent().prependTo(".done_todos-"+listId);
+	$(this).next().next().children(':nth-child(1)').text("("+$(this).next().next().children(':nth-child(1)').text()+")");
+	$(this).next().next().children(':nth-child(2)').remove();
+	$(this).parent().addClass("done_todo");
+	$(this).parent().removeClass("todo");
+	
+	
+	$(this).bind("click",uncheck);
+  });
+
+  $(".title").click(function(event){
+	$(this).next().fadeToggle("slow","linear");
+	event.preventDefault();
+  });
+
+  $(".add_link").click(function(){
+	$(this).parent().hide();
+	$(this).parent().next().show();
+	
+	return false;
+  });
+
+ $(".done_adding_link").click(function(){
+	$(this).parent().parent().parent().parent().hide();
+	$(this).parent().parent().parent().parent().prev().show();
+	
+	return false;
+ });
+	
+}); 
+</script>
+
+<% counter = 0%>
+<% @lists.each do |list| %>
+<div class="title">
+	<h2><%= link_to list.name, admin_project_to_do_lists_path %></h2>
+</div>
+<div class="the_list-<%= counter %>" style="display:none;">
+  <div class="description">
+    <%= list.description %>
+  </div>
+  <div class="todos">
+    <% divided_hash = list.divide_done_todos %>	
+    
+    <div class="not_done-<%= counter %>">	
+      <% divided_hash[:notDone].each do |todo| %>
+		<% if todo.user && todo.user == current_user %>
+			<div class="todo highlight">
+		  <% else %>		
+	  	  	<div class="todo">
+		  <% end %>
+          <input type="checkbox" id="<%= todo.id %>" value="<%= todo.id %>" /> 	
+          <span class="todo_desc"><%= todo.description %></span>
+		  <% if todo.user || todo.due_date %>
+		  <span class="todo_info">
+		  	<% if todo.user %>
+		  	 <span><%= todo.user.name %></span>
+		  	<% end %>
+		  	<% if todo.due_date %>
+		  		<span><%= l(todo.due_date, :format => :medium) %></span>
+		  	<% end %>	
+		  </span>	 
+		  <% end %>
+        </div>
+      <% end %>
+    </div>
+  
+	<div class="add_button-<%= counter %>">
+		<%= link_to t("admin.to_do.add_new.link"), "#", {:class => "add_link" } %>
+	</div>	
+	<div class="add_todo-<%= counter %>" style="display:none;">
+		<% semantic_form_for(:todo, :url => new_admin_project_to_do_path) do |f| %>
+		  <% f.inputs do %>
+		    <%= f.input :description, :as => :text, :input_html => {:rows => 3, :cols => 40}, :label => t("admin.to_do.add_new.title") %>
+			<%= f.input :responsible, :as => :select, :collection => User.all, :include_blank => false %>
+		  <% end  %>
+		  <% f.buttons do %>
+		    <%= f.commit_button :label => t("admin.to_do.add_new.add_button") %>
+		    <span>or</span>
+			<%= link_to t("admin.to_do.add_new.done_adding"), "#",{:class => "done_adding_link"} %>
+		  <% end %>
+		<% end %>
+		
+	</div>	
+
+    <div class="done_todos-<%= counter %>">
+  	<% divided_hash[:done].each do |todo| %>
+	  <% if todo.user && todo.user == current_user %>
+		<div class="done_todo highlight">
+	  <% else %>		
+  	  	<div class="done_todo">
+	  <% end %>
+  	    <input type="checkbox" id="<%= todo.id %>" value="<%= todo.id %>" checked="yes" />
+		<strong class="date_finished"><%= l(todo.finished_date, :format => :short) if todo.finished_date %></strong>
+  	    <span class="done_todo_desc"><%= todo.description %></span>
+		<% if todo.user  %>
+		  <span class="done_todo_info">
+				<% if todo.user %>
+				 <span>(<%= todo.user.name %>)</span>
+				<% end %>
+		  </span>	 
+		  <% end %>
+  	  </div>
+  	<% end %>
+    </div>	
+  </div>
+</div>
+<% counter = counter+1 %>
+<% end %>	
+

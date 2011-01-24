@@ -2,6 +2,46 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  date:
+    formats:
+      # Use the strftime parameters for formats.
+      # When no format has been given, it uses default.
+      # You can provide other formats here if you like!
+      default: "%Y-%m-%d"
+      short: "%b %d"
+      long: "%B %d, %Y"
+  
+    day_names: [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]
+    abbr_day_names: [Sun, Mon, Tue, Wed, Thu, Fri, Sat]
+  
+    # Don't forget the nil at the beginning; there's no such thing as a 0th month
+    month_names: [~, January, February, March, April, May, June, July, August, September, October, November, December]
+    abbr_month_names: [~, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
+    # Used in date_select and datetime_select.
+    order:
+      - :year
+      - :month
+      - :day
+  
+  time:
+    formats:
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      short: "%d %b %H:%M"
+      medium: "%d %b %Y"
+      long: "%B %d, %Y %H:%M"
+    am: "am"
+    pm: "pm"
+  
+  #Used in array.to_sentence.
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " and "
+      last_word_connector: ", and "
+
+    
+    
+    
   navigation:
     home: "Home"
     about: "About"
@@ -105,6 +145,7 @@ en:
         website: "Website"
         system: "System"
         communication: "Communication"
+        projects: "Projects"
       secondary:
         dashboard: "Dashboard"
         users: "Users"
@@ -116,6 +157,35 @@ en:
         settings: "Settings"
         undo_items: "Actions"
         mails: "Send E-Mail"
+        projects: "View Projects"
+    
+    to_do:
+      add_new:
+        title: "Enter a new to-do item"
+        done_adding: "Done adding"
+        add_button: "Add to-do"
+        responsible: "Resposible for to-do"
+        link: "Add new to-do item"           
+    
+    project:
+      index:
+        title: "Activities" 
+        create: "New Activity"
+        update_link: "Edit"
+        destroy_link: "Delete"
+        show_link: "Details"
+      create:
+        title: "New Activity"      
+      columns:
+        name: "Name"
+        description: "Description"
+        groups: "Assigned Groups"
+        user_id: "Created by"
+      list:
+        noentries: "No entries found"
+        found:
+          more: "%{count} Activities Found"
+          one: "%{count} Activity Found"                              
    
     dashboard:
       title: "You are logged in as an Administrator, you are now viewing the Administration dashboard."

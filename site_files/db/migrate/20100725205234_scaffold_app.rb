@@ -196,7 +196,7 @@ class ScaffoldApp < ActiveRecord::Migration
       t.text   :value
       t.timestamps
     end
-
+    
   end
 
   def self.down
