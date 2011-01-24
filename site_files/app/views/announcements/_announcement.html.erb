@@ -1,6 +1,6 @@
 <div id="announcement<%= announcement_counter+1 %>" class="announcement-block <%= 'announcement-tail' if announcement_counter > 0 %>">
   <%= "<a href='#{announcement.url}'>" if announcement.url %>
-  <img src="<%= announcement.avatar.url(:medium) %>" /></a>
+  <img src="<%= announcement.avatar.url(:medium) %>" alt="" />
   <%= "</a>" if announcement.url %>
   <%= "<a href='#{announcement.url}'>" if announcement.url %>
   <div class="announcement-text">
