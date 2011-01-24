@@ -14,12 +14,14 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'pages/:slug/comments', :controller => 'comments', :action => 'create', :method => :post
   map.pages 'pages/:slug', :controller => 'pages', :action => 'show', :method => :get
 
-  map.connect ':year/:month/:day/:slug/comments', :controller => 'comments', :action => 'create', :method => :post
-  map.connect ':year/:month/:day/:slug', :controller => 'posts', :action => 'show', :requirements => { :year => /\d+/ }
-  map.posts_with_tags 'tags/:tags', :controller => 'posts', :action => 'index'
-  #map.formatted_posts_with_tags 'tags/:tags.:format', :controller => 'posts', :action => 'index'
+  map.connect ':year/:month/:day/:slug/comments', :controller => 'comments', :action => 'create', :method => :post,
+                                                  :requirements => { :year => /\d+/, :month => /\d+/, :day => /\d+/ }
+  map.connect ':year/:month/:day/:slug',          :controller => 'posts', :action => 'show',
+                                                  :requirements => { :year => /\d+/, :month => /\d+/, :day => /\d+/ }
 
-  map.archives '/archives', :controller => 'archives', :action => 'index'
+  map.posts_with_tags 'tags/:tags', :controller => 'posts', :action => 'index'
+
+  map.archives '/archives', :controller => 'posts', :action => 'archives'
 
 
   # ==========================================================================

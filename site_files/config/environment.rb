@@ -52,7 +52,7 @@ require 'string_extensions'
 require 'formtastic_extensions'
 require 'sparklines'
 
-#=begin
+=begin
 module I18n
 
   def self.t(label, options = {})
@@ -72,4 +72,4 @@ module I18n
   end
 
 end
-#=end
+=end
