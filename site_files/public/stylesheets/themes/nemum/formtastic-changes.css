@@ -64,7 +64,7 @@ fieldset.buttons li.commit button.create,
 fieldset.buttons li.commit button.submit,
 fieldset.buttons li.commit button.update,
 fieldset.buttons li.commit a                         { background-color: #F5F5F5; border: 1px solid #CCC; cursor: pointer; height: 23px; display: block; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; }
-fieldset.buttons li.commit input                     { height: 30px; padding: 0 5px 0; } /* fucking hack */
+fieldset.buttons li.commit input                     { height: 30px; padding: 0 5px 0; } /* hack */
 
 fieldset.buttons li.commit a.google_ico,
 fieldset.buttons li.commit a.yahoo_ico               { margin: 0 0 15px 0; }

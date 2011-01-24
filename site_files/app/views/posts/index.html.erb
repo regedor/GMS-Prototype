@@ -9,7 +9,7 @@
 <div id="sidebar">
 
   <div id="tag-cloud">
-    <h2>Tag Cloud</h2>
+    <h2><%= I18n::t('tags.title') %></h2>
     <% tag_cloud @tags_for_cloud, ['nube1', 'nube2', 'nube3', 'nube4', 'nube5', 'nube6'] do |name, css_class| %>
       <% classes = (@tags && (@tags.include? name)) ? (css_class + ' selected') : css_class %>
       <%= link_to name, posts_path(:tags => @tags, :this_tag => name), :class => classes %>
@@ -17,7 +17,7 @@
   </div>
 
   <div id="archives">
-    <p>Looking for more? Head on over to the <%= link_to("archives", archives_path) %>.</p>
+    <p><%= link_to(I18n::t('posts.archive'), archives_path) %></p>
   </div>
 </div>
 
@@ -25,7 +25,7 @@
   
   <div id="posts">
     <% if @posts.empty? -%>
-      <p>There are no posts yet.</p>
+      <p><%= I18n::t('posts.none') %></p>
     <% else -%>
       <% @posts.each do |post| -%>
         <div class="post post-<%= post.id %>">
@@ -33,8 +33,8 @@
         </div>
       <% end -%>
     <% end -%>
-    <%= will_paginate(@posts, :previous_label => "«",
-                              :next_label     => "»") %>
+    <%= will_paginate(@posts, :previous_label => I18n::t('posts.pagination.previous'),
+                              :next_label     => I18n::t('posts.pagination.next')) %>
   </div>
 
 </div>
