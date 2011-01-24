@@ -15,27 +15,30 @@ $(document).ready(function() {
     var toggle_preview = function() {
       if ($('#preview').length == 0) {
         $(".inputs").hide();
-		$(".edit_button").show();
-		$(".preview_button").hide();
-        form.before('<div id="preview"><h3>Your entry will be formatted like this:</h3><p>Use Ctrl+E to return to edit mode.</p><div class="content"><p>Please wait...</p></div></div>');
+        $(".edit_button").show();
+        $(".preview_button").hide();
+        form.before('<div id="preview"></div>');
 
         jQuery.ajax({
           type: 'POST',
           data: form.serialize().replace(/&*_method=\w+&*/, ''),
           url: dest,
           error: function() {
-            $('#preview .content').html('<p>Failed to generate preview. Toggle back to edit mode and check that all required fields are filled in and valid.</p>');
+            title = t('admin.posts.preview.title');
+            ret = t('admin.posts.preview.return');
+            error = t('admin.posts.preview.error');
+            $('#preview').html('<h3>' + title + '</h3><p>' + ret + '</p><p>' + error + '</p>');
           },
           success: function(r) {
-            $('#preview .content').html(r);
+            $('#preview').html(r);
           }
         });
       }
       else {
         $('#preview').remove();
         $(".inputs").show();
-		$(".edit_button").hide();
-		$(".preview_button").show();
+        $(".edit_button").hide();
+        $(".preview_button").show();
       }
     }
 
@@ -48,7 +51,7 @@ $(document).ready(function() {
 	});
 
     $(document).keyup(function(e) {
-      if (e.metaKey && (e.which == 69)) { // Works in recent Safari and FF, unsure about IE
+      if (e.metaKey && (e.which == 69)) {
         toggle_preview();
         e.preventDefault();
       }

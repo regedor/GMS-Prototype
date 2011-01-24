@@ -345,6 +345,9 @@ en:
           show_in_navigation: "Show in navigation"
           priority: "Priority"
           has_comments: "Has comments"
+      preview:
+        title: "Your entry will be formatted like this:"
+        return: "Use Ctrl+E to return to edit mode."
       list:
         noentries: "No Pages Found"
         found:
@@ -372,6 +375,10 @@ en:
         slug: "Slug"
         tag_list: "Tag List"
         minor_edit: "Minor Edit"
+      preview:
+        title: "Your entry will be formatted like this:"
+        return: "Use Ctrl+E to return to edit mode."
+        error: "Failed to generate preview. Toggle back to edit mode and check that all required fields are filled in and valid."
       list:
         noentries: "No Posts Found"
         found:

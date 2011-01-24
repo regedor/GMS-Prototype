@@ -39,7 +39,7 @@ class Admin::PostsController < Admin::BaseController
 
     respond_to do |format|
       format.js {
-        render :partial => 'posts/post', :locals => {:post => @post}
+        render :partial => 'preview', :locals => {:post => @post}
       }
     end
   end
