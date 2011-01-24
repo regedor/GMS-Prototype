@@ -96,6 +96,14 @@ en:
     about:
       title: "About This Project"
 
+  comments:
+    log_in_to: "Log in if you intend to comment."
+    success: "Comment added."
+    error:
+      generic: "Comment not added."
+      no_body: "Content cannot be blank."
+      no_login: "You must be logged in to comment."
+
 
   admin:
     navigation:

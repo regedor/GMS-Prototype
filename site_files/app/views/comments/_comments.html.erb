@@ -6,17 +6,11 @@
   <% end -%>
 </ol>
 
-<h2>Post a comment</h2>
-  <% unless comment.errors.empty? -%>
-  <div class="errors">
-    <h3>Comment not added!</h3>
-    <ul>
-      <% comment.errors.sort_by(&:first).each do |error| -%>
-        <li><%= format_comment_error(error) %></li>
-      <% end -%>
-    </ul>
-  </div>
-  <% end -%>
+<% unless current_user -%>
+  <h3><%= I18n::t('comments.log_in_to') %></h3>
+<% else -%>
+
+  <h2>Post a comment</h2>
   <% form_for([commentable, comment]) do |form| %>
     <div>
       <%= form.hidden_field 'type', :value => commentable.class %>
@@ -29,3 +23,5 @@
         </ol>
     </div>
   <% end -%>
+
+<% end -%>
