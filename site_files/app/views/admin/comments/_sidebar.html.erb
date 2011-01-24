@@ -1,0 +1,21 @@
+<% if (controller.action_name == "index") -%>
+  <div class="block">
+    <div id="sidebar_head">
+      <h3><%= t("admin.comments.index.sidebar.title") %></h3>
+    </div>
+    <div class="content">
+      <p><%= t("admin.comments.index.sidebar.paragraph") %></p>
+    </div>
+  </div>
+<% end %>
+
+<% if (controller.action_name == "edit") -%>
+  <div class="block">
+    <div id="sidebar_head">
+      <h3><%= t("admin.comments.index.sidebar.edit.title") %></h3>
+    </div>
+    <div class="content">
+      <p><%= t("admin.comments.index.sidebar.edit.paragraph") %></p>
+    </div>
+  </div>
+<% end %>

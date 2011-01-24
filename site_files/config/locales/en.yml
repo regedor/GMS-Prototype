@@ -122,7 +122,7 @@ en:
       text: "<p>On this backend you can manage all information. You can manage users, groups, communication and frontend items. On the sidebar you can find useful information </p>"
       sidebar:
         title: "Simon backend"
-        text:  "Look on these sidebars for location relative help."
+        paragraph:  "Look on these sidebars help and tips about the page you are viewing. Putting your mouse over an <b title=\"This is a bold word.\">bold</b> word will give you some tips."
         go_to_frontend: "Go to frontend"
         user_management:
           title: "User management"
@@ -161,7 +161,7 @@ en:
       new:
         sidebar:
           title: "Mail Management"
-          content: "Here you can manage and send emails."
+          paragraph: "Here you can manage and send emails."
           sent_mails: "Outbox"
           go_to_sent_mails: "Sent Mails"
                             
@@ -188,18 +188,18 @@ en:
         groups: "Groups"
       sidebar:
         history:
-          title: "Actions history"
-          paragraph: "See below the changes made to this user"
+          title: "Revert information"
+          paragraph: "Here you can revert information. Click below on the dates to see user information on that date. Click on <b title=\"The revert link will appear when you click on a previous date.\">\"Revert\"</b> to complete the reversion process."
         reversion:
           title: "Reverting"
           subtitle: "You are reverting information"
-          message: "If you click \"Revert\" below, you are making your actions permanent!"
+          paragraph: "If you click <b title=\"The revert link is below.\">\"Revert\"</b> below, you are making your actions permanent!"
           link: "Revert"
         title: "User management"
-        text: "On this page you can manage the users."
+        paragraph: "Users can be managed on this page. You can <b title=\"Link on the combo box at the top of the table.\">disable</b>, <b title=\"Link on the combo box at the top of the table.\">enable</b>, <b title=\"Link at the end of the row.\">delete</b> and <b title=\"Available on deleted users page.\">undelete</b> users (see <b title=\"Link is below.\">\"go to deleted users\"</b>). Also you can edit user information on <b title=\"Link at the end of the row.\">\"Edit\"</b> and see users information on <b title=\"Link at the end of the row.\">\"Details\"</b>.<br/> <b title=\"The combo box is at the top of the table.\">Delete</b>, <b  title=\"The combo box is at the top of the table.\">activate</b> and <b title=\"The combo box is at the top of the table.\">deactivate</b> actions can be selected from the drop-down menu.<br/><br/>If you see a red cross in front of the user it means that the user is <b title=\"See the Active column.\">inactive</b>, otherwise is <b title=\"See the Active column.\">active</b>."
         edit:
           title: "User edit"
-          text: "On this page you can edir user information. You can also view previous versions of user details."
+          paragraph: "You can edit user details here, changing all details.<br/> The <b title=\"See the field on the left.\">email</b> field specifies the user personal email.<br/> The <b title=\"See the field on the left.\">active</b> option specifies if the user is either active or not.<br/> The <b title=\"See the field on the left.\">nickname</b> will be the show name. <br/> On the <b title=\"See the field on the left.\">profile</b> field is a shot user description. <br/> A <b title=\"See the field on the left.\">website</b> can also be specified, as well as the <b title=\"See the field on the left.\">country</b>. <br/> The user <b title=\"See the field on the left.\">gender</b> is also defined. <br/> You can add the user to <b title=\"See the colored areas on the left.\">groups</b> by dragging the group from the yellow field to the green field. "
       delete:
         title: "Delete User"
         question: "Are you sure you want to delete %{username}?"
@@ -235,6 +235,9 @@ en:
         title: "Deleted Users List"
         search: "Find users"
         create: "Create user"
+        show_link: "Details"
+        destroy_link: "Destroy"
+        undelete_link: "Recover"
       columns:
         created_at: "Created at"
         email: "Email"
@@ -255,7 +258,7 @@ en:
         noentries: "No entries found"
       sidebar:
         title: "Deleted users"
-        text: "Here you can manage deleted users."
+        paragraph: "Here you can see deleted users. You can <b title=\"See the combo box at the top of the table.\">\"undelete\"</b> a user by clicking on <b title=\"See the combo box at the top of the table.\">\"Recover\"</b> from the drop down menu. You can also <b title=\"See the combo box at the top of the table.\">edit</b> and view users <b title=\"The link is at the end of the row.\">details</b>.<br/><br/>A user can also be permanently deleted by clicking on <b title=\"The link is at the end of the row.\">destroy</b>. That action is <b title=\"Please be careful.\">not reversible</b>."
           
     groups:
       index:
@@ -266,14 +269,25 @@ en:
         search: "Find groups"
         create: "New Group"
         sidebar:
+          edit:
+            title: "Editing group"
+            paragraph: "By editing a group you can change it's <b title=\"See the field on the left.\">name</b>. <br/> A <b title=\"See the field on the left.\">description</b> can be added. <br/> You can decide if a group will be or not <b title=\"See the field on the left.\">mailable</b>, that is, you can send an email to all users of the group at once.<br/> To decide if a user can decide to became part of it, define true on <b title=\"See the field on the left.\">User choosable</b>.<br/> You can create <b title=\"See the field on the left.\">group</b> hierarchies by dragging groups which will subgroups of it from the yellow field to the green field. <br/> The group <b title=\"See the field on the left.\">users</b> are managed on the same way of the subgroups. "
           hierarchy:
             name: "Hierarchy"
-            subname: "All groups"
+            index:
+              title: "Groups"
+              paragraph: "You are viewing system groups information. From here you can <b title=\"See the link above the table.\">create</b> a new group. You can also view a group <b title=\"The link is at the end of the row.\">details</b> and it's hierarchy. To edit a group details click on <b title=\"The link is at the end of the row.\">edit</b>. To eliminate a group simply click on <b title=\"The link is at the end of the row.\">delete</b>. "
+            empty:
+              subname: "All groups"
+              paragraph: "When viewing details of a group containing subgroups, you can see here the hierarchy."
+            info:
+              subname: "All groups"
+              paragraph: "Below is the group and subgroup relationship hierarchy. "
           users:
             go_to_deleted_users: "Go to deleted users"
-            go_to_users: "Go to users"
+            go_to_users: "Go back to users"
             deleted_users: "Deleted users"
-            undo_deleted_users: "Recover users"
+            undo_deleted_users: "You can manage deleted users by clicking on the link below."
       columns:
         parent_name: "Parent"
         name: "Name"
@@ -303,6 +317,12 @@ en:
         update_link: "Edit"
         search: "Search Pages"
         create: "New Page"
+        sidebar:
+          title: "Static pages"
+          paragraph: "You can <b title=\"The create link is above the table.\">create</b> new static pages. They can have a link on the sidebar on the frontend. You can also <b title=\"The edit link is at the end of the row.\">edit</b> existing pages or <b title=\"The delete link is at the end of the row.\">delete</b> it. Clicking on the <b title=\"The name is the string on the Title column.\">page name</b> you will be redirected to the frontend, viewing the page."
+          edit:
+            title: "Edit a page."
+            paragraph: "You are editing a static page. You can change the <b title=\"Will appear at the top of the page and on the browser page title.\">title</b> which is the title of the page and also the header.<br/> On the <b title=\"It is the page content.\">body</b> you can use <a href=\"http://www.w3schools.com/tags/default.asp\" target=\"_blank\">html</a> tags, and <a href=\"http://en.wikipedia.org/wiki/Textile_(markup_language)#Textile_syntax_examples\" target=\"_blank\">textile</a> elements. You can also change the <b title=\"Slug is a small word representing a whole phrase. \">slug</b> which represents the page identification and link.<br/>The <b title=\"Higher value means more priority.\">priority</b> defines how important an page is and where should be placed on the menu of the frontend, if you check the box <b title=\"If you do not check this box, you need to manually create a link to this page.\">Show in the menu</b> Confirm if you want <b title=\"Comments are small texts written about the page that all users can create.\">comments</b> by checking the box at the end.<br/>If you want to preview the final look of the page click on <b title=\"This will generate a preview.\">Preview</b> before <b title=\"This will create the page.\">Save</b>"
       columns:
         title: "Title"
         excert: "Excert"
@@ -391,14 +411,20 @@ en:
             tag_exists: "A tag with the specified name already exists."
             no_server: "Couldn't connect to the server."
       sidebar:
-            history:
-              title: "Actions history"
-              paragraph: "See below the changes made to this user"
-            reversion:
-              title: "Reverting"
-              subtitle: "You are reverting information"
-              message: "If you click \"Revert\" below, you are making your actions permanent!"
-              link: "Revert"            
+        index:
+          title: "Posts"
+          paragraph: "On this page you can manage posts. You can <b title=\"The view details button is on the right side of the row.\" >view</b> and <b title=\"The remove button is on the right side of the row.\">edit</b> current posts details.<br/> You can also <b title=\"The create button is on the top right of the table.\">create</b> new posts which will appear on frontend, available to all users. If you want to remove a post simply click on <b title=\"The remove button is on the right side of the row.\">delete</b>.<br/><br/>You can also filter posts by <b title=\"The tags are the keyword list, which identifies the posts.\">tags</b>, on the list below. As you click on a tag, the all the posts <b title=\"If you click the tag 'a' and 'b', only posts containing both keywords 'a' and 'b' will be shown.\">containing</b> all the tags you click will be shown."
+        history:
+          title: "Revert post information"
+          paragraph: "Here you can revert information. Click below on the dates to see the post on that date. Click on <b title=\"The revert link will appear when you click on a previous date.\">\"Revert\"</b> to complete the reversion process."
+        reversion:
+          title: "Reverting"
+          subtitle: "You are reverting information"
+          message: "If you click <b title=\"The revert link button is below.\">\"Revert\"</b> below, you are making your actions permanent!"
+          link: "Revert"
+        edit:
+          title: "Editing a post"
+          paragraph: "You are editing a post information. You can change this post <b title=\"The title is the post identification.\">title</b> and <b title=\"The body corresponds to the post content\">body</b> or content of a post.<br/> The <b title=\"The tags are the elements which you can use to filter posts.\">tag list</b>, corresponding to the list of words associate with the post, can also be changed here. The <b title=\"The slug is the unique identification of the post, useful for links.\">slug</b> which is a short description of all content is also editable here.<br/>Please verify also the <b title=\"Check if do not want do notify via feed.\">minor edit</b> field.<br/>If you want to preview the final look of the post click on <b title=\"This will generate a preview.\">Preview</b> before <b title=\"This will create the post.\">Save</b>. To discard changes select <b title=\"This will reject any changes.\">Cancel</b>."
 
     comments:
       index:
@@ -407,11 +433,18 @@ en:
         update_link: "Edit"
         search: "Search Comments"
         create: "New Comment"
+        sidebar:
+          title: "Comments"
+          paragraph: "You are viewing comments made by other users to your posts. You can either <b title=\"The edit link is at the end of the row.\">Edit</b> or <b title=\"The delete link is at the end of the row.\">Delete</b> a comment."
+          edit:
+            title: "Comment"
+            paragraph: "You are editing a comment. You can change the <b title=\"The body is the content of the comment.\">body</b> of the comment."
       columns:
         created_at: "Date"
         commenter: "Commenter"
         excert: "Excert"
         post: "Post"
+        body: "Body"
       list:
         noentries: "No Comments Found"
         found:
@@ -443,7 +476,13 @@ en:
           one: "%{count} Announcements Found"
       sidebar:
         title: "Announcements"
-        text: "On this page you can create announcements that will appear on frontend."
+        paragraph: "On this page you can create <b title=\"Announcements are entries on the main page banner. The link to create is above the table.\">announcements</b> that will appear on frontend.<br/>You can also <b title=\"The link is at the end of the row\">edit</b> and <b title=\"The link is at the end of the row\">delete</b> existing announcements.<br/>To view an announcement <b title=\"The link is at the end of the row\">details</b> just click on the link."
+        show:
+          title: "Paragraph"
+          paragraph: "You are now viewing details of an announcement. To edit the announcement, go to <b title=\"The tab is above the announcement details.\">announcements tab</b>, and chose edit."
+        edit:
+          title: "Edit announcement"
+          paragraph: "You are editing an announcement. You can specify a <b title=\"The title will identify the announcement.\">title</b>, change the <b title=\"The announcement will be visible between the start and end date.\" >date</b> when it will be visible. You can edit the target <b title=\"The url is the target page, when the image is clicked.\">url</b>, and the background <b title=\"The image will fill all the banner area.\">image</b>. Finally you can change the <b title=\"If your message is too long, it will cover cover the image.\">message</b> which appear in front of the image.<br/>If you want to create a big announcement, you should the create a <b title=\"See the link on the tab above.\">static page</b> with all the information, and link the announcement to that page."
     settings:
       title: "Settings management"
       theme: "Theme"

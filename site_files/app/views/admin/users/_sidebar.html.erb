@@ -5,7 +5,7 @@
       <h3><%= t("admin.users.sidebar.title") %></h3>
     </div>
     <div class="content">
-      <p><%= t("admin.users.sidebar.text") %></p>
+      <p><%= t("admin.users.sidebar.paragraph") %></p>
     </div>
   </div>
 
@@ -59,7 +59,7 @@
   <div class="block notice">
 <!--    <h3><%= t "admin.users.sidebar.reversion.title"%></h3> not coherent with pilu themes! -->
     <h4><%= t "admin.users.sidebar.reversion.subtitle"%></h4>
-    <p><%= t "admin.users.sidebar.reversion.message"%></p>
+    <p><%= t "admin.users.sidebar.reversion.paragraph"%></p>
     <%= link_to t("admin.users.sidebar.reversion.link"), admin_history_entries_path({:id => @history_entry.id, :redirect_url => admin_user_url(@actual_record.id)}),
                  :method => :post %>
   </div>
@@ -71,7 +71,7 @@
   <div class="block">
     <h3><%= t("admin.users.sidebar.edit.title") %></h3>
     <div class="content">
-      <p><%= t("admin.users.sidebar.edit.text") %></p>
+      <p><%= t("admin.users.sidebar.edit.paragraph") %></p>
     </div>
   </div>
 <% end -%>
