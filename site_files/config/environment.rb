@@ -52,7 +52,7 @@ require 'string_extensions'
 require 'formtastic_extensions'
 require 'sparklines'
 
-=begin
+#=begin
 module I18n
 
   def self.t(label, options = {})
@@ -63,6 +63,13 @@ module I18n
     "pumba"
   end
 
-end
-=end
+  def self.l(label, format=:default, options={})
+    "pimba"
+  end
 
+  def self.localize(label, format=:default, options={})
+    "pimba"
+  end
+
+end
+#=end

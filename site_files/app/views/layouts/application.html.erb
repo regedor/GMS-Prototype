@@ -60,7 +60,7 @@
         <% end %>
         </span>
         <span class="title">
-          núcleo de estudantes de medicina da universidade do minho
+          <%= configatron.site_header %>
         </span>
       </div>
 
@@ -85,7 +85,7 @@
           </div>
           <%= render :partial => 'announcements/announcement', :collection => announcements %>
         <% else %>
-          <p>There are no current announcements!</p>
+          <p><%= I18n::t('announcements.none') %></p>
         <% end %>
       </div>
 

@@ -46,7 +46,6 @@ en:
     errors:
       invalid_open_id: "OpenID authentication failed. Verify your data and try again."
     bar:
-      last_session_paragraph: "Your last login was %{time_ago} ago, your ip was %{ip}"
       account_link: "Account details"
       logout: "Sign out"
       signin: "Sign in"
@@ -92,20 +91,26 @@ en:
       commit_button: "Update password and log in"
 
 
+  announcements:
+    none: "There are no current announcements."
+
   posts:
     none: "There are no posts so far."
     archive: "Post archive"
-    date: "Posted on"
-    tags: "Tagged"
-    comments:
-      one: "%{count} comment"
-      many: "%{count} comments"
+    meta:
+      date: "Posted on"
+      tags: "Tagged"
+      comments:
+        one: "%{count} comment"
+        many: "%{count} comments"
+    tags:
+      title: "Tag Cloud"
+    archives:
+      title: "Archives"
+      none: "There are no posts so far."
     pagination:
       previous: "«"
       next: "»"
-
-  tags:
-    title: "Tag Cloud"
 
   comments:
     title: "Post a comment"
@@ -603,6 +608,11 @@ en:
       success: "Action \"%{action}\" performed with success."
       failure: "An error occurred while performing action \"%{action}\"."
       no_selection: "You must select at least one item from the table to execute an action."
+
+
+  footer:
+    last_session_paragraph: "Your last login was %{time_ago} ago, your ip was %{ip}"
+    browser_warning: "The web site is not rendering correctly because you are using an old version of <span style='color:red;'>Microsoft Internet Explorer</span>.<br /> Upgrade your browser or download <a href='http://www.mozilla.com/firefox/'>Mozilla Firefox</a>."
 
 
   generic_sentence:
