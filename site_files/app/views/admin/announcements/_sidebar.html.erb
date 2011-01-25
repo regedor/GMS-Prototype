@@ -1,8 +1,32 @@
-<div class="block">
-  <div id="sidebar_head">
-    <h3><%= t("admin.announcements.sidebar.title") %></h3>
+<% if (controller.action_name == "index") %>
+  <div class="block">
+    <div id="sidebar_head">
+      <h3><%= t("admin.announcements.sidebar.title") %></h3>
+    </div>
+    <div class="content">
+      <p><%= t("admin.announcements.sidebar.paragraph") %> </p>
+    </div>
   </div>
-  <div class="content">
-    <p><%= t("admin.announcements.sidebar.text") %> </p>
+<% end %>
+
+<% if (controller.action_name == "show") %>
+  <div class="block">
+    <div id="sidebar_head">
+      <h3><%= t("admin.announcements.sidebar.show.title") %></h3>
+    </div>
+    <div class="content">
+      <p><%= t("admin.announcements.sidebar.show.paragraph") %> </p>
+    </div>
   </div>
-</div>
+<% end %>
+
+<% if (controller.action_name == "edit") %>
+  <div class="block">
+    <div id="sidebar_head">
+      <h3><%= t("admin.announcements.sidebar.edit.title") %></h3>
+    </div>
+    <div class="content">
+      <p><%= t("admin.announcements.sidebar.edit.paragraph") %> </p>
+    </div>
+  </div>
+<% end %>

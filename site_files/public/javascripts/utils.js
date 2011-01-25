@@ -1,7 +1,7 @@
 jQuery.noConflict();
 
 function t(path,pairs){
-	translate(path,pairs);
+	return translate(path,pairs);
 }
 
 function translate(path,pairs){

@@ -42,28 +42,28 @@ class YamlEditor
 
   # Returns the inline string to be rendered by the controller
   def render
-    str = "<div class=\"active-scaffold\" >"
-    str += "<% form_tag({:controller => \"settings\", :action => \"update\", :id=>1}, :method => \"put\") do %>"
+    str = "<div class=\"content\" ><div class=\"inner\"><div class=\"active-scaffold\"><div class=\"show-view view\">"
     str += "<h4>#{@global_title}</h4>"
-    str += "<ol class=\"form\">"
+    str += "<% form_tag({:controller => \"settings\", :action => \"update\", :id=>1}, :method => \"put\") do %>"
+    str += "<dl>"
     if @options_hash == :all
       get_all_values_nested.each_pair do |k,v|
-        str += "<li class=\"form-element\"><dl>"
+
         str += "<dt>#{k.split(".").last}: </dt>" 
     	  str += "<dd><input name=#{k} type=\"text\" value=#{v} /></dd>"
-    	  str += "</dl></li>"
+
       end  
     else
       @options_hash.keys.each do |path|	
-        str += "<li class=\"form-element\"><dl>"
+
         str += "<dt>#{self.options_hash[path]['title']}: </dt>" 
     	  str += "<dd>"+self.get_value_from_path(path)+"</dt>"
-    	  str += "</dl></li>"
+
     	end  
     end
-    str += "</ol>"
-    str += "<p class=\"form-footer\"><input id=\"person_submit\" name=\"commit\" type=\"submit\" value=\"Save Changes\" class=\"submit\" /></p>\n<% end -%>"
-    str += "</div>"
+    str += "</dl>"
+    str += "<p class=\"form-footer\"><input id=\"person_submit\" name=\"commit\" type=\"submit\" value=\""+ I18n::t("admin.settings.save") +"\" class=\"submit\" /></p>\n<% end -%>"
+    str += "</div></div></div></div>"
     
     return str
   end  

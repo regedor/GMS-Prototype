@@ -6,6 +6,7 @@ class Admin::PostsController < Admin::BaseController
   active_scaffold :post do |config|
     Scaffoldapp::active_scaffold config, "admin.posts",
       :list   => [ :title, :excert, :published_at, :total_approved_comments ],
+      :show   => [ ],
       :create => [ :title, :body, :tag_list, :published_at_natural, :slug ],
       :edit   => [ :title, :body, :tag_list, :published_at_natural, :slug, :minor_edit ]
   end
@@ -14,12 +15,31 @@ class Admin::PostsController < Admin::BaseController
     return Post.tags_filter @tag_ids
   end
 
+  # Overrided this action to show revertion previews and revert option
+  def show
+    if params[:history_entry_id]
+      @actual_record = Post.find params[:id] 
+      @history_entry = HistoryEntry.find(params[:history_entry_id])
+      @record        = @history_entry.historicable_preview
+      @post          = @record || @actual_record
+      render :action => 'show'
+    else
+     super
+    end
+  end
+
+  # Hack for the post preview in the show action
+  def do_show
+    super
+    @post = @actual_record || @record
+  end
+
   def preview
     @post = Post.build_for_preview(params[:record])
 
     respond_to do |format|
       format.js {
-        render :partial => 'posts/post', :locals => {:post => @post}
+        render :partial => 'preview', :locals => {:post => @post}
       }
     end
   end
@@ -49,17 +69,6 @@ class Admin::PostsController < Admin::BaseController
           page.call 'update_record', @tag.id, old_name, new_name if success
         end
       }
-    end
-  end
-
-  def edit
-    if params[:history_entry_id]
-      @actual_record = Post.find params[:id] 
-      @history_entry = HistoryEntry.find(params[:history_entry_id])
-      @record        = @history_entry.historicable_preview
-      render :action => "update"
-    else
-     super   
     end
   end
 

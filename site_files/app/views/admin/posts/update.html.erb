@@ -1,31 +1,37 @@
-<% if File.exists?(Rails.root.join("app", "views", params[:controller], "_update_sidebar.html.erb")) %>
+<% if File.exists?(Rails.root.join("app", "views", params[:controller], "_edit_sidebar.html.erb")) %>
   <% content_for :sidebar do -%>
-    <%= render :partial => 'update_sidebar'  %>
+    <%= render :partial => 'edit_sidebar' %>
   <% end -%>
 <% elsif File.exists?(Rails.root.join("app", "views", params[:controller], "_sidebar.html.erb")) %>
   <% content_for :sidebar do -%>
-    <%= render :partial => 'sidebar'  %>
+    <%= render :partial => 'sidebar' %>
   <% end -%>
 <% end -%>
-
 
   <div class="content">
     <div class="inner">
 
-
       <h2><%= I18n::t('admin.posts.form.edit') + ' - ' + link_to(h(@record.title), post_path(@record)) %></h2>
 
       <% semantic_form_for :record, @record, 
-                           :url => admin_post_path(@actual_record || @record), 
-                           :html => {:method => :put, :id => "edit_post_#{(@actual_record || @record).id}"} do |form| -%>
+                           :url => admin_post_path(@record), 
+                           :html => { :method => :put, :id => "edit_post_#{@record.id}" } do |form| -%>
+
         <%= render :partial => 'form', :locals => {:form => form} %>
-		<% form.buttons do -%>
-          <%= form.commit_button :label => t('admin.posts.form.submit'), :class => 'login_ico' %>  
-          <%= form.button_link t('admin.posts.form.preview_button'), "#", 
-                         :button_html => {:class => "preview_button"} %>
-		  <%= form.button_link t('admin.posts.form.edit_button'), "#", 
-				         :button_html => {:style => "display: none;", :class => "edit_button"} %> 
-        <% end -%>
+
+        <p class="form-footer">
+          <% form.buttons do -%>
+            <%= form.button_link   t('admin.posts.form.preview_button'), "javascript: void(0);",
+                                   :button_html => {:class => "preview_button"} %>
+            <%= form.button_link   t('admin.posts.form.edit_button'), "javascript: void(0);",
+                                   :button_html => {:style => "display: none;", :class => "edit_button"} %>
+            <%= form.commit_button t('admin.posts.form.update_button'),
+                                   :button_html => {:class => "submit"} %>
+            <%= form.button_link   t('admin.posts.form.cancel_button'), admin_posts_path,
+                                   :button_html => {:class => "negative"} %>
+          <% end -%>
+        </p>
+
       <% end -%>
     </div>
   </div>

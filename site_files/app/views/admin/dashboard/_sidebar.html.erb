@@ -1,7 +1,7 @@
 <div class="block">
   <h3><%= t("admin.dashboard.sidebar.title") %></h3>
   <div class="content">
-    <p><%= t("admin.dashboard.sidebar.text") %></p>
+    <p><%= t("admin.dashboard.sidebar.paragraph") %></p>
   </div>
   <ul class="navigation">
     <li><%= link_to t("admin.dashboard.sidebar.go_to_frontend"), '/' %></li>
@@ -9,7 +9,7 @@
 </div>
 
 <div class="block">
-  <h3>User management</h3>
+  <h3><%= t("admin.dashboard.sidebar.user_management.title") %></h3>
   <ul class="navigation">
     <li><%= link_to t("admin.dashboard.sidebar.user_management.manage_user_accounts"), admin_users_url %></li>
     <li><%= link_to t("admin.dashboard.sidebar.user_management.manage_groups"), admin_groups_url %></li>
@@ -19,6 +19,6 @@
 <div class="block">
   <h3><%= t("admin.dashboard.sidebar.settings.title") %></h3>
   <ul class="navigation">
-    <li><%= link_to "Manage #{configatron.site_name} settings", admin_settings_url %></li>
+    <li><%= link_to t("admin.dashboard.sidebar.settings.manage_settings", :site_name => configatron.site_name), admin_settings_url %></li>
   </ul>
 </div>

@@ -35,7 +35,7 @@ class Admin::UsersController < Admin::BaseController
     end
   end
 
-  # I am overriding this action to use it before revert do preview as well
+  # Overrided this action to show revertion previews and revert option
   def show
     if params[:history_entry_id]
       @actual_record = User.find params[:id] 

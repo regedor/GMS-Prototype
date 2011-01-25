@@ -8,31 +8,31 @@ class User::AccountController < ApplicationController
   
   def new
     @user = User.new
-    redirect_to root_path
+    #redirect_to root_path
   end
   
   def create
-    redirect_to root_path
-    #@user = User.new(params[:user])
-    #@user.save do | result | 
-    #  if result 
-    #    session[:language] = @user.language
-    #    if request["openid.op_endpoint"] == "https://www.google.com/accounts/o8/ud"
-    #      @user.activate!
-    #      @user.deliver_activation_confirmation!
-    #      UserSession.new(@user,true).save
-    #      flash[:notice] = t 'flash.login'
-    #      redirect_back_or_default root_url
-    #    else
-    #      @user.deliver_activation_instructions!
-    #      flash[:notice] = t('flash.account_created') 
-    #      redirect_to root_url
-    #    end
-    #  else
-    #    flash[:error] = @user.errors[:base] 
-    #    render :action => :new
-    #  end
-    #end
+    #redirect_to root_path
+    @user = User.new(params[:user])
+    @user.save do | result | 
+      if result 
+        session[:language] = @user.language
+        if request["openid.op_endpoint"] == "https://www.google.com/accounts/o8/ud"
+          @user.activate!
+          @user.deliver_activation_confirmation!
+          UserSession.new(@user,true).save
+          flash[:notice] = t 'flash.login'
+          redirect_back_or_default root_url
+        else
+          @user.deliver_activation_instructions!
+          flash[:notice] = t('flash.account_created') 
+          redirect_to root_url
+        end
+      else
+        flash[:error] = @user.errors[:base] 
+        render :action => :new
+      end
+    end
   end
   
   def activate

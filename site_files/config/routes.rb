@@ -70,7 +70,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :comments,       :active_scaffold => true, :active_scaffold_sortable => true,
                                      :only            => :destroy,
                                      :member          => { :mark_as_spam => :put, :mark_as_ham => :put }
-    admin.resources :revert_actions
+    admin.resources :history_entries
     admin.resources :settings
     #admin.resources :activities,          :active_scaffold => true, :active_scaffold_sortable => true 
     admin.resources :mails,               :active_scaffold => true, :active_scaffold_sortable => true      

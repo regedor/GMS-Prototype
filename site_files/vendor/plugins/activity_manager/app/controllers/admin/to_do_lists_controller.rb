@@ -1,7 +1,7 @@
 class Admin::ToDoListsController < Admin::BaseController
   
   def index
-    @lists = ToDoList.all
+    @lists = Project.find(params[:project_id]).to_do_lists
   end  
   
   def changeState
@@ -18,3 +18,4 @@ class Admin::ToDoListsController < Admin::BaseController
   end   
   
 end  
+
