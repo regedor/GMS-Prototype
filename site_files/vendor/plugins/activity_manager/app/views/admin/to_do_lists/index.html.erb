@@ -94,7 +94,7 @@ jQuery(document).ready(function($){
 	connectWith: ".connectable",
 	stop: function(event,ui) {
 		var order = $(".connectable").sortable("serialize");
-		alert(inspect(ui.item[0]));
+		alert(ui.item[0].attributes[0]);
 	}
  }).disableSelection();
 	
