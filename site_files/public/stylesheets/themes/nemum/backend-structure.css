@@ -1,0 +1,80 @@
+/*
+============================================================================
+= General Structure
+============================================================================
+*/
+
+body                                     { background: #E5E5E5; }
+p                                        { margin: 1.5em 0; }
+
+div#container                            { min-width: 960px; }
+
+div#main                                 { width: 71%; float: left; }
+div#main>div.block                       { background: #FFF; -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.4); }
+div#main>div.block                       { -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.4); box-shadow: 0 1px 3px rgba(0,0,0,0.4); }
+
+div#main-navigation ul li                { background-color: #ADADAD; float: left; margin: 0 5px 0 0; }
+div#main-navigation ul li.active         { background: #FFF; background: -webkit-gradient(linear, left bottom, left top, color-stop(1, #fff), color-stop(0, #E5E5E5)); background: -moz-linear-gradient(center bottom, rgb(229,229,229) 2%, rgb(255,255,255) 60%); }
+
+div.secondary-navigation ul li           { float: left; }
+div.secondary-navigation ul li a         { display: block; padding: 10px 15px; }
+
+div#user-navigation                      { float: right; margin: 5px 0; }
+
+div#sidebar                              { width: 29%; float: right; }
+div#sidebar h3                           { padding: 0 0 5px 0; margin: 0 0 1.5em; }
+div#sidebar div.block                    { margin: 0 0 0 15px; }
+div#sidebar div.block ul.navigation li   { background-position: 15px 1px; background-repeat: no-repeat; }
+div#sidebar div.block ul.navigation li   { background-image: url("images/arrow.png"); }
+div#sidebar div.block ul.navigation li a { margin: 0 0 1.6em 15px; }
+div#sidebar div.block div.content        { padding: 0 15px; }
+div#sidebar ul.navigation li a:link, 
+div#sidebar ul.navigation li a:visited   { display: block; padding: 0 15px; }
+div#sidebar ul.navigation                { list-style-type: none; }
+
+div#footer div.block p                   { margin: 1.5em 0; }
+
+div#flash.flash div.message              { margin: 15px; }
+div#flash.flash div.message p            { margin: 8px; }
+div#flash.flash div.message.error        { border: 1px solid #ffbbbb; background-color: #ffdddd; }
+div#flash.flash div.message.warning      { border: 1px solid #ffff88; background-color: #ffffcc; }
+div#flash.flash div.message.info,         
+div#flash.flash div.message.notice       { border: 1px solid #1fdf00; background-color: #bbffb6; }
+
+div#header                               { padding: 0 15px; }
+div#header h1                            { padding: 30px 0; }
+div#header h1 a                          { display: block; }
+div#header h1 a                          { text-indent: -6000px; height: 100px; width: 350px; background: url("/stylesheets/themes/nemum/images/bg_logo_admin.png") no-repeat; }
+div#header                               { background: #2E2A2B; background: -webkit-gradient(linear, left bottom, left top, color-stop(1, #2E2A2B), color-stop(0, #423D3E)); background: -moz-linear-gradient(center bottom, rgb(66,61,62) 0%, rgb(46,42,43) 100%); }
+
+div#wrapper                              { margin: 15px; }
+
+.wat-cf:after                            { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+.wat-cf                                  { display: inline-block; }
+
+/* Rounded borders */
+
+div#main div.block                       { -moz-border-radius-bottomleft: 10px; -webkit-border-bottom-left-radius: 10px; -moz-border-radius-bottomright: 10px; -webkit-border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; }
+
+div#main div.block li.active.first       { -moz-border-radius-topleft: 10px; -webkit-border-top-left-radius: 10px; border-top-left-radius: 10px; }
+
+div#main div.block,
+div#main-navigation li,
+div.secondary-navigation                 { -moz-border-radius-topleft: 10px; -webkit-border-top-left-radius: 10px; border-top-left-radius: 10px; -moz-border-radius-topright: 10px; -webkit-border-top-right-radius: 10px; border-top-right-radius: 10px; }
+
+div#flash.flash div.message              { -moz-border-radius: 6px; -webkit-border-radius: 6px; border-radius: 6px; }
+
+
+/* the following rules are necessary due to the usage of active-scaffold and will be removed later */
+
+div#main div.block div.block div.content h2.title { color: #676766; padding: 15px; }
+div#main div.block div.block div.content h3 { font-size: 1.1em; }
+div#main div.block div.block div.content div.inner { padding-left: 15px; }
+
+
+/* Hides from IE-MAC */
+
+* html .wat-cf { height: 1%; }
+.wat-cf        { display: block; }
+
+/* End hide from IE-MAC */

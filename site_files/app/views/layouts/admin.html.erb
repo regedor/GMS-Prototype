@@ -12,13 +12,14 @@
 
   <%= active_scaffold_includes %>
 
-  <%= stylesheet_link_tag 'formtastic/formtastic',                                           
-                          'smoothness/jquery-ui-1.8.7.custom',                              
-                          "themes/#{configatron.theme}/formtastic-changes",                 
-                          "themes/#{configatron.theme}/active_scaffold_override/stylesheet", 
-                          "themes/#{configatron.theme}/backend-base",                       
-                          "themes/#{configatron.theme}/backend-theme",                     
-                          "themes/#{configatron.theme}/backend-icons",                         :cache => "backend" %>
+  <%= stylesheet_link_tag 'reset',
+                          'formtastic/formtastic',
+                          'smoothness/jquery-ui-1.8.7.custom',
+                          "themes/#{configatron.theme}/formtastic-changes",
+                          "themes/#{configatron.theme}/active_scaffold_override/stylesheet",
+                          "themes/#{configatron.theme}/backend-typography",
+                          "themes/#{configatron.theme}/backend-structure",
+                          "themes/#{configatron.theme}/backend-icons", :cache => "backend" %>
 
   <%= yield :head %>
 

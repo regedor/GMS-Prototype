@@ -6,9 +6,9 @@
 /* TODO: Complete all the other views, as they became avaliable. After that the hover section will be completed */
 
 /* Users */
-#as_admin__users-content a.show   { background: url("/stylesheets/themes/nemum/icons/user.png") no-repeat; padding-left: 18px;}
-#as_admin__users-content a.edit   { background: url("/stylesheets/themes/nemum/icons/user_edit.png") no-repeat;padding-left: 18px;}
-#as_admin__users-content a.delete { background: url("/stylesheets/themes/nemum/icons/user_delete.png") no-repeat;padding-left: 18px;}
+#as_admin__users-content a.show   { background: url("/stylesheets/themes/nemum/icons/user.png") no-repeat; padding-left: 18px; }
+#as_admin__users-content a.edit   { background: url("/stylesheets/themes/nemum/icons/user_edit.png") no-repeat; padding-left: 18px; }
+#as_admin__users-content a.delete { background: url("/stylesheets/themes/nemum/icons/user_delete.png") no-repeat; padding-left: 18px; }
 
 /* Deleted users */
 
@@ -75,5 +75,3 @@
 .false-empty  { padding-left: 18px;}
 
 /* Icons on hover */
-
-
