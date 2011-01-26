@@ -17,5 +17,28 @@ class Admin::ToDoListsController < Admin::BaseController
     end  
   end   
   
+  def edit 
+    @todo = ToDo.find(params[:item])
+    
+    respond_to do |format|
+      format.json { render :json  =>  {
+            'id' => params[:item],
+            'html'=> render_to_string(:partial => "admin/to_dos/edit_form.html.erb", :layout => false) 
+        }  
+      }
+    end  
+  end  
+  
+  def sortList
+    item = ToDo.find(params[:item])
+    
+    item.to_do_list_id = params[:list] if item.to_do_list_id != params[:list]
+    item.insert_at((params[:items].index item.id.to_s)+1)
+    item.save
+    
+    respond_to do |format|
+      format.js { render :text => "" }
+    end
+  end  
+  
 end  
-

@@ -22,7 +22,7 @@ jQuery(document).ready(function($){
       success: function(r) {
 		var res = r.split("&");
 		
-		$("#"+res[0]).next().next().append(" <span>"+res[1]+"</span>");	
+		$("#"+res[0]).next().children(':nth-child(2)').append(" <span>"+res[1]+"</span>");	
       }
     });
 
@@ -33,7 +33,7 @@ jQuery(document).ready(function($){
 	$(this).next().remove();
 	$(this).parent().addClass("todo");
 	$(this).parent().removeClass("done_todo");
-	$(this).next().next().children(':nth-child(1)').text($(this).next().next().children(':nth-child(1)').text().replace("(","").replace(")",""));
+	$(this).next().children(':nth-child(2)').children(':nth-child(1)').text($(this).next().children(':nth-child(2)').children(':nth-child(1)').text().replace("(","").replace(")",""));
 	$(this).removeAttr("checked");
 	$(this).bind("click",check);
 	
@@ -62,8 +62,8 @@ jQuery(document).ready(function($){
 	
 	$(this).parent().remove();	
 	$(this).parent().prependTo(".done_todos-"+listId);
-	$(this).next().next().children(':nth-child(1)').text("("+$(this).next().next().children(':nth-child(1)').text()+")");
-	$(this).next().next().children(':nth-child(2)').remove();
+	$(this).next().children(':nth-child(2)').children(':nth-child(1)').text("("+$(this).next().children(':nth-child(2)').children(':nth-child(1)').text()+")");
+	$(this).next().children(':nth-child(2)').children(':nth-child(2)').remove();
 	$(this).parent().addClass("done_todo");
 	$(this).parent().removeClass("todo");
 	
@@ -93,77 +93,61 @@ jQuery(document).ready(function($){
  $(".sortable").sortable({
 	connectWith: ".connectable",
 	stop: function(event,ui) {
-		var order = $(".connectable").sortable("serialize");
-		alert(ui.item[0].attributes[0]);
+		
+		var classToSerialize = "."+ui.item.parent().attr("class").split(" ")[0];
+		var order = $(classToSerialize).sortable("serialize");
+		var newOrder = order.replace(/item/g,"items");
+	
+		jQuery.ajax({
+	      type: 'POST',
+	      data: ui.item.parent().parent().parent().attr("id")+"&"+ui.item.attr("id")+"&"+newOrder,
+	      url: window.location.href.replace("#","")+"/sortList",
+	      error: function() {
+	        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"sort"});
+			return false;
+	      },
+	      success: function(r) {
+		  		
+	      }
+	    });
 	}
  }).disableSelection();
+		
 	
-	
-	
-	function inspect(obj, maxLevels, level)
-	{
-	  var str = '', type, msg;
+  $( ".datepicker" ).datepicker({
+  	autoSize: true,
+  });
 
-	    // Start Input Validations
-	    // Don't touch, we start iterating at level zero
-	    if(level == null)  level = 0;
-
-	    // At least you want to show the first level
-	    if(maxLevels == null) maxLevels = 1;
-	    if(maxLevels < 1)     
-	        return '<font color="red">Error: Levels number must be > 0</font>';
-
-	    // We start with a non null object
-	    if(obj == null)
-	    return '<font color="red">Error: Object <b>NULL</b></font>';
-	    // End Input Validations
-
-	    // Each Iteration must be indented
-	    str += '<ul>';
-
-	    // Start iterations for all objects in obj
-	    for(property in obj)
-	    {
-	      try
-	      {
-	          // Show "property" and "type property"
-	          type =  typeof(obj[property]);
-			  if(type != "function")		
-	          str += '<li>(' + type + ') ' + property + 
-	                 ( (obj[property]==null)?(': <b>null</b>'):('')) + '</li>';
-
-	          // We keep iterating if this property is an Object, non null
-	          // and we are inside the required number of levels
-	          if((type == 'object') && (obj[property] != null) && (level+1 < maxLevels))
-	          str += inspect(obj[property], maxLevels, level+1);
+  $(".edit_item").click(function(){
+		jQuery.ajax({
+	      type: 'POST',
+	      data: "item="+$(this).attr("id"),
+	      url: window.location.href.replace("#","")+"/edit",
+		  dataType: "json",
+	      error: function() {
+	        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"edit"});
+			return false;
+	      },
+	      success: function(r) {
+				
+		  		$(".todo_content-"+r.id).html(r.html);
 	      }
-	      catch(err)
-	      {
-	        // Is there some properties in obj we can't access? Print it red.
-	        if(typeof(err) == 'string') msg = err;
-	        else if(err.message)        msg = err.message;
-	        else if(err.description)    msg = err.description;
-	        else                        msg = 'Unknown';
-
-	        str += '<li><font color="red">(Error) ' + property + ': ' + msg +'</font></li>';
-	      }
-	    }
-
-	      // Close indent
-	      str += '</ul>';
-
-	    return str;
-	}
+	    });
+	
+	return false;
+  })
+	
 	
 }); 
+
 </script>
 
-<% counter = 0%>
+<% counter = 1%>
 <% @lists.each do |list| %>
 <div class="title">
 	<h2><%= link_to list.name, admin_project_to_do_lists_path %></h2>
 </div>
-<div class="the_list-<%= counter %>" style="display:none;">
+<div id="list=<%= list.id %>" class="the_list-<%= counter %>" style="display:none;">
   <div class="description">
     <%= list.description %>
   </div>
@@ -173,22 +157,25 @@ jQuery(document).ready(function($){
     <ul class="not_done-<%= counter %> connectable sortable">	
       <% divided_hash[:notDone].each do |todo| %>
 		<% if todo.user && todo.user == current_user %>
-			<li id="item_<%= todo.id  %>" class="todo highlight">
+			<li id="item=<%= todo.id  %>" class="todo highlight">
 		  <% else %>		
-	  	  	<li id="item_<%= todo.id  %>" class="todo">
+	  	  	<li id="item=<%= todo.id  %>" class="todo">
 		  <% end %>
           <input type="checkbox" id="<%= todo.id %>" value="<%= todo.id %>" /> 	
-          <span class="todo_desc"><%= todo.description %></span>
-		  <% if todo.user || todo.due_date %>
-		  <span class="todo_info">
-		  	<% if todo.user %>
-		  	 <span><%= todo.user.name %></span>
-		  	<% end %>
-		  	<% if todo.due_date %>
-		  		<span><%= l(todo.due_date, :format => :medium) %></span>
-		  	<% end %>	
-		  </span>	 
-		  <% end %>
+		  <span class="todo_content-<%= todo.id %>">
+          	<span class="todo_desc"><%= todo.description %></span>
+		  	<% if todo.user || todo.due_date %>
+		  	<span class="todo_info">
+		  		<% if todo.user %>
+		  		 <span><%= todo.user.name %></span>
+		  		<% end %>
+		  		<% if todo.due_date %>
+		  			<span><%= l(todo.due_date, :format => :medium) %></span>
+		  		<% end %>	
+		  	</span>
+			<% end %>
+		  	<span class="todo_edit"><%= link_to t("admin.to_do.edit.link"),"#",{:id => "#{todo.id}", :class => "edit_item"} %>
+		  </span>
         </li>
       <% end %>
     </ul>
@@ -201,7 +188,7 @@ jQuery(document).ready(function($){
 		  <% f.inputs do %>
 		    <%= f.input :description, :as => :text, :input_html => {:rows => 3, :cols => 40}, :label => t("admin.to_do.add_new.title"), :required => false %>
 			<%= f.input :responsible, :as => :select, :collection => User.all, :required => false, :hint => t("admin.to_do.add_new.hint") %>
-			<%= f.input :due_date, :as => :date, :required => false, :include_blank => false %>
+			<%= f.input :due_date, :as => :string, :required => false, :input_html => {:class => "datepicker"} %>			
 			<%= f.input :to_do_list_id, :as => :hidden, :value => list.id %>
 		  <% end  %>
 		  <% f.buttons do %>
@@ -212,7 +199,7 @@ jQuery(document).ready(function($){
 		<% end %>		
 	</div>	
 
-    <ul class="done_todos-<%= counter %> sortable">
+    <ul class="done_todos-<%= counter %>">
   	<% divided_hash[:done].each do |todo| %>
 	  <% if todo.user && todo.user == current_user %>
 		<li class="done_todo highlight">

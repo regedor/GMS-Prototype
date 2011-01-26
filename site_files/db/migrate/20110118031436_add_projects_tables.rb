@@ -18,9 +18,10 @@ class AddProjectsTables < ActiveRecord::Migration
       t.boolean    :done,         :default => false
       t.text       :description,                      :null => false
       t.integer    :to_do_list_id
-      t.integer    :user_id
+      t.integer    :user_id   #assigned_to
       t.datetime   :due_date
       t.datetime   :finished_date
+      t.integer    :position  #acts_as_list
       t.timestamps
     end
     

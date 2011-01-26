@@ -166,7 +166,9 @@ en:
         add_button: "Add to-do"
         responsible: "Resposible for to-do"
         link: "Add new to-do item"
-        hint: "An email will be sent to the responsible"           
+        hint: "An email will be sent to the responsible"
+      edit:
+        link: "Edit"                     
     
     project:
       index:

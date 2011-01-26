@@ -21,6 +21,7 @@ class AddProjectsTables < ActiveRecord::Migration
       t.integer    :user_id   #assigned_to
       t.datetime   :due_date
       t.datetime   :finished_date
+      t.integer    :position  #acts_as_list
       t.timestamps
     end
     
