@@ -1,25 +1,24 @@
-Feature:
-  In order to manage announcements
-  As an admin
-  I want to see an announcements list and manage announcements
+Feature: Announcements Management System
 
   Background:
     Given the DB has been initialized
-    Given the following announcements:
-      | title          | message                    | starts_at                       | ends_at                         |
-      | Announcement_1 | Test on Announcement 1     | Mon, 22 Nov 2010 16:21:00 +0000 | Fri, 26 Nov 2010 16:21:00 +0000 |
-      | Announcement 2 | Test on the Announcement 2 | Fri, 26 Nov 2010 16:21:00 +0000 | Tue, 30 Nov 2010 16:22:00 +0000 |
+    And the following announcements exist:
+      | title          | message             | starts_at                       | ends_at                         |
+      | announcement_1 | test announcement 1 | Mon, 22 Nov 2010 16:21:00 +0000 | Fri, 26 Nov 2010 16:21:00 +0000 |
+      | announcement_2 | test announcement 2 | Fri, 26 Nov 2010 16:21:00 +0000 | Tue, 30 Nov 2010 16:22:00 +0000 |
 
-  Scenario: Test the content of the announcements table
-    Given I am logged in as admin
+  @admin @announcements
+  Scenario: If I am an administrator, I shoul be able to see the content of announcements
+    Given I am logged in as an administrator
     When I follow "Administration"
     And I follow "Website"
     And I follow "Announcements"
     And I should see "Announcement_1"
     And I should see "Announcement 2"
 
-  Scenario: Test the content of the announcements table after inserting a new announcement
-    Given I am logged in as admin
+  @admin @announcements
+  Scenario: If I am an administrator, I should be able to see the content of the announcement after inserting it
+    Given I am logged in as an administrator
     When I follow "Administration"
     And I follow "Website"
     And I follow "Announcements"
@@ -32,9 +31,10 @@ Feature:
     When I press "Create"
     Then I should see "Announcement 3"
 
-  @selenium
-  Scenario: Test the content of the announcements table after deleting an announcement
-    Given I am logged in as admin
+  #javascript
+  @admin @announcements
+  Scenario: If I am an administrator, I should be able to see the content of announcements after deleting an announcement
+    Given I am logged in as an administrator
     When I follow "Administration"
     And I follow "Website"
     And I follow "Announcements"

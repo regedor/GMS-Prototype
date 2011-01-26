@@ -7,19 +7,27 @@ When /^I click the link in the email$/ do
   click_first_link_in_email
 end
 
-Given /^I am logged in as admin$/ do 
-  user = Factory.give_me_an_admin_user(:email => "root@example.com")
+Given /^I am logged in as an administrator$/ do
+  user = Factory.give_me_an_admin(:email => "admin@example.com")
   visit("/user/session/new")
-  fill_in("email", :with => user.email)
-  fill_in("password", :with => user.password)
+  fill_in("Email", :with => user.email)
+  fill_in("Password", :with => user.password)
+  click_button("Sign in")
+end
+
+Given /^I am logged in as a user$/ do
+  user = Factory.give_me_a_user(:email => "user@example.com")
+  visit("/user/session/new")
+  fill_in("Email", :with => user.email)
+  fill_in("Password", :with => user.password)
   click_button("Sign in")
 end
 
 Given /^I am logged in as "(.*)"$/ do |email|
   user = User.find_by_email email
   visit("/user/session/new")
-  fill_in("email", :with => user.email)
-  fill_in("password", :with => user.password)
+  fill_in("Email", :with => user.email)
+  fill_in("Password", :with => user.password)
   click_button("Sign in")
 end
 

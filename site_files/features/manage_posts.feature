@@ -1,35 +1,33 @@
 Feature: Post Management System
-  In order to posts announcements
-  As an admin
-  I want to see the posts list and change user properties
 
   Background:
     Given the DB has been initialized
-    Given I18n is set to english
+    And I18n is set to english
     And the following posts exists
-      | title             | body                          | published_at |
-      | Alice Hunter      | Is an actress                 | yesterday    |
-      | Helena Secretária | Is the department secretary   | now          |
-    And I am logged in as admin
+      | title  | body        | published_at |
+      | post_1 | test post 1 | yesterday    |
+      | post_2 | test post 2 | now          |
+    And I am logged in as an administrator
 
-  @admin
-  Scenario: I want to see a list of existing posts
+  @admin @posts
+  Scenario: As an administrator, I want to see a list of posts
     When I follow "Administration"
     And I follow "Website"
     And I follow "Posts"
-    Then I should see "Alice Hunter"
-    And I should see "Is an actress"
-    And I should see "Helena Secretária"
-    And I should see "Is the department secretary"
+    Then I should see "post_1"
+    And I should see "test post 1"
+    And I should see "post_2"
+    And I should see "test post 2"
 
-  Scenario: I want to create a new post
+  @admin @posts
+  Scenario: As an administrator, I want to create a new post
     When I follow "Administration"
     And I follow "Website"
     And I follow "Posts"
     And I follow "New Post"
     And I fill in "Title" with "Lorem Ipsum"
     And I fill in "Body" with "Lorem Ipsum"
-    And I fill in "Tag list" with "new tag"
+    And I fill in "Tag List" with "new tag"
     And I press "Save"
     Then the flash "info" should contain "Created Lorem Ipsum"
     #Then I should see "Created Lorem Ipsum"
@@ -37,29 +35,33 @@ Feature: Post Management System
     Then I should see "Lorem Ipsum"
     # Check for tags
 
-  @selenium
-  Scenario: I want to delete an existing post
+  #javascript
+  @admin @posts
+  Scenario: As an administrator, I want to delete a post
     When I follow "Administration"
     And I follow "Website"
     And I follow "Posts"
-    When as admin I follow "Delete" for posts whose title is "Helena Secretária"
-    And I press "OK"
-    Then I should not see "Helena Secretária"
-    And I should see "Alice Hunter"
+    When I follow "Delete" for posts whose title is "post_2"
+    And I press "Delete"
+    Then I should not see "test post 2"
+    And I should see "post_1"
     # Check for tags
 
-  @selenium
-  Scenario: I don't want to delete an existing post
+  #javascript
+  @admin @posts
+  Scenario: As an administrator, I don't want to delete a post
     When I follow "Administration"
     And I follow "Website"
     And I follow "Posts"
-    When as admin I follow "Delete" for posts whose title is "Helena Secretária"
-    And I press "Cancel"
-    Then I should see "Helena Secretária"
-    And I should see "Alice Hunter"
+    When I follow "Delete" for posts whose title is "post_2"
+    And I press "Cancel" #follow?
+    Then I should see "test post 2"
+    And I should see "test post 1"
     # Check for tags
-	
-  Scenario: I want to edit the title of a post
+
+  #javascript
+  @admin @posts
+  Scenario: As an administrator, I want to edit the title of a post
     When I follow "Administration"
     And I follow "Website"
     And I follow "Posts"
@@ -70,4 +72,4 @@ Feature: Post Management System
     Then I should see "Updated The Huntress"
     When I follow "Posts"
     Then I should not see "Alice Hunter"
-    And I should see "The Huntress"	
+    And I should see "The Huntress"

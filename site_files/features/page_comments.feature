@@ -1,19 +1,15 @@
-Feature:
-  In order manage page comments
-  As a admin
-  I want to see comments content, author and management options
+Feature: Page Management System
 
   Background:
     Given the DB has been initialized
-    Given I18n is set to english
-    Given the following activated users exist
-      | name         | email                    |
-      | Alice Hunter | alice.hunter@regedor.com |
-#    And the following pages exist
+    And I18n is set to english
+    And the following pages exist
+      | title | body      |
+      | page  | test page |
 
-  @admin
-  Scenario: If I am an admin I should be able to see the content and author of the comments
-    Given I am logged in as admin
+  @admin @pages @comments
+  Scenario: If I am an administrator, I should be able to see the author and content of comments
+    Given I am logged in as an administrator
     When I follow "Administration"
       And I follow "Website"
       And I follow "Pages"
@@ -25,8 +21,9 @@ Feature:
       Then I should see "Gauss"
       And I should see "1 + 2 + 3 ... + n = n * (n + 1) / 2"
 
-  Scenario: If I am an admin I should not be able to see removed comments
-    Given I am logged in as admin
+  @admin @pages @comments
+  Scenario: If I am an administrator, I should not be able to see removed comments
+    Given I am logged in as an administrator
     When I follow "Administration"
     And I follow "Website"
     And I follow "Pages"
@@ -39,8 +36,9 @@ Feature:
     And I follow "Comments" within "?"
     Then I should not see "Comment X"
 
+  @admin @pages @comments
   Scenario: If I am logged in as admin
-    Given I am logged in as admin
+    Given I am logged in as an administrator
     When I follow "Administration"
     And I follow "Website"
     And I follow "Pages"
@@ -49,8 +47,9 @@ Feature:
     And I should see "Comment B"
     And I should see "Remove Comment"
 
+  @pages @comments
   Scenario: If I am logged in as admin
-    Given I am logged in as "alice.hunter@regedor.com"
+    Given I am logged in as a user
     When I follow ...
     And I follow "Pages"
     And I follow "Comments" within "?"
