@@ -234,10 +234,12 @@ en:
         bt_label: "Delete user"
         cancel_link: 
           label: "Cancel"
-          title: "Go back to users list"   
-      destroy_by_ids: "Delete"
-      activate!: "Activate"
-      deactivate!: "Deactivate"
+          title: "Go back to users list"
+      list_actions:
+        destroy_by_ids: "Delete"
+        activate!: "Activate"
+        deactivate!: "Deactivate"
+        add_to_group: "Add to group '%{name}'"
       list:
         found:
           more: "%{count} Users Found"
@@ -276,9 +278,10 @@ en:
         destroy_link: "Delete"
         show_link: "Details"
         undelete_link: "Undelete"
-      destroy_by_ids: "Delete"
-      activate!: "Activate"
-      undelete_by_ids: "Re activate"
+      list_actions:
+        destroy_by_ids: "Delete"
+        activate!: "Activate"
+        undelete_by_ids: "Re activate"
       list:
         found:
           more: "%{count} Users Found"
@@ -621,7 +624,7 @@ en:
     administration: "administration"
     go_back: "Go back"
     are_you_sure: "Are you sure?"
-    scaffold_do_actions: "More actions"
+    default_list_action: "More actions"
     time_ago: "%{time_ago} ago"
     true_value: "True"
     false_value: "False"

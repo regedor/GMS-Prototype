@@ -9,12 +9,16 @@ class Admin::UsersController < Admin::BaseController
     config.columns[:role].form_ui = :select 
     config.columns[:groups].form_ui = :select 
     config.columns[:groups].options = {:draggable_lists => true}
-  
+
+    group_actions = Group.find_groups_to_show_in_user_actions.map do |group|
+      group = { :method => "add_to_group_#{group.id}", :name => group.name }
+    end
+
     Scaffoldapp::active_scaffold config, "admin.users", 
       :list         => [ :created_at, :email, :active, :name, :role ], 
       :show         => [ :email, :active, :nickname, :profile, :website, :country, :gender ],
       :edit         => [ :email, :active, :nickname, :profile, :website, :country, :gender, :groups, :role ],
-      :actions_list => [ :destroy_by_ids, :activate!, :deactivate! ]
+      :actions_list => [ :destroy_by_ids, :activate!, :deactivate! ].concat(group_actions)
   end
 
   # Override this method to define conditions to be used when querying a recordset (e.g. for List).
