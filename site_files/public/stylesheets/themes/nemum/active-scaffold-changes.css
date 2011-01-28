@@ -23,6 +23,12 @@
 = Typography
 ============================================================================
 */
+a.preview_button {padding: 5px 5px 0px 0px;}
+div.active-scaffold th a,
+div.active-scaffold th a:visited { padding: 0; }
+div.active-scaffold th                    { padding: 10px 5px; white-space: nowrap; }
+div.active-scaffold td.total_approved_comments-column { white-space: nowrap; }
+
 .active-scaffold a, 
 .active-scaffold a:visited                         { color: #06c;text-decoration: none;}
 .active-scaffold a.disabled                        { color: #999;}
@@ -45,7 +51,7 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold th p                              { color: #111;padding: 2px 5px;}
 .active-scaffold th a:hover                        { background-color: #EAEAEA;color: black;}
 .active-scaffold tr.record                         { background-color: #fff;color: #111;}
-.active-scaffold tr.record td                      { padding: 0.5em 0.5em;padding-left: 1.4em;color: #333;font-family: Verdana, sans-serif;}
+.active-scaffold tr.record td                      { padding: 0.5em 0.5em;padding-left: 8px;color: #333;font-family: Verdana, sans-serif;}
 .active-scaffold tr.record td                      { font-size: 11px;border:0;height: 50px;}
 .active-scaffold tbody.records td.empty            { color: #999;text-align: center;}
 .active-scaffold td.numeric,
@@ -63,7 +69,7 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold-calculations td                    { background-color: #eee;border-top: 2px solid #005CB8;font: bold 12px verdana,arial, sans-serif;}
 .active-scaffold .active-scaffold-footer            { padding: 3px 0px 2px 0px;border-bottom: none;font: bold 12px verdana,arial, sans-serif;}
 .blue-theme .active-scaffold-footer                 { background-color: #005CB8;color: #ccc;}
-.active-scaffold-footer .active-scaffold-pagination { float: right;white-space: nowrap;margin-right: 5px;}
+.active-scaffold-footer .active-scaffold-pagination { float: right;white-space: nowrap;padding-right: 15px;}
 .active-scaffold-footer a                           { text-decoration: none;letter-spacing: 0;padding: 0 2px;}
 .active-scaffold-footer a                           { margin: 0 -2px;font: bold 12px verdana,arial, sans-serif;}
 .blue-theme .active-scaffold-footer a,
@@ -103,7 +109,7 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold a.inline-adapter-close                  { float: right;text-indent: -4000px;width: 16px;}
 .active-scaffold h4, .active-scaffold h5                 { color: #333;}
 .active-scaffold select                                  { font-size: 14px;}
-.content input[type=text]                                { font-size: 14px;}
+.content input[type=text]                                { font-size: 14px; width: 250px; font-weight:normal; }
 
 #main #as_admin__posts-content th p,
 .active-scaffold a,
@@ -148,7 +154,7 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold-header div.actions a                   { background-repeat: no-repeat;}
 .active-scaffold-header div.actions a.new,
 .active-scaffold-header div.actions a.new_existing,
-.active-scaffold-header div.actions a.show_search       { padding-left: 1.4em;background-position: 1px 50%;background-repeat: no-repeat;}
+.active-scaffold-header div.actions a.show_search       { padding-left: 1.4em; line-height: 1.7em; background-position: 1px 50%;background-repeat: no-repeat;}
 .active-scaffold-header div.actions a.new,
 .active-scaffold-header div.actions a.new_existing      { background-image: url(../../../images/active_scaffold/default/add.gif);}
 .active-scaffold-header div.actions a.show_search       { background-image: url(../../../images/active_scaffold/default/magnifier.png);}
@@ -160,12 +166,11 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 #as_admin__posts-active-scaffold                        { padding: 0; margin: 0px;}
 #main .block .content .inner                            { padding: 0; padding-bottom: 1px;}
 
-/*#new_post                                               { padding-left: 5px;}*/
-#main .block .content .inner h2                         { padding-left: 15px;}
+#main .block .content .inner h2                         { padding-bottom: 15px;}
 
 #main .block .content .inner .active-scaffold-header h2 { padding: 0;}
-#main .block .content .inner .active-scaffold-header    { padding-left: 15px; padding-right: 15px; padding-bottom: 0px; padding-top: 10px;}
-#main .block .content .inner .active-scaffold-found     { padding-left: 15px; padding-bottom: 10px;}
+#main .block .content .inner .active-scaffold-header    { padding-bottom: 15px;}
+#main .block .content .inner .active-scaffold-found     { padding-left: 10px; padding-bottom: 10px;}
 
 /* Table :: Column Headers */
 .active-scaffold th.sorted          { background-color: #EAEAEA;}
@@ -189,7 +194,7 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold tr.even-record td              { border-top:1px solid #EAEAEA;height: 50px;}
 .active-scaffold tr.even-record td              { border-bottom:1px solid #EAEAEA;height: 50px;}
 .active-scaffold tr.even-record td.sorted       { border-bottom:1px solid #EAEAEA;height: 50px;}
-.active-scaffold tr.record td                   { padding-left: 15px; margin-left: 0px;}
+.active-scaffold tr.record td                   { margin-left: 0px;}
 
 /* Table :: Actions (Edit, Delete) */
 .active-scaffold tr.record td.actions { border-right: 0;padding: 0;min-width: 1%; padding-right: 15px;}
@@ -248,9 +253,6 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold ol                                      { clear: both;float: none;padding: 2px;margin-left: 14px;list-style: none;}
 .active-scaffold p.form-footer                           { clear: both;}
 
-.actions input[type=text]                                { width: 100px; height: 20px; padding:0; margin:0;}
-
-
 /* Form :: Fields */
 .active-scaffold li.form-element                         { clear: both;padding-top: 2px;}
 .active-scaffold .form dd                                { margin: 0; margin-bottom: 15px;}
@@ -275,8 +277,6 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 /********************************************************************************************************************************/
 
 .active-scaffold input[type=file]                        { width: 270px;}
-.active-scaffold input[type=file]:hover                  { }
-   
 
 /* Form :: Sub-Sections */
 .active-scaffold li.sub-section                          { clear: left;padding: 5px 0;}
@@ -297,7 +297,6 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold .sub-form .footer-wrapper               { margin-top: 3px;margin-right: 10px;}
 
 /* Fix for top right content */
-.actions input[type=text]                                { width: 100px; height: 17px; padding:0; margin:0;vertical-align: top;}
 .actions .search .dropdownmenu                           { height: 20px; vertical-align: top; margin-right: 10px; }
 
 /* Buttons */

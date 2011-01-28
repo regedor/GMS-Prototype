@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="shortcut icon" href="/favicon.png" />
   <title><%= configatron.site_name %></title>
 
   <%= javascript_include_tag :defaults                    ,  
@@ -11,12 +12,13 @@
 
   <%= active_scaffold_includes %>
 
-  <%= stylesheet_link_tag 'formtastic/formtastic',
+  <%= stylesheet_link_tag 'reset',
+                          'formtastic/formtastic',
                           'smoothness/jquery-ui-1.8.7.custom',
                           "themes/#{configatron.theme}/formtastic-changes",
-                          "themes/#{configatron.theme}/active_scaffold_override/stylesheet",
-                          "themes/#{configatron.theme}/backend-base",
-                          "themes/#{configatron.theme}/backend-theme",
+                          "themes/#{configatron.theme}/active-scaffold-changes",
+                          "themes/#{configatron.theme}/backend-typography",
+                          "themes/#{configatron.theme}/backend-structure",
                           "themes/#{configatron.theme}/backend-icons", :cache => "backend" %>
 
   <%= yield :head %>

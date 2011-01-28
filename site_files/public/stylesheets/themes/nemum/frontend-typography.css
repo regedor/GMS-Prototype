@@ -30,7 +30,7 @@ h4                               { font-size: 1.7em; color: #E22; }
 h5                               { font-size: 1.5em; }
 
 div#account-info                 { font-size: 1em; line-height: 1em; }
-div#account-info .title          { color: #2E2A2B; font-weight: bold; }
+div#account-info span.title      { color: #2E2A2B; font-weight: bold; }
 div#main p                       { font-size: 1.1em; text-align: justify; line-height: 1.2em; }
 div#footer                       { font-size: 1em; text-align: center; line-height: 1.1em; color: #FFF; }
 div#footer a                     { font-weight: bold; color: #F8DA00; }
@@ -51,6 +51,8 @@ div.announcements-bar a:active,
 div.announcements-bar a:hover,
 div.announcements-bar a:visited,
 div.announcements-bar            { color: #FFF; text-align: justify; }
+
+div#account-info span.options a  { font-size:0.9em; text-transform: uppercase; }
 
 .flash_text                      { font-size: 1em; text-align: center; padding: 0.8em; margin: -15px -15px 1em; }
 .flash_text                      { padding-top: 15px; padding-bottom: 15px; }

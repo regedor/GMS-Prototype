@@ -63,6 +63,13 @@ module I18n
     "pumba"
   end
 
+  def self.l(label, format=:default, options={})
+    "pimba"
+  end
+
+  def self.localize(label, format=:default, options={})
+    "pimba"
+  end
+
 end
 =end
-

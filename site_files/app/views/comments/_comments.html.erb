@@ -6,26 +6,22 @@
   <% end -%>
 </ol>
 
-<h2>Post a comment</h2>
-  <% unless comment.errors.empty? -%>
-  <div class="errors">
-    <h3>Comment not added!</h3>
-    <ul>
-      <% comment.errors.sort_by(&:first).each do |error| -%>
-        <li><%= format_comment_error(error) %></li>
-      <% end -%>
-    </ul>
-  </div>
-  <% end -%>
+<% unless current_user -%>
+  <h3><%= I18n::t('comments.log_in_to') %></h3>
+<% else -%>
+
+  <h2><%= I18n::t('comments.title') %></h2>
   <% form_for([commentable, comment]) do |form| %>
     <div>
       <%= form.hidden_field 'type', :value => commentable.class %>
-      <p><%= form.text_area 'body' %><br><small>(<a href="http://lesstile.rubyforge.org">lesstile enabled</a> - surround code blocks with ---)</small></p>
+      <p><%= form.text_area 'body' %><br><small><%= I18n::t('comments.hint') %></small></p>
       <fieldset class="buttons">
         <ol>
           <li class="commit">
-            <p><%= submit_tag "Add Comment", :class => "create" %></p>
+          <p><%= submit_tag I18n::t('comments.submit'), :class => "create" %></p>
           </li>
         </ol>
     </div>
   <% end -%>
+
+<% end -%>

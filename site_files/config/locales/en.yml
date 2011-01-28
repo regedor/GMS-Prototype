@@ -86,7 +86,6 @@ en:
     errors:
       invalid_open_id: "OpenID authentication failed. Verify your data and try again."
     bar:
-      last_session_paragraph: "Your last login was %{time_ago} ago, your ip was %{ip}"
       account_link: "Account details"
       logout: "Sign out"
       signin: "Sign in"
@@ -132,9 +131,38 @@ en:
       commit_button: "Update password and log in"
 
 
-  pages:
-    about:
-      title: "About This Project"
+  announcements:
+    none: "There are no current announcements."
+
+  posts:
+    none: "There are no posts so far."
+    archive: "Post archive"
+    meta:
+      date: "Posted on"
+      tags: "Tagged"
+      comments:
+        one: "%{count} comment"
+        many: "%{count} comments"
+    tags:
+      title: "Tag Cloud"
+    archives:
+      title: "Archives"
+      none: "There are no posts so far."
+    pagination:
+      previous: "«"
+      next: "»"
+
+  comments:
+    title: "Post a comment"
+    hint: "(<a href='http://lesstile.rubyforge.org'>lesstile enabled</a> - surround code blocks with ---)"
+    submit: "Add Comment"
+    says: "says:"
+    log_in_to: "Log in if you intend to comment."
+    success: "Comment added."
+    error:
+      generic: "Comment not added."
+      no_body: "Content cannot be blank."
+      no_login: "You must be logged in to comment."
 
 
   admin:
@@ -296,10 +324,12 @@ en:
         bt_label: "Delete user"
         cancel_link: 
           label: "Cancel"
-          title: "Go back to users list"   
-      destroy_by_ids: "Delete"
-      activate!: "Activate"
-      deactivate!: "Deactivate"
+          title: "Go back to users list"
+      list_actions:
+        destroy_by_ids: "Delete"
+        activate!: "Activate"
+        deactivate!: "Deactivate"
+        add_to_group: "Add to group '%{name}'"
       list:
         found:
           more: "%{count} Users Found"
@@ -338,9 +368,10 @@ en:
         destroy_link: "Delete"
         show_link: "Details"
         undelete_link: "Undelete"
-      destroy_by_ids: "Delete"
-      activate!: "Activate"
-      undelete_by_ids: "Re activate"
+      list_actions:
+        destroy_by_ids: "Delete"
+        activate!: "Activate"
+        undelete_by_ids: "Re activate"
       list:
         found:
           more: "%{count} Users Found"
@@ -672,13 +703,18 @@ en:
       no_selection: "You must select at least one item from the table to execute an action."
 
 
+  footer:
+    last_session_paragraph: "Your last login was %{time_ago} ago, your ip was %{ip}"
+    browser_warning: "The web site is not rendering correctly because you are using an old version of <span style='color:red;'>Microsoft Internet Explorer</span>.<br /> Upgrade your browser or download <a href='http://www.mozilla.com/firefox/'>Mozilla Firefox</a>."
+
+
   generic_sentence:
     required_field: "<abbr>*</abbr> Required field."
     language: "language"
     administration: "administration"
     go_back: "Go back"
     are_you_sure: "Are you sure?"
-    scaffold_do_actions: "More actions"
+    default_list_action: "More actions"
     time_ago: "%{time_ago} ago"
     true_value: "True"
     false_value: "False"
