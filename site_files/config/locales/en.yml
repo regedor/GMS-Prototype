@@ -97,6 +97,7 @@ en:
   posts:
     none: "There are no posts so far."
     archive: "Post archive"
+    share_on_facebook: "Share"
     meta:
       date: "Posted on"
       tags: "Tagged"
