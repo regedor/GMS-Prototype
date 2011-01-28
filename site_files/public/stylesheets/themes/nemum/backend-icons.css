@@ -3,6 +3,20 @@
 = Resources
 ============================================================================
 */
+
+div.active-scaffold-header div.actions a.new { background: url("/stylesheets/themes/nemum/icons/add.png") no-repeat; padding-left: 18px; background-position: 0 50%; }
+
+div.active-scaffold-header div.actions input[type=text] { background: url("/stylesheets/themes/nemum/icons/magnifier.png") no-repeat; text-indent: 20px; background-position: 4px 50%; }
+
+
+
+
+
+
+
+
+
+
 /* TODO: Complete all the other views, as they became avaliable. After that the hover section will be completed */
 
 /* Users */
@@ -26,7 +40,7 @@
 #as_admin__posts-content a.show            { background: url("/stylesheets/themes/nemum/icons/pencil.png") no-repeat;padding-left: 18px;}
 #as_admin__posts-content a.delete          { background: url("/stylesheets/themes/nemum/icons/pencil_delete.png") no-repeat;padding-left: 18px;}
 #as_admin__posts-content a.edit            { background: url("/stylesheets/themes/nemum/icons/pencil.png") no-repeat;padding-left: 18px;}
-.active-scaffold-header div.actions a.new  { background: url("/stylesheets/themes/nemum/icons/add.png") no-repeat;padding-left: 18px;background-position:1px 2px;}
+
 
 /* Static pages */
 #as_admin__pages-content a.delete          { background: url("/stylesheets/themes/nemum/icons/page_delete.png") no-repeat;padding-left: 18px;}
@@ -43,7 +57,7 @@
 .active-scaffold th.asc a:hover     { background: #EAEAEA url("/stylesheets/themes/nemum/icons/arrow_up.gif") no-repeat 0px 4px;padding-left: 18px; }
 
 /* Other */
-.content .actions input[type=text]  { background: url("/stylesheets/themes/nemum/icons/magnifier.png") no-repeat;padding-left: 18px;background-position:1px 1px; }
+
 #sidebar .block a.float-right       { background: url("/stylesheets/themes/nemum/icons/tag_blue_edit.png") no-repeat;padding-left: 18px;background-position:1px 1px; }
 
 /* Announcements */

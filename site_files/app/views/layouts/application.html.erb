@@ -29,7 +29,7 @@
 
     <div id="header">
       <div id="site-title">
-        <h1><a href="<%= root_path %>"><%= "lol" %></a></h1>
+        <h1><a href="<%= root_path %>"><%= configatron.site_name %></a></h1>
       </div>
       <div id="navigation" >
         <%= frontend_navigation_content %>
@@ -49,12 +49,8 @@
         <% if logged_in? %>
           <%= @current_user.small_name %> |
           <%= link_to t('navigation.administration'), admin_root_path, :class => "key_ico" if permitted_to? :read, :admin_dashboard %> |
-          <%# link_to t('user_session.bar.account_link'), user_session_path, :class => "user_ico" %>
           <%= link_to t('user_session.bar.logout'), user_logout_path, :class => "logout_ico" %>
         <% else %>
-          <%= link_to t('user_session.bar.google_signin'),
-                        "/user/session?user_session%5Bopenid_identifier%5D=https://www.google.com/accounts/o8/id",
-                        :class => "positive create google_ico", :method => 'post'                                  %> |
           <%= link_to t("user_session.bar.signin"), new_user_session_path, :class => "login_ico"                   %> |
           <%= link_to t("user_session.bar.signup"), new_user_account_path, :class => "user_add_ico"                %>
         <% end %>
