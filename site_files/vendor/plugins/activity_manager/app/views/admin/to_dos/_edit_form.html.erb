@@ -1,4 +1,4 @@
-<% semantic_form_for(:todo, @todo, :url => admin_project_to_dos_path) do |f| %>
+<% semantic_form_for(:todo, @todo, :url => admin_project_to_do_path(params[:project_id],@todo),:html => {:method => "put"}) do |f| %>
   <% f.inputs do %>
     <%= f.input :description, :as => :text, :input_html => {:rows => 3, :cols => 40}, :label => t("admin.to_do.edit.title"), :required => false %>
 	<%= f.input :user_id, :label => t("admin.to_do.edit.responsible") , :as => :select, :collection => User.all, :required => false, :hint => t("admin.to_do.edit.hint") %>

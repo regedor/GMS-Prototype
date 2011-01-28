@@ -24,7 +24,7 @@ class ToDoList < ActiveRecord::Base
 
   def divide_done_todos
     done    = []
-    notDone = ToDo.ordered_position(self.id)
+    notDone = ToDo.ordered_position_done(self.id)
     self.to_dos.each do |todo|
       done << todo if todo.done?  
     end

@@ -1,0 +1,13 @@
+<span class="todo_desc"><%= @todo.description %></span>
+<% if @todo.user || @todo.due_date %>
+<span class="todo_info">
+	<% if @todo.user %>
+	 <span><%= @todo.user.name %></span>
+	<% end %>
+	<% if @todo.due_date %>
+		<span><%= l(@todo.due_date, :format => :medium) %></span>
+	<% end %>	
+</span>
+<% end %>
+<span class="todo_edit"><%= link_to t("admin.to_do.edit.link"),"#",{:id => "edit_#{@todo.id}", :class => "edit_item", :onclick => "jQuery(this).edit();"} %></span>
+<span class="todo_delete"><%= link_to t("admin.to_do.delete.link"),"#",{:id => "delete_#{@todo.id}", :class => "delete_item"} %></span>

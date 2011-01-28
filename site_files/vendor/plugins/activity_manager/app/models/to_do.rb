@@ -17,7 +17,7 @@ class ToDo < ActiveRecord::Base
   # ==========================================================================
 
   named_scope :ordered_finished, lambda{ |id| {:conditions => { :to_do_list_id => id } , :order => "finished_date desc"}}
-  named_scope :ordered_position, lambda{ |id| {:conditions => { :to_do_list_id => id }, :order => "position asc"}}
+  named_scope :ordered_position_done, lambda{ |id| {:conditions => { :to_do_list_id => id, :done => false }, :order => "position asc"}}
 
   # ==========================================================================
   # Instance Methods
