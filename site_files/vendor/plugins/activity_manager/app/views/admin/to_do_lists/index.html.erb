@@ -38,6 +38,7 @@ jQuery(document).ready(function($){
       success: function(r) {
 	    	$("#list_"+r.id).html(r.html);
 			$("#list_"+r.id).show();
+			$(this).makeSortable();	
       }
     });
   }	
@@ -61,6 +62,7 @@ jQuery(document).ready(function($){
 	return false;
  });
 
+jQuery.fn.makeSortable = function(){
  $(".sortable").sortable({
 	connectWith: ".connectable",
 	stop: function(event,ui) {
@@ -83,7 +85,9 @@ jQuery(document).ready(function($){
 	    });
 	}
  });
+}
 		
+  $(this).makeSortable();	
 	
   $( ".datepicker" ).datepicker({
   	autoSize: true
@@ -122,10 +126,6 @@ jQuery(document).ready(function($){
 
 			return false;
 		  }
-
-  $(".edit_item").click(function(){
- 		$(this).edit();
-  });
 	
   $(".delete_item").click(function(){
 		jQuery.ajax({
@@ -160,7 +160,7 @@ jQuery(document).ready(function($){
 
 </script>
 
-<!-->FIXME: Add generic sidebar placer for plugins<-->
+<!--FIXME: Add generic sidebar placer for plugins<-->
   <% content_for :sidebar do -%>
     <%= render :partial => 'admin/to_do_lists/sidebar.html.erb', :locals => {:project_id => params[:project_id]}  %>
   <% end -%>
