@@ -11,7 +11,7 @@ div.todo_list div.todos ul li.done_todo                             { color: #99
 div.todo_list div.todos ul li.done_todo strong.date_finished        { color: #666; }
 
 div.todo_list div.description p                                     { font-style: italic; }
-/*div.todo_list div.todos ul li.todo span.todo_content span.todo_info { font-size: 0.8em; }*/
+div.todo_list div.todos ul li.todo span.todo_content span.todo_info { font-size: 0.8em; }
 
 /*
  ============================================================================
@@ -23,13 +23,15 @@ div.todo_list                                                       { margin: 15
 
 div.todo_list div.description p                                     { margin: 0 0 15px; }
 
-div.todo_list div.todos ul li.todo span.todo_info                   { background: #EEE; padding: 2px 6px; margin: 0 15px 0 4px; }
+div.todo_list div.todos ul li.todo span.todo_info                   { background: #EEE; padding: 2px 6px; margin: 0 0 0 4px; }
 div.todo_list div.todos ul li.todo span.todo_info { -moz-border-radius: 8px; -webkit-border-radius: 8px; border-radius: 8px; }
 
-/*div.todo_list div.todos ul.not_done                                 { min-height: 15px; }*/
+div.todo_list div.todos ul li.todo span.todo_edit                   { margin: 0 0 0 15px; }
 
+div.todo_list div.todos ul.not_done                                 { min-height: 15px; }
+
+div.todo_list div.todos ul li.todo.sort-disabled input                                 { float: left; }
 div.todo_list div.todos ul li.todo                                  { margin: 0 0 5px; }
 div.todo_list div.todos ul li.todo.highlight span.todo_desc         { background: #FFC; }
 
 div.todo_list div.todos div.add_button                              { background: #EFEFEF; margin: 10px 0 10px 25px; padding: 5px; }
-

@@ -52,8 +52,6 @@ div.announcements-bar a:hover,
 div.announcements-bar a:visited,
 div.announcements-bar            { color: #FFF; text-align: justify; }
 
-div#account-info span.options a  { font-size:0.9em; text-transform: uppercase; }
-
 .flash_text                      { font-size: 1em; text-align: center; padding: 0.8em; margin: -15px -15px 1em; }
 .flash_text                      { padding-top: 15px; padding-bottom: 15px; }
 .flash_text.error                { color: #E22; }
