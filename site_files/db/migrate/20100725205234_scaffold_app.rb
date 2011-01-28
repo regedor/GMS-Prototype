@@ -64,6 +64,7 @@ class ScaffoldApp < ActiveRecord::Migration
       t.boolean :user_choosable,              :null => false, :default => false
       t.boolean :root_edit_only,              :null => false, :default => false #root field
       t.boolean :blocks_direct_users_access,  :null => false, :default => false #root field
+      t.integer :user_count,                  :null => false, :default => 0
       t.timestamps
     end
 

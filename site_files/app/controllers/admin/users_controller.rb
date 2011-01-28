@@ -1,6 +1,8 @@
 class Admin::UsersController < Admin::BaseController
   filter_access_to :all, :require => any_as_privilege
 
+  before_filter :load_groups, :only => :index
+
   active_scaffold :user do |config|
     config.subform.columns = [:email] 
 
@@ -10,7 +12,7 @@ class Admin::UsersController < Admin::BaseController
     config.columns[:groups].form_ui = :select 
     config.columns[:groups].options = {:draggable_lists => true}
 
-    group_actions = Group.find_groups_to_show_in_user_actions.map do |group|
+    group_actions = Group.find_all_by_show_in_user_actions(true).map do |group|
       group = { :method => "add_to_group_#{group.id}", :name => group.name }
     end
 
@@ -24,7 +26,14 @@ class Admin::UsersController < Admin::BaseController
   # Override this method to define conditions to be used when querying a recordset (e.g. for List).
   # With this, only the users with the value 'false' in the column 'deleted' will be shown.
   def conditions_for_collection
-    return { :deleted => false }
+    { :deleted => false }
+  end
+
+  def custom_finder_options
+    return { :joins => 'INNER JOIN groups_users ON users.id = groups_users.user_id',
+             :conditions => { 'groups_users.group_id' => params[:group] }
+           } if params[:group]
+    return { }
   end
 
   def do_destroy
@@ -49,5 +58,11 @@ class Admin::UsersController < Admin::BaseController
      super   
     end
   end
+
+  protected
+
+    def load_groups
+      @groups = Group.all(:order => :name)
+    end
   
 end
