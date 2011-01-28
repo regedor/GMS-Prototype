@@ -13,7 +13,7 @@ jQuery(document).ready(function($){
       type: 'POST',
       data: "itemid="+$(this).val()+"&state=done",
 	  dataType: "json",
-      url: window.location.href.replace("#","")+"/"+$(this).parent().parent().attr("class").split(" ")[0].split("-")[1]+"/changeState",
+      url: window.location.href.replace("#","")+"/"+$(this).parent().parent().attr("id").split("-")[1]+"/changeState",
       error: function() {
         $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"check"});
 		return false;
@@ -30,7 +30,7 @@ jQuery(document).ready(function($){
       type: 'POST',
       data: "itemid="+$(this).val()+"&state=notdone",
 	  dataType: "json",
-      url: window.location.href.replace("#","")+"/"+$(this).parent().parent().attr("class").split(" ")[0].split("-")[1]+"/changeState",
+      url: window.location.href.replace("#","")+"/"+$(this).parent().parent().attr("id").split("-")[1]+"/changeState",
       error: function() {
         $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"check"});
 		return false;
@@ -67,9 +67,8 @@ jQuery.fn.makeSortable = function(){
 	connectWith: ".connectable",
 	cancel: ".sort-disabled",
 	stop: function(event,ui) {
-		
-		var classToSerialize = "."+ui.item.parent().attr("class").split(" ")[0];
-		var order = $(classToSerialize).sortable("serialize");
+		var itemToSerialize = "#"+ui.item.parent().attr("id").split(" ")[0];
+		var order = $(itemToSerialize).sortable("serialize");
 		var newOrder = order.replace(/item/g,"items");
 	
 		jQuery.ajax({
@@ -95,6 +94,7 @@ jQuery.fn.makeSortable = function(){
   });
 
 	var cancelFunc = function(){
+		$(this).parent().parent().parent().parent().parent().removeClass("sort-disabled");
 		jQuery.ajax({
 	      type: 'GET',
 	      url: window.location.href.replace("#","")+"/"+$(this).parent().parent().parent().parent().parent().children(':nth-child(1)').attr("id")+"/cancel",
@@ -104,7 +104,7 @@ jQuery.fn.makeSortable = function(){
 			return false;
 	      },
 	      success: function(r) {
-		  		$(".todo_content-"+r.id).html(r.html);
+		  		$("#todo_content-"+r.id).html(r.html);	
 	      }
 	    });
   	}
@@ -120,7 +120,7 @@ jQuery.fn.makeSortable = function(){
 					return false;
 			      },
 			      success: function(r) {
-				  		$(".todo_content-"+r.id).html(r.html);
+				  		$("#todo_content-"+r.id).html(r.html);
 						$( ".datepicker" ).datepicker({autoSize: true});
 						$(".cancel_link").click(cancelFunc);
 			      }
@@ -174,7 +174,7 @@ jQuery.fn.makeSortable = function(){
   	<div class="title">
   		<h2><%= link_to list.name, admin_project_to_do_lists_path %></h2>
   	</div>
-  	<div id="list_<%= list.id %>" class="the_list-<%= list.id %>" style="display:none;">
+  	<div id="list_<%= list.id %>" class="the_list" style="display:none;">
   	  <%= render :partial => 'admin/to_do_lists/list.html.erb', :locals => {:list => list} %>
   	</div>
   <% counter = counter+1 %>
