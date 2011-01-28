@@ -27,16 +27,16 @@
 		  		<% end %>	
 		  	</span>
 			<% end %>
-		  	<span class="todo_edit"><%= link_to t("admin.to_do.edit.link"),"#",{:id => "edit_#{todo.id}", :class => "edit_item", :onclick => "jQuery(this).edit();"} %></span>
+		  	<span class="todo_edit"><%= link_to t("admin.to_do.edit.link"),"#edit_#{todo.id}",{:id => "edit_#{todo.id}", :class => "edit_item", :onclick => "jQuery(this).edit();"} %></span>
 			<span class="todo_delete"><%= link_to t("admin.to_do.delete.link"),"#",{:id => "delete_#{todo.id}", :class => "delete_item"} %></span>
         </li>
       <% end %>
     </ul>
   
-	<div class="add_button">
-		<%= link_to t("admin.to_do.add_new.link"), "#", {:class => "add_link" } %>
+	<div id="add_button-<%= list.id %>" class="add_button">
+		<%= link_to t("admin.to_do.add_new.link"), "#add_todo-#{list.id}", {:class => "add_link" } %>
 	</div>	
-	<div class="add_todo-<%= list.id %>" style="display:none;">
+	<div id="add_todo-<%= list.id %>" class="add_todo-<%= list.id %>" style="display:none;">
 		<% semantic_form_for(:todo, :url => admin_project_to_dos_path) do |f| %>
 		  <% f.inputs do %>
 		    <%= f.input :description, :as => :text, :input_html => {:rows => 3, :cols => 40}, :label => t("admin.to_do.add_new.title"), :required => false %>
@@ -47,7 +47,7 @@
 		  <% f.buttons do %>
 		    <%= f.commit_button :label => t("admin.to_do.add_new.add_button") %>
 		    <span>or</span>
-			<%= link_to t("admin.to_do.add_new.done_adding"), "#",{:class => "done_adding_link"} %>
+			<%= link_to t("admin.to_do.add_new.done_adding"), "#add_button-#{list.id}",{:class => "done_adding_link"} %>
 		  <% end %>
 		<% end %>		
 	</div>	
@@ -59,8 +59,8 @@
 	  <% classStr+=" highlight" if todo.user && todo.user == current_user %>
 	  <% if index == 3  %>
 	  	<% styleStr="" %>
-		<span class="show_done_todos"><%= link_to t("admin.to_do.done.show",{:count => divided_hash[:done].size}), "#",{:class => "expand", :id => "expand_#{todo.id}", :onclick => "jQuery(this).expand();"} %>
-			<%= link_to t("admin.to_do.done.collapse"), "#",{:class => "collapse", :style => "display:none;", :id => "collapse_#{todo.id}", :onclick => "jQuery(this).collapse();"} %></span>
+		<span class="show_done_todos"><%= link_to t("admin.to_do.done.show",{:count => divided_hash[:done].size}), "#expand_#{todo.id}",{:class => "expand", :id => "expand_#{todo.id}", :onclick => "jQuery(this).expand();"} %>
+			<%= link_to t("admin.to_do.done.collapse"), "#collapse_#{todo.id}",{:class => "collapse", :style => "display:none;", :id => "collapse_#{todo.id}", :onclick => "jQuery(this).collapse();"} %></span>
 		<span class="hidden_items" style="display:none;">	
 	  <% end %>
 	  <li class="<%= classStr %>"  "<%= styleStr %>">

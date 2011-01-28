@@ -1,6 +1,13 @@
 namespace :projects do
-  task :sync do
-    system "rsync -ruv vendor/plugins/activity_manager/db/migrate db"
-    system "rsync -ruv vendor/plugins/activity_manager/public/stylesheets public/stylesheets/projects_plugin"
+  namespace :sync do
+    task :db do
+      system "rsync -ruv vendor/plugins/activity_manager/db/migrate db"
+    end
+    
+    task :css do  
+      system "rsync -ruv vendor/plugins/activity_manager/public/stylesheets/ public/stylesheets/projects_plugin"
+    end
+    
+    task :all  => [:db,:css]  
   end  
 end  

@@ -13,7 +13,7 @@ jQuery(document).ready(function($){
       type: 'POST',
       data: "itemid="+$(this).val()+"&state=done",
 	  dataType: "json",
-      url: window.location.href.replace("#","")+"/"+$(this).parent().parent().attr("id").split("-")[1]+"/changeState",
+      url: window.location.href.replace(/\#.*/,"")+"/"+$(this).parent().parent().attr("id").split("-")[1]+"/changeState",
       error: function() {
         $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"check"});
 		return false;
@@ -30,7 +30,7 @@ jQuery(document).ready(function($){
       type: 'POST',
       data: "itemid="+$(this).val()+"&state=notdone",
 	  dataType: "json",
-      url: window.location.href.replace("#","")+"/"+$(this).parent().parent().attr("id").split("-")[1]+"/changeState",
+      url: window.location.href.replace(/\#.*/,"")+"/"+$(this).parent().parent().attr("id").split("-")[1]+"/changeState",
       error: function() {
         $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"check"});
 		return false;
@@ -74,7 +74,7 @@ jQuery.fn.makeSortable = function(){
 		jQuery.ajax({
 	      type: 'POST',
 	      data: "list="+ui.item.parent().parent().parent().attr("id").split("_")[1]+"&item="+ui.item.attr("id").split("_")[1]+"&"+newOrder,
-	      url: window.location.href.replace("#","")+"/sortList",
+	      url: window.location.href.replace(/\#.*/,"")+"/sortList",
 	      error: function() {
 	        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"sort"});
 			return false;
@@ -97,7 +97,7 @@ jQuery.fn.makeSortable = function(){
 		$(this).parent().parent().parent().parent().parent().removeClass("sort-disabled");
 		jQuery.ajax({
 	      type: 'GET',
-	      url: window.location.href.replace("#","")+"/"+$(this).parent().parent().parent().parent().parent().children(':nth-child(1)').attr("id")+"/cancel",
+	      url: window.location.href.replace(/\#.*/,"")+"/"+$(this).parent().parent().parent().parent().parent().children(':nth-child(1)').attr("id")+"/cancel",
 		  dataType: "json",
 	      error: function() {
 	        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"cancel"});
@@ -113,7 +113,7 @@ jQuery.fn.makeSortable = function(){
 				$(this).parent().parent().parent().addClass("sort-disabled");
 				jQuery.ajax({
 			      type: 'GET',
-			      url: window.location.href.replace("#","")+"/"+$(this).attr("id").split("_")[1]+"/edit",
+			      url: window.location.href.replace(/\#.*/,"")+"/"+$(this).attr("id").split("_")[1]+"/edit",
 				  dataType: "json",
 			      error: function() {
 			        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"edit"});
@@ -132,7 +132,7 @@ jQuery.fn.makeSortable = function(){
   $(".delete_item").click(function(){
 		jQuery.ajax({
 	      type: 'DELETE',
-	      url: window.location.href.replace("#","").replace("to_do_lists","to_dos")+"/"+$(this).attr("id").split("_")[1],
+	      url: window.location.href.replace(/\#.*/,"").replace("to_do_lists","to_dos")+"/"+$(this).attr("id").split("_")[1],
 	      error: function() {
 	        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"destroy"});
 			return false;
