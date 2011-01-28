@@ -284,10 +284,30 @@ class User < ActiveRecord::Base
       end 
       return true
     end
+
+    # Adds users to the specified group
+    def add_to_group(group_id, ids)
+      User.find(ids).each do |user|
+        groups = user.group_ids
+        unless groups.member? group_id.to_i
+          groups << group_id
+          user.update_attribute :group_ids, groups
+        end
+      end
+      return true
+    end
+
+    def method_missing(method_id, *args, &block)
+      method_name = method_id.to_s
+      [ /(add_to_group)_(\d+)/ ].each do |regexp|
+        return User.send($1, $2, *args) if method_name =~ regexp
+      end
+      super
+    end
   end
 
  private
-  def  map_openid_registration(registration)
+  def map_openid_registration(registration)
     self.email     = registration['email']    unless registration['email'].blank?
     self.name      = registration['fullname'] unless registration['fullname'].blank?
     self.nickname  = registration['nickname'] unless registration['nickname'].blank?

@@ -23,10 +23,16 @@
   <div class="actions list_actions">
     <% unless active_scaffold_config.row_mark_actions_list.nil? %>
       <select name="dropdownmenu" class="dropdownmenu" default="">
-        <option value=""><%= I18n::t('generic_sentence.scaffold_do_actions') %>
+        <option value=""><%= I18n::t('generic_sentence.default_list_action') %>
         </option>
         <% active_scaffold_config.row_mark_actions_list.each do |option| -%>
-          <option value="<%= option %>"><%= I18n::t(active_scaffold_config.internationalization_prefix+"."+option.to_s) %></option>
+          <% if option.is_a? Hash -%>
+            <% action_name = option.delete :method -%>
+            <% translation = action_name.to_s.sub(/(.+)_[^_]+/) { $1 } -%>
+            <option value="<%= action_name %>"><%= I18n::t(active_scaffold_config.internationalization_prefix+".list_actions."+translation, option) %></option>
+          <% else -%>
+            <option value="<%= option %>"><%= I18n::t(active_scaffold_config.internationalization_prefix+".list_actions."+option.to_s) %></option>
+          <% end -%>
         <% end -%>
       </select>
     <% end %>
