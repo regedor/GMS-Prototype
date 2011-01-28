@@ -1,6 +1,8 @@
 
   <div class="description">
-    <%= list.description %>
+    <p>
+      <%= list.description %>
+    </p>
   </div>
   <div class="todos">
     <% divided_hash = list.divide_done_todos %>	
@@ -31,7 +33,7 @@
       <% end %>
     </ul>
   
-	<div class="add_button-<%= list.id %>">
+	<div class="add_button">
 		<%= link_to t("admin.to_do.add_new.link"), "#", {:class => "add_link" } %>
 	</div>	
 	<div class="add_todo-<%= list.id %>" style="display:none;">

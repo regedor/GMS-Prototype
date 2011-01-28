@@ -157,27 +157,25 @@ jQuery.fn.makeSortable = function(){
 		$("#expand_"+itemId).show();
 		$(this).hide();
 		$(this).parent().next().hide();
-  }	
-}); 
+  }
+});
 
 </script>
 
 <div class="content">
-<!--FIXME: Add generic sidebar placer for plugins<-->
-  <% content_for :sidebar do -%>
-    <%= render :partial => 'admin/to_do_lists/sidebar.html.erb', :locals => {:project_id => params[:project_id]}  %>
-  <% end -%>
+<!--FIXME: Add generic sidebar placer for plugins-->
+<% content_for :sidebar do -%>
+  <%= render :partial => 'admin/to_do_lists/sidebar.html.erb', :locals => {:project_id => params[:project_id]}  %>
+<% end -%>
 
-
-  <% counter = 1%>
-  <% @lists.each do |list| %>
-  	<div class="title">
-  		<h2><%= link_to list.name, admin_project_to_do_lists_path %></h2>
-  	</div>
-  	<div id="list_<%= list.id %>" class="the_list" style="display:none;">
-  	  <%= render :partial => 'admin/to_do_lists/list.html.erb', :locals => {:list => list} %>
-  	</div>
-  <% counter = counter+1 %>
-  <% end %>	
+<% counter = 1 %>
+<% @lists.each do |list| %>
+<div class="title">
+  <h2><%= link_to list.name, admin_project_to_do_lists_path %></h2>
 </div>
-
+<div id="list_<%= list.id %>" class="todo_list">
+  <%= render :partial => 'admin/to_do_lists/list.html.erb', :locals => {:list => list} %>
+</div>
+<% counter = counter+1 %>
+<% end %>
+</div>
