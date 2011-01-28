@@ -7,7 +7,7 @@
   <div class="todos">
     <% divided_hash = list.divide_done_todos %>	
     
-    <ul class="not_done-<%= list.id %> connectable sortable">	
+    <ul id="not_done-<%= list.id %>" class="not_done connectable sortable">	
       <% divided_hash[:notDone].each do |todo| %>
 		<% if todo.user && todo.user == current_user %>
 			<li id="item_<%= todo.id  %>" class="todo highlight">
@@ -15,7 +15,7 @@
 	  	  	<li id="item_<%= todo.id  %>" class="todo">
 		  <% end %>
           <input type="checkbox" id="<%= todo.id %>" value="<%= todo.id %>" onclick="jQuery(this).check();" /> 	
-		  <span class="todo_content-<%= todo.id %>">
+		  <span id="todo_content-<%= todo.id %>" class="todo_content">
           	<span class="todo_desc"><%= todo.description %></span>
 		  	<% if todo.user || todo.due_date %>
 		  	<span class="todo_info">
@@ -52,7 +52,7 @@
 		<% end %>		
 	</div>	
 
-    <ul class="done_todos-<%= list.id %>">
+    <ul id="done_todos-<%= list.id %>" class="done_todos">
   	<% divided_hash[:done].each_index do |index| %>
 	  <% todo = divided_hash[:done][index] %>
 	  <% classStr = "done_todo"  %>
