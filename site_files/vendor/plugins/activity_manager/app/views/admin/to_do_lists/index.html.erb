@@ -65,6 +65,7 @@ jQuery(document).ready(function($){
 jQuery.fn.makeSortable = function(){
  $(".sortable").sortable({
 	connectWith: ".connectable",
+	cancel: ".sort-disabled",
 	stop: function(event,ui) {
 		
 		var classToSerialize = "."+ui.item.parent().attr("class").split(" ")[0];
@@ -109,6 +110,7 @@ jQuery.fn.makeSortable = function(){
   	}
 
   jQuery.fn.edit = 	function(){
+				$(this).parent().parent().parent().addClass("sort-disabled");
 				jQuery.ajax({
 			      type: 'GET',
 			      url: window.location.href.replace("#","")+"/"+$(this).attr("id").split("_")[1]+"/edit",
