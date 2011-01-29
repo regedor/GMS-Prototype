@@ -10,13 +10,17 @@
                              'jquery-ui-1.8.7.custom.min' ,    
                              'utils'                      ,  :cache => 'backend' %>
 
-  <%= active_scaffold_includes %>
+  <script src="/javascripts/active_scaffold/default/active_scaffold.js"   type="text/javascript"></script>
+  <script src="/javascripts/calendar_date_select/calendar_date_select.js" type="text/javascript"></script>
+  <link href="/stylesheets/active_scaffold/default/stylesheet.css"        media="screen" rel="stylesheet" type="text/css" />
+  <link href="/stylesheets/calendar_date_select/default.css"              media="screen" rel="stylesheet" type="text/css" />
+  <!--[if IE]><link href="/stylesheets/active_scaffold/default/stylesheet-ie.css?1296162786" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
 
   <%= stylesheet_link_tag 'reset',
                           'formtastic/formtastic',
                           'smoothness/jquery-ui-1.8.7.custom',
                           "themes/#{configatron.theme}/formtastic-changes",
-                          "themes/#{configatron.theme}/active_scaffold_override/stylesheet",
+                          "themes/#{configatron.theme}/active-scaffold-changes",
                           "themes/#{configatron.theme}/backend-typography",
                           "themes/#{configatron.theme}/backend-structure",
                           "themes/#{configatron.theme}/backend-icons", :cache => "backend" %>

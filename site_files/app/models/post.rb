@@ -51,9 +51,9 @@ class Post < ActiveRecord::Base
   end
 
   attr_accessor :published_at_natural
-  # Publication date at natural form. (e.g. 2011-01-01 00:00 )
+  # Publication date at natural form. (e.g. 2011-01-01 00:00:00 )
   def published_at_natural
-    @published_at_natural ||= published_at.send_with_default(:strftime, 'now', "%Y-%m-%d %H:%M")
+    @published_at_natural ||= published_at.send_with_default(:strftime, 'now', "%Y-%m-%d %H:%M:%S")
   end
 
   # Returns the post's publication month
