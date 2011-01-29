@@ -37,8 +37,8 @@ en:
                 to use a third party authentication system!"
         second: "We are using cutting edge techniques to ensure no one (including ourselves) will
                  have access to your password or personal data."
-        google_signup: "Google Sign up"
-        yahoo_signup: "Yahoo Sign up"
+        google_signup: "Google Sign Up"
+        yahoo_signup: "Yahoo Sign Up"
       commit_button: "Register account"
   
 
@@ -47,10 +47,10 @@ en:
       invalid_open_id: "OpenID authentication failed. Verify your data and try again."
     bar:
       account_link: "Account details"
-      logout: "Sign out"
-      signin: "Sign in"
-      signup: "Sign up"
-      google_signin: "Google Sign in"
+      logout: "Sign Out"
+      signin: "Sign In"
+      signup: "Sign Up"
+      google_signin: "Google Sign In"
       change_language: "Change language:"
     new:
       title: "Login"
@@ -61,15 +61,15 @@ en:
                 to use a third party authentication system!"
         second: "We are using cutting edge techniques to ensure no one (including ourselves) will
                  have access to your password or personal data."
-        google_signin: "Google Sign in"
-        yahoo_signin: "Yahoo Sign in"
+        google_signin: "Google Sign In"
+        yahoo_signin: "Yahoo Sign In"
       email: "Email"
       password: "Password"
       openid: "OpenID"
       remember_me: "Remember me"
       forgot_pass: "I forgot my password"
       new_account: "Create account"
-      commit_button: "Sign in"
+      commit_button: "Sign In"
 
 
   user_password_resets:
