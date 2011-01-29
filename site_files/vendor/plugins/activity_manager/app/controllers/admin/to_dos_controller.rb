@@ -14,7 +14,7 @@ class Admin::ToDosController < Admin::BaseController
   def update
     todo = ToDo.find(params[:id])
     unless todo.done?
-      todo.user_id = params[:todo][:responsible]
+      todo.user_id = params[:todo][:user_id]
       todo.to_do_list_id = params[:todo][:to_do_list_id]
       todo.description = params[:todo][:description]
       todo.due_date = params[:todo][:due_date]
