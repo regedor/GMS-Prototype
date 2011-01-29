@@ -5,9 +5,9 @@
 */
 
 body                                     { background: #E5E5E5; }
-p                                        { margin: 1.5em 0; }
 
 div#container                            { min-width: 960px; }
+div.content                              { padding: 15px; }
 
 div#main                                 { width: 71%; float: left; }
 div#main>div.block                       { background: #FFF; -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.4); }
@@ -22,12 +22,11 @@ div.secondary-navigation ul li a         { display: block; padding: 10px 15px; }
 div#user-navigation                      { float: right; margin: 5px 0; }
 
 div#sidebar                              { width: 29%; float: right; }
-div#sidebar h3                           { padding: 0 0 5px 0; margin: 0 0 1.5em; }
+div#sidebar h3                           { padding: 0 0 5px 0; }
 div#sidebar div.block                    { margin: 0 0 0 15px; }
 div#sidebar div.block ul.navigation li   { background-position: 15px 1px; background-repeat: no-repeat; }
 div#sidebar div.block ul.navigation li   { background-image: url("images/arrow.png"); }
-div#sidebar div.block ul.navigation li a { margin: 0 0 1.6em 15px; }
-div#sidebar div.block div.content        { padding: 0 15px; }
+div#sidebar div.block ul.navigation li a { margin: 15px 0 1.6em 15px; }
 div#sidebar ul.navigation li a:link, 
 div#sidebar ul.navigation li a:visited   { display: block; padding: 0 15px; }
 div#sidebar ul.navigation                { list-style-type: none; }
@@ -67,10 +66,9 @@ div#flash.flash div.message              { -moz-border-radius: 6px; -webkit-bord
 
 /* the following rules are necessary due to the usage of active-scaffold and will be removed later */
 
-div#main div.block div.block div.content h2.title { color: #676766; padding: 15px; }
-div#main div.block div.block div.content h3 { font-size: 1.1em; }
-div#main div.block div.block div.content div.inner { padding-left: 15px; }
-
+div#main div.block div.block div.content h2.title { color: #676766; padding: 0 0 15px; }
+div#main div.block div.block div.content h3       { font-size: 1.1em; padding: 0 0 15px; }
+div.active-scaffold tr.record                     { background-color: #FFF; }
 
 /* Hides from IE-MAC */
 

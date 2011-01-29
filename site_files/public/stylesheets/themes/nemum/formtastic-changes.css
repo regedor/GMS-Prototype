@@ -7,7 +7,7 @@
 form.formtastic                                      { font-size: 1.3em; }
 form.formtastic abbr                                 { color: #E22; }
 form.formtastic fieldset ol li p.inline-errors       { color: #D32; }
-form.formtastic fieldset ol li p.inline-hints        { color: #A1A1A1; }
+form.formtastic fieldset ol li p.inline-hints        { color: #A1A1A1; font-size: 0.8em !important; margin: 0 0 0 165px; }
 form.formtastic fieldset ol li label                 { color: #555; font-size: 0.8em; }
 
 fieldset.buttons li.commit input,
@@ -38,17 +38,19 @@ div.form_side_notes .note                            { margin: 0 0 15px; }
 div.required_field_note                              { margin: 0 0 1em 35%; }
 
 form.formtastic                                      { background-color: #FCFCFC; margin: 0 15px 0 10px; }
-form.formtastic                                      { border-right: solid 1px #DDD; padding: 0 15px 0 0; }
+form.formtastic                                      { padding: 0 15px 0 0; }
 
 form.formtastic input#user_openid_identifier         { background: url("/images/openid.gif") no-repeat; }
 form.formtastic input#user_openid_identifier         { background-position: 2% 50%; text-indent: 20px; }
 form.formtastic input#user_session_openid_identifier { background: url("/images/openid.gif") no-repeat; }
 form.formtastic input#user_session_openid_identifier { background-position: 2% 50%; text-indent: 20px; }
 
+form.formtastic fieldset ol li textarea,
 form.formtastic fieldset ol li.string input,
 form.formtastic fieldset ol li.password input        { width: 250px; padding: 4px; border: 1px solid #9E9E9E; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; }
 
 form.formtastic fieldset ol li label                 { width: 165px; padding: 0.7em 0 0; }
+form.formtastic fieldset ol li.boolean label         { padding: 0 0 0 165px; }
 
 form.formtastic legend                               { padding: 0 0 15px 0; }
 
@@ -60,6 +62,7 @@ li#user_session_remember_me_input label              { padding: 0 0 0 165px; }
 form.formtastic fieldset.buttons                     { padding: 0; }
 
 fieldset.buttons li.commit input,
+fieldset.buttons li.commit a.preview_button,
 fieldset.buttons li.commit button.create,
 fieldset.buttons li.commit button.submit,
 fieldset.buttons li.commit button.update,
