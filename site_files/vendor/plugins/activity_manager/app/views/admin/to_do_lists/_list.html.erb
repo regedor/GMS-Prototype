@@ -15,7 +15,7 @@
 	  	  	<li id="item_<%= todo.id  %>" class="todo">
 		  <% end %>
           <input type="checkbox" id="<%= todo.id %>" value="<%= todo.id %>" onclick="jQuery(this).check();" /> 	
-		  <span id="todo_content-<%= todo.id %>" class="todo_content">
+		  <div id="todo_content-<%= todo.id %>" class="todo_content">
           	<span class="todo_desc"><%= todo.description %></span>
 		  	<% if todo.user || todo.due_date %>
 		  	<span class="todo_info">
@@ -28,7 +28,8 @@
 		  	</span>
 			<% end %>
 		  	<span class="todo_edit"><%= link_to t("admin.to_do.edit.link"),"#edit_#{todo.id}",{:id => "edit_#{todo.id}", :class => "edit_item", :onclick => "jQuery(this).edit();"} %></span>
-			<span class="todo_delete"><%= link_to t("admin.to_do.delete.link"),"#",{:id => "delete_#{todo.id}", :class => "delete_item"} %></span>
+			<span class="todo_delete"><%= link_to t("admin.to_do.delete.link"),"#",{:id => "delete_#{todo.id}", :class => "delete_item", :onclick => "jQuery(this).delete();"} %></span>
+		  </div>
         </li>
       <% end %>
     </ul>
