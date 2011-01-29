@@ -129,6 +129,8 @@ class ScaffoldApp < ActiveRecord::Migration
       t.string   :slug,                                                       :null => false
       t.text     :body,                                                       :null => false
       t.text     :body_html,                                                  :null => false
+      t.text     :excerpt_html,                                               :null => false
+      t.boolean  :splitted,                :default => false,                 :null => false
       t.boolean  :active,                  :default => true,                  :null => false
       t.integer  :approved_comments_count, :default => 0,                     :null => false
       t.string   :cached_tag_list

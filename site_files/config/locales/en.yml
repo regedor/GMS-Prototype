@@ -97,6 +97,7 @@ en:
   posts:
     none: "There are no posts so far."
     archive: "Post archive"
+    read_more: "Read more"
     meta:
       date: "Posted on"
       tags: "Tagged"
