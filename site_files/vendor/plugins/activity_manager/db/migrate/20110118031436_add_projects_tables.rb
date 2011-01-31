@@ -38,6 +38,31 @@ class AddProjectsTables < ActiveRecord::Migration
       t.integer :project_id
     end
     
+    create_table :messages do |t|
+      t.string   :title,                :null => false
+      t.text     :body,                 :null => false
+      t.text     :body_html,            :null => false
+      t.integer  :category_id,		:null => false
+      t.integer  :user_id,              :null => false
+      t.integer  :project_id,           :null => false
+      t.timestamps
+    end 
+        
+    
+
+    create_table :categories do |t|
+      t.string   :name,       		:null => false
+      t.timestamps
+    end
+    
+    create_table :messages_comments do |t|  
+      t.text      :body,                 :null => false
+      t.text      :body_html,            :null => false
+      t.integer   :user_id,              :null => false
+      t.integer   :message_id,           :null => false
+      t.timestamps
+    end
+
   end
 
   def self.down
@@ -46,5 +71,7 @@ class AddProjectsTables < ActiveRecord::Migration
     drop_table "to_do"
     drop_table "blackboards"
     drop_table "groups_projects"
+    drop_table "messages"
+    drop_table "categories"
   end
 end

@@ -166,6 +166,31 @@ en:
         add_button: "Add to-do"
         responsible: "Resposible for to-do"
         link: "Add new to-do item"           
+        
+    messages:
+      index:
+        title: "Messages List"
+        update_link: "Edit"
+        destroy_link: "Delete"
+        show_link: "Details"
+        search: "Find messages"
+        create: "New message"
+        author_on_date: "on"
+      columns:
+        title: "Message title"
+        body: "Body"
+        category: "Category" 
+      form:
+        new: "New message"
+        edit: "Edit message"
+        from: "From"
+        date: "Date"
+        create_button: "Create"
+        update_button: "Update"
+        cancel_button: "Cancel"
+        hints:
+          body: "<a href='http://hobix.com/textile/quick.html'>Textile enabled</a>. Use Ctrl+E to switch between preview and edit mode."
+  
     
     project:
       index:
