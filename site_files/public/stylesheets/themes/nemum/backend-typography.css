@@ -1,0 +1,40 @@
+/*
+============================================================================
+= Typography
+============================================================================
+*/
+
+body                                      { font-family: Verdana, HelveticaNeue, Helvetica, Arial, Sans-Serif; }
+body                                      { color: #333; font-size: 0.75em; }
+
+a,
+a:link,
+a:visited,
+a:active                                  { text-decoration: none; color: #2E2A2B; }
+a:hover                                   { color: #555; }
+
+div#header div#user-navigation a,
+div#header div#user-navigation a:active,
+div#header div#user-navigation a:visited,
+div#header div#user-navigation a:hover,
+div#header div#user-navigation a:link     { color: #FFF; }
+
+div#sidebar h3                            { border-bottom: 1px solid #C0C0C0; font-size: 1.2em; }
+div#sidebar div.block div.content p       { text-align: justify; }
+
+div#main-navigation ul li a               { font-size: 1.2em; display: block; padding: 8px 15px; }
+div#main-navigation ul li a:link,
+div#main-navigation ul li a:visited,
+div#main-navigation ul li a:active        { color: #111; }
+div#main-navigation ul li a:hover         { color: #555; }
+
+div.secondary-navigation                  { font-size: 1.1em; }
+div.secondary-navigation                  { background-image: url("images/boxbar-background.png"); }
+div.secondary-navigation ul li.active     { background: #FFF; }
+
+div#main div.block div.content h2         { font-size: 2em; font-weight: bold; }
+div#main div.block div.content p          { font-size: 1.1em; line-height: 1.45em; }
+
+div#footer div.block p                    { text-align: center; }
+
+div#flash.flash div.message               { text-align: center; }

@@ -74,6 +74,10 @@ class Group < ActiveRecord::Base
 
   class << self
 
+    def find_groups_to_show_in_user_actions
+      Group.find_all_by_show_in_user_actions true
+    end
+
   end
   
 end

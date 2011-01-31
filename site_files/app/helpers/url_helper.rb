@@ -25,16 +25,6 @@ module UrlHelper
     end
   end
 
-#  def formatted_posts_path(options = {})
-#    if options[:tag]
-#      options[:tag] = options[:tag].name if options[:tag].respond_to?(:name)
-#      options[:tag] = options[:tag].downcase
-#      formatted_posts_with_tags_path(options)
-#    else
-#      posts_path(options)
-#    end
-#  end
-
   def post_path(post, options = {})
     suffix = options[:anchor] ? "##{options[:anchor]}" : ""
     path = post.published_at.strftime("/%Y/%m/%d/") + post.slug + suffix

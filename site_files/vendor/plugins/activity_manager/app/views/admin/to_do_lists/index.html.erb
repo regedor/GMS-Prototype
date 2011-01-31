@@ -8,68 +8,41 @@ jQuery.noConflict();
 
 jQuery(document).ready(function($){
  
-
-  $(".todos .done_todo [type=checkbox]").click(uncheck=function(){
+  jQuery.fn.check = function(){
 	jQuery.ajax({
       type: 'POST',
-      data: "id="+$(this).val()+"&state=notdone",
-      url: window.location.href.replace("#","")+"/changeState",
-      error: function() {
-        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"uncheck"});
-		$(this).bind("click",check);
-		return false;
-      },
-      success: function(r) {
-		var res = r.split("&");
-		
-		$("#"+res[0]).next().next().append(" <span>"+res[1]+"</span>");	
-      }
-    });
-
-	var listId = $(this).parent().parent().attr("class").split("-")[1];
-
-	$(this).parent().remove();
-	$(this).parent().appendTo(".not_done-"+listId);
-	$(this).next().remove();
-	$(this).parent().addClass("todo");
-	$(this).parent().removeClass("done_todo");
-	$(this).next().next().children(':nth-child(1)').text($(this).next().next().children(':nth-child(1)').text().replace("(","").replace(")",""));
-	$(this).removeAttr("checked");
-	$(this).bind("click",check);
-	
-  });
-	
-  $(".todos .todo [type=checkbox]").click(check=function(){
-	$("#temp").text("");
-	jQuery.ajax({
-      type: 'POST',
-      data: "id="+$(this).val()+"&state=done",
-      url: window.location.href.replace("#","")+"/changeState",
+      data: "itemid="+$(this).val()+"&state=done",
+	  dataType: "json",
+      url: window.location.href.replace(/\#.*/,"")+"/"+$(this).parent().parent().attr("id").split("-")[1]+"/changeState",
       error: function() {
         $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"check"});
-		$(this).bind("click",uncheck);
 		return false;
       },
       success: function(r) {
-	    var res = r.split("&");
-	    
-		$("#"+res[0]).after(" <strong class=\"date_finished\">"+res[1]+"</strong>");		
+	    	$("#list_"+r.id).html(r.html);
+			$("#list_"+r.id).show();
+			$(this).makeSortable();
       }
     });
-	
-	var listId = $(this).parent().parent().attr("class").split("-")[1];
-	
-	
-	$(this).parent().remove();	
-	$(this).parent().prependTo(".done_todos-"+listId);
-	$(this).next().next().children(':nth-child(1)').text("("+$(this).next().next().children(':nth-child(1)').text()+")");
-	$(this).next().next().children(':nth-child(2)').remove();
-	$(this).parent().addClass("done_todo");
-	$(this).parent().removeClass("todo");
-	
-	
-	$(this).bind("click",uncheck);
-  });
+  }
+
+  jQuery.fn.uncheck = function(){
+	jQuery.ajax({
+      type: 'POST',
+      data: "itemid="+$(this).val()+"&state=notdone",
+	  dataType: "json",
+      url: window.location.href.replace(/\#.*/,"")+"/"+$(this).parent().parent().attr("id").split("-")[1]+"/changeState",
+      error: function() {
+        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"check"});
+		return false;
+      },
+      success: function(r) {
+	    	$("#list_"+r.id).html(r.html);
+			$("#list_"+r.id).show();
+			$(this).makeSortable();	
+      }
+    });
+  }	
 
   $(".title").click(function(event){
 	$(this).next().fadeToggle("slow","linear");
@@ -89,85 +62,120 @@ jQuery(document).ready(function($){
 	
 	return false;
  });
+
+jQuery.fn.makeSortable = function(){
+ $(".sortable").sortable({
+	connectWith: ".connectable",
+	cancel: ".sort-disabled",
+	stop: function(event,ui) {
+		var itemToSerialize = "#"+ui.item.parent().attr("id").split(" ")[0];
+		var order = $(itemToSerialize).sortable("serialize");
+		var newOrder = order.replace(/item/g,"items");
 	
-}); 
+		jQuery.ajax({
+	      type: 'POST',
+	      data: "list="+ui.item.parent().parent().parent().attr("id").split("_")[1]+"&item="+ui.item.attr("id").split("_")[1]+"&"+newOrder,
+	      url: window.location.href.replace(/\#.*/,"")+"/sortList",
+	      error: function() {
+	        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"sort"});
+			return false;
+	      },
+	      success: function(r) {
+		  		
+	      }
+	    });
+	}
+ });
+}
+		
+  $(this).makeSortable();	
+	
+  $( ".datepicker" ).datepicker({
+  	autoSize: true
+  });
+
+	jQuery.fn.cancel = function(){
+		$(this).parent().parent().parent().parent().parent().removeClass("sort-disabled");
+		jQuery.ajax({
+	      type: 'GET',
+	      url: window.location.href.replace(/\#.*/,"")+"/"+$(this).parent().parent().parent().parent().parent().children(':nth-child(1)').attr("id")+"/cancel",
+		  dataType: "json",
+	      error: function() {
+	        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"cancel"});
+			return false;
+	      },
+	      success: function(r) {
+		  		$("#item_"+r.id).html(r.html);	
+	      }
+	    });
+  	}
+
+  jQuery.fn.edit = 	function(){
+				$(this).parent().parent().parent().addClass("sort-disabled");
+				jQuery.ajax({
+			      type: 'GET',
+			      url: window.location.href.replace(/\#.*/,"")+"/"+$(this).attr("id").split("_")[1]+"/edit",
+				  dataType: "json",
+			      error: function() {
+			        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"edit"});
+					return false;
+			      },
+			      success: function(r) {
+				  		$("#todo_content-"+r.id).html(r.html);
+						$( ".datepicker" ).datepicker({autoSize: true});
+			      }
+			    });
+
+			return false;
+		  }
+	
+  jQuery.fn.delete = function(){
+		jQuery.ajax({
+	      type: 'DELETE',
+	      url: window.location.href.replace(/\#.*/,"").replace("to_do_lists","to_dos")+"/"+$(this).attr("id").split("_")[1],
+	      error: function() {
+	        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"destroy"});
+			return false;
+	      },
+	      success: function(r) {
+		  		$("#item_"+r).remove();
+	      }
+	    });
+
+	return false;
+  }	
+	
+  jQuery.fn.expand = function(){
+		var itemId = $(this).attr("id").split("_")[1];
+		$("#collapse_"+itemId).show();
+		$(this).hide();
+		$(this).parent().next().show();
+  }
+
+  jQuery.fn.collapse = function(){
+		var itemId = $(this).attr("id").split("_")[1];
+		$("#expand_"+itemId).show();
+		$(this).hide();
+		$(this).parent().next().hide();
+  }
+});
+
 </script>
 
-<% counter = 0%>
+<div class="content">
+<!--FIXME: Add generic sidebar placer for plugins-->
+<% content_for :sidebar do -%>
+  <%= render :partial => 'admin/to_do_lists/sidebar.html.erb', :locals => {:project_id => params[:project_id]}  %>
+<% end -%>
+
+<% counter = 1 %>
 <% @lists.each do |list| %>
 <div class="title">
-	<h2><%= link_to list.name, admin_project_to_do_lists_path %></h2>
+  <h2><%= link_to list.name, admin_project_to_do_lists_path %></h2>
 </div>
-<div class="the_list-<%= counter %>" style="display:none;">
-  <div class="description">
-    <%= list.description %>
-  </div>
-  <div class="todos">
-    <% divided_hash = list.divide_done_todos %>	
-    
-    <div class="not_done-<%= counter %>">	
-      <% divided_hash[:notDone].each do |todo| %>
-		<% if todo.user && todo.user == current_user %>
-			<div class="todo highlight">
-		  <% else %>		
-	  	  	<div class="todo">
-		  <% end %>
-          <input type="checkbox" id="<%= todo.id %>" value="<%= todo.id %>" /> 	
-          <span class="todo_desc"><%= todo.description %></span>
-		  <% if todo.user || todo.due_date %>
-		  <span class="todo_info">
-		  	<% if todo.user %>
-		  	 <span><%= todo.user.name %></span>
-		  	<% end %>
-		  	<% if todo.due_date %>
-		  		<span><%= l(todo.due_date, :format => :medium) %></span>
-		  	<% end %>	
-		  </span>	 
-		  <% end %>
-        </div>
-      <% end %>
-    </div>
-  
-	<div class="add_button-<%= counter %>">
-		<%= link_to t("admin.to_do.add_new.link"), "#", {:class => "add_link" } %>
-	</div>	
-	<div class="add_todo-<%= counter %>" style="display:none;">
-		<% semantic_form_for(:todo, :url => new_admin_project_to_do_path + "?parentlist=" + list.id.to_s) do |f| %>
-		  <% f.inputs do %>
-		    <%= f.input :description, :as => :text, :input_html => {:rows => 3, :cols => 40}, :label => t("admin.to_do.add_new.title") %>
-			<%= f.input :responsible, :as => :select, :collection => User.all, :include_blank => false %>
-		  <% end  %>
-		  <% f.buttons do %>
-		    <%= f.commit_button :label => t("admin.to_do.add_new.add_button") %>
-		    <span>or</span>
-			<%= link_to t("admin.to_do.add_new.done_adding"), "#",{:class => "done_adding_link"} %>
-		  <% end %>
-		<% end %>
-		
-	</div>	
-
-    <div class="done_todos-<%= counter %>">
-  	<% divided_hash[:done].each do |todo| %>
-	  <% if todo.user && todo.user == current_user %>
-		<div class="done_todo highlight">
-	  <% else %>		
-  	  	<div class="done_todo">
-	  <% end %>
-  	    <input type="checkbox" id="<%= todo.id %>" value="<%= todo.id %>" checked="yes" />
-		<strong class="date_finished"><%= l(todo.finished_date, :format => :short) if todo.finished_date %></strong>
-  	    <span class="done_todo_desc"><%= todo.description %></span>
-		<% if todo.user  %>
-		  <span class="done_todo_info">
-				<% if todo.user %>
-				 <span>(<%= todo.user.name %>)</span>
-				<% end %>
-		  </span>	 
-		  <% end %>
-  	  </div>
-  	<% end %>
-    </div>	
-  </div>
+<div id="list_<%= list.id %>" class="todo_list">
+  <%= render :partial => 'admin/to_do_lists/list.html.erb', :locals => {:list => list} %>
 </div>
 <% counter = counter+1 %>
-<% end %>	
-
+<% end %>
+</div>
