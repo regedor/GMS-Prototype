@@ -103,3 +103,14 @@ puts "Creating projects... (DEBUG)"
   p1.to_do_lists << tdl2
   p1.save
 
+  
+  c1 = Category.new :name => "Categoria"
+  c1.save
+  m1 = Message.new :body => "Mensagem de bota remedio", :title => "Titulo de bota remedio", :category_id => 1, :user_id => 1, :project_id => 1
+  m2 = Message.new :body => "Mensa", :title => "Mensa", :category_id => 1, :user_id => 1, :project_id => 1
+  m1.save
+  m2.save
+
+  mc1 = MessagesComments.new :body => "ahuetz", :message_id => 1, :user_id => 1
+  mc1.save
+
