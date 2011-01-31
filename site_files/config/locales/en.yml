@@ -111,8 +111,8 @@ en:
       title: "Archives"
       none: "There are no posts so far."
     pagination:
-      previous: "«"
-      next: "»"
+      previous: "««"
+      next: "»»"
 
   comments:
     title: "Post a comment"
