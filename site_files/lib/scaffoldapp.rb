@@ -25,9 +25,13 @@ module Scaffoldapp
       if (value = options[:actions_list]) && !value.empty?
         config.actions << :list_action
         options[:list].unshift :row_mark 
-        config.row_mark_actions_list = value 
+        config.list_actions = value
+        config.list_action_names = value.map do |action|
+          action = action[:method] if action.is_a? Hash
+        end
       else
-        config.row_mark_actions_list = nil
+        config.list_actions = nil
+        config.list_action_names = nil
       end
 
       # LIST
@@ -110,7 +114,8 @@ module ActiveScaffold
 
   module Config
     class Core
-      cattr_accessor :row_mark_actions_list
+      cattr_accessor :list_actions
+      cattr_accessor :list_action_names
       cattr_accessor :internationalization_prefix
     end
   end
@@ -148,11 +153,13 @@ module ActiveScaffold
       end
 
       def list_action
-        if !params[:ids].nil?
-          ids = params[:ids].split('&')
-          if !ids.empty? && active_scaffold_config.model.send(params[:actions], ids)
-            list
-            return
+        if active_scaffold_config.list_action_names.member? params[:actions]
+          if !params[:ids].nil?
+            ids = params[:ids].split('&')
+            if !ids.empty? && active_scaffold_config.model.send(params[:actions], ids)
+              list
+              return
+            end
           end
         end
         head 500

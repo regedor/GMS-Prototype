@@ -21,11 +21,11 @@
 
 <%# Begin override - added code - actions list select %>
   <div class="actions list_actions">
-    <% unless active_scaffold_config.row_mark_actions_list.nil? %>
+    <% unless active_scaffold_config.list_actions.nil? %>
       <select name="dropdownmenu" class="dropdownmenu" default="">
         <option value=""><%= I18n::t('generic_sentence.default_list_action') %>
         </option>
-        <% active_scaffold_config.row_mark_actions_list.each do |option| -%>
+        <% active_scaffold_config.list_actions.each do |option| -%>
           <% if option.is_a? Hash -%>
             <% action_name = option.delete :method -%>
             <% translation = action_name.to_s.sub(/(.+)_[^_]+/) { $1 } -%>
