@@ -1,8 +1,10 @@
-<div class="title>
+<div class="message">
+<div class="title">
  <h2><%= message.title %></h2>
 </div>
 <div class="meta">
  <ul>
+
   <li class="author"><%= I18n::t('admin.messages.form.from')%>: <%= User.find(message.user_id).first_and_last_name %></li>
   <li class="date"><%= I18n::t('admin.messages.form.date')%>: <%= l(message.created_at,:format => :default) %></li>
   </ul>
@@ -12,4 +14,4 @@
 <div class="entrybody">
   <%= raw message.body_html %>
 </div>
-
+</div>
