@@ -66,17 +66,17 @@ class Group < ActiveRecord::Base
       group.subgroups_names_tree(self.groups | groups_to_exclude)
     end.unshift self.name
   end
-   
+
+  def update_user_count
+    self.update_attribute :user_count, self.all_users.count
+  end
+
 
   # ==========================================================================
   # Class Methods
   # ==========================================================================
 
   class << self
-
-    def find_groups_to_show_in_user_actions
-      Group.find_all_by_show_in_user_actions true
-    end
 
   end
   

@@ -10,11 +10,28 @@
   </div>
 
   <div class="block">
-    <h3><%=h t("admin.groups.index.sidebar.users.deleted_users") %></h3>
+    <h3><%= t("admin.users.sidebar.groups.title") %></h3>
     <div class="content">
-      <p><%=h t("admin.groups.index.sidebar.users.undo_deleted_users") %></p>
+      <p><%= t("admin.users.sidebar.groups.paragraph") %></p>
+      <ul class="list">
+        <% if params[:group] -%>
+          <p><%= link_to I18n::t('admin.users.sidebar.groups.reset'), admin_users_path %></p>
+        <% end -%>
+        <% @groups.each do |group| %>
+          <li class="<%= 'selected' if params[:group] == group.id.to_s %>">
+            <%= link_to "#{group.name} (#{group.user_count})", admin_users_path + "?group=#{group.id}" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="block">
+    <h3><%=h t("admin.users.sidebar.deleted_users.title") %></h3>
+    <div class="content">
+      <p><%=h t("admin.users.sidebar.deleted_users.paragraph") %></p>
       <ul class="navigation"> 
-        <li><a href="<%= :deleted_users %>"><%=h t("admin.groups.index.sidebar.users.go_to_deleted_users") %></a></li> 
+        <li><a href="<%= :deleted_users %>"><%=h t("admin.users.sidebar.deleted_users.link") %></a></li> 
      </ul> 
     </div>
   </div>
