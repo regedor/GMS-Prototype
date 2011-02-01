@@ -239,6 +239,8 @@ en:
         cancel_button: "Cancel"
         hints:
           body: "<a href='http://hobix.com/textile/quick.html'>Textile enabled</a>. Use Ctrl+E to switch between preview and edit mode."
+      comments:
+        comment: "New comment"
 
     
     project:
