@@ -1,5 +1,5 @@
 <div class="comments">
-  <table>
+
   <% @comments.each do |comment| %>
    <div id="comment-<%= comment.id %>" class="comment">
       <div class="meta">
@@ -9,10 +9,9 @@
       <div class="entrybody">
         <%= raw comment.body_html %>
       </div>
-      <hr>
     </div>
+          <hr>
   <% end %>
-  </table>
   
     <% semantic_form_for :record, @record,
                            :url => admin_project_message_messages_comments_path(params[:project_id],message.id),
