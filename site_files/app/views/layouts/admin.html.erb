@@ -24,6 +24,12 @@
 
   <%= yield :head %>
 
+  <% if File.exists?(Rails.root.join("vendor","plugins","activity_manager","app", "views", params[:controller], "_sidebar.html.erb")) %>
+    <% content_for :sidebar do -%>
+      <%= render :partial => 'sidebar'  %>
+    <% end -%>
+  <% end -%>
+
 </head>
 <body id="<%= @controller.controller_name + "_" + @controller.action_name %>">
   <div id="container">
@@ -62,7 +68,7 @@
           <%= navigation_menu 'admin.navigation.main.projects',
                               [ 'admin/to_do_lists',
 								'admin/messages'],
-                              admin_project_to_do_lists_path(1) %>
+                              admin_project_to_do_lists_path(Project.first) %>
         </ul>
       </div>
     </div>
@@ -113,11 +119,11 @@
 
             <%= secondary_navigation_menu [ { :controller_paths => 'admin/to_do_lists',
                                               :i18n_path => 'admin.navigation.secondary.to_do_lists',
-                                              :link_to_path => admin_project_to_do_lists_path(1) },
+                                              :link_to_path => admin_project_to_do_lists_path(Project.first) },
 
  											{ :controller_paths => 'admin/messages',
 								              :i18n_path => 'admin.navigation.secondary.messages',
-								              :link_to_path => admin_project_messages_path(1) }],
+								              :link_to_path => admin_project_messages_path(Project.first) }],
            
                                           :specify_first => true %>
           </ul>
