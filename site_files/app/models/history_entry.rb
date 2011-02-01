@@ -21,7 +21,8 @@ class HistoryEntry < ActiveRecord::Base
         # this method will be used in before update
         # In some cases should be overriden in model
         def create_history_entry?
-          true
+          return true if self.history_entries.empty?
+          self.history_entries.last.xml_hash != self.to_xml
         end
        
         def create_history_entry!
