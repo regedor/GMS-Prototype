@@ -1,14 +1,14 @@
 <div class="comments">
   <table>
   <% @comments.each do |comment| %>
-   <div id="comment-<%= comment.id %>">
-      <div class="comment_header"> 
+   <div id="comment-<%= comment.id %>" class="comment">
+      <div class="header"> 
         <%= User.find(comment.user_id).first_and_last_name %> <%= l(message.created_at,:format => :default) %>
       </div>
-      <div class="comment_textile">
+      <div class="body">
         <%= raw comment.body_html %>
       </div>
-
+      <hr>
     </div>
   <% end %>
   </table>
