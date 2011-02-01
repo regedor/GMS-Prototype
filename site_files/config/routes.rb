@@ -75,6 +75,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :history_entries
     admin.resources :settings
     admin.resources :mails,          :active_scaffold => true, :active_scaffold_sortable => true      
+    admin.resources :user_optional_group_picks, :active_scaffold => true, :active_scaffold_sortable => true      
     admin.posts_with_tags 'posts/tags/:tag_ids', :controller => 'posts', :action => 'index'
   end
 

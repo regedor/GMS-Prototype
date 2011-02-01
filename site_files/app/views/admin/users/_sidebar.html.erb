@@ -31,7 +31,7 @@
     <div class="content">
       <p><%=h t("admin.users.sidebar.deleted_users.paragraph") %></p>
       <ul class="navigation"> 
-        <li><a href="<%= :deleted_users %>"><%=h t("admin.users.sidebar.deleted_users.link") %></a></li> 
+        <li><%= link_to t("admin.users.sidebar.deleted_users.link"), admin_deleted_users_path %></li> 
      </ul> 
     </div>
   </div>

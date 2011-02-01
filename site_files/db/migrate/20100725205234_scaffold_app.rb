@@ -70,7 +70,11 @@ class ScaffoldApp < ActiveRecord::Migration
 
 
     create_table :user_optional_group_picks, :force => true do |t|
-      t.integer :role     #limit by user role
+      t.integer :role_id                    #limit by user role
+      t.integer :group_id                   #limit by group
+      t.string  :name,       :null => false
+      t.text    :description
+      t.timestamps
     end
 
 

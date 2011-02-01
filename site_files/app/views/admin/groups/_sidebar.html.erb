@@ -1,10 +1,20 @@
 <% if (controller.action_name == "index") %>
  <div class="block">
-    <h3><%=h t("admin.groups.index.sidebar.hierarchy.index.title") %></h3>
+    <h3><%=h t("admin.groups.sidebar.hierarchy.index.title") %></h3>
     <div class="content">
       <p>
-        <%= t("admin.groups.index.sidebar.hierarchy.index.paragraph") %>
+        <%= t("admin.groups.sidebar.hierarchy.index.paragraph") %>
       </p>
+    </div>
+  </div>
+
+  <div class="block">
+    <h3><%=h t("admin.groups.sidebar.user_optional_group_picks.title") %></h3>
+    <div class="content">
+      <p><%=h t("admin.groups.sidebar.user_optional_group_picks.paragraph") %></p>
+      <ul class="navigation">
+        <li><%= link_to t("admin.groups.sidebar.user_optional_group_picks.link"), admin_user_optional_group_picks_path %></li>
+      </ul>
     </div>
   </div>
 <% end %>
@@ -12,16 +22,16 @@
 <% if (controller.action_name != "edit") %>
 
   <div class="block">
-    <h3><%=h t("admin.groups.index.sidebar.hierarchy.name") %></h3>
+    <h3><%=h t("admin.groups.sidebar.hierarchy.name") %></h3>
     <div class="content">
       <p>
         <% if @record.groups.count>0 %>
-          <%=h t("admin.groups.index.sidebar.hierarchy.info.paragraph") %>
+          <%=h t("admin.groups.sidebar.hierarchy.info.paragraph") %>
           <p>
             <%= generate_tree @record.subgroups_names_tree if @record %>
           </p>
         <% else %>
-          <%=h t("admin.groups.index.sidebar.hierarchy.empty.paragraph") %>
+          <%=h t("admin.groups.sidebar.hierarchy.empty.paragraph") %>
         <% end %>
       </p>
     </div>
@@ -30,10 +40,10 @@
 <% else %>
 
   <div class="block">
-    <h3><%=h t("admin.groups.index.sidebar.edit.title") %></h3>
+    <h3><%=h t("admin.groups.sidebar.edit.title") %></h3>
     <div class="content">
       <p>
-        <%= t("admin.groups.index.sidebar.edit.paragraph") %>
+        <%= t("admin.groups.sidebar.edit.paragraph") %>
       </p>
     </div>
   </div>

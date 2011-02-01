@@ -303,21 +303,24 @@ en:
         destroy_link: "Delete"      
         search: "Find groups"
         create: "New Group"
-        sidebar:
-          edit:
-            title: "Editing group"
-            paragraph: "By editing a group you can change it's <b title=\"See the field on the left.\">name</b>. <br/> A <b title=\"See the field on the left.\">description</b> can be added. <br/> You can decide if a group will be or not <b title=\"See the field on the left.\">mailable</b>, that is, you can send an email to all users of the group at once.<br/> To decide if a user can decide to became part of it, define true on <b title=\"See the field on the left.\">User choosable</b>.<br/> You can create <b title=\"See the field on the left.\">group</b> hierarchies by dragging groups which will subgroups of it from the yellow field to the green field. <br/> The group <b title=\"See the field on the left.\">users</b> are managed on the same way of the subgroups. "
-          hierarchy:
-            name: "Hierarchy"
-            index:
-              title: "Groups"
-              paragraph: "You are viewing system groups information. From here you can <b title=\"See the link above the table.\">create</b> a new group. You can also view a group <b title=\"The link is at the end of the row.\">details</b> and it's hierarchy. To edit a group details click on <b title=\"The link is at the end of the row.\">edit</b>. To eliminate a group simply click on <b title=\"The link is at the end of the row.\">delete</b>. "
-            empty:
-              subname: "All groups"
-              paragraph: "When viewing details of a group containing subgroups, you can see here the hierarchy."
-            info:
-              subname: "All groups"
-              paragraph: "Below is the group and subgroup relationship hierarchy. "
+      sidebar:
+        edit:
+          title: "Editing group"
+          paragraph: "By editing a group you can change it's <b title=\"See the field on the left.\">name</b>. <br/> A <b title=\"See the field on the left.\">description</b> can be added. <br/> You can decide if a group will be or not <b title=\"See the field on the left.\">mailable</b>, that is, you can send an email to all users of the group at once.<br/> To decide if a user can decide to became part of it, define true on <b title=\"See the field on the left.\">User choosable</b>.<br/> You can create <b title=\"See the field on the left.\">group</b> hierarchies by dragging groups which will subgroups of it from the yellow field to the green field. <br/> The group <b title=\"See the field on the left.\">users</b> are managed on the same way of the subgroups. "
+        hierarchy:
+          name: "Hierarchy"
+          index:
+            title: "Groups"
+            paragraph: "You are viewing system groups information. From here you can <b title=\"See the link above the table.\">create</b> a new group. You can also view a group <b title=\"The link is at the end of the row.\">details</b> and it's hierarchy. To edit a group details click on <b title=\"The link is at the end of the row.\">edit</b>. To eliminate a group simply click on <b title=\"The link is at the end of the row.\">delete</b>. "
+          empty:
+            subname: "All groups"
+            paragraph: "When viewing details of a group containing subgroups, you can see here the hierarchy."
+          info:
+            subname: "All groups"
+            paragraph: "Below is the group and subgroup relationship hierarchy. "
+        user_optional_group_picks:
+          title: "User Optional Group Picks"
+          link: "Go to user optional group picks"
       columns:
         parent_name: "Parent"
         name: "Name"
@@ -326,19 +329,38 @@ en:
         groups: "Groups"
         direct_users: "Users"
         user_choosable: "User choosable"
-      delete:
-        title: "Delete Group"
-        question: "Are you sure you want to delete %{username}?"
-        bt_label: "Delete group"
-        cancel_link: 
-          label: "Cancel"
-          title: "Go back to groups list"
       create:
         title: "Group"
       list:
+        noentries: "No Groups Found"
         found:
           more: "%{count} Groups Found"
           one: "%{count} Group Found"
+
+    user_optional_group_picks:
+      index:
+        title: "User Optional Group Picks List"
+        show_link: "Details"
+        update_link: "Edit"
+        destroy_link: "Delete"      
+        search: "Find picks"
+        create: "New Pick"
+      sidebar:
+        title: "User Optional Group Picks"
+        link: "Go back to groups"
+      columns:
+        name: "Name"
+        description: "Description"
+        group: "Group"
+        role: "Role"
+        groups: "Optional Groups"
+      create:
+        title: "User Optional Group Picks"
+      list:
+        noentries: "No Picks Found"
+        found:
+          more: "%{count} Picks Found"
+          one: "%{count} Pick Found"
 
     pages:
       index:
