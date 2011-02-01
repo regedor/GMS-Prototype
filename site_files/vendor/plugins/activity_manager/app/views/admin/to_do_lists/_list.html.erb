@@ -37,7 +37,7 @@
 	<div id="add_button-<%= list.id %>" class="add_button">
 		<%= link_to t("admin.to_do.add_new.link"), "#add_todo-#{list.id}", {:class => "add_link" } %>
 	</div>	
-	<div id="add_todo-<%= list.id %>" class="add_todo-<%= list.id %>" style="display:none;">
+	<div id="add_todo-<%= list.id %>" class="add_todo" style="display:none;">
 		<% semantic_form_for(:todo, :url => admin_project_to_dos_path) do |f| %>
 		  <% f.inputs do %>
 		    <%= f.input :description, :as => :text, :input_html => {:rows => 3, :cols => 40}, :label => t("admin.to_do.add_new.title"), :required => false %>

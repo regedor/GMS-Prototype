@@ -1,1 +1,11 @@
-This will be the view for creating to-do lists...
+<div class="content">
+  <% semantic_form_for @list, :url => admin_project_to_do_lists_path(params[:project_id]), :html => {:method => :post} do |f| %>
+    <% f.inputs do %>
+	  <%= f.input :name, :as => :string, :label => t("admin.to_do_list.new.name") %>
+      <%= f.input :description, :as => :text, :input_html => {:rows => 3, :cols => 40}, :label => t("admin.to_do_list.new.description"), :required => false, :hint => t("admin.to_do_list.new.description_hint") %>  
+    <% end  %>
+    <% f.buttons do %>
+	  <%= f.commit_button :label => t("admin.to_do_list.new.button") %>
+	<% end %>
+  <% end %>
+</div>	
