@@ -5,8 +5,8 @@
 <div class="meta">
  <ul>
 
-  <li class="author"><%= I18n::t('admin.messages.form.from')%>: <%= User.find(message.user_id).first_and_last_name %></li>
-  <li class="date"><%= I18n::t('admin.messages.form.date')%>: <%= l(message.created_at,:format => :default) %></li>
+  <li class="author"><span><%= I18n::t('admin.messages.form.from')%>:</span> <%= User.find(message.user_id).first_and_last_name %></li>
+  <li class="date"><span><%= I18n::t('admin.messages.form.date')%>: </span> <%= l(message.created_at,:format => :default) %></li>
   </ul>
 </div>
 <hr>

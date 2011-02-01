@@ -2,10 +2,11 @@
   <table>
   <% @comments.each do |comment| %>
    <div id="comment-<%= comment.id %>" class="comment">
-      <div class="header"> 
-        <%= User.find(comment.user_id).first_and_last_name %> <%= l(message.created_at,:format => :default) %>
+      <div class="meta">
+        <span class="author"><%= User.find(comment.user_id).first_and_last_name %></span> 
+        <span class="date"><%= l(message.created_at,:format => :default) %></span>
       </div>
-      <div class="body">
+      <div class="entrybody">
         <%= raw comment.body_html %>
       </div>
       <hr>
