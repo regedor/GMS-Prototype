@@ -2,6 +2,14 @@
 <div class="entrybody">
   <%=raw post.body_html %>
 </div>
+<div id="social-buttons">
+  <%= tweet_button(:via => configatron.site_name, :text => post.title, :count => "none", :url => (configatron.site_url+post_path(post))) %>
+  <a name="fb_share" type="button" 
+    share_url="<%= (configatron.site_url+post_path(post)) %>"> <%= I18n::t("posts.share_on_facebook")%></a>
+     <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" 
+        type="text/javascript">
+     </script>
+</div>
 <div class="meta">
   <ul>
     <li class="date"><%= I18n::t('posts.meta.date') + ' ' + format_post_date(post.published_at) %></li>
@@ -12,4 +20,3 @@
     <% end -%>
   </ul>
 </div>
-

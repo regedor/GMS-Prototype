@@ -138,6 +138,7 @@ en:
   posts:
     none: "There are no posts so far."
     archive: "Post archive"
+    share_on_facebook: "Share"
     meta:
       date: "Posted on"
       tags: "Tagged"
@@ -193,12 +194,14 @@ en:
       sidebar:
         title: "To-Do Lists"
         paragraph: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."          
+        select_title: "Change project:"
       new:
         link: "New to-do list"
         name: "Name"
         description: "Description"
         description_hint: "This description is optional, use it to explain the purpose of the list, if needed"
-        button: "Create List"  
+        create_button: "Create List"  
+        cancel_button: "Cancel"
     
     to_do:
       add_new:
