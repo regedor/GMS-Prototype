@@ -1,12 +1,8 @@
-<div id="content">
+<div class="content">
 
  <% content_for :sidebar do -%>
   <%= render :partial => 'admin/messages/sidebar.html.erb', :locals => {:project_id => params[:project_id]}  %>
  <% end -%>
-
- <div class="messages_title">
-  <%= I18n::t('admin.messages.list.title') %>
- </div>
 
  <% if @messages.empty? %>
   <p><%= I18n::t('admin.messages.list.empty') %> </p>
