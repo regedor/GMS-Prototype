@@ -1,297 +1,666 @@
-# Portuguese localization for Ruby on Rails
-# by Ricardo Otero <oterosantos@gmail.com>
-#
-# This localization file targets Rails 2.3.2.
-# If you need a previous version go to http://github.com/weppos/rails-i18n/
-# and choose between available tags.
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
-pt-PT:
+en:
   navigation:
-    title: "Regedor"
     home: "Home"
-    about: "About"
-    logout: "Logout"
-    login: "Login"
-    signup: "Sign Up"
-
+    about: "Sobre"
+    administration: "Administração"
 
   users:
+    roles:
+      root: "Root"
+      admin: "Administrador"
+      users_manager: "Gestor de Sócios"
+      website_manager: "Gestor do Website"
+      blogger: "Blogger" 
+      user: "Sócio normal"
     form:
       email: "Email"
       password: "Password"
-      change_password: "Change password" 
-      password_confirmation: "Password confirmation"
-      language: "Language"
+      change_password: "Alterar password" 
+      password_confirmation: "Confirmação da password"
+      openid: "OpenID URL"
+      language: "Língua"
     edit:
-      title: "Edit account"
-      commit_button: "Update account"
+      title: "Editar conta"
+      commit_button: "Actualizar conta"
+    comment:
+      cancel: "Cancelar"
     new:
-      title: "Create new account"
-      form_inputs_name: "Please enter your email address and choose a password and language:"
-      form_side_notes: "We are using cutting edge techniques to ensure no one (including ourselves) will
-                        have access to your password or personal data."
-      commit_button: "Register account"
+      title: "Criar nova conta"
+      openid: "OpenID"
+      form_inputs_name: "Por favor insira o seu endereço de email e escolha uma password:"
+      form_openid_inputs_name: "Esteja ciente de que o email na página do formulário OpenID, irá substituir este."
+      form_side_notes: 
+        first: "Porque ninguém quer memorizar milhares de passwords diferentes, recomendamos
+                que use um sistema de autenticação de terceiros!"
+        second: "Estamos a utilizar técnicas avançadas para garantir que ninguém (inclusive nós próprios) terá acesso à sua password ou dados pessoais."
+        google_signup: "Entrar no Google"
+        yahoo_signup: "Entrar no Yahoo"
+      commit_button: "Registar conta"
   
 
   user_session:
+    errors:
+      invalid_open_id: "Autenticação OpenID falhou. Verifique os seus dados e tente novamente."
     bar:
-      last_session_paragraph: "Your last login was %{time_ago} ago, your ip was %{ip}"
-      account_link: "Account details"
+      last_session_paragraph: "O seu último login foi há %{time_ago} atrás, o seu ip era %{ip}"
+      account_link: "Detalhes da conta"
+      logout: "Sair"
+      signin: "Entrar"
+      signup: "Inscrever"
+      google_signin: "Entrar no Google"
+      change_language: "Alterar língua:"
     new:
       title: "Login"
-      form_inputs_name: "Please enter your email address and password:"
-      form_side_notes: "We are using cutting edge techniques to ensure no one (including ourselves)
-                        will have access to your password or personal data."
+      form_inputs_name: "Por favor insira o seu endereço de email e password:"
+      form_openid_inputs_name: "Pode também entrar usando OpenID:"
+      form_side_notes: 
+        first: "Porque ninguém quer memorizar milhares de passwords diferentes, recomendamos
+                que use um sistema de autenticação de terceiros!"
+        second: "Estamos a utilizar técnicas avançadas para garantir que ninguém (inclusive nós próprios) terá acesso à sua password ou dados pessoais."
+        google_signin: "Entrar no Google"
+        yahoo_signin: "Entrar no Yahoo"
       email: "Email"
       password: "Password"
-      remember_me: "remember me"
-      forgot_pass: "I forgot my password"
-      new_account: "I don't have an account yet"
-      commit_button: "Iniciar Sessão"
+      openid: "OpenID"
+      remember_me: "Lembrar-me"
+      forgot_pass: "Esqueci-me da password"
+      new_account: "Criar conta"
+      commit_button: "Entrar"
 
 
   user_password_resets:
     new:
-      title: "Forgot Password"
-      paragraph: "Fill out the form below and instructions to reset your password will be emailed to you:"
-      commit_button: "Reset my password"
+      title: "Esqueci-me da password"
+      form_inputs_name: "Preencha o formulário abaixo e as instruções para redefinir a sua password serão enviadas para o seu email:"
+      form_side_notes: "Estamos a utilizar técnicas avançadas para garantir que ninguém (inclusive nós próprios) terá acesso à sua password ou dados pessoais."
+      email: "Email"
+      commit_button: "Redefinir a minha password"
     edit:
-      title: "Change My Password"
-      paragraph: "Fill out the form below and instructions to reset your password will be emailed to you:"
-      commit_button: "Update my password and log me in"
+      title: "Alterar a minha Password"
+      form_inputs_name: "Preencha o formulário abaixo com seu endereço de e-mail e uma nova password:"
+      form_side_notes: "Estamos a utilizar técnicas avançadas para garantir que ninguém (inclusive nós próprios) terá acesso à sua password ou dados pessoais."
+      email: "Email"
+      change_password: "Nova password"
+      password_confirmation: "Confirmação da Password"
+      commit_button: "Actualizar password e log in"
 
 
   pages:
     about:
-      title: "About This Project"
+      title: "Sobre este Projecto"
 
 
   admin:
+    navigation:
+      main:
+        dashboard: "Painel de Controlo"
+        users: "Gestão de Uilizadores"
+        website: "Website"
+        system: "Sistema"
+        communication: "Comunicação"
+      secondary:
+        dashboard: "Painel de Controlo"
+        users: "Sócios"
+        groups: "Grupos"
+        posts: "Posts"
+        comments: "Comentários"
+        announcements: "Anúncios"
+        pages: "Páginas Estáticas"
+        settings: "Opções"
+        undo_items: "Acções"
+        mails: "Enviar Email"
+   
+    dashboard:
+      title: "Fez login como Administrator, está a ver agora o painel de Administração."
+      text: "<p>Neste backend pode gerir toda a informação. Pode gerir sócios, grupos, comunicação e itens de frontend. Na barra lateral pode encontrar informação útil </p>"
+      sidebar:
+        title: "Backend do Simon"
+        text:  "Veja na barra lateral ajuda para localização relativa."
+        go_to_frontend: "Ir para frontend"
+        user_management:
+          title: "Gerir Sócios"
+          manage_user_accounts: "Gerir contas de sócios"
+          manage_groups: "Gerir grupos"
+        settings:
+          title: "Opções"
+          manage_settings: "Gerir %{site_name} opções"
+
+    mails:
+      title: "Emails"
+      to: "Para:"
+      subject: "Assunto:"
+      message: "Mensagem:"
+      send: "Enviar emails"
+      group: " (Grupo)"
+      send_ok: "Email enviado com sucesso para os seguintes endereços de email:"
+      send_fail: "O e-mail não pôde ser enviado, tente novamente!"
+      list:
+        found:
+          more: "%{count} Emails Encontrados"
+          one: "%{count} Email Encontrado"            
+        noentries: "Não foram encontrados resultados"              
+      index:
+        destroy_link: "Apagar"
+        show_link: "Detalhes" 
+        title: "Emails enviados" 
+      columns:    
+        sent_on: "Enviado em"
+        subject: "Assunto"
+        message: "Mensagem"
+        xml_groups_and_users: "Para"
+        user_id: "De"      
+      create:
+        title: "Mail"
+      new:
+        sidebar:
+          title: "Gestão de Emails"
+          content: "Aqui pods gerir e enviar emails."
+          sent_mails: "Caixa de saída"
+          go_to_sent_mails: "Emails enviados"
+                            
     users:
       index:
-        title: "Users List"
-        new_bt: "Create a new user"
-        edit_bt: "Edit"
-        delete_bt: "Delete"
-        activate_bt: "Activate"
+        title: "Lista de sócios"
+        update_link: "Editar"
+        destroy_link: "Apagar"
+        show_link: "Detalhes"
+        search: "Encontar sócios"
+        create: "Criar sócio"
+      columns:
+        created_at: "Criado em"
+        email: "Email"
+        active: "Activo"
+        language: "Língua"
+        name: "Nome"
+        role: "Papel do Sócio"
+        nickname: "Nickname"
+        profile: "Perfil"
+        website: "Website"
+        country: "País"
+        gender: "Sexo"
+        groups: "Grupos"
+      sidebar:
+        history:
+          title: "Histórico de Acções"
+          paragraph: "Veja abaixo as alterações feitas por este sócio"
+        reversion:
+          title: "A reverter"
+          subtitle: "Está a reverter informação"
+          message: "Se clicar em \"Revert\" abaixo, está a tornar as suas acções permanentes!"
+          link: "Reverter"
+        title: "Gestão de Uilizadores"
+        text: "Nesta página podes gerir os sócios."
+        edit:
+          title: "Editar sócio"
+          text: "Nesta página pode editar a informação de um sócio. Pode também ver versões anteriores dos dados do sócio."
       delete:
-        title: "Delete User"
-        question: "Are you sure you want to delete %{username}?"
-        bt_label: "Delete user"
+        title: "Apagar Sócio"
+        question: "Tem a certeza que quer apagar %{username}?"
+        bt_label: "Apagar Sócio"
         cancel_link: 
-          label: "Cancel"
-          title: "Go back to users list"        
-      groups:
-        index:
-          title: "Groups List"
-          show_link: "<img src='/images/icons/group.png'/>Details"
-          update_link: "<img src='/images/icons/group_edit.png'/>Edit"
-          destroy_link: "<img src='/images/icons/group_delete.png'/>Delete"      
-          search: "Find groups"
-          create: "New Group"
-          columns:
-            parent_name: "Parent"
-            name: "Nome"
-            mailable: "Mailable"
-            description: "Descrição"
-        delete:
-          title: "Delete Group"
-          question: "Are you sure you want to delete %{username}?"
-          bt_label: "Delete group"
-          cancel_link: 
-            label: "Cancel"
-            title: "Go back to groups list"
-        create:
-          title: "Group"
+          label: "Cancelar"
+          title: "Voltar para lista de sócios"   
+      destroy_by_ids: "Apagar"
+      activate!: "Activar"
+      deactivate!: "Desactivar"
+      list:
+        found:
+          more: "%{count} Sócios Encontrados"
+          one: "%{count} Sócio Encontrado"            
+        noentries: "Nenhum sócio encontrado"
+      view:
+        email:    "Email"
+        name:     "Nome"
+        nickname: "Nickname"
+        gender:   "Sexo"
+        profile:  "Perfil"
+        website:  "Website"
+        country:  "País"
+        phone:    "Telefone"
+        emails:   "Emails"
+        language: "Língua"
+        groups:   "Grupos"
+        role:     "Papel"
+        cancel:   "Fechar"
+        
+    deleted_users:
+      index:
+        title: "Lista de Sócios Apagados"
+        search: "Encontrar sócios"
+        create: "Criar Sócio"
+      columns:
+        created_at: "Criado em"
+        email: "Email"
+        active: "Activo"
+        language: "Língua"
+        name: "Nome"
+        role: "Papel do Sócio"
+        destroy_link: "Apagar"
+        show_link: "Detalhes"
+        undelete_link: "Anular"
+      destroy_by_ids: "Apagar"
+      activate!: "Activar"
+      undelete_by_ids: "Reactivar"
+      list:
+        found:
+          more: "%{count} Sócios Encontrados"
+          one: "%{count} Sócio Encontrado"            
+        noentries: "Nenhum sócio encontrado"
+      sidebar:
+        title: "Sócios apagados"
+        text: "Aqui podes gerir os sócios apagados."
+          
+    groups:
+      index:
+        title: "Lista de Grupos"
+        show_link: "Detalhes"
+        update_link: "Editar"
+        destroy_link: "Apagar"      
+        search: "Encontrar grupos"
+        create: "Novo Grupo"
+        sidebar:
+          hierarchy:
+            name: "Hierarquia"
+            subname: "Todos os Grupos"
+          users:
+            go_to_deleted_users: "Ir para sócios apagados"
+            go_to_users: "Ir para sócios"
+            deleted_users: "Sócios apagados"
+            undo_deleted_users: "Recuperar sócios"
+      columns:
+        parent_name: "Pai"
+        name: "Nome"
+        mailable: "Sócio Contactável"
+        description: "Descrição"
+        groups: "Grupos"
+        direct_users: "Sócios"
+        user_choosable: "Sócio Escolhível"
+      delete:
+        title: "Apagar Grupo"
+        question: "Tem a certeza que quer apagar %{username}?"
+        bt_label: "Apagar grupo"
+        cancel_link: 
+          label: "Cancelar"
+          title: "Voltar para lista de grupos"
+      create:
+        title: "Grupo"
+      list:
+        found:
+          more: "%{count} Grupos Encontrados"
+          one: "%{count} Grupo Encontrado"
+
+    pages:
+      index:
+        title: "Lista de Páginas Estáticas"
+        destroy_link: "Apagar"
+        update_link: "Editar"
+        search: "Procurar Páginas"
+        create: "Nova Página"
+      columns:
+        title: "Título"
+        excert: "Excerto"
+        total_approved_comments: "Comentários"
+        created_at: "Data"
+        body: "Corpo"
+        slug: "Slug"
+        show_in_navigation: "Mostrar no Menú"
+        has_comments: "Tem comentários"
+        priority: "Prioridade"
+      form:
+        new: "Nova Página"
+        edit: "Editar Página"
+        submit: "Gravar"
+        preview_button: "Pré-visualizar"
+        edit_button: "Editar"
+        hints:
+          body: "<a href='http://hobix.com/textile/quick.html'>Textile enabled</a>. Use Ctrl + E para alternar entre o modo de visualizar e editar."
+          slug: "Deixe em branco para gerar automaticamente uma  slug baseada no título."
+          show_in_navigation: "Mostrar na navegação"
+          priority: "Prioridade"
+          has_comments: "Tem comentários"
+      list:
+        noentries: "Nenhuma página encontrada"
+        found:
+          more: "%{count} Páginas Encontradas"
+          one: "%{count} Página Encontrada"
+
+    posts:
+      index:
+        title: "Lista de Notícias"
+        show_link: "Detalhes"
+        destroy_link: "Apagar"
+        update_link: "Editar"
+        comments_link:
+          image: ""
+          more: "%{count} Comentários"
+          one: "%{count} Comentário"
+        search: "Procurar Posts"
+        create: "Novo Post"
+      columns:
+        published_at: "Públicado em"
+        title: "Título"
+        excert: "Excerto"
+        total_approved_comments: "Comentários"
+        body: "Corpo"
+        slug: "Slug"
+        tag_list: "Lista de Tags"
+        minor_edit: "Edição Menor"
+      list:
+        noentries: "Nenhum Post Encontrado"
+        found:
+          more: "%{count} Posts Encontrados"
+          one: "%{count} Post Encontrado"
+      form:
+        show: "Mostrar Post"
+        new: "Novo Post"
+        edit: "Editar Post"
+        edit_tag: "A Editar Tag - %{name}"
+        preview_button: "Pré-visualizar"
+        edit_button: "Editar"
+        create_button: "Criar"
+        update_button: "Actualizar"
+        cancel_button: "Cancelar"
+        close_button: "Fechar"
+        hints:
+          body: '<a href="http://hobix.com/textile/quick.html">Textile enabled</a>. Use Ctrl + E para alternar entre o modo de visualizar e editar.'
+          tag_list: "Separado por vírgulas: ruby, rails&hellip;"
+          published_at_natural: 'Exemplo: agora, ontem, 1 hora a partir de agora, <a href="http://chronic.rubyforge.org/">more&hellip;</a>'
+          slug: "Deixe em branco para gerar automaticamente uma  slug baseada no título."
+          minor_edit: "Edições Menores não serão mostradas como actualizadas nos leitores de feeds. Utilize esta opção para corrigir erros ortográficos e afins."
+      tags:
+        title: "Tags"
+        pagination:
+          previous: "««"
+          next: "»»"
         list:
-          found:
-            more: "%{count} Groups Found"
-            one: "%{count} Group Found"  
+          edit: "Editar"
+          posts:
+            more: "%{count} posts"
+            one: "%{count} post"
+        edit:
+          prompt: "Muda o nome da tag"
+          error:
+            generic: "Impossível alterar o nome da tag."
+            tag_exists: "Já existe uma tag com o mesmo nome."
+            no_server: "Impossível ligar ao servidor."
+      sidebar:
+            history:
+              title: "Histórico de Acções"
+              paragraph: "Ver abaixo alterações feitas por este sócio"
+            reversion:
+              title: "A reverter"
+              subtitle: "Está a reverter informação"
+              message: "Se clicar em \"Revert\" abaixo, está a tornar as suas acções permanentes!"
+              link: "Reverter"            
+
+    comments:
+      index:
+        title: "Todos os Comentário para %{title}"
+        destroy_link: "Apagar"
+        update_link: "Editar"
+        search: "Procurar Comentários"
+        create: "Novo Comentário"
+      columns:
+        created_at: "Data"
+        commenter: "Autor do comentário"
+        excert: "Excerto"
+        post: "Post"
+      list:
+        noentries: "Nenhum comentário encontrado"
+        found:
+          more: "%{count} Comentários Encontrados"
+          one: "%{count} Comentário Encontrado"
+
+    announcements:
+      index:
+        title: "Mostrar Anúncios"
+        update_link: "Editar"
+        destroy_link: "Apagar"
+        show_link: "Detalhes"
+        search: "Procurar Anúncios"
+        create: "Novo Announcement"
+      columns:
+        title: "Título"
+        headline: "Cabeçalho"
+        message: "Mensagem"
+        starts_at: "Data de Início"
+        ends_at: "Data de Fim"
+        url: "URL"
+        avatar: "Imagem"
+      create:
+        title: "Announcement"
+      list:
+        noentries: "Nenhum anúncio encontrado"
+        found:
+          more: "%{count} Anúncios Encontrados"
+          one: "%{count} Anúncio Encontrado"
+      sidebar:
+        title: "Anúncios"
+        text: "On this page you can create anúncios that will appear on frontend."
+    settings:
+      title: "Gestão de opções"
+      theme: "Tema"
+      site_title: "Título do Site"
+      save: "Guardar"
+
+
+  authlogic:
+    error_messages:
+      login_blank: can not be blank
+      login_not_found: is not valid
+      login_invalid: should use only letters, numbers, spaces, and .-_@ please.
+      consecutive_failed_logins_limit_exceeded: Consecutive failed logins limit exceeded, account is disabled.
+      email_invalid: should look like an email address.
+      password_blank: can not be blank
+      password_invalid: is not valid
+      not_active: Your account is not active
+      not_confirmed: Your account is not confirmed
+      not_approved: Your account is not approved
+      no_authentication_details: You did not provide any details for authentication.
+    models:
+      user_session: UserSession
+    attributes:
+      user_session:
+        login: login
+        email: email
+        password: password
+        remember_me: remember me
+
 
   flash:
-    login: "Sessão iniciada!"
-    logout: "Logout successful!"
-    require_login: "You must be logged in to access this page"
-    require_logout: "You must be logged out to access this page"
-    account_activated: "A sua conta foi activada."
-    account_created: "A sua conta foi criada com sucesso. 
-                      Em breve vai receber um email com instruções de activação!"
-    account_updated: "Account updated!"
-    user_deleted: "User has been deleted!"
-    invalid_user_invitations: "You have entered an invalid email addresses!
-                               Correct it and try again."
-    single_user_invitation: "You have successfully sent an invitation to %{mail}."
-    multiple_user_invitations: "You have successfully sent %{number} invitations."
-
-
+    login: "Login com sucesso"
+    logout: "Logout com sucesso"
+    require_login: "Tem de fazer login para aceder a esta página"
+    require_logout: "Tem de fazer logout para aceder a esta página"
+    account_activated: "A sua conta foi activada. Por favor faça o login."
+    account_created: "A sua conta foi criada. Por favor verifique o seu email para verificar as instrções de activação da conta!"
+    account_updated: "Conta actualizada!"
+    user_deleted: "Sócio foi apagado!"
+    invalid_user_invitations: "Inseriu um endereço email inválido! Tente de novo."
+    single_user_invitation: "Enviou um convite com sucesso para %{mail}."
+    multiple_user_invitations: "Enviou com sucesso %{number} convites."
+    password_resets_intruction_sent: "Instruções para alterar a sua password foram enviadas.
+                               Por favor verifique o seu email."  
+    no_user_found_with_that_email: "Não foi encontrado nenhum sócio com esse email"  
+    password_updated: "Password alterada com sucesso"  
+    invalid_email_address: "Endereço email inválido!"  
+    user_resets_load_user_error: "Lamentamos, mas não conseguimos encontrar a sua conta. 
+                                  Se estiver com problemas tente copiar e colar a URL 
+                                  do seu email para o seu browser ou reinicie o 
+                                  processo de alteração de password"  
+    rare_error: "Ocorreu um erro raro! Contacte o administrador e indique o seguinte código: %{ref}"
+    you_are_being_redirected: "Está a ser redireccionado. Por favor espere..."
+    login_failed: "Login falhou. Talvez ainda não tenha activado a sua conta, ou inseriu dados errados."
+    group_created: "Grupo criado com sucesso"
+    tag_changed: "Tag %{old} actualizada com sucesso para %{new}."
+    invalid_tag_change: "Impossível alterar tag %{old} para %{new} porque a tag %{new} já existe."
+    changes_saved_successful_with_delay: "As alterações foram guardadas com sucesso e vão agora produzir efeito"
+    reverted_with_sucess: "Revertido com sucesso"
+  
+  
   notifier: 
     invitation:
-      subject: "You have been invited"
+      subject: "Você foi convidado"
       body:
-        header: "The user '%{name}' wants you to join Regedor! Follow the link and create an account!"
-        footer: "If the above URL does not work try copying and pasting it into your browser. If you continue to have problem, please feel free to contact us."
+        header: "O sócio '%{name}' quer que te juntes a Regedor! Segue o link e cria uma conta!"
+        footer: "Se a URL acima não funcionar, tente copiar e colar no seu browser. Se continuar a ter problemas, não hesite em contactar-nos."
     activation_instructions:
-      subject: "Instruções para activar conta"
+      subject: "Instruções de Activação"
       body:
-        header: "Obrigado for creating an account! Click the url below to activate your account!"
-        footer: "If the above URL does not work try copying and pasting it into your browser. If you continue to have problem, please feel free to contact us."
+        header: "Obrigado por criar uma conta! Clique na URL abaixo para activar a sua conta!"
+        footer: "Se a URL acima não funcionar, tente copiar e colar no seu browser. Se continuar a ter problemas, não hesite em contactar-nos."
     activation_confirmation:
-      subject: "Activation Complete!"
+      subject: "Activação Completa!"
       body:
-        header: "Your account has been activated."
-        footer: "If the above URL does not work try copying and pasting it into your browser. If you continue to have problem, please feel free to contact us."
+        header: "A sua conta foi activada."
+        footer: "Se a URL acima não funcionar, tente copiar e colar no seu browser. Se continuar a ter problemas, não hesite em contactar-nos."
     password_reset_instructions:
-      subject: "Password Reset Instructions"
+      subject: "Instruções para Alteração da Password"
       body:
-        header: "A request to reset your password has been made.\n  
-                 If you did not make this request, simply ignore this email.\n  
-                 If you did make this request just click the link below:"  
-        footer: "If the above URL does not work try copying and pasting it into your browser.\n  
-                 If you continue to have problem please feel free to contact us."  
+        header: "O pedido para alteração da sua password foi feito.\n  
+                 Se não fez este pedido, simplesmente ignore este e-mail.\n  
+                 Se fez este pedido basta clicar no link abaixo:"  
+        footer: "Se a URL acima não funcionar, tente copiar e colar no seu browser.\n  
+                 Se continuar a ter problemas, não hesite em contactar-nos."
+    actions:
+      confirm: "Tem certeza de que deseja executar a acção\"%{action}\"?"
+      success: "Acção \"%{action}\" realizada com sucesso."
+      failure: "Ocorreu um erro durante a execução da acção\"%{action}\"."
+      no_selection: "Deve seleccionar pelo menos um item da tabela para executar uma ação."
 
-
-  generic_word:
-    language: "language"
-    administration: "administration"
-    actions: "actions"
-    show: "show"
-    edit: "edit"
-    destroy: "delete"
-    or: "or"
-    are_you_sure: "Are you sure?"
 
   generic_sentence:
-    required_field: "* this field is required!"
+    required_field: "<abbr>*</abbr> Campo Obrigatório."
+    language: "Língua"
+    administration: "Administração"
+    go_back: "Voltar"
+    are_you_sure: "Tem a certeza?"
+    scaffold_do_actions: "Mais acções"
+    time_ago: "%{time_ago} atrás"
+    true_value: "Sim"
+    false_value: "Não"
+    male_value: "Masculino"
+    female_value: "Feminino"
 
+#data
 
-
-
-#############
-# Default
-
-  support:
-    array:
-      words_connector: ","
-      two_words_connector: "e"
-      last_word_connector: ", e"
-    
-  date:
-    formats:
-      default: "%d/%m/%Y"
-      short: "%d de %B"
-      long: "%d de %B de %Y"
-    day_names: [Domingo, Segunda, Terça, Quarta, Quinta, Sexta, Sábado]
-    abbr_day_names: [Dom, Seg, Ter, Qua, Qui, Sex, Sáb]
-    month_names: [~, Janeiro, Fevereiro, Março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro]
-    abbr_month_names: [~, Jan, Fev, Mar, Abr, Mai, Jun, Jul, Ago, Set, Out, Nov, Dez]
-    order: [:day, :month, :year]
-    
-  time:
-    formats:        
-      default: "%A, %d de %B de %Y, %H:%Mh"
-      short: "%d/%m, %H:%M hs"
-      long: "%A, %d de %B de %Y, %H:%Mh"
-    am: ""
-    pm: ""
- 
-  datetime:
-    distance_in_words:
-      half_a_minute: "meio minuto"
-      less_than_x_seconds:
-        one: "menos de 1 segundo"
-        other: "menos de %{count} segundos"
-      x_seconds:
-        one: "1 segundo"
-        other: "%{count} segundos"
-      less_than_x_minutes: 
-        one: "menos de um minuto"
-        other: "menos de %{count} minutos"
-      x_minutes:
-        one: "1 minuto"
-        other: "%{count} minutos"
-      about_x_hours:
-        one: "aproximadamente 1 hora"
-        other: "aproximadamente %{count} horas"
-      x_days:
-        one: "1 dia"
-        other: "%{count} dias"
-      about_x_months:
-        one: "aproximadamente 1 mês"
-        other: "aproximadamente %{count} meses"
-      x_months:
-        one: "1 mês"
-        other: "%{count} meses"
-      about_x_years:
-        one: "aproximadamente 1 ano"
-        other: "aproximadamente %{count} anos"
-      over_x_years:
-        one: "mais de 1 ano"
-        other: "mais de %{count} anos"
-    prompts:
-      year: "Ano"
-      month: "Mês"
-      day: "Dia"
-      hour: "Hora"
-      minute: "Minuto"
-      second: "Segundo"
-        
   number:
+    # Used in number_with_delimiter()
+    # These are also the defaults for 'currency', 'percentage', 'precision', and 'human'
     format:
+      # Sets the separator between the units, for more precision (e.g. 1.0 / 2.0 == 0.5)
+      separator: "."
+      # Delimets thousands (e.g. 1,000,000 is a million) (always in groups of three)
+      delimiter: ","
+      # Number of decimals, behind the separator (the number 1 with a precision of 2 gives: 1.00)
       precision: 3
-      separator: ','
-      delimiter: '.'
+      
+    # Used in number_to_currency()
     currency:
       format:
-        unit: '€'
-        precision: 2
+        # Where is the currency sign? %u is the currency unit, %n the number (default: $5.00)
         format: "%u%n"
-        separator: ','
-        delimiter: '.'
+        unit: "$"
+        # These three are to override number.format and are optional
+        separator: "."
+        delimiter: ","
+        precision: 2
+        
+    # Used in number_to_percentage()
     percentage:
       format:
+        # These three are to override number.format and are optional
+        # separator: 
         delimiter: ""
+        # precision: 
+        
+    # Used in number_to_precision()
     precision:
       format:
+        # These three are to override number.format and are optional
+        # separator:
         delimiter: ""
+        # precision:
+        
+    # Used in number_to_human_size()
     human:
       format:
-        precision: 1
+        # These three are to override number.format and are optional
+        # separator: 
         delimiter: ""
+        precision: 1
       storage_units:
-        format:
+        # Storage units output formatting.
+        # %u is the storage unit, %n is the number (default: 2 MB)
+        format: "%n %u"
         units:
           byte:
-            one: "Byte"
+            one:   "Byte"
             other: "Bytes"
           kb: "KB"
           mb: "MB"
           gb: "GB"
           tb: "TB"
 
+  # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
+  datetime:
+    distance_in_words:
+      half_a_minute: "meio minuto"
+      less_than_x_seconds:
+        one:   "menos de 1 segundo"
+        other: "menos de %{count} segundos"
+      x_seconds:
+        one:   "1 segundo"
+        other: "%{count} segundos"
+      less_than_x_minutes:
+        one:   "menos de 1 minuto"
+        other: "menos de %{count} minutos"
+      x_minutes:
+        one:   "1 minuto"
+        other: "%{count} minutos"
+      about_x_hours:
+        one:   "cerca de 1 hora"
+        other: "cerca de %{count} horas"
+      x_days:
+        one:   "1 dia"
+        other: "%{count} dias"
+      about_x_months:
+        one:   "cerca de 1 mês"
+        other: "cerca %{count} meses"
+      x_months:
+        one:   "1 mês"
+        other: "%{count} meses"
+      about_x_years:
+        one:   "cerca de 1 ano"
+        other: "cerca de %{count} anos"
+      over_x_years:
+        one:   "mais de 1 ano"
+        other: "mais de %{count} ano"
+      almost_x_years:
+        one:   "quase 1 ano"
+        other: "quase %{count} anos"
+    prompts:
+      year:   "Ano"
+      month:  "Mês"
+      day:    "Dia"
+      hour:   "Hora"
+      minute: "Minuto"
+      second: "Segundos"
+
   activerecord:
     errors:
       template:
         header:
-          one: "Não foi possível guardar %{model}: 1 erro"
-          other: "Não foi possível guardar %{model}: %{count} erros"
-        body: "Por favor, verifique os seguintes campos:"
-      messages:
-        inclusion: "não está incluído na lista"
-        exclusion: "não está disponível"
-        invalid: "não é válido"
-        confirmation: "não está de acordo com a confirmação"
-        accepted:  "precisa de ser aceite"
-        empty: "não pode estar em branco"
-        blank: "não pode estar em branco"
-        too_long: "tem demasiados caracteres (máximo: %{count} caracteres)"
-        too_short: "tem poucos caracteres (mínimo: %{count} caracteres)"
-        wrong_length: "não é do tamanho correcto (necessita de ter %{count} caracteres)"
-        taken: "não está disponível"
-        not_a_number: "não é um número"
-        greater_than: "tem de ser maior do que %{count}"
-        greater_than_or_equal_to: "tem de ser maior ou igual a %{count}"
-        equal_to: "tem de ser igual a %{count}"
-        less_than: "tem de ser menor do que %{count}"
-        less_than_or_equal_to: "tem de ser menor ou igual a %{count}"
-        odd: "tem de ser ímpar"
-        even: "tem de ser par"
+          one:    "1 erro impediu este %{model} de ser gravado"
+          other:  "%{count} erros impediram este %{model} de ser gravado"
+        # The variable :count is also available
+        body: "Houve problemas com os seguintes campos:"
+
+  support:
+    select:
+      # default value for :prompt => true in FormOptionsHelper
+      prompt: "Por favor, seleccione"
+

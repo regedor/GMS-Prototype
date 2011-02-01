@@ -1,17 +1,17 @@
 <div class="comments">
-  <table>
+
   <% @comments.each do |comment| %>
-   <div id="comment-<%= comment.id %>">
-      <div class="comment_header"> 
-        <%= User.find(comment.user_id).first_and_last_name %> <%= l(message.created_at,:format => :default) %>
+   <div id="comment-<%= comment.id %>" class="comment">
+      <div class="meta">
+        <span class="author"><%= User.find(comment.user_id).first_and_last_name %></span> 
+        <span class="date"><%= l(message.created_at,:format => :default) %></span>
       </div>
-      <div class="comment_textile">
+      <div class="entrybody">
         <%= raw comment.body_html %>
       </div>
-
     </div>
+          <hr>
   <% end %>
-  </table>
   
     <% semantic_form_for :record, @record,
                            :url => admin_project_message_messages_comments_path(params[:project_id],message.id),
@@ -20,8 +20,10 @@
     <% form.input_field_set do -%>
 
 	<%= form.input :body,
-                         :label    => I18n::t('admin.messages.columns.body'),
-                         :hint     => I18n::t('admin.messages.form.hints.body').html_safe %>
+                         :label    => I18n::t('admin.messages.comments.comment'),
+                         :hint     => I18n::t('admin.messages.form.hints.body').html_safe,
+                         :as => :text, 
+                         :input_html => {:rows => 5, :cols => 40} %>
     <%= form.hidden_field :message_id, :value => message.id %>
     <%= form.commit_button t('admin.messages.form.create_button'),
                                    :button_html => {:class => "submit"} %>

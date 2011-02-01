@@ -1,6 +1,7 @@
 class Admin::ToDoListsController < Admin::BaseController
   
   def index
+    @projects = Project.all
     @lists = Project.find(params[:project_id]).to_do_lists
   end  
   

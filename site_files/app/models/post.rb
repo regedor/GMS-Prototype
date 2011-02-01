@@ -51,9 +51,9 @@ class Post < ActiveRecord::Base
   end
 
   attr_accessor :published_at_natural
-  # Publication date at natural form. (e.g. 2011-01-01 00:00 )
+  # Publication date at natural form. (e.g. 2011-01-01 00:00:00 )
   def published_at_natural
-    @published_at_natural ||= published_at.send_with_default(:strftime, 'now', "%Y-%m-%d %H:%M")
+    @published_at_natural ||= published_at.send_with_default(:strftime, 'now', "%Y-%m-%d %H:%M:%S")
   end
 
   # Returns the post's publication month
@@ -61,9 +61,12 @@ class Post < ActiveRecord::Base
     published_at.beginning_of_month
   end
 
-  # Sets body_html formatting body as html.
+  # Sets excerpt_html and body_html formatted as xhtml.
   def apply_filter
-    self.body_html = EnkiFormatter.format_as_xhtml(self.body)
+    formatted = EnkiFormatter.format_as_xhtml_with_excerpt(self.body)
+    self.splitted = formatted[:splitted]
+    self.excerpt_html = formatted[:excerpt]
+    self.body_html = formatted[:body]
   end
 
   # Sets post dates
