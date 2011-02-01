@@ -111,6 +111,6 @@ puts "Creating projects... (DEBUG)"
   m1.save
   m2.save
 
-  mc1 = MessagesComments.new :body => "ahuetz", :message_id => 1, :user_id => 1
+  mc1 = MessagesComment.new :body => "ahuetz", :message_id => 1, :user_id => 1
   mc1.save
 
