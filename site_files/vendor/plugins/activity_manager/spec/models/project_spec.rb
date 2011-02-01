@@ -37,7 +37,7 @@ describe Project do
   end
 
   ## has_many :messages
-  it "should have many ToDOLists" do
+  it "should have many messages" do
     should have_many :messages
   end
 
