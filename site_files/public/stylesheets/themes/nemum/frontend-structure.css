@@ -25,7 +25,7 @@ div#content                   { margin-right: 185px; min-height: 200px; }
 div#content p                 { margin: 0 0 1em; }
 div#content table             { margin: 0 0 1em; }
 div#sidebar                   { float: right; height: auto; width: 170px; }
-div#main                      { background-color: white; padding: 15px; position: relative; z-index: 2; }
+div#main                      { background-color: white; padding: 20px; position: relative; z-index: 2; }
 div#main p                    { margin: 0 0 15px; }
 div.meta                      { background-color: #EEE; margin: 0 10px 2.5em; padding: 0.8em; }
 div#footer                    { margin: 1.5em; }
@@ -42,7 +42,7 @@ span.options                  { float: right; }
 .meta a:hover,
 .options a:hover,
 #archives a:hover,
-#footer a:hover               { border-bottom: 2px solid #F8DA00; }
+div#footer a:hover               { border-bottom: 2px solid #F8DA00; }
 
 /* Announcements */
 
