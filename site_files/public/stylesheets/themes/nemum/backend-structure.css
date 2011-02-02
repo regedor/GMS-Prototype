@@ -7,7 +7,7 @@
 body                                     { background: #E5E5E5; }
 
 div#container                            { min-width: 960px; }
-div.content                              { padding: 15px; }
+div.content                              { padding: 20px; }
 
 div#main                                 { width: 71%; float: left; }
 div#main>div.block                       { background: #FFF; -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.4); }
@@ -41,7 +41,7 @@ div#flash div.message.info,
 div#flash div.message.notice             { border: 1px solid #1fdf00; background-color: #bbffb6; }
 
 div#header                               { padding: 0 15px; }
-div#header h1                            { padding: 30px 0; }
+div#header h1                            { padding: 30px 15px; }
 div#header h1 a                          { display: block; }
 div#header h1 a                          { text-indent: -6000px; height: 100px; width: 350px; background: url("/stylesheets/themes/nemum/images/bg_logo_admin.png") no-repeat; }
 div#header                               { background: #2E2A2B; background: -webkit-gradient(linear, left bottom, left top, color-stop(1, #2E2A2B), color-stop(0, #423D3E)); background: -moz-linear-gradient(center bottom, rgb(66,61,62) 0%, rgb(46,42,43) 100%); }
