@@ -44,7 +44,6 @@ class HistoryEntry < ActiveRecord::Base
                                               :xml_hash     => self.to_xml
         end
 
-
         def history_entries_list
           history_entries.reverse
         end

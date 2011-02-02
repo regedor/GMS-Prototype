@@ -1,10 +1,14 @@
 class Group < ActiveRecord::Base
+
   # ==========================================================================
   # Relationships
   # ==========================================================================
 
+  has_many                :groups_users
+  has_many                :direct_users, :through => :groups_users, :source => :user
   has_and_belongs_to_many :groups,       :association_foreign_key => "include_group_id"
-  has_and_belongs_to_many :direct_users, :class_name => "User"
+
+  after_save :update_user_count
 
 
   # ==========================================================================
@@ -18,56 +22,45 @@ class Group < ActiveRecord::Base
   # ==========================================================================
   # Instance Methods
   # ==========================================================================
-  
-  # FIXME subgroups is deprecated!
-  #Returns parent name
-  def subgroups_names
-    self.subgroups.map(&:name).join ", "
-  end
 
-  # FIXME subgroups is deprecated!
-  #Give all users
+  # Returns all the users in the group and its subgroups
   def all_users
     self.direct_users | subgroups.map(&:direct_users).flatten
   end
 
-  # FIXME subgroups is deprecated!  
-  #Retrieves and array containing all subgroups
+  # Retrieves an array containing all subgroups
   def subgroups
-    subgroups_tree.flatten[1..-1]
+    subgroups_tree.flatten || []
   end
 
-  #FIXME
-  def pretty_print
-    "Name: #{name}\nMailable: #{mailable}\nDescription: #{description}"
-  end  
-  
-  # Reverts group attributes
-  def revertTo(xmlGroup)
-    group_hash = Hash.from_xml(xmlGroup)
-    self.update_attributes group_hash["group"]
+  # Retrieves an array containing all subgroup names
+  def subgroups_names
+    subgroups_names_tree.flatten || []
   end
-  
-  # FIXME subgroups is deprecated!  
+
   # Create group hierarchy (includes itself)
   # Each array is a group
-  # First element is the name of the group, the rest are it's subgroups
-  def subgroups_tree(groups_to_exclude=[])
+  # First element is the group itself, the rest are it's subgroups
+  def subgroups_tree(groups_to_exclude=[self])
     (self.groups - groups_to_exclude).map do |group| 
-      group.subgroups_tree(self.groups | groups_to_exclude).unshift self
-    end.unshift
+      group.subgroups_tree(self.groups | groups_to_exclude)
+    end.unshift self
   end
 
-  # FIXME subgroups is deprecated!  
-  #Create group names hierarchy as list
+  # Create group names hierarchy as list
   def subgroups_names_tree(groups_to_exclude=[self])
     (self.groups - groups_to_exclude).map do |group| 
       group.subgroups_names_tree(self.groups | groups_to_exclude)
     end.unshift self.name
   end
 
+  # Updates the number of users from the group and its subgroups
+  # Used raw SQL to avoid cyclic after_save callback
   def update_user_count
-    self.update_attribute :user_count, self.all_users.count
+    self.subgroups.each do |group|
+      #group.update_attribute :user_count, group.all_users.size
+      ActiveRecord::Base::connection().update("UPDATE groups SET user_count = #{group.all_users.size} WHERE id = #{group.id}") 
+    end
   end
 
 

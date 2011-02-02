@@ -243,6 +243,7 @@ en:
         activate!: "Activate"
         deactivate!: "Deactivate"
         add_to_group: "Add to group '%{name}'"
+        remove_from_group: "Remove from group '%{name}'"
       list:
         found:
           more: "%{count} Users Found"

@@ -9,7 +9,7 @@ class Admin::UserOptionalGroupPicksController < Admin::BaseController
     config.columns[:groups].options = {:draggable_lists => true}
     
     Scaffoldapp::active_scaffold config, "admin.user_optional_group_picks",
-      :list     => [ :name, :description ],
+      :list     => [ :name, :description, :groups ],
       :show     => [ :name, :description, :role, :group, :groups ],
       :create   => [ :name, :description, :role, :group, :groups ],
       :edit     => [ ]

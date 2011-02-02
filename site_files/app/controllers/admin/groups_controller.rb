@@ -17,15 +17,4 @@ class Admin::GroupsController < Admin::BaseController
       :row_mark => [ :delete_by_ids ]
   end
 
-  
-  def before_update_save(record)
-    @loggable_actions = [:destroy,:create,:update]
-    if @loggable_actions.include?(params[:action].to_sym)
-      group = Group.find_by_id(params[:id])
-      entry = ActionEntry.new({:controller=>params[:controller],:action=>params[:action],:message=>group.pretty_print,:entity_id=>group.id})
-      entry.xml_hash = group.to_xml
-      entry.save 
-    end
-  end
-  
 end  

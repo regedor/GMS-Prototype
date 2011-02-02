@@ -84,7 +84,7 @@ class ScaffoldApp < ActiveRecord::Migration
     end
 
 
-    create_table :groups_users, :id => false do |t|
+    create_table :groups_users do |t|
       t.integer :group_id
       t.integer :user_id
     end

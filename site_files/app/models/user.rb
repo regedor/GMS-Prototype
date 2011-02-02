@@ -3,9 +3,10 @@ class User < ActiveRecord::Base
   # ==========================================================================
   # Relationships
   # ==========================================================================
-  
-  has_and_belongs_to_many :groups
-  belongs_to              :role
+
+  has_many   :groups_users  
+  has_many   :groups, :through => :groups_users
+  belongs_to :role
 
 
   # ==========================================================================
@@ -287,19 +288,24 @@ class User < ActiveRecord::Base
 
     # Adds users to the specified group
     def add_to_group(group_id, ids)
-      User.find(ids).each do |user|
-        groups = user.group_ids
-        unless groups.member? group_id.to_i
-          groups << group_id
-          user.update_attribute :group_ids, groups
-        end
-      end
-      return true
+      group = Group.find group_id
+      group.direct_user_ids |= ids.map! &:to_i
+      return group.save
     end
 
+    # Removes users to the specified group
+    def remove_from_group(group_id, ids)
+      group = Group.find group_id
+      group.direct_user_ids -= ids.map! &:to_i
+      return group.save
+    end
+
+    # Method missing override for specific method invocation
+    # Method names that matches one of the regular expressions on the list are invoked in a specific way
+    # For example, add_to_group_1 [8,9] invokes add_to_group(1, [8,9])
     def method_missing(method_id, *args, &block)
       method_name = method_id.to_s
-      [ /(add_to_group)_(\d+)/ ].each do |regexp|
+      [ /(add_to_group)_(\d+)/, /(remove_from_group)_(\d+)/ ].each do |regexp|
         return User.send($1, $2, *args) if method_name =~ regexp
       end
       super
