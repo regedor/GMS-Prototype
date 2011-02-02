@@ -11,6 +11,7 @@ class AddProjectsTables < ActiveRecord::Migration
     create_table :to_do_lists do |t|
       t.string  :name,          :null => false
       t.text    :description
+      t.integer    :position  #acts_as_list
       t.integer :project_id 
     end
     

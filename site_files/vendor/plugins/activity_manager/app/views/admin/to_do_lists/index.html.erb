@@ -1,3 +1,5 @@
+<%= include_i18n_calendar_javascript %>
+
 <script>
 jQuery.noConflict();
 
@@ -8,6 +10,14 @@ jQuery.noConflict();
 
 jQuery(document).ready(function($){
  
+  	var counter = 0;
+    var locale = ""
+	for(i in $.datepicker.regional){
+		if(counter == 1)
+		{ locale=i; break; }
+		counter++;
+	}
+
   jQuery.fn.check = function(){
 	jQuery.ajax({
       type: 'POST',
@@ -44,10 +54,10 @@ jQuery(document).ready(function($){
     });
   }	
 
-  $(".title").click(function(event){
-	$(this).next().fadeToggle("slow","linear");
-	event.preventDefault();
-  });
+  //$(".title").click(function(event){
+  //  $(this).next().fadeToggle("slow","linear");
+  //  event.preventDefault();
+  //});
 
   $(".add_link").click(function(){
 	$(this).parent().hide();
@@ -68,6 +78,23 @@ jQuery.fn.makeSortable = function(){
 	connectWith: ".connectable",
 	cancel: ".sort-disabled",
 	stop: function(event,ui) {
+	  if(ui.item.parent().attr("class").split(" ")[0] == "titles")
+	  {
+		jQuery.ajax({
+	      type: 'POST',
+	      data: "item="+ui.item.attr("id").split("_")[1]+"&"+$(".titles").sortable("serialize"),
+	      url: window.location.href.replace(/\#.*/,"").split("?")[0]+"/sortList?"+window.location.href.replace(/\#.*/,"").split("?")[1],
+	      error: function() {
+	        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"sort"});
+			return false;
+	      },
+	      success: function(r) {
+
+	      }
+	    });
+	  }
+	  else
+	  {
 		var itemToSerialize = "#"+ui.item.parent().attr("id").split(" ")[0];
 		var order = $(itemToSerialize).sortable("serialize");
 		var newOrder = order.replace(/item/g,"items");
@@ -84,15 +111,15 @@ jQuery.fn.makeSortable = function(){
 		  		
 	      }
 	    });
+	  }
 	}
  });
 }
 		
   $(this).makeSortable();	
 	
-  $( ".datepicker" ).datepicker({
-  	autoSize: true
-  });
+  $.datepicker.setDefaults( $.datepicker.regional[ '' ] );	
+  $( ".datepicker" ).datepicker($.datepicker.regional[locale]);
 
 	jQuery.fn.cancel = function(){
 		$(this).parent().parent().parent().parent().parent().removeClass("sort-disabled");
@@ -122,7 +149,7 @@ jQuery.fn.makeSortable = function(){
 			      },
 			      success: function(r) {
 				  		$("#todo_content-"+r.id).html(r.html);
-						$( ".datepicker" ).datepicker({autoSize: true});
+						$( ".datepicker" ).datepicker($.datepicker.regional[locale]);
 			      }
 			    });
 
@@ -178,17 +205,25 @@ jQuery.fn.makeSortable = function(){
 </script>
 
 <div class="content">
-<!--FIXME: Add generic sidebar placer for plugins-->
+<% if @reorder.nil? %>	
+  <% counter = 1 %>
+  <% @lists.each do |list| %>
+  <div class="title">
+    <h2><%= list.name %></h2>
+  </div>
 
+  <div id="list_<%= list.id %>" class="todo_list">
+    <%= render :partial => 'admin/to_do_lists/list.html.erb', :locals => {:list => list} %>
+  </div>
+  <% end %>
+  <% counter = counter+1 %>
 
-<% counter = 1 %>
-<% @lists.each do |list| %>
-<div class="title">
-  <h2><%= link_to list.name, admin_project_to_do_lists_path %></h2>
-</div>
-<div id="list_<%= list.id %>" class="todo_list">
-  <%= render :partial => 'admin/to_do_lists/list.html.erb', :locals => {:list => list} %>
-</div>
-<% counter = counter+1 %>
+<% else %>
+  <div class="titles sortable connectable">
+  <% @project.ordered_lists.each do |list| %>
+    <li id="list_<%= list.id %>"><h2><%= list.name %></h2></li>
+  <% end %>
+  </div>
 <% end %>
+
 </div>

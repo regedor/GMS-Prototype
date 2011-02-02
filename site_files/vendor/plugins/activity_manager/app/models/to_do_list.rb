@@ -3,6 +3,7 @@ class ToDoList < ActiveRecord::Base
   # Relationships
   # ==========================================================================
   
+  acts_as_list
   belongs_to :project
   has_many :to_dos, :order => "finished_date desc"
 
@@ -16,11 +17,13 @@ class ToDoList < ActiveRecord::Base
   # Extra defnitions
   # ==========================================================================
 
-
+  named_scope :ordered_position, lambda{ |id| {:conditions => { :project_id => id}, :order => "position asc"}}
 
   # ==========================================================================
   # Instance Methods
   # ==========================================================================
+
+  
 
   def divide_done_todos
     done    = []

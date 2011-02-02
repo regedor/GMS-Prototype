@@ -5,23 +5,23 @@ en:
   navigation:
     home: "Home"
     about: "Sobre"
-    administration: "AdministraÁ„o"
+    administration: "Administra√ß√£o"
 
   users:
     roles:
       root: "Root"
       admin: "Administrador"
-      users_manager: "Gestor de SÛcios"
+      users_manager: "Gestor de S√≥cios"
       website_manager: "Gestor do Website"
       blogger: "Blogger" 
-      user: "SÛcio normal"
+      user: "S√≥cio normal"
     form:
       email: "Email"
       password: "Password"
       change_password: "Alterar password" 
-      password_confirmation: "ConfirmaÁ„o da password"
+      password_confirmation: "Confirma√ß√£o da password"
       openid: "OpenID URL"
-      language: "LÌngua"
+      language: "L√≠ngua"
     edit:
       title: "Editar conta"
       commit_button: "Actualizar conta"
@@ -30,12 +30,12 @@ en:
     new:
       title: "Criar nova conta"
       openid: "OpenID"
-      form_inputs_name: "Por favor insira o seu endereÁo de email e escolha uma password:"
-      form_openid_inputs_name: "Esteja ciente de que o email na p·gina do formul·rio OpenID, ir· substituir este."
+      form_inputs_name: "Por favor insira o seu endere√ßo de email e escolha uma password:"
+      form_openid_inputs_name: "Esteja ciente de que o email na p√°gina do formul√°rio OpenID, ir√° substituir este."
       form_side_notes: 
-        first: "Porque ninguÈm quer memorizar milhares de passwords diferentes, recomendamos
-                que use um sistema de autenticaÁ„o de terceiros!"
-        second: "Estamos a utilizar tÈcnicas avanÁadas para garantir que ninguÈm (inclusive nÛs prÛprios) ter· acesso ‡ sua password ou dados pessoais."
+        first: "Porque ningu√©m quer memorizar milhares de passwords diferentes, recomendamos
+                que use um sistema de autentica√ß√£o de terceiros!"
+        second: "Estamos a utilizar t√©cnicas avan√ßadas para garantir que ningu√©m (inclusive n√≥s pr√≥prios) ter√° acesso √† sua password ou dados pessoais."
         google_signup: "Entrar no Google"
         yahoo_signup: "Entrar no Yahoo"
       commit_button: "Registar conta"
@@ -43,23 +43,23 @@ en:
 
   user_session:
     errors:
-      invalid_open_id: "AutenticaÁ„o OpenID falhou. Verifique os seus dados e tente novamente."
+      invalid_open_id: "Autentica√ß√£o OpenID falhou. Verifique os seus dados e tente novamente."
     bar:
-      last_session_paragraph: "O seu ˙ltimo login foi h· %{time_ago} atr·s, o seu ip era %{ip}"
+      last_session_paragraph: "O seu √∫ltimo login foi h√° %{time_ago} atr√°s, o seu ip era %{ip}"
       account_link: "Detalhes da conta"
       logout: "Sair"
       signin: "Entrar"
       signup: "Inscrever"
       google_signin: "Entrar no Google"
-      change_language: "Alterar lÌngua:"
+      change_language: "Alterar l√≠ngua:"
     new:
       title: "Login"
-      form_inputs_name: "Por favor insira o seu endereÁo de email e password:"
-      form_openid_inputs_name: "Pode tambÈm entrar usando OpenID:"
+      form_inputs_name: "Por favor insira o seu endere√ßo de email e password:"
+      form_openid_inputs_name: "Pode tamb√©m entrar usando OpenID:"
       form_side_notes: 
-        first: "Porque ninguÈm quer memorizar milhares de passwords diferentes, recomendamos
-                que use um sistema de autenticaÁ„o de terceiros!"
-        second: "Estamos a utilizar tÈcnicas avanÁadas para garantir que ninguÈm (inclusive nÛs prÛprios) ter· acesso ‡ sua password ou dados pessoais."
+        first: "Porque ningu√©m quer memorizar milhares de passwords diferentes, recomendamos
+                que use um sistema de autentica√ß√£o de terceiros!"
+        second: "Estamos a utilizar t√©cnicas avan√ßadas para garantir que ningu√©m (inclusive n√≥s pr√≥prios) ter√° acesso √† sua password ou dados pessoais."
         google_signin: "Entrar no Google"
         yahoo_signin: "Entrar no Yahoo"
       email: "Email"
@@ -74,17 +74,17 @@ en:
   user_password_resets:
     new:
       title: "Esqueci-me da password"
-      form_inputs_name: "Preencha o formul·rio abaixo e as instruÁıes para redefinir a sua password ser„o enviadas para o seu email:"
-      form_side_notes: "Estamos a utilizar tÈcnicas avanÁadas para garantir que ninguÈm (inclusive nÛs prÛprios) ter· acesso ‡ sua password ou dados pessoais."
+      form_inputs_name: "Preencha o formul√°rio abaixo e as instru√ß√µes para redefinir a sua password ser√£o enviadas para o seu email:"
+      form_side_notes: "Estamos a utilizar t√©cnicas avan√ßadas para garantir que ningu√©m (inclusive n√≥s pr√≥prios) ter√° acesso √† sua password ou dados pessoais."
       email: "Email"
       commit_button: "Redefinir a minha password"
     edit:
       title: "Alterar a minha Password"
-      form_inputs_name: "Preencha o formul·rio abaixo com seu endereÁo de e-mail e uma nova password:"
-      form_side_notes: "Estamos a utilizar tÈcnicas avanÁadas para garantir que ninguÈm (inclusive nÛs prÛprios) ter· acesso ‡ sua password ou dados pessoais."
+      form_inputs_name: "Preencha o formul√°rio abaixo com seu endere√ßo de e-mail e uma nova password:"
+      form_side_notes: "Estamos a utilizar t√©cnicas avan√ßadas para garantir que ningu√©m (inclusive n√≥s pr√≥prios) ter√° acesso √† sua password ou dados pessoais."
       email: "Email"
       change_password: "Nova password"
-      password_confirmation: "ConfirmaÁ„o da Password"
+      password_confirmation: "Confirma√ß√£o da Password"
       commit_button: "Actualizar password e log in"
 
 
@@ -97,36 +97,36 @@ en:
     navigation:
       main:
         dashboard: "Painel de Controlo"
-        users: "Gest„o de Uilizadores"
+        users: "Gest√£o de Uilizadores"
         website: "Website"
         system: "Sistema"
-        communication: "ComunicaÁ„o"
+        communication: "Comunica√ß√£o"
       secondary:
         dashboard: "Painel de Controlo"
-        users: "SÛcios"
+        users: "S√≥cios"
         groups: "Grupos"
         posts: "Posts"
-        comments: "Coment·rios"
-        announcements: "An˙ncios"
-        pages: "P·ginas Est·ticas"
-        settings: "OpÁıes"
-        undo_items: "AcÁıes"
+        comments: "Coment√°rios"
+        announcements: "An√∫ncios"
+        pages: "P√°ginas Est√°ticas"
+        settings: "Op√ß√µes"
+        undo_items: "Ac√ß√µes"
         mails: "Enviar Email"
    
     dashboard:
-      title: "Fez login como Administrator, est· a ver agora o painel de AdministraÁ„o."
-      text: "<p>Neste backend pode gerir toda a informaÁ„o. Pode gerir sÛcios, grupos, comunicaÁ„o e itens de frontend. Na barra lateral pode encontrar informaÁ„o ˙til </p>"
+      title: "Fez login como Administrator, est√° a ver agora o painel de Administra√ß√£o."
+      text: "<p>Neste backend pode gerir toda a informa√ß√£o. Pode gerir s√≥cios, grupos, comunica√ß√£o e itens de frontend. Na barra lateral pode encontrar informa√ß√£o √∫til </p>"
       sidebar:
         title: "Backend do Simon"
-        text:  "Veja na barra lateral ajuda para localizaÁ„o relativa."
+        text:  "Veja na barra lateral ajuda para localiza√ß√£o relativa."
         go_to_frontend: "Ir para frontend"
         user_management:
-          title: "Gerir SÛcios"
-          manage_user_accounts: "Gerir contas de sÛcios"
+          title: "Gerir S√≥cios"
+          manage_user_accounts: "Gerir contas de s√≥cios"
           manage_groups: "Gerir grupos"
         settings:
-          title: "OpÁıes"
-          manage_settings: "Gerir %{site_name} opÁıes"
+          title: "Op√ß√µes"
+          manage_settings: "Gerir %{site_name} op√ß√µes"
 
     mails:
       title: "Emails"
@@ -135,13 +135,13 @@ en:
       message: "Mensagem:"
       send: "Enviar emails"
       group: " (Grupo)"
-      send_ok: "Email enviado com sucesso para os seguintes endereÁos de email:"
-      send_fail: "O e-mail n„o pÙde ser enviado, tente novamente!"
+      send_ok: "Email enviado com sucesso para os seguintes endere√ßos de email:"
+      send_fail: "O e-mail n√£o p√¥de ser enviado, tente novamente!"
       list:
         found:
           more: "%{count} Emails Encontrados"
           one: "%{count} Email Encontrado"            
-        noentries: "N„o foram encontrados resultados"              
+        noentries: "N√£o foram encontrados resultados"              
       index:
         destroy_link: "Apagar"
         show_link: "Detalhes" 
@@ -156,61 +156,61 @@ en:
         title: "Mail"
       new:
         sidebar:
-          title: "Gest„o de Emails"
+          title: "Gest√£o de Emails"
           content: "Aqui pods gerir e enviar emails."
-          sent_mails: "Caixa de saÌda"
+          sent_mails: "Caixa de sa√≠da"
           go_to_sent_mails: "Emails enviados"
                             
     users:
       index:
-        title: "Lista de sÛcios"
+        title: "Lista de s√≥cios"
         update_link: "Editar"
         destroy_link: "Apagar"
         show_link: "Detalhes"
-        search: "Encontar sÛcios"
-        create: "Criar sÛcio"
+        search: "Encontar s√≥cios"
+        create: "Criar s√≥cio"
       columns:
         created_at: "Criado em"
         email: "Email"
         active: "Activo"
-        language: "LÌngua"
+        language: "L√≠ngua"
         name: "Nome"
-        role: "Papel do SÛcio"
+        role: "Papel do S√≥cio"
         nickname: "Nickname"
         profile: "Perfil"
         website: "Website"
-        country: "PaÌs"
+        country: "Pa√≠s"
         gender: "Sexo"
         groups: "Grupos"
       sidebar:
         history:
-          title: "HistÛrico de AcÁıes"
-          paragraph: "Veja abaixo as alteraÁıes feitas por este sÛcio"
+          title: "Hist√≥rico de Ac√ß√µes"
+          paragraph: "Veja abaixo as altera√ß√µes feitas por este s√≥cio"
         reversion:
           title: "A reverter"
-          subtitle: "Est· a reverter informaÁ„o"
-          message: "Se clicar em \"Revert\" abaixo, est· a tornar as suas acÁıes permanentes!"
+          subtitle: "Est√° a reverter informa√ß√£o"
+          message: "Se clicar em \"Revert\" abaixo, est√° a tornar as suas ac√ß√µes permanentes!"
           link: "Reverter"
-        title: "Gest„o de Uilizadores"
-        text: "Nesta p·gina podes gerir os sÛcios."
+        title: "Gest√£o de Uilizadores"
+        text: "Nesta p√°gina podes gerir os s√≥cios."
         edit:
-          title: "Editar sÛcio"
-          text: "Nesta p·gina pode editar a informaÁ„o de um sÛcio. Pode tambÈm ver versıes anteriores dos dados do sÛcio."
+          title: "Editar s√≥cio"
+          text: "Nesta p√°gina pode editar a informa√ß√£o de um s√≥cio. Pode tamb√©m ver vers√µes anteriores dos dados do s√≥cio."
       delete:
-        title: "Apagar SÛcio"
+        title: "Apagar S√≥cio"
         question: "Tem a certeza que quer apagar %{username}?"
-        bt_label: "Apagar SÛcio"
+        bt_label: "Apagar S√≥cio"
         cancel_link: 
           label: "Cancelar"
-          title: "Voltar para lista de sÛcios"   
+          title: "Voltar para lista de s√≥cios"   
       destroy_by_ids: "Apagar"
       activate!: "Activar"
       deactivate!: "Desactivar"
       list:
         found:
-          more: "%{count} SÛcios Encontrados"
-          one: "%{count} SÛcio Encontrado"            
-        noentries: "Nenhum sÛcio encontrado"
+          more: "%{count} S√≥cios Encontrados"
+          one: "%{count} S√≥cio Encontrado"            
+        noentries: "Nenhum s√≥cio encontrado"
       view:
         email:    "Email"
         name:     "Nome"
@@ -218,26 +218,26 @@ en:
         gender:   "Sexo"
         profile:  "Perfil"
         website:  "Website"
-        country:  "PaÌs"
+        country:  "Pa√≠s"
         phone:    "Telefone"
         emails:   "Emails"
-        language: "LÌngua"
+        language: "L√≠ngua"
         groups:   "Grupos"
         role:     "Papel"
         cancel:   "Fechar"
         
     deleted_users:
       index:
-        title: "Lista de SÛcios Apagados"
-        search: "Encontrar sÛcios"
-        create: "Criar SÛcio"
+        title: "Lista de S√≥cios Apagados"
+        search: "Encontrar s√≥cios"
+        create: "Criar S√≥cio"
       columns:
         created_at: "Criado em"
         email: "Email"
         active: "Activo"
-        language: "LÌngua"
+        language: "L√≠ngua"
         name: "Nome"
-        role: "Papel do SÛcio"
+        role: "Papel do S√≥cio"
         destroy_link: "Apagar"
         show_link: "Detalhes"
         undelete_link: "Anular"
@@ -246,12 +246,12 @@ en:
       undelete_by_ids: "Reactivar"
       list:
         found:
-          more: "%{count} SÛcios Encontrados"
-          one: "%{count} SÛcio Encontrado"            
-        noentries: "Nenhum sÛcio encontrado"
+          more: "%{count} S√≥cios Encontrados"
+          one: "%{count} S√≥cio Encontrado"            
+        noentries: "Nenhum s√≥cio encontrado"
       sidebar:
-        title: "SÛcios apagados"
-        text: "Aqui podes gerir os sÛcios apagados."
+        title: "S√≥cios apagados"
+        text: "Aqui podes gerir os s√≥cios apagados."
           
     groups:
       index:
@@ -266,18 +266,18 @@ en:
             name: "Hierarquia"
             subname: "Todos os Grupos"
           users:
-            go_to_deleted_users: "Ir para sÛcios apagados"
-            go_to_users: "Ir para sÛcios"
-            deleted_users: "SÛcios apagados"
-            undo_deleted_users: "Recuperar sÛcios"
+            go_to_deleted_users: "Ir para s√≥cios apagados"
+            go_to_users: "Ir para s√≥cios"
+            deleted_users: "S√≥cios apagados"
+            undo_deleted_users: "Recuperar s√≥cios"
       columns:
         parent_name: "Pai"
         name: "Nome"
-        mailable: "SÛcio Contact·vel"
-        description: "DescriÁ„o"
+        mailable: "S√≥cio Contact√°vel"
+        description: "Descri√ß√£o"
         groups: "Grupos"
-        direct_users: "SÛcios"
-        user_choosable: "SÛcio EscolhÌvel"
+        direct_users: "S√≥cios"
+        user_choosable: "S√≥cio Escolh√≠vel"
       delete:
         title: "Apagar Grupo"
         question: "Tem a certeza que quer apagar %{username}?"
@@ -294,60 +294,60 @@ en:
 
     pages:
       index:
-        title: "Lista de P·ginas Est·ticas"
+        title: "Lista de P√°ginas Est√°ticas"
         destroy_link: "Apagar"
         update_link: "Editar"
-        search: "Procurar P·ginas"
-        create: "Nova P·gina"
+        search: "Procurar P√°ginas"
+        create: "Nova P√°gina"
       columns:
-        title: "TÌtulo"
+        title: "T√≠tulo"
         excert: "Excerto"
-        total_approved_comments: "Coment·rios"
+        total_approved_comments: "Coment√°rios"
         created_at: "Data"
         body: "Corpo"
         slug: "Slug"
-        show_in_navigation: "Mostrar no Men˙"
-        has_comments: "Tem coment·rios"
+        show_in_navigation: "Mostrar no Men√∫"
+        has_comments: "Tem coment√°rios"
         priority: "Prioridade"
       form:
-        new: "Nova P·gina"
-        edit: "Editar P·gina"
+        new: "Nova P√°gina"
+        edit: "Editar P√°gina"
         submit: "Gravar"
-        preview_button: "PrÈ-visualizar"
+        preview_button: "Pr√©-visualizar"
         edit_button: "Editar"
         hints:
           body: "<a href='http://hobix.com/textile/quick.html'>Textile enabled</a>. Use Ctrl + E para alternar entre o modo de visualizar e editar."
-          slug: "Deixe em branco para gerar automaticamente uma  slug baseada no tÌtulo."
-          show_in_navigation: "Mostrar na navegaÁ„o"
+          slug: "Deixe em branco para gerar automaticamente uma  slug baseada no t√≠tulo."
+          show_in_navigation: "Mostrar na navega√ß√£o"
           priority: "Prioridade"
-          has_comments: "Tem coment·rios"
+          has_comments: "Tem coment√°rios"
       list:
-        noentries: "Nenhuma p·gina encontrada"
+        noentries: "Nenhuma p√°gina encontrada"
         found:
-          more: "%{count} P·ginas Encontradas"
-          one: "%{count} P·gina Encontrada"
+          more: "%{count} P√°ginas Encontradas"
+          one: "%{count} P√°gina Encontrada"
 
     posts:
       index:
-        title: "Lista de NotÌcias"
+        title: "Lista de Not√≠cias"
         show_link: "Detalhes"
         destroy_link: "Apagar"
         update_link: "Editar"
         comments_link:
           image: ""
-          more: "%{count} Coment·rios"
-          one: "%{count} Coment·rio"
+          more: "%{count} Coment√°rios"
+          one: "%{count} Coment√°rio"
         search: "Procurar Posts"
         create: "Novo Post"
       columns:
-        published_at: "P˙blicado em"
-        title: "TÌtulo"
+        published_at: "P√∫blicado em"
+        title: "T√≠tulo"
         excert: "Excerto"
-        total_approved_comments: "Coment·rios"
+        total_approved_comments: "Coment√°rios"
         body: "Corpo"
         slug: "Slug"
         tag_list: "Lista de Tags"
-        minor_edit: "EdiÁ„o Menor"
+        minor_edit: "Edi√ß√£o Menor"
       list:
         noentries: "Nenhum Post Encontrado"
         found:
@@ -358,7 +358,7 @@ en:
         new: "Novo Post"
         edit: "Editar Post"
         edit_tag: "A Editar Tag - %{name}"
-        preview_button: "PrÈ-visualizar"
+        preview_button: "Pr√©-visualizar"
         edit_button: "Editar"
         create_button: "Criar"
         update_button: "Actualizar"
@@ -366,15 +366,15 @@ en:
         close_button: "Fechar"
         hints:
           body: '<a href="http://hobix.com/textile/quick.html">Textile enabled</a>. Use Ctrl + E para alternar entre o modo de visualizar e editar.'
-          tag_list: "Separado por vÌrgulas: ruby, rails&hellip;"
+          tag_list: "Separado por v√≠rgulas: ruby, rails&hellip;"
           published_at_natural: 'Exemplo: agora, ontem, 1 hora a partir de agora, <a href="http://chronic.rubyforge.org/">more&hellip;</a>'
-          slug: "Deixe em branco para gerar automaticamente uma  slug baseada no tÌtulo."
-          minor_edit: "EdiÁıes Menores n„o ser„o mostradas como actualizadas nos leitores de feeds. Utilize esta opÁ„o para corrigir erros ortogr·ficos e afins."
+          slug: "Deixe em branco para gerar automaticamente uma  slug baseada no t√≠tulo."
+          minor_edit: "Edi√ß√µes Menores n√£o ser√£o mostradas como actualizadas nos leitores de feeds. Utilize esta op√ß√£o para corrigir erros ortogr√°ficos e afins."
       tags:
         title: "Tags"
         pagination:
-          previous: "¬´¬´"
-          next: "¬ª¬ª"
+          previous: "√Ç¬´√Ç¬´"
+          next: "√Ç¬ª√Ç¬ª"
         list:
           edit: "Editar"
           posts:
@@ -383,67 +383,67 @@ en:
         edit:
           prompt: "Muda o nome da tag"
           error:
-            generic: "ImpossÌvel alterar o nome da tag."
-            tag_exists: "J· existe uma tag com o mesmo nome."
-            no_server: "ImpossÌvel ligar ao servidor."
+            generic: "Imposs√≠vel alterar o nome da tag."
+            tag_exists: "J√° existe uma tag com o mesmo nome."
+            no_server: "Imposs√≠vel ligar ao servidor."
       sidebar:
             history:
-              title: "HistÛrico de AcÁıes"
-              paragraph: "Ver abaixo alteraÁıes feitas por este sÛcio"
+              title: "Hist√≥rico de Ac√ß√µes"
+              paragraph: "Ver abaixo altera√ß√µes feitas por este s√≥cio"
             reversion:
               title: "A reverter"
-              subtitle: "Est· a reverter informaÁ„o"
-              message: "Se clicar em \"Revert\" abaixo, est· a tornar as suas acÁıes permanentes!"
+              subtitle: "Est√° a reverter informa√ß√£o"
+              message: "Se clicar em \"Revert\" abaixo, est√° a tornar as suas ac√ß√µes permanentes!"
               link: "Reverter"            
 
     comments:
       index:
-        title: "Todos os Coment·rio para %{title}"
+        title: "Todos os Coment√°rio para %{title}"
         destroy_link: "Apagar"
         update_link: "Editar"
-        search: "Procurar Coment·rios"
-        create: "Novo Coment·rio"
+        search: "Procurar Coment√°rios"
+        create: "Novo Coment√°rio"
       columns:
         created_at: "Data"
-        commenter: "Autor do coment·rio"
+        commenter: "Autor do coment√°rio"
         excert: "Excerto"
         post: "Post"
       list:
-        noentries: "Nenhum coment·rio encontrado"
+        noentries: "Nenhum coment√°rio encontrado"
         found:
-          more: "%{count} Coment·rios Encontrados"
-          one: "%{count} Coment·rio Encontrado"
+          more: "%{count} Coment√°rios Encontrados"
+          one: "%{count} Coment√°rio Encontrado"
 
     announcements:
       index:
-        title: "Mostrar An˙ncios"
+        title: "Mostrar An√∫ncios"
         update_link: "Editar"
         destroy_link: "Apagar"
         show_link: "Detalhes"
-        search: "Procurar An˙ncios"
+        search: "Procurar An√∫ncios"
         create: "Novo Announcement"
       columns:
-        title: "TÌtulo"
-        headline: "CabeÁalho"
+        title: "T√≠tulo"
+        headline: "Cabe√ßalho"
         message: "Mensagem"
-        starts_at: "Data de InÌcio"
+        starts_at: "Data de In√≠cio"
         ends_at: "Data de Fim"
         url: "URL"
         avatar: "Imagem"
       create:
         title: "Announcement"
       list:
-        noentries: "Nenhum an˙ncio encontrado"
+        noentries: "Nenhum an√∫ncio encontrado"
         found:
-          more: "%{count} An˙ncios Encontrados"
-          one: "%{count} An˙ncio Encontrado"
+          more: "%{count} An√∫ncios Encontrados"
+          one: "%{count} An√∫ncio Encontrado"
       sidebar:
-        title: "An˙ncios"
-        text: "On this page you can create an˙ncios that will appear on frontend."
+        title: "An√∫ncios"
+        text: "On this page you can create an√∫ncios that will appear on frontend."
     settings:
-      title: "Gest„o de opÁıes"
+      title: "Gest√£o de op√ß√µes"
       theme: "Tema"
-      site_title: "TÌtulo do Site"
+      site_title: "T√≠tulo do Site"
       save: "Guardar"
 
 
@@ -473,75 +473,75 @@ en:
   flash:
     login: "Login com sucesso"
     logout: "Logout com sucesso"
-    require_login: "Tem de fazer login para aceder a esta p·gina"
-    require_logout: "Tem de fazer logout para aceder a esta p·gina"
-    account_activated: "A sua conta foi activada. Por favor faÁa o login."
-    account_created: "A sua conta foi criada. Por favor verifique o seu email para verificar as instrÁıes de activaÁ„o da conta!"
+    require_login: "Tem de fazer login para aceder a esta p√°gina"
+    require_logout: "Tem de fazer logout para aceder a esta p√°gina"
+    account_activated: "A sua conta foi activada. Por favor fa√ßa o login."
+    account_created: "A sua conta foi criada. Por favor verifique o seu email para verificar as instr√ß√µes de activa√ß√£o da conta!"
     account_updated: "Conta actualizada!"
-    user_deleted: "SÛcio foi apagado!"
-    invalid_user_invitations: "Inseriu um endereÁo email inv·lido! Tente de novo."
+    user_deleted: "S√≥cio foi apagado!"
+    invalid_user_invitations: "Inseriu um endere√ßo email inv√°lido! Tente de novo."
     single_user_invitation: "Enviou um convite com sucesso para %{mail}."
     multiple_user_invitations: "Enviou com sucesso %{number} convites."
-    password_resets_intruction_sent: "InstruÁıes para alterar a sua password foram enviadas.
+    password_resets_intruction_sent: "Instru√ß√µes para alterar a sua password foram enviadas.
                                Por favor verifique o seu email."  
-    no_user_found_with_that_email: "N„o foi encontrado nenhum sÛcio com esse email"  
+    no_user_found_with_that_email: "N√£o foi encontrado nenhum s√≥cio com esse email"  
     password_updated: "Password alterada com sucesso"  
-    invalid_email_address: "EndereÁo email inv·lido!"  
-    user_resets_load_user_error: "Lamentamos, mas n„o conseguimos encontrar a sua conta. 
+    invalid_email_address: "Endere√ßo email inv√°lido!"  
+    user_resets_load_user_error: "Lamentamos, mas n√£o conseguimos encontrar a sua conta. 
                                   Se estiver com problemas tente copiar e colar a URL 
                                   do seu email para o seu browser ou reinicie o 
-                                  processo de alteraÁ„o de password"  
-    rare_error: "Ocorreu um erro raro! Contacte o administrador e indique o seguinte cÛdigo: %{ref}"
-    you_are_being_redirected: "Est· a ser redireccionado. Por favor espere..."
-    login_failed: "Login falhou. Talvez ainda n„o tenha activado a sua conta, ou inseriu dados errados."
+                                  processo de altera√ß√£o de password"  
+    rare_error: "Ocorreu um erro raro! Contacte o administrador e indique o seguinte c√≥digo: %{ref}"
+    you_are_being_redirected: "Est√° a ser redireccionado. Por favor espere..."
+    login_failed: "Login falhou. Talvez ainda n√£o tenha activado a sua conta, ou inseriu dados errados."
     group_created: "Grupo criado com sucesso"
     tag_changed: "Tag %{old} actualizada com sucesso para %{new}."
-    invalid_tag_change: "ImpossÌvel alterar tag %{old} para %{new} porque a tag %{new} j· existe."
-    changes_saved_successful_with_delay: "As alteraÁıes foram guardadas com sucesso e v„o agora produzir efeito"
+    invalid_tag_change: "Imposs√≠vel alterar tag %{old} para %{new} porque a tag %{new} j√° existe."
+    changes_saved_successful_with_delay: "As altera√ß√µes foram guardadas com sucesso e v√£o agora produzir efeito"
     reverted_with_sucess: "Revertido com sucesso"
   
   
   notifier: 
     invitation:
-      subject: "VocÍ foi convidado"
+      subject: "Voc√™ foi convidado"
       body:
-        header: "O sÛcio '%{name}' quer que te juntes a Regedor! Segue o link e cria uma conta!"
-        footer: "Se a URL acima n„o funcionar, tente copiar e colar no seu browser. Se continuar a ter problemas, n„o hesite em contactar-nos."
+        header: "O s√≥cio '%{name}' quer que te juntes a Regedor! Segue o link e cria uma conta!"
+        footer: "Se a URL acima n√£o funcionar, tente copiar e colar no seu browser. Se continuar a ter problemas, n√£o hesite em contactar-nos."
     activation_instructions:
-      subject: "InstruÁıes de ActivaÁ„o"
+      subject: "Instru√ß√µes de Activa√ß√£o"
       body:
         header: "Obrigado por criar uma conta! Clique na URL abaixo para activar a sua conta!"
-        footer: "Se a URL acima n„o funcionar, tente copiar e colar no seu browser. Se continuar a ter problemas, n„o hesite em contactar-nos."
+        footer: "Se a URL acima n√£o funcionar, tente copiar e colar no seu browser. Se continuar a ter problemas, n√£o hesite em contactar-nos."
     activation_confirmation:
-      subject: "ActivaÁ„o Completa!"
+      subject: "Activa√ß√£o Completa!"
       body:
         header: "A sua conta foi activada."
-        footer: "Se a URL acima n„o funcionar, tente copiar e colar no seu browser. Se continuar a ter problemas, n„o hesite em contactar-nos."
+        footer: "Se a URL acima n√£o funcionar, tente copiar e colar no seu browser. Se continuar a ter problemas, n√£o hesite em contactar-nos."
     password_reset_instructions:
-      subject: "InstruÁıes para AlteraÁ„o da Password"
+      subject: "Instru√ß√µes para Altera√ß√£o da Password"
       body:
-        header: "O pedido para alteraÁ„o da sua password foi feito.\n  
-                 Se n„o fez este pedido, simplesmente ignore este e-mail.\n  
+        header: "O pedido para altera√ß√£o da sua password foi feito.\n  
+                 Se n√£o fez este pedido, simplesmente ignore este e-mail.\n  
                  Se fez este pedido basta clicar no link abaixo:"  
-        footer: "Se a URL acima n„o funcionar, tente copiar e colar no seu browser.\n  
-                 Se continuar a ter problemas, n„o hesite em contactar-nos."
+        footer: "Se a URL acima n√£o funcionar, tente copiar e colar no seu browser.\n  
+                 Se continuar a ter problemas, n√£o hesite em contactar-nos."
     actions:
-      confirm: "Tem certeza de que deseja executar a acÁ„o\"%{action}\"?"
-      success: "AcÁ„o \"%{action}\" realizada com sucesso."
-      failure: "Ocorreu um erro durante a execuÁ„o da acÁ„o\"%{action}\"."
-      no_selection: "Deve seleccionar pelo menos um item da tabela para executar uma aÁ„o."
+      confirm: "Tem certeza de que deseja executar a ac√ß√£o\"%{action}\"?"
+      success: "Ac√ß√£o \"%{action}\" realizada com sucesso."
+      failure: "Ocorreu um erro durante a execu√ß√£o da ac√ß√£o\"%{action}\"."
+      no_selection: "Deve seleccionar pelo menos um item da tabela para executar uma a√ß√£o."
 
 
   generic_sentence:
-    required_field: "<abbr>*</abbr> Campo ObrigatÛrio."
-    language: "LÌngua"
-    administration: "AdministraÁ„o"
+    required_field: "<abbr>*</abbr> Campo Obrigat√≥rio."
+    language: "L√≠ngua"
+    administration: "Administra√ß√£o"
     go_back: "Voltar"
     are_you_sure: "Tem a certeza?"
-    scaffold_do_actions: "Mais acÁıes"
-    time_ago: "%{time_ago} atr·s"
+    scaffold_do_actions: "Mais ac√ß√µes"
+    time_ago: "%{time_ago} atr√°s"
     true_value: "Sim"
-    false_value: "N„o"
+    false_value: "N√£o"
     male_value: "Masculino"
     female_value: "Feminino"
 
@@ -628,10 +628,10 @@ en:
         one:   "1 dia"
         other: "%{count} dias"
       about_x_months:
-        one:   "cerca de 1 mÍs"
+        one:   "cerca de 1 m√™s"
         other: "cerca %{count} meses"
       x_months:
-        one:   "1 mÍs"
+        one:   "1 m√™s"
         other: "%{count} meses"
       about_x_years:
         one:   "cerca de 1 ano"
@@ -644,7 +644,7 @@ en:
         other: "quase %{count} anos"
     prompts:
       year:   "Ano"
-      month:  "MÍs"
+      month:  "M√™s"
       day:    "Dia"
       hour:   "Hora"
       minute: "Minuto"

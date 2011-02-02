@@ -187,7 +187,8 @@ en:
         settings: "Settings"
         undo_items: "Actions"
         mails: "Send E-Mail"
-        to_do_lists: "To-Do List"
+        projects: "List Projects"
+        to_do_lists: "To-Do Lists"
         messages: "Messages"
     
     to_do_list:
@@ -195,6 +196,7 @@ en:
         title: "To-Do Lists"
         paragraph: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."          
         select_title: "Change project:"
+        back: "Back to projects list"
       new:
         link: "New to-do list"
         name: "Name"
@@ -253,13 +255,13 @@ en:
     
     project:
       index:
-        title: "Activities" 
-        create: "New Activity"
+        title: "Projects" 
+        create: "New Project"
         update_link: "Edit"
         destroy_link: "Delete"
-        show_link: "Details"
+        show_link: "Go To Project"
       create:
-        title: "New Activity"      
+        title: "New Project"      
       columns:
         name: "Name"
         description: "Description"
@@ -268,8 +270,8 @@ en:
       list:
         noentries: "No entries found"
         found:
-          more: "%{count} Activities Found"
-          one: "%{count} Activity Found"                              
+          more: "%{count} Projects Found"
+          one: "%{count} Project Found"                              
    
     dashboard:
       title: "You are logged in as an Administrator, you are now viewing the Administration dashboard."

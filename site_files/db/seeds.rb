@@ -78,12 +78,12 @@ puts "Creating projects... (DEBUG)"
   p1 = Project.new :name => "Project 1", :description => "O primeiro projecto do mundo!", :user_id => 1
 
   t1 = ToDo.new :description => "Fazer coisas" , :user => User.find(2), :due_date => Time.now 
-  t2 = ToDo.new :description => "Comer bananas", :user => User.find(3), :due_date => Time.now + 1.day 
-  t3 = ToDo.new :description => "Coçar tomates", :user => User.find(1), :due_date => Time.now + 2.days
+  t2 = ToDo.new :description => "Entregar documento X", :user => User.find(3), :due_date => Time.now + 1.day 
+  t3 = ToDo.new :description => "Falar com fulano de tal acerca daquela coisa", :user => User.find(1), :due_date => Time.now + 2.days
   t4 = ToDo.new :description => "Aprender js"  , :user => User.find(3), :due_date => Time.now + 1.day 
   t5 = ToDo.new :description => "Aprender ruby", :user => User.find(1), :due_date => Time.now + 2.days  
 
-  tdl1 = ToDoList.new :name => "Bota Remédio", :description => "Botar bué de remédio"
+  tdl1 = ToDoList.new :name => "Plano de Imagem", :description => "Preparar plano de imagem do projecto"
   tdl1.to_dos << t1
   tdl1.to_dos << t2
   tdl1.to_dos << t3
@@ -92,7 +92,7 @@ puts "Creating projects... (DEBUG)"
   t3.save
   tdl1.save
 
-  tdl2 = ToDoList.new :name => "No idea", :description => "Quando souberes avisa"
+  tdl2 = ToDoList.new :name => "Gestão de socios", :description => "Relativo a toda a gestão de associados"
   tdl2.to_dos << t4
   tdl2.to_dos << t5
   t4.save

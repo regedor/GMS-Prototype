@@ -1,18 +1,25 @@
 class Admin::ProjectsController < Admin::BaseController
   #filter_access_to :all, :require => any_as_privilege
-  
-  def index
-    @project = Project.find(params[:id])
-    
-    redirect_to admin_project_to_do_lists_path(@project)
-  end  
-  
+
+  active_scaffold :project do |config|
+
+    config.columns[:groups].form_ui = :select
+    config.columns[:groups].options = {:draggable_lists => true}
+
+
+    Scaffoldapp::active_scaffold config, "admin.project",
+      :list     => [ :name, :description ],
+      :show     => [ :name, :description, :user_id, :groups ],
+      :create   => [ :name, :description, :groups ],
+      :edit     => [ :name, :description, :groups ]
+  end
+
   def show
     @project = Project.find(params[:id])
-    
+
     redirect_to admin_project_to_do_lists_path(@project)
-  end  
-  
+  end
+
   def create
     project = Project.new
     record = params[:record]
@@ -22,11 +29,11 @@ class Admin::ProjectsController < Admin::BaseController
     if record[:groups]
       record[:groups].each do |k,v|
         project.groups << Group.find(v[:id])
-      end  
-    end  
+      end
+    end
     project.save
-    
+
     redirect_to admin_projects_path
-  end  
-  
+  end
+
 end

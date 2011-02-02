@@ -1,8 +1,9 @@
 class Admin::ToDoListsController < Admin::BaseController
   
   def index
-    @projects = Project.all
-    @lists = Project.find(params[:project_id]).to_do_lists
+    @project = Project.find(params[:project_id])
+    @lists = @project.to_do_lists
+    @reorder = params[:reorder] if params[:reorder]
   end  
   
   def new
@@ -51,11 +52,18 @@ class Admin::ToDoListsController < Admin::BaseController
   end
   
   def sortList
-    item = ToDo.find(params[:item])
-    
-    item.to_do_list_id = params[:list] if item.to_do_list_id != params[:list]
-    item.insert_at((params[:items].index item.id.to_s)+1)
-    item.save
+    unless params[:reorder]
+      item = ToDo.find(params[:item])
+      
+      item.to_do_list_id = params[:list] if item.to_do_list_id != params[:list]
+      item.insert_at((params[:items].index item.id.to_s)+1)
+      item.save
+    else
+      item = ToDoList.find(params[:item])
+      
+      item.insert_at((params[:list].index params[:item].to_s)+1)
+      item.save
+    end      
     
     respond_to do |format|
       format.js { render :text => "" }

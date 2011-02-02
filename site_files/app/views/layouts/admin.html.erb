@@ -34,6 +34,7 @@
     <% end -%>
   <% end -%>
 
+  
 </head>
 <body id="<%= @controller.controller_name + "_" + @controller.action_name %>">
   <div id="container">
@@ -70,9 +71,9 @@
                               new_admin_mail_path %>
 
           <%= navigation_menu 'admin.navigation.main.projects',
-                              [ 'admin/to_do_lists',
-								'admin/messages'],
-                              admin_project_to_do_lists_path(Project.first) %>
+                              [ 'admin/projects',
+								'admin/to_do_lists'],
+                              admin_projects_path %>
         </ul>
       </div>
     </div>
@@ -121,15 +122,24 @@
             
                                           :specify_first => true %>
 
-            <%= secondary_navigation_menu [ { :controller_paths => 'admin/to_do_lists',
-                                              :i18n_path => 'admin.navigation.secondary.to_do_lists',
-                                              :link_to_path => admin_project_to_do_lists_path(Project.first) },
-
- 											{ :controller_paths => 'admin/messages',
-								              :i18n_path => 'admin.navigation.secondary.messages',
-								              :link_to_path => admin_project_messages_path(Project.first) }],
+            <%= secondary_navigation_menu [ { :controller_paths => 'admin/projects',
+                                              :i18n_path => 'admin.navigation.secondary.projects',
+                                              :link_to_path => admin_projects_path }],
            
                                           :specify_first => true %>
+
+  <% unless params[:project_id].nil?  %>
+			<%= secondary_navigation_menu [ { :controller_paths => 'admin/to_do_lists',
+			                                  :i18n_path => 'admin.navigation.secondary.to_do_lists',
+			                                  :link_to_path => admin_project_to_do_lists_path(params[:project_id]) },
+			
+											{ :controller_paths => 'admin/messages',
+											  :i18n_path => 'admin.navigation.secondary.messages',
+											  :link_to_path => admin_project_messages_path(params[:project_id]) }],
+              
+			                              :specify_first => true %>  
+  <% end %>			     
+			    
           </ul>
         </div>
       <div id="flash" class="flash">

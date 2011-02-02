@@ -1,5 +1,4 @@
-<div class="block">
-  <%= t("admin.to_do_list.sidebar.select_title") %> <%= select("projects","id",@projects.map{ |p| [p.name,p.id] }) %>	
+<div class="block">	
   <h3><%= t("admin.to_do_list.sidebar.title") %></h3>
   <ul class="navigation">
     <li><%= link_to t("admin.to_do_list.new.link"), new_admin_project_to_do_list_path(@project_id) %></li>
@@ -7,4 +6,8 @@
   <div class="content">
     <p><%= t("admin.to_do_list.sidebar.paragraph") %></p>
   </div>
+  <ul class="navigation">
+    <li><%= link_to t("admin.to_do_list.sidebar.back"), admin_projects_path %></li>
+    <li><%= link_to t("admin.to_do_list.sidebar.reorderLists"), admin_project_to_do_lists_path(@project_id)+"?reorder=true" %></li>
+  </ul>
 </div>

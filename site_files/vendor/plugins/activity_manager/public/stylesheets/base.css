@@ -30,7 +30,7 @@ div.comments div.comment div.meta span.date                         { font-size:
  ============================================================================
 */
 
-div.todo_list                                                       { margin: 15px; display: none; }
+div.todo_list                                                       { margin: 15px; }
 
 div.todo_list div.description p                                     { margin: 0 0 15px; }
 
