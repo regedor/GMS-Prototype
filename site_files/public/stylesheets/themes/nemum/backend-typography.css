@@ -29,7 +29,6 @@ div#main-navigation ul li a:active        { color: #111; }
 div#main-navigation ul li a:hover         { color: #555; }
 
 div.secondary-navigation                  { font-size: 1.1em; }
-div.secondary-navigation                  { background-image: url("images/boxbar-background.png"); }
 div.secondary-navigation ul li.active     { background: #FFF; }
 
 div#main div.block div.content h2         { font-size: 2em; font-weight: bold; }
