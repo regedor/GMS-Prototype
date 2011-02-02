@@ -26,7 +26,7 @@
 a.preview_button {padding: 5px 5px 0px 0px;}
 div.active-scaffold th a,
 div.active-scaffold th a:visited { padding: 0; }
-div.active-scaffold th                    { padding: 10px 5px; white-space: nowrap; }
+div.active-scaffold th                    { padding: 0 5px; white-space: nowrap; }
 div.active-scaffold td.total_approved_comments-column { white-space: nowrap; }
 
 .active-scaffold a, 
