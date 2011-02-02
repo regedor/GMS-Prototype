@@ -29,13 +29,7 @@
 
     <div id="header">
       <div id="site-title">
-
-        <object width="230" height="120" style="margin-left:-18px; margin-top:-10px;">
-          <param name="movie" value="/nemum.swf">
-          <embed src="/nemum.swf" width="230" height="120">
-          </embed>
-        </object>
-
+        <h1><a href="<%= root_path %>"><%= configatron.site_name %></a></h1>
       </div>
       <div id="navigation" >
         <%= frontend_navigation_content %>
@@ -92,10 +86,9 @@
       </div>
 
       <div id="main" class="selfclear">
-        <%= '<div class="flash_wrapper"><div class="flash_text notice" style="display:none">'+flash[:notice]+'</div></div>' unless flash[:notice].blank? %>
-        <%= '<div class="flash_text error" style="display: none">' +flash[:error] +'</div>' unless flash[:error].blank? %>
-        <%= '<script>jQuery(".flash_text").slideDown(2000).delay(3000);</script>' unless flash[:notice].blank? and flash[:error].blank? %>
-        <%= '<script>jQuery(".flash_text").slideUp(2000);</script>' unless flash[:notice].blank? and flash[:error].blank? %>
+        <%= '<div id="flash"><div class="message notice"><p>'+ flash[:notice] +'</p></div></div>' unless flash[:notice].blank? %>
+        <%= '<div class="message error"><p>'+ flash[:error] +'</p></div>' unless flash[:error].blank? %>
+        <%= '<script>jQuery("#flash").delay(3000).fadeOut(2000);</script>' unless flash[:notice].blank? and flash[:error].blank? %>
         <%= yield %>
       </div>
 
