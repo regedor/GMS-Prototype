@@ -17,6 +17,7 @@ div#main-navigation ul li                { background-color: #ADADAD; float: lef
 div#main-navigation ul li.active         { background: #FFF; background: -webkit-gradient(linear, left bottom, left top, color-stop(1, #fff), color-stop(0, #E5E5E5)); background: -moz-linear-gradient(center bottom, rgb(229,229,229) 2%, rgb(255,255,255) 60%); }
 
 div.secondary-navigation ul li           { float: left; }
+div.secondary-navigation                  { background-image: url("images/boxbar-background.png"); }
 div.secondary-navigation ul li a         { display: block; padding: 10px 15px; }
 
 div#user-navigation                      { float: right; margin: 5px 0; }
