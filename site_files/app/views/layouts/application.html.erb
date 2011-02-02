@@ -86,10 +86,9 @@
       </div>
 
       <div id="main" class="selfclear">
-        <%= '<div class="flash_wrapper"><div class="flash_text notice" style="display:none">'+flash[:notice]+'</div></div>' unless flash[:notice].blank? %>
-        <%= '<div class="flash_text error" style="display: none">' +flash[:error] +'</div>' unless flash[:error].blank? %>
-        <%= '<script>jQuery(".flash_text").slideDown(2000).delay(3000);</script>' unless flash[:notice].blank? and flash[:error].blank? %>
-        <%= '<script>jQuery(".flash_text").slideUp(2000);</script>' unless flash[:notice].blank? and flash[:error].blank? %>
+        <%= '<div id="flash"><div class="message notice"><p>'+ flash[:notice] +'</p></div></div>' unless flash[:notice].blank? %>
+        <%= '<div class="message error"><p>'+ flash[:error] +'</p></div>' unless flash[:error].blank? %>
+        <%= '<script>jQuery("#flash").delay(3000).fadeOut(2000);</script>' unless flash[:notice].blank? and flash[:error].blank? %>
         <%= yield %>
       </div>
 

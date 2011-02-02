@@ -43,6 +43,7 @@ div#navigation a:active          { color: #FFF; }
 div#navigation a:hover           { color: #F8DA00; }
 div#navigation a.active          { color: #F8DA00; }
 div.meta li                      { line-height: 1.4em; }
+div#flash div.message p          { text-align: center; }
 
 div.announcement-text p.title    { font-weight: bold; font-size: 1.2em; }
 div.announcement-text,
@@ -51,13 +52,6 @@ div.announcements-bar a:active,
 div.announcements-bar a:hover,
 div.announcements-bar a:visited,
 div.announcements-bar            { color: #FFF; text-align: justify; }
-
-.flash_text                      { font-size: 1em; text-align: center; padding: 0.8em; margin: -15px -15px 1em; }
-.flash_text                      { padding-top: 15px; padding-bottom: 15px; }
-.flash_text.error                { color: #E22; }
-.flash_text.error                { background: url("/images/boxbar-background-big.png") 150% 0; }
-.flash_text.notice               { color: #591; }
-.flash_text.notice               { background: url("/images/boxbar-background-big.png") 150% 0; }
 
 .resource-list th                { font-size: 1.6em; color: #E22; }
 .resource-list td                { font-size: 1.3em; }
