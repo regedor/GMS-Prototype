@@ -19,7 +19,7 @@ div#navigation a:hover,
 div#site-title a:hover        { border: none; }
 div#site-title                { margin: 100px 0 80px; }
 div#site-title h1 a           { display: block; height: 120px; max-width: 200px; text-indent: -6000px}
-div#site-title h1 a           { background-image: url("/stylesheets/themes/nemum/images/bg_logo.png") no-repeat; }
+div#site-title h1 a           { background: url("/stylesheets/themes/nemum/images/bg_logo.png") no-repeat; }
 div#account-info              { background-color: white; padding: 5px 15px 10px; position: relative; z-index: 1; }
 div#content                   { margin-right: 185px; min-height: 200px; }
 div#content p                 { margin: 0 0 1em; }
