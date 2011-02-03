@@ -43,7 +43,8 @@ div#navigation a:active          { color: #FFF; }
 div#navigation a:hover           { color: #F8DA00; }
 div#navigation a.active          { color: #F8DA00; }
 div.meta li                      { line-height: 1.4em; }
-div#flash div.message p          { text-align: center; }
+div#flash                        { border-top: 1px solid #000; }
+div#flash div.message p          { color: #FFF; font-size: 1.6em; font-weight: bold; }
 
 div.announcement-text p.title    { font-weight: bold; font-size: 1.2em; }
 div.announcement-text,
