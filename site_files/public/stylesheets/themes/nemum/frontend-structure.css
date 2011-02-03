@@ -19,7 +19,7 @@ div#navigation a:hover,
 div#site-title a:hover        { border: none; }
 div#site-title                { margin: 100px 0 80px; }
 div#site-title h1 a           { display: block; height: 120px; max-width: 200px; text-indent: -6000px}
-div#site-title h1 a           { background: url("/stylesheets/themes/nemum/images/bg_logo.png") no-repeat; }
+div#site-title h1 a           { background-image: url("/stylesheets/themes/nemum/images/bg_logo.png") no-repeat; }
 div#account-info              { background-color: white; padding: 5px 15px 10px; position: relative; z-index: 1; }
 div#content                   { margin-right: 185px; min-height: 200px; }
 div#content p                 { margin: 0 0 1em; }
@@ -30,13 +30,13 @@ div#main p                    { margin: 0 0 15px; }
 div.meta                      { background-color: #EEE; margin: 0 10px 2.5em; padding: 0.8em; }
 div#footer                    { margin: 1.5em; }
 
-div#flash                          { background: url("/images/dark_transparency.png"); padding: 2em 0; position: fixed; width: 100%; left: 0; bottom: 0; border-top: 1px solid #000; }
-div#flash div.message              { margin: 15px; }
-div#flash div.message p            { margin: 8px; }
+div#flash                          { background-image: url("/images/dark_transparency.png"); padding: 1em 0; position: fixed; width: 100%; left: 0; bottom: 0; border-top: 1px solid #000; }
+div#flash div.message              { height: 64px; }
+div#flash div.message p            { margin: 0 100px; padding: 20px; }
 div#flash div.message.error        { background: url("/stylesheets/themes/nemum/images/flash/error.png") no-repeat 0 50%; }
 div#flash div.message.warning      { background: url("/stylesheets/themes/nemum/images/flash/warning.png") no-repeat 0 50%; }
 div#flash div.message.info,
-div#flash div.message.notice       { background: url("/stylesheets/themes/nemum/images/flash/notice.png") no-repeat 0 50%; }
+div#flash div.message.notice       { background: url("/stylesheets/themes/nemum/images/flash/notice.png") no-repeat 2% 50%; }
 
 span.options                  { float: right; }
 .pagination a:hover,
