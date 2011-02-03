@@ -3,11 +3,11 @@
 <div id="user-info">
   <h3>
     <%= t 'users.show.info.title' %>
-    <!--><%= link_to t('users.show.info.edit_link'), edit_user_account_path %><-->
+    <!--<%= link_to t('users.show.info.edit_link'), edit_user_account_path %>-->
   </h3>
 
   <p>
-    <b>name:</b>
+    <b>Name:</b>
     <%=h @user.name %>
   </p>
   
@@ -37,12 +37,12 @@
   </p>
   
   <p>
-    <b>Last login ip:</b>
+    <b>Last login IP:</b>
     <%=h @user.last_login_ip %>
   </p>
   
   <p>
-    <b>Current login ip:</b>
+    <b>Current login IP:</b>
     <%=h @user.current_login_ip %>
   </p>
 </div>
