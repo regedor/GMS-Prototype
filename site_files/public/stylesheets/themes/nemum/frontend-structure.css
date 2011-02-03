@@ -30,13 +30,13 @@ div#main p                    { margin: 0 0 15px; }
 div.meta                      { background-color: #EEE; margin: 0 10px 2.5em; padding: 0.8em; }
 div#footer                    { margin: 1.5em; }
 
-div#flash                          { background: url("/images/flash/transparent.png"); padding: 2em 0; position: fixed; width: 100%; left: 0; bottom: 0; border-top: 1px solid #000; }
+div#flash                          { background: url("/images/dark_transparency.png"); padding: 2em 0; position: fixed; width: 100%; left: 0; bottom: 0; border-top: 1px solid #000; }
 div#flash div.message              { margin: 15px; }
 div#flash div.message p            { margin: 8px; }
-div#flash div.message.error        { background: url("/images/flash/error.png") no-repeat 0 50%; }
-div#flash div.message.warning      { background: url("/images/flash/warning.png") no-repeat 0 50%; }
+div#flash div.message.error        { background: url("/stylesheets/themes/nemum/images/flash/error.png") no-repeat 0 50%; }
+div#flash div.message.warning      { background: url("/stylesheets/themes/nemum/images/flash/warning.png") no-repeat 0 50%; }
 div#flash div.message.info,
-div#flash div.message.notice       { background: url("/images/flash/notice.png") no-repeat 0 50%; }
+div#flash div.message.notice       { background: url("/stylesheets/themes/nemum/images/flash/notice.png") no-repeat 0 50%; }
 
 span.options                  { float: right; }
 .pagination a:hover,
@@ -51,10 +51,10 @@ div#announcements             { margin: 0 15px; overflow: hidden; z-index: 0; po
 div#announcements             { border-left: 1px solid #555; border-right: 1px solid #555; }
 div.announcement-tail         { display: none; }
 div.announcements-bar         { padding: 0.8em; position: absolute; z-index: 1; }
-div.announcements-bar         { background: url("/images/announcements/transparent.png"); }
+div.announcements-bar         { background: url("/images/dark_transparency.png"); }
 div.announcement-block img    { height: 250px; width: 730px; }
 div.announcement-text         { bottom: 0; position: absolute; right: 0; z-index: 1; }
-div.announcement-text         { background: url("/images/announcements/transparent.png"); padding: 1.2em; width: 300px; }
+div.announcement-text         { background: url("/images/dark_transparency.png"); padding: 1.2em; width: 300px; }
 div.announcement-text p.title { padding: 0 0 1em; }
 
 /* Pages */
