@@ -54,6 +54,8 @@ div.announcements-bar a:hover,
 div.announcements-bar a:visited,
 div.announcements-bar            { color: #FFF; text-align: justify; }
 
+div#social-buttons               { text-align: right; }
+
 .resource-list th                { font-size: 1.6em; color: #E22; }
 .resource-list td                { font-size: 1.3em; }
 .resource-list td.actions        { text-align: right; }
