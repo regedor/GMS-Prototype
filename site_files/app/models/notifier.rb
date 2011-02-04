@@ -30,7 +30,13 @@ class Notifier < ActionMailer::Base
     @from     = mail.user.name
     @subject += mail.subject
     @body[:message] = mail.message  
-  end   
+  end
+  
+  def to_do_notification(user,mail)
+    setup_email(user)
+    @subject += I18n.translate 'notifier.to_do_notification.subject'
+    @body[:message] = mail.message 
+  end     
    
   protected
     def setup_email(user)

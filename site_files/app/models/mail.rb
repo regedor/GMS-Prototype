@@ -21,8 +21,8 @@ class Mail < ActiveRecord::Base
   # Instance Methods
   # ==========================================================================
   
-  def initialize
-    super
+  def initialize(*args)
+    super(*args)
     entities = []
     User.all.each do |user|
       entities << user.to_label

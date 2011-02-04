@@ -54,10 +54,6 @@ jQuery(document).ready(function($){
     });
   }	
 
-  //$(".title").click(function(event){
-  //  $(this).next().fadeToggle("slow","linear");
-  //  event.preventDefault();
-  //});
 
   $(".add_link").click(function(){
 	$(this).parent().hide();
@@ -207,7 +203,7 @@ jQuery.fn.makeSortable = function(){
 <div class="content">
 <% if @reorder.nil? %>	
   <% counter = 1 %>
-  <% @lists.each do |list| %>
+  <% @project.ordered_lists.each do |list| %>
   <div class="title">
     <h2><%= list.name %></h2>
   </div>

@@ -8,6 +8,14 @@ class Admin::ToDosController < Admin::BaseController
     todo.due_date = params[:todo][:due_date]
     todo.save
     
+    mail = Mail.create(:message => todo.to_do_list.name, :sent_on => Time.now, :subject => "")
+    
+    begin 
+      Notifier.deliver_to_do_notification(todo.user,mail) 
+    rescue Exception
+      return false
+    end
+    
     redirect_to admin_project_to_do_lists_path(params[:project_id])
   end 
   
@@ -22,6 +30,14 @@ class Admin::ToDosController < Admin::BaseController
     else
       flash[:error] = t("admin.to_do.update.error")
     end    
+    
+    mail = Mail.create :message => todo.to_do_list
+    
+    begin 
+      Notifier.deliver_mail(todo.user,mail) 
+    rescue Exception
+      return false
+    end
     
     redirect_to admin_project_to_do_lists_path(params[:project_id])
   end
