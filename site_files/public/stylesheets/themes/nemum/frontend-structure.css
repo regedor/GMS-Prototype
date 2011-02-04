@@ -30,20 +30,24 @@ div#main p                    { margin: 0 0 15px; }
 div.meta                      { background-color: #EEE; margin: 0 10px 2.5em; padding: 0.8em; }
 div#footer                    { margin: 1.5em; }
 
-div#flash                          { background-image: url("/images/dark_transparency.png"); padding: 1em 0; position: fixed; width: 100%; left: 0; bottom: 0; border-top: 1px solid #000; }
-div#flash div.message              { height: 64px; }
-div#flash div.message p            { margin: 0 100px; padding: 20px; }
-div#flash div.message.error        { background: url("/stylesheets/themes/nemum/images/flash/error.png") no-repeat 0 50%; }
-div#flash div.message.warning      { background: url("/stylesheets/themes/nemum/images/flash/warning.png") no-repeat 0 50%; }
+div#flash                     { background-image: url("/images/dark_transparency.png"); padding: 1em 0; position: fixed; width: 100%; left: 0; bottom: 0; border-top: 1px solid #000; }
+div#flash div.message         { height: 64px; }
+div#flash div.message p       { margin: 0 100px; padding: 20px; }
+div#flash div.message.error   { background: url("/stylesheets/themes/nemum/images/flash/error.png") no-repeat 0 50%; }
+div#flash div.message.warning { background: url("/stylesheets/themes/nemum/images/flash/warning.png") no-repeat 0 50%; }
 div#flash div.message.info,
-div#flash div.message.notice       { background: url("/stylesheets/themes/nemum/images/flash/notice.png") no-repeat 2% 50%; }
+div#flash div.message.notice  { background: url("/stylesheets/themes/nemum/images/flash/notice.png") no-repeat 2% 50%; }
 
 span.options                  { float: right; }
 .pagination a:hover,
 .meta a:hover,
 .options a:hover,
 #archives a:hover,
-div#footer a:hover               { border-bottom: 2px solid #F8DA00; }
+div#footer a:hover            { border-bottom: 2px solid #F8DA00; }
+
+div#social-buttons            { margin: 5px 10px; }
+div#social-buttons iframe     { vertical-align: bottom; }
+div#social-buttons a span     { border: 1px solid #5F78AB; border-bottom: 1px solid #29447E; }
 
 /* Announcements */
 
@@ -70,9 +74,6 @@ div.announcement-text p.title { padding: 0 0 1em; }
 
 /* Posts */
 
-div#posts div#social-buttons  { margin: 5px 10px; }
-div#posts div#social-buttons iframe { vertical-align: bottom; }
-div#posts div#social-buttons a span { border: 1px solid #5F78AB; border-bottom: 1px solid #29447E; }
 div.entrybody ul              { padding-left: 5px; list-style: circle; }
 div.entrybody                 { margin: 0 10px; }
 .related                      { padding-bottom: 15px; } /* Ver depois */
@@ -104,7 +105,7 @@ div#navigation   { -moz-border-radius-topleft: 12px; -webkit-border-top-left-rad
 
 div#main         { -moz-border-radius-topright: 12px; -webkit-border-top-right-radius: 12px; border-top-right-radius: 12px; }
 
-div#flash div.message         { -moz-border-radius: 6px; -webkit-border-radius: 6px; border-radius: 6px; }
+div#flash div.message { -moz-border-radius: 6px; -webkit-border-radius: 6px; border-radius: 6px; }
 
 /* Shadows */
 
