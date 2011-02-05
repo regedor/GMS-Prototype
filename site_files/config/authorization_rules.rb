@@ -22,6 +22,7 @@ authorization do
     has_permission_on [:admin_users],               :to =>  [ :as_manage ]
     has_permission_on [:admin_deleted_users],       :to =>  [ :as_manage ]
     has_permission_on [:admin_groups],              :to =>  [ :as_manage ]
+    has_permission_on [:admin_user_optional_group_picks], :to =>  [ :as_manage ]
     has_permission_on [:history_entries],           :to =>  [ :as_manage ]
   end
 
@@ -36,6 +37,7 @@ authorization do
     has_permission_on [:admin_pages],               :to =>  [ :as_manage ]
     has_permission_on [:admin_users],               :to =>  [ :as_read ]
     has_permission_on [:admin_groups],              :to =>  [ :as_read ]
+    has_permission_on [:admin_user_optional_group_picks], :to =>  [ :as_read ]
   end
 
 

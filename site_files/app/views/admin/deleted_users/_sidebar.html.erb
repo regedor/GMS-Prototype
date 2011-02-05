@@ -5,7 +5,7 @@
   <div class="content">
     <p><%= t("admin.deleted_users.sidebar.paragraph") %></p>
     <ul class="navigation"> 
-            <li><a href="<%= :users %>"><%=h t("admin.deleted_users.sidebar.link") %></a></li> 
+      <li><%= link_to t("admin.deleted_users.sidebar.link"), admin_users_path %></li> 
    </ul> 
   </div>
 </div>

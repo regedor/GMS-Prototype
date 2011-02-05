@@ -63,7 +63,8 @@
                                 'admin/action_entries',
                                 'admin/users',
                                 'admin/deleted_users',
-                                'admin/groups'],
+                                'admin/groups',
+                                'admin/user_optional_group_picks'],
                               admin_users_path %>
 
           <%= navigation_menu 'admin.navigation.main.communication',
@@ -102,11 +103,12 @@
                                               :specify_first => true %>
 
             <%= secondary_navigation_menu [ { :controller_paths => [ 'admin/users',
-                                                                   'admin/deleted_users' ],
+                                                                     'admin/deleted_users' ],
                                               :i18n_path => 'admin.navigation.secondary.users',
                                               :link_to_path => admin_users_path },
 
-                                            { :controller_paths => 'admin/groups',
+                                              { :controller_paths => [ 'admin/groups',
+                                                                       'admin/user_optional_group_picks' ],
                                               :i18n_path => 'admin.navigation.secondary.groups',
                                               :link_to_path => admin_groups_path },
                                               
@@ -142,7 +144,7 @@
 			    
           </ul>
         </div>
-      <div id="flash" class="flash">
+      <div id="flash">
         <%= flash_messages %>
       </div>
         <%= yield %>

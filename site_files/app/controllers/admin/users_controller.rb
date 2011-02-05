@@ -13,8 +13,9 @@ class Admin::UsersController < Admin::BaseController
     config.columns[:groups].options = {:draggable_lists => true}
 
     group_actions = Group.find_all_by_show_in_user_actions(true).map do |group|
-      group = { :method => "add_to_group_#{group.id}", :name => group.name }
-    end
+      group = [ { :method => "add_to_group_#{group.id}", :name => group.name },
+                { :method => "remove_from_group_#{group.id}", :name => group.name } ]
+    end.flatten
 
     Scaffoldapp::active_scaffold config, "admin.users", 
       :list         => [ :created_at, :email, :active, :name, :role ], 

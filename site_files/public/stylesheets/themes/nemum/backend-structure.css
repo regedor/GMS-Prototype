@@ -7,7 +7,7 @@
 body                                     { background: #E5E5E5; }
 
 div#container                            { min-width: 960px; }
-div.content                              { padding: 15px; }
+div.content                              { padding: 20px; }
 
 div#main                                 { width: 71%; float: left; }
 div#main>div.block                       { background: #FFF; -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.4); }
@@ -17,6 +17,7 @@ div#main-navigation ul li                { background-color: #ADADAD; float: lef
 div#main-navigation ul li.active         { background: #FFF; background: -webkit-gradient(linear, left bottom, left top, color-stop(1, #fff), color-stop(0, #E5E5E5)); background: -moz-linear-gradient(center bottom, rgb(229,229,229) 2%, rgb(255,255,255) 60%); }
 
 div.secondary-navigation ul li           { float: left; }
+div.secondary-navigation                  { background-image: url("images/boxbar-background.png"); }
 div.secondary-navigation ul li a         { display: block; padding: 10px 15px; }
 
 div#user-navigation                      { float: right; margin: 5px 0; }
@@ -33,15 +34,15 @@ div#sidebar ul.navigation                { list-style-type: none; }
 
 div#footer div.block p                   { margin: 1.5em 0; }
 
-div#flash.flash div.message              { margin: 15px; }
-div#flash.flash div.message p            { margin: 8px; }
-div#flash.flash div.message.error        { border: 1px solid #ffbbbb; background-color: #ffdddd; }
-div#flash.flash div.message.warning      { border: 1px solid #ffff88; background-color: #ffffcc; }
-div#flash.flash div.message.info,         
-div#flash.flash div.message.notice       { border: 1px solid #1fdf00; background-color: #bbffb6; }
+div#flash div.message                    { margin: 15px; }
+div#flash div.message p                  { margin: 8px; }
+div#flash div.message.error              { border: 1px solid #ffbbbb; background-color: #ffdddd; }
+div#flash div.message.warning            { border: 1px solid #ffff88; background-color: #ffffcc; }
+div#flash div.message.info,
+div#flash div.message.notice             { border: 1px solid #1fdf00; background-color: #bbffb6; }
 
 div#header                               { padding: 0 15px; }
-div#header h1                            { padding: 30px 0; }
+div#header h1                            { padding: 30px 15px; }
 div#header h1 a                          { display: block; }
 div#header h1 a                          { text-indent: -6000px; height: 100px; width: 350px; background: url("/stylesheets/themes/nemum/images/bg_logo_admin.png") no-repeat; }
 div#header                               { background: #2E2A2B; background: -webkit-gradient(linear, left bottom, left top, color-stop(1, #2E2A2B), color-stop(0, #423D3E)); background: -moz-linear-gradient(center bottom, rgb(66,61,62) 0%, rgb(46,42,43) 100%); }
@@ -61,8 +62,7 @@ div#main div.block,
 div#main-navigation li,
 div.secondary-navigation                 { -moz-border-radius-topleft: 10px; -webkit-border-top-left-radius: 10px; border-top-left-radius: 10px; -moz-border-radius-topright: 10px; -webkit-border-top-right-radius: 10px; border-top-right-radius: 10px; }
 
-div#flash.flash div.message              { -moz-border-radius: 6px; -webkit-border-radius: 6px; border-radius: 6px; }
-
+div#flash div.message                    { -moz-border-radius: 6px; -webkit-border-radius: 6px; border-radius: 6px; }
 
 /* the following rules are necessary due to the usage of active-scaffold and will be removed later */
 

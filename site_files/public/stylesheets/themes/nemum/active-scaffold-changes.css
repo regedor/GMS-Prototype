@@ -35,8 +35,8 @@ div.active-scaffold td.total_approved_comments-column { white-space: nowrap; }
 noscript.active-scaffold                           { border-left: solid 0.5em #f66;background-color: #fbb;font-size: 1em;}
 noscript.active-scaffold                           { font-weight: bold;padding: 0.5em 2em 0.5em 0.5em;color: #333;}
 .active-scaffold-header h2                         { padding-top: 0.2em;margin: 0;padding-left: 0em; padding-bottom: 0.7em;}
-.active-scaffold-header h2                         { color: #676766;font: bold 160% Verdana,arial, sans-serif;letter-spacing: -1px; font-size: 1.8em; }
-.active-scaffold-header div.actions a              { float: right;font: bold 14px Verdana,arial;letter-spacing: -1px;text-decoration: none;}
+.active-scaffold-header h2                         { color: #676766;font: bold 160% Verdana,arial, sans-serif; font-size: 1.8em; }
+.active-scaffold-header div.actions a              { float: right;font: bold 14px Verdana,arial;text-decoration: none;}
 .active-scaffold-header div.actions a              { padding: 1px 2px;white-space: nowrap;margin-left: 5px;background-position: 1px 50%;}
 .blue-theme .active-scaffold-header div.actions a  { color: #fff;}
 .active-scaffold-header div.actions a.disabled     { color: #666;opacity: 0.5;}
@@ -57,7 +57,7 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold td.numeric,
 .active-scaffold-calculations td                   { text-align: right;}
 .active-scaffold tr.record td.actions table td     { border: none;text-align: right;padding: 0 2px;}
-.active-scaffold tr.record td.actions a            { font: bold 11px verdana, sans-serif;letter-spacing: -1px;}
+.active-scaffold tr.record td.actions a            { font: bold 11px verdana, sans-serif;}
 .active-scaffold tr.record td.actions a            { padding: 2px;margin: 0 2px;line-height: 16px;white-space: nowrap;}
 .active-scaffold .active-scaffold .active-scaffold-header h2 {font-size: 1em;font-weight: bold;}
 .blue-theme .active-scaffold .active-scaffold-header h2,
@@ -77,16 +77,16 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold .filtered-message       { background-color: #e8e8e8;padding: 4px;text-align: center;color: #666;}
 .active-scaffold .message                { font-size: 11px;font-weight: bold;padding: 5px 20px 5px 5px;}
 .active-scaffold .message                { color: #333;position: relative;margin: 2px 7px;line-height: 12px;}
-.active-scaffold .message a              { font: bold 11px verdana, sans-serif;letter-spacing: -1px;}
+.active-scaffold .message a              { font: bold 11px verdana, sans-serif;}
 .active-scaffold .errorExplanation h2    { padding: 2px 5px;color: #333;font-size: 11px;margin: 0;}
 .active-scaffold .errorExplanation h2    { letter-spacing: 0;font-family: Verdana;background-color: #f66;}
 .active-scaffold .errorExplanation p     { font-size: 11px;padding: 2px 5px;font-family: Verdana;margin: 0;}
-.active-scaffold .errorExplanation ul li { font: bold 11px verdana;letter-spacing: -1px;margin: 0;padding: 0;}
+.active-scaffold .errorExplanation ul li { font: bold 11px verdana;margin: 0;padding: 0;}
 .active-scaffold .show-view dt           { width: 12em;float: left;clear: left;font: normal 11px verdana, sans-serif;}
 .active-scaffold .show-view dt           { color: #555;line-height: 16px;}
 .active-scaffold .show-view dd           { /*float: left;*/font: bold 14px verdana,arial;padding-left: 5px;margin-bottom: 5px;}
 .active-scaffold .submit                 { font-weight: bold;font-size: 14px;font-family: Verdana,Arial, sans-serif;letter-spacing: 0;}
-.active-scaffold h5                      { padding: 2px;margin: 0;text-transform: none;color: black;letter-spacing: -1px;}
+.active-scaffold h5                      { padding: 2px;margin: 0;text-transform: none;color: black;}
 .active-scaffold h5                      { font: bold 16px verdana,arial; padding: 0;margin: 5px 0 2px 0;font-size: 14px;letter-spacing: 0;}
 .active-scaffold a.cancel,
 /*.active-scaffold p.form-footer a         { font: bold 14px verdana,arial, sans-serif;letter-spacing: 0;}*/
@@ -95,7 +95,7 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold .required label         { font-weight: bold;}
 .active-scaffold label.example           { font-size: 11px;font-family: verdana,arial;color: #888;}
 .active-scaffold input.text-input,
-.active-scaffold select                  { font: bold 16px verdana,arial;letter-spacing: -1px;border: solid 1px #9E9E9E;}
+.active-scaffold select                  { font: bold 16px verdana,arial;border: solid 1px #9E9E9E;}
 .active-scaffold textarea                { font-family: Verdana,Arial, sans-serif;font-size: 12px;padding: 1px;border: solid 1px #9E9E9E;}
 .active-scaffold .sub-form table th                      { font: normal 10px verdana, sans-serif;color: #555;padding: 0 5px 0 1px;background: none;}
 .active-scaffold .sub-form .association-record a.destroy { font-weight: bold;display: block;height: 16px;}
@@ -272,7 +272,7 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold .draggable-list.selected                { background-color: #7FCF00;}
 .active-scaffold .draggable-list li                      { display: block;}
 .active-scaffold .draggable-list input                   { display: none;}
-.active-scaffold-header .actions select                  { height: 20px;padding: -1;margin: -1px; }
+.active-scaffold-header .actions select                  { height: 20px; }
 
 /********************************************************************************************************************************/
 
