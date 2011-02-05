@@ -1,7 +1,9 @@
 class Admin::PostsController < Admin::BaseController
   filter_access_to :all, :require => any_as_privilege
   before_filter :tags_in_instance_variable, :only => [ :list, :index ]
-  before_filter :list_tags,                 :only =>   :index 
+  before_filter :list_tags,                 :only =>   :index
+
+  include ActionView::Helpers::TextHelper
 
   active_scaffold :post do |config|
     Scaffoldapp::active_scaffold config, "admin.posts",
@@ -12,6 +14,7 @@ class Admin::PostsController < Admin::BaseController
   end
 
   def custom_finder_options
+    puts excerpt('Mega cena!', '', :radius => 5, :omission => ' and shit and stuff!')
     return Post.tags_filter @tag_ids
   end
 
