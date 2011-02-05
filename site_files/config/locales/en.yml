@@ -709,6 +709,8 @@ en:
     invalid_tag_change: "Could not change tag %{old}'s name to %{new} because tag %{new} already exists."
     changes_saved_successful_with_delay: "Changes were successfully saved and will eventually take effect"
     reverted_with_sucess: "Successfully reverted"
+    description_required: "Description field is required"
+    invalid_date: "Invalid date format"
   
   
   notifier: 
