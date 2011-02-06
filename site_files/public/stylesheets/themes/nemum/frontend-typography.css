@@ -53,6 +53,7 @@ div.announcements-bar a:active,
 div.announcements-bar a:hover,
 div.announcements-bar a:visited,
 div.announcements-bar            { color: #FFF; text-align: justify; }
+div.announcements-bar span:hover { color: #F8DA00; }
 
 div#social-buttons               { text-align: right; }
 
