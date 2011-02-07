@@ -9,7 +9,7 @@
     </div>
   </div>
   <div class="comment">
-	<span class="avatar"><%= image_tag avatar_url(@todo.user) %></span>
+	<span class="avatar"><%= image_tag avatar_url(@todo.user,:size => :small) %></span>
 	<span class="hint"><%= t("admin.to_do.comment.hint") %></span>
   </div>	
 </div>
