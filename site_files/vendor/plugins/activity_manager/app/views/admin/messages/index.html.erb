@@ -1,0 +1,29 @@
+<div class="content">
+
+ <% content_for :sidebar do -%>
+  <%= render :partial => 'admin/messages/sidebar.html.erb', :locals => {:project_id => params[:project_id]}  %>
+ <% end -%>
+
+ <% if @messages.empty? %>
+  <p><%= I18n::t('admin.messages.list.empty') %> </p>
+ <% else %>
+    
+ <div class="messages">
+   <table>
+   <% @messages.each do |message| -%>
+
+    <tr id="message-<%= message.id %>">
+        <td class="message">
+    <span class="title"> <%= link_to message.title, admin_project_message_path(params[:project_id],message.id) %> </span>
+    <span class="meta"> <%= User.find(message.user_id).first_and_last_name %> <%= I18n::t('admin.messages.index.author_on_date')%> <%= l(message.created_at,:format => :default)%> </span>
+       </td>
+     <td class="info">           
+     </td>
+    </tr>	
+   <% end -%>
+   </table>  
+
+ </div>  
+ <% end %>
+</div>
+

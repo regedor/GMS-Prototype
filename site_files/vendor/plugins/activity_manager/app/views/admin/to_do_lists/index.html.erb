@@ -1,0 +1,225 @@
+<%= include_i18n_calendar_javascript %>
+
+<script>
+jQuery.noConflict();
+
+//FIXME Ajax request every second(or more) to ask the server for the most recent updated_at, and compare with ours. Reload content if newer.  
+/*jQuery(document).ready(function(){
+	setTimeout("window.location.reload()",60000*5);
+});*/
+
+jQuery(document).ready(function($){
+ 
+  	var counter = 0;
+    var locale = ""
+	for(i in $.datepicker.regional){
+		if(counter == 1)
+		{ locale=i; break; }
+		counter++;
+	}
+
+  jQuery.fn.check = function(){
+	jQuery.ajax({
+      type: 'POST',
+      data: "itemid="+$(this).val()+"&state=done",
+	  dataType: "json",
+      url: window.location.href.replace(/\#.*/,"")+"/"+$(this).parent().parent().attr("id").split("-")[1]+"/changeState",
+      error: function() {
+        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"check"});
+		return false;
+      },
+      success: function(r) {
+	    	$("#list_"+r.id).html(r.html);
+			$("#list_"+r.id).show();
+			$(this).makeSortable();
+      }
+    });
+  }
+
+  jQuery.fn.uncheck = function(){
+	jQuery.ajax({
+      type: 'POST',
+      data: "itemid="+$(this).val()+"&state=notdone",
+	  dataType: "json",
+      url: window.location.href.replace(/\#.*/,"")+"/"+$(this).parent().parent().attr("id").split("-")[1]+"/changeState",
+      error: function() {
+        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"check"});
+		return false;
+      },
+      success: function(r) {
+	    	$("#list_"+r.id).html(r.html);
+			$("#list_"+r.id).show();
+			$(this).makeSortable();	
+      }
+    });
+  }	
+
+
+  $(".add_link").click(function(){
+	$(this).parent().hide();
+	$(this).parent().next().show();
+	
+	return false;
+  });
+
+ $(".done_adding_link").click(function(){
+	$(this).parent().parent().parent().parent().hide();
+	$(this).parent().parent().parent().parent().prev().show();
+	
+	return false;
+ });
+
+jQuery.fn.makeSortable = function(){
+ $(".sortable").sortable({
+	connectWith: ".connectable",
+	cancel: ".sort-disabled",
+	stop: function(event,ui) {
+	  if(ui.item.parent().attr("class").split(" ")[0] == "titles")
+	  {
+		jQuery.ajax({
+	      type: 'POST',
+	      data: "item="+ui.item.attr("id").split("_")[1]+"&"+$(".titles").sortable("serialize"),
+	      url: window.location.href.replace(/\#.*/,"").split("?")[0]+"/sortList?"+window.location.href.replace(/\#.*/,"").split("?")[1],
+	      error: function() {
+	        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"sort"});
+			return false;
+	      },
+	      success: function(r) {
+
+	      }
+	    });
+	  }
+	  else
+	  {
+		var itemToSerialize = "#"+ui.item.parent().attr("id").split(" ")[0];
+		var order = $(itemToSerialize).sortable("serialize");
+		var newOrder = order.replace(/item/g,"items");
+	
+		jQuery.ajax({
+	      type: 'POST',
+	      data: "list="+ui.item.parent().parent().parent().attr("id").split("_")[1]+"&item="+ui.item.attr("id").split("_")[1]+"&"+newOrder,
+	      url: window.location.href.replace(/\#.*/,"")+"/sortList",
+	      error: function() {
+	        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"sort"});
+			return false;
+	      },
+	      success: function(r) {
+		  		
+	      }
+	    });
+	  }
+	}
+ });
+}
+		
+  $(this).makeSortable();	
+	
+  $.datepicker.setDefaults( $.datepicker.regional[ '' ] );	
+  $( ".datepicker" ).datepicker($.datepicker.regional[locale]);
+
+	jQuery.fn.cancel = function(){
+		$(this).parent().parent().parent().parent().parent().removeClass("sort-disabled");
+		jQuery.ajax({
+	      type: 'GET',
+	      url: window.location.href.replace(/\#.*/,"")+"/"+$(this).parent().parent().parent().parent().parent().children(':nth-child(1)').attr("id")+"/cancel",
+		  dataType: "json",
+	      error: function() {
+	        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"cancel"});
+			return false;
+	      },
+	      success: function(r) {
+		  		$("#item_"+r.id).html(r.html);	
+	      }
+	    });
+  	}
+
+  jQuery.fn.edit = 	function(){
+				$(this).parent().parent().parent().addClass("sort-disabled");
+				jQuery.ajax({
+			      type: 'GET',
+			      url: window.location.href.replace(/\#.*/,"")+"/"+$(this).attr("id").split("_")[1]+"/edit",
+				  dataType: "json",
+			      error: function() {
+			        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"edit"});
+					return false;
+			      },
+			      success: function(r) {
+				  		$("#todo_content-"+r.id).html(r.html);
+						$( ".datepicker" ).datepicker($.datepicker.regional[locale]);
+			      }
+			    });
+
+			return false;
+		  }
+	
+  jQuery.fn.delete = function(){
+		jQuery.ajax({
+	      type: 'DELETE',
+	      url: window.location.href.replace(/\#.*/,"").replace("to_do_lists","to_dos")+"/"+$(this).attr("id").split("_")[1],
+	      error: function() {
+	        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"destroy"});
+			return false;
+	      },
+	      success: function(r) {
+		  		$("#item_"+r).remove();
+	      }
+	    });
+
+	return false;
+  }	
+	
+  jQuery.fn.expand = function(){
+		var itemId = $(this).attr("id").split("_")[1];
+		$("#collapse_"+itemId).show();
+		$(this).hide();
+		$(this).parent().next().show();
+  }
+
+  jQuery.fn.collapse = function(){
+		var itemId = $(this).attr("id").split("_")[1];
+		$("#expand_"+itemId).show();
+		$(this).hide();
+		$(this).parent().next().hide();
+  }
+
+  $("#projects_id").change(function(){
+	 	var selectedOption = $("#projects_id option:selected").val();
+		jQuery.ajax({
+	      type: 'GET',
+	      url: "/admin/projects/"+selectedOption,
+	      error: function() {
+	        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"Change Project"});
+			return false;
+	      },
+	      success: function(r) {
+	      }
+	    });
+		
+  });
+});
+
+</script>
+
+<div class="content">
+<% if @reorder.nil? %>	
+  <% counter = 1 %>
+  <% @project.ordered_lists.each do |list| %>
+  <div class="title">
+    <h2><%= list.name %></h2>
+  </div>
+
+  <div id="list_<%= list.id %>" class="todo_list">
+    <%= render :partial => 'admin/to_do_lists/list.html.erb', :locals => {:list => list} %>
+  </div>
+  <% end %>
+  <% counter = counter+1 %>
+
+<% else %>
+  <div class="titles sortable connectable">
+  <% @project.ordered_lists.each do |list| %>
+    <li id="list_<%= list.id %>"><h2><%= list.name %></h2></li>
+  <% end %>
+  </div>
+<% end %>
+
+</div>

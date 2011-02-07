@@ -1,0 +1,84 @@
+
+  <div class="description">
+    <p>
+      <%= list.description %>
+    </p>
+  </div>
+  <div class="todos">
+    <% divided_hash = list.divide_done_todos %>	
+    
+    <ul id="not_done-<%= list.id %>" class="not_done connectable sortable">	
+      <% divided_hash[:notDone].each do |todo| %>
+		<% if todo.user && todo.user == current_user %>
+			<li id="item_<%= todo.id  %>" class="todo highlight">
+		  <% else %>		
+	  	  	<li id="item_<%= todo.id  %>" class="todo">
+		  <% end %>
+          <input type="checkbox" id="<%= todo.id %>" value="<%= todo.id %>" onclick="jQuery(this).check();" /> 	
+		  <div id="todo_content-<%= todo.id %>" class="todo_content">
+          	<span class="todo_desc"><%= todo.description %></span>
+		  	<% if todo.user || todo.due_date %>
+		  	<span class="todo_info">
+		  		<% if todo.user %>
+		  		 	<span class="responsible"><%= todo.user.name %></span>
+		  		<% end %>
+		  		<% if todo.due_date %>
+		  			<span class="date"><%= l(todo.due_date, :format => :medium) %></span>
+		  		<% end %>	
+		  	</span>
+			<% end %>
+		  	<span class="todo_edit"><%= link_to t("admin.to_do.edit.link"),"#edit_#{todo.id}",{:id => "edit_#{todo.id}", :class => "edit_item", :onclick => "jQuery(this).edit();"} %></span>
+			<span class="todo_delete"><%= link_to t("admin.to_do.delete.link"),"#",{:id => "delete_#{todo.id}", :class => "delete_item", :onclick => "jQuery(this).delete();"} %></span>
+			<span class="todo_comments"><%= link_to t("admin.to_do.comment.link"),new_admin_project_to_do_comment_path(params[:project_id],todo.id),{:id => "comment_#{todo.id}", :class => "comment_item"} %></span>
+		  </div>
+        </li>
+      <% end %>
+    </ul>
+  
+	<div id="add_button-<%= list.id %>" class="add_button">
+		<%= link_to t("admin.to_do.add_new.link"), "#add_todo-#{list.id}", {:class => "add_link" } %>
+	</div>	
+	<div id="add_todo-<%= list.id %>" class="add_todo" style="display:none;">
+		<% semantic_form_for(:todo, :url => admin_project_to_dos_path) do |f| %>
+		  <% f.inputs do %>
+		    <%= f.input :description, :as => :text, :input_html => {:rows => 3, :cols => 40}, :label => t("admin.to_do.add_new.title") %>
+			<%= f.input :responsible, :as => :select, :collection => User.all, :required => false, :hint => t("admin.to_do.add_new.hint") %>
+			<%= f.input :due_date, :as => :string, :required => false, :input_html => {:id => "pooois", :class => "datepicker"} %>			
+			<%= f.input :to_do_list_id, :as => :hidden, :value => list.id %>
+		  <% end  %>
+		  <% f.buttons do %>
+		    <%= f.commit_button :label => t("admin.to_do.add_new.add_button") %>
+		    <span>or</span>
+			<%= link_to t("admin.to_do.add_new.done_adding"), "#add_button-#{list.id}",{:class => "done_adding_link"} %>
+		  <% end %>
+		<% end %>		
+	</div>	
+
+    <ul id="done_todos-<%= list.id %>" class="done_todos">
+  	<% divided_hash[:done].each_index do |index| %>
+	  <% todo = divided_hash[:done][index] %>
+	  <% classStr = "done_todo"  %>
+	  <% classStr+=" highlight" if todo.user && todo.user == current_user %>
+	  <% if index == 3  %>
+	  	<% styleStr="" %>
+		<span class="show_done_todos"><%= link_to t("admin.to_do.done.show",{:count => divided_hash[:done].size}), "#expand_#{todo.id}",{:class => "expand", :id => "expand_#{todo.id}", :onclick => "jQuery(this).expand();"} %>
+			<%= link_to t("admin.to_do.done.collapse"), "#collapse_#{todo.id}",{:class => "collapse", :style => "display:none;", :id => "collapse_#{todo.id}", :onclick => "jQuery(this).collapse();"} %></span>
+		<span class="hidden_items" style="display:none;">	
+	  <% end %>
+	  <li class="<%= classStr %>"  "<%= styleStr %>">
+  	    <input type="checkbox" id="<%= todo.id %>" value="<%= todo.id %>" checked="yes" onclick="jQuery(this).uncheck();" />
+		<strong class="date_finished"><%= l(todo.finished_date, :format => :short) if todo.finished_date %></strong>
+  	    <span class="done_todo_desc"><%= todo.description %></span>
+		<% if todo.user  %>
+		  <span class="done_todo_info">
+				<% if todo.user %>
+				 <span>(<%= todo.user.name %>)</span>
+				<% end %>
+		  </span>	 
+		<% end %>
+		<span class="todo_comments"><%= link_to t("admin.to_do.comment.link"),new_admin_project_to_do_comment_path(params[:project_id],todo.id),{:id => "comment_#{todo.id}", :class => "comment_item"} %></span>
+  	  </li>
+	<%= "</span>" if index == (divided_hash[:done].size - 1) %>
+  	<% end %>	
+    </ul>	
+  </div>

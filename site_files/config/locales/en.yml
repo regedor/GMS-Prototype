@@ -2,6 +2,47 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  date:
+    formats:
+      # Use the strftime parameters for formats.
+      # When no format has been given, it uses default.
+      # You can provide other formats here if you like!
+      default: "%Y-%m-%d"
+      short: "%b %d"
+      long: "%B %d, %Y"
+  
+    day_names: [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]
+    abbr_day_names: [Sun, Mon, Tue, Wed, Thu, Fri, Sat]
+  
+    # Don't forget the nil at the beginning; there's no such thing as a 0th month
+    month_names: [~, January, February, March, April, May, June, July, August, September, October, November, December]
+    abbr_month_names: [~, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
+    # Used in date_select and datetime_select.
+    order:
+      - :year
+      - :month
+      - :day
+  
+  time:
+    formats:
+      default: "%a, %d %b %Y at %H:%M"
+      short: "%d %b"
+      medium: "%d %b %Y"
+      showdate: "%D"
+      long: "%B %d, %Y %H:%M"
+    am: "am"
+    pm: "pm"
+  
+  #Used in array.to_sentence.
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " and "
+      last_word_connector: ", and "
+
+    
+    
+    
   navigation:
     home: "Home"
     about: "About"
@@ -141,6 +182,7 @@ en:
         website: "Website"
         system: "System"
         communication: "Communication"
+        projects: "Projects"
       secondary:
         dashboard: "Dashboard"
         users: "Users"
@@ -152,6 +194,96 @@ en:
         settings: "Settings"
         undo_items: "Actions"
         mails: "Send E-Mail"
+        projects: "List Projects"
+        to_do_lists: "To-Do Lists"
+        messages: "Messages"
+    
+    to_do_list:
+      sidebar:
+        title: "To-Do Lists"
+        paragraph: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."          
+        select_title: "Change project:"
+        back: "Back to projects list"
+        reorderLists: "Reorder To-Do lists"
+      new:
+        link: "New to-do list"
+        name: "Name"
+        description: "Description"
+        description_hint: "This description is optional, use it to explain the purpose of the list, if needed"
+        create_button: "Create List"  
+        cancel_button: "Cancel"
+    
+    to_do:
+      add_new:
+        title: "Enter a new to-do item"
+        done_adding: "Done adding"
+        add_button: "Add to-do"
+        responsible: "Resposible for to-do"
+        link: "Add new to-do item"
+        hint: "An email will be sent to the responsible"
+      edit:
+        link: "Edit"
+        title: "Edit to-do item"
+        cancel: "Cancel"
+        edit_button: "Save changes"
+        responsible: "Resposible for to-do"  
+        hint: "An email will be sent to the responsible" 
+      delete:
+        link: "Remove"  
+      comment:
+        link: "Comment"
+        title: "Comment to-do from %{list}"     
+        hint: "Leave a comment..."     
+      done:
+        show: "Show all %{count} completed to-do's"
+        collapse: "Collapse completed to-do's"                        
+        
+    messages:
+      index:
+        title: "Messages List"
+        update_link: "Edit"
+        destroy_link: "Delete"
+        show_link: "Details"
+        search: "Find messages"
+        create: "New message"
+        author_on_date: "on"
+      columns:
+        title: "Message title"
+        body: "Body"
+        category: "Category" 
+      form:
+        new: "New message"
+        edit: "Edit message"
+        from: "From"
+        date: "Date"
+        create_button: "Create"
+        update_button: "Update"
+        cancel_button: "Cancel"
+        hints:
+          body: "<a href='http://hobix.com/textile/quick.html'>Textile enabled</a>. Use Ctrl+E to switch between preview and edit mode."
+      comments:
+        comment: "New comment"
+
+    
+    project:
+      index:
+        title: "Projects" 
+        create: "New Project"
+        update_link: "Edit"
+        destroy_link: "Delete"
+        show_link: "Go To Project"
+      create:
+        title: "New Project"      
+      columns:
+        name: "Name"
+        description: "Description"
+        groups: "Assigned Groups"
+        user_id: "Created by"
+      list:
+        noentries: "No entries found"
+        found:
+          more: "%{count} Projects Found"
+          one: "%{count} Project Found"                              
    
     dashboard:
       title: "You are logged in as an Administrator, you are now viewing the Administration dashboard."
@@ -624,6 +756,8 @@ en:
     invalid_tag_change: "Could not change tag %{old}'s name to %{new} because tag %{new} already exists."
     changes_saved_successful_with_delay: "Changes were successfully saved and will eventually take effect"
     reverted_with_sucess: "Successfully reverted"
+    description_required: "Description field is required"
+    invalid_date: "Invalid date format"
   
   
   notifier: 
@@ -678,39 +812,6 @@ en:
 # US English translations for Ruby on Rails
 #
 # Use this as the base for the locale file of your language.
-
-  date:
-    formats:
-      default: "%Y-%m-%d"
-      short: "%b %d"
-      long: "%B %d, %Y"
-
-    day_names: [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]
-    abbr_day_names: [Sun, Mon, Tue, Wed, Thu, Fri, Sat]
-
-    month_names: [~, January, February, March, April, May, June, July, August, September, October, November, December]
-    abbr_month_names: [~, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
-    order:
-      - :year
-      - :month
-      - :day
-
-  time:
-    formats:
-      default: "%a, %d %b %Y %H:%M:%S %z"
-      short: "%d %b %H:%M"
-      long: "%B %d, %Y %H:%M"
-    am: "am"
-    pm: "pm"
-
-  support:
-    array:
-      words_connector: ", "
-      two_words_connector: " and "
-      last_word_connector: ", and "
-
-    select:
-      prompt: "Please select"
 
   number:
     format:

@@ -1,0 +1,399 @@
+(in /home/luismiranda/Projects/Regedor-Scaffold/site_files)
+                add_existing_admin_projects POST   /admin/projects/add_existing(.:format)                                                {:controller=>"admin/projects", :action=>"add_existing"}
+                render_field_admin_projects GET    /admin/projects/render_field(.:format)                                                {:controller=>"admin/projects", :action=>"render_field"}
+                 show_search_admin_projects GET    /admin/projects/show_search(.:format)                                                 {:controller=>"admin/projects", :action=>"show_search"}
+             edit_associated_admin_projects GET    /admin/projects/edit_associated(.:format)                                             {:controller=>"admin/projects", :action=>"edit_associated"}
+                        list_admin_projects GET    /admin/projects/list(.:format)                                                        {:controller=>"admin/projects", :action=>"list"}
+                new_existing_admin_projects GET    /admin/projects/new_existing(.:format)                                                {:controller=>"admin/projects", :action=>"new_existing"}
+                             admin_projects GET    /admin/projects(.:format)                                                             {:controller=>"admin/projects", :action=>"index"}
+                                            POST   /admin/projects(.:format)                                                             {:controller=>"admin/projects", :action=>"create"}
+                          new_admin_project GET    /admin/projects/new(.:format)                                                         {:controller=>"admin/projects", :action=>"new"}
+             destroy_existing_admin_project DELETE /admin/projects/:id/destroy_existing(.:format)                                        {:controller=>"admin/projects", :action=>"destroy_existing"}
+                update_column_admin_project POST   /admin/projects/:id/update_column(.:format)                                           {:controller=>"admin/projects", :action=>"update_column"}
+                         edit_admin_project GET    /admin/projects/:id/edit(.:format)                                                    {:controller=>"admin/projects", :action=>"edit"}
+                 render_field_admin_project GET    /admin/projects/:id/render_field(.:format)                                            {:controller=>"admin/projects", :action=>"render_field"}
+              add_association_admin_project GET    /admin/projects/:id/add_association(.:format)                                         {:controller=>"admin/projects", :action=>"add_association"}
+                       nested_admin_project GET    /admin/projects/:id/nested(.:format)                                                  {:controller=>"admin/projects", :action=>"nested"}
+              edit_associated_admin_project GET    /admin/projects/:id/edit_associated(.:format)                                         {:controller=>"admin/projects", :action=>"edit_associated"}
+                       delete_admin_project GET    /admin/projects/:id/delete(.:format)                                                  {:controller=>"admin/projects", :action=>"delete"}
+                          row_admin_project GET    /admin/projects/:id/row(.:format)                                                     {:controller=>"admin/projects", :action=>"row"}
+                              admin_project GET    /admin/projects/:id(.:format)                                                         {:controller=>"admin/projects", :action=>"show"}
+                                            PUT    /admin/projects/:id(.:format)                                                         {:controller=>"admin/projects", :action=>"update"}
+                                            DELETE /admin/projects/:id(.:format)                                                         {:controller=>"admin/projects", :action=>"destroy"}
+      changeState_admin_project_to_do_lists POST   /admin/projects/:project_id/to_do_lists/changeState(.:format)                         {:controller=>"admin/to_do_lists", :action=>"changeState"}
+                  admin_project_to_do_lists GET    /admin/projects/:project_id/to_do_lists(.:format)                                     {:controller=>"admin/to_do_lists", :action=>"index"}
+                                            POST   /admin/projects/:project_id/to_do_lists(.:format)                                     {:controller=>"admin/to_do_lists", :action=>"create"}
+               new_admin_project_to_do_list GET    /admin/projects/:project_id/to_do_lists/new(.:format)                                 {:controller=>"admin/to_do_lists", :action=>"new"}
+              edit_admin_project_to_do_list GET    /admin/projects/:project_id/to_do_lists/:id/edit(.:format)                            {:controller=>"admin/to_do_lists", :action=>"edit"}
+                   admin_project_to_do_list GET    /admin/projects/:project_id/to_do_lists/:id(.:format)                                 {:controller=>"admin/to_do_lists", :action=>"show"}
+                                            PUT    /admin/projects/:project_id/to_do_lists/:id(.:format)                                 {:controller=>"admin/to_do_lists", :action=>"update"}
+                                            DELETE /admin/projects/:project_id/to_do_lists/:id(.:format)                                 {:controller=>"admin/to_do_lists", :action=>"destroy"}
+                   new_admin_project_to_dos POST   /admin/projects/:project_id/to_dos/new(.:format)                                      {:controller=>"admin/to_dos", :action=>"new"}
+                       admin_project_to_dos GET    /admin/projects/:project_id/to_dos(.:format)                                          {:controller=>"admin/to_dos", :action=>"index"}
+                                            POST   /admin/projects/:project_id/to_dos(.:format)                                          {:controller=>"admin/to_dos", :action=>"create"}
+                    new_admin_project_to_do GET    /admin/projects/:project_id/to_dos/new(.:format)                                      {:controller=>"admin/to_dos", :action=>"new"}
+                   edit_admin_project_to_do GET    /admin/projects/:project_id/to_dos/:id/edit(.:format)                                 {:controller=>"admin/to_dos", :action=>"edit"}
+                        admin_project_to_do GET    /admin/projects/:project_id/to_dos/:id(.:format)                                      {:controller=>"admin/to_dos", :action=>"show"}
+                                            PUT    /admin/projects/:project_id/to_dos/:id(.:format)                                      {:controller=>"admin/to_dos", :action=>"update"}
+                                            DELETE /admin/projects/:project_id/to_dos/:id(.:format)                                      {:controller=>"admin/to_dos", :action=>"destroy"}
+    admin_project_message_messages_comments GET    /admin/projects/:project_id/messages/:message_id/messages_comments(.:format)          {:controller=>"admin/messages_comments", :action=>"index"}
+                                            POST   /admin/projects/:project_id/messages/:message_id/messages_comments(.:format)          {:controller=>"admin/messages_comments", :action=>"create"}
+ new_admin_project_message_messages_comment GET    /admin/projects/:project_id/messages/:message_id/messages_comments/new(.:format)      {:controller=>"admin/messages_comments", :action=>"new"}
+edit_admin_project_message_messages_comment GET    /admin/projects/:project_id/messages/:message_id/messages_comments/:id/edit(.:format) {:controller=>"admin/messages_comments", :action=>"edit"}
+     admin_project_message_messages_comment GET    /admin/projects/:project_id/messages/:message_id/messages_comments/:id(.:format)      {:controller=>"admin/messages_comments", :action=>"show"}
+                                            PUT    /admin/projects/:project_id/messages/:message_id/messages_comments/:id(.:format)      {:controller=>"admin/messages_comments", :action=>"update"}
+                                            DELETE /admin/projects/:project_id/messages/:message_id/messages_comments/:id(.:format)      {:controller=>"admin/messages_comments", :action=>"destroy"}
+        add_existing_admin_project_messages POST   /admin/projects/:project_id/messages/add_existing(.:format)                           {:controller=>"admin/messages", :action=>"add_existing"}
+        render_field_admin_project_messages GET    /admin/projects/:project_id/messages/render_field(.:format)                           {:controller=>"admin/messages", :action=>"render_field"}
+         show_search_admin_project_messages GET    /admin/projects/:project_id/messages/show_search(.:format)                            {:controller=>"admin/messages", :action=>"show_search"}
+     edit_associated_admin_project_messages GET    /admin/projects/:project_id/messages/edit_associated(.:format)                        {:controller=>"admin/messages", :action=>"edit_associated"}
+                list_admin_project_messages GET    /admin/projects/:project_id/messages/list(.:format)                                   {:controller=>"admin/messages", :action=>"list"}
+        new_existing_admin_project_messages GET    /admin/projects/:project_id/messages/new_existing(.:format)                           {:controller=>"admin/messages", :action=>"new_existing"}
+                     admin_project_messages GET    /admin/projects/:project_id/messages(.:format)                                        {:controller=>"admin/messages", :action=>"index"}
+                                            POST   /admin/projects/:project_id/messages(.:format)                                        {:controller=>"admin/messages", :action=>"create"}
+                  new_admin_project_message GET    /admin/projects/:project_id/messages/new(.:format)                                    {:controller=>"admin/messages", :action=>"new"}
+     destroy_existing_admin_project_message DELETE /admin/projects/:project_id/messages/:id/destroy_existing(.:format)                   {:controller=>"admin/messages", :action=>"destroy_existing"}
+        update_column_admin_project_message POST   /admin/projects/:project_id/messages/:id/update_column(.:format)                      {:controller=>"admin/messages", :action=>"update_column"}
+                 edit_admin_project_message GET    /admin/projects/:project_id/messages/:id/edit(.:format)                               {:controller=>"admin/messages", :action=>"edit"}
+         render_field_admin_project_message GET    /admin/projects/:project_id/messages/:id/render_field(.:format)                       {:controller=>"admin/messages", :action=>"render_field"}
+      add_association_admin_project_message GET    /admin/projects/:project_id/messages/:id/add_association(.:format)                    {:controller=>"admin/messages", :action=>"add_association"}
+               nested_admin_project_message GET    /admin/projects/:project_id/messages/:id/nested(.:format)                             {:controller=>"admin/messages", :action=>"nested"}
+      edit_associated_admin_project_message GET    /admin/projects/:project_id/messages/:id/edit_associated(.:format)                    {:controller=>"admin/messages", :action=>"edit_associated"}
+               delete_admin_project_message GET    /admin/projects/:project_id/messages/:id/delete(.:format)                             {:controller=>"admin/messages", :action=>"delete"}
+                  row_admin_project_message GET    /admin/projects/:project_id/messages/:id/row(.:format)                                {:controller=>"admin/messages", :action=>"row"}
+                      admin_project_message GET    /admin/projects/:project_id/messages/:id(.:format)                                    {:controller=>"admin/messages", :action=>"show"}
+                                            PUT    /admin/projects/:project_id/messages/:id(.:format)                                    {:controller=>"admin/messages", :action=>"update"}
+                                            DELETE /admin/projects/:project_id/messages/:id(.:format)                                    {:controller=>"admin/messages", :action=>"destroy"}
+                                            GET    /admin/projects(.:format)                                                             {:controller=>"admin/projects", :action=>"index"}
+                                            POST   /admin/projects(.:format)                                                             {:controller=>"admin/projects", :action=>"create"}
+                                            GET    /admin/projects/new(.:format)                                                         {:controller=>"admin/projects", :action=>"new"}
+                                            GET    /admin/projects/:id/edit(.:format)                                                    {:controller=>"admin/projects", :action=>"edit"}
+                                            GET    /admin/projects/:id(.:format)                                                         {:controller=>"admin/projects", :action=>"show"}
+                                            PUT    /admin/projects/:id(.:format)                                                         {:controller=>"admin/projects", :action=>"update"}
+                                            DELETE /admin/projects/:id(.:format)                                                         {:controller=>"admin/projects", :action=>"destroy"}
+                  graph_authorization_rules GET    /authorization_rules/graph(.:format)                                                  {:controller=>"authorization_rules", :action=>"graph"}
+         suggest_change_authorization_rules GET    /authorization_rules/suggest_change(.:format)                                         {:controller=>"authorization_rules", :action=>"suggest_change"}
+                 change_authorization_rules GET    /authorization_rules/change(.:format)                                                 {:controller=>"authorization_rules", :action=>"change"}
+                        authorization_rules GET    /authorization_rules(.:format)                                                        {:controller=>"authorization_rules", :action=>"index"}
+                       authorization_usages GET    /authorization_usages(.:format)                                                       {:controller=>"authorization_usages", :action=>"index"}
+                                       root        /                                                                                     {:controller=>"posts", :action=>"index"}
+                                 sparklines        /sparklines                                                                           {:controller=>"admin/sparklines", :action=>"index"}
+                                      posts GET    /posts(.:format)                                                                      {:controller=>"posts", :action=>"index"}
+                                            POST   /posts(.:format)                                                                      {:controller=>"posts", :action=>"create"}
+                                   new_post GET    /posts/new(.:format)                                                                  {:controller=>"posts", :action=>"new"}
+                                  edit_post GET    /posts/:id/edit(.:format)                                                             {:controller=>"posts", :action=>"edit"}
+                                       post GET    /posts/:id(.:format)                                                                  {:controller=>"posts", :action=>"show"}
+                                            PUT    /posts/:id(.:format)                                                                  {:controller=>"posts", :action=>"update"}
+                                            DELETE /posts/:id(.:format)                                                                  {:controller=>"posts", :action=>"destroy"}
+                                      users GET    /members(.:format)                                                                    {:controller=>"users", :action=>"index"}
+                                            POST   /members(.:format)                                                                    {:controller=>"users", :action=>"create"}
+                                   new_user GET    /members/new(.:format)                                                                {:controller=>"users", :action=>"new"}
+                                  edit_user GET    /members/:id/edit(.:format)                                                           {:controller=>"users", :action=>"edit"}
+                                       user GET    /members/:id(.:format)                                                                {:controller=>"users", :action=>"show"}
+                                            PUT    /members/:id(.:format)                                                                {:controller=>"users", :action=>"update"}
+                                            DELETE /members/:id(.:format)                                                                {:controller=>"users", :action=>"destroy"}
+                                                   /pages/:slug/comments                                                                 {:controller=>"comments", :method=>:post, :action=>"create"}
+                                      pages        /pages/:slug                                                                          {:controller=>"pages", :method=>:get, :action=>"show"}
+                                                   /:year/:month/:day/:slug/comments                                                     {:controller=>"comments", :method=>:post, :action=>"create"}
+                                                   /:year/:month/:day/:slug                                                              {:controller=>"posts", :action=>"show"}
+                            posts_with_tags        /tags/:tags                                                                           {:controller=>"posts", :action=>"index"}
+                                   archives        /archives                                                                             {:controller=>"archives", :action=>"index"}
+                           new_user_account GET    /user/account/new(.:format)                                                           {:controller=>"user/account", :action=>"new"}
+                          edit_user_account GET    /user/account/edit(.:format)                                                          {:controller=>"user/account", :action=>"edit"}
+                               user_account GET    /user/account(.:format)                                                               {:controller=>"user/account", :action=>"show"}
+                                            PUT    /user/account(.:format)                                                               {:controller=>"user/account", :action=>"update"}
+                                            DELETE /user/account(.:format)                                                               {:controller=>"user/account", :action=>"destroy"}
+                                            POST   /user/account(.:format)                                                               {:controller=>"user/account", :action=>"create"}
+                              user_accounts GET    /user/accounts(.:format)                                                              {:controller=>"user/account", :action=>"index"}
+                                            POST   /user/accounts(.:format)                                                              {:controller=>"user/account", :action=>"create"}
+                                            GET    /user/accounts/new(.:format)                                                          {:controller=>"user/account", :action=>"new"}
+                                            GET    /user/accounts/:id/edit(.:format)                                                     {:controller=>"user/account", :action=>"edit"}
+                                            GET    /user/accounts/:id(.:format)                                                          {:controller=>"user/account", :action=>"show"}
+                                            PUT    /user/accounts/:id(.:format)                                                          {:controller=>"user/account", :action=>"update"}
+                                            DELETE /user/accounts/:id(.:format)                                                          {:controller=>"user/account", :action=>"destroy"}
+                    new_user_password_reset GET    /user/password_reset/new(.:format)                                                    {:controller=>"user/password_resets", :action=>"new"}
+                   edit_user_password_reset GET    /user/password_reset/edit(.:format)                                                   {:controller=>"user/password_resets", :action=>"edit"}
+                        user_password_reset GET    /user/password_reset(.:format)                                                        {:controller=>"user/password_resets", :action=>"show"}
+                                            PUT    /user/password_reset(.:format)                                                        {:controller=>"user/password_resets", :action=>"update"}
+                                            DELETE /user/password_reset(.:format)                                                        {:controller=>"user/password_resets", :action=>"destroy"}
+                                            POST   /user/password_reset(.:format)                                                        {:controller=>"user/password_resets", :action=>"create"}
+                           new_user_session GET    /user/session/new(.:format)                                                           {:controller=>"user/session", :action=>"new"}
+              send_invitations_user_session POST   /user/session/send_invitations(.:format)                                              {:controller=>"user/session", :action=>"send_invitations"}
+                          edit_user_session GET    /user/session/edit(.:format)                                                          {:controller=>"user/session", :action=>"edit"}
+                               user_session GET    /user/session(.:format)                                                               {:controller=>"user/session", :action=>"show"}
+                                            PUT    /user/session(.:format)                                                               {:controller=>"user/session", :action=>"update"}
+                                            DELETE /user/session(.:format)                                                               {:controller=>"user/session", :action=>"destroy"}
+                                            POST   /user/session(.:format)                                                               {:controller=>"user/session", :action=>"create"}
+                                user_logout        /user/session/end                                                                     {:controller=>"user/session", :action=>"destroy"}
+                              user_language        /user/user_session/language/:language                                                 {:controller=>"user/session", :action=>"language"}
+                              user_activate        /user/activate/:activation_code                                                       {:controller=>"user/account", :action=>"activate"}
+                                 admin_root        /admin                                                                                {:controller=>"admin/dashboard", :action=>"index"}
+                    list_action_admin_users POST   /admin/users/list_action(.:format)                                                    {:controller=>"admin/users", :action=>"list_action"}
+                   add_existing_admin_users POST   /admin/users/add_existing(.:format)                                                   {:controller=>"admin/users", :action=>"add_existing"}
+                   render_field_admin_users GET    /admin/users/render_field(.:format)                                                   {:controller=>"admin/users", :action=>"render_field"}
+                    show_search_admin_users GET    /admin/users/show_search(.:format)                                                    {:controller=>"admin/users", :action=>"show_search"}
+                edit_associated_admin_users GET    /admin/users/edit_associated(.:format)                                                {:controller=>"admin/users", :action=>"edit_associated"}
+                           list_admin_users GET    /admin/users/list(.:format)                                                           {:controller=>"admin/users", :action=>"list"}
+                   new_existing_admin_users GET    /admin/users/new_existing(.:format)                                                   {:controller=>"admin/users", :action=>"new_existing"}
+                                admin_users GET    /admin/users(.:format)                                                                {:controller=>"admin/users", :action=>"index"}
+                                            POST   /admin/users(.:format)                                                                {:controller=>"admin/users", :action=>"create"}
+                             new_admin_user GET    /admin/users/new(.:format)                                                            {:controller=>"admin/users", :action=>"new"}
+                destroy_existing_admin_user DELETE /admin/users/:id/destroy_existing(.:format)                                           {:controller=>"admin/users", :action=>"destroy_existing"}
+                   update_column_admin_user POST   /admin/users/:id/update_column(.:format)                                              {:controller=>"admin/users", :action=>"update_column"}
+                            edit_admin_user GET    /admin/users/:id/edit(.:format)                                                       {:controller=>"admin/users", :action=>"edit"}
+                    render_field_admin_user GET    /admin/users/:id/render_field(.:format)                                               {:controller=>"admin/users", :action=>"render_field"}
+                 add_association_admin_user GET    /admin/users/:id/add_association(.:format)                                            {:controller=>"admin/users", :action=>"add_association"}
+                          nested_admin_user GET    /admin/users/:id/nested(.:format)                                                     {:controller=>"admin/users", :action=>"nested"}
+                 edit_associated_admin_user GET    /admin/users/:id/edit_associated(.:format)                                            {:controller=>"admin/users", :action=>"edit_associated"}
+                          delete_admin_user GET    /admin/users/:id/delete(.:format)                                                     {:controller=>"admin/users", :action=>"delete"}
+                             row_admin_user GET    /admin/users/:id/row(.:format)                                                        {:controller=>"admin/users", :action=>"row"}
+                         suspend_admin_user PUT    /admin/users/:id/suspend(.:format)                                                    {:controller=>"admin/users", :action=>"suspend"}
+                       unsuspend_admin_user PUT    /admin/users/:id/unsuspend(.:format)                                                  {:controller=>"admin/users", :action=>"unsuspend"}
+                        activate_admin_user PUT    /admin/users/:id/activate(.:format)                                                   {:controller=>"admin/users", :action=>"activate"}
+                  reset_password_admin_user PUT    /admin/users/:id/reset_password(.:format)                                             {:controller=>"admin/users", :action=>"reset_password"}
+                                 admin_user GET    /admin/users/:id(.:format)                                                            {:controller=>"admin/users", :action=>"show"}
+                                            PUT    /admin/users/:id(.:format)                                                            {:controller=>"admin/users", :action=>"update"}
+                                            DELETE /admin/users/:id(.:format)                                                            {:controller=>"admin/users", :action=>"destroy"}
+            list_action_admin_deleted_users POST   /admin/deleted_users/list_action(.:format)                                            {:controller=>"admin/deleted_users", :action=>"list_action"}
+           add_existing_admin_deleted_users POST   /admin/deleted_users/add_existing(.:format)                                           {:controller=>"admin/deleted_users", :action=>"add_existing"}
+           render_field_admin_deleted_users GET    /admin/deleted_users/render_field(.:format)                                           {:controller=>"admin/deleted_users", :action=>"render_field"}
+            show_search_admin_deleted_users GET    /admin/deleted_users/show_search(.:format)                                            {:controller=>"admin/deleted_users", :action=>"show_search"}
+        edit_associated_admin_deleted_users GET    /admin/deleted_users/edit_associated(.:format)                                        {:controller=>"admin/deleted_users", :action=>"edit_associated"}
+                   list_admin_deleted_users GET    /admin/deleted_users/list(.:format)                                                   {:controller=>"admin/deleted_users", :action=>"list"}
+           new_existing_admin_deleted_users GET    /admin/deleted_users/new_existing(.:format)                                           {:controller=>"admin/deleted_users", :action=>"new_existing"}
+                        admin_deleted_users GET    /admin/deleted_users(.:format)                                                        {:controller=>"admin/deleted_users", :action=>"index"}
+                                            POST   /admin/deleted_users(.:format)                                                        {:controller=>"admin/deleted_users", :action=>"create"}
+                     new_admin_deleted_user GET    /admin/deleted_users/new(.:format)                                                    {:controller=>"admin/deleted_users", :action=>"new"}
+                undelete_admin_deleted_user GET    /admin/deleted_users/:id/undelete(.:format)                                           {:controller=>"admin/deleted_users", :action=>"undelete"}
+                                            PUT    /admin/deleted_users/:id/undelete(.:format)                                           {:controller=>"admin/deleted_users", :action=>"undelete"}
+        destroy_existing_admin_deleted_user DELETE /admin/deleted_users/:id/destroy_existing(.:format)                                   {:controller=>"admin/deleted_users", :action=>"destroy_existing"}
+           update_column_admin_deleted_user POST   /admin/deleted_users/:id/update_column(.:format)                                      {:controller=>"admin/deleted_users", :action=>"update_column"}
+                    edit_admin_deleted_user GET    /admin/deleted_users/:id/edit(.:format)                                               {:controller=>"admin/deleted_users", :action=>"edit"}
+            render_field_admin_deleted_user GET    /admin/deleted_users/:id/render_field(.:format)                                       {:controller=>"admin/deleted_users", :action=>"render_field"}
+         add_association_admin_deleted_user GET    /admin/deleted_users/:id/add_association(.:format)                                    {:controller=>"admin/deleted_users", :action=>"add_association"}
+                  nested_admin_deleted_user GET    /admin/deleted_users/:id/nested(.:format)                                             {:controller=>"admin/deleted_users", :action=>"nested"}
+         edit_associated_admin_deleted_user GET    /admin/deleted_users/:id/edit_associated(.:format)                                    {:controller=>"admin/deleted_users", :action=>"edit_associated"}
+                  delete_admin_deleted_user GET    /admin/deleted_users/:id/delete(.:format)                                             {:controller=>"admin/deleted_users", :action=>"delete"}
+                     row_admin_deleted_user GET    /admin/deleted_users/:id/row(.:format)                                                {:controller=>"admin/deleted_users", :action=>"row"}
+                         admin_deleted_user GET    /admin/deleted_users/:id(.:format)                                                    {:controller=>"admin/deleted_users", :action=>"show"}
+                                            PUT    /admin/deleted_users/:id(.:format)                                                    {:controller=>"admin/deleted_users", :action=>"update"}
+                                            DELETE /admin/deleted_users/:id(.:format)                                                    {:controller=>"admin/deleted_users", :action=>"destroy"}
+                   list_action_admin_groups POST   /admin/groups/list_action(.:format)                                                   {:controller=>"admin/groups", :action=>"list_action"}
+                  add_existing_admin_groups POST   /admin/groups/add_existing(.:format)                                                  {:controller=>"admin/groups", :action=>"add_existing"}
+                  render_field_admin_groups GET    /admin/groups/render_field(.:format)                                                  {:controller=>"admin/groups", :action=>"render_field"}
+                   show_search_admin_groups GET    /admin/groups/show_search(.:format)                                                   {:controller=>"admin/groups", :action=>"show_search"}
+               edit_associated_admin_groups GET    /admin/groups/edit_associated(.:format)                                               {:controller=>"admin/groups", :action=>"edit_associated"}
+                          list_admin_groups GET    /admin/groups/list(.:format)                                                          {:controller=>"admin/groups", :action=>"list"}
+                  new_existing_admin_groups GET    /admin/groups/new_existing(.:format)                                                  {:controller=>"admin/groups", :action=>"new_existing"}
+                               admin_groups GET    /admin/groups(.:format)                                                               {:controller=>"admin/groups", :action=>"index"}
+                                            POST   /admin/groups(.:format)                                                               {:controller=>"admin/groups", :action=>"create"}
+                            new_admin_group GET    /admin/groups/new(.:format)                                                           {:controller=>"admin/groups", :action=>"new"}
+               destroy_existing_admin_group DELETE /admin/groups/:id/destroy_existing(.:format)                                          {:controller=>"admin/groups", :action=>"destroy_existing"}
+                  update_column_admin_group POST   /admin/groups/:id/update_column(.:format)                                             {:controller=>"admin/groups", :action=>"update_column"}
+                           edit_admin_group GET    /admin/groups/:id/edit(.:format)                                                      {:controller=>"admin/groups", :action=>"edit"}
+                   render_field_admin_group GET    /admin/groups/:id/render_field(.:format)                                              {:controller=>"admin/groups", :action=>"render_field"}
+                add_association_admin_group GET    /admin/groups/:id/add_association(.:format)                                           {:controller=>"admin/groups", :action=>"add_association"}
+                         nested_admin_group GET    /admin/groups/:id/nested(.:format)                                                    {:controller=>"admin/groups", :action=>"nested"}
+                edit_associated_admin_group GET    /admin/groups/:id/edit_associated(.:format)                                           {:controller=>"admin/groups", :action=>"edit_associated"}
+                         delete_admin_group GET    /admin/groups/:id/delete(.:format)                                                    {:controller=>"admin/groups", :action=>"delete"}
+                            row_admin_group GET    /admin/groups/:id/row(.:format)                                                       {:controller=>"admin/groups", :action=>"row"}
+                                admin_group GET    /admin/groups/:id(.:format)                                                           {:controller=>"admin/groups", :action=>"show"}
+                                            PUT    /admin/groups/:id(.:format)                                                           {:controller=>"admin/groups", :action=>"update"}
+                                            DELETE /admin/groups/:id(.:format)                                                           {:controller=>"admin/groups", :action=>"destroy"}
+                 list_action_admin_settings POST   /admin/settings/list_action(.:format)                                                 {:controller=>"admin/settings", :action=>"list_action"}
+                add_existing_admin_settings POST   /admin/settings/add_existing(.:format)                                                {:controller=>"admin/settings", :action=>"add_existing"}
+                render_field_admin_settings GET    /admin/settings/render_field(.:format)                                                {:controller=>"admin/settings", :action=>"render_field"}
+                 show_search_admin_settings GET    /admin/settings/show_search(.:format)                                                 {:controller=>"admin/settings", :action=>"show_search"}
+             edit_associated_admin_settings GET    /admin/settings/edit_associated(.:format)                                             {:controller=>"admin/settings", :action=>"edit_associated"}
+                        list_admin_settings GET    /admin/settings/list(.:format)                                                        {:controller=>"admin/settings", :action=>"list"}
+                new_existing_admin_settings GET    /admin/settings/new_existing(.:format)                                                {:controller=>"admin/settings", :action=>"new_existing"}
+                             admin_settings GET    /admin/settings(.:format)                                                             {:controller=>"admin/settings", :action=>"index"}
+                                            POST   /admin/settings(.:format)                                                             {:controller=>"admin/settings", :action=>"create"}
+                          new_admin_setting GET    /admin/settings/new(.:format)                                                         {:controller=>"admin/settings", :action=>"new"}
+             destroy_existing_admin_setting DELETE /admin/settings/:id/destroy_existing(.:format)                                        {:controller=>"admin/settings", :action=>"destroy_existing"}
+                update_column_admin_setting POST   /admin/settings/:id/update_column(.:format)                                           {:controller=>"admin/settings", :action=>"update_column"}
+                         edit_admin_setting GET    /admin/settings/:id/edit(.:format)                                                    {:controller=>"admin/settings", :action=>"edit"}
+                 render_field_admin_setting GET    /admin/settings/:id/render_field(.:format)                                            {:controller=>"admin/settings", :action=>"render_field"}
+              add_association_admin_setting GET    /admin/settings/:id/add_association(.:format)                                         {:controller=>"admin/settings", :action=>"add_association"}
+                       nested_admin_setting GET    /admin/settings/:id/nested(.:format)                                                  {:controller=>"admin/settings", :action=>"nested"}
+              edit_associated_admin_setting GET    /admin/settings/:id/edit_associated(.:format)                                         {:controller=>"admin/settings", :action=>"edit_associated"}
+                       delete_admin_setting GET    /admin/settings/:id/delete(.:format)                                                  {:controller=>"admin/settings", :action=>"delete"}
+                          row_admin_setting GET    /admin/settings/:id/row(.:format)                                                     {:controller=>"admin/settings", :action=>"row"}
+                              admin_setting GET    /admin/settings/:id(.:format)                                                         {:controller=>"admin/settings", :action=>"show"}
+                                            PUT    /admin/settings/:id(.:format)                                                         {:controller=>"admin/settings", :action=>"update"}
+                                            DELETE /admin/settings/:id(.:format)                                                         {:controller=>"admin/settings", :action=>"destroy"}
+            list_action_admin_announcements POST   /admin/announcements/list_action(.:format)                                            {:controller=>"admin/announcements", :action=>"list_action"}
+           add_existing_admin_announcements POST   /admin/announcements/add_existing(.:format)                                           {:controller=>"admin/announcements", :action=>"add_existing"}
+           render_field_admin_announcements GET    /admin/announcements/render_field(.:format)                                           {:controller=>"admin/announcements", :action=>"render_field"}
+            show_search_admin_announcements GET    /admin/announcements/show_search(.:format)                                            {:controller=>"admin/announcements", :action=>"show_search"}
+        edit_associated_admin_announcements GET    /admin/announcements/edit_associated(.:format)                                        {:controller=>"admin/announcements", :action=>"edit_associated"}
+                   list_admin_announcements GET    /admin/announcements/list(.:format)                                                   {:controller=>"admin/announcements", :action=>"list"}
+           new_existing_admin_announcements GET    /admin/announcements/new_existing(.:format)                                           {:controller=>"admin/announcements", :action=>"new_existing"}
+                        admin_announcements GET    /admin/announcements(.:format)                                                        {:controller=>"admin/announcements", :action=>"index"}
+                                            POST   /admin/announcements(.:format)                                                        {:controller=>"admin/announcements", :action=>"create"}
+                     new_admin_announcement GET    /admin/announcements/new(.:format)                                                    {:controller=>"admin/announcements", :action=>"new"}
+        destroy_existing_admin_announcement DELETE /admin/announcements/:id/destroy_existing(.:format)                                   {:controller=>"admin/announcements", :action=>"destroy_existing"}
+           update_column_admin_announcement POST   /admin/announcements/:id/update_column(.:format)                                      {:controller=>"admin/announcements", :action=>"update_column"}
+                    edit_admin_announcement GET    /admin/announcements/:id/edit(.:format)                                               {:controller=>"admin/announcements", :action=>"edit"}
+            render_field_admin_announcement GET    /admin/announcements/:id/render_field(.:format)                                       {:controller=>"admin/announcements", :action=>"render_field"}
+         add_association_admin_announcement GET    /admin/announcements/:id/add_association(.:format)                                    {:controller=>"admin/announcements", :action=>"add_association"}
+                  nested_admin_announcement GET    /admin/announcements/:id/nested(.:format)                                             {:controller=>"admin/announcements", :action=>"nested"}
+         edit_associated_admin_announcement GET    /admin/announcements/:id/edit_associated(.:format)                                    {:controller=>"admin/announcements", :action=>"edit_associated"}
+                  delete_admin_announcement GET    /admin/announcements/:id/delete(.:format)                                             {:controller=>"admin/announcements", :action=>"delete"}
+                     row_admin_announcement GET    /admin/announcements/:id/row(.:format)                                                {:controller=>"admin/announcements", :action=>"row"}
+                         admin_announcement GET    /admin/announcements/:id(.:format)                                                    {:controller=>"admin/announcements", :action=>"show"}
+                                            PUT    /admin/announcements/:id(.:format)                                                    {:controller=>"admin/announcements", :action=>"update"}
+                                            DELETE /admin/announcements/:id(.:format)                                                    {:controller=>"admin/announcements", :action=>"destroy"}
+                  list_action_admin_commits POST   /admin/commits/list_action(.:format)                                                  {:controller=>"admin/commits", :action=>"list_action"}
+                 add_existing_admin_commits POST   /admin/commits/add_existing(.:format)                                                 {:controller=>"admin/commits", :action=>"add_existing"}
+                 render_field_admin_commits GET    /admin/commits/render_field(.:format)                                                 {:controller=>"admin/commits", :action=>"render_field"}
+                  show_search_admin_commits GET    /admin/commits/show_search(.:format)                                                  {:controller=>"admin/commits", :action=>"show_search"}
+              edit_associated_admin_commits GET    /admin/commits/edit_associated(.:format)                                              {:controller=>"admin/commits", :action=>"edit_associated"}
+                         list_admin_commits GET    /admin/commits/list(.:format)                                                         {:controller=>"admin/commits", :action=>"list"}
+                 new_existing_admin_commits GET    /admin/commits/new_existing(.:format)                                                 {:controller=>"admin/commits", :action=>"new_existing"}
+                              admin_commits GET    /admin/commits(.:format)                                                              {:controller=>"admin/commits", :action=>"index"}
+                                            POST   /admin/commits(.:format)                                                              {:controller=>"admin/commits", :action=>"create"}
+                           new_admin_commit GET    /admin/commits/new(.:format)                                                          {:controller=>"admin/commits", :action=>"new"}
+              destroy_existing_admin_commit DELETE /admin/commits/:id/destroy_existing(.:format)                                         {:controller=>"admin/commits", :action=>"destroy_existing"}
+                 update_column_admin_commit POST   /admin/commits/:id/update_column(.:format)                                            {:controller=>"admin/commits", :action=>"update_column"}
+                          edit_admin_commit GET    /admin/commits/:id/edit(.:format)                                                     {:controller=>"admin/commits", :action=>"edit"}
+                  render_field_admin_commit GET    /admin/commits/:id/render_field(.:format)                                             {:controller=>"admin/commits", :action=>"render_field"}
+               add_association_admin_commit GET    /admin/commits/:id/add_association(.:format)                                          {:controller=>"admin/commits", :action=>"add_association"}
+                        nested_admin_commit GET    /admin/commits/:id/nested(.:format)                                                   {:controller=>"admin/commits", :action=>"nested"}
+               edit_associated_admin_commit GET    /admin/commits/:id/edit_associated(.:format)                                          {:controller=>"admin/commits", :action=>"edit_associated"}
+                        delete_admin_commit GET    /admin/commits/:id/delete(.:format)                                                   {:controller=>"admin/commits", :action=>"delete"}
+                           row_admin_commit GET    /admin/commits/:id/row(.:format)                                                      {:controller=>"admin/commits", :action=>"row"}
+                               admin_commit GET    /admin/commits/:id(.:format)                                                          {:controller=>"admin/commits", :action=>"show"}
+                                            PUT    /admin/commits/:id(.:format)                                                          {:controller=>"admin/commits", :action=>"update"}
+                                            DELETE /admin/commits/:id(.:format)                                                          {:controller=>"admin/commits", :action=>"destroy"}
+                        admin_post_comments GET    /admin/posts/:post_id/comments(.:format)                                              {:controller=>"admin/comments", :action=>"index"}
+                                            POST   /admin/posts/:post_id/comments(.:format)                                              {:controller=>"admin/comments", :action=>"create"}
+                     new_admin_post_comment GET    /admin/posts/:post_id/comments/new(.:format)                                          {:controller=>"admin/comments", :action=>"new"}
+                    edit_admin_post_comment GET    /admin/posts/:post_id/comments/:id/edit(.:format)                                     {:controller=>"admin/comments", :action=>"edit"}
+                         admin_post_comment GET    /admin/posts/:post_id/comments/:id(.:format)                                          {:controller=>"admin/comments", :action=>"show"}
+                                            PUT    /admin/posts/:post_id/comments/:id(.:format)                                          {:controller=>"admin/comments", :action=>"update"}
+                                            DELETE /admin/posts/:post_id/comments/:id(.:format)                                          {:controller=>"admin/comments", :action=>"destroy"}
+                    list_action_admin_posts POST   /admin/posts/list_action(.:format)                                                    {:controller=>"admin/posts", :action=>"list_action"}
+                   add_existing_admin_posts POST   /admin/posts/add_existing(.:format)                                                   {:controller=>"admin/posts", :action=>"add_existing"}
+                   render_field_admin_posts GET    /admin/posts/render_field(.:format)                                                   {:controller=>"admin/posts", :action=>"render_field"}
+                    show_search_admin_posts GET    /admin/posts/show_search(.:format)                                                    {:controller=>"admin/posts", :action=>"show_search"}
+                edit_associated_admin_posts GET    /admin/posts/edit_associated(.:format)                                                {:controller=>"admin/posts", :action=>"edit_associated"}
+                           list_admin_posts GET    /admin/posts/list(.:format)                                                           {:controller=>"admin/posts", :action=>"list"}
+                   new_existing_admin_posts GET    /admin/posts/new_existing(.:format)                                                   {:controller=>"admin/posts", :action=>"new_existing"}
+                                admin_posts GET    /admin/posts(.:format)                                                                {:controller=>"admin/posts", :action=>"index"}
+                                            POST   /admin/posts(.:format)                                                                {:controller=>"admin/posts", :action=>"create"}
+                     preview_new_admin_post POST   /admin/posts/new/preview(.:format)                                                    {:controller=>"admin/posts", :action=>"preview"}
+                             new_admin_post GET    /admin/posts/new(.:format)                                                            {:controller=>"admin/posts", :action=>"new"}
+                    check_delete_admin_post GET    /admin/posts/:id/check_delete(.:format)                                               {:controller=>"admin/posts", :action=>"check_delete"}
+                                            POST   /admin/posts/:id/check_delete(.:format)                                               {:controller=>"admin/posts", :action=>"check_delete"}
+                destroy_existing_admin_post DELETE /admin/posts/:id/destroy_existing(.:format)                                           {:controller=>"admin/posts", :action=>"destroy_existing"}
+                   update_column_admin_post POST   /admin/posts/:id/update_column(.:format)                                              {:controller=>"admin/posts", :action=>"update_column"}
+                      update_tag_admin_post PUT    /admin/posts/:id/update_tag(.:format)                                                 {:controller=>"admin/posts", :action=>"update_tag"}
+                            edit_admin_post GET    /admin/posts/:id/edit(.:format)                                                       {:controller=>"admin/posts", :action=>"edit"}
+                    render_field_admin_post GET    /admin/posts/:id/render_field(.:format)                                               {:controller=>"admin/posts", :action=>"render_field"}
+                 add_association_admin_post GET    /admin/posts/:id/add_association(.:format)                                            {:controller=>"admin/posts", :action=>"add_association"}
+                        edit_tag_admin_post GET    /admin/posts/:id/edit_tag(.:format)                                                   {:controller=>"admin/posts", :action=>"edit_tag"}
+                          nested_admin_post GET    /admin/posts/:id/nested(.:format)                                                     {:controller=>"admin/posts", :action=>"nested"}
+                 edit_associated_admin_post GET    /admin/posts/:id/edit_associated(.:format)                                            {:controller=>"admin/posts", :action=>"edit_associated"}
+                          delete_admin_post GET    /admin/posts/:id/delete(.:format)                                                     {:controller=>"admin/posts", :action=>"delete"}
+                             row_admin_post GET    /admin/posts/:id/row(.:format)                                                        {:controller=>"admin/posts", :action=>"row"}
+                                 admin_post GET    /admin/posts/:id(.:format)                                                            {:controller=>"admin/posts", :action=>"show"}
+                                            PUT    /admin/posts/:id(.:format)                                                            {:controller=>"admin/posts", :action=>"update"}
+                                            DELETE /admin/posts/:id(.:format)                                                            {:controller=>"admin/posts", :action=>"destroy"}
+                        admin_page_comments GET    /admin/pages/:page_id/comments(.:format)                                              {:controller=>"admin/comments", :action=>"index"}
+                                            POST   /admin/pages/:page_id/comments(.:format)                                              {:controller=>"admin/comments", :action=>"create"}
+                     new_admin_page_comment GET    /admin/pages/:page_id/comments/new(.:format)                                          {:controller=>"admin/comments", :action=>"new"}
+                    edit_admin_page_comment GET    /admin/pages/:page_id/comments/:id/edit(.:format)                                     {:controller=>"admin/comments", :action=>"edit"}
+                         admin_page_comment GET    /admin/pages/:page_id/comments/:id(.:format)                                          {:controller=>"admin/comments", :action=>"show"}
+                                            PUT    /admin/pages/:page_id/comments/:id(.:format)                                          {:controller=>"admin/comments", :action=>"update"}
+                                            DELETE /admin/pages/:page_id/comments/:id(.:format)                                          {:controller=>"admin/comments", :action=>"destroy"}
+                    list_action_admin_pages POST   /admin/pages/list_action(.:format)                                                    {:controller=>"admin/pages", :action=>"list_action"}
+                   add_existing_admin_pages POST   /admin/pages/add_existing(.:format)                                                   {:controller=>"admin/pages", :action=>"add_existing"}
+                   render_field_admin_pages GET    /admin/pages/render_field(.:format)                                                   {:controller=>"admin/pages", :action=>"render_field"}
+                    show_search_admin_pages GET    /admin/pages/show_search(.:format)                                                    {:controller=>"admin/pages", :action=>"show_search"}
+                edit_associated_admin_pages GET    /admin/pages/edit_associated(.:format)                                                {:controller=>"admin/pages", :action=>"edit_associated"}
+                           list_admin_pages GET    /admin/pages/list(.:format)                                                           {:controller=>"admin/pages", :action=>"list"}
+                   new_existing_admin_pages GET    /admin/pages/new_existing(.:format)                                                   {:controller=>"admin/pages", :action=>"new_existing"}
+                                admin_pages GET    /admin/pages(.:format)                                                                {:controller=>"admin/pages", :action=>"index"}
+                                            POST   /admin/pages(.:format)                                                                {:controller=>"admin/pages", :action=>"create"}
+                     preview_new_admin_page POST   /admin/pages/new/preview(.:format)                                                    {:controller=>"admin/pages", :action=>"preview"}
+                             new_admin_page GET    /admin/pages/new(.:format)                                                            {:controller=>"admin/pages", :action=>"new"}
+                destroy_existing_admin_page DELETE /admin/pages/:id/destroy_existing(.:format)                                           {:controller=>"admin/pages", :action=>"destroy_existing"}
+                   update_column_admin_page POST   /admin/pages/:id/update_column(.:format)                                              {:controller=>"admin/pages", :action=>"update_column"}
+                            edit_admin_page GET    /admin/pages/:id/edit(.:format)                                                       {:controller=>"admin/pages", :action=>"edit"}
+                    render_field_admin_page GET    /admin/pages/:id/render_field(.:format)                                               {:controller=>"admin/pages", :action=>"render_field"}
+                 add_association_admin_page GET    /admin/pages/:id/add_association(.:format)                                            {:controller=>"admin/pages", :action=>"add_association"}
+                          nested_admin_page GET    /admin/pages/:id/nested(.:format)                                                     {:controller=>"admin/pages", :action=>"nested"}
+                 edit_associated_admin_page GET    /admin/pages/:id/edit_associated(.:format)                                            {:controller=>"admin/pages", :action=>"edit_associated"}
+                          delete_admin_page GET    /admin/pages/:id/delete(.:format)                                                     {:controller=>"admin/pages", :action=>"delete"}
+                             row_admin_page GET    /admin/pages/:id/row(.:format)                                                        {:controller=>"admin/pages", :action=>"row"}
+                                 admin_page GET    /admin/pages/:id(.:format)                                                            {:controller=>"admin/pages", :action=>"show"}
+                                            PUT    /admin/pages/:id(.:format)                                                            {:controller=>"admin/pages", :action=>"update"}
+                                            DELETE /admin/pages/:id(.:format)                                                            {:controller=>"admin/pages", :action=>"destroy"}
+                add_existing_admin_comments POST   /admin/comments/add_existing(.:format)                                                {:controller=>"admin/comments", :action=>"add_existing"}
+                render_field_admin_comments GET    /admin/comments/render_field(.:format)                                                {:controller=>"admin/comments", :action=>"render_field"}
+                 show_search_admin_comments GET    /admin/comments/show_search(.:format)                                                 {:controller=>"admin/comments", :action=>"show_search"}
+             edit_associated_admin_comments GET    /admin/comments/edit_associated(.:format)                                             {:controller=>"admin/comments", :action=>"edit_associated"}
+                        list_admin_comments GET    /admin/comments/list(.:format)                                                        {:controller=>"admin/comments", :action=>"list"}
+                new_existing_admin_comments GET    /admin/comments/new_existing(.:format)                                                {:controller=>"admin/comments", :action=>"new_existing"}
+             destroy_existing_admin_comment DELETE /admin/comments/:id/destroy_existing(.:format)                                        {:controller=>"admin/comments", :action=>"destroy_existing"}
+                update_column_admin_comment POST   /admin/comments/:id/update_column(.:format)                                           {:controller=>"admin/comments", :action=>"update_column"}
+                 mark_as_spam_admin_comment PUT    /admin/comments/:id/mark_as_spam(.:format)                                            {:controller=>"admin/comments", :action=>"mark_as_spam"}
+                  mark_as_ham_admin_comment PUT    /admin/comments/:id/mark_as_ham(.:format)                                             {:controller=>"admin/comments", :action=>"mark_as_ham"}
+                 render_field_admin_comment GET    /admin/comments/:id/render_field(.:format)                                            {:controller=>"admin/comments", :action=>"render_field"}
+              add_association_admin_comment GET    /admin/comments/:id/add_association(.:format)                                         {:controller=>"admin/comments", :action=>"add_association"}
+                       nested_admin_comment GET    /admin/comments/:id/nested(.:format)                                                  {:controller=>"admin/comments", :action=>"nested"}
+              edit_associated_admin_comment GET    /admin/comments/:id/edit_associated(.:format)                                         {:controller=>"admin/comments", :action=>"edit_associated"}
+                       delete_admin_comment GET    /admin/comments/:id/delete(.:format)                                                  {:controller=>"admin/comments", :action=>"delete"}
+                          row_admin_comment GET    /admin/comments/:id/row(.:format)                                                     {:controller=>"admin/comments", :action=>"row"}
+                              admin_comment DELETE /admin/comments/:id(.:format)                                                         {:controller=>"admin/comments", :action=>"destroy"}
+                      admin_history_entries GET    /admin/history_entries(.:format)                                                      {:controller=>"admin/history_entries", :action=>"index"}
+                                            POST   /admin/history_entries(.:format)                                                      {:controller=>"admin/history_entries", :action=>"create"}
+                    new_admin_history_entry GET    /admin/history_entries/new(.:format)                                                  {:controller=>"admin/history_entries", :action=>"new"}
+                   edit_admin_history_entry GET    /admin/history_entries/:id/edit(.:format)                                             {:controller=>"admin/history_entries", :action=>"edit"}
+                        admin_history_entry GET    /admin/history_entries/:id(.:format)                                                  {:controller=>"admin/history_entries", :action=>"show"}
+                                            PUT    /admin/history_entries/:id(.:format)                                                  {:controller=>"admin/history_entries", :action=>"update"}
+                                            DELETE /admin/history_entries/:id(.:format)                                                  {:controller=>"admin/history_entries", :action=>"destroy"}
+                                            GET    /admin/settings(.:format)                                                             {:controller=>"admin/settings", :action=>"index"}
+                                            POST   /admin/settings(.:format)                                                             {:controller=>"admin/settings", :action=>"create"}
+                                            GET    /admin/settings/new(.:format)                                                         {:controller=>"admin/settings", :action=>"new"}
+                                            GET    /admin/settings/:id/edit(.:format)                                                    {:controller=>"admin/settings", :action=>"edit"}
+                                            GET    /admin/settings/:id(.:format)                                                         {:controller=>"admin/settings", :action=>"show"}
+                                            PUT    /admin/settings/:id(.:format)                                                         {:controller=>"admin/settings", :action=>"update"}
+                                            DELETE /admin/settings/:id(.:format)                                                         {:controller=>"admin/settings", :action=>"destroy"}
+                   add_existing_admin_mails POST   /admin/mails/add_existing(.:format)                                                   {:controller=>"admin/mails", :action=>"add_existing"}
+                   render_field_admin_mails GET    /admin/mails/render_field(.:format)                                                   {:controller=>"admin/mails", :action=>"render_field"}
+                    show_search_admin_mails GET    /admin/mails/show_search(.:format)                                                    {:controller=>"admin/mails", :action=>"show_search"}
+                edit_associated_admin_mails GET    /admin/mails/edit_associated(.:format)                                                {:controller=>"admin/mails", :action=>"edit_associated"}
+                           list_admin_mails GET    /admin/mails/list(.:format)                                                           {:controller=>"admin/mails", :action=>"list"}
+                   new_existing_admin_mails GET    /admin/mails/new_existing(.:format)                                                   {:controller=>"admin/mails", :action=>"new_existing"}
+                                admin_mails GET    /admin/mails(.:format)                                                                {:controller=>"admin/mails", :action=>"index"}
+                                            POST   /admin/mails(.:format)                                                                {:controller=>"admin/mails", :action=>"create"}
+                             new_admin_mail GET    /admin/mails/new(.:format)                                                            {:controller=>"admin/mails", :action=>"new"}
+                destroy_existing_admin_mail DELETE /admin/mails/:id/destroy_existing(.:format)                                           {:controller=>"admin/mails", :action=>"destroy_existing"}
+                   update_column_admin_mail POST   /admin/mails/:id/update_column(.:format)                                              {:controller=>"admin/mails", :action=>"update_column"}
+                            edit_admin_mail GET    /admin/mails/:id/edit(.:format)                                                       {:controller=>"admin/mails", :action=>"edit"}
+                    render_field_admin_mail GET    /admin/mails/:id/render_field(.:format)                                               {:controller=>"admin/mails", :action=>"render_field"}
+                 add_association_admin_mail GET    /admin/mails/:id/add_association(.:format)                                            {:controller=>"admin/mails", :action=>"add_association"}
+                          nested_admin_mail GET    /admin/mails/:id/nested(.:format)                                                     {:controller=>"admin/mails", :action=>"nested"}
+                 edit_associated_admin_mail GET    /admin/mails/:id/edit_associated(.:format)                                            {:controller=>"admin/mails", :action=>"edit_associated"}
+                          delete_admin_mail GET    /admin/mails/:id/delete(.:format)                                                     {:controller=>"admin/mails", :action=>"delete"}
+                             row_admin_mail GET    /admin/mails/:id/row(.:format)                                                        {:controller=>"admin/mails", :action=>"row"}
+                                 admin_mail GET    /admin/mails/:id(.:format)                                                            {:controller=>"admin/mails", :action=>"show"}
+                                            PUT    /admin/mails/:id(.:format)                                                            {:controller=>"admin/mails", :action=>"update"}
+                                            DELETE /admin/mails/:id(.:format)                                                            {:controller=>"admin/mails", :action=>"destroy"}
+                      admin_posts_with_tags        /admin/posts/tags/:tag_ids                                                            {:controller=>"admin/posts", :action=>"index"}
+                               new_api_i18n GET    /api/i18n/new(.:format)                                                               {:controller=>"api/i18ns", :action=>"new"}
+                              edit_api_i18n GET    /api/i18n/edit(.:format)                                                              {:controller=>"api/i18ns", :action=>"edit"}
+                                   api_i18n GET    /api/i18n(.:format)                                                                   {:controller=>"api/i18ns", :action=>"show"}
+                                            PUT    /api/i18n(.:format)                                                                   {:controller=>"api/i18ns", :action=>"update"}
+                                            DELETE /api/i18n(.:format)                                                                   {:controller=>"api/i18ns", :action=>"destroy"}
+                                            POST   /api/i18n(.:format)                                                                   {:controller=>"api/i18ns", :action=>"create"}
+                               website_root        /website                                                                              {:controller=>"website/posts", :action=>"index"}
+                              website_posts GET    /website/posts(.:format)                                                              {:controller=>"website/posts", :action=>"index"}
+                                            POST   /website/posts(.:format)                                                              {:controller=>"website/posts", :action=>"create"}
+                           new_website_post GET    /website/posts/new(.:format)                                                          {:controller=>"website/posts", :action=>"new"}
+                          edit_website_post GET    /website/posts/:id/edit(.:format)                                                     {:controller=>"website/posts", :action=>"edit"}
+                               website_post GET    /website/posts/:id(.:format)                                                          {:controller=>"website/posts", :action=>"show"}
+                                            PUT    /website/posts/:id(.:format)                                                          {:controller=>"website/posts", :action=>"update"}
+                                            DELETE /website/posts/:id(.:format)                                                          {:controller=>"website/posts", :action=>"destroy"}

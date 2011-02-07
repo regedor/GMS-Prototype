@@ -74,3 +74,43 @@ puts "Saving Groups..."
   root_group.save
   admin_group.save
 
+puts "Creating projects... (DEBUG)"
+  p1 = Project.new :name => "Project 1", :description => "O primeiro projecto do mundo!", :user_id => 1
+
+  t1 = ToDo.new :description => "Fazer coisas" , :user => User.find(2), :due_date => Time.now 
+  t2 = ToDo.new :description => "Entregar documento X", :user => User.find(3), :due_date => Time.now + 1.day 
+  t3 = ToDo.new :description => "Falar com fulano de tal acerca daquela coisa", :user => User.find(1), :due_date => Time.now + 2.days
+  t4 = ToDo.new :description => "Aprender js"  , :user => User.find(3), :due_date => Time.now + 1.day 
+  t5 = ToDo.new :description => "Aprender ruby", :user => User.find(1), :due_date => Time.now + 2.days  
+
+  tdl1 = ToDoList.new :name => "Plano de Imagem", :description => "Preparar plano de imagem do projecto"
+  tdl1.to_dos << t1
+  tdl1.to_dos << t2
+  tdl1.to_dos << t3
+  t1.save
+  t2.save
+  t3.save
+  tdl1.save
+
+  tdl2 = ToDoList.new :name => "Gestão de socios", :description => "Relativo a toda a gestão de associados"
+  tdl2.to_dos << t4
+  tdl2.to_dos << t5
+  t4.save
+  t5.save
+  tdl2.save
+
+  p1.to_do_lists << tdl1
+  p1.to_do_lists << tdl2
+  p1.save
+
+  
+  c1 = Category.new :name => "Categoria"
+  c1.save
+  m1 = Message.new :body => "Mensagem de bota remedio", :title => "Titulo de bota remedio", :category_id => 1, :user_id => 1, :project_id => 1
+  m2 = Message.new :body => "Mensa", :title => "Mensa", :category_id => 1, :user_id => 1, :project_id => 1
+  m1.save
+  m2.save
+
+  mc1 = MessagesComment.new :body => "ahuetz", :message_id => 1, :user_id => 1
+  mc1.save
+

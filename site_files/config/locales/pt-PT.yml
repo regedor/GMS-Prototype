@@ -373,8 +373,8 @@ en:
       tags:
         title: "Tags"
         pagination:
-          previous: "««"
-          next: "»»"
+          previous: "Â«Â«"
+          next: "Â»Â»"
         list:
           edit: "Editar"
           posts:

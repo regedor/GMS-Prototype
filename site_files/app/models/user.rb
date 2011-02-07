@@ -127,6 +127,12 @@ class User < ActiveRecord::Base
   # Instance Methods
   # ==========================================================================
 
+  def avatar
+    require 'ostruct'
+    OpenStruct.new :path => nil
+  end
+
+
   # User's label
   def to_label
     "#{self.name} < #{self.email} >"

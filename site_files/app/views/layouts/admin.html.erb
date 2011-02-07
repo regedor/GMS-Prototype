@@ -19,6 +19,7 @@
   <%= stylesheet_link_tag 'reset',
                           'formtastic/formtastic',
                           'smoothness/jquery-ui-1.8.7.custom',
+                          "projects_plugin/base",
                           "themes/#{configatron.theme}/formtastic-changes",
                           "themes/#{configatron.theme}/active-scaffold-changes",
                           "themes/#{configatron.theme}/backend-typography",
@@ -27,13 +28,20 @@
 
   <%= yield :head %>
 
+  <% if File.exists?(Rails.root.join("vendor","plugins","activity_manager","app", "views", params[:controller], "_sidebar.html.erb")) %>
+    <% content_for :sidebar do -%>
+      <%= render :partial => 'sidebar'  %>
+    <% end -%>
+  <% end -%>
+
+  
 </head>
-<body id="<%= @controller.controller_name + "_" + @controller.action_name  %>">
+<body id="<%= @controller.controller_name + "_" + @controller.action_name %>">
   <div id="container">
     <div id="header">
-      <div id="user-navigation"> 
+      <div id="user-navigation">
         <%= link_to t('user_session.bar.account_link'), user_session_path, :class => "user_ico" %> |
-        <%= link_to t('user_session.bar.logout'), user_logout_path, :class => "logout_ico"         %> 
+        <%= link_to t('user_session.bar.logout'), user_logout_path, :class => "logout_ico" %>
       </div>
       <h1><a href="/"><%= configatron.site_name %></a></h1>
       <div id="main-navigation">
@@ -52,6 +60,7 @@
 
           <%= navigation_menu 'admin.navigation.main.system',
                               [ 'admin/settings',
+                                'admin/action_entries',
                                 'admin/users',
                                 'admin/deleted_users',
                                 'admin/groups',
@@ -61,9 +70,14 @@
           <%= navigation_menu 'admin.navigation.main.communication',
                               [ 'admin/mails' ],
                               new_admin_mail_path %>
+
+          <%= navigation_menu 'admin.navigation.main.projects',
+                              [ 'admin/projects',
+								'admin/to_do_lists'],
+                              admin_projects_path %>
         </ul>
       </div>
-    </div>    
+    </div>
     <div id="wrapper" class="wat-cf">
       <div id="main">
       <div class="block">
@@ -102,13 +116,32 @@
                                               :i18n_path => 'admin.navigation.secondary.settings',
                                               :link_to_path => admin_settings_path }],
 
-                                              :specify_first => true %>
+                                          :specify_first => true %>
 
             <%= secondary_navigation_menu [ { :controller_paths => 'admin/mails',
                                               :i18n_path => 'admin.navigation.secondary.mails',
                                               :link_to_path => new_admin_mail_path } ],
+            
+                                          :specify_first => true %>
 
-                                              :specify_first => true %>
+            <%= secondary_navigation_menu [ { :controller_paths => 'admin/projects',
+                                              :i18n_path => 'admin.navigation.secondary.projects',
+                                              :link_to_path => admin_projects_path }],
+           
+                                          :specify_first => true %>
+
+  <% unless params[:project_id].nil?  %>
+			<%= secondary_navigation_menu [ { :controller_paths => 'admin/to_do_lists',
+			                                  :i18n_path => 'admin.navigation.secondary.to_do_lists',
+			                                  :link_to_path => admin_project_to_do_lists_path(params[:project_id]) },
+			
+											{ :controller_paths => 'admin/messages',
+											  :i18n_path => 'admin.navigation.secondary.messages',
+											  :link_to_path => admin_project_messages_path(params[:project_id]) }],
+              
+			                              :specify_first => true %>  
+  <% end %>			     
+			    
           </ul>
         </div>
       <div id="flash">
@@ -125,3 +158,4 @@
   </div>
 </body>
 </html>
+

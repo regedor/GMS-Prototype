@@ -1,0 +1,9 @@
+<div class="block">
+  <h3><%= t("admin.message.sidebar.title") %></h3>
+  <div class="content">
+    <p><%= t("admin.message.sidebar.paragraph") %></p>
+  </div>
+  <ul class="navigation">
+    <li><%= link_to I18n::t('admin.messages.index.create'), new_admin_project_message_path %></li>
+  </ul>
+</div>

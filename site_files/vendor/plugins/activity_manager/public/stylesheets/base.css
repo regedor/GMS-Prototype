@@ -1,0 +1,64 @@
+/*
+ ============================================================================
+ = Typography
+ ============================================================================
+*/
+
+div.todo_list div.todos a                                           { color: red; font-size: 0.9em; }
+div.todo_list div.todos a:hover                                     { text-decoration: underline; }
+
+div.todo_list div.todos ul li.done_todo                             { color: #999; font-size: 0.9em; }
+div.todo_list div.todos ul li.done_todo strong.date_finished        { color: #666; }
+
+div.todo_list div.description p                                     { font-style: italic; }
+div.todo_list div.todos ul li.todo span.todo_content span.todo_info { font-size: 0.8em; }
+
+div.messages table td.message                                       { border-bottom: 1px solid #DDD; line-height: 1.1em; }
+div.messages table td.message span.title                            { font-size: 1.5em; line-height: 1.3em; }
+div.messages table td.message span.meta                             { color: #999; }
+
+div.message div.meta ul li span                                     { color: #999; }
+div.message hr,
+div.comments hr                                                     { color: #DDD; }
+
+div.comments div.comment div.meta span.author                       { font-weight: bold; }
+div.comments div.comment div.meta span.date                         { font-size: 0.9em; }
+
+/*
+ ============================================================================
+ = General Structure
+ ============================================================================
+*/
+
+div.todo_list                                                       { margin: 15px; }
+
+div.todo_list div.description p                                     { margin: 0 0 15px; }
+
+div.todo_list div.todos ul.not_done                                 { min-height: 15px; }
+
+div.todo_list div.todos ul li.todo span.todo_info                   { background: #EEE; padding: 2px 2px 2px 6px; margin: 0 0 0 4px; }
+div.todo_list div.todos ul li.todo span.todo_info { -moz-border-radius: 8px; -webkit-border-radius: 8px; border-radius: 8px; }
+div.todo_list div.todos ul li.todo span.todo_edit                   { margin: 0 0 0 15px; }
+
+div.todo_list div.todos ul li.todo                                  { margin: 0 0 15px; }
+div.todo_list div.todos ul li.todo div.todo_content                 { margin: 0 25px; padding: 3px 0 0; }
+div.todo_list div.todos ul li.todo form.todo                        { background: #E5E5E5; padding: 15px 15px 0; }
+div.todo_list div.todos ul li.todo input                            { float: left; }
+div.todo_list div.todos ul li.todo.highlight span.todo_desc         { background: #FFC; }
+
+div.todo_list div.todos div.add_button                              { background: #EFEFEF; margin: 10px 0 10px 25px; padding: 5px; }
+
+div.message div.meta                                                { margin: 10px 0; }
+div.message div.meta ul li                                          { margin: 5px 0;}
+
+div.message div.entrybody                                           { margin: 25px 0; }
+
+div.message hr,
+div.comments hr                                                     { background-color: #DDD; height: 1px; border: none; }
+
+div.messages table                                                  { width: 100% }
+div.messages table td.message                                       { padding: 10px 7px 10px 0px; }
+div.messages table td.message span.title                            { display: block; }
+
+div.comments div.comment                                            { margin: 10px 25px; }
+div.comments div.comment div.entrybody                              { margin: 10px 0 0; }
