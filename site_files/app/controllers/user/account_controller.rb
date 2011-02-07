@@ -8,11 +8,13 @@ class User::AccountController < ApplicationController
   
   def new
     @user = User.new
-    #redirect_to root_path
+    #FIXME: Account creation is blocked. Remove next line when it is not supposed so.
+    redirect_to root_path
   end
   
   def create
-    #redirect_to root_path
+    #FIXME: Account creation is blocked. Remove next line when it is not supposed so.
+    redirect_to root_path
     @user = User.new(params[:user])
     @user.save do | result | 
       if result 
@@ -49,23 +51,53 @@ class User::AccountController < ApplicationController
   end
 
   def show
-    @user = current_user
+    @user = params[:id].nil? ? current_user : User.find(params[:id])
   end
  
   def edit
     @user = current_user
+    @picks = UserOptionalGroupPick.for_user_with_selected(@user)
   end
   
   def update
     @user = current_user
+    #FIXME: Improve the following choosable groups validations (these validations are only needed in the frontend)
+    if params[:user][:choosable_group_ids]
+      params[:user][:choosable_group_ids].each do |id|
+        next if (id == "") || Group.find(id).user_choosable
+        head 500
+        return
+      end
+    end
+    if params[:user][:user_optional_group_picks]
+      params[:user][:user_optional_group_picks].each do |pick_id, group_id|
+        next if UserOptionalGroupPick.find(pick_id).groups.map(&:id).member? group_id.to_i
+        head 500
+        return
+      end
+    end
+
+    initial_group_ids = @user.group_ids.dup
+    group_ids = @user.group_ids.dup - Group.all(:conditions => { :user_choosable => true }).map(&:id)
+    group_ids |= (params[:user][:choosable_group_ids] - [""]).map(&:to_i) if params[:user][:choosable_group_ids]
+    if params[:user][:user_optional_group_picks]
+      params[:user][:user_optional_group_picks].each do |pick_id, group_id|
+        group_ids << group_id.to_i
+      end
+    end
+    @user.group_ids = group_ids.uniq
+
     @user.attributes = params[:user]
     @user.save do |result|
       if result
         session[:language] = @user.language
         flash[:notice] = t('flash.account_updated')
-        redirect_to account_url
+        redirect_to user_account_path(@user)
       else
-        render :action => 'edit'
+        # Groups are an association, therefore they are always saved
+        # This reverts the groups to the initial state, in case something is not validated
+        @user.group_ids = initial_group_ids
+        redirect_to :action => 'edit'
       end
     end
     session[:language] = @user.language

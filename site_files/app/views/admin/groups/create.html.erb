@@ -1,0 +1,34 @@
+<% if File.exists?(Rails.root.join("app", "views", params[:controller], "_new_sidebar.html.erb")) %>
+  <% content_for :sidebar do -%>
+    <%= render :partial => 'new_sidebar' %>
+  <% end -%>
+<% elsif File.exists?(Rails.root.join("app", "views", params[:controller], "_sidebar.html.erb")) %>
+  <% content_for :sidebar do -%>
+    <%= render :partial => 'sidebar' %>
+  <% end -%>
+<% end -%>
+
+  <div class="content">
+    <div class="inner">
+
+      <h2><%= I18n::t('admin.groups.form.new') %></h2>
+
+      <% semantic_form_for :record, @record,
+                           :url => admin_groups_path,
+                           :html => { :class => 'create', :id => 'new_group' } do |form| -%>
+
+        <%= render :partial => 'form', :locals => {:form => form} %>
+
+        <p class="form-footer">
+          <% form.buttons do -%>
+            <%= form.commit_button t('admin.groups.form.create_button'),
+                                   :button_html => {:class => "submit"} %>
+            <%= form.button_link   t('admin.groups.form.cancel_button'), admin_groups_path,
+                                   :button_html => {:class => "negative"} %>
+          <% end -%>
+        </p>
+
+      <% end -%>
+    </div>
+  </div>
+

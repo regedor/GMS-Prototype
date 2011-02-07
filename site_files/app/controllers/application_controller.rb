@@ -41,7 +41,7 @@ class ApplicationController < ActionController::Base
     def require_no_user
       if current_user
         flash[:notice] = t 'flash.require_logout'
-        redirect_to page_url(:root_page)
+        redirect_to root_path
         return false
       else
         return true

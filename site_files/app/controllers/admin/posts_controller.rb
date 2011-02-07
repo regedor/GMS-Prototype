@@ -14,7 +14,6 @@ class Admin::PostsController < Admin::BaseController
   end
 
   def custom_finder_options
-    puts excerpt('Mega cena!', '', :radius => 5, :omission => ' and shit and stuff!')
     return Post.tags_filter @tag_ids
   end
 

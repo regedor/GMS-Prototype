@@ -4,7 +4,7 @@
 ============================================================================
 */
 
-html, body                    { background-color: #2E2A2B; }
+body                          { background-color: #2E2A2B; }
 
 h2                            { margin: 0 0 15px; }
 h3                            { margin: 0 0 1em; }
@@ -20,17 +20,18 @@ div#site-title a:hover        { border: none; }
 div#site-title                { margin: 100px 0 80px; }
 div#site-title h1 a           { display: block; height: 120px; max-width: 200px; text-indent: -6000px}
 div#site-title h1 a           { background: url("/stylesheets/themes/nemum/images/bg_logo.png") no-repeat; }
-div#account-info              { background-color: white; padding: 5px 15px 10px; position: relative; z-index: 1; }
+div#account-info              { background-color: #FFF; padding: 5px 15px 10px; position: relative; z-index: 1; }
 div#content                   { margin-right: 185px; min-height: 200px; }
 div#content p                 { margin: 0 0 1em; }
 div#content table             { margin: 0 0 1em; }
 div#sidebar                   { float: right; height: auto; width: 170px; }
-div#main                      { background-color: white; padding: 20px; position: relative; z-index: 2; }
+div#main                      { background-color: #FFF; padding: 20px; position: relative; z-index: 2; }
 div#main p                    { margin: 0 0 15px; }
 div.meta                      { background-color: #EEE; margin: 0 10px 2.5em; padding: 0.8em; }
 div#footer                    { margin: 1.5em; }
 
-div#flash                     { background-image: url("/images/dark_transparency.png"); padding: 1em 0; position: fixed; width: 100%; left: 0; bottom: 0; border-top: 1px solid #000; }
+div#flash                     { background-image: url("/images/dark_transparency.png"); padding: 1em 0; position: fixed; }
+div#flash                     { width: 100%; left: 0; bottom: 0; border-top: 1px solid #000; }
 div#flash div.message         { height: 64px; }
 div#flash div.message p       { margin: 0 100px; padding: 20px; }
 div#flash div.message.error   { background: url("/stylesheets/themes/nemum/images/flash/error.png") no-repeat 0 50%; }
@@ -44,6 +45,8 @@ span.options                  { float: right; }
 .options a:hover,
 #archives a:hover,
 div#footer a:hover            { border-bottom: 2px solid #F8DA00; }
+
+/* Social buttons */
 
 div#social-buttons            { margin: 0 10px 5px; }
 div#social-buttons iframe     { vertical-align: bottom; }
