@@ -21,10 +21,17 @@ module ApplicationHelper
   end
 
   def avatar_url(record, options={})
-    options[:size] ||= 100
-    default_url    ||= options[:default_url] || "#{root_url}images/guest-#{options[:size]}.png"
-    gravatar_id      = Digest::MD5.hexdigest(record.email.downcase)
-    "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{options[:size]}&d=#{CGI.escape(default_url)}"
+    options[:size] ||= :medium
+    raise "Invalid arguments" unless [:small,:medium].member? options[:size]
+    if record.avatar.path.nil?
+      options[:size]   = 100 if options[:size] == :medium
+      options[:size]   = 50  if options[:size] == :small
+      default_url    ||= options[:default_url] || "#{root_url}images/guest-#{options[:size]}.png"
+      gravatar_id      = Digest::MD5.hexdigest(record.email.downcase)
+      return "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{options[:size]}&d=#{CGI.escape(default_url)}"
+    else
+      return ('<img src="'+ @record.avatar.url(options[:size]) +'" alt="" />')
+    end
   end
 
   def include_i18n_calendar_javascript
