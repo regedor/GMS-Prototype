@@ -3,7 +3,9 @@
   <% @comments.each do |comment| %>
    <div id="comment-<%= comment.id %>" class="comment">
       <div class="meta">
-        <span class="author"><%= User.find(comment.user_id).first_and_last_name %></span> 
+		<% commentator = User.find(comment.user_id)  %>
+	    <span class="avatar"><%= image_tag avatar_url(commentator) %></span>
+        <span class="author"><%= commentator.first_and_last_name %></span> 
         <span class="date"><%= l(message.created_at,:format => :default) %></span>
       </div>
       <div class="entrybody">

@@ -31,6 +31,7 @@ class Admin::MessagesController < Admin::BaseController
   def show
       @message = Message.find(params[:id])
       @comments = Message.find(params[:id]).messages_comments
+      @creator = User.find(@message.user_id)
   end
 
   
