@@ -14,7 +14,6 @@ class User < ActiveRecord::Base
   # Validations
   # ==========================================================================
 
-  validate                :validate_group_picks  
   validates_presence_of   :language
   validates_format_of     :phone,
     :message => "must be a valid telephone number.", 
@@ -22,19 +21,21 @@ class User < ActiveRecord::Base
 
   # Validates if every optional group pick for the user has one and only one group chosen
   def validate_group_picks
+    validation_errors = []
     UserOptionalGroupPick.for_user(self).each do |pick|
       intersection = pick.groups & self.groups
       if intersection.length != 1
         if intersection.length == 0
-          errors.add_to_base I18n::t('admin.users.errors.user_optional_group_picks.zero',
-                                     :name => pick.name)
+          validation_errors << I18n::t('users.errors.user_optional_group_picks.zero',
+                                       :name => pick.name)
         else
-          errors.add_to_base I18n::t('admin.users.errors.user_optional_group_picks.multiple',
-                                     :name => pick.name,
-                                     :groups => intersection.map(&:name).join(', '))
+          validation_errors << I18n::t('users.errors.user_optional_group_picks.multiple',
+                                       :name => pick.name,
+                                       :groups => intersection.map(&:name).join(', '))
         end
       end
     end
+    return validation_errors
   end
 
 
@@ -58,8 +59,6 @@ class User < ActiveRecord::Base
   attr_accessible  :groups
   attr_accessible  :role                
   attr_accessible  :row_mark #scaffold hack
-#  attr_accessible  :group_choosables
-#  attr_accessor  :group_picks
 
 
   # ==========================================================================

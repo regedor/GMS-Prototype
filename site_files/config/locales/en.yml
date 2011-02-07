@@ -40,6 +40,12 @@ en:
         google_signup: "Google Sign Up"
         yahoo_signup: "Yahoo Sign Up"
       commit_button: "Register account"
+    errors:
+      invalid_fields: "Some fields are invalid"
+      user_optional_group_picks:
+        generic: "There groups you chose are conflicting"
+        zero: "No groups chosen for pick '%{name}'"
+        multiple: "Multiple groups chosen for pick '%{name}': %{groups}"
   
 
   user_session:
@@ -263,10 +269,6 @@ en:
         groups:   "Groups"
         role:     "Role"
         cancel:   "Close"
-      errors:
-        user_optional_group_picks:
-          zero: "No groups chosen for pick '%{name}'"
-          multiple: "Multiple groups chosen for pick '%{name}': %{groups}"
 
     deleted_users:
       index:
