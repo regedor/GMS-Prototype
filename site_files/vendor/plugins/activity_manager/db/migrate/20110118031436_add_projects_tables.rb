@@ -11,7 +11,7 @@ class AddProjectsTables < ActiveRecord::Migration
     create_table :to_do_lists do |t|
       t.string  :name,          :null => false
       t.text    :description
-      t.integer    :position  #acts_as_list
+      t.integer :position  #acts_as_list
       t.integer :project_id 
     end
     
@@ -23,6 +23,14 @@ class AddProjectsTables < ActiveRecord::Migration
       t.datetime   :due_date
       t.datetime   :finished_date
       t.integer    :position  #acts_as_list
+      t.timestamps
+    end
+    
+    create_table :to_do_comments do |t|  
+      t.text      :body,                 :null => false
+      t.text      :body_html,            :null => false
+      t.integer   :user_id,              :null => false
+      t.integer   :to_do_id,             :null => false
       t.timestamps
     end
     

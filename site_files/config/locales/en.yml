@@ -224,6 +224,10 @@ en:
         hint: "An email will be sent to the responsible" 
       delete:
         link: "Remove"  
+      comment:
+        link: "Comment"
+        title: "Comment to-do from %{list}"     
+        hint: "Leave a comment..."     
       done:
         show: "Show all %{count} completed to-do's"
         collapse: "Collapse completed to-do's"                        
