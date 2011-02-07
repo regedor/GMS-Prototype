@@ -4,7 +4,7 @@
 ============================================================================
 */
 
-html, body                    { background-color: #2E2A2B; }
+body                          { background-color: #2E2A2B; }
 
 h2                            { margin: 0 0 15px; }
 h3                            { margin: 0 0 1em; }
@@ -20,29 +20,37 @@ div#site-title a:hover        { border: none; }
 div#site-title                { margin: 100px 0 80px; }
 div#site-title h1 a           { display: block; height: 120px; max-width: 200px; text-indent: -6000px}
 div#site-title h1 a           { background: url("/stylesheets/themes/nemum/images/bg_logo.png") no-repeat; }
-div#account-info              { background-color: white; padding: 5px 15px 10px; position: relative; z-index: 1; }
+div#account-info              { background-color: #FFF; padding: 5px 15px 10px; position: relative; z-index: 1; }
 div#content                   { margin-right: 185px; min-height: 200px; }
 div#content p                 { margin: 0 0 1em; }
 div#content table             { margin: 0 0 1em; }
 div#sidebar                   { float: right; height: auto; width: 170px; }
-div#main                      { background-color: white; padding: 20px; position: relative; z-index: 2; }
+div#main                      { background-color: #FFF; padding: 20px; position: relative; z-index: 2; }
 div#main p                    { margin: 0 0 15px; }
 div.meta                      { background-color: #EEE; margin: 0 10px 2.5em; padding: 0.8em; }
 div#footer                    { margin: 1.5em; }
 
-div#flash div.message              { margin: 15px; }
-div#flash div.message p            { margin: 8px; }
-div#flash div.message.error        { border: 1px solid #ffbbbb; background-color: #ffdddd; }
-div#flash div.message.warning      { border: 1px solid #ffff88; background-color: #ffffcc; }
+div#flash                     { background-image: url("/images/dark_transparency.png"); padding: 1em 0; position: fixed; }
+div#flash                     { width: 100%; left: 0; bottom: 0; border-top: 1px solid #000; }
+div#flash div.message         { height: 64px; }
+div#flash div.message p       { margin: 0 100px; padding: 20px; }
+div#flash div.message.error   { background: url("/stylesheets/themes/nemum/images/flash/error.png") no-repeat 0 50%; }
+div#flash div.message.warning { background: url("/stylesheets/themes/nemum/images/flash/warning.png") no-repeat 0 50%; }
 div#flash div.message.info,
-div#flash div.message.notice       { border: 1px solid #1fdf00; background-color: #bbffb6; }
+div#flash div.message.notice  { background: url("/stylesheets/themes/nemum/images/flash/notice.png") no-repeat 2% 50%; }
 
 span.options                  { float: right; }
 .pagination a:hover,
 .meta a:hover,
 .options a:hover,
 #archives a:hover,
-div#footer a:hover               { border-bottom: 2px solid #F8DA00; }
+div#footer a:hover            { border-bottom: 2px solid #F8DA00; }
+
+/* Social buttons */
+
+div#social-buttons            { margin: 0 10px 5px; }
+div#social-buttons iframe     { vertical-align: bottom; }
+div#social-buttons a span     { border: 1px solid #5F78AB; border-bottom: 1px solid #29447E; }
 
 /* Announcements */
 
@@ -50,10 +58,10 @@ div#announcements             { margin: 0 15px; overflow: hidden; z-index: 0; po
 div#announcements             { border-left: 1px solid #555; border-right: 1px solid #555; }
 div.announcement-tail         { display: none; }
 div.announcements-bar         { padding: 0.8em; position: absolute; z-index: 1; }
-div.announcements-bar         { background: url("/images/announcements/transparent.png"); }
+div.announcements-bar         { background: url("/images/dark_transparency.png"); }
 div.announcement-block img    { height: 250px; width: 730px; }
 div.announcement-text         { bottom: 0; position: absolute; right: 0; z-index: 1; }
-div.announcement-text         { background: url("/images/announcements/transparent.png"); padding: 1.2em; width: 300px; }
+div.announcement-text         { background: url("/images/dark_transparency.png"); padding: 1.2em; width: 300px; }
 div.announcement-text p.title { padding: 0 0 1em; }
 
 /* Pages */
@@ -100,7 +108,7 @@ div#navigation   { -moz-border-radius-topleft: 12px; -webkit-border-top-left-rad
 
 div#main         { -moz-border-radius-topright: 12px; -webkit-border-top-right-radius: 12px; border-top-right-radius: 12px; }
 
-div#flash div.message         { -moz-border-radius: 6px; -webkit-border-radius: 6px; border-radius: 6px; }
+div#flash div.message { -moz-border-radius: 6px; -webkit-border-radius: 6px; border-radius: 6px; }
 
 /* Shadows */
 
