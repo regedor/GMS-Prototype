@@ -1,0 +1,48 @@
+<h4><%= I18n::t('admin.groups.form.show') + ' - ' + @record.name %></h4>
+  <dl>
+  
+    <dt><%= t("admin.groups.columns.name")           %></dt>
+    <dd><%= @record.name                          %></dd>
+  
+  <% if @record.description                       %> 
+    <dt><%= t("admin.groups.columns.description")    %></dt> 
+    <dd><%= @record.description                   %></dd> 
+  <% end %>
+  
+  <% unless @record.mailable.nil?                 %> 
+    <dt><%= t("admin.groups.columns.mailable")       %></dt> 
+    <dd><%= @record.mailable                      %></dd> 
+  <% end %>
+  
+  <% unless @record.user_choosable.nil?           %> 
+    <dt><%= t("admin.groups.columns.user_choosable") %></dt> 
+    <dd><%= @record.user_choosable                %></dd> 
+  <% end %>
+  
+  <% if @record.groups.count > 0                  %> 
+    <dt><%= t("admin.groups.columns.groups")         %></dt> 
+    <dd>
+      <ul>
+        <% @record.groups.each do |group| -%>
+          <li><%= group.name %></li>
+        <% end -%>
+      </ul>
+    </dd> 
+  <% end %>
+  
+  <% if @record.direct_users.count > 0            %> 
+    <dt><%= t("admin.groups.columns.direct_users")   %></dt> 
+    <dd>
+      <ul>
+        <% @record.direct_users.each do |user| -%>
+          <li><%= user.name %></li>
+        <% end -%>
+      </ul>
+    </dd> 
+  <% end %>
+  
+</dl>
+
+<p class="form-footer">
+  <%= link_to t("admin.groups.form.close_button"), admin_groups_path, :class => "cancel" %>  
+</p>

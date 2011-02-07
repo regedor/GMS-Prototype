@@ -9,7 +9,6 @@ ActionController::Routing::Routes.draw do |map|
   # ==========================================================================
 
   map.resources :posts
-  map.resources :users, :as => :members
 
   map.connect 'pages/:slug/comments', :controller => 'comments', :action => 'create', :method => :post
   map.pages 'pages/:slug', :controller => 'pages', :action => 'show', :method => :get
@@ -29,8 +28,8 @@ ActionController::Routing::Routes.draw do |map|
   # ==========================================================================
 
   map.namespace :user do |user|
-    user.resource  :account,                            :controller => 'account'
-    user.resources :accounts,                           :controller => 'account'
+    user.resources :accounts,                          :controller => 'account', :only => [ :index, :show ]
+    user.resource  :account,                           :controller => 'account'
     user.resource  :password_reset
     user.resource  :session,                           :controller => 'session', :member => { :send_invitations => :post }
     user.logout    'session/end',                      :controller => 'session', :action => 'destroy'

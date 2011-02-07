@@ -60,10 +60,30 @@ class Admin::UsersController < Admin::BaseController
     end
   end
 
+  # Active Scaffold hack
+  # AS is not updating associated records (reason unknown)
+  # 'do_edit' is executed in the beginning of the update routine
+  # It finds the record from the DB before updating its fields
+  # This way it is possible to update the associations before the 'save' in the end of the update method
+  # This is necessary due to the user optional group picks validations
+  def do_edit
+    super
+    unless params[:record].nil?
+      if params[:record][:group_ids]
+        # The next line is the only one needed from the IF sequence when the edit form uses formtastic
+        @record.group_ids = params[:record][:group_ids]
+      elsif params[:record][:groups]
+        @record.group_ids = params[:record][:groups].map { |k,group| group[:id] }
+      else
+        @record.group_ids = []
+      end
+    end
+  end
+
   protected
 
     def load_groups
       @groups = Group.all(:order => :name)
     end
-  
+
 end

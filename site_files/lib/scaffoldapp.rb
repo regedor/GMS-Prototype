@@ -27,7 +27,7 @@ module Scaffoldapp
         options[:list].unshift :row_mark 
         config.list_actions = value
         config.list_action_names = value.map do |action|
-          action = action[:method] if action.is_a? Hash
+          action = (action.is_a? Hash) ? action[:method] : action.to_s
         end
       else
         config.list_actions = nil
