@@ -25,6 +25,9 @@ Rails::Initializer.run do |config|
   config.gem "sparklines"
   config.gem "tweet-button"
 
+
+  #config.reload_plugins = true if RAILS_ENV == "development"
+
   # Skip frameworks you're not going to use. To use Rails without a database,
   # you must remove the Active Record framework.
   # config.frameworks -= [ :active_record, :active_resource, :action_mailer ]
