@@ -32,6 +32,15 @@
 .active-scaffold a:hover { text-decoration: underline; }
 .active-scaffold table thead p { font: Verdana, Arial; color: #333; font-size: 1em; line-height: 1.2em; }
 .active-scaffold table thead tr  { height: 25px; }
+.active-scaffold input[type=text],
+.active-scaffold textarea  { font-weight: normal !important; border-bottom-left-radius: 4px 4px; border-bottom-right-radius: 4px 4px; border-top-left-radius: 4px 4px; border-top-right-radius: 4px 4px; max-width: 74%; padding: 4px !important; width: 250px; font-family: Verdana, HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 1.2em !important; }
+
+.active-scaffold textarea {width: 100% !important;}
+
+.active-scaffold input[type=text]:focus,
+.active-scaffold textarea:focus { -webkit-box-shadow: rgba(0,0,0,0.3) 0 0 3px; -moz-box-shadow: rgba(0,0,0,0.3) 0 0 3px; box-shadow: 0 0 3px rgba(0,0,0,0.3); border: 1px solid #CCC; }
+
+
 
 a.preview_button {padding: 5px 5px 0px 0px;}
 div.active-scaffold th a,
@@ -107,7 +116,7 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold a.visibility-toggle                     { font-size: 100%;}
 .active-scaffold a.inline-adapter-close                  { float: right;text-indent: -4000px;width: 16px;}
 .active-scaffold h4, .active-scaffold h5                 { color: #333;}
-.content input[type=text]                                { font-size: 14px; width: 250px; font-weight:normal; }
+
 
 
 /*
