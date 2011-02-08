@@ -209,7 +209,7 @@ jQuery.fn.makeSortable = function(){
   </div>
 
   <div id="list_<%= list.id %>" class="todo_list">
-    <%= render :partial => 'admin/to_do_lists/list.html.erb', :locals => {:list => list} %>
+    <%= render :partial => 'admin/to_do_lists/list.html.erb', :locals => {:list => list, :project => @project} %>
   </div>
   <% end %>
   <% counter = counter+1 %>

@@ -29,6 +29,7 @@ class Admin::ToDoListsController < Admin::BaseController
   
   def edit 
     @todo = ToDo.find(params[:id])
+    @project = Project.find(params[:project_id])
     
     respond_to do |format|
       format.json { render :json  =>  {
@@ -45,7 +46,7 @@ class Admin::ToDoListsController < Admin::BaseController
     respond_to do |format|
       format.json { render :json  =>  {
             'id' => params[:id],
-            'html'=> render_to_string(:partial => "admin/to_dos/cancel.html.erb", :layout => false) 
+            'html'=> render_to_string(:partial => "admin/to_dos/content.html.erb", :layout => false, :locals => {:todo => @todo}) 
         }  
       }
     end  
