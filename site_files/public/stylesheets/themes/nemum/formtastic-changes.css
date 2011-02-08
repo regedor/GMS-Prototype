@@ -37,7 +37,7 @@ fieldset.buttons li.commit a.negative:hover          { color: #D32; }
 */
 
 div.todo_content form.formtastic                     { margin: 0; }
-div.comments form.formtastic                         { margin: 25px 15px 0px 25px; }
+div#comments form.formtastic                         { margin: 25px 15px 0px 25px; }
 
 div.form_with_notes                                  { width: 70%; }
 div.form_side_notes                                  { width: 30%; float: right; }
