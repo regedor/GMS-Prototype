@@ -62,11 +62,8 @@ class Admin::UsersController < Admin::BaseController
 
   # Active Scaffold hack
   # AS is not updating associated records (reason unknown)
-  # 'do_edit' is executed in the beginning of the update routine
-  # It finds the record from the DB before updating its fields
-  # This way it is possible to update the associations before the 'save' in the end of the update method
-  # This is necessary due to the user optional group picks validations
-  def do_edit
+  # This way it is possible to update the associations
+  def do_update
     super
     unless params[:record].nil?
       if params[:record][:group_ids]

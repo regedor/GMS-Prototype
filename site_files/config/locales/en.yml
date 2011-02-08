@@ -57,15 +57,22 @@ en:
       blogger: "Blogger" 
       user: "Normal User"
     form:
+      name: "Name"
       email: "Email"
+      phone: "Phone"
+      gender: "Gender"
       password: "Password"
       change_password: "Change password" 
       password_confirmation: "Password confirmation"
       openid: "OpenID URL"
       language: "Language"
+      choosable_groups: "Optional groups"
     edit:
       title: "Edit account"
       commit_button: "Update account"
+      form_inputs_name: "User information"
+      form_auth_inputs_name: "Authentication"
+      form_group_inputs_name: "Groups"
     comment:
       cancel: "Cancel"
     new:
@@ -81,6 +88,12 @@ en:
         google_signup: "Google Sign Up"
         yahoo_signup: "Yahoo Sign Up"
       commit_button: "Register account"
+    errors:
+      invalid_fields: "Some fields are invalid"
+      user_optional_group_picks:
+        generic: "There groups you chose are conflicting"
+        zero: "No groups chosen for pick '%{name}'"
+        multiple: "Multiple groups chosen for pick '%{name}': %{groups}"
   
 
   user_session:
@@ -395,10 +408,6 @@ en:
         groups:   "Groups"
         role:     "Role"
         cancel:   "Close"
-      errors:
-        user_optional_group_picks:
-          zero: "No groups chosen for pick '%{name}'"
-          multiple: "Multiple groups chosen for pick '%{name}': %{groups}"
 
     deleted_users:
       index:
@@ -520,14 +529,23 @@ en:
         title: "Static Pages List"
         destroy_link: "Delete"
         update_link: "Edit"
+        show_link: "Details"
         search: "Search Pages"
         create: "New Page"
-        sidebar:
-          title: "Static pages"
-          paragraph: "You can <b title=\"The create link is above the table.\">create</b> new static pages. They can have a link on the sidebar on the frontend. You can also <b title=\"The edit link is at the end of the row.\">edit</b> existing pages or <b title=\"The delete link is at the end of the row.\">delete</b> it. Clicking on the <b title=\"The name is the string on the Title column.\">page name</b> you will be redirected to the frontend, viewing the page."
-          edit:
-            title: "Edit a page."
-            paragraph: "You are editing a static page. You can change the <b title=\"Will appear at the top of the page and on the browser page title.\">title</b> which is the title of the page and also the header.<br/> On the <b title=\"It is the page content.\">body</b> you can use <a href=\"http://www.w3schools.com/tags/default.asp\" target=\"_blank\">html</a> tags, and <a href=\"http://en.wikipedia.org/wiki/Textile_(markup_language)#Textile_syntax_examples\" target=\"_blank\">textile</a> elements. You can also change the <b title=\"Slug is a small word representing a whole phrase. \">slug</b> which represents the page identification and link.<br/>The <b title=\"Higher value means more priority.\">priority</b> defines how important an page is and where should be placed on the menu of the frontend, if you check the box <b title=\"If you do not check this box, you need to manually create a link to this page.\">Show in the menu</b> Confirm if you want <b title=\"Comments are small texts written about the page that all users can create.\">comments</b> by checking the box at the end.<br/>If you want to preview the final look of the page click on <b title=\"This will generate a preview.\">Preview</b> before <b title=\"This will create the page.\">Save</b>"
+      sidebar:
+        title: "Static pages"
+        paragraph: "You can <b title=\"The create link is above the table.\">create</b> new static pages. They can have a link on the sidebar on the frontend. You can also <b title=\"The edit link is at the end of the row.\">edit</b> existing pages or <b title=\"The delete link is at the end of the row.\">delete</b> it. Clicking on the <b title=\"The name is the string on the Title column.\">page name</b> you will be redirected to the frontend, viewing the page."
+        edit:
+          title: "Edit a page."
+          paragraph: "You are editing a static page. You can change the <b title=\"Will appear at the top of the page and on the browser page title.\">title</b> which is the title of the page and also the header.<br/> On the <b title=\"It is the page content.\">body</b> you can use <a href=\"http://www.w3schools.com/tags/default.asp\" target=\"_blank\">html</a> tags, and <a href=\"http://en.wikipedia.org/wiki/Textile_(markup_language)#Textile_syntax_examples\" target=\"_blank\">textile</a> elements. You can also change the <b title=\"Slug is a small word representing a whole phrase. \">slug</b> which represents the page identification and link.<br/>The <b title=\"Higher value means more priority.\">priority</b> defines how important an page is and where should be placed on the menu of the frontend, if you check the box <b title=\"If you do not check this box, you need to manually create a link to this page.\">Show in the menu</b> Confirm if you want <b title=\"Comments are small texts written about the page that all users can create.\">comments</b> by checking the box at the end.<br/>If you want to preview the final look of the page click on <b title=\"This will generate a preview.\">Preview</b> before <b title=\"This will create the page.\">Save</b>"
+        history:
+          title: "Revert page information"
+          paragraph: "Here you can revert information. Click below on the dates to see the page on that date. Click on <b title=\"The revert link will appear when you click on a previous date.\">\"Revert\"</b> to complete the reversion process."
+        reversion:
+          title: "Reverting"
+          subtitle: "You are reverting information"
+          message: "If you click <b title=\"The revert link button is below.\">\"Revert\"</b> below, you are making your actions permanent!"
+          link: "Revert"
       columns:
         title: "Title"
         excert: "Excert"
@@ -541,9 +559,14 @@ en:
       form:
         new: "New Page"
         edit: "Editing Page"
+        show: "Page Details"
         submit: "Save"
         preview_button: "Preview"
         edit_button: "Edit"
+        create_button: "Create"
+        update_button: "Update"
+        cancel_button: "Cancel"
+        close_button: "Close"
         hints:
           body: "<a href='http://textile.thresholdstate.com/'>Textile enabled</a>. Use Ctrl+Alt+E to switch between preview and edit mode."
           slug: "Leave blank for an auto-generated slug based on the title."

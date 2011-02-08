@@ -1,35 +1,28 @@
-<div class="comments">
-
+<div id="comments">
   <% @comments.each do |comment| %>
-   <div id="comment-<%= comment.id %>" class="comment">
-      <div class="meta">
-		<% commentator = User.find(comment.user_id)  %>
-	    <span class="avatar"><%= image_tag avatar_url(commentator) %></span>
-        <span class="author"><%= commentator.first_and_last_name %></span> 
-        <span class="date"><%= l(message.created_at,:format => :default) %></span>
-      </div>
+    <div id="comment-<%= comment.id %>" class="comment">
+      <% commentator = User.find(comment.user_id) %>
+      <div class="avatar"><%= image_tag avatar_url(commentator, :size => :small) %></div>
+      <span class="author"><%= commentator.first_and_last_name %></span>
+      <span class="date"><%= l(message.created_at, :format => :default) %></span>
       <div class="entrybody">
         <%= raw comment.body_html %>
       </div>
     </div>
-          <hr>
+    <hr>
   <% end %>
-  
-    <% semantic_form_for :record, @record,
-                           :url => admin_project_message_messages_comments_path(params[:project_id],message.id),
-                           :html => { :method => 'post' } do |form| -%>  
-                           
+  <% semantic_form_for :record, @record,
+                       :url  => admin_project_message_messages_comments_path(params[:project_id], message.id),
+                       :html => { :method => 'post' } do |form| -%>
     <% form.input_field_set do -%>
-
-	<%= form.input :body,
-                         :label    => I18n::t('admin.messages.comments.comment'),
-                         :hint     => I18n::t('admin.messages.form.hints.body').html_safe,
-                         :as => :text, 
-                         :input_html => {:rows => 5, :cols => 40} %>
-    <%= form.hidden_field :message_id, :value => message.id %>
-    <%= form.commit_button t('admin.messages.form.create_button'),
-                                   :button_html => {:class => "submit"} %>
-
-    <% end -%> 
+      <%= form.input :body,
+                     :label      => I18n::t('admin.messages.comments.comment'),
+                     :hint       => I18n::t('admin.messages.form.hints.body').html_safe,
+                     :as         => :text,
+                     :input_html => {:rows => 5, :cols => 40} %>
+      <%= form.hidden_field :message_id, :value => message.id %>
+      <%= form.commit_button t('admin.messages.form.create_button'),
+                             :button_html => {:class => 'submit'} %>
     <% end -%>
+  <% end -%>
 </div>

@@ -16,13 +16,14 @@
       <%= f.input :phone, :label => t('users.form.phone') %>
       <%= f.input :language, :as => :select, :label => t('users.form.language'), :collection => select_language_collection %>
     <% end %>
-    <% f.inputs :name => t('users.new.form_auth_inputs_name') do %>
+    <% f.inputs :name => t('users.edit.form_auth_inputs_name') do %>
       <%= f.input :password, :label => t('users.form.change_password'), :required => false %>
       <%= f.input :password_confirmation, :label => t('users.form.password_confirmation'), :required => false %>
       <%= f.input :openid_identifier, :label => t('users.form.openid'), :required => false %>
     <% end %>
-    <% f.inputs :name => t('users.new.form_group_inputs_name') do %>
-      <%= f.input :choosable_groups, :label => t('users.form.choosable_groups'), :as => :check_boxes, :required => false %>
+    <% f.inputs :name => t('users.edit.form_group_inputs_name') do %>
+      <%= f.input :choosable_groups, :label => t('users.form.choosable_groups'), :as => :check_boxes,
+                  :required => false unless Group.find_all_by_user_choosable(true).empty? %>
       <% @picks.each do |pick| -%>
         <% f.semantic_fields_for pick do |sf| -%>
           <%= sf.input :selected_group_id, :label => pick.name, :as => :radio, :required => true, :collection => pick.groups,
@@ -31,7 +32,6 @@
                        :wrapper_html => { :id => "user_user_optional_group_picks_groups_input_#{pick.id}" } %>
         <% end -%>
       <% end -%>
-      <%= f.input :openid_identifier, :label => t('users.form.openid'), :required => false %>
     <% end %>
     <div class="required_field_note"><%= t('generic_sentence.required_field') %></div>
     <% f.buttons do %>

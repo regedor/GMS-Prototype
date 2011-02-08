@@ -23,7 +23,6 @@ class Admin::PostsController < Admin::BaseController
       @actual_record = Post.find params[:id] 
       @history_entry = HistoryEntry.find(params[:history_entry_id])
       @record        = @history_entry.historicable_preview
-      @post          = @record || @actual_record
       render :action => 'show'
     else
      super

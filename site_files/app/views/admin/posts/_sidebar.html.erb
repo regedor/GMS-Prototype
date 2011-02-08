@@ -80,13 +80,14 @@
 
 
 <%# History edit preview page %>
-<% if  @history_entry -%>
+<% if @history_entry -%>
   <div class="block notice">
 <%# <h3>    t "admin.posts.sidebar.reversion.title"     </h3>  is not coherent with pilu themes! %>
     <h4><%= t "admin.posts.sidebar.reversion.subtitle"%></h4>
     <p><%= t "admin.posts.sidebar.reversion.message"%></p>
-    <%= link_to t("admin.posts.sidebar.reversion.link"), admin_history_entries_path({:id => @history_entry.id, :redirect_url => admin_post_url(@actual_record.id)}),
-                 :method => :post %>
+    <%= link_to t("admin.posts.sidebar.reversion.link"), admin_history_entries_path({:id => @history_entry.id,
+                                                                                     :redirect_url => admin_post_url(@actual_record.id)}),
+                                                                                     :method => :post %>
   </div>
 <% end -%>
 

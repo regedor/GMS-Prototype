@@ -1,4 +1,8 @@
 class Admin::ToDoListsController < Admin::BaseController
+  filter_access_to :all,
+    :require         => :manage,
+    :attribute_check => true,
+    :load_method     => lambda { Project.find(params[:project_id]) }
   
   def index
     @project = Project.find(params[:project_id])

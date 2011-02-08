@@ -65,6 +65,7 @@ class User::AccountController < ApplicationController
     if params[:user][:choosable_group_ids]
       params[:user][:choosable_group_ids].each do |id|
         next if (id == "") || Group.find(id).user_choosable
+        # Only a malicious user reaches here
         head 500
         return
       end
@@ -72,6 +73,7 @@ class User::AccountController < ApplicationController
     if params[:user][:user_optional_group_picks]
       params[:user][:user_optional_group_picks].each do |pick_id, group_id|
         next if UserOptionalGroupPick.find(pick_id).groups.map(&:id).member? group_id.to_i
+        # Only a malicious user reaches here
         head 500
         return
       end
@@ -90,13 +92,19 @@ class User::AccountController < ApplicationController
     @user.attributes = params[:user]
     @user.save do |result|
       if result
-        session[:language] = @user.language
-        flash[:notice] = t('flash.account_updated')
-        redirect_to user_account_path(@user)
+        if (validation_errors = @user.validate_group_picks).empty?
+          session[:language] = @user.language
+          flash[:notice] = t('flash.account_updated')
+          redirect_to user_account_path(@user)
+        else
+          # Groups are an association, therefore they are always saved
+          # This reverts the groups to the initial state, in case something is not validated
+          @user.group_ids = initial_group_ids
+          flash[:error] = t('users.errors.user_optional_group_picks.generic') + ":<br />" + validation_errors.map(&:to_s).join('<br />')
+          redirect_to :action => 'edit'
+        end
       else
-        # Groups are an association, therefore they are always saved
-        # This reverts the groups to the initial state, in case something is not validated
-        @user.group_ids = initial_group_ids
+        flash[:error] = t('users.errors.invalid_fields') + ":<br />" + @user.errors.each { |i,e| e.to_s}.join(', ')
         redirect_to :action => 'edit'
       end
     end
