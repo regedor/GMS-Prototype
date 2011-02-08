@@ -55,6 +55,7 @@ form.formtastic input#user_session_openid_identifier { background-position: 2% 5
 form.formtastic fieldset.inputs ol li textarea       { width: 100% !important; }
 
 form.formtastic fieldset.inputs ol li select         { margin-top: 5px; }
+form.formtastic fieldset.inputs ol li p.inline-errors { margin: 0 0 0 165px !important; }
 
 form.formtastic fieldset.inputs ol li textarea,
 form.formtastic fieldset.inputs ol li.string input,

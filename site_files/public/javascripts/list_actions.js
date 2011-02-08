@@ -24,9 +24,7 @@ jQuery(document).ready(function($) {
 		var verboseAction = selectedOption.html().toLowerCase();
 		if(action != "")
 		{
-			var active_controller_url = $("#main-navigation .active a").attr("href");
-			var patt1=/\//g;
-			var active_controller = active_controller_url.split(patt1)[2];
+			var active_controller_url = window.location.pathname;
 
 			var id;
 			var ids = "";

@@ -1,4 +1,9 @@
 module UrlHelper
+
+  def user_account_path(account=nil, options={})
+    account.nil? ? '/user/account' : super
+  end
+
   def posts_path(options = {})
     tags = options[:tags] ? get_tag_names_from_uncertain_array(options.delete(:tags)) : []
     if this_tag = options.delete(:this_tag)
@@ -55,4 +60,5 @@ module UrlHelper
       formatted_posts_with_tags_path(:tags => tag, :format => 'atom')
     end
   end
+
 end

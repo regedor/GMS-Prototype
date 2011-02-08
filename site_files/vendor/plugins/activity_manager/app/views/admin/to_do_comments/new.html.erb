@@ -1,0 +1,15 @@
+<div class="content">
+  <div class="header">	
+    <div class="title">
+      <%= t("admin.to_do.comment.title", :list => @todo.to_do_list.name) %>
+    </div>		
+    <div class="meta">	
+      <span class="responsible"><%= @todo.user.name %></span>:
+      <span class="description"><%= @todo.description %></span>
+    </div>
+  </div>
+  <div class="comment">
+	<span class="avatar"><%= image_tag avatar_url(@todo.user,:size => :small) %></span>
+	<span class="hint"><%= t("admin.to_do.comment.hint") %></span>
+  </div>	
+</div>

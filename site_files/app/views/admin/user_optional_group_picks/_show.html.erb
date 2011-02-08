@@ -1,0 +1,37 @@
+<h4><%= I18n::t('admin.user_optional_group_picks.form.show') + ' - ' + @record.name %></h4>
+  <dl>
+  
+    <dt><%= t("admin.user_optional_group_picks.columns.name")        %></dt>
+    <dd><%= @record.name                                             %></dd>
+  
+  <% if @record.description                                          %> 
+    <dt><%= t("admin.user_optional_group_picks.columns.description") %></dt> 
+    <dd><%= @record.description                                      %></dd> 
+  <% end %>
+  
+  <% unless @record.role.nil?                                        %> 
+    <dt><%= t("admin.user_optional_group_picks.columns.role")        %></dt> 
+    <dd><%= @record.role.label                                       %></dd> 
+  <% end %>
+  
+  <% unless @record.group.nil?                                       %> 
+    <dt><%= t("admin.user_optional_group_picks.columns.group")       %></dt> 
+    <dd><%= @record.group.name                                       %></dd> 
+  <% end %>
+  
+  <% if @record.groups.count > 0                                     %> 
+    <dt><%= t("admin.user_optional_group_picks.columns.groups")      %></dt> 
+    <dd>
+      <ul>
+        <% @record.groups.each do |group| -%>
+          <li><%= group.name %></li>
+        <% end -%>
+      </ul>
+    </dd> 
+  <% end %>
+  
+</dl>
+
+<p class="form-footer">
+  <%= link_to t("admin.user_optional_group_picks.form.close_button"), admin_user_optional_group_picks_path, :class => "cancel" %>  
+</p>

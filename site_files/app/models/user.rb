@@ -6,17 +6,36 @@ class User < ActiveRecord::Base
 
   has_many   :groups_users  
   has_many   :groups, :through => :groups_users
+  has_many   :choosable_groups, :through => :groups_users, :source => :group, :conditions => { :user_choosable => true }
   belongs_to :role
 
 
   # ==========================================================================
   # Validations
   # ==========================================================================
-  
+
+  validate                :validate_group_picks  
   validates_presence_of   :language
   validates_format_of     :phone,
     :message => "must be a valid telephone number.", 
     :with => /(^[\(\)0-9\- \+\.]{9,20} *[extension\.]{0,9} *[0-9]{0,5}$)|(^$)/i #FIXME i18n
+
+  # Validates if every optional group pick for the user has one and only one group chosen
+  def validate_group_picks
+    UserOptionalGroupPick.for_user(self).each do |pick|
+      intersection = pick.groups & self.groups
+      if intersection.length != 1
+        if intersection.length == 0
+          errors.add_to_base I18n::t('admin.users.errors.user_optional_group_picks.zero',
+                                     :name => pick.name)
+        else
+          errors.add_to_base I18n::t('admin.users.errors.user_optional_group_picks.multiple',
+                                     :name => pick.name,
+                                     :groups => intersection.map(&:name).join(', '))
+        end
+      end
+    end
+  end
 
 
   # ==========================================================================
@@ -39,6 +58,8 @@ class User < ActiveRecord::Base
   attr_accessible  :groups
   attr_accessible  :role                
   attr_accessible  :row_mark #scaffold hack
+#  attr_accessible  :group_choosables
+#  attr_accessor  :group_picks
 
 
   # ==========================================================================
@@ -210,17 +231,18 @@ class User < ActiveRecord::Base
 
   # User's first name
   def first_name
-    self.name.split(" ").first
+    self.name.nil? ? "" : self.name.split(" ").first
   end
 
   # User's last name
   def last_name
+    return "" if self.name.nil?
     (names = self.name.split(" ")).length == 1 ? "" : names.last
   end
 
   # User's first and last name
   def first_and_last_name
-    [first_name,last_name].join(" ").chomp " "
+    [first_name, last_name].join(" ").chomp " "
   end
 
   # User's small name

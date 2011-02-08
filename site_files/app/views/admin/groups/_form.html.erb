@@ -1,0 +1,23 @@
+<% form.input_field_set do -%>
+  <%= form.input :name,
+                 :label    => I18n::t('admin.groups.columns.name') %>
+  <%= form.input :description,
+                 :required => false,
+                 :label    => I18n::t('admin.groups.columns.description') %>
+  <%= form.input :mailable,
+                 :as       => :radio,
+                 :hint     => I18n::t('admin.groups.form.hints.mailable'),
+                 :label    => I18n::t('admin.groups.columns.mailable') %>
+  <%= form.input :user_choosable,
+                 :as       => :radio,
+                 :hint     => I18n::t('admin.groups.form.hints.user_choosable'),
+                 :label    => I18n::t('admin.groups.columns.user_choosable') %>
+  <%= form.input :groups,
+                 :as       => :check_boxes,
+                 :hint     => I18n::t('admin.groups.form.hints.groups'),
+                 :label    => I18n::t('admin.groups.columns.groups') %>
+  <%= form.input :direct_users,
+                 :as       => :check_boxes,
+                 :hint     => I18n::t('admin.groups.form.hints.direct_users'),
+                 :label    => I18n::t('admin.groups.columns.direct_users') %>
+<% end -%>

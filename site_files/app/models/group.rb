@@ -8,20 +8,19 @@ class Group < ActiveRecord::Base
   has_many                :direct_users, :through => :groups_users, :source => :user
   has_and_belongs_to_many :groups,       :association_foreign_key => "include_group_id"
 
-  after_save :update_user_count
-
 
   # ==========================================================================
   # Validations
   # ==========================================================================
 
-  named_scope :not_deleted, :conditions => {:deleted => false}
   validates_uniqueness_of :name
   
   
   # ==========================================================================
   # Instance Methods
   # ==========================================================================
+
+  after_save :update_user_count
 
   # Returns all the users in the group and its subgroups
   def all_users
@@ -69,6 +68,16 @@ class Group < ActiveRecord::Base
   # ==========================================================================
 
   class << self
+
+    #FIXME 
+    # Maybe override the delete class method, not sure
+    # Deletes users from their ids
+    def delete_by_ids!(ids)
+      ids.each do |id|
+        return false unless Group.delete(id)
+      end
+      return true
+    end
 
   end
   

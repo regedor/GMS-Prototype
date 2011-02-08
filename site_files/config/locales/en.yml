@@ -224,6 +224,10 @@ en:
         hint: "An email will be sent to the responsible" 
       delete:
         link: "Remove"  
+      comment:
+        link: "Comment"
+        title: "Comment to-do from %{list}"     
+        hint: "Leave a comment..."     
       done:
         show: "Show all %{count} completed to-do's"
         collapse: "Collapse completed to-do's"                        
@@ -391,7 +395,11 @@ en:
         groups:   "Groups"
         role:     "Role"
         cancel:   "Close"
-        
+      errors:
+        user_optional_group_picks:
+          zero: "No groups chosen for pick '%{name}'"
+          multiple: "Multiple groups chosen for pick '%{name}': %{groups}"
+
     deleted_users:
       index:
         title: "Deleted Users List"
@@ -458,8 +466,17 @@ en:
         groups: "Groups"
         direct_users: "Users"
         user_choosable: "User choosable"
-      create:
-        title: "Group"
+      form:
+        show: "Group Details"
+        new: "New Group"
+        edit: "Editing Group"
+        create_button: "Create"
+        update_button: "Update"
+        cancel_button: "Cancel"
+        close_button: "Close"
+#        hints:
+      list_actions:
+        delete_by_ids!: "Delete"
       list:
         noentries: "No Groups Found"
         found:
@@ -483,8 +500,15 @@ en:
         group: "Group"
         role: "Role"
         groups: "Optional Groups"
-      create:
-        title: "User Optional Group Picks"
+      form:
+        show: "Group Pick Details"
+        new: "New Group Pick"
+        edit: "Editing Group Pick"
+        create_button: "Create"
+        update_button: "Update"
+        cancel_button: "Cancel"
+        close_button: "Close"
+#        hints:
       list:
         noentries: "No Picks Found"
         found:
@@ -566,7 +590,7 @@ en:
           more: "%{count} Posts Found"
           one: "%{count} Post Found"
       form:
-        show: "Show Post"
+        show: "Post Details"
         new: "New Post"
         edit: "Editing Post"
         edit_tag: "Editing Tag - %{name}"
