@@ -74,18 +74,18 @@ div.active-scaffold-header div.actions input[type=text] { background: url("/styl
 
 /* True & false */
 
-.true         { background: url("/stylesheets/themes/nemum/icons/accept.png") no-repeat 40% 50%; padding-left: 18px; text-indent: -6000px;}
+.true         { background: url("/stylesheets/themes/nemum/icons/accept.png") no-repeat 0 50%; padding-left: 18px; text-indent: -6000px;}
 .true-male    { background: url("/stylesheets/themes/nemum/icons/male.png") no-repeat 0 50%; padding-left: 18px;text-indent: -6000px;}
 .true-tick    { background: url("/stylesheets/themes/nemum/icons/tick.png") no-repeat 0 50%; padding-left: 18px;text-indent: -6000px;}
 
-.false        { background: url("/stylesheets/themes/nemum/icons/cancel.png") no-repeat 40% 50%; padding-left: 18px;text-indent: -6000px;}
-.false-cross  { background: url("/stylesheets/themes/nemum/icons/cross.png") no-repeat 40% 50%; padding-left: 18px;text-indent: -6000px;}
-.false-delete { background: url("/stylesheets/themes/nemum/icons/delete.png") no-repeat 40% 50%; padding-left: 18px;/*text-indent: -6000px;*/}
-.false-excl   { background: url("/stylesheets/themes/nemum/icons/exclamation.png") no-repeat 40% 50%; padding-left: 18px;/*text-indent: -6000px;*/}
-.false-error  { background: url("/stylesheets/themes/nemum/icons/error.png") no-repeat 40% 50%; padding-left: 18px;/*text-indent: -6000px;*/}
+.false        { background: url("/stylesheets/themes/nemum/icons/cancel.png") no-repeat 0 50%; padding-left: 18px;text-indent: -6000px;}
+.false-cross  { background: url("/stylesheets/themes/nemum/icons/cross.png") no-repeat 0 50%; padding-left: 18px;text-indent: -6000px;}
+.false-delete { background: url("/stylesheets/themes/nemum/icons/delete.png") no-repeat 0 50%; padding-left: 18px;/*text-indent: -6000px;*/}
+.false-excl   { background: url("/stylesheets/themes/nemum/icons/exclamation.png") no-repeat 0 50%; padding-left: 18px;/*text-indent: -6000px;*/}
+.false-error  { background: url("/stylesheets/themes/nemum/icons/error.png") no-repeat 0 50%; padding-left: 18px;/*text-indent: -6000px;*/}
 .false-female { background: url("/stylesheets/themes/nemum/icons/female.png") no-repeat 0 50%; padding-left: 18px;text-indent: -6000px;}
-.false-help   { background: url("/stylesheets/themes/nemum/icons/help.png") no-repeat 40% 50%; padding-left: 18px;/*text-indent: -6000px;*/}
-.false-time   { background: url("/stylesheets/themes/nemum/icons/time.png") no-repeat 40% 50%; padding-left: 18px;/*text-indent: -6000px;*/}
+.false-help   { background: url("/stylesheets/themes/nemum/icons/help.png") no-repeat 0 50%; padding-left: 18px;/*text-indent: -6000px;*/}
+.false-time   { background: url("/stylesheets/themes/nemum/icons/time.png") no-repeat 0 50%; padding-left: 18px;/*text-indent: -6000px;*/}
 .false-empty  { padding-left: 18px;}
 
 /* Icons on hover */
