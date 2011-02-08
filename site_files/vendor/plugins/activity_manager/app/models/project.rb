@@ -34,6 +34,9 @@ class Project < ActiveRecord::Base
   # ==========================================================================
 
   class << self
+    def find_all_for_user(user)
+      find_by_sql('SELECT projects.* FROM projects INNER JOIN projects_users ON ' + user.id.to_s + ' = projects_users.user_id ')
+    end
     
   end
 
