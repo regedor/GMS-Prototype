@@ -1,21 +1,61 @@
 <% if (controller.action_name == "index") %>
  <div class="block">
-    <h3><%=h t("admin.pages.index.sidebar.title") %></h3>
+    <h3><%=h t("admin.pages.sidebar.title") %></h3>
     <div class="content">
       <p>
-        <%= t("admin.pages.index.sidebar.paragraph") %>
+        <%= t("admin.pages.sidebar.paragraph") %>
       </p>
     </div>
   </div>
 <% end %>
 
+<%# Revert Preview, show and delete pages %>
+<%# History list %>
+<% if (controller.action_name != "edit") and (@history_entry or @record && !@record.new_record?) -%> 
+  <div class="block">
+    <h3><%= t "admin.pages.sidebar.history.title", :name => @record.title %></h3>
+    <div class="content">
+      <p><%= t("admin.pages.sidebar.history.paragraph") %></p>
+      <ul class="options">
+        <% history_rows = ( @actual_record || @record ).history_entries_list -%> 
+        <% if (first_entry = history_rows.shift) -%> 
+          <li class="<%= 'selected' unless params[:history_entry_id] %>">
+            <%= link_to t("generic_sentence.time_ago", {:time_ago => time_ago_in_words(first_entry.created_at)}), 
+                        admin_page_path(first_entry.historicable) %>
+            <%= first_entry.user_name %>
+          </li>
+        <% end -%> 
+        <% history_rows.each do |entry| -%> 
+          <li class="<%= 'selected' if params[:history_entry_id].to_s == entry.id.to_s %>">
+            <%= link_to t("generic_sentence.time_ago", {:time_ago => time_ago_in_words(entry.created_at)}), 
+                        admin_page_path(entry.historicable,{:history_entry_id => entry.id}) %>
+            <%= entry.user_name %>
+          </li>
+        <% end -%> 
+      </ul> 
+    </div>
+  </div>
+<% end -%> 
+
 <% if (controller.action_name == "edit") %>
  <div class="block">
-    <h3><%=h t("admin.pages.index.sidebar.edit.title") %></h3>
+    <h3><%=h t("admin.pages.sidebar.edit.title") %></h3>
     <div class="content">
       <p>
-        <%= t("admin.pages.index.sidebar.edit.paragraph") %>
+        <%= t("admin.pages.sidebar.edit.paragraph") %>
       </p>
     </div>
   </div>
 <% end %>
+
+<%# History edit preview page %>
+<% if @history_entry -%> 
+  <div class="block notice">
+<%# <h3>    t "admin.pages.sidebar.reversion.title"     </h3>  is not coherent with pilu themes! %>
+    <h4><%= t "admin.pages.sidebar.reversion.subtitle"%></h4>
+    <p><%= t "admin.pages.sidebar.reversion.message"%></p>
+    <%= link_to t("admin.pages.sidebar.reversion.link"), admin_history_entries_path({:id => @history_entry.id,
+                                                                                     :redirect_url => admin_page_url(@actual_record.id)}),
+                                                                                     :method => :post %>
+  </div>
+<% end -%>

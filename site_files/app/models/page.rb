@@ -20,6 +20,9 @@ class Page < ActiveRecord::Base
   # Extra definitions
   # ==========================================================================
 
+  # Makes this model historicable
+  include HistoryEntry::Historicable
+
   before_save           :apply_filter
   named_scope :navigation_pages, :conditions => {:show_in_navigation => true}, :order => "priority desc"
 
