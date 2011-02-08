@@ -704,6 +704,15 @@ en:
         avatar: "Image"
       create:
         title: "Announcement"
+      form:
+        show: "Announcement Details"
+        new: "New Announcement"
+        edit: "Editing Announcement"
+        create_button: "Create"
+        update_button: "Update"
+        cancel_button: "Cancel"
+        close_button: "Close"
+#        hints:
       list:
         noentries: "No announcements"
         found:
@@ -718,6 +727,7 @@ en:
         edit:
           title: "Edit announcement"
           paragraph: "You are editing an announcement. You can specify a <b title=\"The title will identify the announcement.\">title</b>, change the <b title=\"The announcement will be visible between the start and end date.\" >date</b> when it will be visible. You can edit the target <b title=\"The url is the target page, when the image is clicked.\">url</b>, and the background <b title=\"The image will fill all the banner area.\">image</b>. Finally you can change the <b title=\"If your message is too long, it will cover cover the image.\">message</b> which appear in front of the image.<br/>If you want to create a big announcement, you should the create a <b title=\"See the link on the tab above.\">static page</b> with all the information, and link the announcement to that page."
+
     settings:
       title: "Settings management"
       theme: "Theme"
