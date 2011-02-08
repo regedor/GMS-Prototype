@@ -76,45 +76,40 @@ jQuery(document).ready(function($) {
         <ol class="form">
           <li class="form-element">
             <dl>
-              <dt><label><%= I18n::t("admin.mails.to") %></label></dt> 
-              <dd>	
-                  <div id="outer_holder">
-                     <span id="recipients_holder">
-                     	  <%= text_field_tag :mail_recipients, "", :size => 1, :class=>"placeholder" %>
-                     </span>
-                  </div>			
-		      </dd> 
+              <dt><label><%= I18n::t("admin.mails.to") %></label></dt>
+              <dd>
+                <div id="outer_holder">
+                  <span id="recipients_holder">
+                    <%= text_field_tag :mail_recipients, '', :size => 35, :class => 'text-input' %>
+                  </span>
+                </div>			
+              </dd> 
             </dl>
           </li>
-
           <li class="form-element">
             <dl>
-              <dt><label><%= I18n::t("admin.mails.subject") %></label></dt> 
-              <dd> <%= f.text_field :subject %></dd> 
+              <dt><label><%= I18n::t("admin.mails.subject") %></label></dt>
+              <dd><%= text_field_tag :subject, '', :size => 35, :class => 'text-input' %></dd>
             </dl>
           </li>
-          
           <li class="form-element">
             <dl>
-              <dt><label><%= I18n::t("admin.mails.message") %></label></dt> 
-              <dd> <%= f.text_area :message %></dd> 
+              <dt><label><%= I18n::t("admin.mails.message") %></label></dt>
+              <dd> <%= f.text_area :message %></dd>
               <%= f.hidden_field(:mailable) %>
-			  <%= hidden_field_tag(:mail_to) %>
+              <%= hidden_field_tag(:mail_to) %>
             </dl>
           </li>
         </ol>
-        
-       <p class="form-footer">
-        <%= f.submit I18n::t("admin.mails.send"), :class => "submit" %>
+      <p class="form-footer">
+        <%= f.submit I18n::t('admin.mails.send'), :class => 'submit' %>
       </p>
     <% end -%>
   </div>
 </div>
 
-<% if File.exists?(Rails.root.join("app", "views", params[:controller], "_sidebar.html.erb")) %>
+<% if File.exists?(Rails.root.join('app', 'views', params[:controller], '_sidebar.html.erb')) %>
   <% content_for :sidebar do -%>
-    <%= render :partial => 'sidebar'  %>
+    <%= render :partial => 'sidebar' %>
   <% end -%>
 <% end -%>
-
-
