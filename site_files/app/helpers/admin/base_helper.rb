@@ -90,17 +90,17 @@ module Admin::BaseHelper
   
   def active_column(record)
     if record.active
-      '<p class = "true-tick">'+I18n::t('generic_sentence.true_value')+'</p>'
+      '<p class = "tick">'+I18n::t('generic_sentence.true_value')+'</p>'
     else
-      '<p class = "false-cross">'+I18n::t("generic_sentence.false_value")+'</p>'
+      '<p class = "cross">'+I18n::t("generic_sentence.false_value")+'</p>'
     end
   end
   
   def mailable_column(record)
     if record.mailable
-      '<p class = "true-tick">'+I18n::t('generic_sentence.true_value')+'</p>'
+      '<p class = "tick">'+I18n::t('generic_sentence.true_value')+'</p>'
     else
-      '<p class = "false-cross">'+I18n::t("generic_sentence.false_value")+'</p>'
+      '<p class = "cross">'+I18n::t("generic_sentence.false_value")+'</p>'
     end  
   end
 
