@@ -12,7 +12,8 @@
   <div class="comments">
 	<% @todo.comments.each do |comment| %>
 	  <div class="avatar"><%= image_tag avatar_url(comment.user,:size => :small) %></div>
-	  <div class="comments_meta">
+	  <% classStr = (comment.user == current_user) ? "comments_meta highlight" : "comments_meta" %>
+	  <div class="<%= classStr %>">
 		<span class="name"><%= comment.user.name %></span>
 		<spna class="date"><%= l(comment.created_at, :format => :default) %></span>
 	  </div>
