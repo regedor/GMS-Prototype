@@ -41,8 +41,8 @@ module Admin::BaseHelper
     truncate(record.message,50,"...")
   end  
 
-  def role_column(record)
-    record.role.nil? ? '-' : t('users.roles.' + record.role.label)
+  def role_column(user)
+    t("users.roles." + user.role.label)
   end
 
   def row_mark_column(record)

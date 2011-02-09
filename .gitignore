@@ -1,5 +1,4 @@
 # Project specific ignores
-/site_files/public/system/*
 /site_files/doc/implementation_guidelines/simon_wfreport.aux
 /site_files/doc/implementation_guidelines/simon_wfreport.log
 /site_files/doc/implementation_guidelines/simon_wfreport.nav
@@ -17,7 +16,6 @@ capybara-*.html
 /site_files/log/*
 /site_files/tmp/*
 /site_files/db/*.sqlite3
-/site_files/.bundle
 /site_files/vendor/bundle
 /site_files/public/system/*
 /site_files/coverage/
@@ -25,6 +23,11 @@ capybara-*.html
 /site_files/config/database.yml
 /site_files/db/schema.rb
 /site_files/config/mailer.yml
+/site_files/public/spec.html
+/site_files/public/system/*
+/site_files/Gemfile.lock
+/site_files/.bundle
+/site_files/public/spec.html
 **.orig
 /site_files/config/*.yml
 rerun.txt

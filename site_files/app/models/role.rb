@@ -17,8 +17,22 @@ class Role < ActiveRecord::Base
   # ==========================================================================
   # Class Methods
   # ==========================================================================
+  @@symbols = nil
 
   class << self
+    def id_for(role_symbol)
+      return @@symbols[role_symbol] if @@symbols
+      @@symbols = {}
+      Role.all.each do |role|
+        @@symbols[role.label.to_sym] = role.id
+      end
+      @@symbols[role_symbol]
+    end
+
+    def find_by_symbol(symbol)
+      find_by_label symbol.to_s
+    end
   end
+
 
 end

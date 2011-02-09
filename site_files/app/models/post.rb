@@ -13,7 +13,7 @@ class Post < ActiveRecord::Base
 
   validates_presence_of   :title, :slug, :body
 
-  validate                :validate_published_at_natural
+#  validate                :validate_published_at_natural
 
   named_scope :not_deleted, :conditions => {:deleted => false}
 
@@ -30,9 +30,9 @@ class Post < ActiveRecord::Base
   end
 
   # Validate published status
-  def validate_published_at_natural
-    errors.add("published_at_natural", "Unable to parse time") unless published?
-  end
+#  def validate_published_at_natural
+#    errors.add("published_at_natural", "Unable to parse time") unless published?
+#  end
 
   attr_accessor :minor_edit
   # Sets minor edition
@@ -50,11 +50,11 @@ class Post < ActiveRecord::Base
     published_at?
   end
 
-  attr_accessor :published_at_natural
+#  attr_accessor :published_at_natural
   # Publication date at natural form. (e.g. 2011-01-01 00:00:00 )
-  def published_at_natural
-    @published_at_natural ||= published_at.send_with_default(:strftime, 'now', "%Y-%m-%d %H:%M:%S")
-  end
+#  def published_at_natural
+#    @published_at_natural ||= published_at.send_with_default(:strftime, 'now', "%Y-%m-%d %H:%M:%S")
+#  end
 
   # Returns the post's publication month
   def month
@@ -63,7 +63,7 @@ class Post < ActiveRecord::Base
 
   # Sets excerpt_html and body_html formatted as xhtml.
   def apply_filter
-    formatted = EnkiFormatter.format_as_xhtml_with_excerpt(self.body)
+    formatted = TextFormatter.format_as_xhtml_with_excerpt(self.body)
     self.splitted = formatted[:splitted]
     self.excerpt_html = formatted[:excerpt]
     self.body_html = formatted[:body]
@@ -72,7 +72,7 @@ class Post < ActiveRecord::Base
   # Sets post dates
   def set_dates
     self.edited_at = Time.now if self.edited_at.nil? || !minor_edit?
-    self.published_at = Chronic.parse(self.published_at_natural)
+#    self.published_at = DateTime.strptime(self.published_at, "%m/%d/%Y").to_time
   end
 
   # Generates slug

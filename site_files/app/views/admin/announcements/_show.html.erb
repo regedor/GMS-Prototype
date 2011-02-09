@@ -1,0 +1,36 @@
+<h4><%= I18n::t('admin.announcements.form.show') + ' - ' + @record.title %></h4>
+  <dl>
+  
+    <dt><%= t("admin.announcements.columns.title")           %></dt>
+    <dd><%= @record.title                                    %></dd>
+  
+  <% if @record.starts_at                                    %>
+    <dt><%= t("admin.announcements.columns.starts_at")       %></dt> 
+    <dd><%= @record.starts_at                                %></dd>
+  <% end %>
+  
+  <% if @record.ends_at                                      %> 
+    <dt><%= t("admin.announcements.columns.ends_at")         %></dt> 
+    <dd><%= @record.ends_at                                  %></dd>
+  <% end %>
+  
+  <% if @record.url                                          %> 
+    <dt><%= t("admin.announcements.columns.url")             %></dt> 
+    <dd><%= link_to(@record.url, @record.url)                %></dd> 
+  <% end %>
+  
+  <% unless @record.avatar.path.nil?                         %> 
+    <dt><%= t("admin.announcements.columns.avatar")          %></dt> 
+    <dd><img src="<%= @record.avatar.url(:medium) %>" alt="" /></dd> 
+  <% end %>
+  
+  <% if !@record.message.nil? && @record.message != ""       %> 
+    <dt><%= t("admin.announcements.columns.message")         %></dt> 
+    <dd><%= @record.message                                  %></dd> 
+  <% end %>
+  
+</dl>
+
+<p class="form-footer">
+  <%= link_to t("admin.announcements.form.close_button"), admin_announcements_path, :class => "cancel" %>  
+</p>

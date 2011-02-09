@@ -1,0 +1,20 @@
+<% form.input_field_set do -%>
+  <%= form.input :title,
+                 :label    => I18n::t('admin.announcements.columns.title') %>
+  <%= form.input :starts_at,
+                 :label    => I18n::t('admin.announcements.columns.starts_at') %>
+  <%= form.input :ends_at,
+                 :label    => I18n::t('admin.announcements.columns.ends_at') %>
+  <%= form.input :url,
+                 :required => false,
+                 :hint     => I18n::t('admin.announcements.form.hints.url'),
+                 :label    => I18n::t('admin.announcements.columns.url') %>
+  <%= form.input :avatar,
+                 :required => false,
+                 :hint     => I18n::t('admin.announcements.form.hints.avatar'),
+                 :label    => I18n::t('admin.announcements.columns.avatar') %>
+  <%= form.input :message,
+                 :required => false,
+                 :hint     => I18n::t('admin.announcements.form.hints.message'),
+                 :label    => I18n::t('admin.announcements.columns.message') %>
+<% end -%>
