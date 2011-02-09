@@ -60,7 +60,12 @@
 				<% end %>
 		  </span>	 
 		<% end %>
-		<span class="todo_comments"><%= link_to t("admin.to_do.comment.link"),new_admin_project_to_do_comment_path(params[:project_id],todo.id),{:id => "comment_#{todo.id}", :class => "comment_item"} %></span>
+		<div class="todo_comments">
+		  <div class="text"><%= link_to t("admin.to_do.comment.link"), new_admin_project_to_do_comment_path(params[:project_id],todo.id), {:id => "comment_#{todo.id}", :class => "comment_item"} %></div>
+		  <div class="number_comments">
+			  <%= todo.comments.size %>
+		  </div>
+		</div>
   	  </li>
 	<%= "</span>" if index == (divided_hash[:done].size - 1) %>
   	<% end %>	

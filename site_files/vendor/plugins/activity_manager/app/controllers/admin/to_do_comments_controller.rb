@@ -3,6 +3,7 @@ class Admin::ToDoCommentsController < Admin::BaseController
     def new
       @todo = ToDo.find(params[:to_do_id])
       @comment = ToDoComment.new
+      @project = Project.find(params[:project_id])
     end  
     
     def create 
