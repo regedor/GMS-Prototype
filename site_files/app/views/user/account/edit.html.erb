@@ -14,7 +14,7 @@
                   :collection => [[t('generic_sentence.female_value'), false], [t('generic_sentence.male_value'), true]] %>
       <%= f.input :email, :label => t('users.form.email') %>
       <%= f.input :phone, :label => t('users.form.phone') %>
-      <%= f.input :language, :as => :select, :label => t('users.form.language'), :collection => select_language_collection %>
+      <%= f.input :language, :as => :select, :label => t('users.form.language'), :collection => select_language_collection unless configatron.force_locale %>
     <% end %>
     <% f.inputs :name => t('users.edit.form_auth_inputs_name') do %>
       <%= f.input :password, :label => t('users.form.change_password'), :required => false %>
