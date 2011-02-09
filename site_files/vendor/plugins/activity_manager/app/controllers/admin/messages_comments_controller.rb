@@ -1,4 +1,5 @@
 class Admin::MessagesCommentsController < Admin::BaseController
+    filter_access_to :all, :require => :create, :attribute_check => true, :load_method => lambda {Message.find(params[:message_id])}
     
     def create 
         record = params[:record]

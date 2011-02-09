@@ -3,7 +3,7 @@
 
       <h2><%= I18n::t('admin.messages.form.new')  %></h2>
 
-      <% semantic_form_for :record, @record,
+      <% semantic_form_for @record,
                            :url => admin_project_messages_path,
                            :html => { :class => 'create', :id => 'new_message' } do |form| -%>
 

@@ -14,23 +14,7 @@
 		  <% else %>		
 	  	  	<li id="item_<%= todo.id  %>" class="todo">
 		  <% end %>
-          <input type="checkbox" id="<%= todo.id %>" value="<%= todo.id %>" onclick="jQuery(this).check();" /> 	
-		  <div id="todo_content-<%= todo.id %>" class="todo_content">
-          	<span class="todo_desc"><%= todo.description %></span>
-		  	<% if todo.user || todo.due_date %>
-		  	<span class="todo_info">
-		  		<% if todo.user %>
-		  		 	<span class="responsible"><%= todo.user.name %></span>
-		  		<% end %>
-		  		<% if todo.due_date %>
-		  			<span class="date"><%= l(todo.due_date, :format => :medium) %></span>
-		  		<% end %>	
-		  	</span>
-			<% end %>
-		  	<span class="todo_edit"><%= link_to t("admin.to_do.edit.link"),"#edit_#{todo.id}",{:id => "edit_#{todo.id}", :class => "edit_item", :onclick => "jQuery(this).edit();"} %></span>
-			<span class="todo_delete"><%= link_to t("admin.to_do.delete.link"),"#",{:id => "delete_#{todo.id}", :class => "delete_item", :onclick => "jQuery(this).delete();"} %></span>
-			<span class="todo_comments"><%= link_to t("admin.to_do.comment.link"),new_admin_project_to_do_comment_path(params[:project_id],todo.id),{:id => "comment_#{todo.id}", :class => "comment_item"} %></span>
-		  </div>
+          <%= render :partial => "admin/to_dos/content", :locals => {:todo => todo}, :layout => false %>
         </li>
       <% end %>
     </ul>
@@ -42,8 +26,8 @@
 		<% semantic_form_for(:todo, :url => admin_project_to_dos_path) do |f| %>
 		  <% f.inputs do %>
 		    <%= f.input :description, :as => :text, :input_html => {:rows => 3, :cols => 40}, :label => t("admin.to_do.add_new.title") %>
-			<%= f.input :responsible, :as => :select, :collection => User.all, :required => false, :hint => t("admin.to_do.add_new.hint") %>
-			<%= f.input :due_date, :as => :string, :required => false, :input_html => {:id => "pooois", :class => "datepicker"} %>			
+			<%= f.input :responsible, :as => :select, :collection => project.users, :required => false, :hint => t("admin.to_do.add_new.hint") %>
+			<%= f.input :due_date, :as => :string, :required => false, :input_html => {:class => "datepicker"} %>			
 			<%= f.input :to_do_list_id, :as => :hidden, :value => list.id %>
 		  <% end  %>
 		  <% f.buttons do %>

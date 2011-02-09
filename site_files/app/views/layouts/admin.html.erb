@@ -72,7 +72,8 @@
 
           <%= navigation_menu 'admin.navigation.main.projects',
                               [ 'admin/projects',
-								'admin/to_do_lists'],
+								'admin/to_do_lists',
+								'admin/to_do_comments'],
                               admin_projects_path %>
         </ul>
       </div>
@@ -139,7 +140,16 @@
 											  :link_to_path => admin_project_messages_path(params[:project_id]) }],
               
 			                              :specify_first => true %>  
-  <% end %>			     
+  <% end %>	
+
+<% if params[:controller] == "admin/to_do_comments" %>
+		  <%= secondary_navigation_menu [ { :controller_paths => 'admin/to_do_comments',
+		                                    :i18n_path => 'admin.navigation.secondary.to_do_comments',
+		                                    :link_to_path => new_admin_project_to_do_comment_path(params[:project_id],params[:to_do_id]) }],
+          
+		                                :specify_first => true %>
+<% end %>		
+		
 			    
           </ul>
         </div>
