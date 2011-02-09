@@ -80,7 +80,7 @@ class User::AccountController < ApplicationController
       user_picks.each { |pick| user_picks_hash[pick.id.to_s] = pick }
       params[:user][:user_optional_group_picks].each do |pick_id, group_id|
         pick = user_picks_hash[pick_id]
-        next if !pick.nil? && pick.group_ids.member? group_id.to_i
+        next if !pick.nil? && (pick.group_ids.member? group_id.to_i)
         # Only a malicious user reaches here
         head 500
         return
