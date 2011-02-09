@@ -1,8 +1,7 @@
 authorization do
 
   role :root do
-    includes :admin
-    has_permission_on [:admin_root_groups],         :to => [:read]
+    has_omnipotence
   end
 
   role :admin do
@@ -16,9 +15,6 @@ authorization do
 
   role :poject_manager do
     has_permission_on [:admin_projects],            :to =>  [:create]
-    has_permission_on [:admin_to_do_lists],         :to =>  [:manage] do
-      if_attribute :users => contains { user }
-    end
   end
 
 
@@ -59,6 +55,21 @@ authorization do
     includes :guest
     has_permission_on [:comments],                  :to => [:create]
     has_permission_on [:admin_projects],            :to => [:as_read]
+    has_permission_on [:admin_to_do_lists],         :to =>  [:manage] do
+      if_attribute :users => contains { user }
+    end
+    has_permission_on [:admin_to_dos],              :to =>  [:manage] do
+      if_attribute :users => contains { user }
+    end
+    has_permission_on [:admin_messages],            :to =>  [:read] do
+      if_attribute :project => { :users => contains { user } }
+    end
+    has_permission_on [:admin_messages],            :to => [:manage] do
+      if_attribute :user => is { user }
+    end
+    has_permission_on [:admin_messages_comments],    :to =>  [:create] do
+      if_attribute :project => { :users => contains { user } }
+    end
   end
 
   role :guest do

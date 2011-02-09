@@ -28,19 +28,6 @@ class Admin::ProjectsController < Admin::BaseController
   def create
     params[:record][:user_id] = current_user.id
     super
-    #project             = Project.new
-    #record              = params[:record]
-    #project.name        = record[:name]
-    #project.description = record[:description]
-    #project.user        = current_user
-    #if record[:users]
-    #  record[:users].each do |k,v|
-    #    project.users << User.find(v[:id])
-    #  end
-    #end
-    #project.save
-
-    #redirect_to admin_projects_path
   end
 
 end

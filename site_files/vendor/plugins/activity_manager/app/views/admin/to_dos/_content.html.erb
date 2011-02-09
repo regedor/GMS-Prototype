@@ -12,6 +12,6 @@
   </span>
   <% end %>
   <span class="todo_edit"><%= link_to t("admin.to_do.edit.link"),"#",{:id => "edit_#{todo.id}", :class => "edit_item", :onclick => "jQuery(this).edit();"} %></span>
-  <span class="todo_delete"><%= link_to t("admin.to_do.delete.link"),"#",{:id => "delete_#{todo.id}", :class => "delete_item"} %></span>
+  <span class="todo_delete"><%= link_to t("admin.to_do.delete.link"),"#",{:id => "delete_#{todo.id}", :class => "delete_item", :onclick => "jQuery(this).delete();"} %></span>
   <span class="todo_comments"><%= link_to t("admin.to_do.comment.link"), new_admin_project_to_do_comment_path(params[:project_id],todo.id), {:id => "comment_#{todo.id}", :class => "comment_item"} %></span>
 </div>

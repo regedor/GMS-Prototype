@@ -1,4 +1,9 @@
 class Admin::ToDosController < Admin::BaseController
+  filter_access_to :all,
+    :require         => :manage,
+    :attribute_check => true,
+    :load_method     => lambda { Project.find(params[:project_id]) }
+
 
   def create
     unless params[:todo][:description].empty?
@@ -7,7 +12,7 @@ class Admin::ToDosController < Admin::BaseController
       todo.to_do_list_id = params[:todo][:to_do_list_id]
       todo.description = params[:todo][:description]
       begin 
-        todo.due_date =  DateTime.strptime(params[:todo][:due_date],"%d/%m/%Y").to_time
+        todo.due_date =  DateTime.strptime(params[:todo][:due_date],"%d/%m/%Y").to_time unless params[:todo][:due_date].blank?
       rescue ArgumentError
         flash[:error] = t("flash.invalid_date")
         redirect_to admin_project_to_do_lists_path(params[:project_id])
