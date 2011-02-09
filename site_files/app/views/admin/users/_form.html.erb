@@ -1,0 +1,38 @@
+<% content_for(:head) do -%>
+  <%= javascript_include_tag 'edit_preview' %>
+<% end -%>
+
+<% form.input_field_set do -%>
+  <%= form.input :email,
+                 :label    => I18n::t('admin.users.columns.email') %>
+  <%= form.input :active,
+                 :required => false,
+                 :as       => :radio,
+                 :hint     => I18n::t('admin.users.form.hints.active'),
+                 :label    => I18n::t('admin.users.columns.active') %>
+  <%= form.input :phone,
+                 :required => false,
+                 :label    => I18n::t('admin.users.columns.phone') %>
+  <%= form.input :avatar,
+                 :required => false,
+                 :hint     => I18n::t('admin.users.form.hints.avatar'),
+                 :label    => I18n::t('admin.users.columns.avatar') %>                 
+  <%= form.input :profile,
+                 :required => false,
+                 :label    => I18n::t('admin.users.columns.profile') %>
+  <%= form.input :website,
+                 :required => false,
+                 :label    => I18n::t('admin.users.columns.website') %>
+  <%= form.input :country,
+                 :required => false,
+                 :label    => I18n::t('admin.users.columns.country') %>
+  <%= form.input :gender,
+                 :as       => :radio,
+                 :collection => [[I18n::t('generic_sentence.male_value'),true],[I18n::t('generic_sentence.female_value'),false]],
+                 :label    => I18n::t('admin.users.columns.gender') %>
+  <%= form.input :groups,
+                 :as       => :check_boxes,
+                 :required => false,
+                 :hint     => I18n::t('admin.users.form.hints.groups'),
+                 :label    => I18n::t('admin.users.columns.groups') %>
+<% end -%>

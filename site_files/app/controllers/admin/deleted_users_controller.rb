@@ -1,7 +1,7 @@
 class Admin::DeletedUsersController < Admin::BaseController
   filter_access_to :all, :require => any_as_privilege
 
-  active_scaffold :user do |config|
+  active_scaffold :deleted_user do |config|
     config.subform.columns = [:email]
 
     config.columns[:groups].show_blank_record = false
@@ -14,10 +14,10 @@ class Admin::DeletedUsersController < Admin::BaseController
       :list         => [ :created_at, :email, :active, :name, :role ], 
       :show         => [ :email, :active, :nickname, :profile, :website, :country, :gender ],
       :edit         => [ :email, :active, :nickname, :profile, :website, :country, :gender, :groups, :role ],
-      :actions_list => [ :destroy_by_ids, :activate!, :undelete_by_ids ]
+      :actions_list => [ :destroy_by_ids!, :undelete_by_ids ]
 
       config.action_links.add 'undelete', :type => :member, :page => true, :crud_type => :delete, :method => :put,
-                                          :confirm => :are_you_sure_to_delete,
+                                          :confirm => :are_you_sure_to_undelete,
                                           :label => I18n::t("admin.deleted_users.index.undelete_link")
   end
 
@@ -30,21 +30,22 @@ class Admin::DeletedUsersController < Admin::BaseController
   # Overrided this action to show revertion previews and revert option
   def show
     if params[:history_entry_id]
-      @actual_record = User.find params[:id] 
-      @history_entry  = HistoryEntry.find(params[:history_entry_id])
-      @record         = @history_entry.historicable_preview
+      @actual_record = DeletedUser.find params[:id] 
+      @history_entry = HistoryEntry.find(params[:history_entry_id])
+      @record        = @history_entry.historicable_preview
     else
      super   
     end
   end
 
   def undelete
-    user = User.find params[:id]
+    user = DeletedUser.find params[:id]
     if request.method == :put
       user.undelete!
       flash[:notice]=t('flash.user_successfully_undeleted')
       redirect_to admin_deleted_users_path
     end
   end
+  
 end
 

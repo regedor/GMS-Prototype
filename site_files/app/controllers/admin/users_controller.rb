@@ -4,31 +4,24 @@ class Admin::UsersController < Admin::BaseController
   before_filter :load_groups, :only => :index
 
   active_scaffold :user do |config|
-    config.subform.columns = [:email] 
-
-    config.columns[:groups].show_blank_record = false
-
-    config.columns[:role].form_ui = :select 
-    config.columns[:groups].form_ui = :select 
-    config.columns[:groups].options = {:draggable_lists => true}
-
+  
     group_actions = Group.find_all_by_show_in_user_actions(true).map do |group|
       group = [ { :method => "add_to_group_#{group.id}", :name => group.name },
                 { :method => "remove_from_group_#{group.id}", :name => group.name } ]
-    end.flatten
-
+    end.flatten 
+ 
     Scaffoldapp::active_scaffold config, "admin.users", 
       :list         => [ :created_at, :email, :active, :name, :role ], 
       :show         => [ :email, :active, :nickname, :profile, :website, :country, :gender ],
-      :edit         => [ :email, :active, :nickname, :profile, :website, :country, :gender, :groups, :role ],
-      :actions_list => [ :destroy_by_ids, :activate!, :deactivate! ].concat(group_actions)
+      :edit         => [ :email, :active, :nickname, :profile, :website, :country, :gender, :groups, :role, :avatar, :phone ],
+      :actions_list => [ :delete_by_ids!, :activate!, :deactivate! ].concat(group_actions)
   end
 
   # Override this method to define conditions to be used when querying a recordset (e.g. for List).
   # With this, only the users with the value 'false' in the column 'deleted' will be shown.
-  def conditions_for_collection
-    { :deleted => false }
-  end
+#  def conditions_for_collection
+#    return { :deleted => false }
+#  end
 
   def custom_finder_options
     return { :joins => 'INNER JOIN groups_users ON users.id = groups_users.user_id',
@@ -59,28 +52,19 @@ class Admin::UsersController < Admin::BaseController
      super   
     end
   end
-
+  
   # Active Scaffold hack
   # AS is not updating associated records (reason unknown)
   # This way it is possible to update the associations
   def do_update
     super
-    unless params[:record].nil?
-      if params[:record][:group_ids]
-        # The next line is the only one needed from the IF sequence when the edit form uses formtastic
-        @record.group_ids = params[:record][:group_ids]
-      elsif params[:record][:groups]
-        @record.group_ids = params[:record][:groups].map { |k,group| group[:id] }
-      else
-        @record.group_ids = []
-      end
-    end
+    @record.group_ids = params[:record][:group_ids]
   end
-
+  
   protected
 
     def load_groups
       @groups = Group.all(:order => :name)
     end
-
+  
 end

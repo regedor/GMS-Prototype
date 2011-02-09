@@ -2,47 +2,6 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  date:
-    formats:
-      # Use the strftime parameters for formats.
-      # When no format has been given, it uses default.
-      # You can provide other formats here if you like!
-      default: "%Y-%m-%d"
-      short: "%b %d"
-      long: "%B %d, %Y"
-  
-    day_names: [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]
-    abbr_day_names: [Sun, Mon, Tue, Wed, Thu, Fri, Sat]
-  
-    # Don't forget the nil at the beginning; there's no such thing as a 0th month
-    month_names: [~, January, February, March, April, May, June, July, August, September, October, November, December]
-    abbr_month_names: [~, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
-    # Used in date_select and datetime_select.
-    order:
-      - :year
-      - :month
-      - :day
-  
-  time:
-    formats:
-      default: "%a, %d %b %Y at %H:%M"
-      short: "%d %b"
-      medium: "%d %b %Y"
-      showdate: "%D"
-      long: "%B %d, %Y %H:%M"
-    am: "am"
-    pm: "pm"
-  
-  #Used in array.to_sentence.
-  support:
-    array:
-      words_connector: ", "
-      two_words_connector: " and "
-      last_word_connector: ", and "
-
-    
-    
-    
   navigation:
     home: "Home"
     about: "About"
@@ -57,22 +16,15 @@ en:
       blogger: "Blogger" 
       user: "Normal User"
     form:
-      name: "Name"
       email: "Email"
-      phone: "Phone"
-      gender: "Gender"
       password: "Password"
       change_password: "Change password" 
       password_confirmation: "Password confirmation"
       openid: "OpenID URL"
       language: "Language"
-      choosable_groups: "Optional groups"
     edit:
       title: "Edit account"
       commit_button: "Update account"
-      form_inputs_name: "User information"
-      form_auth_inputs_name: "Authentication"
-      form_group_inputs_name: "Groups"
     comment:
       cancel: "Cancel"
     new:
@@ -85,26 +37,21 @@ en:
                 to use a third party authentication system!"
         second: "We are using cutting edge techniques to ensure no one (including ourselves) will
                  have access to your password or personal data."
-        google_signup: "Google Sign Up"
-        yahoo_signup: "Yahoo Sign Up"
+        google_signup: "Google Sign up"
+        yahoo_signup: "Yahoo Sign up"
       commit_button: "Register account"
-    errors:
-      invalid_fields: "Some fields are invalid"
-      user_optional_group_picks:
-        generic: "There groups you chose are conflicting"
-        zero: "No groups chosen for pick '%{name}'"
-        multiple: "Multiple groups chosen for pick '%{name}': %{groups}"
   
 
   user_session:
     errors:
       invalid_open_id: "OpenID authentication failed. Verify your data and try again."
     bar:
+      last_session_paragraph: "Your last login was %{time_ago} ago, your ip was %{ip}"
       account_link: "Account details"
-      logout: "Sign Out"
-      signin: "Sign In"
-      signup: "Sign Up"
-      google_signin: "Google Sign In"
+      logout: "Sign out"
+      signin: "Sign in"
+      signup: "Sign up"
+      google_signin: "Google Sign in"
       change_language: "Change language:"
     new:
       title: "Login"
@@ -115,15 +62,15 @@ en:
                 to use a third party authentication system!"
         second: "We are using cutting edge techniques to ensure no one (including ourselves) will
                  have access to your password or personal data."
-        google_signin: "Google Sign In"
-        yahoo_signin: "Yahoo Sign In"
+        google_signin: "Google Sign in"
+        yahoo_signin: "Yahoo Sign in"
       email: "Email"
       password: "Password"
       openid: "OpenID"
       remember_me: "Remember me"
       forgot_pass: "I forgot my password"
       new_account: "Create account"
-      commit_button: "Sign In"
+      commit_button: "Sign in"
 
 
   user_password_resets:
@@ -145,40 +92,9 @@ en:
       commit_button: "Update password and log in"
 
 
-  announcements:
-    none: "There are no current announcements."
-
-  posts:
-    none: "There are no posts so far."
-    archive: "Post archive"
-    read_more: "Read more"
-    share_on_facebook: "Share"
-    meta:
-      date: "Posted on"
-      tags: "Tagged"
-      comments:
-        one: "%{count} comment"
-        many: "%{count} comments"
-    tags:
-      title: "Tag Cloud"
-    archives:
-      title: "Archives"
-      none: "There are no posts so far."
-    pagination:
-      previous: "««"
-      next: "»»"
-
-  comments:
-    title: "Post a comment"
-    hint: "(<a href='http://lesstile.rubyforge.org'>lesstile enabled</a> - surround code blocks with ---)"
-    submit: "Add Comment"
-    says: "says:"
-    log_in_to: "Log in if you intend to comment."
-    success: "Comment added."
-    error:
-      generic: "Comment not added."
-      no_body: "Content cannot be blank."
-      no_login: "You must be logged in to comment."
+  pages:
+    about:
+      title: "About This Project"
 
 
   admin:
@@ -189,7 +105,6 @@ en:
         website: "Website"
         system: "System"
         communication: "Communication"
-        projects: "Projects"
       secondary:
         dashboard: "Dashboard"
         users: "Users"
@@ -201,103 +116,13 @@ en:
         settings: "Settings"
         undo_items: "Actions"
         mails: "Send E-Mail"
-        projects: "List Projects"
-        to_do_lists: "To-Do Lists"
-        messages: "Messages"
-    
-    to_do_list:
-      sidebar:
-        title: "To-Do Lists"
-        paragraph: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."          
-        select_title: "Change project:"
-        back: "Back to projects list"
-        reorderLists: "Reorder To-Do lists"
-      new:
-        link: "New to-do list"
-        name: "Name"
-        description: "Description"
-        description_hint: "This description is optional, use it to explain the purpose of the list, if needed"
-        create_button: "Create List"  
-        cancel_button: "Cancel"
-    
-    to_do:
-      add_new:
-        title: "Enter a new to-do item"
-        done_adding: "Done adding"
-        add_button: "Add to-do"
-        responsible: "Resposible for to-do"
-        link: "Add new to-do item"
-        hint: "An email will be sent to the responsible"
-      edit:
-        link: "Edit"
-        title: "Edit to-do item"
-        cancel: "Cancel"
-        edit_button: "Save changes"
-        responsible: "Resposible for to-do"  
-        hint: "An email will be sent to the responsible" 
-      delete:
-        link: "Remove"  
-      comment:
-        link: "Comment"
-        title: "Comment to-do from %{list}"     
-        hint: "Leave a comment..."     
-      done:
-        show: "Show all %{count} completed to-do's"
-        collapse: "Collapse completed to-do's"                        
-        
-    messages:
-      index:
-        title: "Messages List"
-        update_link: "Edit"
-        destroy_link: "Delete"
-        show_link: "Details"
-        search: "Find messages"
-        create: "New message"
-        author_on_date: "on"
-      columns:
-        title: "Message title"
-        body: "Body"
-        category: "Category" 
-      form:
-        new: "New message"
-        edit: "Edit message"
-        from: "From"
-        date: "Date"
-        create_button: "Create"
-        update_button: "Update"
-        cancel_button: "Cancel"
-        hints:
-          body: "<a href='http://hobix.com/textile/quick.html'>Textile enabled</a>. Use Ctrl+E to switch between preview and edit mode."
-      comments:
-        comment: "New comment"
-
-    
-    project:
-      index:
-        title: "Projects" 
-        create: "New Project"
-        update_link: "Edit"
-        destroy_link: "Delete"
-        show_link: "Go To Project"
-      create:
-        title: "New Project"      
-      columns:
-        name: "Name"
-        description: "Description"
-        groups: "Assigned Groups"
-        user_id: "Created by"
-      list:
-        noentries: "No entries found"
-        found:
-          more: "%{count} Projects Found"
-          one: "%{count} Project Found"                              
    
     dashboard:
       title: "You are logged in as an Administrator, you are now viewing the Administration dashboard."
       text: "<p>On this backend you can manage all information. You can manage users, groups, communication and frontend items. On the sidebar you can find useful information </p>"
       sidebar:
         title: "Simon backend"
-        paragraph:  "Look on these sidebars help and tips about the page you are viewing. Putting your mouse over an <b title=\"This is a bold word.\">bold</b> word will give you some tips."
+        text:  "Look on these sidebars for location relative help."
         go_to_frontend: "Go to frontend"
         user_management:
           title: "User management"
@@ -336,7 +161,7 @@ en:
       new:
         sidebar:
           title: "Mail Management"
-          paragraph: "Here you can manage and send emails."
+          content: "Here you can manage and send emails."
           sent_mails: "Outbox"
           go_to_sent_mails: "Sent Mails"
                             
@@ -361,34 +186,26 @@ en:
         country: "Country"
         gender: "Gender"
         groups: "Groups"
+        phone: "Phone"
+        avatar: "Avatar"
       sidebar:
         history:
           title: "Revert information"
-          paragraph: "Here you can revert information. Click below on the dates to see user information on that date. Click on <b title=\"The revert link will appear when you click on a previous date.\">\"Revert\"</b> to complete the reversion process."
+          paragraph: "Here you can revert information. Click below on the dates to see user information on that date. Click on <b title=\"The revert link will appear when you click on a previous date.\">\"Revert\"</b> to complete the reversion process. <br/>The group information will not be reverted. To edit this user please proceed to the <a href=\"%{url}\">edit page</a>."
+          paragraph_no_link: "Here you can revert information. Click below on the dates to see user information on that date. Click on <b title=\"The revert link will appear when you click on a previous date.\">\"Revert\"</b> to complete the reversion process. <br/>The group information will not be reverted. To edit this user please proceed to the edit page."
         reversion:
           title: "Reverting"
           subtitle: "You are reverting information"
-          paragraph: "If you click <b title=\"The revert link is below.\">\"Revert\"</b> below, you are making your actions permanent!"
+          message: "If you click <b title=\"The revert link is below.\">\"Revert\"</b> below, you are making your actions permanent!"
           link: "Revert"
         title: "User management"
-        paragraph: "Users can be managed on this page. You can <b title=\"Link on the combo box at the top of the table.\">disable</b>, <b title=\"Link on the combo box at the top of the table.\">enable</b>, <b title=\"Link at the end of the row.\">delete</b> and <b title=\"Available on deleted users page.\">undelete</b> users (see <b title=\"Link is below.\">\"go to deleted users\"</b>). Also you can edit user information on <b title=\"Link at the end of the row.\">\"Edit\"</b> and see users information on <b title=\"Link at the end of the row.\">\"Details\"</b>.<br/> <b title=\"The combo box is at the top of the table.\">Delete</b>, <b  title=\"The combo box is at the top of the table.\">activate</b> and <b title=\"The combo box is at the top of the table.\">deactivate</b> actions can be selected from the drop-down menu.<br/><br/>If you see a red cross in front of the user it means that the user is <b title=\"See the Active column.\">inactive</b>, otherwise is <b title=\"See the Active column.\">active</b>."
+        text: "Users can be managed on this page. You can <b title=\"Link on the combo box at the top of the table.\">disable</b>, <b title=\"Link on the combo box at the top of the table.\">activate</b> and <b title=\"Link at the end of the row.\">delete</b> users (see <b title=\"Link is below.\">\"go to deleted users\"</b>). Also you can edit user information on <b title=\"Link at the end of the row.\">\"Edit\"</b> and see users information on <b title=\"Link at the end of the row.\">\"Details\"</b>.<br/> <b title=\"The combo box is at the top of the table.\">Delete</b>, <b  title=\"The combo box is at the top of the table.\">activate</b> and <b title=\"The combo box is at the top of the table.\">disable</b> actions can be selected from the drop-down menu and will be applied to all the selected users.<br/><br/>If you see a red cross in front of the user it means that the user is <b title=\"See the Active column.\">inactive</b>, otherwise is <b title=\"See the Active column.\">active</b>.<br/> You can perform an action to a set of users by ticking the <b title=\"The check box is at the left of the name\">check boxes</b>.<br/><br/>To filter the user list use the <b title=\"Look at the box with a magnifier, at the top.\">search box</b>.<br/> You can sort user information clicking on the columns labels.<br/>Note: you may need to refresh the page to see the actions results, if you see a success message but no results."
         edit:
           title: "User edit"
-          paragraph: "You can edit user details here, changing all details.<br/> The <b title=\"See the field on the left.\">email</b> field specifies the user personal email.<br/> The <b title=\"See the field on the left.\">active</b> option specifies if the user is either active or not.<br/> The <b title=\"See the field on the left.\">nickname</b> will be the show name. <br/> On the <b title=\"See the field on the left.\">profile</b> field is a shot user description. <br/> A <b title=\"See the field on the left.\">website</b> can also be specified, as well as the <b title=\"See the field on the left.\">country</b>. <br/> The user <b title=\"See the field on the left.\">gender</b> is also defined. <br/> You can add the user to <b title=\"See the colored areas on the left.\">groups</b> by dragging the group from the yellow field to the green field. "
-        groups:
-          title: "Groups"
-          reset: "List all users"
-          paragraph: "Click on a <b title=\"The link is below.\">group</b> to filter the user list."
-        deleted_users:
-          title: "Deleted users"
-          paragraph: "You can manage deleted users by clicking on the link below."
-          link: "Go to deleted users"
-      list_actions:
-        destroy_by_ids: "Delete"
-        activate!: "Activate"
-        deactivate!: "Deactivate"
-        add_to_group: "Add to group '%{name}'"
-        remove_from_group: "Remove from group '%{name}'"
+          text: "You can edit user details here, changing all information.<br/> The <b title=\"See the field on the left.\">email</b> field specifies the user personal email.<br/> The <b title=\"See the field on the left.\">active</b> option specifies if the user is either active or not.<br/> You can also change the user <b title=\"See the field on the left.\">phone</b> number. <br/> The <b>avatar</b title=\"See the upload field on the left.\"> specifies the user image. You can upload any image file which will be cropped to 100x100 px.<br/> On the <b title=\"See the field on the left.\">profile</b> field is a shot user description. <br/> A <b title=\"See the field on the left.\">website</b> can also be specified, as well as the <b title=\"See the field on the left.\">country</b>. <br/> The user <b title=\"See the field on the left.\">gender</b> is also defined here. <br/> You can add the user to <b title=\"See the check boxes.\">groups</b> by ticking the groups you want.<br/>The user <b title=\"See the check boxes.\">Group</b> information will not be saved for reversion, once you do an alteration you can not recover the previous state.<br/>When you save, a history entry will be created. That mean that you can revert to a previous state (except from group information).<br/> The fields with an an asterisk (*) are mandatory. "
+      delete_by_ids!: "Delete"
+      activate!: "Activate"
+      deactivate!: "Disable"
       list:
         found:
           more: "%{count} Users Found"
@@ -408,7 +225,23 @@ en:
         groups:   "Groups"
         role:     "Role"
         cancel:   "Close"
-
+        last_login_at: "Last login at"
+        created_at: "Created at"
+        login_count: "Login count"
+        failed_login_count: "Failed logins"
+        current_login_at: "Currently logged in at"
+        last_login_ip: "Last login ip"
+        current_login_ip: "Current login ip"
+        
+      form:
+        update_button: "Update"
+        cancel_button: "Cancel"
+        edit:          "Update user"
+        hints: 
+          avatar: "If you upload an image this will be shown. If you do not upload an image and the user has a gravatar, it will be used. Otherwise a default image will be shown."
+          active: "If a user is not active, he/she cannot login."
+          groups: "Select the groups that the user will belong to."
+        
     deleted_users:
       index:
         title: "Deleted Users List"
@@ -416,7 +249,7 @@ en:
         create: "Create user"
         show_link: "Details"
         destroy_link: "Destroy"
-        undelete_link: "Recover"
+        undelete_link: "Undelete"
       columns:
         created_at: "Created at"
         email: "Email"
@@ -427,10 +260,10 @@ en:
         destroy_link: "Delete"
         show_link: "Details"
         undelete_link: "Undelete"
-      list_actions:
-        destroy_by_ids: "Delete"
-        activate!: "Activate"
-        undelete_by_ids: "Re activate"
+      destroy_by_ids!: "Delete"
+      activate!: "Activate"
+      undelete_by_ids: "Recover"
+      deleted_user: "Deleted User"
       list:
         found:
           more: "%{count} Users Found"
@@ -438,8 +271,17 @@ en:
         noentries: "No entries found"
       sidebar:
         title: "Deleted users"
-        paragraph: "Here you can see deleted users. You can <b title=\"See the combo box at the top of the table.\">\"undelete\"</b> a user by clicking on <b title=\"See the combo box at the top of the table.\">\"Recover\"</b> from the drop down menu. You can also <b title=\"See the combo box at the top of the table.\">edit</b> and view users <b title=\"The link is at the end of the row.\">details</b>.<br/><br/>A user can also be permanently deleted by clicking on <b title=\"The link is at the end of the row.\">destroy</b>. That action is <b title=\"Please be careful.\">not reversible</b>."
-        link: "Go back to users"
+        text: "Here you can see the deleted users. You can <b title=\"The link is at the end of the row.\">\"Recover\"</b> a user, see the users <b title=\"The link is at the end of the row.\">\"Details\"</b> or remove permanently a user choosing <b title=\"The link is at the end of the row.\">destroy</b>. That action is <b title=\"Please be careful.\">not reversible</b>. You can apply these actions to a group of users by choosing those actions from the <b title=\"See the combo box at the top of the table.\">combo box</b>.<br/>To leave this page click on \"Go to Users\" below."
+        show:
+          title: "Deleted user details"
+          text: "You are viewing a deleted user details. You can not change this information. If you want to make changes please <b title=\"The recover action is available on the listing.\">recover</b> this user."
+        delete:
+          title: "Destroying a user!"
+          text: "<b \"This is a permanent action.\">You are permanently removing this user. All the information will be lost and can not be retrieved if you confirm this action. Please consider about this action, and always double check the user you are deleting.</b>"
+      undelete: 
+        title: "Undelete user?"
+        submit: "Undelete"    
+        cancel_link: "Cancel"
           
     groups:
       index:
@@ -449,24 +291,15 @@ en:
         destroy_link: "Delete"      
         search: "Find groups"
         create: "New Group"
-      sidebar:
-        edit:
-          title: "Editing group"
-          paragraph: "By editing a group you can change it's <b title=\"See the field on the left.\">name</b>. <br/> A <b title=\"See the field on the left.\">description</b> can be added. <br/> You can decide if a group will be or not <b title=\"See the field on the left.\">mailable</b>, that is, you can send an email to all users of the group at once.<br/> To decide if a user can decide to became part of it, define true on <b title=\"See the field on the left.\">User choosable</b>.<br/> You can create <b title=\"See the field on the left.\">group</b> hierarchies by dragging groups which will subgroups of it from the yellow field to the green field. <br/> The group <b title=\"See the field on the left.\">users</b> are managed on the same way of the subgroups. "
-        hierarchy:
-          name: "Hierarchy"
-          index:
-            title: "Groups"
-            paragraph: "You are viewing system groups information. From here you can <b title=\"See the link above the table.\">create</b> a new group. You can also view a group <b title=\"The link is at the end of the row.\">details</b> and it's hierarchy. To edit a group details click on <b title=\"The link is at the end of the row.\">edit</b>. To eliminate a group simply click on <b title=\"The link is at the end of the row.\">delete</b>. "
-          empty:
+        sidebar:
+          hierarchy:
+            name: "Hierarchy"
             subname: "All groups"
-            paragraph: "When viewing details of a group containing subgroups, you can see here the hierarchy."
-          info:
-            subname: "All groups"
-            paragraph: "Below is the group and subgroup relationship hierarchy. "
-        user_optional_group_picks:
-          title: "User Optional Group Picks"
-          link: "Go to user optional group picks"
+          users:
+            go_to_deleted_users: "Go to deleted users"
+            go_to_users: "Go to users"
+            deleted_users: "Deleted users"
+            undo_deleted_users: "Recover users"
       columns:
         parent_name: "Parent"
         name: "Name"
@@ -475,77 +308,27 @@ en:
         groups: "Groups"
         direct_users: "Users"
         user_choosable: "User choosable"
-      form:
-        show: "Group Details"
-        new: "New Group"
-        edit: "Editing Group"
-        create_button: "Create"
-        update_button: "Update"
-        cancel_button: "Cancel"
-        close_button: "Close"
-#        hints:
-      list_actions:
-        delete_by_ids!: "Delete"
+      delete:
+        title: "Delete Group"
+        question: "Are you sure you want to delete %{username}?"
+        bt_label: "Delete group"
+        cancel_link: 
+          label: "Cancel"
+          title: "Go back to groups list"
+      create:
+        title: "Group"
       list:
-        noentries: "No Groups Found"
         found:
           more: "%{count} Groups Found"
           one: "%{count} Group Found"
-
-    user_optional_group_picks:
-      index:
-        title: "User Optional Group Picks List"
-        show_link: "Details"
-        update_link: "Edit"
-        destroy_link: "Delete"      
-        search: "Find picks"
-        create: "New Pick"
-      sidebar:
-        title: "User Optional Group Picks"
-        link: "Go back to groups"
-      columns:
-        name: "Name"
-        description: "Description"
-        group: "Group"
-        role: "Role"
-        groups: "Optional Groups"
-      form:
-        show: "Group Pick Details"
-        new: "New Group Pick"
-        edit: "Editing Group Pick"
-        create_button: "Create"
-        update_button: "Update"
-        cancel_button: "Cancel"
-        close_button: "Close"
-#        hints:
-      list:
-        noentries: "No Picks Found"
-        found:
-          more: "%{count} Picks Found"
-          one: "%{count} Pick Found"
 
     pages:
       index:
         title: "Static Pages List"
         destroy_link: "Delete"
         update_link: "Edit"
-        show_link: "Details"
         search: "Search Pages"
         create: "New Page"
-      sidebar:
-        title: "Static pages"
-        paragraph: "You can <b title=\"The create link is above the table.\">create</b> new static pages. They can have a link on the sidebar on the frontend. You can also <b title=\"The edit link is at the end of the row.\">edit</b> existing pages or <b title=\"The delete link is at the end of the row.\">delete</b> it. Clicking on the <b title=\"The name is the string on the Title column.\">page name</b> you will be redirected to the frontend, viewing the page."
-        edit:
-          title: "Edit a page."
-          paragraph: "You are editing a static page. You can change the <b title=\"Will appear at the top of the page and on the browser page title.\">title</b> which is the title of the page and also the header.<br/> On the <b title=\"It is the page content.\">body</b> you can use <a href=\"http://www.w3schools.com/tags/default.asp\" target=\"_blank\">html</a> tags, and <a href=\"http://en.wikipedia.org/wiki/Textile_(markup_language)#Textile_syntax_examples\" target=\"_blank\">textile</a> elements. You can also change the <b title=\"Slug is a small word representing a whole phrase. \">slug</b> which represents the page identification and link.<br/>The <b title=\"Higher value means more priority.\">priority</b> defines how important an page is and where should be placed on the menu of the frontend, if you check the box <b title=\"If you do not check this box, you need to manually create a link to this page.\">Show in the menu</b> Confirm if you want <b title=\"Comments are small texts written about the page that all users can create.\">comments</b> by checking the box at the end.<br/>If you want to preview the final look of the page click on <b title=\"This will generate a preview.\">Preview</b> before <b title=\"This will create the page.\">Save</b>"
-        history:
-          title: "Revert page information"
-          paragraph: "Here you can revert information. Click below on the dates to see the page on that date. Click on <b title=\"The revert link will appear when you click on a previous date.\">\"Revert\"</b> to complete the reversion process."
-        reversion:
-          title: "Reverting"
-          subtitle: "You are reverting information"
-          message: "If you click <b title=\"The revert link button is below.\">\"Revert\"</b> below, you are making your actions permanent!"
-          link: "Revert"
       columns:
         title: "Title"
         excert: "Excert"
@@ -559,23 +342,15 @@ en:
       form:
         new: "New Page"
         edit: "Editing Page"
-        show: "Page Details"
         submit: "Save"
         preview_button: "Preview"
         edit_button: "Edit"
-        create_button: "Create"
-        update_button: "Update"
-        cancel_button: "Cancel"
-        close_button: "Close"
         hints:
-          body: "<a href='http://textile.thresholdstate.com/'>Textile enabled</a>. Use Ctrl+Alt+E to switch between preview and edit mode."
+          body: "<a href='http://hobix.com/textile/quick.html'>Textile enabled</a>. Use Ctrl+E to switch between preview and edit mode."
           slug: "Leave blank for an auto-generated slug based on the title."
           show_in_navigation: "Show in navigation"
           priority: "Priority"
           has_comments: "Has comments"
-      preview:
-        title: "Your entry will be formatted like this:"
-        return: "Use Ctrl+Alt+E to return to edit mode."
       list:
         noentries: "No Pages Found"
         found:
@@ -603,17 +378,13 @@ en:
         slug: "Slug"
         tag_list: "Tag List"
         minor_edit: "Minor Edit"
-      preview:
-        title: "Your entry will be formatted like this:"
-        return: "Use Ctrl+Alt+E to return to edit mode."
-        error: "Failed to generate preview. Toggle back to edit mode and check that all required fields are filled in and valid."
       list:
         noentries: "No Posts Found"
         found:
           more: "%{count} Posts Found"
           one: "%{count} Post Found"
       form:
-        show: "Post Details"
+        show: "Show Post"
         new: "New Post"
         edit: "Editing Post"
         edit_tag: "Editing Tag - %{name}"
@@ -624,9 +395,9 @@ en:
         cancel_button: "Cancel"
         close_button: "Close"
         hints:
-          body: "<a href='http://textile.thresholdstate.com/'>Textile enabled</a>. Use Ctrl+Alt+E to switch between preview and edit mode."
+          body: '<a href="http://hobix.com/textile/quick.html">Textile enabled</a>. Use Ctrl+E to switch between preview and edit mode.'
           tag_list: "Comma separated: ruby, rails&hellip;"
-          published_at_natural: "Example: now, yesterday, 1 hour from now, <a href='http://chronic.rubyforge.org/'>more&hellip;</a>"
+          published_at_natural: 'Example: now, yesterday, 1 hour from now, <a href="http://chronic.rubyforge.org/">more&hellip;</a>'
           slug: "Leave blank for an auto-generated slug based on the title."
           minor_edit: "Minor edits will not show up as refreshed in feed readers. Use this to fix spelling mistakes and the like."
       tags:
@@ -646,20 +417,14 @@ en:
             tag_exists: "A tag with the specified name already exists."
             no_server: "Couldn't connect to the server."
       sidebar:
-        index:
-          title: "Posts"
-          paragraph: "On this page you can manage posts. You can <b title=\"The view details button is on the right side of the row.\" >view</b> and <b title=\"The remove button is on the right side of the row.\">edit</b> current posts details.<br/> You can also <b title=\"The create button is on the top right of the table.\">create</b> new posts which will appear on frontend, available to all users. If you want to remove a post simply click on <b title=\"The remove button is on the right side of the row.\">delete</b>.<br/><br/>You can also filter posts by <b title=\"The tags are the keyword list, which identifies the posts.\">tags</b>, on the list below. As you click on a tag, the all the posts <b title=\"If you click the tag 'a' and 'b', only posts containing both keywords 'a' and 'b' will be shown.\">containing</b> all the tags you click will be shown."
-        history:
-          title: "Revert post information"
-          paragraph: "Here you can revert information. Click below on the dates to see the post on that date. Click on <b title=\"The revert link will appear when you click on a previous date.\">\"Revert\"</b> to complete the reversion process."
-        reversion:
-          title: "Reverting"
-          subtitle: "You are reverting information"
-          message: "If you click <b title=\"The revert link button is below.\">\"Revert\"</b> below, you are making your actions permanent!"
-          link: "Revert"
-        edit:
-          title: "Editing a post"
-          paragraph: "You are editing a post information. You can change this post <b title=\"The title is the post identification.\">title</b> and <b title=\"The body corresponds to the post content\">body</b> or content of a post.<br/> The <b title=\"The tags are the elements which you can use to filter posts.\">tag list</b>, corresponding to the list of words associate with the post, can also be changed here. The <b title=\"The slug is the unique identification of the post, useful for links.\">slug</b> which is a short description of all content is also editable here.<br/>Please verify also the <b title=\"Check if do not want do notify via feed.\">minor edit</b> field.<br/>If you want to preview the final look of the post click on <b title=\"This will generate a preview.\">Preview</b> before <b title=\"This will create the post.\">Save</b>. To discard changes select <b title=\"This will reject any changes.\">Cancel</b>."
+            history:
+              title: "Actions history"
+              paragraph: "See below the changes made to this user"
+            reversion:
+              title: "Reverting"
+              subtitle: "You are reverting information"
+              message: "If you click \"Revert\" below, you are making your actions permanent!"
+              link: "Revert"            
 
     comments:
       index:
@@ -668,18 +433,11 @@ en:
         update_link: "Edit"
         search: "Search Comments"
         create: "New Comment"
-        sidebar:
-          title: "Comments"
-          paragraph: "You are viewing comments made by other users to your posts. You can either <b title=\"The edit link is at the end of the row.\">Edit</b> or <b title=\"The delete link is at the end of the row.\">Delete</b> a comment."
-          edit:
-            title: "Comment"
-            paragraph: "You are editing a comment. You can change the <b title=\"The body is the content of the comment.\">body</b> of the comment."
       columns:
         created_at: "Date"
         commenter: "Commenter"
         excert: "Excert"
         post: "Post"
-        body: "Body"
       list:
         noentries: "No Comments Found"
         found:
@@ -704,15 +462,6 @@ en:
         avatar: "Image"
       create:
         title: "Announcement"
-      form:
-        show: "Announcement Details"
-        new: "New Announcement"
-        edit: "Editing Announcement"
-        create_button: "Create"
-        update_button: "Update"
-        cancel_button: "Cancel"
-        close_button: "Close"
-#        hints:
       list:
         noentries: "No announcements"
         found:
@@ -720,14 +469,7 @@ en:
           one: "%{count} Announcements Found"
       sidebar:
         title: "Announcements"
-        paragraph: "On this page you can create <b title=\"Announcements are entries on the main page banner. The link to create is above the table.\">announcements</b> that will appear on frontend.<br/>You can also <b title=\"The link is at the end of the row\">edit</b> and <b title=\"The link is at the end of the row\">delete</b> existing announcements.<br/>To view an announcement <b title=\"The link is at the end of the row\">details</b> just click on the link."
-        show:
-          title: "Paragraph"
-          paragraph: "You are now viewing details of an announcement. To edit the announcement, go to <b title=\"The tab is above the announcement details.\">announcements tab</b>, and chose edit."
-        edit:
-          title: "Edit announcement"
-          paragraph: "You are editing an announcement. You can specify a <b title=\"The title will identify the announcement.\">title</b>, change the <b title=\"The announcement will be visible between the start and end date.\" >date</b> when it will be visible. You can edit the target <b title=\"The url is the target page, when the image is clicked.\">url</b>, and the background <b title=\"The image will fill all the banner area.\">image</b>. Finally you can change the <b title=\"If your message is too long, it will cover cover the image.\">message</b> which appear in front of the image.<br/>If you want to create a big announcement, you should the create a <b title=\"See the link on the tab above.\">static page</b> with all the information, and link the announcement to that page."
-
+        text: "On this page you can create announcements that will appear on frontend."
     settings:
       title: "Settings management"
       theme: "Theme"
@@ -737,25 +479,25 @@ en:
 
   authlogic:
     error_messages:
-      login_blank: can not be blank
-      login_not_found: is not valid
-      login_invalid: should use only letters, numbers, spaces, and .-_@ please.
-      consecutive_failed_logins_limit_exceeded: Consecutive failed logins limit exceeded, account is disabled.
-      email_invalid: should look like an email address.
-      password_blank: can not be blank
-      password_invalid: is not valid
-      not_active: Your account is not active
-      not_confirmed: Your account is not confirmed
-      not_approved: Your account is not approved
-      no_authentication_details: You did not provide any details for authentication.
+      login_blank: "can not be blank"
+      login_not_found: "is not valid"
+      login_invalid: "should use only letters, numbers, spaces, and .-_@ please."
+      consecutive_failed_logins_limit_exceeded: "Consecutive failed logins limit exceeded, account is disabled."
+      email_invalid: "should look like an email address."
+      password_blank: "can not be blank"
+      password_invalid: "is not valid"
+      not_active: "Your account is not active"
+      not_confirmed: "Your account is not confirmed"
+      not_approved: "Your account is not approved"
+      no_authentication_details: "You did not provide any details for authentication."
     models:
-      user_session: UserSession
+      user_session: "UserSession"
     attributes:
       user_session:
-        login: login
-        email: email
-        password: password
-        remember_me: remember me
+        login: "login"
+        email: "email"
+        password: "password"
+        remember_me: "remember me"
 
 
   flash:
@@ -787,8 +529,7 @@ en:
     invalid_tag_change: "Could not change tag %{old}'s name to %{new} because tag %{new} already exists."
     changes_saved_successful_with_delay: "Changes were successfully saved and will eventually take effect"
     reverted_with_sucess: "Successfully reverted"
-    description_required: "Description field is required"
-    invalid_date: "Invalid date format"
+    user_successfully_undeleted: "User recovered successfully"
   
   
   notifier: 
@@ -822,61 +563,75 @@ en:
       no_selection: "You must select at least one item from the table to execute an action."
 
 
-  footer:
-    last_session_paragraph: "Your last login was %{time_ago} ago, your ip was %{ip}"
-    browser_warning: "The web site is not rendering correctly because you are using an old version of <span style='color:red;'>Microsoft Internet Explorer</span>.<br /> Upgrade your browser or download <a href='http://www.mozilla.com/firefox/'>Mozilla Firefox</a>."
-
-
   generic_sentence:
     required_field: "<abbr>*</abbr> Required field."
     language: "language"
     administration: "administration"
     go_back: "Go back"
     are_you_sure: "Are you sure?"
-    default_list_action: "More actions"
+    scaffold_do_actions: "More actions"
     time_ago: "%{time_ago} ago"
     true_value: "True"
     false_value: "False"
     male_value: "Male"
     female_value: "Female"
 
-# US English translations for Ruby on Rails
-#
-# Use this as the base for the locale file of your language.
+  active_scaffold: 
+    are_you_sure_to_undelete: "Are you sure you want to undelete?"
+    are_you_sure: "Are you sure?"
+    cancel: "Cancel"
+    delete: "Delete"
+
+#data
 
   number:
+    # Used in number_with_delimiter()
+    # These are also the defaults for 'currency', 'percentage', 'precision', and 'human'
     format:
+      # Sets the separator between the units, for more precision (e.g. 1.0 / 2.0 == 0.5)
       separator: "."
+      # Delimets thousands (e.g. 1,000,000 is a million) (always in groups of three)
       delimiter: ","
+      # Number of decimals, behind the separator (the number 1 with a precision of 2 gives: 1.00)
       precision: 3
-      significant: false
-      strip_insignificant_zeros: false
-
+      
+    # Used in number_to_currency()
     currency:
       format:
+        # Where is the currency sign? %u is the currency unit, %n the number (default: $5.00)
         format: "%u%n"
         unit: "$"
+        # These three are to override number.format and are optional
         separator: "."
         delimiter: ","
         precision: 2
-        significant: false
-        strip_insignificant_zeros: false
-
+        
+    # Used in number_to_percentage()
     percentage:
       format:
+        # These three are to override number.format and are optional
+        # separator: 
         delimiter: ""
-
+        # precision: 
+        
+    # Used in number_to_precision()
     precision:
       format:
+        # These three are to override number.format and are optional
+        # separator:
         delimiter: ""
-
+        # precision:
+        
+    # Used in number_to_human_size()
     human:
       format:
+        # These three are to override number.format and are optional
+        # separator: 
         delimiter: ""
-        precision: 3
-        significant: true
-        strip_insignificant_zeros: true
+        precision: 1
       storage_units:
+        # Storage units output formatting.
+        # %u is the storage unit, %n is the number (default: 2 MB)
         format: "%n %u"
         units:
           byte:
@@ -886,16 +641,8 @@ en:
           mb: "MB"
           gb: "GB"
           tb: "TB"
-      decimal_units:
-        format: "%n %u"
-        units:
-          unit: ""
-          thousand: Thousand
-          million: Million
-          billion: Billion
-          trillion: Trillion
-          quadrillion: Quadrillion
 
+  # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
   datetime:
     distance_in_words:
       half_a_minute: "half a minute"
@@ -940,51 +687,43 @@ en:
       minute: "Minute"
       second: "Seconds"
 
-  helpers:
-    select:
-      prompt: "Please select"
-
-    submit:
-      create: 'Create %{model}'
-      update: 'Update %{model}'
-      submit: 'Save %{model}'
-
-  errors:
-    format: "%{attribute} %{message}"
-
-    messages: &errors_messages
-      inclusion: "is not included in the list"
-      exclusion: "is reserved"
-      invalid: "is invalid"
-      confirmation: "doesn't match confirmation"
-      accepted: "must be accepted"
-      empty: "can't be empty"
-      blank: "can't be blank"
-      too_long: "is too long (maximum is %{count} characters)"
-      too_short: "is too short (minimum is %{count} characters)"
-      wrong_length: "is the wrong length (should be %{count} characters)"
-      not_a_number: "is not a number"
-      not_an_integer: "must be an integer"
-      greater_than: "must be greater than %{count}"
-      greater_than_or_equal_to: "must be greater than or equal to %{count}"
-      equal_to: "must be equal to %{count}"
-      less_than: "must be less than %{count}"
-      less_than_or_equal_to: "must be less than or equal to %{count}"
-      odd: "must be odd"
-      even: "must be even"
-
   activerecord:
     errors:
       template:
         header:
           one:    "1 error prohibited this %{model} from being saved"
           other:  "%{count} errors prohibited this %{model} from being saved"
+        # The variable :count is also available
         body: "There were problems with the following fields:"
-
       messages:
+        inclusion: "is not included in the list"
+        exclusion: "is reserved"
+        invalid: "%{attribute} is invalid"
+        confirmation: "doesn't match confirmation"
+        accepted: "must be accepted"
+        empty: "can't be empty"
+        blank: "can't be blank"
+        too_long: "is too long (maximum is %{count} characters)"
+        too_short: "is too short (minimum is %{count} characters)"
+        wrong_length: "is the wrong length (should be %{count} characters)"
         taken: "has already been taken"
-        record_invalid: "Validation failed: %{errors}"
-        <<: *errors_messages
+        not_a_number: "is not a number"
+        greater_than: "must be greater than %{count}"
+        greater_than_or_equal_to: "must be greater than or equal to %{count}"
+        equal_to: "must be equal to %{count}"
+        less_than: "must be less than %{count}"
+        less_than_or_equal_to: "must be less than or equal to %{count}"
+        odd: "must be odd"
+        even: "must be even"
+      models:
+        user:
+          attributes:
+            phone: 
+              invalid: "must be a valid telephone number."
 
-      full_messages:
-        format: "%{attribute}%{message}"
+
+  support:
+    select:
+      # default value for :prompt => true in FormOptionsHelper
+      prompt: "Please select"
+

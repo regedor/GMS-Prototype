@@ -1,5 +1,6 @@
 module ApplicationHelper
-  include TweetButton
+ 	include TweetButton
+
   def icon_tag(icon)
     "<img src='/images/icons/#{icon}.png' alt=''/>"
   end
@@ -10,8 +11,8 @@ module ApplicationHelper
 
   def language_flag_tag(language)
     icon = case language
-    when 'en'    : "gb"
-    when 'pt-PT' : "pt"
+      when 'en'    : "gb"
+      when 'pt-PT' : "pt"
     end
     "<img src='/images/flags/#{icon}.png' alt=''/>"
   end
@@ -19,7 +20,7 @@ module ApplicationHelper
   def select_language_collection
     UserSession::LANGUAGES
   end
-
+  
   def avatar_url(record, options={})
     options[:size] ||= :medium
     raise "Invalid arguments" unless [:small,:medium].member? options[:size]
