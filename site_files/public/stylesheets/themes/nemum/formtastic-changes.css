@@ -14,21 +14,14 @@ form.formtastic fieldset.inputs ol li select,
 form.formtastic fieldset.inputs ol li textarea,
 form.formtastic fieldset.inputs ol li input          { font-size: 0.9em; }
 
-fieldset.buttons li.commit input,
-fieldset.buttons li.commit button.create,
-fieldset.buttons li.commit button.submit,
-fieldset.buttons li.commit button.update,
-fieldset.buttons li.commit a                         { font-size: 0.9em; font-weight: bold; text-align: center; }
+fieldset.buttons li.commit a.button,
+fieldset.buttons li.commit input.button              { font-size: 0.8em; text-decoration: none; font-weight: bold; text-align: center }
 
-fieldset.buttons li.commit input.positive,
-fieldset.buttons li.commit a.positive                { font-size: 1.1em; color: #591; }
-fieldset.buttons li.commit input.positive:hover,
-fieldset.buttons li.commit a.positive:hover          { color: #591; }
+fieldset.buttons li.commit a.positive:hover,
+fieldset.buttons li.commit input.positive:hover      { color: #591; }
 
-fieldset.buttons li.commit input.negative,
-fieldset.buttons li.commit a.negative                { color: #D32; }
-fieldset.buttons li.commit input.negative:hover,
-fieldset.buttons li.commit a.negative:hover          { color: #D32; }
+fieldset.buttons li.commit a.negative:hover,
+fieldset.buttons li.commit input.negative:hover      { color: #D32; }
 
 /*
 ============================================================================
@@ -63,47 +56,30 @@ form.formtastic fieldset.inputs ol li.password input { width: 250px; max-width: 
 
 form.formtastic fieldset.inputs ol li label          { width: 165px; padding: 0.7em 0 0; }
 form.formtastic fieldset.inputs ol li.boolean label  { float: left; padding: 0 0 0 165px; }
-form.formtastic fieldset.inputs ol li.boolean p.inline-hints  { clear: left; }
+form.formtastic fieldset.inputs ol li.boolean p.inline-hints { clear: left; }
+
+form.formtastic fieldset.inputs ol li fieldset ol    { padding: 0; margin: 0 0 0 165px; }
 
 form.formtastic legend                               { padding: 0 0 15px 0; }
 
-form.formtastic fieldset.inputs ol
-li#user_session_remember_me_input label              { padding: 0 0 0 165px; }
+li#user_session_remember_me_input label              { margin: 0 0 0 150px; }
 
 /* Buttons */
 
 form.formtastic fieldset.buttons                     { padding: 0; }
 
-fieldset.buttons li.commit input,
-fieldset.buttons li.commit a.preview_button,
-fieldset.buttons li.commit button.create,
-fieldset.buttons li.commit button.submit,
-fieldset.buttons li.commit button.update,
-fieldset.buttons li.commit a                         { background-color: #F5F5F5; border: 1px solid #CCC; cursor: pointer; height: 23px; display: block; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; }
-fieldset.buttons li.commit input,
-fieldset.buttons li.commit button.create,
-fieldset.buttons li.commit button.submit,
-fieldset.buttons li.commit button.update             { height: 30px; padding: 0 5px 0; } /* hack */
+fieldset.buttons li.commit a.button,
+fieldset.buttons li.commit input.button              { float: left; background-color: #F5F5F5; border: 1px solid #DEDEDE; }
+fieldset.buttons li.commit a.button,
+fieldset.buttons li.commit input.button              { cursor: pointer; padding: 6px 10px 9px 1px; /* Links */ }
+fieldset.buttons li.commit a.button,
+fieldset.buttons li.commit input.button              { -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; }
+
+fieldset.buttons li.commit input[type].button        { padding: 2px 10px 5px 1px; /* Firefox */ line-height: 20px; /* Safari */ }
+*:first-child+html input[type]                       { padding: 2px 10px 3px 1px; /* IE7 */ }
 
 fieldset.buttons li.commit a.google_ico,
-fieldset.buttons li.commit a.yahoo_ico               { margin: 0 0 15px 0; }
-
-fieldset.buttons li.commit input.positive,
-fieldset.buttons li.commit a.positive                { padding: 5px 5px 0 0; }
-fieldset.buttons li.commit input.positive:hover,
-fieldset.buttons li.commit a.positive:hover          { border: 1px solid #CFC; }
-fieldset.buttons li.commit input.positive:active,
-fieldset.buttons li.commit a.positive:active         { background-color: #EFE; }
-
-fieldset.buttons li.commit input.negative,
-fieldset.buttons li.commit a.negative                { padding: 5px 5px 0 0; }
-fieldset.buttons li.commit input.negative:hover,
-fieldset.buttons li.commit a.negative:hover          { border: 1px solid #FCC; }
-fieldset.buttons li.commit input.negative:active,
-fieldset.buttons li.commit a.negative:active         { background-color: #FEE; }
-
-fieldset.buttons button,
-li.commit input                                      { width: auto; overflow: visible; } /* IE6 */
+fieldset.buttons li.commit a.yahoo_ico               { font-size: 1em; margin: 0 0 15px 0; width: 95% }
 
 /* CSS3 */
 

@@ -23,7 +23,7 @@ class Message < ActiveRecord::Base
   # ==========================================================================
 
   def apply_filter
-    self.body_html = EnkiFormatter.format_as_xhtml(self.body)
+    self.body_html = TextFormatter.format_as_xhtml(self.body)
   end
  
 

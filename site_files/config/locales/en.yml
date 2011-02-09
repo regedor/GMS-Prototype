@@ -94,6 +94,8 @@ en:
         generic: "There groups you chose are conflicting"
         zero: "No groups chosen for pick '%{name}'"
         multiple: "Multiple groups chosen for pick '%{name}': %{groups}"
+    show:
+      title: "Account details"
   
 
   user_session:
@@ -264,7 +266,7 @@ en:
         from: "From"
         date: "Date"
         create_button: "Create"
-        update_button: "Update"
+        save_button: "Save"
         cancel_button: "Cancel"
         hints:
           body: "<a href='http://hobix.com/textile/quick.html'>Textile enabled</a>. Use Ctrl+E to switch between preview and edit mode."
@@ -480,7 +482,7 @@ en:
         new: "New Group"
         edit: "Editing Group"
         create_button: "Create"
-        update_button: "Update"
+        save_button: "Save"
         cancel_button: "Cancel"
         close_button: "Close"
 #        hints:
@@ -514,7 +516,7 @@ en:
         new: "New Group Pick"
         edit: "Editing Group Pick"
         create_button: "Create"
-        update_button: "Update"
+        save_button: "Save"
         cancel_button: "Cancel"
         close_button: "Close"
 #        hints:
@@ -560,11 +562,10 @@ en:
         new: "New Page"
         edit: "Editing Page"
         show: "Page Details"
-        submit: "Save"
         preview_button: "Preview"
         edit_button: "Edit"
         create_button: "Create"
-        update_button: "Update"
+        save_button: "Save"
         cancel_button: "Cancel"
         close_button: "Close"
         hints:
@@ -620,7 +621,7 @@ en:
         preview_button: "Preview"
         edit_button: "Edit"
         create_button: "Create"
-        update_button: "Update"
+        save_button: "Save"
         cancel_button: "Cancel"
         close_button: "Close"
         hints:
@@ -704,15 +705,6 @@ en:
         avatar: "Image"
       create:
         title: "Announcement"
-      form:
-        show: "Announcement Details"
-        new: "New Announcement"
-        edit: "Editing Announcement"
-        create_button: "Create"
-        update_button: "Update"
-        cancel_button: "Cancel"
-        close_button: "Close"
-#        hints:
       list:
         noentries: "No announcements"
         found:
@@ -727,7 +719,6 @@ en:
         edit:
           title: "Edit announcement"
           paragraph: "You are editing an announcement. You can specify a <b title=\"The title will identify the announcement.\">title</b>, change the <b title=\"The announcement will be visible between the start and end date.\" >date</b> when it will be visible. You can edit the target <b title=\"The url is the target page, when the image is clicked.\">url</b>, and the background <b title=\"The image will fill all the banner area.\">image</b>. Finally you can change the <b title=\"If your message is too long, it will cover cover the image.\">message</b> which appear in front of the image.<br/>If you want to create a big announcement, you should the create a <b title=\"See the link on the tab above.\">static page</b> with all the information, and link the announcement to that page."
-
     settings:
       title: "Settings management"
       theme: "Theme"

@@ -4,13 +4,13 @@
       <ul>
         <li class="commit">
           <%= link_to t('user_session.new.form_side_notes.google_signin'),
-              "/user/session?user_session%5Bopenid_identifier%5D=https://www.google.com/accounts/o8/id",
-              :class => "positive google_ico create", :method => 'post' %>
+              '/user/session?user_session%5Bopenid_identifier%5D=https://www.google.com/accounts/o8/id',
+              :class => 'button positive google_ico', :method => 'post' %>
         </li>
         <li class="commit">
           <%= link_to t('user_session.new.form_side_notes.yahoo_signin'),
-              "/user/session?user_session%5Bopenid_identifier%5D=https://www.yahoo.com",
-              :class => "positive yahoo_ico create", :method => 'post' %>
+              '/user/session?user_session%5Bopenid_identifier%5D=https://www.yahoo.com',
+              :class => 'button positive yahoo_ico', :method => 'post' %>
         </li>
       </ul>
     </fieldset>
@@ -19,4 +19,4 @@
   <div class="note">
     <p><%= t('user_session.new.form_side_notes.second') %></p>
   </div>
-</div>                            
+</div>

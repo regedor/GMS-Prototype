@@ -1,3 +1,21 @@
+<%= include_i18n_calendar_javascript %>
+<script>
+jQuery.noConflict();
+  
+jQuery(document).ready(function($){
+ 
+  var counter = 0;
+  var locale = ""
+	for(i in $.datepicker.regional){
+		if(counter == 1)
+		{ locale=i; break; }
+		counter++;
+	}
+  $.datepicker.setDefaults( $.datepicker.regional[ '' ] );	
+  $( ".datepicker" ).datepicker($.datepicker.regional[locale]);
+});
+</script>
+
 <% content_for(:head) do -%>
   <%= javascript_include_tag 'edit_preview' %>
 <% end -%>
@@ -16,10 +34,20 @@
 <% end -%>
 
 <% form.input_field_set do -%>
-  <%= form.input :published_at_natural,
-                 :as       => 'string',
-                 :label    => I18n::t('admin.posts.columns.published_at'),
-                 :hint     => I18n::t('admin.posts.form.hints.published_at').html_safe %>
+  <% if controller.action_name == "new" %>
+    <%= form.input :published_at,
+                   :as       => 'string',
+                   :input_html => {:class => "datepicker", :value => l(Time.now, :format => "%d/%m/%Y")},
+                   :label    => I18n::t('admin.posts.columns.published_at'),
+                   :hint     => I18n::t('admin.posts.form.hints.published_at').html_safe %>
+  <% else %>
+    <%= form.input :published_at,
+                   :as       => 'string',
+                   :input_html => {:class => "datepicker", :value => l(@record.published_at, :format => "%d/%m/%Y")},
+                   :label    => I18n::t('admin.posts.columns.published_at'),
+                   :hint     => I18n::t('admin.posts.form.hints.published_at').html_safe %>  
+  <% end %>
+  
   <%= form.input :slug,
                  :required => false,
                  :label    => I18n::t('admin.posts.columns.slug'),
