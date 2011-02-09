@@ -1,5 +1,6 @@
 <div class="block">
-      <p><%= link_to "#{t("web-app-theme.list", :default => "List")}", user_accounts_path %></p>
+      <p><%= link_to "#{t("user.list_link")}", user_accounts_path %></p>
+      <p><%= link_to "#{t("user.edit_link")}", edit_user_account_path %></p>
   <div class="content">
     <div class="inner">
       
@@ -35,7 +36,7 @@
 
       <p>
         <b><%= t("activerecord.attributes.user.role", :default => t("activerecord.labels.role", :default => "Role")) %>:</b>
-        <%= @user.role %>
+        <%= @user.role.label %>
       </p>
 
       <p>
@@ -48,7 +49,7 @@
         <%= @user.phone %>
       </p>
 
-      <p>
+<!--      <p>
         <b><%= t("activerecord.attributes.user.openid_identifier", :default => t("activerecord.labels.openid_identifier", :default => "Openid identifier")) %>:</b>
         <%= @user.openid_identifier %>
       </p>
@@ -81,9 +82,9 @@
       <p>
         <b><%= t("activerecord.attributes.user.active", :default => t("activerecord.labels.active", :default => "Active")) %>:</b>
         <%= @user.active %>
-      </p>
+      </p> -->
 
-      <p>
+<!--      <p>
         <b><%= t("activerecord.attributes.user.login_count", :default => t("activerecord.labels.login_count", :default => "Login count")) %>:</b>
         <%= @user.login_count %>
       </p>
@@ -91,9 +92,9 @@
       <p>
         <b><%= t("activerecord.attributes.user.failed_login_count", :default => t("activerecord.labels.failed_login_count", :default => "Failed login count")) %>:</b>
         <%= @user.failed_login_count %>
-      </p>
+      </p> -->
 
-      <p>
+<!--      <p>
         <b><%= t("activerecord.attributes.user.last_request_at", :default => t("activerecord.labels.last_request_at", :default => "Last request at")) %>:</b>
         <%= @user.last_request_at %>
       </p>
@@ -101,7 +102,7 @@
       <p>
         <b><%= t("activerecord.attributes.user.current_login_at", :default => t("activerecord.labels.current_login_at", :default => "Current login at")) %>:</b>
         <%= @user.current_login_at %>
-      </p>
+      </p> -->
 
       <p>
         <b><%= t("activerecord.attributes.user.last_login_at", :default => t("activerecord.labels.last_login_at", :default => "Last login at")) %>:</b>
