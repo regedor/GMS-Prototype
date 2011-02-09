@@ -28,6 +28,6 @@ end
 
 Given /^the following activated users? exists?$/ do |table|
   table.hashes.each do |hash|
-    Factory.give_me_a_user(hash)
+    Factory(:active_user,hash)
   end
 end
