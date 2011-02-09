@@ -835,6 +835,7 @@ en:
     are_you_sure: "Are you sure?"
     default_list_action: "More actions"
     time_ago: "%{time_ago} ago"
+    time_after: "%{time_after} from now"
     true_value: "True"
     false_value: "False"
     male_value: "Male"

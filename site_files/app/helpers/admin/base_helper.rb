@@ -67,6 +67,22 @@ module Admin::BaseHelper
       message
     end
   end
+
+  def starts_at_column(record)
+    if (Time.now - record.starts_at) < 30.days
+      I18n::t "generic_sentence.time_ago", :time_ago => time_ago_in_words(record.starts_at)
+    else
+      record.starts_at.strftime('%d %b, %Y')
+    end
+  end
+
+  def ends_at_column(record)
+    if (record.ends_at - Time.now) < 30.days
+      I18n::t "generic_sentence.time_after", :time_after => time_ago_in_words(record.ends_at)
+    else
+      record.ends_at.strftime('%d %b, %Y')
+    end
+  end
   
   def created_at_column(record)
     if (Time.now - record.created_at) < 30.days

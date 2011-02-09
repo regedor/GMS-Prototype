@@ -1,10 +1,47 @@
+<%= include_i18n_calendar_javascript %>
+
+<script>
+jQuery.noConflict();
+
+jQuery(document).ready(function($){
+
+  var counter = 0;
+  var locale = ""
+  for (i in $.datepicker.regional) {
+    alert(i);
+    if (counter == 1) {
+      locale = i;
+      break;
+    }
+    counter++;
+  }
+
+  $.datepicker.setDefaults( $.datepicker.regional[ '' ] );      
+  $( ".datepicker" ).datepicker($.datepicker.regional[locale]);
+
+});
+</script>
+
 <% form.input_field_set do -%>
   <%= form.input :title,
                  :label    => I18n::t('admin.announcements.columns.title') %>
   <%= form.input :starts_at,
+                 :as => :string,
+                 :input_html => { :class => "datepicker", :value => l(@record.starts_at, :format => "%d/%m/%Y") },
                  :label    => I18n::t('admin.announcements.columns.starts_at') %>
+
+<% if controller.action_name == "new" -%>
   <%= form.input :ends_at,
+                 :as => :string,
+                 :input_html => { :class => "datepicker" },
                  :label    => I18n::t('admin.announcements.columns.ends_at') %>
+<% else -%>
+  <%= form.input :ends_at,
+                 :as => :string,
+                 :input_html => { :class => "datepicker", :value => l(@record.ends_at, :format => "%d/%m/%Y") },
+                 :label    => I18n::t('admin.announcements.columns.ends_at') %>
+<% end -%>
+
   <%= form.input :url,
                  :required => false,
                  :hint     => I18n::t('admin.announcements.form.hints.url'),
