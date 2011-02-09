@@ -79,11 +79,8 @@ class User::AccountController < ApplicationController
       user_picks = UserOptionalGroupPick.for_user(@user).each { |pick| user_picks_hash[pick.id.to_s] = pick }
       user_picks.each { |pick| user_picks_hash[pick.id.to_s] = pick }
       params[:user][:user_optional_group_picks].each do |pick_id, group_id|
-        #begin
-          next if user_picks_hash[pick_id].group_ids.member? group_id.to_i
-        #rescue
-          # Exception is only raised if the pick does not belong to the user
-        #end
+        pick = user_picks_hash[pick_id]
+        next if !pick.nil? && pick.group_ids.member? group_id.to_i
         # Only a malicious user reaches here
         head 500
         return
@@ -109,18 +106,21 @@ class User::AccountController < ApplicationController
     @user.attributes = params[:user]
     @user.save do |result|
       if result
+        # Validates if the group set is valid
         if (validation_errors = @user.validate_group_picks(user_picks)).empty?
+          # Valid model but invalid group set
           session[:language] = @user.language
           flash[:notice] = t('flash.account_updated')
           redirect_to user_account_path(@user)
         else
           # Groups are an association, therefore they are always saved
-          # This reverts the groups to the initial state, in case something is not validated
+          # This reverts the groups to the restore point (initial state), in case something is not validated
           @user.group_ids = initial_group_ids
           flash[:error] = t('users.errors.user_optional_group_picks.generic') + ":<br />" + validation_errors.map(&:to_s).join('<br />')
           redirect_to :action => 'edit'
         end
       else
+        # Invalid model
         flash[:error] = t('users.errors.invalid_fields') + ":<br />" + @user.errors.each { |i,e| e.to_s}.join(', ')
         redirect_to :action => 'edit'
       end
