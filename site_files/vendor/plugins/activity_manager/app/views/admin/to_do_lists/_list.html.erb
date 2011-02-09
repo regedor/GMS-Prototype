@@ -14,7 +14,7 @@
 		  <% else %>		
 	  	  	<li id="item_<%= todo.id  %>" class="todo">
 		  <% end %>
-          <%= render :partial => "admin/to_dos/content", :locals => {:todo => todo}, :layout => false %>
+          <%= render :partial => "admin/to_dos/content.html.erb", :locals => {:todo => todo}, :layout => false %>
         </li>
       <% end %>
     </ul>

@@ -21,11 +21,12 @@ class Admin::ToDoListsController < Admin::BaseController
     todo.save
     
     @list = ToDoList.find(params[:id])
+    @project = Project.find(params[:project_id])
     
     respond_to do |format|
       format.json { render :json  =>  {
             'id' => params[:id],
-            'html'=> render_to_string(:partial => "admin/to_do_lists/list.html.erb", :layout => false) 
+            'html'=> render_to_string(:partial => "admin/to_do_lists/list.html.erb", :layout => false, :locals => {:list => @list, :project => @project}) 
         }  
       }
     end  
