@@ -94,6 +94,8 @@ en:
         generic: "There groups you chose are conflicting"
         zero: "No groups chosen for pick '%{name}'"
         multiple: "Multiple groups chosen for pick '%{name}': %{groups}"
+    show:
+      title: "Account details"
   
 
   user_session:
@@ -264,7 +266,7 @@ en:
         from: "From"
         date: "Date"
         create_button: "Create"
-        update_button: "Update"
+        save_button: "Save"
         cancel_button: "Cancel"
         hints:
           body: "<a href='http://hobix.com/textile/quick.html'>Textile enabled</a>. Use Ctrl+E to switch between preview and edit mode."
@@ -480,7 +482,7 @@ en:
         new: "New Group"
         edit: "Editing Group"
         create_button: "Create"
-        update_button: "Update"
+        save_button: "Save"
         cancel_button: "Cancel"
         close_button: "Close"
 #        hints:
@@ -514,7 +516,7 @@ en:
         new: "New Group Pick"
         edit: "Editing Group Pick"
         create_button: "Create"
-        update_button: "Update"
+        save_button: "Save"
         cancel_button: "Cancel"
         close_button: "Close"
 #        hints:
@@ -560,11 +562,10 @@ en:
         new: "New Page"
         edit: "Editing Page"
         show: "Page Details"
-        submit: "Save"
         preview_button: "Preview"
         edit_button: "Edit"
         create_button: "Create"
-        update_button: "Update"
+        save_button: "Save"
         cancel_button: "Cancel"
         close_button: "Close"
         hints:
@@ -620,7 +621,7 @@ en:
         preview_button: "Preview"
         edit_button: "Edit"
         create_button: "Create"
-        update_button: "Update"
+        save_button: "Save"
         cancel_button: "Cancel"
         close_button: "Close"
         hints:
@@ -825,6 +826,7 @@ en:
     are_you_sure: "Are you sure?"
     default_list_action: "More actions"
     time_ago: "%{time_ago} ago"
+    time_after: "%{time_after} from now"
     true_value: "True"
     false_value: "False"
     male_value: "Male"

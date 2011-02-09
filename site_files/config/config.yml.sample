@@ -1,36 +1,41 @@
-# Configuration options can be accessed as
-# configatron.site_name
-
+--- 
 development: &local
-  site_name: "Simon Administration"
-  site_namemobile: "Simon Administration"
-  site_url: Simon Administration.local
-  site_header: "núcleo de estudantes de medicina da universidade do minho"
-  title: Nemum
-  
-  company_name: BaseApp2 Ltd
-  admin_email: admin@baseapp2.local
-  
-  support_name: BaseApp2 Support
-  support_email: support@baseapp2.local
-  
-  site_envnote: Local Server
-  theme: nemum
+  theme: "nemum"
+  site_name: "Nemum"
+  site_url: "http://localhost:3000/"
+  site_domain: "localhost"
+  support_email: "support@baseapp2.local"
+  root_email: "admin@baseapp2.local"
+  mailer_email: "miguelregedor@gmail.com"
+  default_locale: "en"
+  force_locale: "true"
+  mailer:
+    enable_starttls_auto: true
+    address: smtp.gmail.com
+    authentication: :plain
+    port: 587
+    domain: gmail.com
+    user_name: usernamewithoutAT # also change email in notifier model 
+    password: password
 
 production:
-  site_name: "Simon Administration"
-  site_namemobile: BaseApp2
-  site_url: www.regedor.com
-  site_header: "núcleo de estudantes de medicina da universidade do minho"
-  
-  company_name: BaseApp2 Ltd
-  admin_email: admin@baseapp2.com
-  
-  support_name: BaseApp2 Support
-  support_email: support@baseapp2.com
-  
-  site_envnote: Production Server
-  theme: nemum
-  
+  theme: "nemum"
+  site_name: "Nemum"
+  site_url: "http://www.regedor.com/"
+  site_domain: "www.regedor.com"
+  support_email: "support@baseapp2.local"
+  root_email: "admin@baseapp2.local"
+  mailer_email: "miguelregedor@gmail.com"
+  default_locale: "en"
+  force_locale: "true"
+  mailer:
+    enable_starttls_auto: true
+    address: smtp.gmail.com
+    authentication: :plain
+    port: 587
+    domain: gmail.com
+    user_name: miguelregedor 
+    password: password
+
 test:
   <<: *local

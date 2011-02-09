@@ -21,8 +21,7 @@ class HistoryEntry < ActiveRecord::Base
         # this method will be used in before update
         # In some cases should be overriden in model
         def create_history_entry?
-          return true if self.history_entries.empty?
-          self.history_entries.last.xml_hash != self.to_xml
+          true
         end
        
         def create_history_entry!
@@ -44,11 +43,12 @@ class HistoryEntry < ActiveRecord::Base
                                               :xml_hash     => self.to_xml
         end
 
+
         def history_entries_list
           history_entries.reverse
         end
 
-       def is_historicable?
+       def historicable?
          true
        end
 
@@ -103,6 +103,17 @@ class HistoryEntry < ActiveRecord::Base
 
   class << self
 
+    #Returns the username of the user which made the action
+    def get_name_and_type(id)
+      if DeletedUser.find_by_id(id)
+        return {:name => DeletedUser.find_by_id(id).nickname_or_first_and_last_name, :type => "deleted_user"   }
+      elsif User.find_by_id(id)
+        return {:name => User.find_by_id(id).nickname_or_first_and_last_name,        :type => "user"           }
+      else
+        return {:name => I18n::t("admin.deleted_users.deleted_user"),                :type => "destroyed_user" }
+      end
+    end
+    
   end
 
 end

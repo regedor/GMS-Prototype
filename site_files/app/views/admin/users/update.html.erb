@@ -1,0 +1,34 @@
+<% if File.exists?(Rails.root.join("app", "views", params[:controller], "_edit_sidebar.html.erb")) %>
+  <% content_for :sidebar do -%>
+    <%= render :partial => 'edit_sidebar' %>
+  <% end -%>
+<% elsif File.exists?(Rails.root.join("app", "views", params[:controller], "_sidebar.html.erb")) %>
+  <% content_for :sidebar do -%>
+    <%= render :partial => 'sidebar' %>
+  <% end -%>
+<% end -%>
+
+  <div class="content">
+    <div class="inner">
+
+      <h2><%= I18n::t('admin.users.form.edit') + ' - ' + link_to(h(@record.nickname_or_first_and_last_name), admin_user_path(@record)) %></h2>
+
+      <% semantic_form_for :record, @record, 
+                           :url => admin_user_path(@record), 
+                           :html => { :method => :put, :id => "edit_user_#{@record.id}", :multipart => true } do |form| -%>
+
+        <%= render :partial => 'form', :locals => {:form => form} %>
+
+        <p class="form-footer">
+          <% form.buttons do -%>
+            <%= form.commit_button t('admin.users.form.update_button'),
+                                   :button_html => {:class => "submit"} %>
+            <%= form.button_link   t('admin.users.form.cancel_button'), admin_users_path,
+                                   :button_html => {:class => "negative"} %>
+          <% end -%>
+        </p>
+
+      <% end -%>
+    </div>
+  </div>
+

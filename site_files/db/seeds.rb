@@ -11,11 +11,11 @@ puts "Creating settings..."
   Setting.create :identifier => "frontend_navigation", :field_type => "string", :value => "<li><a href=\"/\">Notícias</a></li>__SelectedPages__"
 
 puts "Creating standard roles..."
+  symbols = []
   File.open( "config/authorization_rules.rb" ) do |f| 
-    f.grep( /role :([a-z_0-9]*) do/ ) do |line| 
-      Role.create :label => $1
-    end 
-  end
+    f.grep( /role :([a-z_0-9]*) do/ ) { |line| symbols << $1 }
+  end 
+  symbols.reverse[1..-1].each { |role| Role.create :label => role }
 
 puts "Creating standard groups..."
   default_group = Group.create :name => "Default",           :mailable => false
@@ -31,7 +31,7 @@ puts "Creating admins..."
   user_regedor.country           = 'PT'
   user_regedor.phone             = "00351964472540"
   user_regedor.gender            =  false
-  user_regedor.role_id           =  1
+  user_regedor.role_id           =  Role.id_for :root
   user_regedor.save
   user_regedor.activate!
   default_group.direct_users << user_regedor
@@ -47,7 +47,7 @@ puts "Creating admins..."
   root.country               = 'PT'
   root.phone                 = "123456789"
   root.gender                =  true
-  root.role_id               =  1
+  root.role_id               =  Role.id_for :root
   root.save
   root.activate!
   default_group.direct_users << root
@@ -63,7 +63,7 @@ puts "Creating admins..."
   admin.country               = 'PT'
   admin.phone                 = "123456789"
   admin.gender                =  true
-  admin.role_id               =  2
+  admin.role_id               =  Role.id_for :admin 
   admin.save
   admin.activate!
   default_group.direct_users << admin
@@ -74,7 +74,7 @@ puts "Saving Groups..."
   root_group.save
   admin_group.save
 
-puts "Creating projects... (DEBUG)"
+puts "Creating projects..."
   p1 = Project.new :name => "Project 1", :description => "O primeiro projecto do mundo!", :user_id => 1
 
   t1 = ToDo.new :description => "Fazer coisas" , :user => User.find(2), :due_date => Time.now 
@@ -102,7 +102,6 @@ puts "Creating projects... (DEBUG)"
   p1.to_do_lists << tdl1
   p1.to_do_lists << tdl2
   p1.save
-
   
   c1 = Category.new :name => "Categoria"
   c1.save

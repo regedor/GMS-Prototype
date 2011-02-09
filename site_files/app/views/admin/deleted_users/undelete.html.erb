@@ -14,7 +14,7 @@
     <div class="active-scaffold">
       <div class="delete-view view">
         <%= form_tag params_for(:action => :undelete, :id => params[:id]), { :method => :put } %>
-          <h4><%= t('admin.deleted_users.undelete.title') -%></h4>
+          <h4><%= t('admin.deleted_users.undelete.title') %></h4>
            <p class="form-footer">
              <%= submit_tag t('admin.deleted_users.undelete.submit'), :class => 'submit' %>
              <%= link_to t('admin.deleted_users.undelete.cancel_link'), main_path_to_return, :class => 'cancel' %>

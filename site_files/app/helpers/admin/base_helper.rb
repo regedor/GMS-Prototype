@@ -41,8 +41,8 @@ module Admin::BaseHelper
     truncate(record.message,50,"...")
   end  
 
-  def role_column(record)
-    record.role.nil? ? '-' : t('users.roles.' + record.role.label)
+  def role_column(user)
+    t("users.roles." + user.role.label)
   end
 
   def row_mark_column(record)
@@ -65,6 +65,22 @@ module Admin::BaseHelper
       link_to(message, send("admin_#{commentable.class.to_s.downcase}_comments_path", commentable))
     else
       message
+    end
+  end
+
+  def starts_at_column(record)
+    if (Time.now - record.starts_at) < 30.days
+      I18n::t "generic_sentence.time_ago", :time_ago => time_ago_in_words(record.starts_at)
+    else
+      record.starts_at.strftime('%d %b, %Y')
+    end
+  end
+
+  def ends_at_column(record)
+    if (record.ends_at - Time.now) < 30.days
+      I18n::t "generic_sentence.time_after", :time_after => time_ago_in_words(record.ends_at)
+    else
+      record.ends_at.strftime('%d %b, %Y')
     end
   end
   
@@ -90,17 +106,17 @@ module Admin::BaseHelper
   
   def active_column(record)
     if record.active
-      '<p class = "true-tick">'+I18n::t('generic_sentence.true_value')+'</p>'
+      '<p class = "tick">'+I18n::t('generic_sentence.true_value')+'</p>'
     else
-      '<p class = "false-cross">'+I18n::t("generic_sentence.false_value")+'</p>'
+      '<p class = "cross">'+I18n::t("generic_sentence.false_value")+'</p>'
     end
   end
   
   def mailable_column(record)
     if record.mailable
-      '<p class = "true-tick">'+I18n::t('generic_sentence.true_value')+'</p>'
+      '<p class = "tick">'+I18n::t('generic_sentence.true_value')+'</p>'
     else
-      '<p class = "false-cross">'+I18n::t("generic_sentence.false_value")+'</p>'
+      '<p class = "cross">'+I18n::t("generic_sentence.false_value")+'</p>'
     end  
   end
 

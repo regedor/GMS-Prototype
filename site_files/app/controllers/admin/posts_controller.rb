@@ -2,6 +2,7 @@ class Admin::PostsController < Admin::BaseController
   filter_access_to :all, :require => any_as_privilege
   before_filter :tags_in_instance_variable, :only => [ :list, :index ]
   before_filter :list_tags,                 :only =>   :index
+  before_filter :date_localization,         :only => [ :create, :update ]
 
   include ActionView::Helpers::TextHelper
 
@@ -9,8 +10,8 @@ class Admin::PostsController < Admin::BaseController
     Scaffoldapp::active_scaffold config, "admin.posts",
       :list   => [ :title, :excert, :published_at, :total_approved_comments ],
       :show   => [ ],
-      :create => [ :title, :body, :tag_list, :published_at_natural, :slug ],
-      :edit   => [ :title, :body, :tag_list, :published_at_natural, :slug, :minor_edit ]
+      :create => [ :title, :body, :tag_list, :published_at, :slug ],
+      :edit   => [ :title, :body, :tag_list, :published_at, :slug, :minor_edit ]
   end
 
   def custom_finder_options
@@ -81,6 +82,16 @@ class Admin::PostsController < Admin::BaseController
   
     def list_tags
       @tags = Tag.paginate_filtered_tags @tag_ids, params[:tag_page]
+    end
+  
+    def date_localization  
+      begin 
+        params[:record][:published_at] = DateTime.strptime(params[:record][:published_at],"%d/%m/%Y").to_time
+      rescue ArgumentError
+        flash[:error] = t("flash.invalid_date")
+        redirect_to somewhere_in_the_app_path
+        return
+      end
     end
   
 end

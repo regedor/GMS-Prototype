@@ -86,16 +86,6 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace :api do |api|
    api.resource :i18n
   end
-  
-
-  # ==========================================================================
-  # Website Resources
-  # ==========================================================================
-
-  map.namespace :website do |website|
-    website.root :controller => 'posts', :action => 'index'
-	 website.resources :posts
-  end
 
 
 end

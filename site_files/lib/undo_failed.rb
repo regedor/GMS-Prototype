@@ -1,2 +1,0 @@
-class UndoFailed < RuntimeError
-end

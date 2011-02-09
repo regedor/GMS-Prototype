@@ -4,13 +4,13 @@ class ScaffoldApp < ActiveRecord::Migration
     create_table :users do |t|
       # User info
       t.string    :email,               :null => false,                   :limit => 100
-      t.string    :name
-      t.string    :nickname
+      t.string    :name,                                                  :limit => 100
+      t.string    :nickname,                                              :limit => 30
       t.boolean   :gender,              :null => false, :default => true # True = Male and False = Female
       t.text      :profile
       t.string    :website
       t.string    :country
-      t.string    :phone
+      t.string    :phone,                                                 :limit => 30
       t.boolean   :emails               # wanna receive emails
       # User values
       t.integer   :role_id,             :null => false, :default => 6 # Normal user. Role is created in seeds
@@ -32,6 +32,10 @@ class ScaffoldApp < ActiveRecord::Migration
       t.datetime  :last_login_at
       t.string    :current_login_ip
       t.string    :last_login_ip
+      t.string    :avatar_file_name
+      t.string    :avatar_content_type
+      t.integer   :avatar_file_size
+      t.datetime  :avatar_updated_at
     end
     add_index :users, :email, :unique => true
 
@@ -203,10 +207,10 @@ class ScaffoldApp < ActiveRecord::Migration
       t.text   :value
       t.timestamps
     end
-    
+
   end
 
   def self.down
-    raise IrreversibleMigration, "Simon logo sucks!"
+    raise IrreversibleMigration, "Irreversible Migration."
   end
 end
