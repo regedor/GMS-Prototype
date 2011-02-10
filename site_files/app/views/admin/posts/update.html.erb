@@ -19,7 +19,9 @@
         <%= form.commit_button I18n::t('admin.posts.form.save_button'),
                                :button_html => { :class => 'button positive' } %>
         <%= form.button_link   I18n::t('admin.posts.form.preview_button'), '#',
-                               :button_html => { :class => 'button positive' } %>
+                               :button_html => { :class => 'button positive preview' } %>
+		<%= form.button_link   I18n::t('admin.posts.form.edit_button'), '#',
+					           :button_html => { :class => 'button positive edit' } %>
         <%= form.button_link   I18n::t('admin.posts.form.cancel_button'), admin_posts_path,
                                :button_html => { :class => 'button negative' } %>
       <% end -%>

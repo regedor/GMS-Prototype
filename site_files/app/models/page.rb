@@ -38,10 +38,14 @@ class Page < ActiveRecord::Base
     true
   end
 
+  # Generates a unique slug
   def generate_slug
-    self.slug = self.title.dup if self.slug.blank?
-    self.slug.slugorize!
-  end
+    new_slug = self.title.dup.slugorize
+    if self.slug.blank? || !self.slug.starts_with?(new_slug)
+      repeated = Page.all(:select => 'COUNT(*) as id', :conditions => { :slug => self.slug }).first.id
+      self.slug = (repeated > 0) ? "#{new_slug}-#{repeated + 1}" : new_slug
+    end 
+  end 
 
 
   # ==========================================================================
@@ -55,6 +59,7 @@ class Page < ActiveRecord::Base
       page
     end
 
+    # Finds a page by its slug
     def find_by_slug slug
       (Page.all :conditions => { :slug => slug }).first
     end
