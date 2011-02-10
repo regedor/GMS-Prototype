@@ -26,5 +26,15 @@ class ToDoComment < ActiveRecord::Base
     self.body_html = TextFormatter.format_as_xhtml(self.body)
   end
  
+  class << self
+    
+    def build_for_preview(params)
+      comment = ToDoComment.new(params)      
+      comment.apply_filter
+      comment
+    end
+    
+  end
+ 
 
 end

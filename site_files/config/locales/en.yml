@@ -247,6 +247,12 @@ en:
         show: "Show all %{count} completed to-do's"
         collapse: "Collapse completed to-do's"                        
         
+    to_do_comment:
+      new:
+        users: "Users to mail"
+        create_button: "Create"
+        preview_button: "Preview"                  
+        
     messages:
       index:
         title: "Messages List"
