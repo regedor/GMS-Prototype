@@ -12,14 +12,9 @@ class Post < ActiveRecord::Base
   before_save             :apply_filter
 
   validates_presence_of   :title, :slug, :body
-
-#  validate                :validate_published_at_natural
+  validates_uniqueness_of :slug
 
   named_scope :not_deleted, :conditions => {:deleted => false}
-
-  #  def approved_comments
-  #    comments
-  #  end
 
   # Makes this model historicable
   include HistoryEntry::Historicable
@@ -28,11 +23,6 @@ class Post < ActiveRecord::Base
   def authorized_for?(*args)
     true
   end
-
-  # Validate published status
-#  def validate_published_at_natural
-#    errors.add("published_at_natural", "Unable to parse time") unless published?
-#  end
 
   attr_accessor :minor_edit
   # Sets minor edition
@@ -50,12 +40,6 @@ class Post < ActiveRecord::Base
     published_at?
   end
 
-#  attr_accessor :published_at_natural
-  # Publication date at natural form. (e.g. 2011-01-01 00:00:00 )
-#  def published_at_natural
-#    @published_at_natural ||= published_at.send_with_default(:strftime, 'now', "%Y-%m-%d %H:%M:%S")
-#  end
-
   # Returns the post's publication month
   def month
     published_at.beginning_of_month
@@ -72,14 +56,16 @@ class Post < ActiveRecord::Base
   # Sets post dates
   def set_dates
     self.edited_at = Time.now if self.edited_at.nil? || !minor_edit?
-#    self.published_at = DateTime.strptime(self.published_at, "%m/%d/%Y").to_time
   end
 
-  # Generates slug
+  # Generates a unique slug
   def generate_slug
-    self.slug = self.title.dup if self.slug.blank?
-    self.slug.slugorize!
-  end
+    new_slug = self.title.dup.slugorize
+    if self.slug.blank? || !self.slug.starts_with?(new_slug)
+      repeated = Post.all(:select => 'COUNT(*) as id', :conditions => { :slug => self.slug }).first.id
+      self.slug = (repeated > 0) ? "#{new_slug}-#{repeated + 1}" : new_slug
+    end 
+  end 
 
   # Generates the tag list from a tag array
   def tag_list=(value)
@@ -92,7 +78,7 @@ class Post < ActiveRecord::Base
     if new_attributes
       self.cached_tag_list = "" unless new_attributes["cached-tag-list"]
     end
-  end  
+  end
 
 
   class << self
@@ -109,20 +95,25 @@ class Post < ActiveRecord::Base
       post
     end
 
-    # Find by permalink
-    def find_by_permalink(year, month, day, slug, options = {})
+    # Finds a post by its slug
+    def find_by_slug slug
+      (Post.all :conditions => { :slug => slug }).first
+    end
+
+    # Finds a post by its permalink
+    def find_by_permalink(year, month, day, slug, options = {}) 
       begin
         day = Time.parse([year, month, day].collect(&:to_i).join("-")).midnight
         post = find_all_by_slug(slug, options).detect do |post|
           [:year, :month, :day].all? {|time|
             post.published_at.send(time) == day.send(time)
-          }
-        end
+          }   
+        end 
       rescue ArgumentError # Invalid time
-        post = nil
-      end
+        post = nil 
+      end 
       post || raise(ActiveRecord::RecordNotFound)
-    end
+    end 
 
     # Find all posts grouped by month
     def find_all_grouped_by_month
