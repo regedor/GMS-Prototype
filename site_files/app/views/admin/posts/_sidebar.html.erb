@@ -9,16 +9,16 @@
   </div>
 
   <div class="block">
-    <h3>
-      <%= I18n::t("#{i_env}.title") %>
+    <h3><%= I18n::t("#{i_env}.title") %>
       <% if @tags.total_pages > 1 -%>
         <%= will_paginate(@tags, :previous_label => I18n::t("#{i_env}.pagination.previous"),
                                  :next_label     => I18n::t("#{i_env}.pagination.next"),
                                  :param_name     => :tag_page) %>
       <% end -%>
     </h3>
-  
+
     <div class="content">
+      <p><%= t("admin.posts.sidebar.tags.paragraph") %></p>
       <ul class="list">
         <% @tags.each do |tag| %>
         <li id="tag-<%= tag.id %>" class="<%= 'selected' if @tag_ids.include? tag.id.to_s %>">
@@ -81,13 +81,14 @@
 
 <%# History edit preview page %>
 <% if @history_entry -%>
-  <div class="block notice">
-<%# <h3>    t "admin.posts.sidebar.reversion.title"     </h3>  is not coherent with pilu themes! %>
-    <h4><%= t "admin.posts.sidebar.reversion.subtitle"%></h4>
-    <p><%= t "admin.posts.sidebar.reversion.message"%></p>
-    <%= link_to t("admin.posts.sidebar.reversion.link"), admin_history_entries_path({:id => @history_entry.id,
-                                                                                     :redirect_url => admin_post_url(@actual_record.id)}),
-                                                                                     :method => :post %>
+  <div class="block">
+    <h3><%= t "admin.posts.sidebar.reversion.title" %></h3>
+    <div class="content">
+      <p><%= t "admin.posts.sidebar.reversion.message" %></p>
+      <%= link_to t("admin.posts.sidebar.reversion.link"), admin_history_entries_path({:id => @history_entry.id,
+                                                             :redirect_url => admin_post_url(@actual_record.id)}),
+                                                             :method => :post %>
+    </div>
   </div>
 <% end -%>
 

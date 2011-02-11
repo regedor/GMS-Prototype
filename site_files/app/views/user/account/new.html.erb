@@ -13,7 +13,7 @@
         <%= f.input :password_confirmation, 
                     :label => t('users.form.password_confirmation') %>
         <%= f.input :language, :as => :select, :label => t('users.form.language'), 
-                    :collection => select_language_collection %>
+                    :collection => select_language_collection unless configatron.force_locale %>
       <% end %>
       <% f.inputs :name => t('user_session.new.form_openid_inputs_name') do %>
         <%= f.input :openid_identifier, :label => t('users.new.openid'),
@@ -24,7 +24,7 @@
         <%= f.input :email, :label => t('users.form.email') %>
         <%= f.input :openid_identifier, :label => t('users.new.openid') %>
         <%= f.input :language, :as => :select, :label => t('users.form.language'), 
-                    :collection => select_language_collection %>
+                    :collection => select_language_collection unless configatron.force_locale %>
       <% end %>
     <% end -%>
     <div class="required_field_note"><%= t('generic_sentence.required_field') %></div>

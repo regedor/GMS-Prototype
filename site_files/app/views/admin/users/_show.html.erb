@@ -7,9 +7,9 @@
     <dd><%= @record.email                  %></dd>
   <% end %>
   
-  <% if @record.name                       %> 
+  <% unless @record.name.blank?            %> 
     <dt><%= t("admin.users.view.name")     %></dt> 
-    <dd><%= @record.name                  %></dd> 
+    <dd><%= @record.name                   %></dd> 
   <% end %>
   
   <% if @record.nickname                   %> 
@@ -105,6 +105,50 @@
     <dt><%= t("admin.users.view.current_login_ip")     %></dt> 
     <dd><%= @record.current_login_ip  %></dd> 
   <% end %>
+  
+  <% if @record.openid_identifier     %> 
+    <dt><%= t("admin.users.view.openid_identifier")     %></dt> 
+    <dd><%= @record.openid_identifier.scan(/.{1,40}/).join("<br/>")  %></dd> 
+  <% end %>
+  
+  <% if @record.crypted_password     %> 
+    <dt><%= t("admin.users.view.crypted_password")     %></dt> 
+    <dd><%= @record.crypted_password.scan(/.{1,40}/).join("<br/>")  %></dd> 
+  <% end %>  
+  
+  <% if @record.password_salt     %> 
+    <dt><%= t("admin.users.view.password_salt")     %></dt> 
+    <dd><%= @record.password_salt.scan(/.{1,40}/).join("<br/>")  %></dd> 
+  <% end %>
+
+  <% if @record.persistence_token     %> 
+    <dt><%= t("admin.users.view.persistence_token")     %></dt> 
+    <dd><%= @record.persistence_token.scan(/.{1,40}/).join("<br/>")  %></dd> 
+  <% end %>   
+
+  <% unless @record.single_access_token.blank?     %> 
+    <dt><%= t("admin.users.view.user.single_access_token")     %></dt> 
+    <dd><%= @record.single_access_token  %></dd> 
+  <% end %>   
+  
+  <% if @record.perishable_token     %> 
+    <dt><%= t("admin.users.view.perishable_token")     %></dt> 
+    <dd><%= @record.perishable_token.scan(/.{1,40}/).join("<br/>")  %></dd> 
+  <% end %>   
+  
+  <dt><%= t("admin.users.view.active")     %></dt> 
+  <dd><%= @record.active  %></dd> 
+     
+  <% if @record.last_request_at     %> 
+    <dt><%= t("admin.users.view.last_request_at")     %></dt> 
+    <dd><%= @record.last_request_at  %></dd> 
+  <% end %>   
+  
+  <% if @record.current_login_at     %> 
+    <dt><%= t("admin.users.view.current_login_at")     %></dt> 
+    <dd><%= @record.current_login_at  %></dd> 
+  <% end %>   
+  
   
 </dl>
 

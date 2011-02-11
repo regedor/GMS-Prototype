@@ -23,9 +23,10 @@ class User < ActiveRecord::Base
   before_save             :validate_role
 
   # Validates if every optional group pick for the user has one and only one group chosen
-  def validate_group_picks
+  def validate_group_picks(picks=nil)
     validation_errors = []
-    UserOptionalGroupPick.for_user(self).each do |pick|
+    picks = UserOptionalGroupPick.for_user(self) if picks.nil?
+    picks.each do |pick|
       intersection = pick.groups & self.groups
       if intersection.length != 1
         if intersection.length == 0
