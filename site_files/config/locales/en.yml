@@ -162,7 +162,7 @@ en:
         pages: "Pages"
         settings: "Settings"
         undo_items: "Actions"
-        mails: "Send E-Mail"
+        mails: "Send Email"
         projects: "List Projects"
         to_do_lists: "To-Do Lists"
         messages: "Messages"
@@ -232,7 +232,7 @@ en:
         from: "From"
         date: "Date"
         create_button: "Create"
-        save_button: "Save"
+        update_button: "Update"
         cancel_button: "Cancel"
         hints:
           body: "<a href='http://hobix.com/textile/quick.html'>Textile enabled</a>. Use Ctrl+E to switch between preview and edit mode."
@@ -255,7 +255,7 @@ en:
         groups: "Assigned Groups"
         user_id: "Created by"
       list:
-        noentries: "No entries found"
+        noentries: "No Projects Found"
         found:
           more: "%{count} Projects Found"
           one: "%{count} Project Found"                              
@@ -288,9 +288,9 @@ en:
       send_fail: "The email could not be sent, try again!"
       list:
         found:
-          more: "%{count} Mails Found"
-          one: "%{count} Mail Found"            
-        noentries: "No entries found"              
+          more: "%{count} Emails Found"
+          one: "%{count} Email Found"            
+        noentries: "No Emails Found"              
       index:
         destroy_link: "Delete"
         show_link: "Details" 
@@ -312,7 +312,7 @@ en:
                             
     users:
       index:
-        title: "Users List"
+        title: "Users"
         update_link: "Edit"
         destroy_link: "Delete"
         show_link: "Details"
@@ -369,7 +369,7 @@ en:
         found:
           more: "%{count} Users Found"
           one: "%{count} User Found"            
-        noentries: "No entries found"
+        noentries: "No Users Found"
       view:
         email:    "Email"
         name:     "Name"
@@ -395,7 +395,7 @@ en:
       form:
         update_button: "Update"
         cancel_button: "Cancel"
-        edit:          "Update user"
+        edit: "Update user"
         hints:
           avatar: "If you upload an image this will be shown. If you do not upload an image and the user has a gravatar, it will be used. Otherwise a default image will be shown."
           active: "If a user is not active, he/she cannot login."
@@ -419,15 +419,16 @@ en:
         destroy_link: "Delete"
         show_link: "Details"
         undelete_link: "Undelete"
-      destroy_by_ids!: "Delete"
-      activate!: "Activate"
-      undelete_by_ids: "Recover"
-      deleted_user: "Deleted User"
+      list_actions:
+        destroy_by_ids!: "Delete"
+        activate!: "Activate"
+        undelete_by_ids: "Recover"
+        deleted_user: "Deleted User"
       list:
         found:
           more: "%{count} Users Found"
           one: "%{count} User Found"            
-        noentries: "No entries found"
+        noentries: "No Users Found"
       sidebar:
         title: "Deleted users"
         text: "Here you can see the deleted users. You can <b title=\"The link is at the end of the row.\">\"Recover\"</b> a user, see the users <b title=\"The link is at the end of the row.\">\"Details\"</b> or remove permanently a user choosing <b title=\"The link is at the end of the row.\">destroy</b>. That action is <b title=\"Please be careful.\">not reversible</b>. You can apply these actions to a group of users by choosing those actions from the <b title=\"See the combo box at the top of the table.\">combo box</b>.<br/>To leave this page click on \"Go to Users\" below."
@@ -445,7 +446,7 @@ en:
           
     groups:
       index:
-        title: "Groups List"
+        title: "Groups"
         show_link: "Details"
         update_link: "Edit"
         destroy_link: "Delete"      
@@ -453,7 +454,7 @@ en:
         create: "New Group"
       sidebar:
         edit:
-          title: "Editing group"
+          title: "Edit group"
           paragraph: "By editing a group you can change it's <b title=\"See the field on the left.\">name</b>. <br/> A <b title=\"See the field on the left.\">description</b> can be added. <br/> You can decide if a group will be or not <b title=\"See the field on the left.\">mailable</b>, that is, you can send an email to all users of the group at once.<br/> To decide if a user can decide to became part of it, define true on <b title=\"See the field on the left.\">User choosable</b>.<br/> You can create <b title=\"See the field on the left.\">group</b> hierarchies by dragging groups which will subgroups of it from the yellow field to the green field. <br/> The group <b title=\"See the field on the left.\">users</b> are managed on the same way of the subgroups."
         hierarchy:
           name: "Hierarchy"
@@ -495,9 +496,9 @@ en:
       form:
         show: "Group Details"
         new: "New Group"
-        edit: "Editing Group"
+        edit: "Edit Group"
         create_button: "Create"
-        save_button: "Save"
+        update_button: "Update"
         cancel_button: "Cancel"
         close_button: "Close"
       list_actions:
@@ -528,9 +529,9 @@ en:
       form:
         show: "Group Pick Details"
         new: "New Group Pick"
-        edit: "Editing Group Pick"
+        edit: "Edit Group Pick"
         create_button: "Create"
-        save_button: "Save"
+        update_button: "Update"
         cancel_button: "Cancel"
         close_button: "Close"
       list:
@@ -541,7 +542,7 @@ en:
 
     pages:
       index:
-        title: "Page List"
+        title: "Pages"
         destroy_link: "Delete"
         update_link: "Edit"
         show_link: "Details"
@@ -572,12 +573,12 @@ en:
         priority: "Priority"
       form:
         new: "New Page"
-        edit: "Editing Page"
+        edit: "Edit Page"
         show: "Page Details"
         preview_button: "Preview"
         edit_button: "Edit"
         create_button: "Create"
-        save_button: "Save"
+        update_button: "Update"
         cancel_button: "Cancel"
         close_button: "Close"
         hints:
@@ -597,7 +598,7 @@ en:
 
     posts:
       index:
-        title: "News List"
+        title: "Posts"
         show_link: "Details"
         destroy_link: "Delete"
         update_link: "Edit"
@@ -633,7 +634,7 @@ en:
         preview_button: "Preview"
         edit_button: "Edit"
         create_button: "Create"
-        save_button: "Save"
+        update_button: "Update"
         cancel_button: "Cancel"
         close_button: "Close"
         hints:
@@ -702,7 +703,7 @@ en:
 
     announcements:
       index:
-        title: "Display Announcement"
+        title: "Announcements"
         update_link: "Edit"
         destroy_link: "Delete"
         show_link: "Details"
@@ -719,23 +720,33 @@ en:
         avatar: "Image"
       create:
         title: "Announcement"
+      form:
+        show: "Announcement Details"
+        new: "New Announcement"
+        edit: "Edit Announcement"
+        preview_button: "Preview"
+        edit_button: "Edit"
+        create_button: "Create"
+        update_button: "Update"
+        cancel_button: "Cancel"
+        close_button: "Close"
       list:
-        noentries: "No announcements"
+        noentries: "No Announcements Found"
         found:
           more: "%{count} Announcements Found"
           one: "%{count} Announcements Found"
       sidebar:
         title: "Announcements"
-        paragraph: "On this page you can create <b title=\"Announcements are entries on the main page banner. The link to create is above the table.\">announcements</b> that will appear on frontend.<br/>You can also <b title=\"The link is at the end of the row\">edit</b> and <b title=\"The link is at the end of the row\">delete</b> existing announcements.<br/>To view an announcement <b title=\"The link is at the end of the row\">details</b> just click on the link."
+        paragraph: "You can <b title=\"Use the 'New Announcement' button.\">create</b> new announcements and <b title=\"Use the 'Delete' button.\">remove</b> existing ones. You can also <b title=\"Use the 'Details' button.\">view</b> and <b title=\"Use the 'Edit' button.\">edit</b> current announcements.<br/><br/>It's possible to order the announcement list by <b title=\"Click in 'Title'.\">title</b>, <b title=\"Click in 'Message'.\">message</b>, <b title=\"Click in 'Start Date'.\">start date</b>, <b title=\"Click in 'End Date'.\">end date</b> or <b title=\"Click in 'URL'.\">URL</b>.<br/><br/>By clicking on the announcement's title, you'll be redirected to the corresponding announcement in the frontend."
         show:
-          title: "Paragraph"
-          paragraph: "You are now viewing the details of an announcement. To edit this announcement, go to the <b title=\"The tab is above the announcement details.\">announcements tab</b> and chose edit."
+          title: "Announcement Details"
+          paragraph: "You are now viewing the details of an announcement. To edit this announcement, go to the announcements tab and chose edit."
         edit:
           title: "Edit announcement"
           paragraph: "You are editing an announcement. You can specify a <b title=\"The title will identify the announcement.\">title</b>, change the <b title=\"The announcement will be visible between the start and end date.\" >date</b> when it will be visible. You can edit the target <b title=\"The url is the target page, when the image is clicked.\">url</b>, and the background <b title=\"The image will fill all the banner area.\">image</b>. Finally you can change the <b title=\"If your message is too long, it will cover cover the image.\">message</b> which appear in front of the image.<br/>If you want to create a big announcement, you should the create a <b title=\"See the link on the tab above.\">static page</b> with all the information, and link the announcement to that page."
 
     settings:
-      title: "Settings management"
+      title: "Settings"
       theme: "Theme"
       site_title: "Site title"
       save: "Save"
@@ -744,7 +755,7 @@ en:
     error_messages:
       login_blank: "can not be blank"
       login_not_found: "is not valid"
-      login_invalid: "should use only letters, numbers, spaces, and .-_@ please."
+      login_invalid: "should use only letters, numbers, spaces, and .-_@."
       consecutive_failed_logins_limit_exceeded: "Consecutive failed logins limit exceeded, account is disabled."
       email_invalid: "should look like an email address."
       password_blank: "can not be blank"
@@ -763,12 +774,12 @@ en:
         remember_me: "remember me"
 
   flash:
-    login: "Login successful"
-    logout: "Logout successful"
-    require_login: "You must be logged in to access this page"
-    require_logout: "You must be logged out to access this page"
+    login: "Login successful."
+    logout: "Logout successful."
+    require_login: "You must be logged in to access this page."
+    require_logout: "You must be logged out to access this page."
     account_activated: "Your account has been activated. Please login."
-    account_created: "Your account has been created. Please check your e-mail for your account activation instructions!"
+    account_created: "Your account has been created. Please check your e-mail for your account activation instructions."
     account_updated: "Account updated!"
     user_deleted: "User has been deleted!"
     invalid_user_invitations: "You have entered an invalid email addresses! Correct it and try again."
@@ -776,23 +787,23 @@ en:
     multiple_user_invitations: "You have successfully sent %{number} invitations."
     password_resets_intruction_sent: "Instructions to reset your password have been emailed to you.
                                       Please check your email."  
-    no_user_found_with_that_email: "No user was found with that email address"  
-    password_updated: "Password successfully updated"  
-    invalid_email_address: "Invalid email address!"  
-    user_resets_load_user_error: "We're sorry, but we could not locate your account. 
-                                  If you are having issues try copying and pasting the URL 
+    no_user_found_with_that_email: "No user was found with that email address."
+    password_updated: "Password successfully updated."
+    invalid_email_address: "Invalid email address!"
+    user_resets_load_user_error: "Sorry, but we could not locate your account.
+                                  If you are having issues try copying and pasting the URL
                                   from your email into your browser or restarting the 
-                                  reset password process"  
-    rare_error: "A rare error occured! You should contact the administrator and refer the following code: %{ref}"
-    you_are_being_redirected: "You are being redirected. Please wait..."
-    login_failed: "Failed to log in. Maybe you haven't activated your account, or entered incorrect data."
-    group_created: "Succefully created a group"
+                                  reset password process."
+    rare_error: "A rare error occured! You should contact the administrator and refer the following code: %{ref}."
+    you_are_being_redirected: "You are being redirected."
+    login_failed: "Failed to log in. Maybe you haven't activated your account or entered incorrect data."
+    group_created: "Successfully created a group."
     tag_changed: "Successfully updated tag %{old}'s name to %{new}."
     invalid_tag_change: "Could not change tag %{old}'s name to %{new} because tag %{new} already exists."
-    changes_saved_successful_with_delay: "Changes were successfully saved and will eventually take effect"
-    reverted_with_sucess: "Successfully reverted"
-    description_required: "Description field is required"
-    invalid_date: "Invalid date format"
+    changes_saved_successful_with_delay: "Changes were successfully saved and will eventually take effect."
+    reverted_with_sucess: "Successfully reverted."
+    description_required: "Description field is required."
+    invalid_date: "Invalid date format."
   
   notifier: 
     invitation:
