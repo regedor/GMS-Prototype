@@ -1,4 +1,4 @@
-<h4><%= I18n::t('admin.announcements.form.show') + ' - ' + @record.title %></h4>
+<h4><%= I18n::t('admin.announcements.index.title') + ' - ' + @record.title %></h4>
   <dl>
   
     <dt><%= t("admin.announcements.columns.title")                 %></dt>
@@ -32,5 +32,5 @@
 </dl>
 
 <p class="form-footer">
-  <%= link_to t("admin.announcements.form.close_button"), admin_announcements_path, :class => "cancel" %>  
+  <%= link_to t("admin.announcements.index.close_button"), admin_announcements_path, :class => "cancel" %>  
 </p>

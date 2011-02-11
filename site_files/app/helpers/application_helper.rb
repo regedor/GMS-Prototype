@@ -31,7 +31,7 @@ module ApplicationHelper
       gravatar_id      = Digest::MD5.hexdigest(record.email.downcase)
       return "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{options[:size]}&d=#{CGI.escape(default_url)}"
     else
-      return ('<img src="'+ @record.avatar.url(options[:size]) +'" alt="" />')
+      return record.avatar.url(options[:size])
     end
   end
 
