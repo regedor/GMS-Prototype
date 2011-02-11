@@ -20,7 +20,7 @@
     </ul>
   
 	<div id="add_button-<%= list.id %>" class="add_button">
-		<%= link_to t("admin.to_do.add_new.link"), "#add_todo-#{list.id}", {:class => "add_link", :onclick => "jQuery(this).add();" } %>
+		<%= link_to t("admin.to_do.add_new.link"), "#add_todo-#{list.id}", {:class => "add_link", :onclick => "jQuery(this).addTodo();" } %>
 	</div>	
 	<div id="add_todo-<%= list.id %>" class="add_todo" style="display:none;">
 		<% semantic_form_for(:todo, :url => admin_project_to_dos_path) do |f| %>
@@ -33,7 +33,7 @@
 		  <% f.buttons do %>
 		    <%= f.commit_button :label => t("admin.to_do.add_new.add_button") %>
 		    <span>or</span>
-			<%= link_to t("admin.to_do.add_new.done_adding"), "#add_button-#{list.id}",{:class => "done_adding_link", :onclick => "jQuery(this).done();"} %>
+			<%= link_to t("admin.to_do.add_new.done_adding"), "#add_button-#{list.id}",{:class => "done_adding_link", :onclick => "jQuery(this).doneTodo();"} %>
 		  <% end %>
 		<% end %>		
 	</div>	
