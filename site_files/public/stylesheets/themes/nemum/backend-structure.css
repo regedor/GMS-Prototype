@@ -7,7 +7,7 @@
 body                                     { background: #E5E5E5; }
 
 div#container                            { min-width: 960px; }
-div.content                              { padding: 20px; }
+div.content                              { margin: 20px; }
 
 div#main                                 { width: 71%; float: left; }
 div#main>div.block                       { background: #FFF; -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.4); }
@@ -25,6 +25,8 @@ div#user-navigation                      { float: right; margin: 5px 0; }
 div#sidebar                              { width: 29%; float: right; }
 div#sidebar h3                           { padding: 0 0 5px 0; }
 div#sidebar div.block                    { margin: 0 0 0 15px; }
+div#sidebar div.block div.content p      { margin: 15px 0; }
+div#sidebar div.block div.content ul li  { margin: 5px 0; }
 div#sidebar div.block ul.navigation li   { background-position: 0 1px; background-repeat: no-repeat; }
 div#sidebar div.block ul.navigation li   { background-image: url("images/arrow.png"); }
 div#sidebar div.block ul.navigation li a { margin: 15px 0 0 15px; }
@@ -34,7 +36,7 @@ div#sidebar ul.navigation                { list-style-type: none; }
 
 div#footer div.block p                   { margin: 1.5em 0; }
 
-div#flash div.message                    { margin: 15px; }
+div#flash div.message                    { margin: 20px 20px 0; }
 div#flash div.message p                  { margin: 8px; }
 div#flash div.message.error              { border: 1px solid #ffbbbb; background-color: #ffdddd; }
 div#flash div.message.warning            { border: 1px solid #ffff88; background-color: #ffffcc; }

@@ -1,0 +1,9 @@
+<div class="block">	
+  <h3><%= t("admin.to_do_list.sidebar.title") %></h3>
+  <div class="content">
+    <p><%= t("admin.to_do_list.sidebar.paragraph") %></p>
+    <ul class="navigation">
+      <li><%= link_to t("admin.to_do_comment.sidebar.back"), admin_project_to_do_lists_path(params[:project_id]) %></li>
+    </ul>
+  </div>
+</div>

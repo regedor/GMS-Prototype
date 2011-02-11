@@ -11,7 +11,7 @@
   <div class="content">
     <div class="inner">
 
-      <h2><%= I18n::t('admin.announcements.form.edit') + ' - ' + link_to(h(@record.title), admin_announcement_path(@record)) %></h2>
+      <h2><%= I18n::t('admin.announcements.edit.title') + ' - ' + link_to(h(@record.title), admin_announcement_path(@record)) %></h2>
 
       <% semantic_form_for :record, @record, 
                            :url => admin_announcement_path(@record), 
