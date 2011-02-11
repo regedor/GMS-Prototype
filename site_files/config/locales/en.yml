@@ -809,6 +809,8 @@ en:
     to_do_comment_creation_fail: "An error occured while creating the comment"
   
   notifier: 
+    to_do_notification: "New To-Do"
+      
     invitation:
       subject: "You have been invited"
       body:

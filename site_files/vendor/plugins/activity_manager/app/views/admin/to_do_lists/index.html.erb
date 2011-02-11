@@ -54,20 +54,19 @@ jQuery(document).ready(function($){
     });
   }	
 
-
-  $(".add_link").click(function(){
+jQuery.fn.add = function(){
 	$(this).parent().hide();
 	$(this).parent().next().show();
-	
-	return false;
-  });
 
- $(".done_adding_link").click(function(){
+	return false;
+  }
+
+jQuery.fn.done = function(){
 	$(this).parent().parent().parent().parent().hide();
 	$(this).parent().parent().parent().parent().prev().show();
-	
+
 	return false;
- });
+ }
 
 jQuery.fn.makeSortable = function(){
  $(".sortable").sortable({

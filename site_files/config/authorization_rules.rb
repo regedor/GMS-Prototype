@@ -14,6 +14,7 @@ authorization do
   end
   
   role :poject_manager do
+    includes :user
     has_permission_on [:admin_projects],            :to =>  [:create]
   end
 

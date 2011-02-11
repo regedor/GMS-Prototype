@@ -16,7 +16,12 @@ class Admin::ProjectsController < Admin::BaseController
 
   def do_list
     require 'ostruct'
-    @records = Project.find_all_for_user current_user
+    #If root, show all
+    if current_user.role.id == 7
+      @records = Project.all
+    else  
+      @records = Project.find_all_for_user current_user
+    end  
     @page = OpenStruct.new :items => @records, :number => @records.size, :pager => OpenStruct.new({ :infinite? => false, :count => @records.size, :number_of_pages => @records.size/15})
   end
 
@@ -24,6 +29,20 @@ class Admin::ProjectsController < Admin::BaseController
     @project = Project.find(params[:id])
     redirect_to admin_project_to_do_lists_path(@project)
   end
+
+  def edit
+    @project = Project.find(params[:id])
+    
+    render :edit
+  end  
+  
+  def update
+    project = Project.find(params[:id])
+    project.attributes = params[:project]
+    project.save
+    
+    redirect_to admin_projects_path
+  end  
 
   def create
     project = Project.new params[:project]
