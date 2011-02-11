@@ -1,43 +1,52 @@
 --- 
-development: &local
-  theme: "nemum"
-  site_name: "Nemum"
-  site_url: "http://localhost:3000/"
-  site_domain: "localhost"
-  site_header: "Sandbox application"
-  support_email: "support@baseapp2.local"
-  root_email: "admin@baseapp2.local"
-  mailer_email: "miguelregedor@gmail.com"
-  default_locale: "en"
+production: 
+  root_email: admin@baseapp2.local
+  theme: nemum
   force_locale: "true"
-  mailer:
-    enable_starttls_auto: true
-    address: smtp.gmail.com
+  support_email: support@baseapp2.local
+  site_url: http://www.regedor.com/
+  mailer_email: miguelregedor@gmail.com
+  mailer: 
     authentication: :plain
+    address: smtp.gmail.com
     port: 587
     domain: gmail.com
-    user_name: usernamewithoutAT # also change email in notifier model 
-    password: password
-
-production:
-  theme: "nemum"
-  site_name: "Nemum"
-  site_url: "http://www.regedor.com/"
-  site_domain: "www.regedor.com"
-  site_header: "Sandbox application"
-  support_email: "support@baseapp2.local"
-  root_email: "admin@baseapp2.local"
-  mailer_email: "miguelregedor@gmail.com"
-  default_locale: "en"
-  force_locale: "true"
-  mailer:
     enable_starttls_auto: true
-    address: smtp.gmail.com
+    user_name: miguelregedor
+    password: password
+  default_locale: en
+  site_name: Sandbox
+  site_domain: www.regedor.com
+  site_header: Sandbox application
+development: 
+  root_email: admin@baseapp2.local
+  title: Sandbox
+  theme: nemum
+  force_locale: "true"
+  support_email: support@baseapp2.local
+  site_url: http://localhost:3000/
+  mailer_email: miguelregedor@gmail.com
+  mailer: &id001 
     authentication: :plain
+    address: smtp.gmail.com
     port: 587
     domain: gmail.com
-    user_name: miguelregedor 
+    enable_starttls_auto: true
+    user_name: usernamewithoutAT
     password: password
-
-test:
-  <<: *local
+  default_locale: en
+  site_name: Sandbox
+  site_domain: localhost
+  site_header: Sandbox application
+test: 
+  root_email: admin@baseapp2.local
+  theme: nemum
+  site_url: http://localhost:3000/
+  support_email: support@baseapp2.local
+  force_locale: "true"
+  mailer_email: miguelregedor@gmail.com
+  default_locale: en
+  mailer: *id001
+  site_name: Sandbox
+  site_domain: localhost
+  site_header: Sandbox application

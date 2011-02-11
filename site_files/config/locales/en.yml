@@ -166,6 +166,7 @@ en:
         projects: "List Projects"
         to_do_lists: "To-Do Lists"
         messages: "Messages"
+        to_do_comments: "Comments"
     
     to_do_list:
       sidebar:
@@ -210,8 +211,12 @@ en:
     to_do_comment:
       new:
         users: "Users to mail"
+        body: "Comment"
         create_button: "Create"
-        preview_button: "Preview"                  
+        preview_button: "Preview" 
+        back: "Back"    
+      sidebar:
+        back: "Back to To-Do Lists"                       
         
     messages:
       index:
@@ -247,6 +252,12 @@ en:
         update_link: "Edit"
         destroy_link: "Delete"
         show_link: "Go To Project"
+      new:
+        name: "Name"
+        description: "Description"
+        users: "Associated Users"
+        create_button: "Create"  
+        back: "Back"        
       create:
         title: "New Project"      
       columns:
@@ -804,8 +815,13 @@ en:
     reverted_with_sucess: "Successfully reverted."
     description_required: "Description field is required."
     invalid_date: "Invalid date format."
+    project_created: "Succefully created the project."
+    project_creation_fail: "An error occured while creating the project."
+    to_do_comment_creation_fail: "An error occured while creating the comment."
   
   notifier: 
+    to_do_notification: "New To-Do"
+      
     invitation:
       subject: "You have been invited"
       body:

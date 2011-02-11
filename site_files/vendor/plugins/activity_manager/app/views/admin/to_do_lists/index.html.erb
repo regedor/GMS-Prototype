@@ -55,20 +55,6 @@ jQuery(document).ready(function($){
   }	
 
 
-  $(".add_link").click(function(){
-	$(this).parent().hide();
-	$(this).parent().next().show();
-	
-	return false;
-  });
-
- $(".done_adding_link").click(function(){
-	$(this).parent().parent().parent().parent().hide();
-	$(this).parent().parent().parent().parent().prev().show();
-	
-	return false;
- });
-
 jQuery.fn.makeSortable = function(){
  $(".sortable").sortable({
 	connectWith: ".connectable",
@@ -167,6 +153,16 @@ jQuery.fn.makeSortable = function(){
 
 	return false;
   }	
+	
+ jQuery.fn.addTodo = function(){
+	$(this).parent().hide();
+	$(this).parent().next().show();
+ }
+
+ jQuery.fn.doneTodo = function(){
+	$(this).parent().parent().parent().parent().hide();
+	$(this).parent().parent().parent().parent().prev().show();
+ }	
 	
   jQuery.fn.expand = function(){
 		var itemId = $(this).attr("id").split("_")[1];
