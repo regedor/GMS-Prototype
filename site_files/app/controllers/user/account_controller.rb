@@ -8,13 +8,9 @@ class User::AccountController < ApplicationController
   
   def new
     @user = User.new
-    #FIXME: Account creation is blocked. Remove next line when it is not supposed so.
-    redirect_to root_path
   end
   
   def create
-    #FIXME: Account creation is blocked. Remove next line when it is not supposed so.
-    redirect_to root_path
     @user = User.new(params[:user])
     @user.save do | result | 
       if result 
