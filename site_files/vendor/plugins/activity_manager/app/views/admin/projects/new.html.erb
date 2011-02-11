@@ -1,0 +1,14 @@
+<div class="content">
+  <% semantic_form_for @project, :url => admin_projects_path, :html => {:method => :post} do |f| %>
+    <% f.inputs do %>
+      <%= f.input :name, :as => :string, :label => t("admin.project.new.name") %>
+      <%= f.input :description, :as => :text, :label => t("admin.project.new.description"), :required => false %>
+      <%= f.input :users, :as => :check_boxes, :collection => @users, :label => t("admin.project.new.users"), :required => false %>
+    <% end  %>
+    <% f.buttons do %>
+     <%= f.commit_button :label => t("admin.project.new.create_button") %>
+     <%= f.button_link t("admin.project.new.back"), admin_projects_path,
+  						  :button_html => {:class => "button"}  %>				
+   <% end %>
+  <% end %>
+<div>

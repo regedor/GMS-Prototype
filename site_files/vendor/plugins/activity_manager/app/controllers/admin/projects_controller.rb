@@ -14,10 +14,10 @@ class Admin::ProjectsController < Admin::BaseController
       :edit     => [ :name, :description, :users ]
   end
 
-  def do_list 
+  def do_list
     require 'ostruct'
     @records = Project.find_all_for_user current_user
-    @page = OpenStruct.new :items => @records, :number => @records.size, :pager => OpenStruct.new({ :infinite? => false, :number_of_pages => @records.size/15})
+    @page = OpenStruct.new :items => @records, :number => @records.size, :pager => OpenStruct.new({ :infinite? => false, :count => @records.size, :number_of_pages => @records.size/15})
   end
 
   def show
@@ -26,8 +26,22 @@ class Admin::ProjectsController < Admin::BaseController
   end
 
   def create
-    params[:record][:user_id] = current_user.id
-    super
+    project = Project.new params[:project]
+    project.user = current_user
+    if project.save
+      flash[:notice] = t("flash.project_created")
+    else
+      flash[:error] = t("flash.project_creation_fail")
+    end    
+    
+    redirect_to admin_projects_path
+  end
+
+  def new
+    @project = Project.new
+    @users = User.all
+
+    render :new
   end
 
 end
