@@ -13,7 +13,7 @@ ActionController::Routing::Routes.draw do |map|
       project.resources :to_dos,        :collection => { :new         => :post }
       
       project.resources :to_dos do |todo|
-        todo.resources  :comments,      :controller  => "to_do_comments"
+        todo.resources  :comments,      :controller  => "to_do_comments", :collection => { :preview => :post }
       end  
       
       project.resources :messages,      :active_scaffold => true, :active_scaffold_sortable => true, :has_many => :messages_comments

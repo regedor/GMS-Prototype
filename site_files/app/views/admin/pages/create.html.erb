@@ -20,11 +20,14 @@
         <%= render :partial => 'form', :locals => {:form => form} %>
 
         <% form.buttons do -%>
-          <%= form.commit_button(I18n::t('admin.pages.form.submit')) %>
+          <%= form.commit_button I18n::t('admin.pages.form.save_button'),
+                         :button_html => {:class => 'button positive'} %>
           <%= form.button_link t('admin.pages.form.preview_button'), "#",
-                         :button_html => {:class => "preview_button"} %>
+                         :button_html => {:class => 'button positive'} %>
           <%= form.button_link t('admin.pages.form.edit_button'), "#",
-                         :button_html => {:style => "display: none;", :class => "edit_button"} %>
+                         :button_html => {:style => 'display: none;', :class => 'button positive'} %>
+          <%= form.button_link t('admin.posts.form.cancel_button'), admin_pages_path,
+                         :button_html => {:class => 'button negative'} %>
         <% end -%>
 
       <% end -%>

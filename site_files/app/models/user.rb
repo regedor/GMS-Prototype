@@ -131,11 +131,6 @@ class User < ActiveRecord::Base
   # Instance Methods
   # ==========================================================================
 
-  def avatar
-    require 'ostruct'
-    OpenStruct.new :path => nil
-  end
-
   # Method for Declarative Authorization, to know which roles user have. 
   # It needs user roles inside an array (this case, only have one role)
   def role_symbols

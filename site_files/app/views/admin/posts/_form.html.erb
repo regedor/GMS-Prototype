@@ -31,9 +31,6 @@ jQuery(document).ready(function($){
                  :required => false,
                  :label    => I18n::t('admin.posts.columns.tag_list'),
                  :hint     => I18n::t('admin.posts.form.hints.tag_list') %>
-<% end -%>
-
-<% form.input_field_set do -%>
   <% if controller.action_name == "new" %>
     <%= form.input :published_at,
                    :as       => 'string',

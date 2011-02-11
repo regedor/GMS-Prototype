@@ -41,21 +41,21 @@
  <div class="block">
     <h3><%=h t("admin.pages.sidebar.edit.title") %></h3>
     <div class="content">
-      <p>
-        <%= t("admin.pages.sidebar.edit.paragraph") %>
-      </p>
+      <p><%= t("admin.pages.sidebar.edit.paragraph") %></p>
     </div>
   </div>
 <% end %>
 
 <%# History edit preview page %>
 <% if @history_entry -%> 
-  <div class="block notice">
-<%# <h3>    t "admin.pages.sidebar.reversion.title"     </h3>  is not coherent with pilu themes! %>
-    <h4><%= t "admin.pages.sidebar.reversion.subtitle"%></h4>
-    <p><%= t "admin.pages.sidebar.reversion.message"%></p>
+  <div class="block">
+    <h3><%= t "admin.pages.sidebar.reversion.title" %></h3>
+    <div class="content">
+      <p><%= t "admin.pages.sidebar.reversion.message" %></p>
+
     <%= link_to t("admin.pages.sidebar.reversion.link"), admin_history_entries_path({:id => @history_entry.id,
-                                                                                     :redirect_url => admin_page_url(@actual_record.id)}),
-                                                                                     :method => :post %>
+                                                           :redirect_url => admin_page_url(@actual_record.id)}),
+                                                           :method => :post %>
+    </div>
   </div>
 <% end -%>
