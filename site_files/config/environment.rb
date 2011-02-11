@@ -4,11 +4,11 @@ require File.join(File.dirname(__FILE__), 'boot')
 #require "rubygems"
 
 Rails::Initializer.run do |config|
-  config.time_zone = 'UTC'
-  config.i18n.default_locale = YAML.load(File.open("#{RAILS_ROOT}/config/config.yml"))[ENV["RAILS_ENV"]||'development']['default_locale']
-  config.action_mailer.default_url_options = { 
-    :host => YAML.load(File.open("#{RAILS_ROOT}/config/config.yml"))[ENV["RAILS_ENV"]||'development']['site_domain']
-  }
+  yaml_config = YAML.load(File.open("#{RAILS_ROOT}/config/config.yml"))[ENV["RAILS_ENV"]||'development']
+
+  config.time_zone                         = 'UTC'
+  config.i18n.default_locale               = yaml_config['default_locale']
+  config.action_mailer.default_url_options = { :host => yaml_config['site_domain'] }
 end
 
 configatron.configure_from_yaml("config/config.yml", :hash => Rails.env)

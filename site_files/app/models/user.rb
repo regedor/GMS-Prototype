@@ -187,7 +187,7 @@ class User < ActiveRecord::Base
 
   def deliver_activation_instructions!
     reset_perishable_token!
-    Notifier.deliver_activation_instructions(self)
+    Notifier.delay.deliver_activation_instructions(self)
   end
 
   def deliver_activation_confirmation!
