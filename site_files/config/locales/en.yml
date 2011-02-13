@@ -55,6 +55,8 @@ en:
         multiple: "Multiple groups chosen for pick '%{name}': %{groups}"
     show:
       title: "Account details"
+      invite:
+        title: "Invitations"
   
   user_session:
     errors:
@@ -275,7 +277,7 @@ en:
       text: "You are now viewing the Administration dashboard. Here you can manage users, groups, communication and frontend items. The right sidebar also provides useful information and relevant links."
       sidebar:
         title: "Dashboard"
-        paragraph:  "On this sidebar you can find shortcuts to the most common tasks that take place in the administration panel. Putting your mouse over a <b title=\"This is a bold word.\">bold</b> word will give you some tips."
+        paragraph:  "This sidebar provides you with shortcuts to the most common tasks that take place in the administration panel. Placing your mouse over a <b title=\"This is a bold word.\">bold</b> word will give you extended tips."
         go_to_frontend: "Go to the Frontend"
         website_management:
           title: "Website Management"
@@ -400,8 +402,10 @@ en:
         login_count: "Login count"
         failed_login_count: "Failed logins"
         current_login_at: "Currently logged in at"
-        last_login_ip: "Last login ip"
-        current_login_ip: "Current login ip"
+        last_login_ip: "Last login IP"
+        current_login_ip: "Current login IP"
+        openid_identifier: "OpenID Identifier"
+        active: "Active"
 
       form:
         update_button: "Update"
@@ -620,7 +624,7 @@ en:
         search: "Search Posts"
         create: "New Post"
       columns:
-        published_at: "Published At"
+        published_at: "Publish Date"
         title: "Title"
         excert: "Excert"
         total_approved_comments: "Comments"
@@ -673,7 +677,7 @@ en:
       sidebar:
         index:
           title: "Posts"
-          paragraph: "You can <b title=\"Use the 'New Post' button.\">create</b> new posts and <b title=\"Use the 'Delete' button.\">remove</b> existing ones. You can also <b title=\"Use the 'Details' button.\">view</b> and <b title=\"Use the 'Edit' button.\">edit</b> current posts.<br/><br/>It's possible to order the post list by <b title=\"Click in 'Title'.\">title</b> or <b title=\"Click in 'Published At'.\">publish date</b>.<br/><br/>By clicking on the post's title, you'll be redirected to the corresponding post in the frontend."
+          paragraph: "You can <b title=\"Use the 'New Post' button.\">create</b> new posts and <b title=\"Use the 'Delete' button.\">remove</b> existing ones. You can also <b title=\"Use the 'Details' button.\">view</b> and <b title=\"Use the 'Edit' button.\">edit</b> current posts.<br/><br/>It's possible to order the post list by <b title=\"Click in 'Title'.\">title</b> or <b title=\"Click in 'Published Date'.\">publish date</b>.<br/><br/>By clicking on the post's title, you'll be redirected to the corresponding post in the frontend."
         history:
           title: "Post Details"
           paragraph: "You can revert post information. Click on the dates below to return to previous states. Click on <b title=\"The revert link appears when you click on a previous date.\">Revert</b> to complete the reversion process."
@@ -852,7 +856,7 @@ en:
       no_selection: "You must select at least one item from the table to execute an action."
 
   footer:
-    last_session_paragraph: "Your last login was %{time_ago} ago, your ip was %{ip}"
+    last_session_paragraph: "Your last login was %{time_ago} ago, your ip was %{ip}."
     browser_warning: "The web site is not rendering correctly because you are using an old version of <span style='color:red;'>Microsoft Internet Explorer</span>.<br /> Upgrade your browser or download <a href='http://www.mozilla.com/firefox/'>Mozilla Firefox</a>."
 
   generic_sentence:
@@ -935,38 +939,38 @@ en:
     distance_in_words:
       half_a_minute: "half a minute"
       less_than_x_seconds:
-        one:   "less than 1 second ago"
-        other: "less than %{count} seconds ago"
+        one:   "less than 1 second"
+        other: "less than %{count} seconds"
       x_seconds:
-        one:   "1 second ago"
-        other: "%{count} seconds ago"
+        one:   "1 second"
+        other: "%{count} seconds"
       less_than_x_minutes:
-        one:   "less than a minute ago"
-        other: "less than %{count} minutes ago"
+        one:   "less than a minute"
+        other: "less than %{count} minutes"
       x_minutes:
-        one:   "1 minute ago"
-        other: "%{count} minutes ago"
+        one:   "1 minute"
+        other: "%{count} minutes"
       about_x_hours:
-        one:   "about 1 hour ago"
-        other: "about %{count} hours ago"
+        one:   "about 1 hour"
+        other: "about %{count} hours"
       x_days:
-        one:   "1 day ago"
-        other: "%{count} days ago"
+        one:   "1 day"
+        other: "%{count} days"
       about_x_months:
-        one:   "about 1 month ago"
-        other: "about %{count} months ago"
+        one:   "about 1 month"
+        other: "about %{count} months"
       x_months:
-        one:   "1 month ago"
-        other: "%{count} months ago"
+        one:   "1 month"
+        other: "%{count} months"
       about_x_years:
-        one:   "about 1 year ago"
-        other: "about %{count} years ago"
+        one:   "about 1 year"
+        other: "about %{count} years"
       over_x_years:
-        one:   "over 1 year ago"
-        other: "over %{count} years ago"
+        one:   "over 1 year"
+        other: "over %{count} years"
       almost_x_years:
-        one:   "almost 1 year ago"
-        other: "almost %{count} years ago"
+        one:   "almost 1 year"
+        other: "almost %{count} years"
     prompts:
       year:   "Year"
       month:  "Month"

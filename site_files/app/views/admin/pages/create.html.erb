@@ -8,29 +8,23 @@
   <% end -%>
 <% end -%>
 
-  <div class="content">
-    <div class="inner">
-
-      <h2><%= I18n::t('admin.pages.form.new') %></h2>
-      
-      <% semantic_form_for 'record',  @record,
-                           :url => admin_pages_path,
-                           :html => { :class => 'create', :id => 'new_page' } do |form| -%>
-
-        <%= render :partial => 'form', :locals => {:form => form} %>
-
-        <% form.buttons do -%>
-          <%= form.commit_button I18n::t('admin.pages.form.save_button'),
-                         :button_html => {:class => 'button positive'} %>
-          <%= form.button_link t('admin.pages.form.preview_button'), "#",
-                         :button_html => {:class => 'button positive'} %>
-          <%= form.button_link t('admin.pages.form.edit_button'), "#",
-                         :button_html => {:style => 'display: none;', :class => 'button positive'} %>
-          <%= form.button_link t('admin.posts.form.cancel_button'), admin_pages_path,
-                         :button_html => {:class => 'button negative'} %>
-        <% end -%>
-
+<div class="content">
+  <div class="inner">
+    <h2><%= I18n::t('admin.pages.form.new') %></h2>
+    <% semantic_form_for :record, @record,
+                         :url => admin_pages_path,
+                         :html => { :class => 'create', :id => 'new_page' } do |form| -%>
+      <%= render :partial => 'form', :locals => { :form => form } %>
+      <% form.buttons do -%>
+        <%= form.commit_button I18n::t('admin.pages.form.create_button'),
+                               :button_html => { :class => 'button positive' } %>
+        <%= form.button_link   I18n::t('admin.pages.form.preview_button'), '#',
+                               :button_html => { :class => 'button positive preview' } %>
+        <%= form.button_link   I18n::t('admin.pages.form.edit_button'), '#',
+                               :button_html => { :class => 'button positive edit' } %>
+        <%= form.button_link   I18n::t('admin.posts.form.cancel_button'), admin_pages_path,
+                               :button_html => { :class => 'button negative' } %>
       <% end -%>
-    </div>
+    <% end -%>
   </div>
-
+</div>

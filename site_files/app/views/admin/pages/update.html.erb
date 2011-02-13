@@ -16,10 +16,12 @@
                          :html => { :method => :put, :id => "edit_page_#{@record.id}" } do |form| -%>
       <%= render :partial => 'form', :locals => { :form => form } %>
       <% form.buttons do -%>
-        <%= form.commit_button I18n::t('admin.posts.form.save_button'),
+        <%= form.commit_button I18n::t('admin.posts.form.update_button'),
                                :button_html => { :class => 'button positive' } %>
         <%= form.button_link   I18n::t('admin.pages.form.preview_button'), '#',
-                               :button_html => { :class => 'button positive' } %>
+                               :button_html => { :class => 'button positive preview' } %>
+        <%= form.button_link   I18n::t('admin.pages.form.edit_button'), '#',
+                               :button_html => { :class => 'button positive edit' } %>
         <%= form.button_link   I18n::t('admin.posts.form.cancel_button'), admin_pages_path,
                                :button_html => { :class => 'button negative' } %>
       <% end -%>

@@ -72,7 +72,7 @@ jQuery(document).ready(function($) {
 <div class="active-scaffold">
   <div class="view">
     <% form_for @mail, :url=>admin_mails_path, :method=>"post" do |f| -%>
-      <h4><%= t("admin.mails.title") %></h4>
+      <h2><%= t("admin.mails.title") %></h2>
         <ol class="form">
           <li class="form-element">
             <dl>
@@ -101,9 +101,7 @@ jQuery(document).ready(function($) {
             </dl>
           </li>
         </ol>
-      <p class="form-footer">
-        <%= f.submit I18n::t('admin.mails.send'), :class => 'submit' %>
-      </p>
+        <%= f.submit I18n::t('admin.mails.send'), :class => 'button positive' %>
     <% end -%>
   </div>
 </div>

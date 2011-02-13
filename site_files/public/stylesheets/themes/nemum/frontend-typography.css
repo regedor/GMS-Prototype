@@ -14,13 +14,12 @@ Colors:
 ============================================================================
 */
 
-/* Mudar isto para font-size: 62.5% */
-body                             { font-family: Verdana, HelveticaNeue, Helvetica, Arial, Sans-Serif; color: #333; font-size: 0.75em; }
+body                             { font: 0.75em Verdana, HelveticaNeue, Helvetica, Arial, Sans-Serif; color: #333; }
 
 a,
 a:visited,
 a:link,
-a:active                         { text-decoration: none; color: #2E2A2B; line-height: 1em; }
+a:active                         { text-decoration: none; color: #2E2A2B; }
 a:hover                          { border-bottom: 3px solid #F8DA00; color: #555; }
 
 h1                               { font-size: 2.5em; }
@@ -31,10 +30,15 @@ h5                               { font-size: 1.5em; }
 
 div#account-info                 { font-size: 1em; line-height: 1em; }
 div#account-info span.title      { color: #2E2A2B; font-weight: bold; }
+
 div#main p                       { font-size: 1.1em; text-align: justify; line-height: 1.2em; }
 div#main p.inline-errors         { font-size: 0.9em; }
+div#main table                   { font-size: 1.1em; line-height: 1.8em; }
+div#main th                      { vertical-align: middle; } 
+
 div#footer                       { font-size: 1em; text-align: center; line-height: 1.1em; color: #FFF; }
 div#footer a                     { font-weight: bold; color: #F8DA00; }
+
 div#navigation                   { font-size: 1.1em; }
 div#navigation li                { text-align: right; }
 div#navigation a,
@@ -43,7 +47,9 @@ div#navigation a:link,
 div#navigation a:active          { color: #FFF; }
 div#navigation a:hover           { color: #F8DA00; }
 div#navigation a.active          { color: #F8DA00; }
+
 div.meta li                      { line-height: 1.4em; }
+
 div#flash div.message p          { color: #FFF; font-size: 1.6em; font-weight: bold; }
 
 div.announcement-text p.title    { font-weight: bold; font-size: 1.2em; }
@@ -57,12 +63,6 @@ div.announcements-bar span:hover { color: #F8DA00; }
 
 div#social-buttons               { text-align: right; }
 
-.resource-list th                { font-size: 1.6em; color: #E22; }
-.resource-list td                { font-size: 1.3em; }
-.resource-list td.actions        { text-align: right; }
-
-#pages_show #main table          { font-size: 1.1em; line-height: 1.8em; }
-#pages_show #main th             { vertical-align: middle; } 
 
 /* Tag cloud */
 
