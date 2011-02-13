@@ -180,21 +180,25 @@ class User < ActiveRecord::Base
   def send_invitation!(mail)
     Notifier.deliver_invitation(self,mail)
   end
+  handle_asynchronously :send_invitation!
 
   def deliver_activation_instructions!
     reset_perishable_token!
-    Notifier.delay.deliver_activation_instructions(self)
+    Notifier.deliver_activation_instructions(self)
   end
+  handle_asynchronously :deliver_activation_instructions!
 
   def deliver_activation_confirmation!
     reset_perishable_token!
     Notifier.deliver_activation_confirmation(self)
   end
+  handle_asynchronously :deliver_activation_confirmation!
 
   def deliver_password_reset_instructions!  
     reset_perishable_token!  
     Notifier.deliver_password_reset_instructions(self)  
   end  
+  handle_asynchronously :deliver_password_reset_instructions!
 
   # User's first name
   def first_name
