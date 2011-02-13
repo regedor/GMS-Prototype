@@ -247,6 +247,10 @@ en:
         comment: "New comment"
 
     
+    categories:
+        list:
+         title: "Categories of"
+    
     project:
       index:
         title: "Projects" 

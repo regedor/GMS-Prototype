@@ -1,9 +1,25 @@
+<% if (controller.action_name == "index") %>
 <div class="block">
+
   <h3><%= t("admin.message.sidebar.title") %></h3>
   <div class="content">
-    <p><%= t("admin.message.sidebar.paragraph") %></p>
-    <ul class="navigation">
+    <ul>
       <li><%= link_to I18n::t('admin.messages.index.create'), new_admin_project_message_path %></li>
+    </ul>
+  
+    <p><%= t("admin.message.sidebar.paragraph") %></p>
+    <p><%= t("admin.message.sidebar.categories") %></p>
+    <ul class="navigation">
+    <% @categories.each do |c| %>
+     <li><%= link_to c.name, admin_project_category_path(params[:project_id],c.id) %></li>
+     <p>
+    <% end %>
+    
+    
+
     </ul>
   </div>
 </div>
+<% end %>
+
+

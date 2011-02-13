@@ -21,7 +21,9 @@ class Admin::MessagesController < Admin::BaseController
   end
 
   def index
-    @messages = Project.find(params[:project_id]).messages
+    project= Project.find(params[:project_id])
+    @messages = project.messages
+    @categories = project.categories
   end
 
   def show

@@ -15,7 +15,7 @@ ActionController::Routing::Routes.draw do |map|
       project.resources :to_dos do |todo|
         todo.resources  :comments,      :controller  => "to_do_comments", :collection => { :preview => :post }
       end  
-      
+      project.resources :categories
       project.resources :messages,      :active_scaffold => true, :active_scaffold_sortable => true, :has_many => :messages_comments
       project.resources :messages_comment, :collection => {:create => :post} 
     end   
