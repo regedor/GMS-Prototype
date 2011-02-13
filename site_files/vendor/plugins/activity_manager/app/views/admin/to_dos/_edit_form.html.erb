@@ -6,8 +6,9 @@
 	<%= f.input :to_do_list_id, :as => :hidden %>
   <% end  %>
   <% f.buttons do %>
-    <%= f.commit_button :label => t("admin.to_do.edit.edit_button") %>
-    <span>or</span>
-	<%= link_to t("admin.to_do.edit.cancel"), "#",{:class => "cancel_link", :onclick => "jQuery(this).cancel();"} %>
+    <%= f.commit_button :label => I18n::t("admin.to_do.edit.update_button"),
+                        :button_html => { :class => 'button positive' } %>
+    <%= f.button_link   I18n::t("admin.to_do.edit.cancel"), '#',
+                        :button_html => { :class => 'button negative', :onclick => "jQuery(this).cancel();" } %>
   <% end %>
 <% end %>

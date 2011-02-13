@@ -61,14 +61,19 @@ class ScaffoldApp < ActiveRecord::Migration
 
 
     create_table :groups, :force => true do |t|
-      t.string  :name,                        :null => false, :uniq => true
-      t.text    :description
-      t.boolean :mailable,                    :null => false, :default => false
-      t.boolean :show_in_user_actions,        :null => false, :default => false
-      t.boolean :user_choosable,              :null => false, :default => false
-      t.boolean :root_edit_only,              :null => false, :default => false #root field
-      t.boolean :blocks_direct_users_access,  :null => false, :default => false #root field
-      t.integer :user_count,                  :null => false, :default => 0
+      t.string   :name,                        :null => false, :uniq => true
+      t.text     :description
+      t.boolean  :mailable,                    :null => false, :default => false
+      t.boolean  :show_in_user_actions,        :null => false, :default => false
+      t.boolean  :user_choosable,              :null => false, :default => false
+      t.boolean  :root_edit_only,              :null => false, :default => false #root field
+      t.boolean  :blocks_direct_users_access,  :null => false, :default => false #root field
+      t.datetime :behavior_at_time
+      t.integer  :behavior_after_time #seconds
+      t.string   :behavior_file_name
+      t.integer  :behavior_change_to_group_id
+      t.integer  :behavior_delayed_job_id
+      t.integer  :user_count,                  :null => false, :default => 0
       t.timestamps
     end
 
