@@ -56,7 +56,7 @@ div#wrapper                              { margin: 15px; }
 
 div#preview table                        { border-collapse: collapse; width: 100%; } /* border-collapse ta a broquear padding */
 div#preview td,
-div#preview th                           { border: solid 1px #DDD; padding: 0 0.5em; }
+div#preview th                           { border-bottom: solid 1px #DDD; padding: 0.4em 0; margin: 0 10px; }
 
 .wat-cf:after                            { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
 .wat-cf                                  { display: inline-block; }

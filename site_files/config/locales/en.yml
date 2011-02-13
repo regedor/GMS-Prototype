@@ -197,13 +197,13 @@ en:
         link: "Edit"
         title: "Edit to-do item"
         cancel: "Cancel"
-        edit_button: "Save changes"
+        update_button: "Update"
         responsible: "Resposible for to-do"  
         hint: "An email will be sent to the responsible" 
       delete:
         link: "Remove"  
       comment:
-        link: "Comment"
+        link: "<img src='/stylesheets/themes/nemum/icons/comment.png' alt='Comments' />"
         title: "Comment to-do from %{list}"     
         hint: "Leave a comment..."     
       done:
@@ -215,8 +215,9 @@ en:
         users: "Users to mail"
         body: "Comment"
         create_button: "Create"
-        preview_button: "Preview" 
-        back: "Back"    
+        preview_button: "Preview"
+        cancel: "Cancel"
+        edit_button: "Edit"
       sidebar:
         back: "Back to To-Do Lists"                       
         
@@ -242,7 +243,7 @@ en:
         update_button: "Update"
         cancel_button: "Cancel"
         hints:
-          body: "<a href='http://hobix.com/textile/quick.html'>Textile enabled</a>. Use Ctrl+E to switch between preview and edit mode."
+          body: "<a href='http://textile.thresholdstate.com/'>Textile enabled</a>. Use Ctrl+Alt+E to switch between preview and edit mode."
       comments:
         comment: "New comment"
 

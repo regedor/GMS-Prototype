@@ -22,9 +22,9 @@
   <dt><%= t("admin.users.view.gender")     %></dt>
   <dd>
     <% if @record.gender                   %>
-      <p class="true-male">   <%= t("generic_sentence.male_value")   %></p>
+      <p class="male">   <%= t("generic_sentence.male_value")   %></p>
     <% else %>
-      <p class="false-female"><%= t("generic_sentence.female_value") %></p>
+      <p class="female"><%= t("generic_sentence.female_value") %></p>
     <% end %>
   </dd>
 
@@ -122,6 +122,8 @@
   <% end %>
 </dl>
 
-<p class="form-footer">
-  <%= link_to t("admin.users.view.cancel"), admin_users_path, :class => "cancel" %>  
-</p>
+<fieldset class="buttons">
+  <li class="commit">
+    <%= link_to t("admin.users.view.cancel"), admin_users_path, :class => 'button negative', :style => 'font-size:1em;text-decoration:none;margin:10px;' %>
+  </li>
+</fieldset>

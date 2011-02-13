@@ -32,38 +32,40 @@ div#comments div.comment span.date                                  { font-size:
  ============================================================================
 */
 
-hr                                                                  { background-color: #DDD; height: 1px; border: none; margin: 0; }
+hr                                                          { background-color: #DDD; height: 1px; border: none; margin: 0; }
 
-div.todo_list                                                       { margin: 20px; }
-div.todo_list div.description p                                     { margin: 0 0 15px; }
+div.todo_list                                               { padding: 20px; }
+div.todo_list div.description p                             { margin: 0 0 15px; }
 
-div.todo_list div.todos ul.not_done                                 { min-height: 15px; }
-div.todo_list div.todos ul li.todo span.todo_info                   { background: #EEE; padding: 2px 2px 2px 6px; margin: 0 0 0 4px; }
-div.todo_list div.todos ul li.todo span.todo_info { -moz-border-radius: 8px; -webkit-border-radius: 8px; border-radius: 8px; }
-div.todo_list div.todos ul li.todo span.todo_edit                   { margin: 0 0 0 15px; }
-div.todo_list div.todos ul li.todo                                  { margin: 0 0 15px; }
-div.todo_list div.todos ul li.todo div.todo_content                 { margin: 0 25px; padding: 3px 0 0; }
-div.todo_list div.todos ul li.todo form.todo                        { background: #E5E5E5; padding: 15px 15px 0; }
-div.todo_list div.todos ul li.todo input                            { float: left; }
-div.todo_list div.todos ul li.todo.highlight span.todo_desc         { background: #FFC; }
-div.todo_list div.todos div.add_button                              { background: #EFEFEF; margin: 10px 0 10px 25px; padding: 5px; }
+div.todo_list div.todos ul.not_done                         { min-height: 15px; }
+div.todo_list div.todos ul li.todo span.todo_info           { font-size: 0.9em; background: #EEE; padding: 2px 6px; margin: 0 0 0 4px; }
+div.todo_list div.todos ul li.todo span.todo_info           { -moz-border-radius: 6px; -webkit-border-radius: 6px; border-radius: 6px; }
+div.todo_list div.todos ul li.todo span.todo_edit           { margin: 0 0 0 15px; }
+div.todo_list div.todos ul li.todo span.todo_comments       { margin: 0 0 0 4px; }
+div.todo_list div.todos span.todo_comments img              { position: relative; top: 4px; }
+div.todo_list div.todos ul li.todo                          { margin: 0 0 15px; }
+div.todo_list div.todos ul li.todo form.todo                { background: #E5E5E5; padding: 15px 15px 0; }
+div.todo_list div.todos ul li.todo input                    { float: left; }
+div.todo_list div.todos ul li.todo.highlight span.todo_desc { background: #FFC; }
+div.todo_list div.todos div.add_button                      { background: #EFEFEF; margin: 10px 0 10px 25px; padding: 5px; }
 
-div#message-header ul                                               { clear: left; }
-div#message-header ul li                                            { margin: 5px 0; }
-div#message-header div#title                                        { margin: 0 0 20px; float: left; }
+div#message-header ul                                       { clear: left; }
+div#message-header ul li                                    { margin: 5px 0; }
+div#message-header div#title                                { margin: 0 0 20px; float: left; }
 
-div#message                                                         { overflow: hidden; }
-div#message div.avatar                                              { margin: 20px 0 20px 20px; float: right; }
-div#message div.avatar img                                          { border: 1px solid #999; }
-div#message div.entrybody                                           { margin: 20px 0; }
-div#message div.entrybody p                                         { margin: 0 120px 0 0; text-align: justify; }
+div#messages                                                { padding: 0 0 20px; }
+div#message                                                 { overflow: hidden; }
+div#message div.avatar                                      { margin: 20px 0 20px 20px; float: right; }
+div#message div.avatar img                                  { border: 1px solid #999; }
+div#message div.entrybody                                   { margin: 20px 0; }
+div#message div.entrybody p                                 { margin: 0 120px 0 0; text-align: justify; }
 
-div#messages table                                                  { width: 100% }
-div#messages table td.message                                       { border-bottom: 1px solid #DDD; padding: 10px 7px 10px 0px; }
-div#messages table td.message span.title                            { display: block; }
+div#messages table                                          { width: 100% }
+div#messages table td.message                               { border-bottom: 1px solid #DDD; padding: 10px 7px 10px 0px; }
+div#messages table td.message span.title                    { display: block; }
 
-div#comments div.comment                                            { margin: 10px 20px; overflow: hidden; }
-div#comments div.comment div.avatar                                 { margin-right: 20px; float: left; }
-div#comments div.comment div.avatar img                             { border: 1px solid #999; }
-div#comments div.comment div.entrybody                              { margin: 10px 0 0; }
-div#comments div.comment div.entrybody p                            { margin: 0 0 0 70px; }
+div#comments div.comment                                    { margin: 10px 20px; overflow: hidden; }
+div#comments div.comment div.avatar                         { margin-right: 20px; float: left; }
+div#comments div.comment div.avatar img                     { border: 1px solid #999; }
+div#comments div.comment div.entrybody                      { margin: 10px 0 0; }
+div#comments div.comment div.entrybody p                    { margin: 0 0 0 70px; }
