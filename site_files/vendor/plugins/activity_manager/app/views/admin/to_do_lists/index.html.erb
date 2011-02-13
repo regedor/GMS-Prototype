@@ -30,7 +30,7 @@ jQuery(document).ready(function($){
       },
       success: function(r) {
 	    	$("#list_"+r.id).html(r.html);
-			$("#list_"+r.id).show();
+			//$("#list_"+r.id).show();
 			$(this).makeSortable();
       }
     });
@@ -48,7 +48,7 @@ jQuery(document).ready(function($){
       },
       success: function(r) {
 	    	$("#list_"+r.id).html(r.html);
-			$("#list_"+r.id).show();
+			//$("#list_"+r.id).show();
 			$(this).makeSortable();	
       }
     });
@@ -178,20 +178,29 @@ jQuery.fn.makeSortable = function(){
 		$(this).parent().next().hide();
   }
 
-  $("#projects_id").change(function(){
-	 	var selectedOption = $("#projects_id option:selected").val();
-		jQuery.ajax({
-	      type: 'GET',
-	      url: "/admin/projects/"+selectedOption,
-	      error: function() {
-	        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"Change Project"});
-			return false;
-	      },
-	      success: function(r) {
-	      }
-	    });
-		
-  });
+  jQuery.fn.newTodo = function(){
+	    var itemId = $(this).attr("id").split("-")[1];
+  		var form = $('#form_'+itemId);
+
+		if (form.length > 0) {
+		  	jQuery.ajax({
+	          type: 'POST',
+	          data: form.serialize().replace(/&*_method=\w+&*/, ''),
+	          url: window.location.href.replace(/\#.*/,"").replace("to_do_lists","to_dos")+"/create",
+			  dataType: "json",
+	          error: function() {
+	            $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"create"});
+				return false;
+	          },
+	          success: function(r) {
+	            $("#list_"+r.id).html(r.html);
+				$('#add_button-'+r.id).children(":nth-child(1)").addTodo();
+				$(this).makeSortable();
+	          }
+	        });	
+		}	
+  }
+
 });
 
 </script>
