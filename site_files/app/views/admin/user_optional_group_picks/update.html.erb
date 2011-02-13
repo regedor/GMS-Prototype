@@ -16,7 +16,7 @@
                          :html => { :method => :put, :id => "edit_user_optional_group_pick_#{@record.id}" } do |form| -%>
       <%= render :partial => 'form', :locals => { :form => form } %>
       <% form.buttons do -%>
-        <%= form.commit_button I18n::t('admin.user_optional_group_picks.form.save_button'),
+        <%= form.commit_button I18n::t('admin.user_optional_group_picks.form.update_button'),
                                :button_html => { :class => 'button positive' } %>
         <%= form.button_link   I18n::t('admin.user_optional_group_picks.form.cancel_button'), admin_user_optional_group_picks_path,
                                :button_html => { :class => 'button negative' } %>

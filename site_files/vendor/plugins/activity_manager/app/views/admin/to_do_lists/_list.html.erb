@@ -19,11 +19,12 @@
       <% end %>
     </ul>
   
+	<div id="anchor_<%= list.id %>" style="display:none;"></div>
 	<div id="add_button-<%= list.id %>" class="add_button">
-		<%= link_to t("admin.to_do.add_new.link"), "#add_todo-#{list.id}", {:class => "add_link", :onclick => "jQuery(this).addTodo();" } %>
+		<%= link_to t("admin.to_do.add_new.link"), "#anchor_#{list.id}", {:class => "add_link", :onclick => "jQuery(this).addTodo();" } %>
 	</div>	
 	<div id="add_todo-<%= list.id %>" class="add_todo" style="display:none;">
-		<% semantic_form_for(:todo, :url => admin_project_to_dos_path) do |f| %>
+		<% semantic_form_for(:todo, :url => admin_project_to_dos_path, :html => {:id => "form_#{list.id}"}) do |f| %>
 		  <% f.inputs do %>
 		    <%= f.input :description, :as => :text, :input_html => {:rows => 3, :cols => 40}, :label => t("admin.to_do.add_new.title") %>
 			<%= f.input :responsible, :as => :select, :collection => project.users, :required => false, :hint => t("admin.to_do.add_new.hint") %>
@@ -31,9 +32,9 @@
 			<%= f.input :to_do_list_id, :as => :hidden, :value => list.id %>
 		  <% end  %>
 		  <% f.buttons do %>
-		    <%= f.commit_button :label => t("admin.to_do.add_new.add_button") %>
+		    <%= link_to t("admin.to_do.add_new.add_button"), "#anchor_#{list.id}",{:id => "add_todo-#{list.id}",:class => "add_todo button", :onclick => "jQuery(this).newTodo();"} %>
 		    <span>or</span>
-			<%= link_to t("admin.to_do.add_new.done_adding"), "#add_button-#{list.id}",{:class => "done_adding_link", :onclick => "jQuery(this).doneTodo();"} %>
+			<%= link_to t("admin.to_do.add_new.done_adding"), "#anchor_#{list.id}",{:class => "done_adding_link button", :onclick => "jQuery(this).doneTodo();"} %>
 		  <% end %>
 		<% end %>		
 	</div>	

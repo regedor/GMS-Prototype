@@ -10,7 +10,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :projects do |project|
       project.resources :to_do_lists,   :collection => { :sortList => :post },
                                         :member => { :changeState => :post, :cancel => :get}
-      project.resources :to_dos,        :collection => { :new         => :post }
+      project.resources :to_dos,        :collection => { :create => :post }
       
       project.resources :to_dos do |todo|
         todo.resources  :comments,      :controller  => "to_do_comments", :collection => { :preview => :post }

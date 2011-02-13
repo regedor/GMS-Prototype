@@ -1,16 +1,19 @@
 <h2><%= I18n::t('users.show.session.title') %></h2>
 
 <div id="user-info">
-  <p><b>Name:</b><%=h @user.name %></p>
-  <p><b>Email:</b><%=h @user.email %></p>
-  <p><b>Login count:</b><%=h @user.login_count %></p>
-  <p><b>Last request at:</b><%=h @user.last_request_at %></p>
-  <p><b>Last login at:</b><%=h @user.last_login_at %></p>
-  <p><b>Current login at:</b><%=h @user.current_login_at %></p>
-  <p><b>Last login IP:</b><%=h @user.last_login_ip %></p>
-  <p><b>Current login IP:</b><%=h @user.current_login_ip %></p>
+  <table>
+    <tr><td><b>Name:</b></td><td><%=h @user.name %></td></tr>
+    <tr><td><b>Email:</b></td><td><%=h @user.email %></td></tr>
+    <tr><td><b>Login count:</b><td><%=h @user.login_count %></td></tr>
+    <tr><td><b>Last request at:</b></td><td><%=h @user.last_request_at %></td></tr>
+    <tr><td><b>Last login at:</b></td><td><%=h @user.last_login_at %></td></tr>
+    <tr><td><b>Current login at:</b></td><td><%=h @user.current_login_at %></td></tr>
+    <tr><td><b>Last login IP:</b></td><td><%=h @user.last_login_ip %></td></tr>
+    <tr><td><b>Current login IP:</b></td><td><%=h @user.current_login_ip %></td></tr>
+  </table>
 </div>
 
+<h2><%= t('users.show.invite.title') %></h2>
 <div id="user-invite">
   <h3><%= t('users.show.session.invite.title') %></h3>
   <p>Enter the emails, separated by comma:</p>

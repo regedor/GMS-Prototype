@@ -28,9 +28,9 @@
 .active-scaffold a,
 .active-scaffold a:link,
 .active-scaffold a:active,
-.active-scaffold a:visited   { font: Verdana, Arial; color: #333; font-size: 1em; line-height: 1.2em; }
+.active-scaffold a:visited   { color: #333; font-size: 1em; line-height: 1.2em; }
 .active-scaffold a:hover { text-decoration: underline; }
-.active-scaffold table thead p { font: Verdana, Arial; color: #333; font-size: 1em; line-height: 1.2em; }
+.active-scaffold table thead p { color: #333; font-size: 1em !important; line-height: 1.2em; }
 .active-scaffold table thead tr  { height: 25px; }
 .active-scaffold input.text-input,
 .active-scaffold textarea  { font-weight: normal !important; border-bottom-left-radius: 4px 4px; border-bottom-right-radius: 4px 4px; border-top-left-radius: 4px 4px; border-top-right-radius: 4px 4px; max-width: 74%; padding: 4px !important; width: 250px; font-family: Verdana, HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 1.2em !important; }
@@ -42,7 +42,6 @@
 
 .active-scaffold input[name="search"] { max-width: 100%; padding: 2px !important; }
 
-a.preview_button {padding: 5px 5px 0px 0px;}
 div.active-scaffold th a,
 div.active-scaffold th a:visited { padding: 0; }
 div.active-scaffold th                    { padding: 0 5px; white-space: nowrap; }
@@ -52,7 +51,7 @@ div.active-scaffold td.total_approved_comments-column { white-space: nowrap; }
 noscript.active-scaffold                           { border-left: solid 0.5em #f66;background-color: #fbb;font-size: 1em;}
 noscript.active-scaffold                           { font-weight: bold;padding: 0.5em 2em 0.5em 0.5em;color: #333;}
 .active-scaffold-header h2                         { padding-top: 0.2em;margin: 0;padding-left: 0em; padding-bottom: 0.7em;}
-.active-scaffold-header h2                         { color: #676766;font: bold 160% Verdana,arial, sans-serif; font-size: 1.8em; }
+.active-scaffold-header h2                         { color: #333;font: bold 160% Verdana,arial, sans-serif; font-size: 1.8em; }
 .active-scaffold-header div.actions a              { float: right;font: bold 14px Verdana,arial;text-decoration: none;}
 .active-scaffold-header div.actions a              { padding: 1px 2px;white-space: nowrap;margin-left: 5px;background-position: 1px 50%;}
 .active-scaffold-header div.actions a.disabled     { color: #666;opacity: 0.5;}
@@ -91,9 +90,6 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold .errorExplanation h2    { letter-spacing: 0;font-family: Verdana;background-color: #f66;}
 .active-scaffold .errorExplanation p     { font-size: 11px;padding: 2px 5px;font-family: Verdana;margin: 0;}
 .active-scaffold .errorExplanation ul li { font: bold 11px verdana;margin: 0;padding: 0;}
-.active-scaffold .show-view dt           { width: 12em;float: left;clear: left;font: normal 11px verdana, sans-serif;}
-.active-scaffold .show-view dt           { color: #555;line-height: 16px;}
-.active-scaffold .show-view dd           { /*float: left;*/font: bold 14px verdana,arial;padding-left: 5px;margin-bottom: 5px;}
 .active-scaffold .submit                 { font-weight: bold;font-size: 14px;font-family: Verdana,Arial, sans-serif;letter-spacing: 0;}
 .active-scaffold h5                      { padding: 2px;margin: 0;text-transform: none;color: black;}
 .active-scaffold h5                      { font: bold 16px verdana,arial; padding: 0;margin: 5px 0 2px 0;font-size: 14px;letter-spacing: 0;}
@@ -165,7 +161,7 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 
 #main .block .content .inner .active-scaffold-header h2 { padding: 0;}
 #main .block .content .inner .active-scaffold-header    { padding-bottom: 15px;}
-#main .block .content .inner .active-scaffold-found     { padding-left: 10px; }
+#main .block .content .inner .active-scaffold-found     { padding-left: 9px; }
 
 
 /* Table :: Column Headers */
@@ -231,14 +227,17 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold .active-scaffold-header .loading-indicator { margin-bottom: 3px;}
 
 /* Show */
-.active-scaffold .show-view dl                           { margin-left: 5px;}
+.active-scaffold .show-view dl                           { margin-left: 5px; }
+.active-scaffold .show-view dd                           { font: inherit; font-size: 1.1em; padding: 0; margin: 5px; }
+.active-scaffold .show-view dt                           { font: inherit; font-size: 1.1em; padding: 0; margin: 5px; }
+.active-scaffold div#avatar img                          { float: right; border: 1px solid #999; margin: 0 10px; }
 
 /* Form */
-.active-scaffold .submit                                 { margin: 0;margin-top: 5px;}
-.active-scaffold form p                                  { clear: both;}
-.active-scaffold fieldset                                { border: none;}
+.active-scaffold .submit                                 { margin: 0; margin-top: 5px; }
+.active-scaffold form p                                  { clear: both; }
+.active-scaffold fieldset                                { border: none; }
 .active-scaffold h4,
-.active-scaffold ol                                      { clear: both;float: none;padding: 2px;margin-left: 14px;list-style: none;}
+.active-scaffold ol                                      { clear: both; float: none;padding: 2px;margin-left: 14px;list-style: none;}
 .active-scaffold p.form-footer                           { clear: both;}
 
 /* Form :: Fields */
@@ -287,35 +286,16 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .actions .search .dropdownmenu                           { height: 20px; vertical-align: top; margin-right: 10px; }
 
 /* Buttons */
-.content a.disabled                                      { display: none;}
+.content a.disabled                                      { display: none; }
 
-.active-scaffold p.form-footer { margin-left: 14px; padding-bottom: 14px;}
-
-.active-scaffold p.form-footer .submit,
-p.form-footer a,
-p.form-footer a:link,
-p.form-footer a:visited        { color:#666;background-color: #f5f5f5; border: 1px solid #ccc;
-                                 font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
-                                 font-size:1.1em;line-height:130%;text-decoration:none; 
-                                 font-weight:bold;  cursor:pointer; padding:3px 10px 3px 7px;
-                                 border-top: 1px solid #eee; border-left:1px solid #eee; margin: 0px; margin-right: 8px;}
-
-/* Neutral */
-.active-scaffold p.form-footer .submit:hover,
-p.form-footer a:hover,
-p.form-footer a:hover          { background-color:#eef; border:1px solid #ccf; color:#369; }
-
-.active-scaffold p.form-footer .submit:active,
-p.form-footer a:active,
-p.form-footer a:active         { background-color:#58b; border:1px solid #7ad; color:#fff; }
-
-
-/* Positive */
-.active-scaffold p.form-footer .submit        { color:#591; }
-.active-scaffold p.form-footer .submit:hover  { background-color:#efe; border:1px solid #cfc; color:#591;}
-.active-scaffold p.form-footer .submit:active { background-color:#7b3; border:1px solid #9d5; color:#fff;}
-
-/* Negative */
-p.form-footer a.cancel           { color:#d32;}
-p.form-footer a:hover.cancel     { background-color:#fee; border:1px solid #fcc; color:#d32;}
-p.form-footer a:active.cancel    { background-color:#f54; border:1px solid #f76; color:#fff;}
+div.active-scaffold input.button                         { padding: 0; }
+ 
+div.active-scaffold a.button,
+div.active-scaffold input.button                         { background-color: #F5F5F5; border: 1px solid #DEDEDE; }
+div.active-scaffold a.button,
+div.active-scaffold input.button                         { cursor: pointer; padding: 6px 10px 9px 1px; /* Links */ }
+div.active-scaffold a.button,
+div.active-scaffold input.button                         { -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; }
+ 
+div.active-scaffold input[type].button                   { padding: 2px 10px 5px 1px; /* Firefox */ line-height: 20px; /* Safari */ }
+*:first-child+html input[type]                           { padding: 2px 10px 3px 1px; /* IE7 */ }
