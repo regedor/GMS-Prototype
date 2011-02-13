@@ -844,9 +844,17 @@ en:
     project_creation_fail: "An error occured while creating the project."
     to_do_comment_creation_fail: "An error occured while creating the comment."
     to_do_comment_created: "Succefully created the comment on %{todo}."
+    mail_not_sent: "The e-mail to %{mail} could not be sent"
+    mail_not_sent_multiple: "Some emails could not be sent"
   
   notifier: 
-    to_do_notification: "New To-Do"
+    to_do_notification: 
+      new_todo_subject: "New To-Do"
+      update_todo_subject: "To-Do update"
+      comment_subject: "New Comment on a To-Do"
+      messageInit: "There is a new comment on the to-do %{todo}, from %{user}"
+      new: "A To-Do with the description \"%{todo}\", on To-Do List %{list} has been assigned to you by %{user}"
+      update: "There has been an update on the To-Do with the description \"%{todo}\", on To-Do List %{list}, made by %{user}"
       
     invitation:
       subject: "You have been invited"
