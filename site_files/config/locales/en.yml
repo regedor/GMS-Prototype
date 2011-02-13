@@ -55,6 +55,13 @@ en:
         multiple: "Multiple groups chosen for pick '%{name}': %{groups}"
     show:
       title: "Account details"
+      list_link: "List users"
+      session_link: "Show session details"
+      edit_link: "Edit account"
+      session:
+        title: "Session details"
+        invite:
+          title: "Invite friends"
   
   user_session:
     errors:
@@ -372,6 +379,7 @@ en:
           link: "Go to deleted users"
       list_actions:
         destroy_by_ids: "Delete"
+        delete_by_ids!: "Delete"
         activate!: "Activate"
         deactivate!: "Deactivate"
         add_to_group: "Add to group '%{name}'"
@@ -402,6 +410,13 @@ en:
         current_login_at: "Currently logged in at"
         last_login_ip: "Last login ip"
         current_login_ip: "Current login ip"
+        password_salt: "Password salt"
+        crypted_password: "Crypted password"
+        persistence_token: "Persistence token"
+        openid_identifier: "OpenID identifier"
+        single_access_token: "Single access token"
+        perishable_token: "Perishable token"
+        active: "Active"
 
       form:
         update_button: "Update"
@@ -431,7 +446,7 @@ en:
         show_link: "Details"
         undelete_link: "Undelete"
       list_actions:
-        destroy_by_ids!: "Delete"
+        destroy_by_ids!: "Destroy"
         activate!: "Activate"
         undelete_by_ids: "Recover"
         deleted_user: "Deleted User"
@@ -463,6 +478,12 @@ en:
         destroy_link: "Delete"      
         search: "Find groups"
         create: "New Group"
+        sidebar:
+          users:
+            go_to_deleted_users: "Go to deleted users"
+            go_to_users: "Go to users"
+            deleted_users: "Deleted users"
+            undo_deleted_users: "Recover users"
       sidebar:
         edit:
           title: "Edit group"
@@ -470,14 +491,9 @@ en:
         hierarchy:
           name: "Hierarchy"
           subname: "All groups"
-        users:
-          go_to_deleted_users: "Go to deleted users"
-          go_to_users: "Go to users"
-          deleted_users: "Deleted users"
-          undo_deleted_users: "Recover users"
-        index:
-          title: "Groups"
-          paragraph: "You are viewing system groups information. From here you can <b title=\"See the link above the table.\">create</b> a new group. You can also view a group <b title=\"The link is at the end of the row.\">details</b> and it's hierarchy. To edit a group details click on <b title=\"The link is at the end of the row.\">edit</b>. To eliminate a group simply click on <b title=\"The link is at the end of the row.\">delete</b>. "
+          index:
+            title: "Groups"
+            paragraph: "You are viewing system groups information. From here you can <b title=\"See the link above the table.\">create</b> a new group. You can also view a group <b title=\"The link is at the end of the row.\">details</b> and it's hierarchy. To edit a group details click on <b title=\"The link is at the end of the row.\">edit</b>. To eliminate a group simply click on <b title=\"The link is at the end of the row.\">delete</b>. "
           empty:
             subname: "All groups"
             paragraph: "When viewing details of a group containing subgroups, you can see here the hierarchy."
@@ -486,6 +502,7 @@ en:
             paragraph: "Below is the group and subgroup relationship hierarchy. "
         user_optional_group_picks:
           title: "User Optional Group Picks"
+          paragraph: "You can manage users optional group pick."
           link: "Go to user optional group picks"
       columns:
         parent_name: "Parent"

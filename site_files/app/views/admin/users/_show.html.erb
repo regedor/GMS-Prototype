@@ -25,9 +25,9 @@
   <dt><%= t("admin.users.view.gender")     %></dt> 
   <dd> 
     <% if @record.gender %>
-      <p class="true-male">   <%= t("generic_sentence.male_value")   %> </p>
+      <p class="male">   <%= t("generic_sentence.male_value")   %> </p>
     <% else %>
-      <p class="false-female"><%= t("generic_sentence.female_value") %> </p>
+      <p class="female"><%= t("generic_sentence.female_value") %> </p>
     <% end %>
   </dd>
     
@@ -127,7 +127,7 @@
   <% end %>   
 
   <% unless @record.single_access_token.blank?     %> 
-    <dt><%= t("admin.users.view.user.single_access_token")     %></dt> 
+    <dt><%= t("admin.users.view.single_access_token")     %></dt> 
     <dd><%= @record.single_access_token  %></dd> 
   <% end %>   
   
@@ -137,7 +137,12 @@
   <% end %>   
   
   <dt><%= t("admin.users.view.active")     %></dt> 
-  <dd><%= @record.active  %></dd> 
+  <% if @record.active %>
+    <dd><p class="tick">
+  <% else %>
+    <dd><p class="cross">
+  <% end %>
+  <%= @record.active  %></p></dd> 
      
   <% if @record.last_request_at     %> 
     <dt><%= t("admin.users.view.last_request_at")     %></dt> 
