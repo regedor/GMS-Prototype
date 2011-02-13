@@ -15,12 +15,14 @@
   <% end %>
   
   <dt><%= t("admin.users.view.emails")   %></dt> 
-    <% if @record.emails?                    %> 
-      <p class="tick">
-    <% else %>
-      <p class="cross">
-    <% end %>
-    <%= @record.emails?  %></p>
+    <dd>
+      <% if @record.emails?                    %> 
+        <p class="tick">
+      <% else %>
+        <p class="cross">
+      <% end %>
+      <%= @record.emails?  %></p>
+    </dd>
     
   
   <dt><%= t("admin.users.view.gender")     %></dt> 
@@ -89,7 +91,6 @@
 
   <% if @record.login_count     %>
     <dt><%= t("admin.users.view.login_count")     %></dt>
-<<<<<<< HEAD
     <dd><%= @record.login_count  %></dd> 
   <% end %>
     
