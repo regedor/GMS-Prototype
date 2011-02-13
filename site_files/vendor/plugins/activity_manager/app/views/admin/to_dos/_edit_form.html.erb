@@ -8,7 +8,7 @@
   <% f.buttons do %>
     <%= f.commit_button :label => I18n::t("admin.to_do.edit.update_button"),
                         :button_html => { :class => 'button positive' } %>
-    <%= f.button_link   I18n::t("admin.to_do.edit.cancel"), '#',
+    <%= f.button_link   I18n::t("admin.to_do.edit.cancel"), "#list_#{@todo.to_do_list.id}",
                         :button_html => { :class => 'button negative', :onclick => "jQuery(this).cancel();" } %>
   <% end %>
 <% end %>

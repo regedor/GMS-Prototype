@@ -104,10 +104,11 @@ jQuery.fn.makeSortable = function(){
   $( ".datepicker" ).datepicker($.datepicker.regional[locale]);
 
 	jQuery.fn.cancel = function(){
-		$(this).parent().parent().parent().parent().parent().removeClass("sort-disabled");
+		$(this).parent().parent().parent().parent().parent().parent().removeClass("sort-disabled");
+	
 		jQuery.ajax({
 	      type: 'GET',
-	      url: window.location.href.replace(/\#.*/,"")+"/"+$(this).parent().parent().parent().parent().parent().children(':nth-child(1)').attr("id")+"/cancel",
+	      url: window.location.href.replace(/\#.*/,"")+"/"+$(this).parent().parent().parent().parent().parent().parent().children(':nth-child(1)').attr("id")+"/cancel",
 		  dataType: "json",
 	      error: function() {
 	        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"cancel"});
