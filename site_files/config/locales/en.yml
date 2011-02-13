@@ -170,7 +170,7 @@ en:
         settings: "Settings"
         undo_items: "Actions"
         mails: "Send Email"
-        projects: "List Projects"
+        projects: "Projects"
         to_do_lists: "To-Do Lists"
         messages: "Messages"
         to_do_comments: "Comments"
@@ -187,7 +187,7 @@ en:
         name: "Name"
         description: "Description"
         description_hint: "This description is optional, use it to explain the purpose of the list, if needed"
-        create_button: "Create List"  
+        create_button: "Create"  
         cancel_button: "Cancel"
     
     to_do:
@@ -265,7 +265,7 @@ en:
         description: "Description"
         users: "Associated Users"
         create_button: "Create"  
-        back: "Back"        
+        cancel: "Cancel"        
       create:
         title: "New Project"      
       columns:
