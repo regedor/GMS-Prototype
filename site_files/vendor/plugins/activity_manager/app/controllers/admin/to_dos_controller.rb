@@ -7,6 +7,8 @@ class Admin::ToDosController < Admin::BaseController
 
   def create
     unless params[:todo][:description].empty?
+      @list = ToDoList.find(params[:todo][:to_do_list_id])
+      @project = Project.find(params[:project_id])
       todo = ToDo.new
       todo.user_id = params[:todo][:responsible]
       todo.to_do_list_id = params[:todo][:to_do_list_id]
@@ -18,7 +20,17 @@ class Admin::ToDosController < Admin::BaseController
         redirect_to admin_project_to_do_lists_path(params[:project_id])
         return
       end
-      todo.save
+      if todo.save
+        respond_to do |format|
+          format.json { render :json  =>  {
+                'id' => params[:todo][:to_do_list_id],
+                'html'=> render_to_string(:partial => "admin/to_do_lists/list.html.erb", :layout => false, :locals => {:list => @list, :project => @project}) 
+            }  
+          }
+        end  
+        return
+      end  
+
 
       if todo.user
         mail = Mail.create(:message => todo.to_do_list.name, :sent_on => Time.now, :subject => "")

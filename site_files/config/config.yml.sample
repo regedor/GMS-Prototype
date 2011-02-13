@@ -1,43 +1,45 @@
 --- 
 development: &local
-  theme: "nemum"
-  site_name: "Nemum"
-  site_url: "http://localhost:3000/"
-  site_domain: "localhost"
-  site_header: "Sandbox application"
-  support_email: "support@baseapp2.local"
-  root_email: "admin@baseapp2.local"
-  mailer_email: "miguelregedor@gmail.com"
-  default_locale: "en"
+  theme: nemum
+  default_locale: en
+  title: Sandbox
+  site_name: Sandbox
+  site_header: Sandbox application
   force_locale: "true"
-  mailer:
-    enable_starttls_auto: true
-    address: smtp.gmail.com
-    authentication: :plain
-    port: 587
-    domain: gmail.com
-    user_name: usernamewithoutAT # also change email in notifier model 
-    password: password
+  site_domain: localhost
+  site_url: http://localhost:3000/
+  root_email: miguel@regedor.com
+  support_email: support@baseapp2.local
+  mailer_email: noreply@regedor.com
+  mailer: 
+    :authentication: :plain
+    :address: smtp.gmail.com
+    :enable_starttls_auto: true
+    :port: 587
+    :domain: regedor.com
+    :user_name: noreply@regedor.com
+    :password: password
 
-production:
-  theme: "nemum"
-  site_name: "Nemum"
-  site_url: "http://www.regedor.com/"
-  site_domain: "www.regedor.com"
-  site_header: "Sandbox application"
-  support_email: "support@baseapp2.local"
-  root_email: "admin@baseapp2.local"
-  mailer_email: "miguelregedor@gmail.com"
-  default_locale: "en"
+production: 
+  theme: nemum
+  default_locale: en
+  title: Sandbox
+  site_name: Sandbox
+  site_header: Sandbox application
   force_locale: "true"
-  mailer:
-    enable_starttls_auto: true
-    address: smtp.gmail.com
-    authentication: :plain
-    port: 587
-    domain: gmail.com
-    user_name: miguelregedor 
-    password: password
+  site_domain: www.sandbox.regedor.com
+  site_url: http://www.sandbox.regedor.com/
+  root_email: miguel@regedor.com
+  support_email: support@baseapp2.local
+  mailer_email: noreply@regedor.com
+  mailer: 
+    :authentication: :plain
+    :address: smtp.gmail.com
+    :enable_starttls_auto: true
+    :port: 587
+    :domain: regedor.com
+    :user_name: noreply@regedor.com
+    :password: password
 
 test:
   <<: *local

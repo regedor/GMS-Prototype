@@ -26,7 +26,15 @@ div#content p                 { margin: 0 0 1em; }
 div#content table             { margin: 0 0 1em; }
 div#sidebar                   { float: right; height: auto; width: 170px; }
 div#main                      { background-color: #FFF; padding: 20px; position: relative; z-index: 2; }
-div#main p                    { margin: 0 0 15px; }
+div#main p                    { margin: 0 0 1.2em; }
+
+div#main table                { border-collapse: collapse; width: 100%; } /* border-collapse ta a broquear padding */
+div#main td,
+div#main th                   { border-bottom: solid 1px #DDD; padding: 0.4em 0; margin: 0 10px; }
+
+div#main div#user-info        { margin: 15px 10px; }
+div#main div#user-invite      { margin: 15px 10px; }
+
 div.meta                      { background-color: #EEE; margin: 0 10px 2.5em; padding: 0.8em; }
 div#footer                    { margin: 1.5em; }
 
@@ -66,14 +74,11 @@ div.announcement-text p.title { padding: 0 0 1em; }
 
 /* Pages */
 
-#pages_show #main p           { margin: 1.5em 10px; }
-#pages_show #main ul li,
-#pages_show #main ol li       { list-style-position: inside; margin: 1.5em 30px; }
-#pages_show #main ul li       { list-style-type: disc; }
-#pages_show #main ol li       { list-style-type: decimal; }
-#pages_show #main table       { border-collapse: collapse; width: 100%; } /* border-collapse ta a broquear padding */
-#pages_show #main td,
-#pages_show #main th          { border: solid 1px #DDD; padding: 0 0.5em; }
+body#pages_show div#main ul li,
+body#pages_show div#main ol li { list-style-position: inside; margin: 1.5em 30px; }
+body#pages_show div#main ul li { list-style-type: disc; }
+body#pages_show div#main ol li { list-style-type: decimal; }
+body#pages_show div#main p     { margin: 1.2em 10px; }
 
 /* Posts */
 

@@ -28,6 +28,16 @@ namespace :db do
           :body                    => "O Núcleo de Estudantes de Medicina da Universidade do Minho (NEMUM) realizará a sessão solene de tomada de posse dos seus novos órgãos sociais no próximo dia 17 de Janeiro de 2011 (segunda-feira), pelas 19h, no Anfiteatro A0.01 da Escola de Ciências da Saúde da Universidade do Minho, sito no Campus de Gualtar, em Braga.",
           :active                  => true,
           :approved_comments_count => 0,
+          :published_at            => Time.now - 1.second,
+          :edited_at               => nil,
+          :updated_at              => nil
+        )
+        
+        Post.create(
+          :title                   => "Objectivos de Desenvolvimento para o Milénio",
+          :body                    => "Conheces os Objectivos de Desenvolvimento para o Milénio?<br/><br/>Desafia-te!!<br/><br/>A equipa eight4millennium<br/><br/>Vamos acabar com a pobreza agora!<br/><br/><iframe title=\"YouTube video player\" width=\"515\" height=\"390\" src=\"http://www.youtube.com/embed/V7iMtJoimlM\" frameborder=\"0\" allowfullscreen></iframe>",
+          :active                  => true,
+          :approved_comments_count => 0,
           :published_at            => Time.now,
           :edited_at               => nil,
           :updated_at              => nil

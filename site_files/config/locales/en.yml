@@ -55,6 +55,13 @@ en:
         multiple: "Multiple groups chosen for pick '%{name}': %{groups}"
     show:
       title: "Account details"
+      list_link: "List users"
+      session_link: "Show session details"
+      edit_link: "Edit account"
+      session:
+        title: "Session details"
+        invite:
+          title: "Invitations"
   
   user_session:
     errors:
@@ -162,7 +169,7 @@ en:
         pages: "Pages"
         settings: "Settings"
         undo_items: "Actions"
-        mails: "Send E-Mail"
+        mails: "Send Email"
         projects: "List Projects"
         to_do_lists: "To-Do Lists"
         messages: "Messages"
@@ -237,7 +244,7 @@ en:
         from: "From"
         date: "Date"
         create_button: "Create"
-        save_button: "Save"
+        update_button: "Update"
         cancel_button: "Cancel"
         hints:
           body: "<a href='http://hobix.com/textile/quick.html'>Textile enabled</a>. Use Ctrl+E to switch between preview and edit mode."
@@ -266,7 +273,7 @@ en:
         groups: "Assigned Groups"
         user_id: "Created by"
       list:
-        noentries: "No entries found"
+        noentries: "No Projects Found"
         found:
           more: "%{count} Projects Found"
           one: "%{count} Project Found"                              
@@ -275,7 +282,7 @@ en:
       text: "You are now viewing the Administration dashboard. Here you can manage users, groups, communication and frontend items. The right sidebar also provides useful information and relevant links."
       sidebar:
         title: "Dashboard"
-        paragraph:  "On this sidebar you can find shortcuts to the most common tasks that take place in the administration panel. Putting your mouse over a <b title=\"This is a bold word.\">bold</b> word will give you some tips."
+        paragraph:  "This sidebar provides you with shortcuts to the most common tasks that take place in the administration panel. Placing your mouse over a <b title=\"This is a bold word.\">bold</b> word will give you extended tips."
         go_to_frontend: "Go to the Frontend"
         website_management:
           title: "Website Management"
@@ -299,9 +306,9 @@ en:
       send_fail: "The email could not be sent, try again!"
       list:
         found:
-          more: "%{count} Mails Found"
-          one: "%{count} Mail Found"            
-        noentries: "No entries found"              
+          more: "%{count} Emails Found"
+          one: "%{count} Email Found"            
+        noentries: "No Emails Found"              
       index:
         destroy_link: "Delete"
         show_link: "Details" 
@@ -323,7 +330,7 @@ en:
                             
     users:
       index:
-        title: "Users List"
+        title: "Users"
         update_link: "Edit"
         destroy_link: "Delete"
         show_link: "Details"
@@ -372,6 +379,7 @@ en:
           link: "Go to deleted users"
       list_actions:
         destroy_by_ids: "Delete"
+        delete_by_ids!: "Delete"
         activate!: "Activate"
         deactivate!: "Deactivate"
         add_to_group: "Add to group '%{name}'"
@@ -380,7 +388,7 @@ en:
         found:
           more: "%{count} Users Found"
           one: "%{count} User Found"            
-        noentries: "No entries found"
+        noentries: "No Users Found"
       view:
         email:    "Email"
         name:     "Name"
@@ -400,13 +408,21 @@ en:
         login_count: "Login count"
         failed_login_count: "Failed logins"
         current_login_at: "Currently logged in at"
-        last_login_ip: "Last login ip"
-        current_login_ip: "Current login ip"
+        last_login_ip: "Last login IP"
+        last_request_at: "Last request"
+        current_login_ip: "Current login IP"
+        password_salt: "Password salt"
+        crypted_password: "Crypted password"
+        persistence_token: "Persistence token"
+        openid_identifier: "OpenID Identifier"
+        single_access_token: "Single access token"
+        perishable_token: "Perishable token"
+        active: "Active"
 
       form:
         update_button: "Update"
         cancel_button: "Cancel"
-        edit:          "Update user"
+        edit: "Update user"
         hints:
           avatar: "If you upload an image this will be shown. If you do not upload an image and the user has a gravatar, it will be used. Otherwise a default image will be shown."
           active: "If a user is not active, he/she cannot login."
@@ -430,15 +446,16 @@ en:
         destroy_link: "Delete"
         show_link: "Details"
         undelete_link: "Undelete"
-      destroy_by_ids!: "Delete"
-      activate!: "Activate"
-      undelete_by_ids: "Recover"
-      deleted_user: "Deleted User"
+      list_actions:
+        destroy_by_ids!: "Destroy"
+        activate!: "Activate"
+        undelete_by_ids: "Recover"
+        deleted_user: "Deleted User"
       list:
         found:
           more: "%{count} Users Found"
           one: "%{count} User Found"            
-        noentries: "No entries found"
+        noentries: "No Users Found"
       sidebar:
         title: "Deleted users"
         text: "Here you can see the deleted users. You can <b title=\"The link is at the end of the row.\">\"Recover\"</b> a user, see the users <b title=\"The link is at the end of the row.\">\"Details\"</b> or remove permanently a user choosing <b title=\"The link is at the end of the row.\">destroy</b>. That action is <b title=\"Please be careful.\">not reversible</b>. You can apply these actions to a group of users by choosing those actions from the <b title=\"See the combo box at the top of the table.\">combo box</b>.<br/>To leave this page click on \"Go to Users\" below."
@@ -456,27 +473,28 @@ en:
           
     groups:
       index:
-        title: "Groups List"
+        title: "Groups"
         show_link: "Details"
         update_link: "Edit"
         destroy_link: "Delete"      
         search: "Find groups"
         create: "New Group"
+        sidebar:
+          users:
+            go_to_deleted_users: "Go to deleted users"
+            go_to_users: "Go to users"
+            deleted_users: "Deleted users"
+            undo_deleted_users: "Recover users"
       sidebar:
         edit:
-          title: "Editing group"
+          title: "Edit group"
           paragraph: "By editing a group you can change it's <b title=\"See the field on the left.\">name</b>. <br/> A <b title=\"See the field on the left.\">description</b> can be added. <br/> You can decide if a group will be or not <b title=\"See the field on the left.\">mailable</b>, that is, you can send an email to all users of the group at once.<br/> To decide if a user can decide to became part of it, define true on <b title=\"See the field on the left.\">User choosable</b>.<br/> You can create <b title=\"See the field on the left.\">group</b> hierarchies by dragging groups which will subgroups of it from the yellow field to the green field. <br/> The group <b title=\"See the field on the left.\">users</b> are managed on the same way of the subgroups."
         hierarchy:
           name: "Hierarchy"
           subname: "All groups"
-        users:
-          go_to_deleted_users: "Go to deleted users"
-          go_to_users: "Go to users"
-          deleted_users: "Deleted users"
-          undo_deleted_users: "Recover users"
-        index:
-          title: "Groups"
-          paragraph: "You are viewing system groups information. From here you can <b title=\"See the link above the table.\">create</b> a new group. You can also view a group <b title=\"The link is at the end of the row.\">details</b> and it's hierarchy. To edit a group details click on <b title=\"The link is at the end of the row.\">edit</b>. To eliminate a group simply click on <b title=\"The link is at the end of the row.\">delete</b>. "
+          index:
+            title: "Groups"
+            paragraph: "You are viewing system groups information. From here you can <b title=\"See the link above the table.\">create</b> a new group. You can also view a group <b title=\"The link is at the end of the row.\">details</b> and it's hierarchy. To edit a group details click on <b title=\"The link is at the end of the row.\">edit</b>. To eliminate a group simply click on <b title=\"The link is at the end of the row.\">delete</b>. "
           empty:
             subname: "All groups"
             paragraph: "When viewing details of a group containing subgroups, you can see here the hierarchy."
@@ -485,7 +503,13 @@ en:
             paragraph: "Below is the group and subgroup relationship hierarchy. "
         user_optional_group_picks:
           title: "User Optional Group Picks"
+          paragraph: "You can manage users optional group pick."
           link: "Go to user optional group picks"
+        users: 
+          deleted_users: "Deleted users"
+          undo_deleted_users: "Click on the lick below to undo deleted users"
+          go_to_deleted_users: "Go to deleted users"
+          go_to_users: "Go to users"
       columns:
         parent_name: "Parent"
         name: "Name"
@@ -503,9 +527,9 @@ en:
       form:
         show: "Group Details"
         new: "New Group"
-        edit: "Editing Group"
+        edit: "Edit Group"
         create_button: "Create"
-        save_button: "Save"
+        update_button: "Update"
         cancel_button: "Cancel"
         close_button: "Close"
         behavior:
@@ -539,9 +563,9 @@ en:
       form:
         show: "Group Pick Details"
         new: "New Group Pick"
-        edit: "Editing Group Pick"
+        edit: "Edit Group Pick"
         create_button: "Create"
-        save_button: "Save"
+        update_button: "Update"
         cancel_button: "Cancel"
         close_button: "Close"
       list:
@@ -552,7 +576,7 @@ en:
 
     pages:
       index:
-        title: "Page List"
+        title: "Pages"
         destroy_link: "Delete"
         update_link: "Edit"
         show_link: "Details"
@@ -583,12 +607,12 @@ en:
         priority: "Priority"
       form:
         new: "New Page"
-        edit: "Editing Page"
+        edit: "Edit Page"
         show: "Page Details"
         preview_button: "Preview"
         edit_button: "Edit"
         create_button: "Create"
-        save_button: "Save"
+        update_button: "Update"
         cancel_button: "Cancel"
         close_button: "Close"
         hints:
@@ -608,7 +632,7 @@ en:
 
     posts:
       index:
-        title: "News List"
+        title: "Posts"
         show_link: "Details"
         destroy_link: "Delete"
         update_link: "Edit"
@@ -619,7 +643,7 @@ en:
         search: "Search Posts"
         create: "New Post"
       columns:
-        published_at: "Published At"
+        published_at: "Publish Date"
         title: "Title"
         excert: "Excert"
         total_approved_comments: "Comments"
@@ -644,7 +668,7 @@ en:
         preview_button: "Preview"
         edit_button: "Edit"
         create_button: "Create"
-        save_button: "Save"
+        update_button: "Update"
         cancel_button: "Cancel"
         close_button: "Close"
         hints:
@@ -672,7 +696,7 @@ en:
       sidebar:
         index:
           title: "Posts"
-          paragraph: "You can <b title=\"Use the 'New Post' button.\">create</b> new posts and <b title=\"Use the 'Delete' button.\">remove</b> existing ones. You can also <b title=\"Use the 'Details' button.\">view</b> and <b title=\"Use the 'Edit' button.\">edit</b> current posts.<br/><br/>It's possible to order the post list by <b title=\"Click in 'Title'.\">title</b> or <b title=\"Click in 'Published At'.\">publish date</b>.<br/><br/>By clicking on the post's title, you'll be redirected to the corresponding post in the frontend."
+          paragraph: "You can <b title=\"Use the 'New Post' button.\">create</b> new posts and <b title=\"Use the 'Delete' button.\">remove</b> existing ones. You can also <b title=\"Use the 'Details' button.\">view</b> and <b title=\"Use the 'Edit' button.\">edit</b> current posts.<br/><br/>It's possible to order the post list by <b title=\"Click in 'Title'.\">title</b> or <b title=\"Click in 'Published Date'.\">publish date</b>.<br/><br/>By clicking on the post's title, you'll be redirected to the corresponding post in the frontend."
         history:
           title: "Post Details"
           paragraph: "You can revert post information. Click on the dates below to return to previous states. Click on <b title=\"The revert link appears when you click on a previous date.\">Revert</b> to complete the reversion process."
@@ -713,7 +737,7 @@ en:
 
     announcements:
       index:
-        title: "Display Announcement"
+        title: "Announcements"
         update_link: "Edit"
         destroy_link: "Delete"
         show_link: "Details"
@@ -730,23 +754,33 @@ en:
         avatar: "Image"
       create:
         title: "Announcement"
+      form:
+        show: "Announcement Details"
+        new: "New Announcement"
+        edit: "Edit Announcement"
+        preview_button: "Preview"
+        edit_button: "Edit"
+        create_button: "Create"
+        update_button: "Update"
+        cancel_button: "Cancel"
+        close_button: "Close"
       list:
-        noentries: "No announcements"
+        noentries: "No Announcements Found"
         found:
           more: "%{count} Announcements Found"
           one: "%{count} Announcements Found"
       sidebar:
         title: "Announcements"
-        paragraph: "On this page you can create <b title=\"Announcements are entries on the main page banner. The link to create is above the table.\">announcements</b> that will appear on frontend.<br/>You can also <b title=\"The link is at the end of the row\">edit</b> and <b title=\"The link is at the end of the row\">delete</b> existing announcements.<br/>To view an announcement <b title=\"The link is at the end of the row\">details</b> just click on the link."
+        paragraph: "You can <b title=\"Use the 'New Announcement' button.\">create</b> new announcements and <b title=\"Use the 'Delete' button.\">remove</b> existing ones. You can also <b title=\"Use the 'Details' button.\">view</b> and <b title=\"Use the 'Edit' button.\">edit</b> current announcements.<br/><br/>It's possible to order the announcement list by <b title=\"Click in 'Title'.\">title</b>, <b title=\"Click in 'Message'.\">message</b>, <b title=\"Click in 'Start Date'.\">start date</b>, <b title=\"Click in 'End Date'.\">end date</b> or <b title=\"Click in 'URL'.\">URL</b>.<br/><br/>By clicking on the announcement's title, you'll be redirected to the corresponding announcement in the frontend."
         show:
-          title: "Paragraph"
-          paragraph: "You are now viewing the details of an announcement. To edit this announcement, go to the <b title=\"The tab is above the announcement details.\">announcements tab</b> and chose edit."
+          title: "Announcement Details"
+          paragraph: "You are now viewing the details of an announcement. To edit this announcement, go to the announcements tab and chose edit."
         edit:
           title: "Edit announcement"
           paragraph: "You are editing an announcement. You can specify a <b title=\"The title will identify the announcement.\">title</b>, change the <b title=\"The announcement will be visible between the start and end date.\" >date</b> when it will be visible. You can edit the target <b title=\"The url is the target page, when the image is clicked.\">url</b>, and the background <b title=\"The image will fill all the banner area.\">image</b>. Finally you can change the <b title=\"If your message is too long, it will cover cover the image.\">message</b> which appear in front of the image.<br/>If you want to create a big announcement, you should the create a <b title=\"See the link on the tab above.\">static page</b> with all the information, and link the announcement to that page."
 
     settings:
-      title: "Settings management"
+      title: "Settings"
       theme: "Theme"
       site_title: "Site title"
       save: "Save"
@@ -755,7 +789,7 @@ en:
     error_messages:
       login_blank: "can not be blank"
       login_not_found: "is not valid"
-      login_invalid: "should use only letters, numbers, spaces, and .-_@ please."
+      login_invalid: "should use only letters, numbers, spaces, and .-_@."
       consecutive_failed_logins_limit_exceeded: "Consecutive failed logins limit exceeded, account is disabled."
       email_invalid: "should look like an email address."
       password_blank: "can not be blank"
@@ -774,39 +808,41 @@ en:
         remember_me: "remember me"
 
   flash:
-    login: "Login successful"
-    logout: "Logout successful"
-    require_login: "You must be logged in to access this page"
-    require_logout: "You must be logged out to access this page"
+    login: "Login successful."
+    logout: "Logout successful."
+    require_login: "You must be logged in to access this page."
+    require_logout: "You must be logged out to access this page."
     account_activated: "Your account has been activated. Please login."
-    account_created: "Your account has been created. Please check your e-mail for your account activation instructions!"
+    account_created: "Your account has been created. Please check your e-mail for your account activation instructions."
     account_updated: "Account updated!"
+    user_successfully_undeleted: "User has been recovered!"
     user_deleted: "User has been deleted!"
     invalid_user_invitations: "You have entered an invalid email addresses! Correct it and try again."
     single_user_invitation: "You have successfully sent an invitation to %{mail}."
     multiple_user_invitations: "You have successfully sent %{number} invitations."
     password_resets_intruction_sent: "Instructions to reset your password have been emailed to you.
                                       Please check your email."  
-    no_user_found_with_that_email: "No user was found with that email address"  
-    password_updated: "Password successfully updated"  
-    invalid_email_address: "Invalid email address!"  
-    user_resets_load_user_error: "We're sorry, but we could not locate your account. 
-                                  If you are having issues try copying and pasting the URL 
+    no_user_found_with_that_email: "No user was found with that email address."
+    password_updated: "Password successfully updated."
+    invalid_email_address: "Invalid email address!"
+    user_resets_load_user_error: "Sorry, but we could not locate your account.
+                                  If you are having issues try copying and pasting the URL
                                   from your email into your browser or restarting the 
-                                  reset password process"  
-    rare_error: "A rare error occured! You should contact the administrator and refer the following code: %{ref}"
-    you_are_being_redirected: "You are being redirected. Please wait..."
-    login_failed: "Failed to log in. Maybe you haven't activated your account, or entered incorrect data."
-    group_created: "Succefully created a group"
+                                  reset password process."
+    rare_error: "A rare error occured! You should contact the administrator and refer the following code: %{ref}."
+    you_are_being_redirected: "You are being redirected."
+    login_failed: "Failed to log in. Maybe you haven't activated your account or entered incorrect data."
+    group_created: "Successfully created a group."
     tag_changed: "Successfully updated tag %{old}'s name to %{new}."
     invalid_tag_change: "Could not change tag %{old}'s name to %{new} because tag %{new} already exists."
-    changes_saved_successful_with_delay: "Changes were successfully saved and will eventually take effect"
-    reverted_with_sucess: "Successfully reverted"
-    description_required: "Description field is required"
-    invalid_date: "Invalid date format"
-    project_created: "Succefully created the project"
-    project_creation_fail: "An error occured while creating the project"
-    to_do_comment_creation_fail: "An error occured while creating the comment"
+    changes_saved_successful_with_delay: "Changes were successfully saved and will eventually take effect."
+    reverted_with_sucess: "Successfully reverted."
+    description_required: "Description field is required."
+    invalid_date: "Invalid date format."
+    project_created: "Succefully created the project."
+    project_creation_fail: "An error occured while creating the project."
+    to_do_comment_creation_fail: "An error occured while creating the comment."
+    to_do_comment_created: "Succefully created the comment on %{todo}."
   
   notifier: 
     to_do_notification: "New To-Do"
@@ -841,7 +877,7 @@ en:
       no_selection: "You must select at least one item from the table to execute an action."
 
   footer:
-    last_session_paragraph: "Your last login was %{time_ago} ago, your ip was %{ip}"
+    last_session_paragraph: "Your last login was %{time_ago} ago, your ip was %{ip}."
     browser_warning: "The web site is not rendering correctly because you are using an old version of <span style='color:red;'>Microsoft Internet Explorer</span>.<br /> Upgrade your browser or download <a href='http://www.mozilla.com/firefox/'>Mozilla Firefox</a>."
 
   generic_sentence:
@@ -924,38 +960,38 @@ en:
     distance_in_words:
       half_a_minute: "half a minute"
       less_than_x_seconds:
-        one:   "less than 1 second ago"
-        other: "less than %{count} seconds ago"
+        one:   "less than 1 second"
+        other: "less than %{count} seconds"
       x_seconds:
-        one:   "1 second ago"
-        other: "%{count} seconds ago"
+        one:   "1 second"
+        other: "%{count} seconds"
       less_than_x_minutes:
-        one:   "less than a minute ago"
-        other: "less than %{count} minutes ago"
+        one:   "less than a minute"
+        other: "less than %{count} minutes"
       x_minutes:
-        one:   "1 minute ago"
-        other: "%{count} minutes ago"
+        one:   "1 minute"
+        other: "%{count} minutes"
       about_x_hours:
-        one:   "about 1 hour ago"
-        other: "about %{count} hours ago"
+        one:   "about 1 hour"
+        other: "about %{count} hours"
       x_days:
-        one:   "1 day ago"
-        other: "%{count} days ago"
+        one:   "1 day"
+        other: "%{count} days"
       about_x_months:
-        one:   "about 1 month ago"
-        other: "about %{count} months ago"
+        one:   "about 1 month"
+        other: "about %{count} months"
       x_months:
-        one:   "1 month ago"
-        other: "%{count} months ago"
+        one:   "1 month"
+        other: "%{count} months"
       about_x_years:
-        one:   "about 1 year ago"
-        other: "about %{count} years ago"
+        one:   "about 1 year"
+        other: "about %{count} years"
       over_x_years:
-        one:   "over 1 year ago"
-        other: "over %{count} years ago"
+        one:   "over 1 year"
+        other: "over %{count} years"
       almost_x_years:
-        one:   "almost 1 year ago"
-        other: "almost %{count} years ago"
+        one:   "almost 1 year"
+        other: "almost %{count} years"
     prompts:
       year:   "Year"
       month:  "Month"

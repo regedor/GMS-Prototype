@@ -11,6 +11,7 @@ class Admin::ToDoCommentsController < Admin::BaseController
         comment.user     = current_user
         comment.to_do_id = params[:to_do_id]  
         if comment.save
+          flash[:notice] = t("flash.to_do_comment_created", :todo => comment.to_do.description)
           if params[:to_do_comment][:users].map(&:blank?).member? true
             mail = Mail.create(:message => comment.to_do.description, :sent_on => Time.now, :subject => "")
 
@@ -26,8 +27,8 @@ class Admin::ToDoCommentsController < Admin::BaseController
         else
           flash[:error] = t("flash.to_do_comment_creation_fail")
         end
-           
-        redirect_to admin_project_path(params[:project_id])
+        
+        redirect_to new_admin_project_to_do_comment_path(params[:project_id],params[:to_do_id])
     end
     
     def preview
