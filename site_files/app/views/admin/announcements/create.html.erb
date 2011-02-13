@@ -8,27 +8,19 @@
   <% end -%>
 <% end -%>
 
-  <div class="content">
-    <div class="inner">
-
-      <h2><%= I18n::t('admin.announcements.form.new') %></h2>
-
-      <% semantic_form_for :record, @record,
-                           :url => admin_announcements_path,
-                           :html => { :class => 'create', :id => 'new_announcement', :multipart => true } do |form| -%>
-
-        <%= render :partial => 'form', :locals => {:form => form} %>
-
-        <p class="form-footer">
-          <% form.buttons do -%>
-            <%= form.commit_button t('admin.announcements.form.create_button'),
-                                   :button_html => {:class => "submit"} %>
-            <%= form.button_link   t('admin.announcements.form.cancel_button'), admin_announcements_path,
-                                   :button_html => {:class => "negative"} %>
-          <% end -%>
-        </p>
-
+<div class="content">
+  <div class="inner">
+    <h2><%= I18n::t('admin.announcements.form.new') %></h2>
+    <% semantic_form_for :record, @record,
+                         :url => admin_announcements_path,
+                         :html => { :class => 'create', :id => 'new_announcement', :multipart => true } do |form| -%>
+      <%= render :partial => 'form', :locals => { :form => form } %>
+      <% form.buttons do -%>
+        <%= form.commit_button I18n::t('admin.announcements.form.create_button'),
+                               :button_html => { :class => 'button positive' } %>
+        <%= form.button_link   I18n::t('admin.announcements.form.cancel_button'), admin_announcements_path,
+                               :button_html => { :class => 'button negative' } %>
       <% end -%>
-    </div>
+    <% end -%>
   </div>
-
+</div>

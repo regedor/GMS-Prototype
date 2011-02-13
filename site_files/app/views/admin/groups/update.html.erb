@@ -16,7 +16,7 @@
                          :html => { :method => :put, :id => "edit_group_#{@record.id}" } do |form| -%>
       <%= render :partial => 'form', :locals => { :form => form } %>
       <% form.buttons do -%>
-        <%= form.commit_button I18n::t('admin.groups.form.save_button'),
+        <%= form.commit_button I18n::t('admin.groups.form.update_button'),
                                :button_html => { :class => 'button positive' } %>
         <%= form.button_link   I18n::t('admin.groups.form.cancel_button'), admin_groups_path,
                                :button_html => { :class => 'button negative' } %>

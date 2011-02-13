@@ -15,7 +15,7 @@ form.formtastic fieldset.inputs ol li textarea,
 form.formtastic fieldset.inputs ol li input          { font-size: 0.9em; }
 
 fieldset.buttons li.commit a.button,
-fieldset.buttons li.commit input.button              { font-size: 0.8em; text-decoration: none; font-weight: bold; text-align: center }
+fieldset.buttons li.commit input.button              { color: #2E2A2B; font-size: 0.8em; font-weight: bold; text-align: center }
 
 fieldset.buttons li.commit a.positive:hover,
 fieldset.buttons li.commit input.positive:hover      { color: #591; }
@@ -45,11 +45,13 @@ form.formtastic input#user_openid_identifier         { background-position: 2% 5
 form.formtastic input#user_session_openid_identifier { background: url("/images/openid.gif") no-repeat; }
 form.formtastic input#user_session_openid_identifier { background-position: 2% 50%; text-indent: 20px; }
 
+textarea,
 form.formtastic fieldset.inputs ol li textarea       { width: 100% !important; }
 
 form.formtastic fieldset.inputs ol li select         { margin-top: 5px; }
 form.formtastic fieldset.inputs ol li p.inline-errors { margin: 0 0 0 165px !important; }
 
+textarea,
 form.formtastic fieldset.inputs ol li textarea,
 form.formtastic fieldset.inputs ol li.string input,
 form.formtastic fieldset.inputs ol li.password input { width: 250px; max-width: 74%; padding: 4px; border: 1px solid #9E9E9E; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; }
@@ -69,17 +71,25 @@ li#user_session_remember_me_input label              { margin: 0 0 0 150px; }
 form.formtastic fieldset.buttons                     { padding: 0; }
 
 fieldset.buttons li.commit a.button,
-fieldset.buttons li.commit input.button              { float: left; background-color: #F5F5F5; border: 1px solid #DEDEDE; }
+fieldset.buttons li.commit input.button              { cursor: pointer; float: left; background-color: #F5F5F5; }
 fieldset.buttons li.commit a.button,
-fieldset.buttons li.commit input.button              { cursor: pointer; padding: 6px 10px 9px 1px; /* Links */ }
+fieldset.buttons li.commit input.button              { border: 1px solid #AAA; }
+
+fieldset.buttons li.commit a.button                  { padding: 5px 10px 7px; }
+fieldset.buttons li.commit input.button              { padding: 5px 10px; }
+
+fieldset.buttons li.commit a.button,
+fieldset.buttons li.commit input.button              { background: -webkit-gradient(linear,0% 30%,0% 90%,from(#F9F9F9),to(#E9E9E9)); background: -moz-linear-gradient(top, #FFF, #E9E9E9); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F9F9F9, endColorstr=#E9E9E9); -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#F9F9F9, endColorstr=#E9E9E9"; }
+fieldset.buttons li.commit a.button:active,
+fieldset.buttons li.commit input.button:active       { background: -webkit-gradient(linear,0% 30%,0% 90%,from(#E9E9E9),to(#F9F9F9)); background: -moz-linear-gradient(top, #E9E9E9, #FFF); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#E9E9E9, endColorstr=#F9F9F9); -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#E9E9E9, endColorstr=#F9F9F9"; }
+
 fieldset.buttons li.commit a.button,
 fieldset.buttons li.commit input.button              { -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; }
 
-fieldset.buttons li.commit input[type].button        { padding: 2px 10px 5px 1px; /* Firefox */ line-height: 20px; /* Safari */ }
-*:first-child+html input[type]                       { padding: 2px 10px 3px 1px; /* IE7 */ }
+*:first-child+html input[type]                       { padding: 2px 10px 3px; /* IE7 */ }
 
 fieldset.buttons li.commit a.google_ico,
-fieldset.buttons li.commit a.yahoo_ico               { font-size: 1em; margin: 0 0 15px 0; width: 95% }
+fieldset.buttons li.commit a.yahoo_ico               { font-size: 1em; margin: 0 0 15px 0; width: 90% }
 
 /* CSS3 */
 
