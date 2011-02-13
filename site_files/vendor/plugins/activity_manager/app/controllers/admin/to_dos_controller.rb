@@ -20,6 +20,23 @@ class Admin::ToDosController < Admin::BaseController
         redirect_to admin_project_to_do_lists_path(params[:project_id])
         return
       end
+      
+      if todo.user
+        mail = Mail.new :message => current_user.name+"&sep&"+todo.description+"&sep&"+todo.to_do_list.name, 
+                           :sent_on => Time.now, 
+                           :subject => t("notifier.to_do_notification.new_todo_subject")
+
+        mail.recipients = [todo.user]
+        mail.set_xmls(todo.user)
+        mail.save
+
+        begin
+          Notifier.deliver_new_to_do_notification(todo.user,mail)
+        rescue Exception
+          return false
+        end
+      end
+      
       if todo.save
         respond_to do |format|
           format.json { render :json  =>  {
@@ -28,24 +45,13 @@ class Admin::ToDosController < Admin::BaseController
             }  
           }
         end  
-        return
       end  
-
-
-      if todo.user
-        mail = Mail.create(:message => todo.to_do_list.name, :sent_on => Time.now, :subject => "")
-
-        begin
-          Notifier.deliver_to_do_notification(todo.user,mail)
-        rescue Exception
-          return false
-        end
-      end
+           
     else
       flash[:error] = t("flash.description_required")
     end  
 
-    redirect_to admin_project_to_do_lists_path(params[:project_id])
+    #redirect_to admin_project_to_do_lists_path(params[:project_id])
   end
 
   def update
@@ -60,11 +66,19 @@ class Admin::ToDosController < Admin::BaseController
       flash[:error] = t("admin.to_do.update.error")
     end
 
-    mail = Mail.create :message => todo.to_do_list
+    mail = Mail.new :message => current_user.name+"&sep&"+todo.description+"&sep&"+todo.to_do_list.name, 
+                       :sent_on => Time.now, 
+                       :subject => t("notifier.to_do_notification.update_todo_subject")
+
+    mail.recipients = [todo.user]
+    mail.set_xmls(todo.user)
+    mail.save
 
     begin
-      Notifier.deliver_mail(todo.user,mail)
+      Notifier.deliver_update_to_do_notification(todo.user,mail)
     rescue Exception
+      flash[:error] = t("flash.mail_not_sent", :mail => todo.user.email)
+      redirect_to admin_project_to_do_lists_path(params[:project_id])
       return false
     end
 

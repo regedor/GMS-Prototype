@@ -32,17 +32,37 @@ class Notifier < ActionMailer::Base
     @body[:message] = mail.message  
   end
   
+  def new_to_do_notification(user,mail)
+    setup_email(user)
+    @subject += mail.subject
+    divided = mail.message.split("&sep&")
+    @body[:sender] = divided[0]
+    @body[:todo] = divided[1]
+    @body[:list] = divided[2]
+  end  
+  
+  def update_to_do_notification(user,mail)
+    setup_email(user)
+    @subject += mail.subject
+    divided = mail.message.split("&sep&")
+    @body[:sender] = divided[0]
+    @body[:todo] = divided[1]
+    @body[:list] = divided[2]
+  end
+  
   def to_do_notification(user,mail)
     setup_email(user)
-    @subject += I18n.translate 'notifier.to_do_notification.subject'
-    @body[:message] = mail.message 
+    @subject += mail.subject
+    divided = mail.message.split("&sep&")
+    @body[:sender] = divided[0]
+    @body[:todo] = divided[1]
   end     
    
   protected
     def setup_email(user)
       @recipients  = user.email
       @from        = configatron.mailer_email
-      @subject     = "[#{configatron.site_name}]"
+      @subject     = "[#{configatron.site_name}] "
       @sent_on     = Time.now
       @body[:user] = user
       I18n.locale  = user.language

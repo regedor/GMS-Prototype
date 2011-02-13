@@ -20,9 +20,11 @@
                      :hint       => I18n::t('admin.messages.form.hints.body').html_safe,
                      :as         => :text,
                      :input_html => {:rows => 5, :cols => 40} %>
-      <%= form.hidden_field :message_id, :value => message.id %>
-      <%= form.commit_button t('admin.messages.form.create_button'),
-                             :button_html => {:class => 'submit'} %>
+                     <%= form.hidden_field :message_id, :value => message.id %>
+      <% form.buttons do -%>
+        <%= form.commit_button t('admin.messages.form.create_button'),
+                               :button_html => {:class => 'button positive'} %>
+      <% end -%>
     <% end -%>
   <% end -%>
 </div>

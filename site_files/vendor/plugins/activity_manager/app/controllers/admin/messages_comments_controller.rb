@@ -5,7 +5,7 @@ class Admin::MessagesCommentsController < Admin::BaseController
         record = params[:record]
         comment = MessagesComment.new
         comment.message_id = record[:message_id]
-        comment.user_id = current_user
+        comment.user = current_user
         comment.body = record[:body]
         comment.save
         

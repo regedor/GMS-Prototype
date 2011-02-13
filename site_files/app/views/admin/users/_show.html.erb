@@ -9,22 +9,27 @@
     <dd><%= @record.email                  %></dd>
   <% end %>
 
-  <% if @record.nickname                   %>
-    <dt><%= t("admin.users.view.nickname") %></dt>
-    <dd><%= @record.nickname    %></dd>
+  <% if @record.nickname                   %> 
+    <dt><%= t("admin.users.view.nickname") %></dt> 
+    <dd><%= @record.nickname    %></dd> 
   <% end %>
+  
+  <dt><%= t("admin.users.view.emails")   %></dt> 
+    <dd>
+      <% if @record.emails?                    %> 
+        <p class="tick">
+      <% else %>
+        <p class="cross">
+      <% end %>
+      <%= @record.emails?  %></p>
+    </dd>
 
-  <% if @record.emails?                    %>
-    <dt><%= t("admin.users.view.emails")   %></dt>
-    <dd><%= @record.emails?                %></dd>
-  <% end %>
-
-  <dt><%= t("admin.users.view.gender")     %></dt>
-  <dd>
-    <% if @record.gender                   %>
-      <p class="true-male">   <%= t("generic_sentence.male_value")   %></p>
+  <dt><%= t("admin.users.view.gender")     %></dt> 
+  <dd> 
+    <% if @record.gender %>
+      <p class="male">   <%= t("generic_sentence.male_value")   %> </p>
     <% else %>
-      <p class="false-female"><%= t("generic_sentence.female_value") %></p>
+      <p class="female"><%= t("generic_sentence.female_value") %> </p>
     <% end %>
   </dd>
 
@@ -85,43 +90,50 @@
 
   <% if @record.login_count     %>
     <dt><%= t("admin.users.view.login_count")     %></dt>
-    <dd><%= @record.login_count  %></dd>
+    <dd><%= @record.login_count  %></dd> 
   <% end %>
-
-  <% if @record.failed_login_count     %>
-    <dt><%= t("admin.users.view.failed_login_count")     %></dt>
-    <dd><%= @record.failed_login_count  %></dd>
+    
+  <% if @record.failed_login_count     %> 
+    <dt><%= t("admin.users.view.failed_login_count")     %></dt> 
+    <dd><%= @record.failed_login_count  %></dd> 
   <% end %>
-
-  <% if @record.last_login_ip     %>
-    <dt><%= t("admin.users.view.last_login_ip")     %></dt>
-    <dd><%= @record.last_login_ip  %></dd>
+    
+  <% if @record.last_login_ip     %> 
+    <dt><%= t("admin.users.view.last_login_ip")     %></dt> 
+    <dd><%= @record.last_login_ip  %></dd> 
   <% end %>
-
-  <% if @record.current_login_ip     %>
-    <dt><%= t("admin.users.view.current_login_ip")     %></dt>
-    <dd><%= @record.current_login_ip  %></dd>
+    
+  <% if @record.current_login_ip     %> 
+    <dt><%= t("admin.users.view.current_login_ip")     %></dt> 
+    <dd><%= @record.current_login_ip  %></dd> 
   <% end %>
-
-  <% if @record.openid_identifier     %>
-    <dt><%= t("admin.users.view.openid_identifier")     %></dt>
-    <dd><%= @record.openid_identifier  %></dd>
+  
+  <% if @record.openid_identifier     %> 
+    <dt><%= t("admin.users.view.openid_identifier")     %></dt> 
+    <dd><%= @record.openid_identifier  %></dd> 
   <% end %>
-
-  <dt><%= t("admin.users.view.active")     %></dt>
-  <dd><%= @record.active  %></dd>
-
-  <% if @record.last_request_at     %>
-    <dt><%= t("admin.users.view.last_request_at")     %></dt>
-    <dd><%= @record.last_request_at  %></dd>
+  
+  <dt><%= t("admin.users.view.active")     %></dt> 
+  <% if @record.active %>
+    <dd><p class="tick">
+  <% else %>
+    <dd><p class="cross">
   <% end %>
-
-  <% if @record.current_login_at     %>
-    <dt><%= t("admin.users.view.current_login_at")     %></dt>
-    <dd><%= @record.current_login_at  %></dd>
+  <%= @record.active  %></p></dd> 
+     
+  <% if @record.last_request_at     %> 
+    <dt><%= t("admin.users.view.last_request_at")     %></dt> 
+    <dd><%= @record.last_request_at  %></dd> 
+  <% end %>   
+  
+  <% if @record.current_login_at     %> 
+    <dt><%= t("admin.users.view.current_login_at")     %></dt> 
+    <dd><%= @record.current_login_at  %></dd> 
   <% end %>
 </dl>
 
-<p class="form-footer">
-  <%= link_to t("admin.users.view.cancel"), admin_users_path, :class => "cancel" %>  
-</p>
+<fieldset class="buttons">
+  <li class="commit">
+    <%= link_to t("admin.users.view.cancel"), admin_users_path, :class => 'button negative', :style => 'font-size:1em;text-decoration:none;margin:10px;' %>
+  </li>
+</fieldset>

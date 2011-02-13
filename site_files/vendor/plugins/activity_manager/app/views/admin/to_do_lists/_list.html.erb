@@ -1,4 +1,3 @@
-
   <div class="description">
     <p>
       <%= list.description %>
@@ -32,7 +31,7 @@
 			<%= f.input :to_do_list_id, :as => :hidden, :value => list.id %>
 		  <% end  %>
 		  <% f.buttons do %>
-		    <%= link_to t("admin.to_do.add_new.add_button"), "#anchor_#{list.id}",{:id => "add_todo-#{list.id}",:class => "add_todo button", :onclick => "jQuery(this).newTodo();"} %>
+		    <%= f.button_link t("admin.to_do.add_new.add_button"), "#anchor_#{list.id}",:button_html => {:id => "add_todo-#{list.id}",:class => "add_todo button", :onclick => "jQuery(this).newTodo();"} %>
 		    <span>or</span>
 			<%= link_to t("admin.to_do.add_new.done_adding"), "#anchor_#{list.id}",{:class => "done_adding_link button", :onclick => "jQuery(this).doneTodo();"} %>
 		  <% end %>
@@ -51,24 +50,20 @@
 		<span class="hidden_items" style="display:none;">	
 	  <% end %>
 	  <li class="<%= classStr %>"  "<%= styleStr %>">
-  	    <input type="checkbox" id="<%= todo.id %>" value="<%= todo.id %>" checked="yes" onclick="jQuery(this).uncheck();" />
-		<strong class="date_finished"><%= l(todo.finished_date, :format => :short) if todo.finished_date %></strong>
-  	    <span class="done_todo_desc"><%= todo.description %></span>
-		<% if todo.user  %>
-		  <span class="done_todo_info">
-				<% if todo.user %>
-				 <span>(<%= todo.user.name %>)</span>
-				<% end %>
-		  </span>	 
-		<% end %>
-		<div class="todo_comments">
-		  <div class="text"><%= link_to t("admin.to_do.comment.link"), new_admin_project_to_do_comment_path(params[:project_id],todo.id), {:id => "comment_#{todo.id}", :class => "comment_item"} %></div>
-		  <div class="number_comments">
-			  <%= todo.comments.size %>
-		  </div>
-		</div>
-  	  </li>
+            <input type="checkbox" id="<%= todo.id %>" value="<%= todo.id %>" checked="yes" onclick="jQuery(this).uncheck();" />
+              <strong class="date_finished"><%= l(todo.finished_date, :format => :short) if todo.finished_date %></strong>
+            <span class="done_todo_desc"><%= todo.description %></span>
+            <% if todo.user  %>
+              <span class="done_todo_info">
+                <% if todo.user %>
+                  <span>(<%= todo.user.name %>)</span>
+                <% end %>
+              </span>	 
+            <% end %>
+            <span class="todo_comments"><%= link_to t("admin.to_do.comment.link"), new_admin_project_to_do_comment_path(params[:project_id],todo.id), {:id => "comment_#{todo.id}", :class => "comment_item"} %></span>
+            <span class="number_comments"><%= todo.comments.size %></span>
+          </li>
 	<%= "</span>" if index == (divided_hash[:done].size - 1) %>
-  	<% end %>	
-    </ul>	
+  	<% end %>
+    </ul>
   </div>
