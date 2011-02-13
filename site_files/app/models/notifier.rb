@@ -40,9 +40,9 @@ class Notifier < ActionMailer::Base
    
   protected
     def setup_email(user)
-      @recipients  = "#{user.name}"
-      @from        = "info@regedor.com"
-      @subject     = "[Simon] "
+      @recipients  = user.email
+      @from        = configatron.mailer_email
+      @subject     = "[#{configatron.site_name}]"
       @sent_on     = Time.now
       @body[:user] = user
       I18n.locale  = user.language

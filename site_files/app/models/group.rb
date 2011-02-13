@@ -62,6 +62,23 @@ class Group < ActiveRecord::Base
     end
   end
 
+  # Executes the group behaviour
+  # Creates a new dealyed_job if needed
+  def execute_behaviour
+   # if ::by_date
+   #   send "Behaviour::#{::self.behaviour}::execute", self.direct_users, ::new_group_id => self.behaviour_group_to_id
+   #   
+   # else
+   #   users = self.group_users :order => "created_at ASC", :limit => 2
+   #   if not users.empty?
+   #     send "Behaviour::#{::self.behaviour}::execute", [users.first], ::new_group_id => self.behaviour_group_to_id
+   #   elsif users.size == 2
+   #     delay.execute_behaviour
+   #   end
+   #   
+   # end
+  end
+
 
   # ==========================================================================
   # Class Methods
@@ -70,14 +87,20 @@ class Group < ActiveRecord::Base
   class << self
 
     #FIXME 
-    # Maybe override the delete class method, not sure
-    # Deletes users from their ids
     def delete_by_ids!(ids)
       ids.each do |id|
         return false unless Group.delete(id)
       end
       return true
     end
+
+
+    # Updates delayed_jobs table
+    #
+    def update_behaviour_delayed_jobs
+
+    end
+
 
   end
   
