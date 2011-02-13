@@ -89,7 +89,7 @@ class Admin::PostsController < Admin::BaseController
         params[:record][:published_at] = DateTime.strptime(params[:record][:published_at],"%d/%m/%Y").to_time
       rescue ArgumentError
         flash[:error] = t("flash.invalid_date")
-        redirect_to somewhere_in_the_app_path
+        redirect_to :action => params[:action]
         return
       end
     end

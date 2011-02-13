@@ -13,14 +13,25 @@ class Group < ActiveRecord::Base
   # Validations
   # ==========================================================================
 
+  validate                :validate_behavior
   validates_uniqueness_of :name
   
+  def validate_behavior
+    unless self.behavior_type.blank?
+      errors.add_to_base 'Time must be > 0' if self.behavior_type == 'after_time' && self.behavior_after_time <= 0
+    end
+  end
+
   
   # ==========================================================================
   # Instance Methods
   # ==========================================================================
 
-  after_save :update_user_count
+  before_save   :set_behavior
+  after_save    :update_user_count
+
+  # Used to distinguish the types of behavior in forms and save operations
+  attr_accessor :behavior_type
 
   # Returns all the users in the group and its subgroups
   def all_users
@@ -51,6 +62,17 @@ class Group < ActiveRecord::Base
     (self.groups - groups_to_exclude).map do |group| 
       group.subgroups_names_tree(self.groups | groups_to_exclude)
     end.unshift self.name
+  end
+
+  def set_behavior
+    if self.behavior_type.blank?
+      self.behavior_at_time = nil
+      self.behavior_after_time = nil
+      self.behavior_file_name = nil
+    else
+      self.behavior_after_time = nil if self.behavior_type == 'at_time'
+      self.behavior_at_time = nil    if self.behavior_type == 'after_time'
+    end
   end
 
   # Updates the number of users from the group and its subgroups

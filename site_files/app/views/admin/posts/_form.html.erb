@@ -31,20 +31,11 @@ jQuery(document).ready(function($){
                  :required => false,
                  :label    => I18n::t('admin.posts.columns.tag_list'),
                  :hint     => I18n::t('admin.posts.form.hints.tag_list') %>
-  <% if controller.action_name == "new" %>
-    <%= form.input :published_at,
-                   :as       => 'string',
-                   :input_html => {:class => "datepicker", :value => l(Time.now, :format => "%d/%m/%Y")},
-                   :label    => I18n::t('admin.posts.columns.published_at'),
-                   :hint     => I18n::t('admin.posts.form.hints.published_at').html_safe %>
-  <% else %>
-    <%= form.input :published_at,
-                   :as       => 'string',
-                   :input_html => {:class => "datepicker", :value => l(@record.published_at, :format => "%d/%m/%Y")},
-                   :label    => I18n::t('admin.posts.columns.published_at'),
-                   :hint     => I18n::t('admin.posts.form.hints.published_at').html_safe %>  
-  <% end %>
-  
+  <%= form.input :published_at,
+                 :as       => 'string',
+                 :input_html => {:class => "datepicker", :value => l(@record.published_at || Time.now, :format => "%d/%m/%Y")},
+                 :label    => I18n::t('admin.posts.columns.published_at'),
+                 :hint     => I18n::t('admin.posts.form.hints.published_at').html_safe %>  
   <%= form.input :slug,
                  :required => false,
                  :label    => I18n::t('admin.posts.columns.slug'),

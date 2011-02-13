@@ -494,13 +494,10 @@ en:
         groups: "Groups"
         direct_users: "Users"
         user_choosable: "User choosable"
-      delete:
-        title: "Delete Group"
-        question: "Are you sure you want to delete %{username}?"
-        bt_label: "Delete group"
-        cancel_link:
-           label: "Cancel"
-           title: "Go back to groups list"
+        behavior_type: "Behavior type"
+        behavior_at_time: "Execute behavior at"
+        behavior_after_time: "Execute behavior after days in the group"
+        behavior_file_name: "Wanted behavior"
       create:
         title: "Group"
       form:
@@ -511,6 +508,9 @@ en:
         save_button: "Save"
         cancel_button: "Cancel"
         close_button: "Close"
+        behavior:
+          at_time: "By date"
+          after_time: "By elapsed time"
       list_actions:
         delete_by_ids!: "Delete"
       list:
