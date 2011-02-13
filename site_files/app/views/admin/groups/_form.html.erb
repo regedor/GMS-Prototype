@@ -1,23 +1,88 @@
+<%= include_i18n_calendar_javascript %>
+
+<script>
+jQuery.noConflict();
+
+jQuery(document).ready(function($) {
+
+  var counter = 0;
+  var locale = ""
+  for (i in $.datepicker.regional) {
+    if (counter == 1) {
+      locale = i;
+      break;
+    }
+    counter++;
+  }
+
+  $.datepicker.setDefaults( $.datepicker.regional[ '' ] );      
+  $( ".datepicker" ).datepicker($.datepicker.regional[locale]);
+
+  $( "#record_behavior_type" ).change(function() {
+    var selected = $( "#record_behavior_type option:selected" ).attr("value");
+    if (selected == "at_time") {
+      $( "#record_behavior_at_time_input" ).fadeIn('slow');
+      $( "#record_behavior_after_time_input" ).fadeOut('slow');
+      $( "#record_behavior_file_name_input" ).fadeIn('slow');
+    } else if (selected == "after_time") {
+      $( "#record_behavior_at_time_input" ).fadeOut('slow');
+      $( "#record_behavior_after_time_input" ).fadeIn('slow');
+      $( "#record_behavior_file_name_input" ).fadeIn('slow');
+    } else {
+      $( "#record_behavior_at_time_input" ).fadeOut('slow');
+      $( "#record_behavior_after_time_input" ).fadeOut('slow');
+      $( "#record_behavior_file_name_input" ).fadeOut('slow');
+    }
+  });
+
+});
+</script>
+
 <% form.input_field_set do -%>
   <%= form.input :name,
-                 :label    => I18n::t('admin.groups.columns.name') %>
+                 :label        => I18n::t('admin.groups.columns.name') %>
   <%= form.input :description,
-                 :required => false,
-                 :label    => I18n::t('admin.groups.columns.description') %>
+                 :required     => false,
+                 :label        => I18n::t('admin.groups.columns.description') %>
   <%= form.input :mailable,
-                 :as       => :radio,
-                 :hint     => I18n::t('admin.groups.form.hints.mailable'),
-                 :label    => I18n::t('admin.groups.columns.mailable') %>
+                 :as           => :radio,
+                 :hint         => I18n::t('admin.groups.form.hints.mailable'),
+                 :label        => I18n::t('admin.groups.columns.mailable') %>
   <%= form.input :user_choosable,
-                 :as       => :radio,
-                 :hint     => I18n::t('admin.groups.form.hints.user_choosable'),
-                 :label    => I18n::t('admin.groups.columns.user_choosable') %>
+                 :as           => :radio,
+                 :hint         => I18n::t('admin.groups.form.hints.user_choosable'),
+                 :label        => I18n::t('admin.groups.columns.user_choosable') %>
+
+  <%= form.input :behavior_type,
+                 :as           => :select,
+                 :required     => false,
+                 :collection   => [ [I18n::t('admin.groups.form.behavior.at_time'), 'at_time'], [I18n::t('admin.groups.form.behavior.after_time'), 'after_time'] ],
+                 :hint         => I18n::t('admin.groups.form.hints.behavior_type'),
+                 :label        => I18n::t('admin.groups.columns.behavior_type') %>
+  <%= form.input :behavior_at_time,
+                 :as           => :string,
+                 :input_html   => { :class => "datepicker", :value => @record.behavior_at_time ? l(@record.behavior_at_time, :format => "%d/%m/%Y") : '' },
+                 :wrapper_html => { :style => (@record.behavior_type.blank? || @record.behavior_type == 'after_time') ? 'display: none;' : '' },
+                 :hint         => I18n::t('admin.groups.form.hints.behavior_at_time'),
+                 :label        => I18n::t('admin.groups.columns.behavior_at_time') %>
+  <%= form.input :behavior_after_time,
+                 :as           => :string,
+                 :hint         => I18n::t('admin.groups.form.hints.behavior_after_time'),
+                 :wrapper_html => { :style => (@record.behavior_type.blank? || @record.behavior_type == 'at_time') ? 'display: none;' : '' },
+                 :label        => I18n::t('admin.groups.columns.behavior_after_time') %>
+  <%= form.input :behavior_file_name,
+                 :as           => :radio,
+                 :collection   => Dir["lib/group_behaviors/*.rb"].map { |file| file.gsub(/.+\/(.+)\.rb/) { $1.titleize } }.sort,
+                 :wrapper_html => { :style => @record.behavior_type.blank? ? 'display: none;' : '' },
+                 :hint         => I18n::t('admin.groups.form.hints.behavior_file_name'),
+                 :label        => I18n::t('admin.groups.columns.behavior_file_name') %>
+
   <%= form.input :groups,
-                 :as       => :check_boxes,
-                 :hint     => I18n::t('admin.groups.form.hints.groups'),
-                 :label    => I18n::t('admin.groups.columns.groups') %>
+                 :as           => :check_boxes,
+                 :hint         => I18n::t('admin.groups.form.hints.groups'),
+                 :label        => I18n::t('admin.groups.columns.groups') %>
   <%= form.input :direct_users,
-                 :as       => :check_boxes,
-                 :hint     => I18n::t('admin.groups.form.hints.direct_users'),
-                 :label    => I18n::t('admin.groups.columns.direct_users') %>
+                 :as           => :check_boxes,
+                 :hint         => I18n::t('admin.groups.form.hints.direct_users'),
+                 :label        => I18n::t('admin.groups.columns.direct_users') %>
 <% end -%>

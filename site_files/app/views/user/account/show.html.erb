@@ -1,9 +1,7 @@
 <div class="block">
-      <p><%= link_to "#{t("user.list_link")}", user_accounts_path %></p>
-      <p><%= link_to "#{t("user.edit_link")}", edit_user_account_path %></p>
   <div class="content">
     <div class="inner">
-      
+      <h2><%= I18n::t('users.show.title') %></h2>
       <p>
         <b><%= t("activerecord.attributes.user.email", :default => t("activerecord.labels.email", :default => "Email")) %>:</b>
         <%= @user.email %>
@@ -31,7 +29,7 @@
 
       <p>
         <b><%= t("activerecord.attributes.user.country", :default => t("activerecord.labels.country", :default => "Country")) %>:</b>
-        <%= @user.country %>
+        <%= image_tag("flags/"+@user.country.downcase+".png", :alt => @user.country) %> <%= I18n::t("countries."+@user.country) %>
       </p>
 
       <p>
@@ -66,5 +64,21 @@
     </div>
   </div>
 </div>
+<form class="formtastic" >
+  <fieldset class="buttons">
+    <ol>
+      <li class="commit">
+        <%= link_to "#{t("users.show.list_link")}", user_accounts_path, :class => "button positive create" %>
+      </li>
+      <li class="commit">
+        <%= link_to "#{t("users.show.edit_link")}", edit_user_account_path, :class => "button positive create" %>
+      </li>
+      <li class="commit">
+        <%= link_to "#{t("users.show.session_link")}", user_session_path, :class => "button positive create" %>
+      </li>
+    </ol>
+  </fieldset>
+</form>
 
 <% content_for :sidebar, render(:partial => 'sidebar') -%>
+

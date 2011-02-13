@@ -13,14 +13,25 @@ class Group < ActiveRecord::Base
   # Validations
   # ==========================================================================
 
+  validate                :validate_behavior
   validates_uniqueness_of :name
   
+  def validate_behavior
+    unless self.behavior_type.blank?
+      errors.add_to_base 'Time must be > 0' if self.behavior_type == 'after_time' && self.behavior_after_time <= 0
+    end
+  end
+
   
   # ==========================================================================
   # Instance Methods
   # ==========================================================================
 
-  after_save :update_user_count
+  before_save   :set_behavior
+  after_save    :update_user_count
+
+  # Used to distinguish the types of behavior in forms and save operations
+  attr_accessor :behavior_type
 
   # Returns all the users in the group and its subgroups
   def all_users
@@ -53,6 +64,17 @@ class Group < ActiveRecord::Base
     end.unshift self.name
   end
 
+  def set_behavior
+    if self.behavior_type.blank?
+      self.behavior_at_time = nil
+      self.behavior_after_time = nil
+      self.behavior_file_name = nil
+    else
+      self.behavior_after_time = nil if self.behavior_type == 'at_time'
+      self.behavior_at_time = nil    if self.behavior_type == 'after_time'
+    end
+  end
+
   # Updates the number of users from the group and its subgroups
   # Used raw SQL to avoid cyclic after_save callback
   def update_user_count
@@ -60,6 +82,23 @@ class Group < ActiveRecord::Base
       #group.update_attribute :user_count, group.all_users.size
       ActiveRecord::Base::connection().update("UPDATE groups SET user_count = #{group.all_users.size} WHERE id = #{group.id}") 
     end
+  end
+
+  # Executes the group behaviour
+  # Creates a new dealyed_job if needed
+  def execute_behaviour
+   # if ::by_date
+   #   send "Behaviour::#{::self.behaviour}::execute", self.direct_users, ::new_group_id => self.behaviour_group_to_id
+   #   
+   # else
+   #   users = self.group_users :order => "created_at ASC", :limit => 2
+   #   if not users.empty?
+   #     send "Behaviour::#{::self.behaviour}::execute", [users.first], ::new_group_id => self.behaviour_group_to_id
+   #   elsif users.size == 2
+   #     delay.execute_behaviour
+   #   end
+   #   
+   # end
   end
 
 
@@ -70,14 +109,20 @@ class Group < ActiveRecord::Base
   class << self
 
     #FIXME 
-    # Maybe override the delete class method, not sure
-    # Deletes users from their ids
     def delete_by_ids!(ids)
       ids.each do |id|
         return false unless Group.delete(id)
       end
       return true
     end
+
+
+    # Updates delayed_jobs table
+    #
+    def update_behaviour_delayed_jobs
+
+    end
+
 
   end
   

@@ -28,19 +28,10 @@ jQuery(document).ready(function($){
                  :as => :string,
                  :input_html => { :class => "datepicker", :value => l(@record.starts_at, :format => "%d/%m/%Y") },
                  :label    => I18n::t('admin.announcements.columns.starts_at') %>
-
-<% if controller.action_name == "new" -%>
   <%= form.input :ends_at,
                  :as => :string,
-                 :input_html => { :class => "datepicker" },
+                 :input_html => { :class => "datepicker", :value => @record.ends_at ? l(@record.ends_at, :format => "%d/%m/%Y") : '' },
                  :label    => I18n::t('admin.announcements.columns.ends_at') %>
-<% else -%>
-  <%= form.input :ends_at,
-                 :as => :string,
-                 :input_html => { :class => "datepicker", :value => l(@record.ends_at, :format => "%d/%m/%Y") },
-                 :label    => I18n::t('admin.announcements.columns.ends_at') %>
-<% end -%>
-
   <%= form.input :url,
                  :required => false,
                  :hint     => I18n::t('admin.announcements.form.hints.url'),
