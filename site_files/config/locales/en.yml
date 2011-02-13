@@ -822,6 +822,7 @@ en:
     project_created: "Succefully created the project."
     project_creation_fail: "An error occured while creating the project."
     to_do_comment_creation_fail: "An error occured while creating the comment."
+    to_do_comment_created: "Succefully created the comment on %{todo}."
   
   notifier: 
     to_do_notification: "New To-Do"
