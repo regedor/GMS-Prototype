@@ -235,6 +235,8 @@ en:
         search: "Find messages"
         create: "New message"
         author_on_date: "on"
+        by_category: "Messages on"
+        all: "All Messages"
       columns:
         title: "Message title"
         body: "Body"
@@ -251,7 +253,11 @@ en:
           body: "<a href='http://textile.thresholdstate.com/'>Textile enabled</a>. Use Ctrl+Alt+E to switch between preview and edit mode."
       comments:
         comment: "New comment"
-
+      sidebar:
+        title: "Messages"
+        paragraph: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."          
+        categories: "Browse by category:"
+        
     
     categories:
         list:

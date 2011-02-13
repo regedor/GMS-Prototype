@@ -28,6 +28,9 @@ class Admin::CategoriesController < Admin::BaseController
   def show
     @category = Category.find(params[:id])
     @messages = @category.messages
+
+    # for sidebar
+    @categories = Project.find(params[:project_id]).categories
   end
   
  # def destroy
