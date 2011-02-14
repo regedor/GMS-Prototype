@@ -4,8 +4,8 @@
 ============================================================================
 */
 
-.male         { background: url("/stylesheets/themes/nemum/icons/male.png") no-repeat 0 50%; text-indent: -6000px; }
-.female       { background: url("/stylesheets/themes/nemum/icons/female.png") no-repeat 0 50%; text-indent: -6000px; }
+.male         { background: url("/stylesheets/themes/nemum/icons/male.png") no-repeat 0 50%; text-indent: 20px; }
+.female       { background: url("/stylesheets/themes/nemum/icons/female.png") no-repeat 0 50%; text-indent: 20px; }
 
 .tick         { background: url("/stylesheets/themes/nemum/icons/tick.png") no-repeat 0 50%; text-indent: -6000px; }
 .cross        { background: url("/stylesheets/themes/nemum/icons/cross.png") no-repeat 0 50%; text-indent: -6000px; }
