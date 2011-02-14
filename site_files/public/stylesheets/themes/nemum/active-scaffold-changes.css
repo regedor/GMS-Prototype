@@ -228,7 +228,7 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 
 /* Show */
 .active-scaffold .show-view dl                           { margin-left: 5px; }
-.active-scaffold .show-view dd                           { font: inherit; padding: 0; margin: 5px; }
+.active-scaffold .show-view dd                           { font: inherit; padding: 1px 0; margin: 5px; }
 .active-scaffold .show-view dt                           { font: inherit; font-weight: bold; padding: 0; margin: 5px; }
 .active-scaffold div#avatar img                          { float: right; border: 1px solid #999; margin: 0 10px; }
 

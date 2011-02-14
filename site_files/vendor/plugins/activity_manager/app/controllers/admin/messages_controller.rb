@@ -1,7 +1,7 @@
 class Admin::MessagesController < Admin::BaseController
   filter_access_to :index, :require => :read, :attribute_check => true, :load_method => lambda { Message.new :project_id => params[:project_id] }
   filter_access_to :show,  :require => :read, :attribute_check => true
-  filter_access_to :create,:new, :require => :create, :attribute_check => true, :load_method => lambda { Message.new :project_id => params[:project_id] }
+  filter_access_to :create,:new, :require => :create, :attribute_check => true, :load_method => lambda { Message.new :project_id => params[:project_id]}
   filter_access_to :update,:edit, :require => :update, :attribute_check => true
   filter_access_to :delete,:destroy, :require => :delete, :attribute_check => true
   
@@ -21,7 +21,9 @@ class Admin::MessagesController < Admin::BaseController
   end
 
   def index
-    @messages = Project.find(params[:project_id]).messages
+    project= Project.find(params[:project_id])
+    @messages = project.messages
+    @categories = project.categories
   end
 
   def show

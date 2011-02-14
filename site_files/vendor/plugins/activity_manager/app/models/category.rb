@@ -4,7 +4,8 @@ class Category < ActiveRecord::Base
   # Relationships
   # ==========================================================================
   
-   has_many :messages
+   has_many :messages, :dependent => :nullify
+   belongs_to :project
 
   # ==========================================================================
   # Validations

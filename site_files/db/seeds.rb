@@ -103,7 +103,7 @@ puts "Creating projects..."
   p1.to_do_lists << tdl2
   p1.save
   
-  c1 = Category.new :name => "Categoria"
+  c1 = Category.new :name => "Categoria", :project_id => 1
   c1.save
   m1 = Message.new :body => "Mensagem de bota remedio", :title => "Titulo de bota remedio", :category_id => 1, :user_id => 1, :project_id => 1
   m2 = Message.new :body => "Mensa", :title => "Mensa", :category_id => 1, :user_id => 1, :project_id => 1

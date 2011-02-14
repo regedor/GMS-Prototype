@@ -62,6 +62,7 @@ class AddProjectsTables < ActiveRecord::Migration
 
     create_table :categories do |t|
       t.string   :name,       		:null => false
+      t.integer  :project_id,           :null => false
       t.timestamps
     end
     

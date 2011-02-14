@@ -26,12 +26,17 @@ en:
       openid: "OpenID URL"
       language: "Language"
       choosable_groups: "Optional groups"
+      country: "Country"
+      emails: "Receive emails"
+      profile: "Profile"
     edit:
       title: "Edit account"
       commit_button: "Update account"
       form_inputs_name: "User information"
       form_auth_inputs_name: "Authentication"
       form_group_inputs_name: "Groups"
+      form_profile_inputs_name: "Profile"
+      form_side_notes: "Here you can edit your account details."
     comment:
       cancel: "Cancel"
     new:
@@ -60,8 +65,11 @@ en:
       edit_link: "Edit account"
       session:
         title: "Session details"
-        invite:
-          title: "Invitations"
+      invite:
+        title: "Invitations"
+    update:
+      commit_button: "Update"
+      cancel_button: "Cancel"
   
   user_session:
     errors:
@@ -170,7 +178,7 @@ en:
         settings: "Settings"
         undo_items: "Actions"
         mails: "Send Email"
-        projects: "List Projects"
+        projects: "Projects"
         to_do_lists: "To-Do Lists"
         messages: "Messages"
         to_do_comments: "Comments"
@@ -187,7 +195,7 @@ en:
         name: "Name"
         description: "Description"
         description_hint: "This description is optional, use it to explain the purpose of the list, if needed"
-        create_button: "Create List"  
+        create_button: "Create"  
         cancel_button: "Cancel"
       empty: "There are no To-Do lists"    
     
@@ -236,6 +244,8 @@ en:
         search: "Find messages"
         create: "New message"
         author_on_date: "on"
+        by_category: "Messages on"
+        all: "All Messages"
       columns:
         title: "Message title"
         body: "Body"
@@ -252,7 +262,21 @@ en:
           body: "<a href='http://textile.thresholdstate.com/'>Textile enabled</a>. Use Ctrl+Alt+E to switch between preview and edit mode."
       comments:
         comment: "New comment"
-
+      sidebar:
+        title: "Messages"
+        paragraph: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."          
+        categories: "Browse by category:"
+        
+    
+    categories:
+        list:
+         title: "Categories of"
+        form:
+          new: "New Category"
+          edit: "Edit Category"
+          name: "Name"
+          create_button: "Create"
+          cancel_button: "Cancel"
     
     project:
       index:
@@ -266,7 +290,7 @@ en:
         description: "Description"
         users: "Associated Users"
         create_button: "Create"  
-        back: "Back"        
+        cancel: "Cancel"        
       create:
         title: "New Project"      
       columns:
@@ -403,7 +427,7 @@ en:
         website:  "Website"
         country:  "Country"
         phone:    "Phone"
-        emails:   "Emails"
+        emails:   "Receive emails"
         language: "Language"
         groups:   "Groups"
         role:     "Role"
@@ -623,9 +647,9 @@ en:
         hints:
           body: "<a href='http://textile.thresholdstate.com/'>Textile enabled</a>. Use Ctrl+Alt+E to switch between preview and edit mode."
           slug: "Leave blank for an auto-generated slug based on the title."
-          show_in_navigation: "Show in navigation"
-          priority: "Priority"
-          has_comments: "Has comments"
+          show_in_navigation: "Select to display on the frontend navigation bar."
+          priority: "Select how above should the link be on the frontend navigation bar."
+          has_comments: "Select to allow comments on this page."
       preview:
         title: "Your entry will be formatted like this:"
         return: "Use Ctrl+Alt+E to return to edit mode."
@@ -679,7 +703,7 @@ en:
         hints:
           body: "<a href='http://textile.thresholdstate.com/'>Textile enabled</a>. Use Ctrl+Alt+E to switch between preview and edit mode."
           tag_list: "Comma separated: ruby, rails&hellip;"
-          published_at: "Example: now, yesterday, 1 hour from now, <a href='http://chronic.rubyforge.org/'>more&hellip;</a>"
+          published_at: "Click on the field to open the calendar."
           slug: "Leave blank for an auto-generated slug based on the title."
           minor_edit: "Minor edits will not show up as refreshed in feed readers. Use this to fix spelling mistakes and the like."
       tags:
@@ -769,6 +793,10 @@ en:
         update_button: "Update"
         cancel_button: "Cancel"
         close_button: "Close"
+        hints:
+          url: "This is the target link, when you click the announcement image on the frontend."
+          avatar: "This is the announcement image."
+          message: "This is the announcement message, which will appear in front of the image."
       list:
         noentries: "No Announcements Found"
         found:
@@ -1112,11 +1140,15 @@ en:
       less_than_or_equal_to: "must be less than or equal to %{count}"
       odd: "must be odd"
       even: "must be even"
-    models:
+    attributes:
       user:
-        attributes:
-          phone:
-            invalid: "must be a valid telephone number."
+        gender: "Gender"
+        mails: "Receive emails"
+#    models:
+#      user:
+#        attributes:
+#          phone:
+#            invalid: "must be a valid telephone number."
     full_messages:
       format: "%{attribute}%{message}"
 
