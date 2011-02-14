@@ -189,6 +189,7 @@ en:
         description_hint: "This description is optional, use it to explain the purpose of the list, if needed"
         create_button: "Create List"  
         cancel_button: "Cancel"
+      empty: "There are no To-Do lists"    
     
     to_do:
       add_new:

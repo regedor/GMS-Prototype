@@ -6,14 +6,14 @@ authorization do
 
   role :admin do
     includes :users_manager
-    includes :poject_manager
+    includes :project_manager
     includes :website_manager 
     has_permission_on [:admin_history_actions],     :to =>  [ :as_manage ]
     has_permission_on [:user_roles],                :to =>  [ :as_manage ]
     has_permission_on [:admin_mails],               :to =>  [ :as_manage ]
   end
   
-  role :poject_manager do
+  role :project_manager do
     includes :user
     has_permission_on [:admin_projects],            :to =>  [:create]
   end
