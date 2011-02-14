@@ -9,6 +9,7 @@
     </div>
     <% classStr = (@todo.done? ? "meta done" : "meta notDone") %>		
     <div class="<%= classStr %>">	
+	  <div class="avatar"><%= image_tag avatar_url(@todo.user,:size => :small) %></div>
       <span class="responsible"><%= @todo.user.name %></span>:
       <span class="description"><%= @todo.description %></span>
     </div>
@@ -27,7 +28,7 @@
 	<% end %>
   </div>	
   <div class="comment">
-	<div class="avatar"><%= image_tag avatar_url(@todo.user,:size => :small) %></div>
+	<div class="avatar"><%= image_tag avatar_url(current_user,:size => :small) %></div>
 	<span class="hint"><%= t("admin.to_do.comment.hint") %></span>
 	<% semantic_form_for @comment, :url => admin_project_to_do_comments_path(params[:project_id],@todo.id), :html => {:method => :post} do |f| %>
 	  <% f.inputs do %>

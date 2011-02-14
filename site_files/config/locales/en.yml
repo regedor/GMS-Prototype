@@ -219,7 +219,7 @@ en:
       new:
         users: "Users to mail"
         body: "Comment"
-        create_button: "Create"
+        create_button: "Comment"
         preview_button: "Preview"
         cancel: "Cancel"
         edit_button: "Edit"
