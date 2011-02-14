@@ -264,6 +264,7 @@ en:
          title: "Categories of"
         form:
           new: "New Category"
+          edit: "Edit Category"
           name: "Name"
           create_button: "Create"
           cancel_button: "Cancel"
