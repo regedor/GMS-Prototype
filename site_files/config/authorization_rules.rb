@@ -71,6 +71,12 @@ authorization do
     has_permission_on [:admin_messages_comments],    :to =>  [:create] do
       if_attribute :project => { :users => contains { user } }
     end
+    has_permission_on [:admin_categories],          :to => [:read] do
+      if_attribute :project => {:users => contains { user } }
+    end
+    has_permission_on [:admin_categories],          :to => [:manage] do
+      if_attribute :project => { :user => is { user } }
+    end
   end
 
   role :guest do

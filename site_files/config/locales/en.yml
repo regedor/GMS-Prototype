@@ -262,6 +262,11 @@ en:
     categories:
         list:
          title: "Categories of"
+        form:
+          new: "New Category"
+          name: "Name"
+          create_button: "Create"
+          cancel_button: "Cancel"
     
     project:
       index:
