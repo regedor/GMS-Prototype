@@ -1,6 +1,15 @@
 class Admin::MailsController < Admin::BaseController 
   filter_access_to :all, :require => any_as_privilege
   
+  active_scaffold :mail do |config|
+      config.subform.columns = [:name]
+
+      Scaffoldapp::active_scaffold config, "admin.mails",
+        :list     => [ :sent_on, :subject, :message ],
+        :show     => [ :sent_on, :user_id, :xml_groups_and_users, :subject, :message],
+        :row_mark => [  ]
+    end
+  
   def values
     vals = []
     User.all.each do |user|
