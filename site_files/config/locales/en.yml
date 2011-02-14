@@ -635,9 +635,9 @@ en:
         hints:
           body: "<a href='http://textile.thresholdstate.com/'>Textile enabled</a>. Use Ctrl+Alt+E to switch between preview and edit mode."
           slug: "Leave blank for an auto-generated slug based on the title."
-          show_in_navigation: "Show in navigation"
-          priority: "Priority"
-          has_comments: "Has comments"
+          show_in_navigation: "Select to display on the frontend navigation bar."
+          priority: "Select how above should the link be on the frontend navigation bar."
+          has_comments: "Select to allow comments on this page."
       preview:
         title: "Your entry will be formatted like this:"
         return: "Use Ctrl+Alt+E to return to edit mode."
@@ -691,7 +691,7 @@ en:
         hints:
           body: "<a href='http://textile.thresholdstate.com/'>Textile enabled</a>. Use Ctrl+Alt+E to switch between preview and edit mode."
           tag_list: "Comma separated: ruby, rails&hellip;"
-          published_at: "Example: now, yesterday, 1 hour from now, <a href='http://chronic.rubyforge.org/'>more&hellip;</a>"
+          published_at: "Click on the field to open the calendar."
           slug: "Leave blank for an auto-generated slug based on the title."
           minor_edit: "Minor edits will not show up as refreshed in feed readers. Use this to fix spelling mistakes and the like."
       tags:
@@ -781,6 +781,10 @@ en:
         update_button: "Update"
         cancel_button: "Cancel"
         close_button: "Close"
+        hints:
+          url: "This is the target link, when you click the announcement image on the frontend."
+          avatar: "This is the announcement image."
+          message: "This is the announcement message, which will appear in front of the image."
       list:
         noentries: "No Announcements Found"
         found:

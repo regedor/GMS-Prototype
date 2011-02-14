@@ -4,31 +4,32 @@
 
 <div class="content">
   <div class="header">	
-    <div class="title">
-      <%= t("admin.to_do.comment.title", :list => @todo.to_do_list.name) %>
-    </div>
-    <% classStr = (@todo.done? ? "meta done" : "meta notDone") %>		
-    <div class="<%= classStr %>">	
+    <h2><%= t("admin.to_do.comment.title", :list => @todo.to_do_list.name) %></h2>
+    <% classStr = (@todo.done? ? "done" : "not-done") %>
+    <div id="todo" class="<%= classStr %>">
+      <span class="due-date"><%= l(@todo.due_date, :format => :medium) %></span>
       <span class="responsible"><%= @todo.user.name %></span>:
       <span class="description"><%= @todo.description %></span>
     </div>
   </div>
-  <div class="comments">
-	<% @todo.comments.each do |comment| %>
+  <hr />
+  <div id="comments">
+    <% @todo.comments.each do |comment| %>
+      <div id="comment-<%= comment.id %>" class="comment">
 	  <div class="avatar"><%= image_tag avatar_url(comment.user,:size => :small) %></div>
 	  <% classStr = (comment.user == current_user) ? "comments_meta highlight" : "comments_meta" %>
 	  <div class="<%= classStr %>">
 		<span class="name"><%= comment.user.name %></span>
-		<spna class="date"><%= l(comment.created_at, :format => :default) %></span>
+		<span class="date"><%= l(comment.created_at, :format => :default) %></span>
 	  </div>
 	  <span class="text">
-		<%= comment.body_html %>
-	  </span>		
-	<% end %>
-  </div>	
-  <div class="comment">
-	<div class="avatar"><%= image_tag avatar_url(@todo.user,:size => :small) %></div>
-	<span class="hint"><%= t("admin.to_do.comment.hint") %></span>
+            <%= comment.body_html %>
+          </span>
+      </div>
+      <hr />
+    <% end %>
+  </div>
+  <div class="new-comment">
 	<% semantic_form_for @comment, :url => admin_project_to_do_comments_path(params[:project_id],@todo.id), :html => {:method => :post} do |f| %>
 	  <% f.inputs do %>
 	    <%= f.input :body, :as => :text, :label => t("admin.to_do_comment.new.body") %>
