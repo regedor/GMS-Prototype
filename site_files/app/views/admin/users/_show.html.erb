@@ -14,6 +14,11 @@
     <dd><%= @record.nickname    %></dd> 
   <% end %>
   
+  <% if @record.email                     %>
+    <dt><%= t("admin.users.view.email")   %></dt>
+    <dd><%= @record.email                 %></dd>
+  <% end %>
+  
   <dt><%= t("admin.users.view.emails")   %></dt> 
   <% if @record.emails?                    %> 
     <dd class="tick">
@@ -50,10 +55,6 @@
     <dd><%= @record.phone                 %></dd>
   <% end %>
 
-  <% if @record.emails                     %>
-    <dt><%= t("admin.users.view.emails")   %></dt>
-    <dd><%= @record.emails                %></dd>
-  <% end %>
 
   <% if @record.language                   %>
     <dt><%= t("admin.users.view.language") %></dt>
@@ -72,17 +73,17 @@
 
   <% if @record.created_at                 %>
     <dt><%= t("admin.users.view.created_at") %></dt>
-    <dd><%= t('generic_sentence.time_ago', :time_ago => time_ago_in_words(@record.created_at)) %></dd>
+    <dd><%= t('generic_sentence.time_ago', :time_ago => render_date(@record.created_at)) %></dd>
   <% end %>
 
   <% if @record.last_login_at     %>
     <dt><%= t("admin.users.view.last_login_at")     %></dt>
-    <dd><%= t('generic_sentence.time_ago', :time_ago => time_ago_in_words(@record.last_login_at))  %></dd>
+    <dd><%= t('generic_sentence.time_ago', :time_ago => render_date(@record.last_login_at))  %></dd>
   <% end %>
 
   <% if @record.current_login_at     %>
     <dt><%= t("admin.users.view.current_login_at")     %></dt>
-    <dd><%= t('generic_sentence.time_ago', :time_ago => time_ago_in_words(@record.current_login_at))   %></dd>
+    <dd><%= t('generic_sentence.time_ago', :time_ago => render_date(@record.current_login_at))   %></dd>
   <% end %>
 
   <% if @record.login_count     %>

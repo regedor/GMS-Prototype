@@ -88,7 +88,7 @@ class User::AccountController < ApplicationController
 
     # Clean up every option
     group_ids = @user.group_ids.dup - Group.all(:conditions => { :user_choosable => true }).map(&:id)
-    user_picks.each { |pick| group_ids -= pick.group_ids }
+    user_picks.each { |pick| group_ids -= pick.group_ids } if params[:user][:user_optional_group_picks]
 
     # Add all the chosen groups
     group_ids |= (params[:user][:choosable_group_ids] - [""]).map(&:to_i) if params[:user][:choosable_group_ids]

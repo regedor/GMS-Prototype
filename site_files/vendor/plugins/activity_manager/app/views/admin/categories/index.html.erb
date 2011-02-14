@@ -1,19 +1,14 @@
 <div class="content">
-
-  <h2> <%= I18n::t('admin.categories.list.title') %> <%= @project.name %> </h2>
   
   <% if @categories.empty? %>
     <p><%= I18n::t('admin.categories.list.empty') %></p>
   <% else %>
 
   <div id="categories">
-    <table>
     <% @categories.each do |category| -%>
-      <tr id="category-<%= category.id %>">
-        <td class="category">
-          <span class="title"> <%= category.name %></span>
-          <span class="edit"> <%= link_to I18n::t("admin.category.edit.link"), edit_admin_project_category_path(params[:project_id],category) %>
-          <span class="edit"> <%= link_to I18n::t("admin.category.edit.link"), admin_project_category_path(params[:project_id],category), :action => :destroy %>
+    <div class="category">
+     	<%= render :partial => 'category', :locals => {:project => @project, :category => category} %>
+    </div>
         </td>
       </tr>
     <% end -%>
