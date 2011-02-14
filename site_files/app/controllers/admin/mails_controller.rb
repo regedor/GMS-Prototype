@@ -1,35 +1,40 @@
 class Admin::MailsController < Admin::BaseController 
   filter_access_to :all, :require => any_as_privilege
   
-  active_scaffold :mail do |config|
-    config.subform.columns = [:name]
-   
-    Scaffoldapp::active_scaffold config, "admin.mails",
-      :list     => [ :sent_on, :subject, :message ],
-      :show     => [ :sent_on, :user_id, :xml_groups_and_users, :subject, :message],
-      :row_mark => [  ]
-  end
+  def values
+    vals = []
+    User.all.each do |user|
+       vals << {:label => user.name, :category => t("admin.mails.vals.users"), :value => "#{user.email}"}
+    end  
+    Group.all.each do |group|
+      vals << {:label => group.name, :category => t("admin.mails.vals.groups"), :value => "group:#{group.name}"}
+    end  
+    
+    respond_to do |format|
+      format.json { render :json => vals.to_json }
+    end
+  end  
   
   def new
     @mail = Mail.new  
   end   
  
   def create
-    recipients_array = params[:mail_to].split(",")
+    recipients_array = params[:mail][:recipients_text].split(",")
     users_to_send = []
     @result = []
     users_and_groups = [] 
     mail = Mail.new
     recipients_array.reject!(&:blank?)
     recipients_array.each do |entity|
-       if entity.match(/(\S*) \(Group\)/)
-         group = Group.find_by_name(entity.match(/(\S*) \(Group\)/)[1])
+       if entity.match(/group:(\S*)/)
+         group = Group.find_by_name(entity.match(/group:(\S*)/)[1])
          users_and_groups << group
          group.direct_users.each do |user|
            users_to_send << user
          end     
        else   
-         user = User.find_by_email(entity.match(/\S* < (\S*) >/)[1])
+         user = User.find_by_email(entity)
          users_to_send << user
          users_and_groups << user
        end   

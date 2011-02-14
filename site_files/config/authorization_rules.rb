@@ -62,7 +62,7 @@ authorization do
     has_permission_on [:admin_to_dos],              :to =>  [:manage] do
       if_attribute :users => contains { user }
     end
-    has_permission_on [:admin_messages],            :to =>  [:read] do
+    has_permission_on [:admin_messages],            :to =>  [:read,:create] do
       if_attribute :project => { :users => contains { user } }
     end
     has_permission_on [:admin_messages],            :to => [:manage] do
