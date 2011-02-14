@@ -15,24 +15,20 @@
   <% end %>
   
   <dt><%= t("admin.users.view.emails")   %></dt> 
-    <dd>
-      <% if @record.emails?                    %> 
-        <p class="tick">
-      <% else %>
-        <p class="cross">
-      <% end %>
-      <%= @record.emails?  %></p>
-    </dd>
-    
-  
-  <dt><%= t("admin.users.view.gender")     %></dt> 
-  <dd> 
-    <% if @record.gender %>
-      <p class="male">  <%= t("generic_sentence.male_value")   %></p>
-    <% else %>
-      <p class="female"><%= t("generic_sentence.female_value") %></p>
-    <% end %>
-  </dd>
+  <% if @record.emails?                    %> 
+    <dd class="tick">
+  <% else %>
+    <dd class="cross">
+  <% end %>
+      <%= @record.emails?  %>
+    </dd>  
+
+  <dt><%= t("admin.users.view.gender")     %></dt>
+  <% if @record.gender %>
+    <dd class="male">(<%= t("generic_sentence.male_value") %>)</dd>
+  <% else %>
+    <dd class="female">(<%= t("generic_sentence.female_value") %>)</dd>
+  <% end %>
 
   <% if @record.profile                    %>
     <dt><%= t("admin.users.view.profile")  %></dt>
@@ -111,33 +107,8 @@
   
   <% if @record.openid_identifier     %> 
     <dt><%= t("admin.users.view.openid_identifier")     %></dt> 
-    <dd><%= @record.openid_identifier.scan(/.{1,40}/).join("<br/>")  %></dd> 
+    <dd><%= @record.openid_identifier  %></dd> 
   <% end %>
-  
-  <% if @record.crypted_password     %> 
-    <dt><%= t("admin.users.view.crypted_password")     %></dt> 
-    <dd><%= @record.crypted_password.scan(/.{1,40}/).join("<br/>")  %></dd> 
-  <% end %>  
-  
-  <% if @record.password_salt     %> 
-    <dt><%= t("admin.users.view.password_salt")     %></dt> 
-    <dd><%= @record.password_salt.scan(/.{1,40}/).join("<br/>")  %></dd> 
-  <% end %>
-
-  <% if @record.persistence_token     %> 
-    <dt><%= t("admin.users.view.persistence_token")     %></dt> 
-    <dd><%= @record.persistence_token.scan(/.{1,40}/).join("<br/>")  %></dd> 
-  <% end %>   
-
-  <% unless @record.single_access_token.blank?     %> 
-    <dt><%= t("admin.users.view.single_access_token")     %></dt> 
-    <dd><%= @record.single_access_token  %></dd> 
-  <% end %>   
-  
-  <% if @record.perishable_token     %> 
-    <dt><%= t("admin.users.view.perishable_token")     %></dt> 
-    <dd><%= @record.perishable_token.scan(/.{1,40}/).join("<br/>")  %></dd> 
-  <% end %>   
   
   <dt><%= t("admin.users.view.active")     %></dt> 
   <% if @record.active %>

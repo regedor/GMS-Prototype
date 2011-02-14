@@ -5,12 +5,17 @@
 <div class="content">
   <div class="header">	
     <h2><%= t("admin.to_do.comment.title", :list => @todo.to_do_list.name) %></h2>
-    <% classStr = (@todo.done? ? "done" : "not-done") %>
-    <div id="todo" class="<%= classStr %>">
-      <span class="due-date"><%= l(@todo.due_date, :format => :medium) %></span>
-      <span class="responsible"><%= @todo.user.name %></span>:
-      <span class="description"><%= @todo.description %></span>
-    </div>
+
+    <% if @todo.done? %>
+      <div id="todo" class="done">
+        <span class="due-date"><%= l(@todo.finished_date, :format => :medium) %></span>
+    <% else %>
+      <div id="todo" class="not-done">
+        <span class="due-date"><%= l(@todo.due_date, :format => :medium) %></span>
+    <% end %>
+        <span class="responsible"><%= @todo.user.name %>:</span>
+        <span class="description"><%= @todo.description %></span>
+      </div>
   </div>
   <hr />
   <div id="comments">

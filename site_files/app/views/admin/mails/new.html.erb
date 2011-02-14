@@ -69,10 +69,10 @@ jQuery(document).ready(function($) {
 			 });
 	});
 </script>
+<h2><%= t("admin.mails.title") %></h2>
 <div class="active-scaffold">
   <div class="view">
     <% form_for @mail, :url=>admin_mails_path, :method=>"post" do |f| -%>
-      <h2><%= t("admin.mails.title") %></h2>
         <ol class="form">
           <li class="form-element">
             <dl>
