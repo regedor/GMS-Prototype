@@ -386,8 +386,8 @@ en:
           subtitle: "You are reverting information"
           message: "If you click <b title=\"The revert link is below.\">\"Revert\"</b> below, you are making your actions permanent!"
           link: "Revert"
-        title: "User management"
-        text: "Users can be managed on this page. You can <b title=\"Link on the combo box at the top of the table.\">disable</b>, <b title=\"Link on the combo box at the top of the table.\">activate</b> and <b title=\"Link at the end of the row.\">delete</b> users (see <b title=\"Link is below.\">\"go to deleted users\"</b>). Also you can edit user information on <b title=\"Link at the end of the row.\">\"Edit\"</b> and see users information on <b title=\"Link at the end of the row.\">\"Details\"</b>.<br/> <b title=\"The combo box is at the top of the table.\">Delete</b>, <b title=\"The combo box is at the top of the table.\">activate</b> and <b title=\"The combo box is at the top of the table.\">disable</b> actions can be selected from the drop-down menu and will be applied to all the selected users.<br/><br/>If you see a red cross in front of the user it means that the user is <b title=\"See the Active column.\">inactive</b>, otherwise is <b title=\"See the Active column.\">active</b>.<br/> You can perform an action to a set of users by ticking the <b title=\"The check box is at the left of the name\">check boxes</b>.<br/><br/>To filter the user list use the <b title=\"Look at the box with a magnifier, at the top.\">search box</b>.<br/> You can sort user information clicking on the columns labels.<br/>Note: you may need to refresh the page to see the actions results, if you see a success message but no results."
+        title: "Users"
+        text: "You can <b title=\"Use the 'Delete' button.\">remove</b>, <b title=\"Use the 'Details' button.\">view</b> and <b title=\"Use the 'Edit' button.\">edit</b> current users.<br/><br/>It's possible to order the user list by <b title=\"Click in 'Created at'.\">creation date</b>, <b title=\"Click in 'Email'.\">email</b>, <b title=\"Click in 'Active'.\">activation</b>, <b title=\"Click in 'Name'.\">name</b> or <b title=\"Click in 'User Role'.\">role</b> as well as <b title=\"The filter box is next to the add button.\">filter</b> its contents.<br/><br/>You can perform <b title=\"Delete, Activate or Deactivate.\">bulk actions</b>, selected from the <b title=\"Click in 'More Actions'.\">drop-down menu</b> and will be applied to the <b title=\"The check box is at the left of the name\">checked</b> users."
         edit:
           title: "User edit"
           text: "You can edit user details here, changing all information.<br/> The <b title=\"See the field on the left.\">email</b> field specifies the user personal email.<br/>The <b title=\"See the field on the left.\">active</b> option specifies if the user is either active or not.<br/>You can also change the user <b title=\"See the field on the left.\">phone</b> number.<br/>The <b>avatar</b title=\"See the upload field on the left.\"> specifies the user image. You can upload any image file which will be cropped to 100x100 px.<br/>On the <b title=\"See the field on the left.\">profile</b> field is a shot user description.<br/>A <b title=\"See the field on the left.\">website</b> can also be specified, as well as the <b title=\"See the field on the left.\">country</b>.<br/>The user <b title=\"See the field on the left.\">gender</b> is also defined here.<br/>You can add the user to <b title=\"See the check boxes.\">groups</b> by ticking the groups you want.<br/>The user <b title=\"See the check boxes.\">Group</b> information will not be saved for reversion, once you do an alteration you can not recover the previous state.<br/>When you save, a history entry will be created. That mean that you can revert to a previous state (except from group information).<br/>The fields with an an asterisk (*) are mandatory."
@@ -397,10 +397,9 @@ en:
         groups:
           title: "Groups"
           reset: "List all users"
-          paragraph: "Click on a <b title=\"The link is below.\">group</b> to filter the user list."
+          paragraph: "You can also filter users by groups on the list below. When you click on a group, all users belonging to the selected group will be shown."
         deleted_users:
-          title: "Deleted users"
-          paragraph: "You can manage deleted users by clicking on the link below."
+          paragraph: "Click on the link below to undo deleted users:"
           link: "Go to deleted users"
       list_actions:
         destroy_by_ids: "Delete"
@@ -495,13 +494,13 @@ en:
         submit: "Undelete"
         cancel_link: "Cancel"
         link: "Go back to users"
-          
+
     groups:
       index:
         title: "Groups"
         show_link: "Details"
         update_link: "Edit"
-        destroy_link: "Delete"      
+        destroy_link: "Delete"
         search: "Find groups"
         create: "New Group"
         sidebar:
@@ -519,7 +518,7 @@ en:
           subname: "All groups"
           index:
             title: "Groups"
-            paragraph: "You are viewing system groups information. From here you can <b title=\"See the link above the table.\">create</b> a new group. You can also view a group <b title=\"The link is at the end of the row.\">details</b> and it's hierarchy. To edit a group details click on <b title=\"The link is at the end of the row.\">edit</b>. To eliminate a group simply click on <b title=\"The link is at the end of the row.\">delete</b>. "
+            paragraph: "You can <b title=\"Use the 'New Group' button.\">create</b> new groups and <b title=\"Use the 'Delete' button.\">remove</b> existing ones. You can also <b title=\"Use the 'Details' button.\">view</b> and <b title=\"Use the 'Edit' button.\">edit</b> current groups.<br/><br/>It's possible to order the user list by <b title=\"Click in 'Name'.\">name</b>, <b title=\"Click in 'Mailable'.\">email</b> or <b title=\"Click in 'Description'.\">description</b> as well as <b title=\"The filter box is next to the add button.\">filter</b> its contents.<br/><br/>You can perform <b title=\"Delete.\">bulk actions</b>, selected from the <b title=\"Click in 'More Actions'.\">drop-down menu</b> and will be applied to the <b title=\"The check box is at the left of the name\">checked</b> users."
           empty:
             subname: "All groups"
             paragraph: "When viewing details of a group containing subgroups, you can see here the hierarchy."
@@ -532,8 +531,6 @@ en:
           link: "Go to user optional group picks"
         users: 
           deleted_users: "Deleted users"
-          undo_deleted_users: "Click on the lick below to undo deleted users"
-          go_to_deleted_users: "Go to deleted users"
           go_to_users: "Go to users"
       columns:
         parent_name: "Parent"
@@ -609,10 +606,10 @@ en:
         create: "New Page"
       sidebar:
         title: "Pages"
-        paragraph: "You can <b title=\"Use the 'New Page' button.\">create</b> new pages and <b title=\"Use the 'Delete' button.\">remove</b> existing ones. You can also <b title=\"Use the 'Details' button.\">view</b> and <b title=\"Use the 'Edit' button.\">edit</b> current pages.<br/><br/>It's possible to order the page list by <b title=\"Click in 'Title'.\">title</b> or <b title=\"Click in 'Date'.\">date</b>.<br/><br/>By clicking on the page's title, you'll be redirected to the corresponding page in the frontend."
+        paragraph: "You can <b title=\"Use the 'New Page' button.\">create</b> new pages and <b title=\"Use the 'Delete' button.\">remove</b> existing ones. You can also <b title=\"Use the 'Details' button.\">view</b> and <b title=\"Use the 'Edit' button.\">edit</b> current pages.<br/><br/>It's possible to order the page list by <b title=\"Click in 'Title'.\">title</b> or <b title=\"Click in 'Date'.\">date</b> as well as <b title=\"The filter box is next to the add button.\">filter</b> its contents.<br/><br/>By clicking on the page's title, you'll be redirected to the corresponding page in the frontend."
         edit:
           title: "Edit Page"
-          paragraph: "You are editing the page information. Aside from the page's <b title=\"The title is the page's identification.\">title</b> and <b title=\"The body corresponds to the page content\">body</b>, you can change the <b title=\"The slug is the unique identification of the page, useful for links.\">slug</b> and <b title=\"The order in which this page will appear in the navigation menu.\">priority</b>. There are also <b title=\"Check if you want the page to appear in the navigation menu.\">show in menu</b> and <b title=\"Check if you want to allow users to comment this page.\">has comments</b> checkboxes.<br/><br/>You can preview the contents of your page before pressing <b title=\"The Save button saves the page.\">Save</b> by clicking on the <b title=\"The Preview button lets you preview the page.\">Preview</b> button. To discard any changes, press <b title=\"The Cancel button discards any changes.\">Cancel</b>."
+          paragraph: "You are editing the page information. Aside from the page's <b title=\"The title is the page's identification.\">title</b> and <b title=\"The body corresponds to the page content.\">body</b>, you can change the <b title=\"The slug is the unique identification of the page, useful for links.\">slug</b> and <b title=\"The order in which this page will appear in the navigation menu.\">priority</b>. There are also <b title=\"Check if you want the page to appear in the navigation menu.\">show in menu</b> and <b title=\"Check if you want to allow users to comment this page.\">has comments</b> checkboxes.<br/><br/>You can preview the contents of your page before pressing <b title=\"The Save button saves the page.\">Save</b> by clicking on the <b title=\"The Preview button lets you preview the page.\">Preview</b> button. To discard any changes, press <b title=\"The Cancel button discards any changes.\">Cancel</b>."
         history:
           title: "Page Details"
           paragraph: "You can revert page information. Click on the dates below to return to previous states. Click on <b title=\"The revert link appears when you click on a previous date.\">Revert</b> to complete the reversion process."
@@ -721,7 +718,7 @@ en:
       sidebar:
         index:
           title: "Posts"
-          paragraph: "You can <b title=\"Use the 'New Post' button.\">create</b> new posts and <b title=\"Use the 'Delete' button.\">remove</b> existing ones. You can also <b title=\"Use the 'Details' button.\">view</b> and <b title=\"Use the 'Edit' button.\">edit</b> current posts.<br/><br/>It's possible to order the post list by <b title=\"Click in 'Title'.\">title</b> or <b title=\"Click in 'Published Date'.\">publish date</b>.<br/><br/>By clicking on the post's title, you'll be redirected to the corresponding post in the frontend."
+          paragraph: "You can <b title=\"Use the 'New Post' button.\">create</b> new posts and <b title=\"Use the 'Delete' button.\">remove</b> existing ones. You can also <b title=\"Use the 'Details' button.\">view</b> and <b title=\"Use the 'Edit' button.\">edit</b> current posts.<br/><br/>It's possible to order the post list by <b title=\"Click in 'Title'.\">title</b> or <b title=\"Click in 'Published Date'.\">publish date</b> as well as <b title=\"The filter box is next to the add button.\">filter</b> its contents.<br/><br/>By clicking on the post's title, you'll be redirected to the corresponding post in the frontend."
         history:
           title: "Post Details"
           paragraph: "You can revert post information. Click on the dates below to return to previous states. Click on <b title=\"The revert link appears when you click on a previous date.\">Revert</b> to complete the reversion process."
@@ -800,7 +797,7 @@ en:
           one: "%{count} Announcements Found"
       sidebar:
         title: "Announcements"
-        paragraph: "You can <b title=\"Use the 'New Announcement' button.\">create</b> new announcements and <b title=\"Use the 'Delete' button.\">remove</b> existing ones. You can also <b title=\"Use the 'Details' button.\">view</b> and <b title=\"Use the 'Edit' button.\">edit</b> current announcements.<br/><br/>It's possible to order the announcement list by <b title=\"Click in 'Title'.\">title</b>, <b title=\"Click in 'Message'.\">message</b>, <b title=\"Click in 'Start Date'.\">start date</b>, <b title=\"Click in 'End Date'.\">end date</b> or <b title=\"Click in 'URL'.\">URL</b>.<br/><br/>By clicking on the announcement's title, you'll be redirected to the corresponding announcement in the frontend."
+        paragraph: "You can <b title=\"Use the 'New Announcement' button.\">create</b> new announcements and <b title=\"Use the 'Delete' button.\">remove</b> existing ones. You can also <b title=\"Use the 'Details' button.\">view</b> and <b title=\"Use the 'Edit' button.\">edit</b> current announcements.<br/><br/>It's possible to order the announcement list by <b title=\"Click in 'Title'.\">title</b>, <b title=\"Click in 'Message'.\">message</b>, <b title=\"Click in 'Start Date'.\">start date</b>, <b title=\"Click in 'End Date'.\">end date</b> or <b title=\"Click in 'URL'.\">URL</b> as well as <b title=\"The filter box is next to the add button.\">filter</b> its contents.<br/><br/>By clicking on the announcement's title, you'll be redirected to the corresponding announcement in the frontend."
         show:
           title: "Announcement Details"
           paragraph: "You are now viewing the details of an announcement. To edit this announcement, go to the announcements tab and chose edit."
