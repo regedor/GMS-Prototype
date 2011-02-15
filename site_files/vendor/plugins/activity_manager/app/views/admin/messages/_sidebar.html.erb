@@ -16,7 +16,7 @@
      <p>
     <% end %>
     
-    <% if permitted_to? :manage %>
+    <% if permitted_to? :manage , @categories %>
         <%= link_to "Manage Categories", admin_project_categories_path %>
     <% end %>
     
