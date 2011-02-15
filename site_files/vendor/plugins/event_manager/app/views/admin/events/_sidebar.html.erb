@@ -1,0 +1,12 @@
+<div class="block">
+  <h3><%= t("admin.event.show.sidebar.title") %></h3>
+  <ul class="navigation">
+    <li><%= link_to t("admin.event.activities.new.link"), new_admin_event_event_activity_path(@record.id) %></li>
+    <li><%= link_to t("admin.event.manage.link"), admin_event_path(@record.id) + "/event_manage" %></li>
+    <li><%= link_to t("admin.event.edit.link"), edit_admin_event_path %></li>
+    <li><%= link_to t("admin.event.destroy.link"), delete_admin_event_path %></li>
+  </ul>
+  <div class="content">
+    <p><%= t("admin.event.show.sidebar.paragraph") %></p>
+  </div>
+</div>

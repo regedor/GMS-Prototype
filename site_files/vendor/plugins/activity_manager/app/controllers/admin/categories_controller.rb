@@ -1,6 +1,8 @@
 class Admin::CategoriesController < Admin::BaseController
 # filter_access_to :index, :require => :read, :attribute_check => true, :load_method => lambda { Category.new :project_id => params[:project_id] }
-  filter_access_to :show,  :require => :read, :attribute_check => true, :load_method => lambda { Category.new :project_id => params[:project_id] }
+  filter_access_to :show,  :require => :read, :attribute_check => true
+  filter_access_to :index,:create,:new,:update,:edit,:delete,:destroy, :require => :manage, :attribute_check => true, :load_method => lambda {Category.new :project_id => params[:project_id]}
+    #:load_method => lambda { Category.new :project_id => params[:project_id], :id => params[:id] }
  # filter_access_to :create,:new, :require => :create, :attribute_check => true, :load_method => lambda { Message.new }
  # filter_access_to :update,:edit, :require => :update, :attribute_check => true
  # filter_access_to :delete,:destroy, :require => :delete, :attribute_check => true
@@ -57,12 +59,5 @@ class Admin::CategoriesController < Admin::BaseController
     # for sidebar
     @categories = Project.find(params[:project_id]).categories
   end
-  
- # def destroy
- #   category = Category.find(params[:id])
- #   category.destroy
- # end
-
-  
 end
 

@@ -6,7 +6,11 @@
     </div>
     <div class="content">
       <p><%= t("admin.users.sidebar.text") %></p>
-    </div>
+      <p><%=h t("admin.users.sidebar.deleted_users.paragraph") %></p>
+      <ul class="navigation"> 
+        <li><a href="<%= :deleted_users %>"><%=h t("admin.users.sidebar.deleted_users.link") %></a></li> 
+      </ul> 
+   </div>
   </div>
 
   <div class="block">
@@ -25,18 +29,7 @@
       </ul>
     </div>
   </div>
-
-  <div class="block">
-    <h3><%=h t("admin.groups.sidebar.users.deleted_users") %></h3>
-    <div class="content">
-      <p><%=h t("admin.groups.sidebar.users.undo_deleted_users") %></p>
-      <ul class="navigation"> 
-        <li><a href="<%= :deleted_users %>"><%=h t("admin.groups.sidebar.users.go_to_deleted_users") %></a></li> 
-     </ul> 
-    </div>
-  </div>
 <% end -%>
-
 
 <%# Revert Preview, show and delete pages %>
 <%# History list %>
