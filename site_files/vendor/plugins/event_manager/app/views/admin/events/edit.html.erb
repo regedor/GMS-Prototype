@@ -1,0 +1,11 @@
+<% semantic_form_for @event, :url => admin_event_url(@event.id) do |f| %>
+  <%= f.input :title, :label => t('events.form.title') %>
+  <%= f.input :description, :label => t('events.form.description') %>
+  <%= f.input :starts_at, :label => t('events.form.starts_at') %>
+  <%= f.input :ends_at, :label => t('events.form.ends_at') %>
+  <%= f.input :price, :label => t('events.form.price') %>
+  <%= f.input :participation_message, :label => t('events.form.participation_message') %>
+  <% f.buttons do %>
+    <%= f.button :label => t('events.edit.commit_button') %> 
+  <% end %>
+<% end %>

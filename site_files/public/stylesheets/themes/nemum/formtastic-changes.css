@@ -14,6 +14,8 @@ form.formtastic fieldset.inputs ol li select,
 form.formtastic fieldset.inputs ol li textarea,
 form.formtastic fieldset.inputs ol li input          { font-size: 0.9em; }
 
+fieldset.buttons li.commit a.button                  { text-decoration: none; }
+
 fieldset.buttons li.commit a.button,
 fieldset.buttons li.commit input.button              { color: #2E2A2B; font-size: 0.8em; font-weight: bold; text-align: center }
 

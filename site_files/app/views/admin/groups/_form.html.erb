@@ -24,14 +24,17 @@ jQuery(document).ready(function($) {
       $( "#record_behavior_at_time_input" ).fadeIn('slow');
       $( "#record_behavior_after_time_input" ).fadeOut('slow');
       $( "#record_behavior_file_name_input" ).fadeIn('slow');
+      $( "#record_behavior_group_to_jump_input" ).fadeIn('slow');
     } else if (selected == "after_time") {
       $( "#record_behavior_at_time_input" ).fadeOut('slow');
       $( "#record_behavior_after_time_input" ).fadeIn('slow');
       $( "#record_behavior_file_name_input" ).fadeIn('slow');
+      $( "#record_behavior_group_to_jump_input" ).fadeIn('slow');
     } else {
       $( "#record_behavior_at_time_input" ).fadeOut('slow');
       $( "#record_behavior_after_time_input" ).fadeOut('slow');
       $( "#record_behavior_file_name_input" ).fadeOut('slow');
+      $( "#record_behavior_group_to_jump_input" ).fadeOut('slow');
     }
   });
 
@@ -76,6 +79,11 @@ jQuery(document).ready(function($) {
                  :wrapper_html => { :style => @record.behavior_type.blank? ? 'display: none;' : '' },
                  :hint         => I18n::t('admin.groups.form.hints.behavior_file_name'),
                  :label        => I18n::t('admin.groups.columns.behavior_file_name') %>
+  <%= form.input :behavior_group_to_jump,
+                 :as           => :select,
+                 :wrapper_html => { :style => @record.behavior_type.blank? ? 'display: none;' : '' },
+                 :hint         => I18n::t('admin.groups.form.hints.behavior_group_to_jump'),
+                 :label        => I18n::t('admin.groups.columns.behavior_group_to_jump') %>
 
   <%= form.input :groups,
                  :as           => :check_boxes,

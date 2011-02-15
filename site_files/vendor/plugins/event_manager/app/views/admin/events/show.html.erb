@@ -1,0 +1,125 @@
+<% content_for :sidebar, render(:partial => 'sidebar') -%>
+<script>
+
+jQuery.noConflict();
+
+//jQuery.ajaxSetup({
+//	'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript,application/javascript,text/html,application/json")}
+//});
+
+jQuery(document).ready(function($) {
+
+  $(".select_all").live('click', function () {
+
+    var checkstatus = $(this).is(':checked');
+
+    $(".activity-checked").each(function() {
+      $(this).attr('checked',checkstatus);
+    });
+
+    $(".activity-unchecked").each(function() {
+      $(this).attr('checked',checkstatus);
+    });
+
+  });
+
+  var joinEvent = "";
+
+  $(".event-checked").live('click', function () {
+    if (!$(this).is(':checked')) {
+      joinEvent = "false";
+    }
+    else {
+      joinEvent = "";
+    }
+  });
+
+  $(".event-unchecked").live('click', function () {
+    if ($(this).is(':checked')) {
+      joinEvent = "true";
+    }
+    else {
+      joinEvent = "";
+    }
+  });
+
+  $(".update-button").live('click', function () {
+    var idsu = [];
+    $(".activity-checked").each(function() {
+      if(!$(this).is(':checked'))
+        {
+          id = $(this).attr("id");
+	  idsu.push(id);
+        }
+    });
+    var idsc = [];
+    $(".activity-unchecked").each(function() {
+			  if($(this).is(':checked'))
+			  {
+				  id = $(this).attr("id");
+				  idsc.push(id);
+			  }
+		    });
+
+    jQuery.ajax({
+      type: 'POST',
+      data: "&idsu="+idsu+"&idsc="+idsc+"&joinEvent="+joinEvent,
+	  dataType: "json",
+      url: window.location.href.replace(/\#.*/,"")+"/userUpdate",
+      error: function() {
+        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"update"});
+		return false;
+      },
+      success: function(r) {
+        if(r.id) {
+        //window.location.href = "";
+        $("#event_"+r.id).html(r.html);
+	$("#event_"+r.id).show();
+        $("#show").hide();
+        } else { window.location.href = ""; }
+      }
+    });
+  });
+});
+
+</script>
+<div id="event_<%= @record.id %>" class="event_<%= @record.id %>">
+</div>
+<div id="show" class="show">
+<% if @record.event_activities.empty? %>
+  <% if @record.user_ids.include?(current_user.id) %>
+    <% if @record.status(current_user.id).id == 1 %>
+      <h2><input type="checkbox" id="<%= @record.id %>" value="<%= @record.id %>" class="event-checked" CHECKED /><%= @record.title %> - (<%= @record.status(current_user.id).name %>)</h2>
+    <% else %>
+      <h2><input type="checkbox" id="<%= @record.id %>" value="<%= @record.id %>" class="event-confirmed" CHECKED DISABLED /><%= @record.title %> - (<%= @record.status(current_user.id).name %>)</h2>
+    <% end %>
+  <% else %>
+    <h2><input type="checkbox" id="<%= @record.id %>" value="<%= @record.id %>" class="event-unchecked" /><%= @record.title %></h2>
+  <% end %>
+<% else %>
+  <h2><%= @record.title %></h2>
+<% end %>
+    <% if @record.description_html    %> <%= t("admin.events.view.description_html") %> <br><span class="description"><%= @record.description_html       %></span><% end %> <br><br>
+    <% if @record.price %> <%= t("admin.events.view.price") %> <br><span class="price"><%= @record.price %></span><% end %> <br><br>
+    <% if @record.starts_at %> <%= t("admin.events.view.starts_at")  %> <br><span class="starts_at"><%= @record.starts_at %></span><% end %> <br><br>
+    <% if @record.ends_at   %> <%= t("admin.events.view.ends_at")    %> <br><span class="ends_at"><%= @record.ends_at   %></span>
+  <% if !@record.event_activities.empty? %>
+  <br><br> <input type="checkbox" id="select_all" class="select_all"><%= t("admin.events.view.activities") %> <br><br>
+  <% end %>
+<% end %> 
+  </dl>
+  <% @checked_activities.each do |activity| %>
+    <% if activity.status(current_user.id).id == 1 %>
+    <li><input type="checkbox" id="<%= activity.id %>" value="<%= activity.id %>" class="activity-checked" CHECKED /><span><a href="<%= admin_event_event_activity_path(activity.event_id,activity.id) %>"><%= activity.title %></a>( <%= t("admin.events.view.price") %> <%= activity.price %>)</span> **<%= activity.status(current_user.id).name %>**</li>
+    <% else %>
+    <li><span><a href="<%= admin_event_event_activity_path(activity.event_id,activity.id) %>"><%= activity.title %></a> ( <%= t("admin.events.view.price") %> <%= activity.price %>)</span> **<%= activity.status(current_user.id).name %>**</li>
+    <% end %>
+  <% end %>
+  <% @unchecked_activities.each do |activity| %>
+    <li><input type="checkbox" id="<%= activity.id %>" value="<%= activity.id %>" class="activity-unchecked" /><span><a href="<%= admin_event_event_activity_path(activity.event_id,activity.id) %>"><%= activity.title %></a>( <%= t("admin.events.view.price") %> <%= activity.price %>)</span></li>
+  <% end %>
+  <p class="form-footer">
+    <input type=button value="<%= t('admin.events.view.button.update') %>" class="update-button">
+    <%= link_to t("admin.events.view.cancel"), admin_events_path, :class => "cancel" %>  
+  </p>
+</div>

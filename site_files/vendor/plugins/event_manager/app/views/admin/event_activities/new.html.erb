@@ -1,0 +1,11 @@
+<% semantic_form_for @activity, :url => admin_event_event_activities_url do |f| %>
+Activity to event: <%= @activity.event.title %>
+  <%= f.input :title, :label => t('activities.form.title') %>
+  <%= f.input :description, :label => t('activities.form.description') %>
+  <%= f.input :starts_at, :label => t('activities.form.starts_at') %>
+  <%= f.input :ends_at, :label => t('activities.form.ends_at') %>
+  <%= f.input :price, :label => t('activities.form.price') %>
+  <% f.buttons do %>
+    <%= f.button :label => t('activities.new.commit_button') %> 
+  <% end %>
+<% end %>

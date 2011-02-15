@@ -1,0 +1,109 @@
+<script>
+
+jQuery.noConflict();
+
+jQuery.ajaxSetup({
+	'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript,application/javascript,text/html")}
+})
+
+jQuery(document).ready(function($) {
+
+  var event_id;
+  $(".description").each(function() {
+    event_id = $(this).attr("id");
+  });
+
+  
+  $(".search-button").live('click', function () {
+    window.location.href = window.location.href.replace(/\#.*/,"").replace(/\?.*/,"") + "?search=" + $(".search").val();
+  });
+
+  $(".update-button").live('click', function () {
+
+    var idse = [];
+
+    $(".dropdown-event").each(function() {
+      if ($(this).val() != $(this).attr('default'))
+        idse.push($(this).attr('id') + ':' + $(this).val());
+    });
+
+    var idsa = [];
+
+    $(".dropdown-activity").each(function() {
+      if ($(this).val() != $(this).attr('default'))
+        idsa.push($(this).attr('id') + ':' + $(this).val());
+    });
+
+    jQuery.ajax({
+      type: 'POST',
+      data: "&idse="+idse+"&idsa="+idsa+"&event_id="+event_id,
+	  dataType: "json",
+      url: window.location.href.replace(/\#.*/,"").replace(/\?.*/,"")+"/confirmUpdate",
+      error: function() {
+        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"update"});
+		return false;
+      },
+      success: function(r) {
+        window.location.href = "";
+      }
+    });
+    
+  });
+});
+
+</script>
+
+<div class="show">
+  <h2><span class="description" id="<%= @record.id %>"><%= @record.title %></span></h2>
+  <input type=button value="<%= t('admin.event.activities.manage.button.search') %>" class="search-button">
+  <input type=text class="search" id="search">
+  <% @user_lists.each do |user_event| %>
+    <% if @record.event_activities.empty? %>
+      <li>
+        <span><%= user_event[:user].to_label %>
+          <select name="dropdown-event" class="dropdown-event" id="<%= user_event[:event_user].id %>" default="<%= user_event[:event_user].status_id %>">
+          <% @statuses.each do |status| %>
+            <% if status.id == user_event[:event_user].status_id %>
+              <option value="<%= status.id %>" selected="selected"><%= status.name %></option>
+            <% else %>
+              <option value="<%= status.id %>"><%= status.name %></option>
+            <% end %>
+          <% end %>
+          </select>
+        </span>
+      </li>
+    <% else %>
+      <li><span><%= user_event[:user].to_label %></span></li>
+    <% end %>
+    <% @user_activities[user_event[:user].id][:default].each do |activity| %>
+      <li>--
+        <span><%= activity.event_activity.title %></span>
+        <select name="dropdown-activity" class="dropdown-activity" id="<%= activity[:id] %>" default="1">
+          <% @statuses.each do |status| %>
+              <option value="<%= status.id %>"><%= status.name %></option>
+          <% end %>
+          </select>
+      </li>
+    <% end %>
+    <% @user_activities[user_event[:user].id][:with_status].each do |activity| %>
+      <% puts activity.inspect %>
+      <li>--
+        <span><%= activity.event_activity.title %></span>
+          <select name="dropdown-activity" class="dropdown-activity" id="<%= activity.id %>" default="<%= activity.status_id %>">
+          <% @statuses.each do |status| %>
+            <% if status.id == activity.status_id %>
+              <option value="<%= status.id %>" selected="selected"><%= status.name %></option>
+            <% else %>
+              <option value="<%= status.id %>"><%= status.name %></option>
+            <% end %>
+          <% end %>
+          </select>
+      </li>
+    <% end %>
+  <% end %>
+
+  <p class="form-footer">
+    <input type=button value="<%= t('admin.event.activities.view.button.update') %>" class="update-button">
+    <%= link_to t("admin.event.activities.view.cancel"), admin_event_path(@record.id), :class => "cancel" %>  
+  </p>
+</div>

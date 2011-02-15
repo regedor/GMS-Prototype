@@ -13,7 +13,7 @@ class ScaffoldApp < ActiveRecord::Migration
       t.string    :phone,                                                 :limit => 30
       t.boolean   :emails               # wanna receive emails
       # User values
-      t.integer   :role_id,             :null => false, :default => 6 # Normal user. Role is created in seeds
+      t.integer   :role_id,             :null => false, :default => 1
       t.boolean   :deleted,             :null => false, :default => false
       t.string    :language,            :null => false, :default => "en"
       t.boolean   :active,              :null => false, :default => false
@@ -71,7 +71,7 @@ class ScaffoldApp < ActiveRecord::Migration
       t.datetime :behavior_at_time
       t.integer  :behavior_after_time #seconds
       t.string   :behavior_file_name
-      t.integer  :behavior_change_to_group_id
+      t.integer  :behavior_group_to_jump_id
       t.integer  :behavior_delayed_job_id
       t.integer  :user_count,                  :null => false, :default => 0
       t.timestamps
@@ -96,6 +96,7 @@ class ScaffoldApp < ActiveRecord::Migration
     create_table :groups_users do |t|
       t.integer :group_id
       t.integer :user_id
+      t.timestamps
     end
 
 

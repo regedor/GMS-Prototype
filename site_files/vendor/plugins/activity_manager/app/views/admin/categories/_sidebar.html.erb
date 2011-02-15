@@ -22,3 +22,25 @@
   </div>
 </div>
 <% end %>
+
+<% if (controller.action_name == "edit") %>
+<div class="block">
+
+  <h3><%= t("admin.messages.sidebar.title") %></h3>
+  <div class="content">
+    <ul>
+      <li><%= link_to I18n::t('admin.messages.index.create'), new_admin_project_message_path %></li>
+    </ul>
+  
+    <p><%= t("admin.messages.sidebar.paragraph") %></p>
+
+    <ul class="navigation">
+     <p>
+
+    
+    
+
+    </ul>
+  </div>
+</div>
+<% end %>
