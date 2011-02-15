@@ -1,9 +1,9 @@
 <div class="content">
-<% content_for :sidebar, render(:partial => 'index_sidebar') -%>
-
-<% @events.each do |event| %>
-<div class="title">
-  <h2><%= link_to event.title, admin_event_path(event) %></h2>
-</div>
-<% end %>
+  <div class="inner">
+    <h2><%= t("admin.events.index.title") %><h2>
+    <% content_for :sidebar, render(:partial => 'index_sidebar') -%>
+    <% @events.each do |event| %>
+    <h4><%= link_to event.title, admin_event_path(event) %></h4>
+    <% end %>
+  </div>
 </div>

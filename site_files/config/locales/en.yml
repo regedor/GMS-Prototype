@@ -322,49 +322,9 @@ en:
           manage_groups: "Manage User Groups"
           configure_settings: "Configure Settings"
 
-    event:
-      manage:
-        link: "Manage this event"
-      activities:
-        columns:
-          title: "Title"
-          description: "Description"
-          starts_at: "Starting date"
-          ends_at: "Ending date"
-          price: "Price"
-        create:
-          title: "Activity"
-        show:
-          sidebar:
-            title: "Activity"
-        edit:
-          link: "Edit this activity"
-        destroy:
-          link: "Delete this activity"
-        new:
-          link: "Create new activity"
-        manage:
-          link: "Manage this activity"
-          button:
-            search: "Search" 
-        view:
-          cancel: "Go back"
-          button:
-            update: "Update"
-      index:
-        sidebar:
-          title: "Events"
-      show:
-        sidebar:
-          title: "Event"
-      new:
-        link: "Create new event"
-      edit:
-        link: "Edit this event"
-      destroy:
-        link: "Delete this event"
-
     events:
+      index:
+        title: "Events"
       columns:
         title: "Title"
         description: "Description"
@@ -374,6 +334,7 @@ en:
       create:
         title: "Event"
       view:
+        title: "Title"
         description: "Description"
         price: "Price"
         totalprice: "Total Event Price"

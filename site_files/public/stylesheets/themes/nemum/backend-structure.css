@@ -6,6 +6,8 @@
 
 body                                     { background: #E5E5E5; }
 
+h4                                       { margin: 15px 0 0; }
+
 div#container                            { min-width: 960px; }
 div.content                              { margin: 20px; }
 
