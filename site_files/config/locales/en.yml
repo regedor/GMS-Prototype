@@ -167,6 +167,7 @@ en:
         system: "System"
         communication: "Communication"
         projects: "Projects"
+        events: "Events"
       secondary:
         dashboard: "Dashboard"
         users: "Users"
@@ -320,6 +321,67 @@ en:
           manage_user_accounts: "Manage User Accounts"
           manage_groups: "Manage User Groups"
           configure_settings: "Configure Settings"
+
+    event:
+      manage:
+        link: "Manage this event"
+      activities:
+        columns:
+          title: "Title"
+          description: "Description"
+          starts_at: "Starting date"
+          ends_at: "Ending date"
+          price: "Price"
+        create:
+          title: "Activity"
+        show:
+          sidebar:
+            title: "Activity"
+        edit:
+          link: "Edit this activity"
+        destroy:
+          link: "Delete this activity"
+        new:
+          link: "Create new activity"
+        manage:
+          link: "Manage this activity"
+          button:
+            search: "Search" 
+        view:
+          cancel: "Go back"
+          button:
+            update: "Update"
+      index:
+        sidebar:
+          title: "Events"
+      show:
+        sidebar:
+          title: "Event"
+      new:
+        link: "Create new event"
+      edit:
+        link: "Edit this event"
+      destroy:
+        link: "Delete this event"
+
+    events:
+      columns:
+        title: "Title"
+        description: "Description"
+        starts_at: "Starting date"
+        ends_at: "Ending date"
+        price: "Price"
+      create:
+        title: "Event"
+      view:
+        description: "Description"
+        price: "Price"
+        totalprice: "Total Event Price"
+        starts_at: "Starting date"
+        ends_at: "Ending date"
+        cancel: "Go back"
+        button:
+          update: "Update"
 
     mails:
       vals:    
