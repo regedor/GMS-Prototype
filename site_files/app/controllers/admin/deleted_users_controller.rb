@@ -2,18 +2,10 @@ class Admin::DeletedUsersController < Admin::BaseController
   filter_access_to :all, :require => any_as_privilege
 
   active_scaffold :deleted_user do |config|
-    config.subform.columns = [:email]
-
-    config.columns[:groups].show_blank_record = false
-
-    config.columns[:role].form_ui = :select 
-    config.columns[:groups].form_ui = :select 
-    config.columns[:groups].options = {:draggable_lists => true}
   
     Scaffoldapp::active_scaffold config, "admin.deleted_users", 
       :list         => [ :created_at, :email, :active, :name, :role ], 
       :show         => [ :email, :active, :nickname, :profile, :website, :country, :gender ],
-      :edit         => [ :email, :active, :nickname, :profile, :website, :country, :gender, :groups, :role ],
       :actions_list => [ :destroy_by_ids!, :undelete_by_ids ]
 
       config.action_links.add 'undelete', :type => :member, :page => true, :crud_type => :delete, :method => :put,

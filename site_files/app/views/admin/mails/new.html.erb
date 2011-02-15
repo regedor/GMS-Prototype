@@ -1,113 +1,179 @@
+<style>
+	.ui-autocomplete {
+		max-height: 200px;
+		overflow-y: auto;
+		/* prevent horizontal scrollbar */
+		overflow-x: hidden;
+		/* add padding to account for vertical scrollbar */
+		padding-right: 20px;
+	}
+	/* IE 6 doesn't support max-height
+	 * we use height instead, but this forces the menu to always be this tall
+	 */
+	* html .ui-autocomplete {
+		height: 100px;
+	}
+	
+	#mail_actual_recipients_input{
+		display: none;
+	}
+	
+	.ui-autocomplete-category {
+			font-weight: bold;
+			padding: .2em .4em;
+			margin: .8em 0 .2em;
+			line-height: 1.5;
+		}
+	
+</style>
+
 <script>
 jQuery.noConflict();
 
 jQuery(document).ready(function($) {
 
-	var values = $("#mail_mailable").val().split(',')
+	jQuery.widget( "custom.catcomplete", $.ui.autocomplete, {
+			_renderMenu: function( ul, items ) {
+				var self = this,
+					currentCategory = "";
+				$.each( items, function( index, item ) {
+					if ( item.category != currentCategory ) {
+						ul.append( "<li class='ui-autocomplete-category'>" + item.category + "</li>" );
+						currentCategory = item.category;
+					}
+					self._renderItem( ul, item );
+				});
+			}
+		});
+
+  
 	function split( val ) 
 	{
 		return val.split( /,\s*/ );
 	}
-	function extractLast( term ) 
-	{
-		var idx = term.indexOf($("span .last").text());
-		if(idx>0){return term.splice(idx,1);}
-	 	return term
-	}
 	
-	window.onload = reset_hidden; 
-	function reset_hidden() { 
-		jQuery("#mail_to").val("");
-	}	
-	
-	$( "#mail_recipients" ).autocomplete(
-	 	{
-	 		minLength: 0,
-	 		source: function( request, response ) 
-	 		{
-	 			// delegate back to autocomplete, but extract the last term
-				
-	 			response( $.ui.autocomplete.filter(values, extractLast(request.term)));
-	 		},
-	 		focus: function() 
-	 		{
-	 			// prevent value inserted on focus
-	 			return false;
-	 		},
-	 		select: function( event, ui ) 
-	 		{	
-				newSpan = $("<span>").text($("span .last").text());
-				$("span .last").replaceWith(newSpan);
+	function extractLast( term ) {
+				return split( term ).pop();
+			}
+    
 
-				masterspan = $("<span>").addClass("master").insertBefore("#recipients_holder")
-				$("<span id=\"rec\">").addClass("last").text(ui.item.value).appendTo(masterspan);
-				$("<a>").addClass("remove").text("x").attr({onclick: "newValue = jQuery(\"#mail_to\").val().split(\",\");newValue.pop();newValue.pop();jQuery(\"#mail_to\").val(newValue.join(\",\")+\",\"); this.parentNode.remove(true);jQuery(\"#outer_holder span span\").last().addClass(\"last\");return false;"}).appendTo(masterspan);	
-
-				$("#mail_to").val($("#mail_to").val()+ui.item.value+",")
-				
-	 			return false;
-	 		}
-	 	}).keydown( function( event ) 
-			{
-				var code = (event.keyCode ? event.keyCode : event.which);
-
-				if( code == 13 )
-					alert($("#mail_to").val());
-
-				if ( code == 8 )
+	 $( "#mail_recipients_text" ).catcomplete({
+				source: function( request, response ) {				
+					jQuery.ajax({
+				      type: 'GET',
+					  dataType: "json",
+				      url: window.location.href.replace(/\#.*/,"").replace("new","values"),
+				      error: function() {
+				        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"values"});
+						return false;
+				      },
+				      success: function(r) {
+					  	  response( $.ui.autocomplete.filter(
+												r, extractLast( request.term ) ) );
+						
+				      }
+				    });
+				},
+				minLength: 0,
+				delay: 0,
+				focus: function() 
 				{
-					if($("#mail_to").val() != "")
-					{
-						newValue = $("#mail_to").val().split(",");
-						newValue.pop();
-						newValue.pop();
-						$("#mail_to").val(newValue.join(",")+",");
-						$("#outer_holder span .last").parent().remove();
-						$("#outer_holder span span").last().addClass("last");
-					}
+					// prevent value inserted on focus
+					return false;
+				},
+				select: function( event, ui ) {
+					var terms = split( this.value );
+					// remove the current input
+					terms.pop();
+					// add the selected item
+					terms.push( ui.item.value );
+					// add placeholder to get the comma-and-space at the end
+					terms.push( "" );
+					this.value = terms.join( ", " );
+					
+					return false;
 				}
-			 });
+				
+			});	
+				
+
+   // var values = $("#mail_mailable").val().split(',')
+   
+   // function extractLast( term ) 
+   // {
+   // 	var idx = term.indexOf($("span .last").text());
+   // 	if(idx>0){return term.splice(idx,1);}
+   //  	return term
+   // }
+   // 
+   // window.onload = reset_hidden; 
+   // function reset_hidden() { 
+   // 	jQuery("#mail_to").val("");
+   // }	
+   // 
+   // $( "#mail_recipients" ).autocomplete(
+   //  	{
+   //  		minLength: 0,
+   //  		source: function( request, response ) 
+   //  		{
+   //  			// delegate back to autocomplete, but extract the last term
+   // 			
+   //  			response( $.ui.autocomplete.filter(values, extractLast(request.term)));
+   //  		},
+   //  		focus: function() 
+   //  		{
+   //  			// prevent value inserted on focus
+   //  			return false;
+   //  		},
+   //  		select: function( event, ui ) 
+   //  		{	
+   // 			newSpan = $("<span>").text($("span .last").text());
+   // 			$("span .last").replaceWith(newSpan);
+   //
+   // 			masterspan = $("<span>").addClass("master").insertBefore("#recipients_holder")
+   // 			$("<span id=\"rec\">").addClass("last").text(ui.item.value).appendTo(masterspan);
+   // 			$("<a>").addClass("remove").text("x").attr({onclick: "newValue = jQuery(\"#mail_to\").val().split(\",\");newValue.pop();newValue.pop();jQuery(\"#mail_to\").val(newValue.join(\",\")+\",\"); this.parentNode.remove(true);jQuery(\"#outer_holder span span\").last().addClass(\"last\");return false;"}).appendTo(masterspan);	
+
+   // 			$("#mail_to").val($("#mail_to").val()+ui.item.value+",")
+   // 			
+   //  			return false;
+   //  		}
+   //  	}).keydown( function( event ) 
+   // 		{
+   // 			var code = (event.keyCode ? event.keyCode : event.which);
+   //
+   // 			if( code == 13 )
+   // 				alert($("#mail_to").val());
+   //
+   // 			if ( code == 8 )
+   // 			{
+   // 				if($("#mail_to").val() != "")
+   // 				{
+   // 					newValue = $("#mail_to").val().split(",");
+   // 					newValue.pop();
+   // 					newValue.pop();
+   // 					$("#mail_to").val(newValue.join(",")+",");
+   // 					$("#outer_holder span .last").parent().remove();
+   // 					$("#outer_holder span span").last().addClass("last");
+   // 				}
+   // 			}
+   // 		 });
 	});
 </script>
-<h2><%= t("admin.mails.title") %></h2>
-<div class="active-scaffold">
-  <div class="view">
-    <% form_for @mail, :url=>admin_mails_path, :method=>"post" do |f| -%>
-        <ol class="form">
-          <li class="form-element">
-            <dl>
-              <dt><label><%= I18n::t("admin.mails.to") %></label></dt>
-              <dd>
-                <div id="outer_holder">
-                  <span id="recipients_holder">
-                    <%= text_field_tag :mail_recipients, '', :size => 35, :class => 'text-input' %>
-                  </span>
-                </div>			
-              </dd> 
-            </dl>
-          </li>
-          <li class="form-element">
-            <dl>
-              <dt><label><%= I18n::t("admin.mails.subject") %></label></dt>
-              <dd><%= text_field_tag :subject, '', :size => 35, :class => 'text-input' %></dd>
-            </dl>
-          </li>
-          <li class="form-element">
-            <dl>
-              <dt><label><%= I18n::t("admin.mails.message") %></label></dt>
-              <dd> <%= f.text_area :message %></dd>
-              <%= f.hidden_field(:mailable) %>
-              <%= hidden_field_tag(:mail_to) %>
-            </dl>
-          </li>
-        </ol>
-        <%= f.submit I18n::t('admin.mails.send'), :class => 'button positive' %>
-    <% end -%>
-  </div>
+
+
+<div class="content">
+  <% semantic_form_for @mail, :url=>admin_mails_path, :html => {:method => :post} do |f| %>
+    <% f.inputs do %>
+      <%= f.input :recipients_text, :as => :string, :label => t("admin.mails.title") %>
+      <%= f.input :subject, :as => :string, :label => t("admin.mails.subject")  %>
+      <%= f.input :message, :as => :text, :label => t("admin.mails.message") %>
+    <% end %>
+    
+    <% f.buttons do %>
+      <%= f.commit_button :label => t('admin.mails.send'), :button_html => { :class => 'button positive' } %>
+    <% end %>
+    
+  <% end %>
 </div>
 
-<% if File.exists?(Rails.root.join('app', 'views', params[:controller], '_sidebar.html.erb')) %>
-  <% content_for :sidebar do -%>
-    <%= render :partial => 'sidebar' %>
-  <% end -%>
-<% end -%>

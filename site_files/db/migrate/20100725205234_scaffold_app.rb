@@ -71,7 +71,7 @@ class ScaffoldApp < ActiveRecord::Migration
       t.datetime :behavior_at_time
       t.integer  :behavior_after_time #seconds
       t.string   :behavior_file_name
-      t.integer  :behavior_change_to_group_id
+      t.integer  :behavior_group_to_jump_id
       t.integer  :behavior_delayed_job_id
       t.integer  :user_count,                  :null => false, :default => 0
       t.timestamps

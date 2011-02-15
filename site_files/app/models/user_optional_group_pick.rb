@@ -12,12 +12,16 @@ class UserOptionalGroupPick < ActiveRecord::Base
   # Validations
   # ==========================================================================
 
+  validates_uniqueness_of :name
+
+
   # ==========================================================================
   # Instance Methods
   # ==========================================================================
 
   attr_accessor  :selected_group
   attr_accessor  :selected_group_id
+
 
   # ==========================================================================
   # Class Methods
