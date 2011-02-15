@@ -41,7 +41,7 @@
 	    <%= f.input :users, :as => :check_boxes, :collection => @project.users, :label => t("admin.to_do_comment.new.users"), :required => false %>
 	  <% end  %>
 	  <% f.buttons do %>
-        <%= f.commit_button :label => t('admin.to_do_comment.new.create_button'),
+            <%= f.commit_button :label => t('admin.to_do_comment.new.create_button'),
                                 :button_html => { :class => 'button positive' } %>
 	    <%= f.button_link t('admin.to_do_comment.new.preview_button'), '#new_to_do_comment',
                               :button_html => { :class => 'button positive preview' }  %>
