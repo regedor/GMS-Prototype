@@ -2,8 +2,8 @@ class CreateEvents < ActiveRecord::Migration
   def self.up
     create_table :events do |t|
       t.string :title
-      t.string :description
-      t.string :description_html
+      t.text :description
+      t.text :description_html
       t.datetime :starts_at
       t.datetime :ends_at
       t.float :price,        :default => 0
@@ -33,8 +33,8 @@ class CreateEvents < ActiveRecord::Migration
     create_table :event_activities do |t|
       t.integer :event_id
       t.string :title
-      t.string :description
-      t.string :description_html
+      t.text :description
+      t.text :description_html
       t.float :price,        :default => 0
       t.datetime :starts_at
       t.datetime :ends_at
