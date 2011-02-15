@@ -5,8 +5,9 @@ class Group < ActiveRecord::Base
   # ==========================================================================
 
   has_many                :groups_users
-  has_many                :direct_users, :through => :groups_users, :source => :user
-  has_and_belongs_to_many :groups,       :association_foreign_key => "include_group_id"
+  has_many                :direct_users,           :through => :groups_users, :source => :user
+  has_and_belongs_to_many :groups,                 :association_foreign_key => "include_group_id"
+  belongs_to              :behavior_group_to_jump, :foreign_key => "behavior_group_to_jump_id", :class_name => 'Group'
 
 
   # ==========================================================================
@@ -18,7 +19,8 @@ class Group < ActiveRecord::Base
   
   def validate_behavior
     unless self.behavior_type.blank?
-      errors.add_to_base 'Time must be > 0' if self.behavior_type == 'after_time' && self.behavior_after_time <= 0
+      errors.add(:behavior_after_time, I18n::t('admin.groups.form.behavior.errors.negative_time')) if self.behavior_type == 'after_time' && self.behavior_after_time <= 0
+      errors.add(:behavior_file_name, I18n::t('admin.groups.form.behavior.errors.file_trick')) if self.behavior_file_name.index(/[\/\\]/).nil? && (Dir["lib/group_behaviors/*.rb"].map { |file| file.gsub(/.+\/(.+)\.rb/) { $1 } }.member? self.behavior_file_name)
     end
   end
 

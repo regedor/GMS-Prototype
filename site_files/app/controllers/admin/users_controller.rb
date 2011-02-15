@@ -13,7 +13,7 @@ class Admin::UsersController < Admin::BaseController
     Scaffoldapp::active_scaffold config, "admin.users", 
       :list         => [ :created_at, :email, :active, :name, :role ], 
       :show         => [ :email, :active, :nickname, :profile, :website, :country, :gender ],
-      :edit         => [ :email, :active, :nickname, :profile, :website, :country, :gender, :groups, :role, :avatar, :phone ],
+      :edit         => [ :email, :active, :nickname, :profile, :website, :country, :gender, :group_ids, :role_id, :avatar, :phone ],
       :actions_list => [ :delete_by_ids!, :activate!, :deactivate! ].concat(group_actions)
   end
 
@@ -51,14 +51,6 @@ class Admin::UsersController < Admin::BaseController
     else
      super   
     end
-  end
-  
-  # Active Scaffold hack
-  # AS is not updating associated records (reason unknown)
-  # This way it is possible to update the associations
-  def do_update
-    super
-    @record.group_ids = params[:record][:group_ids]
   end
   
   protected

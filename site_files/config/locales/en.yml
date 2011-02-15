@@ -626,6 +626,9 @@ en:
         behavior:
           at_time: "By date"
           after_time: "By elapsed time"
+          errors:
+            negative_time: "Time until behavior execution must be higher than zero seconds"
+            file_trick: "Invalid file"
       list_actions:
         delete_by_ids!: "Delete"
       list:
