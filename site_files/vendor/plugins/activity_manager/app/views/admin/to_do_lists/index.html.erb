@@ -207,25 +207,28 @@ jQuery.fn.makeSortable = function(){
 </script>
 
 <div class="content">
-<% if @reorder.nil? %>	
-  <% counter = 1 %>
-  <% @project.ordered_lists.each do |list| %>
-  <div class="title">
-    <h2><%= list.name %></h2>
-  </div>
-
-  <div id="list_<%= list.id %>" class="todo_list">
-    <%= render :partial => 'admin/to_do_lists/list.html.erb', :locals => {:list => list, :project => @project} %>
-  </div>
+<% if @project.ordered_lists.empty? %>
+  <center><%= t("admin.to_do_list.empty") %></center>
+<% else %>	
+  <% if @reorder.nil? %>	
+    <% counter = 1 %>
+    <% @project.ordered_lists.each do |list| %>
+    <div class="title">
+      <h2><%= list.name %></h2>
+    </div>
+  
+    <div id="list_<%= list.id %>" class="todo_list">
+      <%= render :partial => 'admin/to_do_lists/list.html.erb', :locals => {:list => list, :project => @project} %>
+    </div>
+    <% end %>
+    <% counter = counter+1 %>
+  
+  <% else %>
+    <div class="titles sortable connectable">
+    <% @project.ordered_lists.each do |list| %>
+      <li id="list_<%= list.id %>"><h2><%= list.name %></h2></li>
+    <% end %>
+    </div>
   <% end %>
-  <% counter = counter+1 %>
-
-<% else %>
-  <div class="titles sortable connectable">
-  <% @project.ordered_lists.each do |list| %>
-    <li id="list_<%= list.id %>"><h2><%= list.name %></h2></li>
-  <% end %>
-  </div>
 <% end %>
-
 </div>

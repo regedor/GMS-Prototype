@@ -14,7 +14,7 @@ class Mail < ActiveRecord::Base
   # Attributes Accessors
   # ==========================================================================
   
-  attr_accessor :mailable, :recipients
+  attr_accessor :mailable, :recipients, :recipients_text
   attr_accessible :sent_on, :subject, :message, :user
 
   # ==========================================================================

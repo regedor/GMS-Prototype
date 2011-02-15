@@ -25,7 +25,7 @@ class Admin::AnnouncementsController < Admin::BaseController
         end
       rescue ArgumentError
         flash[:error] = t("flash.invalid_date")
-        redirect_to :action => params[:action]
+        redirect_to :action => params[:action] == 'create' ? 'new' : 'edit'
         return
       end
     end

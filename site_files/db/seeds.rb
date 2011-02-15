@@ -113,3 +113,50 @@ puts "Creating projects..."
   mc1 = MessagesComment.new :body => "ahuetz", :message_id => 1, :user_id => 1
   mc1.save
 
+puts "Creating events... (DEBUG)"
+  e1 = Event.new :title => "Novo Evento XPTO", :description => "O melhor evento do mundo!", :starts_at => Time.now, :ends_at => Time.now + 2.days, :price => 200.10, :participation_message => "Obrigado por participar neste evento maravilhoso, para mais informações de como proceder ao pagamento, contacte o Zeca Ervilha, no cima do telhado do Departamento de Informática!"
+
+  e2 = Event.new :title => "Outro Evento XPTO+", :description => "O evento do momento!", :starts_at => Time.now + 2.days, :ends_at => Time.now + 3.days, :price => 20, :participation_message => "Este evento vai ser bués de altamente! Ficamos gratos por mostrar interesse em participar! Para efectuar o pagamento, fale com o Carlos Cagalhota! (+351 252 40 22 02)"
+
+  e3 = Event.new :title => "Jantar Multissensorial no Restaurante Panorâmico da Universidade do Minho", :starts_at => Time.now + 1.day, :ends_at => Time.now + 2.days, :participation_message => "Ainda bem que se inscreveu para este jantar, vai ser petáculo!", :description => "No próximo dia 6 de Novembro, convidamo-vos a desafiar os vossos sentidos numa experiência alimentar a realizar-se no Restaurante Panorâmico da Universidade do Minho, que explorará todos os canais sensoriais dispensando a visão. Esta terá início pelas 18h30 e incluirá a experimentação do olfacto, do tacto e do paladar (utilizando uma venda nos olhos), a detecção das dificuldades numa refeição para alguém que não vê e a aprendizagem de algumas estratégias para as contornar. A deslocação dos participantes terá o auxílio de um guia que garantirá a mobilidade e a orientação, havendo ainda espaço para reflexão, música e uma conversa agradável.
+ 
+Apesar de a cegueira ser uma experiência muito diferente em função da altura em que surge na vida, dos recursos que cada um tem para lhe fazer face e mesmo da forma como cada um lida com as situações que daí decorrem, esta iniciativa pretende ser uma oportunidade para aqueles que têm visão perceberem como muitas vezes se esquecem de potenciar todos os seus outros canais sensoriais. Aprenderão ainda algumas estratégias para que, quando partilharem uma refeição com uma pessoa cega, poderem orientá-la de forma mais adequada.
+ 
+Esta acção destina-se não apenas à comunidade académica da Universidade do Minho, mas também a todos os interessados."
+
+  a3 = EventActivity.new :title => "Participação multissensorial em Ilhas alimentares (com venda nos olhos)"
+
+  a4 = EventActivity.new :title => "Beber, cair e levantar!", :price => 15.0
+
+  e3.save
+  
+  a3.event = e3
+  a4.event = e3
+
+  a3.users << User.all
+  a4.users << User.find(1)
+
+  a3.save
+  a4.save
+
+  a1 = EventActivity.new :title => "primeira actividade!", :description => "super", :starts_at => Time.now + 1.hour, :ends_at => Time.now + 1.day, :price => 100.10
+
+  a2 = EventActivity.new :title => "segunda actividade!", :description => "ainda mais super", :starts_at => Time.now + 1.day, :ends_at => Time.now + 2.days, :price => 100
+
+  Status.new(:name => "not confirmed").save
+  Status.new(:name => "confirmed").save
+  Status.new(:name => "rejected").save
+
+  e2.users << User.find(2)
+  a1.users << User.find(1)
+  a2.users << User.find(2)
+
+  e1.save
+  e2.save
+
+  a1.event = e1
+  a2.event = e1
+
+  a1.save
+  a2.save
+
