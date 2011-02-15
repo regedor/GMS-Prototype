@@ -66,6 +66,15 @@ class Group < ActiveRecord::Base
     end.unshift self.name
   end
 
+  # Updates the number of users from the group and its subgroups
+  # Used raw SQL to avoid cyclic after_save callback
+  def update_user_count
+    self.subgroups.each do |group|
+      #group.update_attribute :user_count, group.all_users.size
+      ActiveRecord::Base::connection().update("UPDATE groups SET user_count = #{group.all_users.size} WHERE id = #{group.id}") 
+    end
+  end
+
   def set_behavior
     if self.behavior_type.blank?
       self.behavior_at_time = nil
@@ -77,30 +86,25 @@ class Group < ActiveRecord::Base
     end
   end
 
-  # Updates the number of users from the group and its subgroups
-  # Used raw SQL to avoid cyclic after_save callback
-  def update_user_count
-    self.subgroups.each do |group|
-      #group.update_attribute :user_count, group.all_users.size
-      ActiveRecord::Base::connection().update("UPDATE groups SET user_count = #{group.all_users.size} WHERE id = #{group.id}") 
-    end
-  end
-
   # Executes the group behaviour
   # Creates a new dealyed_job if needed
   def execute_behaviour
-   # if ::by_date
-   #   send "Behaviour::#{::self.behaviour}::execute", self.direct_users, ::new_group_id => self.behaviour_group_to_id
-   #   
-   # else
-   #   users = self.group_users :order => "created_at ASC", :limit => 2
-   #   if not users.empty?
-   #     send "Behaviour::#{::self.behaviour}::execute", [users.first], ::new_group_id => self.behaviour_group_to_id
-   #   elsif users.size == 2
-   #     delay.execute_behaviour
-   #   end
-   #   
-   # end
+    if self.behavior_at_time
+      if Time.now >= self.behavior_at_time
+        self.direct_users.each { |user| user.group_ids = user_group_ids - [self.id] + [self.behavior_group_to_jump_id] }
+      else 
+        self.delay(:run_at => self.behavior_at_time).execute_behavior
+      end
+    elsif self.behavior_after_time
+      execute_at = Time.now - self.behavior_after_time
+      self.group_users(:conditions => "created_at < #{execute_at}").each do |group_user|
+        group_user.user.group_ids = user_group_ids - [self.id] + [self.behavior_group_to_jump_id]
+      end
+      if group_user = self.group_users(:order => "created_at ASC", :limit => 1).first
+        next_execution = group_user.created_at + self.behavior_after_time
+        self.delay(:run_at => next_execution).execute_behavior
+      end
+    end
   end
 
 
@@ -128,4 +132,8 @@ class Group < ActiveRecord::Base
 
   end
   
-end
+end101       if group_user = self.group_users(:order => "created_at ASC", :limit => 1).first
+102         next_execution = group_user.created_at + self.behavior_after_time
+103         self.delay(:run_at => next_execution).execute_behavior
+104       end
+
