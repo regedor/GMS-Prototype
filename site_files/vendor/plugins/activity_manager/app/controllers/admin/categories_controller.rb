@@ -15,19 +15,31 @@ class Admin::CategoriesController < Admin::BaseController
   end  
   
 
-  
-  
   def create
-    category = Category.new params[:category]
-    category.project_id = params[:project_id]
-    category.save
+    @project = Project.find(params[:project_id])
     
-    redirect_to admin_project_path(params[:project_id])
+    category = Category.new params[:category]
+    category.project = @project
+    if category.save
+      respond_to do |format|
+        format.json { render :json  =>  {
+              'html'=> render_to_string(:partial => "admin/categories/category.html.erb", :layout => false, :locals => {:category => category, :project => @project}) 
+          }  
+        }
+      end
+    else
+      flash[:error] = t("flash.categories_error")
+      redirect_to new_admin_project_category_path(params[:project_id])  
+    end  
+    
+    
   end
 
 
   def index
+    @record = Category.new
     @project = Project.find(params[:project_id])
+    @categories = @project.categories
   end
   
   def update
@@ -41,13 +53,13 @@ class Admin::CategoriesController < Admin::BaseController
     redirect_to admin_project_category_path(params[:id])
   end  
   
-  def destroy
+  def destroy   
+    record = Category.find(params[:id])
+    record.destroy
     
-   @record = Category.find(params[:id])
-   @record.destroy
-
-   redirect_to admin_project_categories_path
-    
+    respond_to do |format|
+      format.js { render :text  => params[:id] }
+    end  
   end
   
   

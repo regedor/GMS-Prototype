@@ -83,7 +83,10 @@
 								'admin/categories'],
                               admin_projects_path %>
           <%= navigation_menu 'admin.navigation.main.events',
-                              [ 'admin/events'],
+                              [ 'admin/events',
+                                'admin/event_manage',
+                                'admin/event_activities',
+                                'admin/event_activities_manage'],
                               admin_events_path %>
         </ul>
       </div>
@@ -125,6 +128,15 @@
                                             { :controller_paths => 'admin/settings',
                                               :i18n_path => 'admin.navigation.secondary.settings',
                                               :link_to_path => admin_settings_path }],
+
+                                          :specify_first => true %>
+
+            <%= secondary_navigation_menu [ { :controller_paths => [ 'admin/events',
+                                                                     'admin/event_manage',
+                                                                     'admin/event_activities',
+                                                                     'admin/event_activities_manage' ],
+                                              :i18n_path => 'admin.navigation.secondary.events',
+                                              :link_to_path => admin_events_path }],
 
                                           :specify_first => true %>
 

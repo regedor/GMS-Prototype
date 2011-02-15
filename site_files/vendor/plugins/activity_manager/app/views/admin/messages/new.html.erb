@@ -1,29 +1,16 @@
-  <div class="content">
-    <div class="inner">
-    
-    <div class="categories">
-        
-    </div>
-
-
-      <h2><%= I18n::t('admin.messages.form.new')  %></h2>
-
-      <% semantic_form_for @record,
-                           :url => admin_project_messages_path,
-                           :html => { :class => 'create', :id => 'new_message' } do |form| -%>
-
-	<%= render :partial => 'form', :locals => {:form => form} %>
-
-        <p class="form-footer">
-          <% form.buttons do -%>
-
-            <%= form.commit_button t('admin.messages.form.create_button'),
-                                   :button_html => {:class => "submit"} %>
-            <%= form.button_link   t('admin.messages.form.cancel_button'), admin_project_messages_path,
-                                   :button_html => {:class => "negative"} %>
-          <% end -%>
-        </p>
-
+<div class="content">
+  <div class="inner">
+    <h2><%= I18n::t('admin.messages.form.new')  %></h2>
+    <% semantic_form_for @record,
+                         :url => admin_project_messages_path,
+                         :html => { :class => 'create', :id => 'new_message' } do |form| -%>
+      <%= render :partial => 'form', :locals => {:form => form} %>
+      <% form.buttons do -%>
+        <%= form.commit_button t('admin.messages.form.create_button'),
+                               :button_html => {:class => "submit"} %>
+        <%= form.button_link   t('admin.messages.form.cancel_button'), admin_project_messages_path,
+                               :button_html => {:class => "negative"} %>
       <% end -%>
-    </div>
+    <% end -%>
   </div>
+</div>
