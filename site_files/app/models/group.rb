@@ -126,14 +126,10 @@ class Group < ActiveRecord::Base
     # Updates delayed_jobs table
     #
     def update_behaviour_delayed_jobs
-
+      #Delayed::Job.all 
     end
 
 
   end
   
-end101       if group_user = self.group_users(:order => "created_at ASC", :limit => 1).first
-102         next_execution = group_user.created_at + self.behavior_after_time
-103         self.delay(:run_at => next_execution).execute_behavior
-104       end
-
+end
