@@ -10,12 +10,20 @@ class Event < ActiveRecord::Base
   # Validations
   # ==========================================================================
 
+  validates_presence_of :description
+
   # ==========================================================================
   # Instance Methods
   # ==========================================================================
 
+  before_save :format_description
+
   attr_accessor :starts_at_natural
   attr_accessor :ends_at_natural
+
+  def format_description
+    self.description_html = TextFormatter.format_as_xhtml(self.description)
+  end
 
   def status(user_id)
     self.events_users.find_by_user_id(user_id).status

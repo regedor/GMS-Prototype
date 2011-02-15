@@ -3,6 +3,7 @@ class CreateEvents < ActiveRecord::Migration
     create_table :events do |t|
       t.string :title
       t.string :description
+      t.string :description_html
       t.datetime :starts_at
       t.datetime :ends_at
       t.float :price,        :default => 0
@@ -33,6 +34,7 @@ class CreateEvents < ActiveRecord::Migration
       t.integer :event_id
       t.string :title
       t.string :description
+      t.string :description_html
       t.float :price,        :default => 0
       t.datetime :starts_at
       t.datetime :ends_at

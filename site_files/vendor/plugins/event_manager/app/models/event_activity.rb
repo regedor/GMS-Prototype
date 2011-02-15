@@ -11,10 +11,17 @@ class EventActivity < ActiveRecord::Base
   # Validations
   # ==========================================================================
   validates_presence_of :event
+  validates_presence_of :description
 
   # ==========================================================================
   # Instance Methods
   # ==========================================================================
+
+  before_save :format_description
+
+  def format_description
+    self.description_html = TextFormatter.format_as_xhtml(self.description)
+  end
 
   def status(user_id)
     self.event_activities_users.find_by_user_id(user_id).status
