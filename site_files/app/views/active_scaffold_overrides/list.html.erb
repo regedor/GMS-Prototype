@@ -3,11 +3,6 @@
 <% content_for(:head) do -%>
   <%= javascript_include_tag 'list_actions' %>
 <% end -%>
-<% if File.exists?(Rails.root.join("app", "views", params[:controller], "_sidebar.html.erb")) %>
-  <% content_for :sidebar do -%>
-    <%= render :partial => 'sidebar'  %>
-  <% end -%>
-<% end -%>
 <div class="content">
   <div class="inner">
     <%= render :super %>

@@ -31,9 +31,8 @@
 			<%= f.input :to_do_list_id, :as => :hidden, :value => list.id %>
 		  <% end  %>
 		  <% f.buttons do %>
-		    <%= f.button_link t("admin.to_do.add_new.add_button"), "#anchor_#{list.id}",:button_html => {:id => "add_todo-#{list.id}",:class => "add_todo button", :onclick => "jQuery(this).newTodo();"} %>
-		    <span>or</span>
-			<%= link_to t("admin.to_do.add_new.done_adding"), "#anchor_#{list.id}",{:class => "done_adding_link button", :onclick => "jQuery(this).doneTodo();"} %>
+		    <%= f.button_link t("admin.to_do.add_new.add_button"), "#anchor_#{list.id}", :button_html => {:id => "add_todo-#{list.id}",:class => "add_todo button positive", :onclick => "jQuery(this).newTodo();"} %>
+                    <%= f.button_link t("admin.to_do.add_new.done_adding"), "#anchor_#{list.id}", :button_html => { :class => "done_adding_link button negative", :onclick => "jQuery(this).doneTodo();"} %>
 		  <% end %>
 		<% end %>		
 	</div>	
