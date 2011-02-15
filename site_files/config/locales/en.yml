@@ -277,6 +277,7 @@ en:
           name: "Name"
           create_button: "Create"
           cancel_button: "Cancel"
+                
     
     project:
       index:
@@ -872,12 +873,14 @@ en:
     reverted_with_sucess: "Successfully reverted."
     description_required: "Description field is required."
     invalid_date: "Invalid date format."
-    project_created: "Succefully created the project."
+    project_created: "Succesfully created the project."
     project_creation_fail: "An error occured while creating the project."
     to_do_comment_creation_fail: "An error occured while creating the comment."
-    to_do_comment_created: "Succefully created the comment on %{todo}."
+    to_do_comment_created: "Succesfully created the comment on %{todo}."
     mail_not_sent: "The e-mail to %{mail} could not be sent"
     mail_not_sent_multiple: "Some emails could not be sent"
+    categories_error: "Could not save the category"
+    category_deleted: "Category succesfully deleted"
   
   notifier: 
     to_do_notification: 
