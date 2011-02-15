@@ -33,6 +33,12 @@
     <% end -%>
   <% end -%>
 
+  <% if File.exists?(Rails.root.join('app', 'views', params[:controller], '_sidebar.html.erb')) %>
+    <% content_for :sidebar do -%>
+      <%= render :partial => 'sidebar' %>
+    <% end -%>
+  <% end -%>
+
   
 </head>
 <body id="<%= @controller.controller_name + "_" + @controller.action_name %>">
@@ -72,7 +78,8 @@
           <%= navigation_menu 'admin.navigation.main.projects',
                               [ 'admin/projects',
 								'admin/to_do_lists',
-								'admin/to_do_comments',
+                                                                'admin/to_do_comments',
+                                                                'admin/messages',
 								'admin/categories'],
                               admin_projects_path %>
         </ul>

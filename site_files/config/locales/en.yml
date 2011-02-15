@@ -26,12 +26,17 @@ en:
       openid: "OpenID URL"
       language: "Language"
       choosable_groups: "Optional groups"
+      country: "Country"
+      emails: "Receive emails"
+      profile: "Profile"
     edit:
       title: "Edit account"
       commit_button: "Update account"
       form_inputs_name: "User information"
       form_auth_inputs_name: "Authentication"
       form_group_inputs_name: "Groups"
+      form_profile_inputs_name: "Profile"
+      form_side_notes: "Here you can edit your account details."
     comment:
       cancel: "Cancel"
     new:
@@ -60,8 +65,11 @@ en:
       edit_link: "Edit account"
       session:
         title: "Session details"
-        invite:
-          title: "Invitations"
+      invite:
+        title: "Invitations"
+    update:
+      commit_button: "Update"
+      cancel_button: "Cancel"
   
   user_session:
     errors:
@@ -189,6 +197,7 @@ en:
         description_hint: "This description is optional, use it to explain the purpose of the list, if needed"
         create_button: "Create"  
         cancel_button: "Cancel"
+      empty: "There are no To-Do lists"    
     
     to_do:
       add_new:
@@ -219,7 +228,7 @@ en:
       new:
         users: "Users to mail"
         body: "Comment"
-        create_button: "Create"
+        create_button: "Comment"
         preview_button: "Preview"
         cancel: "Cancel"
         edit_button: "Edit"
@@ -264,6 +273,7 @@ en:
          title: "Categories of"
         form:
           new: "New Category"
+          edit: "Edit Category"
           name: "Name"
           create_button: "Create"
           cancel_button: "Cancel"
@@ -312,6 +322,9 @@ en:
           configure_settings: "Configure Settings"
 
     mails:
+      vals:    
+        users: "Users"
+        groups: "Groups"    
       title: "Emails"
       to: "To:"
       subject: "Subject:"
@@ -414,7 +427,7 @@ en:
         website:  "Website"
         country:  "Country"
         phone:    "Phone"
-        emails:   "Emails"
+        emails:   "Receive emails"
         language: "Language"
         groups:   "Groups"
         role:     "Role"
@@ -1130,11 +1143,15 @@ en:
       less_than_or_equal_to: "must be less than or equal to %{count}"
       odd: "must be odd"
       even: "must be even"
-    models:
+    attributes:
       user:
-        attributes:
-          phone:
-            invalid: "must be a valid telephone number."
+        gender: "Gender"
+        mails: "Receive emails"
+#    models:
+#      user:
+#        attributes:
+#          phone:
+#            invalid: "must be a valid telephone number."
     full_messages:
       format: "%{attribute}%{message}"
 
