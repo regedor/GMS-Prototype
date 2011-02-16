@@ -5,7 +5,7 @@ ActionController::Routing::Routes.draw do |map|
   # ==========================================================================
 
   map.namespace :admin do |admin|
-#    admin.resources :events,          :active_scaffold => true, :active_scaffold_sortable => true 
+    admin.resources :events,          :active_scaffold => true, :active_scaffold_sortable => true 
     admin.resources :events,          :member => { :userUpdate => :post }
     admin.resources :events,          :member => { :delete => :get }
     admin.resources :events do |event|

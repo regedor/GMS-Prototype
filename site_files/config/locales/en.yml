@@ -325,6 +325,12 @@ en:
           manage_groups: "Manage User Groups"
           configure_settings: "Configure Settings"
 
+    event:
+      activities:
+        manage:
+          button:
+            search: "Search"
+
     events:
       index:
         title: "Events"
