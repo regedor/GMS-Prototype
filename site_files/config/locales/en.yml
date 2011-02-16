@@ -1186,6 +1186,11 @@ en:
     full_messages:
       format: "%{attribute}%{message}"
 
+  events:
+    view:
+      button:
+        update: "Update"
+
   support:
     select:
       # default value for :prompt => true in FormOptionsHelper
