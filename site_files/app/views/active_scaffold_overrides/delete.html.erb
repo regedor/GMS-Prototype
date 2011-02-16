@@ -4,11 +4,11 @@
   <div class="inner">
     <h2>Are you sure you want to delete?</h2>
     <% semantic_form_for :record, @record,
-                         :url => admin_user_path(@record),
+                         :url => send("admin_#{@record.class.to_s.downcase}_path",@record),
                          :html => { :method => :delete } do |form| -%>
       <% form.buttons do -%>
-        <%= form.button_link I18n::t('admin.users.form.update_button'),
-                             :button_html => { :class => 'button positive' } %>
+        <%= form.commit_button I18n::t('admin.users.form.delete_button'),
+                               :button_html => { :class => 'button positive' } %>
         <%= form.button_link I18n::t('admin.users.form.cancel_button'), @record,
                              :button_html => { :class => 'button negative' } %>
       <% end -%>
