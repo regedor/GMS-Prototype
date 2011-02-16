@@ -23,7 +23,8 @@ class Admin::CategoriesController < Admin::BaseController
     if category.save
       respond_to do |format|
         format.json { render :json  =>  {
-              'html'=> render_to_string(:partial => "admin/categories/category.html.erb", :layout => false, :locals => {:category => category, :project => @project}) 
+              'html'=> render_to_string(:partial => "admin/categories/category.html.erb", :layout => false, :locals => {:category => category, :project => @project}),
+              'sidebar_html' => render_to_string(:partial => "admin/categories/sidebar.html.erb", :layout => false, :locals => {:categories => @project.categories})
           }  
         }
       end
@@ -57,8 +58,14 @@ class Admin::CategoriesController < Admin::BaseController
     record = Category.find(params[:id])
     record.destroy
     
+    @project = Project.find(params[:project_id])
+    
     respond_to do |format|
-      format.js { render :text  => params[:id] }
+      format.json { render :json  => {
+        'id' => params[:id], 
+        'sidebar_html' => render_to_string(:partial => "admin/categories/sidebar.html.erb", :layout => false, :locals => {:categories => @project.categories})
+        } 
+      }
     end  
   end
   

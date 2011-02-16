@@ -7,13 +7,15 @@ jQuery(document).ready(function($) {
 			jQuery.ajax({
 		      type: 'DELETE',
 		      url: window.location.href.replace(/\#.*/,"")+"/"+$(this).parent().parent().attr("id").split("_")[1],
+			  dataType: "json",
 		      error: function() {
 		        $("#flash").renderFlash("notifier.actions.failure", "error", {"action":"destroy"});
 				return false;
 		      },
 		      success: function(r) {
 					$("#flash").renderFlash("flash.category_deleted", "notice");
-			  		$("#category_"+r).remove();
+					$("#sidebar").html(r.sidebar_html);
+			  		$("#category_"+r.id).remove();
 		      }
 		    });
 
@@ -36,6 +38,7 @@ jQuery(document).ready(function($) {
 	          },
 	          success: function(r) {
 	            $("#added_categories").append(r.html);
+				$("#sidebar").html(r.sidebar_html);
 				$("#category_name").val("");
 	          }
 	        });	
