@@ -328,16 +328,46 @@ en:
           manage_groups: "Manage User Groups"
           configure_settings: "Configure Settings"
 
+    activities:
+      form:
+        new: "New Activity"
+        create_button: "Create"
+        cancel_button: "Cancel"
+      view:
+        title: "Title"
+        description: "Description"
+        starts_at: "Starts at"
+        ends_at: "Ends at"
+        price: "Price"
+
     event:
       activities:
+        index:
+          title: "Activities"
+          create: "New Activity"
+          show_link: "Details"
+          update_link: "Edit"
+          destroy_link: "Delete"
         manage:
           button:
             search: "Search"
+        columns:
+          title: "Title"
+          description: "Description"
+          starts_at: "Starting date"
+          ends_at: "Ending date"
+          price: "Price"
+        list:
+          found:
+            more: "%{count} Activities Found"
+            one: "%{count} Activity Found"            
+          noentries: "No Activities Found"              
 
     events:
       index:
         title: "Events"
         create: "New Event"
+        list_activities: "Show Activities"
         show_link: "Details"
         update_link: "Edit"
         destroy_link: "Delete"
