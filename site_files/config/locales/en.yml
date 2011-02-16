@@ -504,6 +504,7 @@ en:
         active: "Active"
 
       form:
+        delete_button: "Delete"  
         update_button: "Update"
         cancel_button: "Cancel"
         edit: "Update user"
@@ -936,6 +937,8 @@ en:
     mail_not_sent_multiple: "Some emails could not be sent"
     categories_error: "Could not save the category"
     category_deleted: "Category succesfully deleted"
+    project_deleted: "Deleted %{project}"
+    project_not_deleted: "Could not delete %{project}"
   
   notifier: 
     to_do_notification: 
