@@ -183,6 +183,7 @@ en:
         to_do_lists: "To-Do Lists"
         messages: "Messages"
         to_do_comments: "Comments"
+        events: "Events"
     
     to_do_list:
       sidebar:
@@ -302,6 +303,8 @@ en:
         description: "Description"
         groups: "Assigned Groups"
         user_id: "Created by"
+      form:
+        new: "New Project"
       list:
         noentries: "No Projects Found"
         found:
@@ -334,6 +337,10 @@ en:
     events:
       index:
         title: "Events"
+        create: "New Event"
+        show_link: "Details"
+        update_link: "Edit"
+        destroy_link: "Delete"
       columns:
         title: "Title"
         description: "Description"
@@ -350,8 +357,20 @@ en:
         starts_at: "Starting date"
         ends_at: "Ending date"
         cancel: "Go back"
+        participation_message: "Participation Message"
         button:
           update: "Update"
+      form:
+        new: "New Event"
+        edit: "Edit Event"
+        create_button: "Create"
+        update_button: "Update"
+        cancel_button: "Cancel"
+      list:
+        found:
+          more: "%{count} Events Found"
+          one: "%{count} Event Found"            
+        noentries: "No Events Found"              
 
     mails:
       vals:    

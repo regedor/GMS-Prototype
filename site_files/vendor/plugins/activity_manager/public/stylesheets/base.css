@@ -4,8 +4,12 @@
  ============================================================================
 */
 
-div.todo_list div.todos a                                           { color: red; font-size: 0.9em; }
-div.todo_list div.todos a:hover                                     { text-decoration: underline; }
+div.todo_list div.todos div.add_button a,
+div.todo_list div.todos span.todo_edit a,
+div.todo_list div.todos span.todo_delete a                          { color: red; font-size: 0.9em; }
+div.todo_list div.todos div.add_button a:hover,
+div.todo_list div.todos span.todo_edit a:hover,
+div.todo_list div.todos span.todo_delete a:hover                    { text-decoration: underline; }
 
 div.todo_list div.todos ul li.done_todo                             { color: #999; font-size: 0.9em; }
 div.todo_list div.todos ul li.done_todo strong.date_finished        { color: #555; }
