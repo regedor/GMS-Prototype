@@ -363,8 +363,8 @@ en:
       message: "Message:"
       send: "Send emails"
       group: " (Group)"
-      send_ok: "Email successfully sent to the following e-mail addresses:"
-      send_fail: "The email could not be sent, try again!"
+      send_ok: "Message will be sent"
+      send_fail: "The message could not be sent, try again!"
       list:
         found:
           more: "%{count} Emails Found"
