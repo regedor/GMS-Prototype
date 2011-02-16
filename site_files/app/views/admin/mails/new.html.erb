@@ -166,6 +166,9 @@ jQuery(document).ready(function($) {
   <% semantic_form_for @mail, :url=>admin_mails_path, :html => {:method => :post} do |f| %>
     <% f.inputs do %>
       <%= f.input :recipients_text, :as => :string, :label => t("admin.mails.title") %>
+      <%= f.input :message_type,    
+                  :as           =>  :radio,
+                  :collection   => [ [I18n::t('admin.mails.form.type.mail'), 'email'], [I18n::t('admin.mails.form.type.sms'), 'sms'] ] %>
       <%= f.input :subject, :as => :string, :label => t("admin.mails.subject")  %>
       <%= f.input :message, :as => :text, :label => t("admin.mails.message") %>
     <% end %>

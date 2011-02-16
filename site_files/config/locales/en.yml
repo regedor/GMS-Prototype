@@ -164,13 +164,13 @@ en:
         dashboard: "Dashboard"
         users: "User Management"
         website: "Website"
-        system: "System"
+        system: "Users"
         communication: "Communication"
         projects: "Projects"
         events: "Events"
       secondary:
         dashboard: "Dashboard"
-        users: "Users"
+        users: "Accounts"
         groups: "Groups"
         posts: "Posts"
         comments: "Comments"
@@ -178,7 +178,7 @@ en:
         pages: "Pages"
         settings: "Settings"
         undo_items: "Actions"
-        mails: "Send Email"
+        mails: "Send Message"
         projects: "Projects"
         to_do_lists: "To-Do Lists"
         messages: "Messages"
@@ -348,29 +348,30 @@ en:
       vals:    
         users: "Users"
         groups: "Groups"    
-      title: "Emails"
+      title: "Recipients"
       to: "To:"
       subject: "Subject:"
-      message: "Message:"
-      send: "Send emails"
+      message: "Text:"
+      send: "Send message"
       group: " (Group)"
       send_ok: "Email successfully sent to the following e-mail addresses:"
       send_fail: "The email could not be sent, try again!"
       list:
         found:
-          more: "%{count} Emails Found"
-          one: "%{count} Email Found"            
-        noentries: "No Emails Found"              
+          more: "%{count} Messages Found"
+          one: "%{count} Message Found"            
+        noentries: "No Messages Found"              
       index:
         destroy_link: "Delete"
         show_link: "Details" 
-        title: "Sent Mails" 
+        title: "Sent Messages" 
       columns:    
         sent_on: "Sent on"
         subject: "Subject"
-        message: "Message"
+        message: "Text"
         xml_groups_and_users: "To"
         user_id: "From"      
+        message_type: "Type"
       create:
         title: "Mail"
       new:
@@ -378,7 +379,11 @@ en:
           title: "Mail Management"
           content: "Here you can manage and send emails."
           sent_mails: "Outbox"
-          go_to_sent_mails: "Sent Mails"
+          go_to_sent_mails: "Sent Messages"
+      form:
+        type:
+          sms: "SMS"
+          mail: "Email"
                             
     users:
       index:
