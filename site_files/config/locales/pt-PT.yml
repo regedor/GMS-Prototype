@@ -99,11 +99,11 @@ pt-PT:
         dashboard: "Painel de Controlo"
         users: "Gestão de Uilizadores"
         website: "Website"
-        system: "Sistema"
+        system: "Sócios"
         communication: "Comunicação"
       secondary:
         dashboard: "Painel de Controlo"
-        users: "Sócios"
+        users: "Contas"
         groups: "Grupos"
         posts: "Posts"
         comments: "Comentários"

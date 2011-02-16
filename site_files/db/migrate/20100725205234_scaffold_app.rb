@@ -203,6 +203,7 @@ class ScaffoldApp < ActiveRecord::Migration
       t.text     :message
       t.string   :subject,              :null => false
       t.integer  :user_id #sender
+      t.string   :message_type,                 :null => false #type of the message
       t.text     :xml_groups_and_users
       t.text     :xml_users
     end
