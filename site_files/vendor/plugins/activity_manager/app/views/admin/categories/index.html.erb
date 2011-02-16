@@ -1,18 +1,75 @@
-<div class="content">
-  
-  <% if @categories.empty? %>
-    <p><%= I18n::t('admin.categories.list.empty') %></p>
-  <% else %>
+<script>
+jQuery.noConflict();
 
-  <div id="categories">
-    <% @categories.each do |category| -%>
-    <div class="category">
-     	<%= render :partial => 'category', :locals => {:project => @project, :category => category} %>
+jQuery(document).ready(function($) {
+  
+	jQuery.fn.delete = function(){
+			jQuery.ajax({
+		      type: 'DELETE',
+		      url: window.location.href.replace(/\#.*/,"")+"/"+$(this).parent().parent().attr("id").split("_")[1],
+		      error: function() {
+		        $("#flash").renderFlash("notifier.actions.failure", "error", {"action":"destroy"});
+				return false;
+		      },
+		      success: function(r) {
+					$("#flash").renderFlash("flash.category_deleted", "notice");
+			  		$("#category_"+r).remove();
+		      }
+		    });
+
+		return false;
+	  }
+
+	jQuery.fn.newCat = function(){
+  		var form = $('#new_category');
+		
+		
+		if (form.length > 0) {
+		  	jQuery.ajax({
+	          type: 'POST',
+	          data: form.serialize().replace(/&*_method=\w+&*/, ''),
+	          url: window.location.href.replace(/\#.*/,"")+"/create",
+			  dataType: "json",
+	          error: function() {
+	            $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"create"});
+				return false;
+	          },
+	          success: function(r) {
+	            $("#added_categories").append(r.html);
+				$("#category_name").val("");
+	          }
+	        });	
+		}	
+   }
+});
+</script>  
+
+<div class="content">
+  <div class="inner">
+
+    <h2><%= I18n::t('admin.categories.form.new')  %></h2>
+
+    <div id="added_categories">
+    	<% @categories.each do |category| %>
+			<%= render :partial => "admin/categories/category.html.erb", :layout => false, :locals => {:category => category, :project => @project} %>
+		<% end %>
     </div>
-        </td>
-      </tr>
+
+    <% semantic_form_for @record,
+                         :url => admin_project_categories_path,
+                         :html => { :class => 'create', :id => 'new_category' } do |form| -%>
+      <% form.input_field_set do -%>
+	      <%= form.input :name,
+                       :label    => I18n::t('admin.categories.form.name') %>       
+      <% end -%>
+
+      <% form.buttons do -%>
+        <%= form.button_link t('admin.categories.form.create_button'), "#commit_button",
+                                 :button_html => {:id => "commit_button", :class => "button positive submit", 
+										          :onclick => "jQuery(this).newCat();"} %>
+	    <%= form.button_link   t('admin.categories.form.cancel_button'), admin_project_categories_path,
+                                 :button_html => {:class => "button negative"} %>
+      <% end -%>
     <% end -%>
-    </table>
-  </div>  
-  <% end %>
+  </div>
 </div>

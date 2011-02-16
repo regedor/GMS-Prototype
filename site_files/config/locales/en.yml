@@ -187,7 +187,7 @@ en:
     to_do_list:
       sidebar:
         title: "To-Do Lists"
-        paragraph: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."          
+        paragraph: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."          
         select_title: "Change project:"
         back: "Back to projects list"
         reorderLists: "Reorder To-Do lists"
@@ -247,6 +247,7 @@ en:
         author_on_date: "on"
         by_category: "Messages on"
         all: "All Messages"
+        empty: "There are no messages"
       columns:
         title: "Message title"
         body: "Body"
@@ -265,19 +266,21 @@ en:
         comment: "New comment"
       sidebar:
         title: "Messages"
-        paragraph: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."          
+        paragraph: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."          
         categories: "Browse by category:"
         
     
     categories:
         list:
          title: "Categories of"
+         empty: "There are no categories"
         form:
           new: "New Category"
           edit: "Edit Category"
           name: "Name"
           create_button: "Create"
           cancel_button: "Cancel"
+                
     
     project:
       index:
@@ -901,12 +904,14 @@ en:
     reverted_with_sucess: "Successfully reverted."
     description_required: "Description field is required."
     invalid_date: "Invalid date format."
-    project_created: "Succefully created the project."
+    project_created: "Succesfully created the project."
     project_creation_fail: "An error occured while creating the project."
     to_do_comment_creation_fail: "An error occured while creating the comment."
-    to_do_comment_created: "Succefully created the comment on %{todo}."
+    to_do_comment_created: "Succesfully created the comment on %{todo}."
     mail_not_sent: "The e-mail to %{mail} could not be sent"
     mail_not_sent_multiple: "Some emails could not be sent"
+    categories_error: "Could not save the category"
+    category_deleted: "Category succesfully deleted"
   
   notifier: 
     to_do_notification: 
