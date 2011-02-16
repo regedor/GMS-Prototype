@@ -1,4 +1,3 @@
-<% content_for :sidebar, render(:partial => 'sidebar') -%>
 <script>
 
 jQuery.noConflict();
@@ -102,7 +101,7 @@ jQuery(document).ready(function($) {
     <% if @record.description_html    %> <%= t("admin.events.view.description_html") %> <br><span class="description"><%= @record.description_html       %></span><% end %> <br><br>
     <% if @record.price %> <%= t("admin.events.view.price") %> <br><span class="price"><%= @record.price %></span><% end %> <br><br>
     <% if @record.starts_at %> <%= t("admin.events.view.starts_at")  %> <br><span class="starts_at"><%= @record.starts_at %></span><% end %> <br><br>
-    <% if @record.ends_at   %> <%= t("admin.events.view.ends_at")    %> <br><span class="ends_at"><%= @record.ends_at   %></span>
+    <% if @record.ends_at   %> <%= t("events.view.ends_at")    %> <br><span class="ends_at"><%= @record.ends_at   %></span>
   <% if !@record.event_activities.empty? %>
   <br><br> <input type="checkbox" id="select_all" class="select_all"><%= t("admin.events.view.activities") %> <br><br>
   <% end %>
@@ -110,16 +109,16 @@ jQuery(document).ready(function($) {
   </dl>
   <% @checked_activities.each do |activity| %>
     <% if activity.status(current_user.id).id == 1 %>
-    <li><input type="checkbox" id="<%= activity.id %>" value="<%= activity.id %>" class="activity-checked" CHECKED /><span><a href="<%= admin_event_event_activity_path(activity.event_id,activity.id) %>"><%= activity.title %></a>( <%= t("admin.events.view.price") %> <%= activity.price %>)</span> **<%= activity.status(current_user.id).name %>**</li>
+    <li><input type="checkbox" id="<%= activity.id %>" value="<%= activity.id %>" class="activity-checked" CHECKED /><span><a href="<%= event_event_activity_path(activity.event_id,activity.id) %>"><%= activity.title %></a>( <%= t("events.view.price") %> <%= activity.price %>)</span> **<%= activity.status(current_user.id).name %>**</li>
     <% else %>
-    <li><span><a href="<%= admin_event_event_activity_path(activity.event_id,activity.id) %>"><%= activity.title %></a> ( <%= t("admin.events.view.price") %> <%= activity.price %>)</span> **<%= activity.status(current_user.id).name %>**</li>
+    <li><span><a href="<%= event_event_activity_path(activity.event_id,activity.id) %>"><%= activity.title %></a> ( <%= t("events.view.price") %> <%= activity.price %>)</span> **<%= activity.status(current_user.id).name %>**</li>
     <% end %>
   <% end %>
   <% @unchecked_activities.each do |activity| %>
-    <li><input type="checkbox" id="<%= activity.id %>" value="<%= activity.id %>" class="activity-unchecked" /><span><a href="<%= admin_event_event_activity_path(activity.event_id,activity.id) %>"><%= activity.title %></a>( <%= t("admin.events.view.price") %> <%= activity.price %>)</span></li>
+    <li><input type="checkbox" id="<%= activity.id %>" value="<%= activity.id %>" class="activity-unchecked" /><span><a href="<%= event_event_activity_path(activity.event_id,activity.id) %>"><%= activity.title %></a>( <%= t("events.view.price") %> <%= activity.price %>)</span></li>
   <% end %>
   <p class="form-footer">
-    <input type=button value="<%= t('admin.events.view.button.update') %>" class="update-button">
-    <%= link_to t("admin.events.view.cancel"), admin_events_path, :class => "cancel" %>  
+    <input type=button value="<%= t('events.view.button.update') %>" class="update-button">
+    <%= link_to t("events.view.cancel"), root_path, :class => "cancel" %>  
   </p>
 </div>

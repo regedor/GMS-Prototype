@@ -63,11 +63,11 @@ ActionController::Routing::Routes.draw do |map|
                                      :has_many        => :comments,
                                      :new             => { :preview => :post },
                                      :member          => { :check_delete => [:get, :post], :edit_tag => :get, :update_tag => :put },
-                                     :collection      => { :list_action => :post }
+                                     :collection      => { :list_action => :post, :preview => :post }
     admin.resources :pages,          :active_scaffold => true, :active_scaffold_sortable => true,
                                      :has_many        => :comments,
                                      :new             => { :preview => :post },
-                                     :collection      => { :list_action => :post }
+                                     :collection      => { :list_action => :post, :preview => :post }
     admin.resources :comments,       :active_scaffold => true, :active_scaffold_sortable => true,
                                      :only            => :destroy,
                                      :member          => { :mark_as_spam => :put, :mark_as_ham => :put }
