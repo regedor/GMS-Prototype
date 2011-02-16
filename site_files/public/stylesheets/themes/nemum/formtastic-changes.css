@@ -17,13 +17,13 @@ form.formtastic fieldset.inputs ol li input          { font-size: 0.9em; }
 a.button                                             { text-decoration: none; }
 
 a.button,
-input.button                                         { color: #2E2A2B; font-size: 0.8em !important; font-weight: bold !important; text-align: center }
+input.button                                         { color: #2E2A2B; font-size: 0.8em !important; font-weight: bold !important; text-align: center !important; }
 
 a.positive:hover,
-input.positive:hover                                 { color: #591; }
+input.positive:hover                                 { color: #591 !important; }
 
 a.negative:hover,
-input.negative:hover                                 { color: #D32; }
+input.negative:hover                                 { color: #D32 !important; }
 
 /*
 ============================================================================
