@@ -1,12 +1,20 @@
 class Admin::EventsController < Admin::BaseController
 
+  before_filter :date_localization, :only => [ :create, :update ]
+
   active_scaffold :event do |config|
-    Scaffoldapp::active_scaffold config, "admin.events"#,
-    #   :delete => true
-    #  :create => [ :title, :description, :starts_at, :ends_at, :price ],
-    #  :edit   => [ :title, :description, :starts_at, :ends_at, :price ]
+    Scaffoldapp::active_scaffold config, "admin.events",
+      :create => [ :title, :description, :starts_at, :ends_at, :price, :participation_message ],
+      :edit   => [ :title, :description, :starts_at, :ends_at, :price, :participation_message ],
+      :list   => [ :title, :starts_at, :ends_at, :price ],
+      :show   => [ ]
+
+#    config.action_links.add 'index', :type => :member, :page => true, :method => :get,
+ #                                    :label => I18n::t("admin.events.index.manage_link"),
+  #                                   :controller => 'admin/event_manage'
   end
 
+=begin
   def new
     @event = Event.new
   end
@@ -32,9 +40,11 @@ class Admin::EventsController < Admin::BaseController
   def index
     @events = Event.all
   end
+=end
 
   def show
-    refreshContent
+    redirect_to :action => 'index', :controller => 'admin/event_manage', :event_id => params[:id]
+    #refreshContent
   end
 
   def refreshContent
@@ -92,5 +102,19 @@ class Admin::EventsController < Admin::BaseController
     end
 
   end
+
+  protected
+
+    def date_localization
+      begin
+        [:starts_at, :ends_at].each do |attribute|
+          params[:record][attribute] = DateTime.strptime(params[:record][attribute], "%d/%m/%Y %H:%M").to_time
+        end
+      rescue ArgumentError
+        flash[:error] = t("flash.invalid_date")
+        redirect_to :action => params[:action] == 'create' ? 'new' : 'edit'
+        return
+      end
+    end
 
 end
