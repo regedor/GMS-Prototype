@@ -19,6 +19,10 @@ development: &local
     :domain: regedor.com
     :user_name: noreply@regedor.com
     :password: password
+  clickatell:  
+    user_id: '3274318'
+    username: 'tester'
+    password: 'tester'
 
 production: 
   theme: nemum
@@ -40,6 +44,9 @@ production:
     :domain: regedor.com
     :user_name: noreply@regedor.com
     :password: password
-
+  clickatell:  
+    user_id: '3274318'
+    username: 'tester'
+    password: 'tester'
 test:
   <<: *local

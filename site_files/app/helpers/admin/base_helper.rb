@@ -6,6 +6,10 @@ module Admin::BaseHelper
         link_to(record.title, post_path(record))
       when 'Page' then
         link_to(record.title, page_path(record))
+      when 'Event' then
+        link_to(record.title, event_path(record))
+      when 'EventActivity' then
+        link_to(record.title, event_event_activity_path(record.event_id,record))
       else
         record.title
     end

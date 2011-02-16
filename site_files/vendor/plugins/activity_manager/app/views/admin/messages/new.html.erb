@@ -7,9 +7,9 @@
       <%= render :partial => 'form', :locals => {:form => form} %>
       <% form.buttons do -%>
         <%= form.commit_button t('admin.messages.form.create_button'),
-                               :button_html => {:class => "submit"} %>
+                               :button_html => {:class => "button positive submit"} %>
         <%= form.button_link   t('admin.messages.form.cancel_button'), admin_project_messages_path,
-                               :button_html => {:class => "negative"} %>
+                               :button_html => {:class => "button negative"} %>
       <% end -%>
     <% end -%>
   </div>
