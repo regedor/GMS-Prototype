@@ -124,9 +124,9 @@ Apesar de a cegueira ser uma experiência muito diferente em função da altura 
  
 Esta acção destina-se não apenas à comunidade académica da Universidade do Minho, mas também a todos os interessados."
 
-  a3 = EventActivity.new :title => "Participação multissensorial em Ilhas alimentares (com venda nos olhos)", :description => "Indiscretível"
+  a3 = EventActivity.new :title => "Participação multissensorial em Ilhas alimentares (com venda nos olhos)", :description => "Indiscretível", :starts_at => Time.now, :ends_at => Time.now
 
-  a4 = EventActivity.new :title => "Beber, cair e levantar!", :price => 15.0, :description => "petaculare!"
+  a4 = EventActivity.new :title => "Beber, cair e levantar!", :price => 15.0, :description => "petaculare!", :starts_at => Time.now, :ends_at => Time.now
 
   e3.save
   

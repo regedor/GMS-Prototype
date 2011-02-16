@@ -1,26 +1,7 @@
-class Admin::EventsController < Admin::BaseController
-
-  before_filter :date_localization, :only => [ :create, :update ]
-
-  active_scaffold :event do |config|
-
-    config.action_links.add 'list_activities', :type => :member, :page => true, :method => :get,
-                                     :label => I18n::t("admin.events.index.list_activities")    
-
-    Scaffoldapp::active_scaffold config, "admin.events",
-      :create => [ :title, :description, :starts_at, :ends_at, :price, :participation_message ],
-      :edit   => [ :title, :description, :starts_at, :ends_at, :price, :participation_message ],
-      :list   => [ :title, :starts_at, :ends_at, :price ],
-      :show   => [ ]
-  end
-
-  def list_activities
-    redirect_to :action => 'index', :controller => 'admin/event_activities', :event_id => params[:id]
-  end
+class EventsController < ApplicationController
 
   def show
-    redirect_to :action => 'index', :controller => 'admin/event_manage', :event_id => params[:id]
-    #refreshContent
+    refreshContent
   end
 
   def refreshContent
@@ -67,7 +48,7 @@ class Admin::EventsController < Admin::BaseController
                   '</h2> <br> <br> ' + 
                   t("admin.events.view.totalprice") + 
                   ': ' + event_user.total_price.to_s + ' <br> <br> ' +
-                  '<a href="" onclick="windows.location.href=\"\"" class="cancel">' + t("admin.events.view.cancel") + '</a>'
+                  '<a href="" onclick="windows.location.href=\"\"" class="cancel">' + t("events.view.cancel") + '</a>'
           }
         }
        end

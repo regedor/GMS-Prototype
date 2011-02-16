@@ -1,21 +1,18 @@
 <div class="block">
-
+ <% @categories ||= categories  %>
   <h3><%= t("admin.messages.sidebar.title") %></h3>
   <div class="content">
     <ul class="navigation">
-      <li><%= link_to I18n::t('admin.messages.index.create'), new_admin_project_message_path %></li>
-    <% if permitted_to? :manage , @categories %>
-      <li>  <%= link_to "Manage Categories", admin_project_categories_path %></li>
-    <% end %>
+      <li><%= link_to I18n::t('admin.messages.index.create'), new_admin_project_message_path, :class => "button" %></li>
+      <li><%= link_to "Manage Categories", admin_project_categories_path, :class => "button" if permitted_to? :manage , @categories %></li>
     </ul>
   
     <p><%= t("admin.messages.sidebar.paragraph") %></p>
     <p><%= t("admin.messages.sidebar.categories") %></p>
     <ul class="navigation">
     <li> <%= link_to "All Messages", admin_project_messages_path(params[:project_id]) %> </li>
-    <% @categories.each do |c| %>
-     <li><%= link_to c.name, admin_project_category_path(params[:project_id],c.id) %></li>
-     <p>
+    <% @categories.each do |category| %>
+      <li><%= link_to category.name, admin_project_category_path(params[:project_id],category.id) %></li>
     <% end %>
     
     

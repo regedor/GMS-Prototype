@@ -164,13 +164,13 @@ en:
         dashboard: "Dashboard"
         users: "User Management"
         website: "Website"
-        system: "System"
+        system: "Users"
         communication: "Communication"
         projects: "Projects"
         events: "Events"
       secondary:
         dashboard: "Dashboard"
-        users: "Users"
+        users: "Accounts"
         groups: "Groups"
         posts: "Posts"
         comments: "Comments"
@@ -178,11 +178,12 @@ en:
         pages: "Pages"
         settings: "Settings"
         undo_items: "Actions"
-        mails: "Send Email"
+        mails: "Send Message"
         projects: "Projects"
         to_do_lists: "To-Do Lists"
         messages: "Messages"
         to_do_comments: "Comments"
+        events: "Events"
     
     to_do_list:
       sidebar:
@@ -303,6 +304,8 @@ en:
         description: "Description"
         groups: "Assigned Groups"
         user_id: "Created by"
+      form:
+        new: "New Project"
       list:
         noentries: "No Projects Found"
         found:
@@ -326,9 +329,19 @@ en:
           manage_groups: "Manage User Groups"
           configure_settings: "Configure Settings"
 
+    event:
+      activities:
+        manage:
+          button:
+            search: "Search"
+
     events:
       index:
         title: "Events"
+        create: "New Event"
+        show_link: "Details"
+        update_link: "Edit"
+        destroy_link: "Delete"
       columns:
         title: "Title"
         description: "Description"
@@ -345,36 +358,49 @@ en:
         starts_at: "Starting date"
         ends_at: "Ending date"
         cancel: "Go back"
+        participation_message: "Participation Message"
         button:
           update: "Update"
+      form:
+        new: "New Event"
+        edit: "Edit Event"
+        create_button: "Create"
+        update_button: "Update"
+        cancel_button: "Cancel"
+      list:
+        found:
+          more: "%{count} Events Found"
+          one: "%{count} Event Found"            
+        noentries: "No Events Found"              
 
     mails:
       vals:    
         users: "Users"
         groups: "Groups"    
-      title: "Emails"
+      title: "Recipients"
       to: "To:"
       subject: "Subject:"
-      message: "Message:"
-      send: "Send emails"
+      message: "Text:"
+      send: "Send message"
       group: " (Group)"
-      send_ok: "Email successfully sent to the following e-mail addresses:"
-      send_fail: "The email could not be sent, try again!"
+      send_ok: "Message will be sent"
+      send_fail: "The message could not be sent, try again!"
       list:
         found:
-          more: "%{count} Emails Found"
-          one: "%{count} Email Found"            
-        noentries: "No Emails Found"              
+          more: "%{count} Messages Found"
+          one: "%{count} Message Found"            
+        noentries: "No Messages Found"              
       index:
         destroy_link: "Delete"
         show_link: "Details" 
-        title: "Sent Mails" 
+        title: "Sent Messages" 
       columns:    
         sent_on: "Sent on"
         subject: "Subject"
-        message: "Message"
+        message: "Text"
         xml_groups_and_users: "To"
         user_id: "From"      
+        message_type: "Type"
       create:
         title: "Mail"
       new:
@@ -382,7 +408,11 @@ en:
           title: "Mail Management"
           content: "Here you can manage and send emails."
           sent_mails: "Outbox"
-          go_to_sent_mails: "Sent Mails"
+          go_to_sent_mails: "Sent Messages"
+      form:
+        type:
+          sms: "SMS"
+          mail: "Email"
                             
     users:
       index:
@@ -1180,6 +1210,11 @@ en:
 #            invalid: "must be a valid telephone number."
     full_messages:
       format: "%{attribute}%{message}"
+
+  events:
+    view:
+      button:
+        update: "Update"
 
   support:
     select:

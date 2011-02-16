@@ -15,6 +15,7 @@ class Group < ActiveRecord::Base
   # ==========================================================================
 
   validate                :validate_behavior
+  validates_presence_of   :name
   validates_uniqueness_of :name
   
   def validate_behavior

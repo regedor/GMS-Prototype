@@ -21,6 +21,7 @@ gem 'coderay'
 gem 'sparklines'
 gem 'chronic'                    , '0.3.0'
 gem 'tweet-button'
+gem 'clickatell'
 
 
 group :development do

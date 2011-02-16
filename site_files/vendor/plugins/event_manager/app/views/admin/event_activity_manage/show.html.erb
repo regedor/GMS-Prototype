@@ -76,6 +76,6 @@ jQuery(document).ready(function($) {
   <% end %>
   <p class="form-footer">
     <input type=button value="<%= t("admin.event.activities.view.button.update") %>" class="update-button">
-    <%= link_to t("admin.event.activities.view.cancel"), admin_event_event_activities_path(@record.event_id) + "/" + @record.id.to_s, :class => "cancel" %>  
+    <%= link_to t("admin.event.activities.view.cancel"), admin_event_event_activities_path(@record.event_id), :class => "cancel" %>  
   </p>
 </div>
