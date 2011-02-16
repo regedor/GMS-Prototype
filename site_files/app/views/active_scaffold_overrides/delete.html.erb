@@ -9,7 +9,7 @@
       <% form.buttons do -%>
         <%= form.commit_button I18n::t('admin.users.form.delete_button'),
                                :button_html => { :class => 'button positive' } %>
-        <%= form.button_link I18n::t('admin.users.form.cancel_button'), @record,
+        <%= form.button_link I18n::t('admin.users.form.cancel_button'), send("admin_#{@record.class.to_s.pluralize.downcase}_path"),
                              :button_html => { :class => 'button negative' } %>
       <% end -%>
     <% end -%>

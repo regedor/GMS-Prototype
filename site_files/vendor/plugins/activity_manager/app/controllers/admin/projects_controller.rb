@@ -43,6 +43,17 @@ class Admin::ProjectsController < Admin::BaseController
     
     redirect_to admin_projects_path
   end  
+  
+  def destroy
+    project = Project.find(params[:id])
+    if project.destroy
+      flash[:notice] = t("flash.project_deleted",:project => project.name)
+    else
+      flash[:error] = t("flash.project_creation_fail",:project => project.name)
+    end    
+    
+    redirect_to admin_projects_path
+  end  
 
   def create
     project = Project.new params[:project]
