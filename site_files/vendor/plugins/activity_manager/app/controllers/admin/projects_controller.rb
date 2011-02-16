@@ -48,7 +48,7 @@ class Admin::ProjectsController < Admin::BaseController
     project = Project.new params[:project]
     project.user = current_user
     if project.save
-      flash[:notice] = t("flash.project_created")
+      flash[:notice] = t("flash.project_created")    
     else
       flash[:error] = t("flash.project_creation_fail")
     end    
