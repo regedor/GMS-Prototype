@@ -7,6 +7,13 @@ class Admin::CategoriesController < Admin::BaseController
  # filter_access_to :update,:edit, :require => :update, :attribute_check => true
  # filter_access_to :delete,:destroy, :require => :delete, :attribute_check => true
   
+  before_filter :load_categories
+
+  
+  def new
+    @record = Category.new
+  end  
+  
 
   def create
     @project = Project.find(params[:project_id])
@@ -62,7 +69,13 @@ class Admin::CategoriesController < Admin::BaseController
     @messages = @category.messages
 
     # for sidebar
+  end
+
+  protected
+
+  def load_categories
     @categories = Project.find(params[:project_id]).categories
   end
+
 end
 
