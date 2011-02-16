@@ -3,44 +3,20 @@ class Admin::EventsController < Admin::BaseController
   before_filter :date_localization, :only => [ :create, :update ]
 
   active_scaffold :event do |config|
+
+    config.action_links.add 'list_activities', :type => :member, :page => true, :method => :get,
+                                     :label => I18n::t("admin.events.index.list_activities")    
+
     Scaffoldapp::active_scaffold config, "admin.events",
       :create => [ :title, :description, :starts_at, :ends_at, :price, :participation_message ],
       :edit   => [ :title, :description, :starts_at, :ends_at, :price, :participation_message ],
       :list   => [ :title, :starts_at, :ends_at, :price ],
       :show   => [ ]
-
-#    config.action_links.add 'index', :type => :member, :page => true, :method => :get,
- #                                    :label => I18n::t("admin.events.index.manage_link"),
-  #                                   :controller => 'admin/event_manage'
   end
 
-=begin
-  def new
-    @event = Event.new
+  def list_activities
+    redirect_to :action => 'index', :controller => 'admin/event_activities', :event_id => params[:id]
   end
-
-  def edit
-    @event = Event.find(params[:id])
-  end
-
-  def update
-    @event = Event.find(params[:id])
-    @event.update_attributes(params[:event])
-    @event.save!
-    redirect_to admin_event_path(@event.id)
-  end
-
-  def create
-    @event = Event.new
-    @event.attributes = params[:event]
-    @event.save!
-    redirect_to admin_event_path(@event.id)
-  end
-
-  def index
-    @events = Event.all
-  end
-=end
 
   def show
     redirect_to :action => 'index', :controller => 'admin/event_manage', :event_id => params[:id]
