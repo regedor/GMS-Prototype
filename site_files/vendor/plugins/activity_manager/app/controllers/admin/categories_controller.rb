@@ -50,7 +50,7 @@ class Admin::CategoriesController < Admin::BaseController
     category.name = @record[:name]
     category.save
 
-    redirect_to admin_project_category_path(params[:id])
+    redirect_to admin_project_category_path(params[:project_id],params[:id])
   end  
   
   def destroy   

@@ -279,6 +279,7 @@ en:
           edit: "Edit Category"
           name: "Name"
           create_button: "Create"
+          edit_button: "Edit"
           cancel_button: "Cancel"
                 
     
