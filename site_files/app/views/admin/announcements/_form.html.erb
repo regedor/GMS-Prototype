@@ -26,11 +26,11 @@ jQuery(document).ready(function($){
                  :label    => I18n::t('admin.announcements.columns.title') %>
   <%= form.input :starts_at,
                  :as => :string,
-                 :input_html => { :class => "datepicker", :value => l(@record.starts_at, :format => "%d/%m/%Y") },
+                 :input_html => { :class => "datepicker", :value => l(@record.starts_at, :format => "%d/%m/%Y %H:%M") },
                  :label    => I18n::t('admin.announcements.columns.starts_at') %>
   <%= form.input :ends_at,
                  :as => :string,
-                 :input_html => { :class => "datepicker", :value => @record.ends_at ? l(@record.ends_at, :format => "%d/%m/%Y") : '' },
+                 :input_html => { :class => "datepicker", :value => @record.ends_at ? l(@record.ends_at, :format => "%d/%m/%Y %H:%M") : '' },
                  :label    => I18n::t('admin.announcements.columns.ends_at') %>
   <%= form.input :url,
                  :required => false,

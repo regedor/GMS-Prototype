@@ -2,7 +2,7 @@ class Admin::PostsController < Admin::BaseController
   filter_access_to :all, :require => any_as_privilege
   before_filter :tags_in_instance_variable, :only => [ :list, :index ]
   before_filter :list_tags,                 :only =>   :index
-  before_filter :date_localization,         :only => [ :create, :update ]
+  before_filter :date_localization,         :only => [ :create, :update, :preview ]
 
   include ActionView::Helpers::TextHelper
 

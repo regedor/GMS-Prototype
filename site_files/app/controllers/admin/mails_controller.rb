@@ -5,8 +5,8 @@ class Admin::MailsController < Admin::BaseController
       config.subform.columns = [:name]
 
       Scaffoldapp::active_scaffold config, "admin.mails",
-        :list     => [ :sent_on, :subject, :message ],
-        :show     => [ :sent_on, :user_id, :xml_groups_and_users, :subject, :message],
+        :list     => [ :sent_on, :subject, :message, :message_type ],
+        :show     => [ :sent_on, :user_id, :xml_groups_and_users, :subject, :message, :message_type],
         :row_mark => [  ]
     end
   
@@ -48,10 +48,11 @@ class Admin::MailsController < Admin::BaseController
          users_and_groups << user
        end   
     end  
-    users_to_send.uniq!
+    users_to_send.uniq!    
     mail.recipients = users_and_groups
     mail.subject = params[:mail][:subject]
     mail.message = params[:mail][:message]
+    mail.message_type = params[:mail][:message_type]
     mail.user_id = current_user.id
     (Mail.send_emails(users_to_send,mail)) ? flash[:notice] = t("admin.mails.send_ok") : flash[:error] = t("admin.mails.send_fail")
     

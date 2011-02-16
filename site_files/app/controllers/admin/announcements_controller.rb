@@ -21,7 +21,7 @@ class Admin::AnnouncementsController < Admin::BaseController
     def date_localization
       begin
         [:starts_at, :ends_at].each do |attribute|
-          params[:record][attribute] = DateTime.strptime(params[:record][attribute], "%d/%m/%Y").to_time
+          params[:record][attribute] = DateTime.strptime(params[:record][attribute], "%d/%m/%Y %H:%M").to_time
         end
       rescue ArgumentError
         flash[:error] = t("flash.invalid_date")

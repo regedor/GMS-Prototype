@@ -1,0 +1,32 @@
+<%= include_i18n_calendar_javascript %>
+
+<script>
+jQuery.noConflict();
+
+jQuery(document).ready(function($){
+
+  var counter = 0;
+  var locale = ""
+  for (i in $.datepicker.regional) {
+    if (counter == 1) {
+      locale = i;
+      break;
+    }
+    counter++;
+  }
+
+  $.datepicker.setDefaults( $.datepicker.regional[ '' ] );      
+  $( ".datepicker" ).datetimepicker($.datepicker.regional[locale]);
+
+});
+</script>
+
+      <% form.inputs do %>
+        <%= form.input :title, :label => t('admin.activities.view.title') %>
+        <%= form.input :description, :label => t('admin.activities.view.description') %>
+        <%= form.input :starts_at,  :as => :string,
+                 :input_html => { :class => "datepicker", :value => @record.starts_at ? l(@record.starts_at, :format => "%d/%m/%Y %H:%M") : '' }, :label => t('admin.activities.view.starts_at') %>
+        <%= form.input :ends_at, :as => :string,
+                 :input_html => { :class => "datepicker", :value => @record.ends_at ? l(@record.ends_at, :format => "%d/%m/%Y %H:%M") : '' }, :label => t('admin.activities.view.ends_at') %>
+        <%= form.input :price, :as => :numeric, :label => t('admin.activities.view.price') %>
+      <% end %>
