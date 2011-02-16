@@ -12,8 +12,6 @@ a:visited,
 a:active                                  { text-decoration: none; color: #2E2A2B; }
 a:hover                                   { color: #555; }
 
-h4                                        { font-size: 1.3em; }
-
 p                                         { text-align: justify; line-height: 1.3em; }
 
 div#header div#user-navigation a,

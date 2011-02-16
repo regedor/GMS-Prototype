@@ -29,6 +29,11 @@ div#comments div.comment span.date                                  { font-size:
 div#comments div.comments_meta span.name                            { font-weight: bold; }
 div#comments div.comments_meta span.date                            { font-size: 0.9em; }
 
+div.header div#todo                                                 { font-size: 1.5em; }
+div.header div#todo.done                                            { text-decoration: line-through; }
+div.header div#todo span.due-date                                   { color: #999; }
+div.header div#todo span.responsible                                { font-weight: bold; }
+
 /*
  ============================================================================
  = General Structure
@@ -80,7 +85,4 @@ div#comments div.comment p                                  { margin: 10px 0 0; 
 
 div.new-comment                                             { margin: 20px 0 0; }
 
-div.header div#todo                                         { margin: 20px 0; padding: 1.2em; font-size: 1.5em; border-top: 1px solid #CCC; border-left: 1px solid #CCC; border-right: 2px solid #CCC; border-bottom: 2px solid #CCC; }
-div.header div#todo.done                                    { text-decoration: line-through; }
-div.header div#todo span.due-date                           { color: #999; }
-div.header div#todo span.responsible                        { font-weight: bold; }
+div.header div#todo                                         { margin: 20px 0; padding: 1.2em; border-top: 1px solid #CCC; border-left: 1px solid #CCC; border-right: 2px solid #CCC; border-bottom: 2px solid #CCC; }

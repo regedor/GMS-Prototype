@@ -52,7 +52,7 @@ class AddProjectsTables < ActiveRecord::Migration
       t.string   :title,                :null => false
       t.text     :body,                 :null => false
       t.text     :body_html,            :null => false
-      t.integer  :category_id,		:null => false
+      t.integer  :category_id
       t.integer  :user_id,              :null => false
       t.integer  :project_id,           :null => false
       t.timestamps

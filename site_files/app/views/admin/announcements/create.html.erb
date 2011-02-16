@@ -1,13 +1,3 @@
-<% if File.exists?(Rails.root.join("app", "views", params[:controller], "_new_sidebar.html.erb")) %>
-  <% content_for :sidebar do -%>
-    <%= render :partial => 'new_sidebar' %>
-  <% end -%>
-<% elsif File.exists?(Rails.root.join("app", "views", params[:controller], "_sidebar.html.erb")) %>
-  <% content_for :sidebar do -%>
-    <%= render :partial => 'sidebar' %>
-  <% end -%>
-<% end -%>
-
 <div class="content">
   <div class="inner">
     <h2><%= I18n::t('admin.announcements.form.new') %></h2>

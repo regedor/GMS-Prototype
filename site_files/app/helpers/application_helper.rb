@@ -43,6 +43,9 @@ module ApplicationHelper
         else raise ArgumentError, "Locale error"
       end
     end
+    content_for :head do
+      javascript_include_tag "jquery-ui-timepicker-addon.js"
+    end
   end
 
   def render_date(time)
