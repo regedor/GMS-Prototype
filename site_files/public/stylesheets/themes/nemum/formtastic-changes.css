@@ -17,7 +17,7 @@ form.formtastic fieldset.inputs ol li input          { font-size: 0.9em; }
 a.button                                             { text-decoration: none; }
 
 a.button,
-input.button                                         { color: #2E2A2B; font-size: 0.8em; font-weight: bold; text-align: center }
+input.button                                         { color: #2E2A2B; font-size: 0.8em !important; font-weight: bold !important; text-align: center }
 
 a.positive:hover,
 input.positive:hover                                 { color: #591; }
@@ -78,7 +78,7 @@ a.button,
 input.button                                         { border: 1px solid #AAA; }
 
 a.button                                             { padding: 5px 10px 7px; }
-input.button                                         { padding: 5px 10px; }
+input.button                                         { padding: 5px 10px !important; }
 
 a.button,
 input.button                                         { background: -webkit-gradient(linear,0% 30%,0% 90%,from(#F9F9F9),to(#E9E9E9)); background: -moz-linear-gradient(top, #FFF, #E9E9E9); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F9F9F9, endColorstr=#E9E9E9); -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#F9F9F9, endColorstr=#E9E9E9"; }
