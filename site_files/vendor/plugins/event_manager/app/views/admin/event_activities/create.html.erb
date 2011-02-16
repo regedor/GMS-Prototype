@@ -16,9 +16,9 @@
                          :html => { :class => 'create', :id => 'new_activity' } do |form| -%>
       <%= render :partial => 'form', :locals => {:form => form} %>
       <% form.buttons do -%>
-        <%= form.commit_button I18n::t('admin.activitys.form.create_button'),
+        <%= form.commit_button I18n::t('admin.activities.form.create_button'),
                                :button_html => { :class => 'button positive' } %>
-        <%= form.button_link   I18n::t('admin.activitys.form.cancel_button'), admin_event_event_activities_path,
+        <%= form.button_link   I18n::t('admin.activities.form.cancel_button'), admin_event_event_activities_path,
                                :button_html => { :class => 'button negative' } %>
       <% end -%>
     <% end -%>
