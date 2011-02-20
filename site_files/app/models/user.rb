@@ -68,6 +68,8 @@ class User < ActiveRecord::Base
   # Extra definitions
   # ==========================================================================
 
+  after_save :update_behaviour_delayed_jobs
+
   has_attached_file :avatar, :styles => { :medium => "100x100#", :small => "50x50#" }
 
   # Makes this model historicable
@@ -332,6 +334,10 @@ class User < ActiveRecord::Base
       self.language = registration['http://axschema.org/pref/language'].to_s if UserSession::LANGUAGES.map(&:last).include? registration['language']
       self.country  = registration['http://axschema.org/contact/country/home'].to_s
     end
+  end
+
+  def update_behaviour_delayed_jobs
+    self.groups.map &:update_behaviour_delayed_jobs
   end
 
 end

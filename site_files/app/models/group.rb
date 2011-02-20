@@ -5,9 +5,10 @@ class Group < ActiveRecord::Base
   # ==========================================================================
 
   has_many                :groups_users
-  has_many                :direct_users,           :through => :groups_users, :source => :user
-  has_and_belongs_to_many :groups,                 :association_foreign_key => "include_group_id"
-  belongs_to              :behavior_group_to_jump, :foreign_key => "behavior_group_to_jump_id", :class_name => 'Group'
+  has_many                :direct_users,            :through => :groups_users, :source => :user
+  has_and_belongs_to_many :groups,                  :association_foreign_key => "include_group_id"
+  belongs_to              :behavior_group_to_jump,  :foreign_key => "behavior_group_to_jump_id", :class_name => 'Group'
+  belongs_to              :behavior_delayed_job, :foreign_key => "behavior_delayed_job_id", :class_name => 'Delayed::Job'
 
 
   # ==========================================================================
@@ -24,7 +25,14 @@ class Group < ActiveRecord::Base
     end
   end
 
+
+  # ==========================================================================
+  # Extra definitions
+  # ==========================================================================
+
+  after_save :update_behaviour_delayed_jobs
   
+
   # ==========================================================================
   # Instance Methods
   # ==========================================================================
@@ -91,20 +99,28 @@ class Group < ActiveRecord::Base
   def execute_behaviour
     if self.behavior_at_time
       if Time.now >= self.behavior_at_time
-        self.direct_users.each { |user| user.group_ids = user_group_ids - [self.id] + [self.behavior_group_to_jump_id] }
+        self.direct_users.each { |user| user.group_ids = user.group_ids - [self.id] + [self.behavior_group_to_jump_id] }
       else 
-        self.delay(:run_at => self.behavior_at_time).execute_behavior
+        self.behavior_delayed_job = self.delay(:run_at => self.behavior_at_time).execute_behaviour
+        self.save
       end
     elsif self.behavior_after_time
       execute_at = Time.now - self.behavior_after_time
-      self.group_users(:conditions => "created_at < #{execute_at}").each do |group_user|
-        group_user.user.group_ids = user_group_ids - [self.id] + [self.behavior_group_to_jump_id]
+      self.groups_users(:conditions => "created_at < #{execute_at}").each do |group_user|
+        group_user.user.group_ids = group_user.user.group_ids - [self.id] + [self.behavior_group_to_jump_id]
       end
-      if group_user = self.group_users(:order => "created_at ASC", :limit => 1).first
+      if group_user = self.groups_users(:order => "created_at ASC", :limit => 1).first
         next_execution = group_user.created_at + self.behavior_after_time
-        self.delay(:run_at => next_execution).execute_behavior
+        self.behavior_delayed_job = self.delay(:run_at => next_execution).execute_behaviour
+        self.save
       end
     end
+  end
+
+  # Updates delayed_jobs table
+  def update_behaviour_delayed_jobs
+    behavior_delayed_job.destroy if behavior_delayed_job
+    delay.execute_behaviour
   end
 
 
@@ -113,7 +129,6 @@ class Group < ActiveRecord::Base
   # ==========================================================================
 
   class << self
-
     #FIXME 
     def delete_by_ids!(ids)
       ids.each do |id|
@@ -121,15 +136,6 @@ class Group < ActiveRecord::Base
       end
       return true
     end
-
-
-    # Updates delayed_jobs table
-    #
-    def update_behaviour_delayed_jobs
-      #Delayed::Job.all 
-    end
-
-
   end
   
 end
