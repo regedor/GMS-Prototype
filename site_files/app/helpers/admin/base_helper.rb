@@ -6,6 +6,10 @@ module Admin::BaseHelper
         link_to(record.title, post_path(record))
       when 'Page' then
         link_to(record.title, page_path(record))
+      when 'Event' then
+        link_to(record.title, event_path(record))
+      when 'EventActivity' then
+        link_to(record.title, event_event_activity_path(record.event_id,record))
       else
         record.title
     end
@@ -69,18 +73,18 @@ module Admin::BaseHelper
   end
 
   def starts_at_column(record)
-    if (Time.now - record.starts_at) < 30.days
-      I18n::t "generic_sentence.time_ago", :time_ago => time_ago_in_words(record.starts_at)
+    if record.starts_at == record.starts_at.at_beginning_of_day
+      record.starts_at.strftime('%d/%m/%Y')
     else
-      record.starts_at.strftime('%d %b, %Y')
+      record.starts_at.strftime('%d/%m/%Y %H:%M')
     end
   end
 
   def ends_at_column(record)
-    if (record.ends_at - Time.now) < 30.days
-      I18n::t "generic_sentence.time_after", :time_after => time_ago_in_words(record.ends_at)
+    if record.ends_at == record.ends_at.at_beginning_of_day
+      record.ends_at.strftime('%d/%m/%Y')
     else
-      record.ends_at.strftime('%d %b, %Y')
+      record.ends_at.strftime('%d/%m/%Y %H:%M')
     end
   end
   

@@ -295,7 +295,7 @@ div.active-scaffold input.button                         { padding: 0; }
 div.active-scaffold a.button,
 div.active-scaffold input.button                         { background-color: #F5F5F5; border: 1px solid #DEDEDE; }
 div.active-scaffold a.button,
-div.active-scaffold input.button                         { cursor: pointer; padding: 6px 10px 9px 1px; /* Links */ }
+div.active-scaffold input.button                         { cursor: pointer; }
 div.active-scaffold a.button,
 div.active-scaffold input.button                         { -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; }
  

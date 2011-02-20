@@ -67,3 +67,7 @@ div.active-scaffold th.asc a:hover { background: url("/stylesheets/themes/nemum/
 /* Account */
 
 .logout_ico   { background: url("/stylesheets/themes/nemum/icons/door_out.png") no-repeat; padding-left: 18px; }
+
+/* Mails */
+#as_admin__mails-content a.show   { background: url("/stylesheets/themes/nemum/icons/email.png") no-repeat; padding-left: 18px; }
+#as_admin__mails-content a.delete { background: url("/stylesheets/themes/nemum/icons/email_delete.png") no-repeat; padding-left: 18px; }

@@ -8,6 +8,13 @@ class Admin::EventActivityManageController < Admin::BaseController
     end
   end
 
+  def index
+    if params[:event_activity_id]
+      eventid = EventActivity.find(params[:event_activity_id]).event_id
+      redirect_to admin_event_event_activity_manage_path(eventid,params[:event_activity_id])
+    end
+  end
+
   def refreshContent
     @record = EventActivity.find(params[:id])
     @user_lists = @record.user_lists

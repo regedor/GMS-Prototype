@@ -1,13 +1,3 @@
-<% if File.exists?(Rails.root.join("app", "views", params[:controller], "_edit_sidebar.html.erb")) %>
-  <% content_for :sidebar do -%>
-    <%= render :partial => 'edit_sidebar' %>
-  <% end -%>
-<% elsif File.exists?(Rails.root.join("app", "views", params[:controller], "_sidebar.html.erb")) %>
-  <% content_for :sidebar do -%>
-    <%= render :partial => 'sidebar' %>
-  <% end -%>
-<% end -%>
-
 <div class="content">
   <div class="inner">
     <h2><%= I18n::t('admin.announcements.form.edit') + ' - ' + link_to(h(@record.title), admin_announcement_path(@record)) %></h2>

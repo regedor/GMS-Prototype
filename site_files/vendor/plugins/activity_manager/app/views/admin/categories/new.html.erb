@@ -1,28 +1,19 @@
-  <div class="content">
-    <div class="inner">
-
-      <h2><%= I18n::t('admin.categories.form.new')  %></h2>
-
-      <% semantic_form_for @record,
-                           :url => admin_project_categories_path,
-                           :html => { :class => 'create', :id => 'new_category' } do |form| -%>
-
-    <% form.input_field_set do -%>
-  	    <%= form.input :name,
-                       :label    => I18n::t('admin.categories.form.name') %>       
-
-    <% end -%>
-
-        <p class="form-footer">
-          <% form.buttons do -%>
-
-            <%= form.commit_button t('admin.categories.form.create_button'),
-                                   :button_html => {:class => "submit"} %>
-            <%= form.button_link   t('admin.categories.form.cancel_button'), admin_project_categories_path,
-                                   :button_html => {:class => "negative"} %>
-          <% end -%>
-        </p>
-
+<div class="content">
+  <div class="inner">
+    <h2><%= I18n::t('admin.categories.form.new')  %></h2>
+    <% semantic_form_for @record,
+                         :url => admin_project_categories_path,
+                         :html => { :class => 'create', :id => 'new_category' } do |form| -%>
+      <% form.input_field_set do -%>
+        <%= form.input :name,
+                       :label    => I18n::t('admin.categories.form.name') %>
+        <% end -%>
+      <% form.buttons do -%>
+        <%= form.commit_button t('admin.categories.form.create_button'),
+                               :button_html => {:class => "button positive submit"} %>
+        <%= form.button_link   t('admin.categories.form.cancel_button'), admin_project_categories_path,
+                               :button_html => {:class => "button negative"} %>
       <% end -%>
-    </div>
+    <% end -%>
   </div>
+</div>

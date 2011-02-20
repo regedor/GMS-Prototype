@@ -3,20 +3,21 @@
 <% end -%>
 
 <div class="content">
-  <div class="header">	
-    <h2><%= t("admin.to_do.comment.title", :list => @todo.to_do_list.name) %></h2>
+  <div class="inner">
+    <div class="header">	
+      <h2><%= t("admin.to_do.comment.title", :list => @todo.to_do_list.name) %></h2>
 
-    <% if @todo.done? %>
-      <div id="todo" class="done">
-        <span class="due-date"><%= l(@todo.finished_date, :format => :medium) %></span>
-    <% else %>
-      <div id="todo" class="not-done">
-        <span class="due-date"><%= l(@todo.due_date, :format => :medium) %></span>
-    <% end %>
-        <span class="responsible"><%= @todo.user.name %>:</span>
-        <span class="description"><%= @todo.description %></span>
-      </div>
-  </div>
+      <% if @todo.done? %>
+        <div id="todo" class="done">
+          <span class="due-date"><%= l(@todo.finished_date, :format => :medium) %></span>
+      <% else %>
+        <div id="todo" class="not-done">
+          <span class="due-date"><%= l(@todo.due_date, :format => :medium) %></span>
+      <% end %>
+          <span class="responsible"><%= @todo.user.name %>:</span>
+          <span class="description"><%= @todo.description %></span>
+        </div>
+    </div>
   <hr />
   <div id="comments">
     <% @todo.comments.each do |comment| %>
@@ -41,7 +42,7 @@
 	    <%= f.input :users, :as => :check_boxes, :collection => @project.users, :label => t("admin.to_do_comment.new.users"), :required => false %>
 	  <% end  %>
 	  <% f.buttons do %>
-        <%= f.commit_button :label => t('admin.to_do_comment.new.create_button'),
+            <%= f.commit_button :label => t('admin.to_do_comment.new.create_button'),
                                 :button_html => { :class => 'button positive' } %>
 	    <%= f.button_link t('admin.to_do_comment.new.preview_button'), '#new_to_do_comment',
                               :button_html => { :class => 'button positive preview' }  %>
@@ -51,5 +52,6 @@
 			      :button_html => { :class => 'button negative' }  %>
           <% end %>
    <% end %>
+  </div>
   </div>
 </div>

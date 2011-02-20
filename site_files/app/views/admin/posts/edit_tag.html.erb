@@ -1,33 +1,16 @@
-<% if File.exists?(Rails.root.join("app", "views", params[:controller], "_edit_sidebar.html.erb")) %>
-  <% content_for :sidebar do -%>
-    <%= render :partial => 'edit_sidebar'  %>
-  <% end -%>
-<% elsif File.exists?(Rails.root.join("app", "views", params[:controller], "_sidebar.html.erb")) %>
-  <% content_for :sidebar do -%>
-    <%= render :partial => 'sidebar'  %>
-  <% end -%>
-<% end -%>
-
-  <div class="content">
-    <div class="inner">
-
-      <h2><%= I18n::t('admin.posts.form.edit_tag', :name => @tag.name) %></h2>
-
-      <% semantic_form_for(@tag, :url => { :action => 'update_tag', :id => @tag.id } ) do |form| -%>
-        <% form.input_field_set do -%>
-          <%= form.input :name %>
-        <% end -%>
-
-        <p class="form-footer">
-          <% form.buttons do -%>
-            <%= form.commit_button t('admin.posts.form.update_button'),
-                                   :button_html => {:class => "submit"} %>
-            <%= form.button_link   t('admin.posts.form.cancel_button'), admin_posts_path,
-                                   :button_html => {:class => "cancel"} %>
-          <% end -%>
-        </p>
-
+<div class="content">
+  <div class="inner">
+    <h2><%= I18n::t('admin.posts.form.edit_tag', :name => @tag.name) %></h2>
+    <% semantic_form_for(@tag, :url => { :action => 'update_tag', :id => @tag.id } ) do |form| -%>
+      <% form.input_field_set do -%>
+        <%= form.input :name %>
       <% end -%>
-    </div>
+      <% form.buttons do -%>
+        <%= form.commit_button t('admin.posts.form.update_button'),
+                               :button_html => {:class => "submit"} %>
+        <%= form.button_link   t('admin.posts.form.cancel_button'), admin_posts_path,
+                               :button_html => {:class => "cancel"} %>
+      <% end -%>
+    <% end -%>
   </div>
-
+</div>
