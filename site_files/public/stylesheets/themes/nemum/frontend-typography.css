@@ -32,7 +32,7 @@ div#account-info                 { font-size: 1em; line-height: 1em; }
 div#account-info span.title      { color: #2E2A2B; font-weight: bold; }
 
 div#main p                       { font-size: 1.1em; text-align: justify; line-height: 1.2em; }
-div#main p.inline-errors         { font-size: 0.9em; }
+div#main p.inline-errors         { font-size: 0.8em; }
 div#main table                   { font-size: 1.1em; line-height: 1.8em; }
 div#main th                      { vertical-align: middle; } 
 
