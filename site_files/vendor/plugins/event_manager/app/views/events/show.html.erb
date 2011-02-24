@@ -98,7 +98,7 @@ jQuery(document).ready(function($) {
 <% else %>
   <h2><%= @record.title %></h2>
 <% end %>
-    <% if @record.description_html    %> <%= t("admin.events.view.description_html") %> <br><span class="description"><%= @record.description_html       %></span><% end %> <br><br>
+    <% if @record.description_html    %><br><span class="description"><%= @record.description_html       %></span><% end %> <br><br>
     <% if @record.price %> <%= t("admin.events.view.price") %> <br><span class="price"><%= @record.price %></span><% end %> <br><br>
     <% if @record.starts_at %> <%= t("admin.events.view.starts_at")  %> <br><span class="starts_at"><%= @record.starts_at %></span><% end %> <br><br>
     <% if @record.ends_at   %> <%= t("events.view.ends_at")    %> <br><span class="ends_at"><%= @record.ends_at   %></span>

@@ -363,7 +363,11 @@ en:
           found:
             more: "%{count} Activities Found"
             one: "%{count} Activity Found"            
-          noentries: "No Activities Found"              
+          noentries: "No Activities Found"   
+        view:
+          cancel: "Cancel"
+          button:
+            update: "Apply"           
 
     events:
       index:
@@ -382,6 +386,7 @@ en:
       create:
         title: "Event"
       view:
+        activities: "Activities"
         title: "Title"
         description: "Description"
         price: "Price"
@@ -1247,6 +1252,8 @@ en:
 
   events:
     view:
+      cancel: "Cancel"
+      price: "Price"
       button:
         update: "Update"
 
