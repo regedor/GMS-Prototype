@@ -12,7 +12,7 @@ class Admin::ToDoCommentsController < Admin::BaseController
         comment.to_do_id = params[:to_do_id]  
         if comment.save
           flash[:notice] = t("flash.to_do_comment_created", :todo => comment.to_do.description)
-          if params[:to_do_comment][:users].map(&:blank?).member? true
+          if params[:to_do_comment][:users] and (params[:to_do_comment][:users].map(&:blank?).member? true)
             mail = Mail.new :message => current_user.name+"&sep&"+comment.to_do.description, 
                               :sent_on => Time.now, 
                               :subject => t("notifier.to_do_notification.comment_subject")

@@ -304,6 +304,7 @@ en:
         description: "Description"
         groups: "Assigned Groups"
         user_id: "Created by"
+        user: "Owner"
       form:
         new: "New Project"
       list:

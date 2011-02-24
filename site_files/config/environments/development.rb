@@ -13,9 +13,6 @@ config.action_controller.consider_all_requests_local = true
 config.action_view.debug_rjs                         = true
 config.action_controller.perform_caching             = false
 
-# Don't care if the mailer can't send
+# Don't care if the mailer or sms can't send
 config.action_mailer.raise_delivery_errors = false
-config.action_mailer.default_url_options = {
-  :host => 'localhost',
-  :port => 3000
-}
+config.action_mailer.default_url_options   = { :host => 'localhost', :port => 3000 }

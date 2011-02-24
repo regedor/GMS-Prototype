@@ -48,5 +48,6 @@ production:
     user_id: '3274318'
     username: 'tester'
     password: 'tester'
+
 test:
   <<: *local
