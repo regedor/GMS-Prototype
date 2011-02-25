@@ -295,8 +295,9 @@ en:
         name: "Name"
         description: "Description"
         users: "Associated Users"
-        create_button: "Create"  
-        cancel: "Cancel"        
+        create_button: "Create"
+        edit_button: "Update"
+        cancel: "Cancel"
       create:
         title: "New Project"      
       columns:
