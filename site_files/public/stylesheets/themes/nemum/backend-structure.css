@@ -69,6 +69,11 @@ div#social-buttons                       { margin: 0 0 5px; }
 div#social-buttons iframe                { vertical-align: bottom; }
 div#social-buttons a span                { border: 1px solid #5F78AB; border-bottom: 1px solid #29447E; }
 
+/* Tree */
+
+ul.options li { background: url("/images/tree/node.png") no-repeat; }
+ul.options li a { padding-left: 10px; }
+
 /* Rounded borders */
 
 div#main div.block                       { -moz-border-radius-bottomleft: 10px; -webkit-border-bottom-left-radius: 10px; }
