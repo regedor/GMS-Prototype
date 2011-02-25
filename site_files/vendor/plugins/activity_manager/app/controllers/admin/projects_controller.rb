@@ -60,12 +60,12 @@ class Admin::ProjectsController < Admin::BaseController
     project = Project.new params[:project]
     project.user = current_user
     if project.save
-      flash[:notice] = t("flash.project_created")    
+      flash[:notice] = t("flash.project_created")   
+      redirect_to admin_projects_path 
     else
-      flash[:error] = t("flash.project_creation_fail")
+      @project = project
+      render :new
     end    
-    
-    redirect_to admin_projects_path
   end
 
   def new

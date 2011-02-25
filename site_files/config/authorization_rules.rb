@@ -11,6 +11,7 @@ authorization do
     has_permission_on [:admin_history_actions],     :to =>  [ :as_manage ]
     has_permission_on [:user_roles],                :to =>  [ :as_manage ]
     has_permission_on [:admin_mails],               :to =>  [ :as_manage ]
+    has_permission_on [:admin_settings],            :to =>  [ :as_manage ]
   end
   
   role :project_manager do

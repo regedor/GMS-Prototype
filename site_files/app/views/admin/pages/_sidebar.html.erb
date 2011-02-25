@@ -22,14 +22,14 @@
           <li class="<%= 'selected' unless params[:history_entry_id] %>">
             <%= link_to t("generic_sentence.time_ago", {:time_ago => time_ago_in_words(first_entry.created_at)}), 
                         admin_page_path(first_entry.historicable) %>
-            <%= first_entry.user_name %>
+            <%= first_entry.user.name if first_entry.user %>
           </li>
         <% end -%> 
         <% history_rows.each do |entry| -%> 
           <li class="<%= 'selected' if params[:history_entry_id].to_s == entry.id.to_s %>">
             <%= link_to t("generic_sentence.time_ago", {:time_ago => time_ago_in_words(entry.created_at)}), 
                         admin_page_path(entry.historicable,{:history_entry_id => entry.id}) %>
-            <%= entry.user_name %>
+            <%= entry.user.name if entry.user %>
           </li>
         <% end -%> 
       </ul> 

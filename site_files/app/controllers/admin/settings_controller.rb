@@ -1,5 +1,5 @@
 class Admin::SettingsController < Admin::BaseController
-  #filter_access_to :all, :require => any_as_privilege
+  filter_access_to :all, :require => any_as_privilege
   
   before_filter :create_options_hash
   
