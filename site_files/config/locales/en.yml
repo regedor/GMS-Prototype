@@ -658,6 +658,12 @@ en:
           errors:
             negative_time: "Time until behavior execution must be higher than zero seconds"
             file_trick: "Invalid file"
+        hints:
+          mailable: "Whether it is possible to send mass mails for the members of this group"
+          user_choosable: "Allows a user to choose whether he wants to belong to this group or not"
+          behavior_type: "Select the type of behaviour"
+          groups: "Select sub-group(s)"
+          direct_users: "Select belonging user(s) by default"
       list_actions:
         delete_by_ids!: "Delete"
       list:
