@@ -697,6 +697,10 @@ en:
         update_button: "Update"
         cancel_button: "Cancel"
         close_button: "Close"
+        hints:
+          role: "Select user role"
+          group: "Select group"
+          groups: "Select group(s)"
       list:
         noentries: "No Picks Found"
         found:
