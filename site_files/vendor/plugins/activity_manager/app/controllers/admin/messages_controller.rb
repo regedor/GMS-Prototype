@@ -5,6 +5,7 @@ class Admin::MessagesController < Admin::BaseController
   filter_access_to :update,:edit, :require => :update, :attribute_check => true
   filter_access_to :delete,:destroy, :require => :delete, :attribute_check => true
   
+    
   
   def new
     @record = Message.new

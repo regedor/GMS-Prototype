@@ -8,7 +8,7 @@ class Admin::ProjectsController < Admin::BaseController
     config.columns[:groups].options = {:draggabledd_lists => true}
 
     Scaffoldapp::active_scaffold config, "admin.project",
-      :list     => [ :name, :description ],
+      :list     => [ :name, :description, :user ],
       :show     => [ ],
       :create   => [ :name, :description, :users ],
       :edit     => [ :name, :description, :users ]
@@ -32,6 +32,7 @@ class Admin::ProjectsController < Admin::BaseController
 
   def edit
     @project = Project.find(params[:id])
+    @users = User.all - [@project.user]
     
     render :edit
   end  

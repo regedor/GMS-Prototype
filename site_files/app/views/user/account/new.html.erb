@@ -29,9 +29,10 @@
     <% end -%>
     <div class="required_field_note"><%= t('generic_sentence.required_field') %></div>
     <% f.buttons do %>
-      <%= f.button :label => icon_tag('user_add')+t('users.new.commit_button') %> 
+      <%= f.commit_button :label => t('users.new.commit_button'),
+                          :button_html => { :class => 'button positive' } %>
     <% end %>
   <% end %>
 </div>
 
-<%= '<script>$("#new_user").submit();</script>' if @auto_submit %>
+<%= '<script>jQuery("#new_user").submit();</script>' if @auto_submit %>

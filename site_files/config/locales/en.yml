@@ -280,6 +280,7 @@ en:
           edit: "Edit Category"
           name: "Name"
           create_button: "Create"
+          edit_button: "Edit"
           cancel_button: "Cancel"
                 
     
@@ -303,6 +304,7 @@ en:
         description: "Description"
         groups: "Assigned Groups"
         user_id: "Created by"
+        user: "Owner"
       form:
         new: "New Project"
       list:
@@ -361,7 +363,11 @@ en:
           found:
             more: "%{count} Activities Found"
             one: "%{count} Activity Found"            
-          noentries: "No Activities Found"              
+          noentries: "No Activities Found"   
+        view:
+          cancel: "Cancel"
+          button:
+            update: "Apply"           
 
     events:
       index:
@@ -380,6 +386,7 @@ en:
       create:
         title: "Event"
       view:
+        activities: "Activities"
         title: "Title"
         description: "Description"
         price: "Price"
@@ -651,6 +658,12 @@ en:
           errors:
             negative_time: "Time until behavior execution must be higher than zero seconds"
             file_trick: "Invalid file"
+        hints:
+          mailable: "Whether it is possible to send mass mails for the members of this group"
+          user_choosable: "Allows a user to choose whether he wants to belong to this group or not"
+          behavior_type: "Select the type of behaviour"
+          groups: "Select sub-group(s)"
+          direct_users: "Select belonging user(s) by default"
       list_actions:
         delete_by_ids!: "Delete"
       list:
@@ -684,6 +697,10 @@ en:
         update_button: "Update"
         cancel_button: "Cancel"
         close_button: "Close"
+        hints:
+          role: "Select user role"
+          group: "Select group"
+          groups: "Select group(s)"
       list:
         noentries: "No Picks Found"
         found:
@@ -1245,6 +1262,8 @@ en:
 
   events:
     view:
+      cancel: "Cancel"
+      price: "Price"
       button:
         update: "Update"
 

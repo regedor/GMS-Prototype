@@ -68,6 +68,8 @@ class User < ActiveRecord::Base
   # Extra definitions
   # ==========================================================================
 
+  after_save :update_behaviour_delayed_jobs
+
   has_attached_file :avatar, :styles => { :medium => "100x100#", :small => "50x50#" }
 
   # Makes this model historicable
@@ -180,25 +182,25 @@ class User < ActiveRecord::Base
   def send_invitation!(mail)
     Notifier.deliver_invitation(self,mail)
   end
-  handle_asynchronously :send_invitation!
+  #handle_asynchronously :send_invitation!
 
   def deliver_activation_instructions!
     reset_perishable_token!
     Notifier.deliver_activation_instructions(self)
   end
-  handle_asynchronously :deliver_activation_instructions!
+  #handle_asynchronously :deliver_activation_instructions!
 
   def deliver_activation_confirmation!
     reset_perishable_token!
     Notifier.deliver_activation_confirmation(self)
   end
-  handle_asynchronously :deliver_activation_confirmation!
+  #handle_asynchronously :deliver_activation_confirmation!
 
   def deliver_password_reset_instructions!  
     reset_perishable_token!  
     Notifier.deliver_password_reset_instructions(self)  
   end  
-  handle_asynchronously :deliver_password_reset_instructions!
+  #handle_asynchronously :deliver_password_reset_instructions!
 
   # User's first name
   def first_name
@@ -332,6 +334,10 @@ class User < ActiveRecord::Base
       self.language = registration['http://axschema.org/pref/language'].to_s if UserSession::LANGUAGES.map(&:last).include? registration['language']
       self.country  = registration['http://axschema.org/contact/country/home'].to_s
     end
+  end
+
+  def update_behaviour_delayed_jobs
+    self.groups.map &:update_behaviour_delayed_jobs
   end
 
 end

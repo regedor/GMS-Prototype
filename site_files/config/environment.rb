@@ -1,7 +1,5 @@
 RAILS_GEM_VERSION = '2.3.8'
-
 require File.join(File.dirname(__FILE__), 'boot')
-#require "rubygems"
 
 Rails::Initializer.run do |config|
   yaml_config = YAML.load(File.open("#{RAILS_ROOT}/config/config.yml"))[ENV["RAILS_ENV"]||'development']
@@ -13,6 +11,8 @@ end
 
 configatron.configure_from_yaml("config/config.yml", :hash => Rails.env)
 begin; Setting.load_settings_to_configatron; rescue Exception; end
+
+Clickatell::API.debug_mode                 = true
 
 if ENV['I18N_MOCK']
   module I18n

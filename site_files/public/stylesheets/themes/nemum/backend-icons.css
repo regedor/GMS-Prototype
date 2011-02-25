@@ -51,6 +51,12 @@ div.active-scaffold-header div.actions input[type=text] { background: url("/styl
 #as_admin__projects-content a.delete { background: url("/stylesheets/themes/nemum/icons/table_delete.png") no-repeat; padding-left: 18px; }
 #as_admin__projects-content a.edit { background: url("/stylesheets/themes/nemum/icons/table_edit.png") no-repeat; padding-left: 18px; }
 
+/* Events */
+
+#as_admin__events-content a.show { background: url("/stylesheets/themes/nemum/icons/calendar.png") no-repeat; padding-left: 18px; }
+#as_admin__events-content a.delete { background: url("/stylesheets/themes/nemum/icons/calendar_delete.png") no-repeat; padding-left: 18px; }
+#as_admin__events-content a.edit { background: url("/stylesheets/themes/nemum/icons/calendar_edit.png") no-repeat; padding-left: 18px; }
+
 /* Ordering */
 
 div.active-scaffold th.desc a, 

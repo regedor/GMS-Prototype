@@ -86,17 +86,16 @@ class Mail < ActiveRecord::Base
         list = []
         users.each do |user|
           if user.country
-            list << user.phone = format_phone_number(user.phone,user.country)
+            list << format_phone_number(user.phone,user.country)
           end
         end
-        begin
-          api = Clickatell::API.authenticate(configatron.clickatell.user_id, configatron.clickatell.username, configatron.clickatell.password)
-          #api.send_message(list, mail.subject+"\n"+mail.message)
-          list.each do |f| #FIXME delete these lines
-            puts "number > #{f}"
-          end
-          #puts api.account_balance
-          #display account balance
+       begin
+          api = Clickatell::API.authenticate(configatron.clickatell.api_id, 
+                                             configatron.clickatell.username, 
+                                             configatron.clickatell.password,
+                                             :from => configatron.site_name)
+          api.send_message(list, mail.subject+"\n"+mail.message)
+          puts("---------------------------- SMS \n Clickatell Account Balance: " + api.account_balance)
         rescue Exception
           return false   #FIXME Do not fail if only one fails
         end

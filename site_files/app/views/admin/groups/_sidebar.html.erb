@@ -19,7 +19,7 @@
   </div>
 <% end %>
 
-<% if (controller.action_name != "edit") %>
+<% if (controller.action_name == "show") %>
 
   <div class="block">
     <h3><%=h t("admin.groups.sidebar.hierarchy.name") %></h3>
@@ -37,7 +37,7 @@
     </div>
   </div>
 
-<% else %>
+<% elsif (controller.action_name == "edit") %>
 
   <div class="block">
     <h3><%=h t("admin.groups.sidebar.edit.title") %></h3>
