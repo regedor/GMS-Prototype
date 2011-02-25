@@ -7,6 +7,14 @@ pt-PT:
     about: "Sobre"
     administration: "Administração"
 
+  posts:
+    meta:
+      date: "Publicado em"
+      comments:
+        many: "%{count} comentários"
+        one: "%{count} comentário"
+      tags: "Tagged"
+
   users:
     roles:
       root: "Root"
