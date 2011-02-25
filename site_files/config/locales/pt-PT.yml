@@ -375,6 +375,12 @@ pt-PT:
         found:
           more: "%{count} Posts Encontrados"
           one: "%{count} Post Encontrado"
+      meta:
+        date: "Posted on"
+        comments:
+          many: "%{count} comments"
+          one: "%{count} comment"
+        tags: "Tagged"
       form:
         show: "Mostrar Post"
         new: "Novo Post"
