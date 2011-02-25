@@ -42,7 +42,7 @@ pt-PT:
     new:
       title: "Criar nova conta"
       openid: "OpenID"
-      form_inputs_name: "Por favor insira o seu endereço de email e escolha uma password:"
+      form_inputs_name: "Por favor insira o seu email e escolha uma password:"
       form_openid_inputs_name: "Esteja ciente de que o email na página do formulário OpenID, irá substituir este."
       form_side_notes: 
         first: "Porque ninguém quer memorizar milhares de passwords diferentes, recomendamos
