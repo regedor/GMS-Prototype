@@ -12,7 +12,7 @@ end
 configatron.configure_from_yaml("config/config.yml", :hash => Rails.env)
 begin; Setting.load_settings_to_configatron; rescue Exception; end
 
-Clickatell::API.debug_mode                 = true
+Clickatell::API.debug_mode                 = false
 
 if ENV['I18N_MOCK']
   module I18n
