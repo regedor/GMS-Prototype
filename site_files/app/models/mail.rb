@@ -92,8 +92,7 @@ class Mail < ActiveRecord::Base
        begin
           api = Clickatell::API.authenticate(configatron.clickatell.api_id, 
                                              configatron.clickatell.username, 
-                                             configatron.clickatell.password,
-                                             :from => configatron.site_name)
+                                             configatron.clickatell.password)
           api.send_message(list, mail.subject+"\n"+mail.message)
           puts("---------------------------- SMS \n Clickatell Account Balance: " + api.account_balance)
         rescue Exception
