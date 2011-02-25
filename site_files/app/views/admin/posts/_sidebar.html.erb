@@ -59,7 +59,7 @@
           <li class="<%= 'selected' if params[:history_entry_id].to_s == entry.id.to_s %>">
             <%= link_to t("generic_sentence.time_ago", {:time_ago => time_ago_in_words(entry.created_at)}), 
                         admin_post_path(entry.historicable,{:history_entry_id => entry.id}) %>
-            <%= entry.user_name %>
+            <%= entry.user.name if entry.user %>
           </li>
         <% end -%>
       </ul> 

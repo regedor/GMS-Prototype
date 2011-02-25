@@ -14,7 +14,9 @@
         <div id="todo" class="not-done">
           <span class="due-date"><%= l(@todo.due_date, :format => :medium) %></span>
       <% end %>
+	  <% if @todo.user %>
           <span class="responsible"><%= @todo.user.name %>:</span>
+	  <% end %>
           <span class="description"><%= @todo.description %></span>
         </div>
     </div>
@@ -39,7 +41,7 @@
 	<% semantic_form_for @comment, :url => admin_project_to_do_comments_path(params[:project_id],@todo.id), :html => {:method => :post} do |f| %>
 	  <% f.inputs do %>
 	    <%= f.input :body, :as => :text, :label => t("admin.to_do_comment.new.body") %>
-	    <%= f.input :users, :as => :check_boxes, :collection => @project.users + [@project.user]	, :label => t("admin.to_do_comment.new.users"), :required => false %>
+	    <%= f.input :users, :as => :check_boxes, :collection => @project.users + ((@project.user) ? [@project.user] : []), :label => t("admin.to_do_comment.new.users"), :required => false %>
 	  <% end  %>
 	  <% f.buttons do %>
             <%= f.commit_button :label => t('admin.to_do_comment.new.create_button'),
