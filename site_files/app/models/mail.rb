@@ -94,7 +94,6 @@ class Mail < ActiveRecord::Base
                                              configatron.clickatell.username, 
                                              configatron.clickatell.password)
           api.send_message(list, mail.subject+"\n"+mail.message)
-          puts("---------------------------- SMS \n Clickatell Account Balance: " + api.account_balance)
         rescue Exception
           return false   #FIXME Do not fail if only one fails
         end
