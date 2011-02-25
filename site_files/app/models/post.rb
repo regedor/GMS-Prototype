@@ -163,7 +163,7 @@ class Post < ActiveRecord::Base
           :conditions => { "tag_count" => tags.size },
           :from       => "(" + Post.send(:construct_finder_sql,
                                          {
-                                           :select     => "*, COUNT(*) as tag_count",
+                                           :select     => "posts.*, COUNT(*) as tag_count",
                                            :group      => "taggings.taggable_id",
                                            :joins      => :taggings,
                                            :conditions => { "taggings.tag_id" => tags }
