@@ -9,7 +9,8 @@ class Mail < ActiveRecord::Base
   # ==========================================================================
   # Validations
   # ==========================================================================
-
+  
+  validates_presence_of :recipients_text
 
   # ==========================================================================
   # Attributes Accessors
@@ -73,9 +74,6 @@ class Mail < ActiveRecord::Base
     end
     
     def send_emails(users,mail)
-      mail.sent_on = Time.now
-      mail.set_xmls(users)
-      mail.save!
       if(mail.message_type == "email")
         users.each do |user|
           begin 

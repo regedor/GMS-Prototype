@@ -54,10 +54,17 @@ class Admin::MailsController < Admin::BaseController
     mail.message = params[:mail][:message]
     mail.message_type = params[:mail][:message_type]
     mail.user_id = current_user.id
-    (Mail.send_emails(users_to_send,mail)) ? flash[:notice] = t("admin.mails.send_ok") : flash[:error] = t("admin.mails.send_fail")
+    mail.sent_on = Time.now
+    mail.set_xmls(users_to_send)
+    if mail.save
+      (Mail.send_emails(users_to_send,mail)) ? flash[:notice] = t("admin.mails.send_ok") : flash[:error] = t("admin.mails.send_fail") 
+      @mail = Mail.new 
+      render :new
+    else
+      @mail = mail
+      render :new
+    end    
     
-    @mail = Mail.new 
-    render :new
   end  
   
 end  
