@@ -10,7 +10,7 @@ class Mail < ActiveRecord::Base
   # Validations
   # ==========================================================================
   
-  validates_presence_of :recipients_text
+  validates_presence_of :recipients
 
   # ==========================================================================
   # Attributes Accessors
