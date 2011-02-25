@@ -45,7 +45,7 @@
       </p>
 
       <p>
-        <% if @user.country %>
+        <% if false #@user.country %>
           <b><%= t("activerecord.attributes.user.country", :default => t("activerecord.labels.country", :default => "Country")) %>:</b>
           <%= image_tag("flags/"+@user.country.downcase+".png", :alt => @user.country) %> <%= I18n::t("countries."+@user.country) %>
         <% end %>
