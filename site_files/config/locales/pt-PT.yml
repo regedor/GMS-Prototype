@@ -361,8 +361,9 @@ pt-PT:
           one: "%{count} Comentário"
         search: "Procurar Posts"
         create: "Novo Post"
+      archive: "Arquivo de posts"
       columns:
-        published_at: "Públicado em"
+        published_at: "Publicado em"
         title: "Título"
         excert: "Excerto"
         total_approved_comments: "Comentários"
@@ -376,10 +377,10 @@ pt-PT:
           more: "%{count} Posts Encontrados"
           one: "%{count} Post Encontrado"
       meta:
-        date: "Posted on"
+        date: "Publicado em"
         comments:
-          many: "%{count} comments"
-          one: "%{count} comment"
+          many: "%{count} comentários"
+          one: "%{count} comentário"
         tags: "Tagged"
       form:
         show: "Mostrar Post"
