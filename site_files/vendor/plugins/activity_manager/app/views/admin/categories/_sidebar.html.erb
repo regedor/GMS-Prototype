@@ -4,7 +4,9 @@
   <div class="content">
     <ul class="navigation">
       <li><%= link_to I18n::t('admin.messages.index.create'), new_admin_project_message_path, :class => "button" %></li>
-      <li><%= link_to "Manage Categories", admin_project_categories_path, :class => "button" if permitted_to? :manage , @categories %></li>
+    <% if permitted_to? :manage , @categories %>
+      <li><%= link_to "Manage Categories", admin_project_categories_path %> </li>
+    <% end %>
     </ul>
   
     <p><%= t("admin.messages.sidebar.paragraph") %></p>

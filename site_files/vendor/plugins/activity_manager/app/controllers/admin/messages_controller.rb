@@ -5,7 +5,7 @@ class Admin::MessagesController < Admin::BaseController
   filter_access_to :update,:edit, :require => :update, :attribute_check => true
   filter_access_to :delete,:destroy, :require => :delete, :attribute_check => true
   
-    
+before_filter :load_categories  
   
   def new
     @record = Message.new
@@ -33,6 +33,11 @@ class Admin::MessagesController < Admin::BaseController
     @creator = User.find(@message.user_id)
   end
 
+  protected
+
+  def load_categories
+    @categories = Project.find(params[:project_id]).categories
+  end
   
 end
 
