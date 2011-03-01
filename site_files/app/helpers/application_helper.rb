@@ -24,7 +24,11 @@ module ApplicationHelper
   def avatar_url(record, options={})
     options[:size] ||= :medium
     raise "Invalid arguments" unless [:small,:medium].member? options[:size]
-    if record.avatar.path.nil?
+    if record.nil?
+      options[:size]   = 100 if options[:size] == :medium
+      options[:size]   = 50  if options[:size] == :small
+      return "#{root_url}images/deleted-user-#{options[:size]}.png"
+    elsif record.avatar.path.nil?
       options[:size]   = 100 if options[:size] == :medium
       options[:size]   = 50  if options[:size] == :small
       default_url    ||= options[:default_url] || "#{root_url}images/guest-#{options[:size]}.png"
