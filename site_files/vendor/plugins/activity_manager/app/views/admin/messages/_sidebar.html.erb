@@ -1,15 +1,15 @@
-<% if (controller.action_name == "index") %>
 <div class="block">
 
   <h3><%= t("admin.messages.sidebar.title") %></h3>
   <div class="content">
     <ul class="navigation">
-      <li><%= link_to I18n::t('admin.messages.index.create'), new_admin_project_message_path %></li>
+      <li><%= link_to I18n::t('admin.messages.index.create'), new_admin_project_message_path, :class => "button" %></li>
     <% if permitted_to? :manage , @categories %>
-      <li>    <%= link_to "Manage Categories", admin_project_categories_path %> </li>
+      <li><%= link_to "Manage Categories", admin_project_categories_path, :class => "button" %> </li>
     <% end %>
     </ul>
-  
+
+    
     <p><%= t("admin.messages.sidebar.paragraph") %></p>
     <p><%= t("admin.messages.sidebar.categories") %></p>
     <ul class="navigation">
@@ -24,8 +24,5 @@
     </ul>
   </div>
 </div>
-
-
-<% end %>
 
 
