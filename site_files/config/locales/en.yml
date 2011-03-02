@@ -11,10 +11,11 @@ en:
     roles:
       root: "Root"
       admin: "Administrator"
-      users_manager: "Users Manager"
+      general_manager: "General Manager"
+      projects_manager: "Projects Manager"
       website_manager: "Website Manager"
       blogger: "Blogger" 
-      user: "Normal User"
+      member: "Normal User"
     form:
       name: "Name"
       email: "Email"
