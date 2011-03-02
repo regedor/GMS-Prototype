@@ -99,7 +99,7 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold .required label         { font-weight: bold;}
 .active-scaffold label.example           { font-size: 11px;font-family: verdana,arial;color: #888;}
 .active-scaffold input.text-input,
-.active-scaffold select                  { font-size: 1.2em; border: solid 1px #9E9E9E; }
+.active-scaffold select                  { font: inherit; border: solid 1px #9E9E9E; font-size: 1.1em; }
 .active-scaffold textarea                { font-family: Verdana,Arial, sans-serif;font-size: 12px;padding: 1px;border: solid 1px #9E9E9E;}
 .active-scaffold .sub-form table th                      { font: normal 10px verdana, sans-serif;color: #555;padding: 0 5px 0 1px;background: none;}
 .active-scaffold .sub-form .association-record a.destroy { font-weight: bold;display: block;height: 16px;}
@@ -290,18 +290,8 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 
 .content a.disabled                                      { display: none; }
 
-div.active-scaffold input.button                         { padding: 0; }
- 
-div.active-scaffold a.button,
-div.active-scaffold input.button                         { background-color: #F5F5F5; border: 1px solid #DEDEDE; }
-div.active-scaffold a.button,
-div.active-scaffold input.button                         { cursor: pointer; }
-div.active-scaffold a.button,
-div.active-scaffold input.button                         { -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; }
- 
-div.active-scaffold input[type].button                   { padding: 2px 10px 5px 1px; /* Firefox */ line-height: 20px; /* Safari */ }
-*:first-child+html input[type]                           { padding: 2px 10px 3px 1px; /* IE7 */ }
+div.active-scaffold .button                              { margin: 10px 10px 0; text-decoration: none; font-weight: bold; }
 
 /* Hacks */
 
-li { list-style: none;}
+li { list-style: none; }
