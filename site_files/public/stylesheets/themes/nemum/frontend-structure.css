@@ -35,7 +35,7 @@ div#main th                   { border-bottom: solid 1px #DDD; padding: 0.4em 0;
 div#main div#user-info        { margin: 15px 10px; }
 div#main div#user-invite      { margin: 15px 10px; }
 
-div.meta                      { background-color: #EEE; margin: 0 10px 2.5em; padding: 0.8em; }
+div.meta                      { background-color: #EEE; margin: 0 10px; padding: 0.8em; }
 div#footer                    { margin: 1.5em; }
 
 div#flash                     { background-image: url("/images/dark_transparency.png"); padding: 1em 0; position: fixed; }
@@ -83,12 +83,20 @@ body#pages_show div#main p     { margin: 1.2em 10px; }
 
 /* Posts */
 
+div.post                      { margin: 0 0 2.5em; }
 div.entrybody ul              { padding-left: 5px; list-style: circle; }
 div.entrybody                 { margin: 0 10px; }
 div.post-image                { float: left; margin: 0 15px 5px 0; }
 .related                      { padding-bottom: 15px; } /* Ver depois */
-.commentlist li               { padding-bottom: 15px; } /* Ver depois */
-.commentlist li p             { padding-left: 15px; }   /* Ver depois */
+
+/* Comments */
+
+hr                            { clear: left; background-color: #DDD; height: 1px; border: none; margin: 15px 0; }
+div.avatar                    { margin-right: 20px; float: left; }
+div.avatar img                { border: 1px solid #999; }
+span.comment-meta             { display: block; clear: both; padding: 15px 0 0; }
+div.new-comment               { padding: 0 0.8em; }
+ol.comment-list               { padding: 0.8em; }
 
 /* Buttons */
 
