@@ -1,6 +1,6 @@
 <h2><%= link_to(post.title, post_path(post)) %></h2>
 <div class="entrybody">
-  <%= content_tag :div, image_tag(post.image.url(:image)), :style => "float:left;margin-right:10px;", :class => 'post-image wat-cf' if post.image? %>
+  <%= content_tag :div, image_tag(post.image.url(:image)), :class => 'post-image' if post.image? %>
   <% if controller.action_name == "index" -%>
     <%= raw post.excerpt_html %>
     <%= post.splitted ? "<p class='more'>#{link_to I18n::t('posts.read_more'), post_path(post)}</p>" : "" %>
