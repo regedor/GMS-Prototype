@@ -31,6 +31,10 @@ jQuery(document).ready(function($){
                  :required => false,
                  :label    => I18n::t('admin.posts.columns.tag_list'),
                  :hint     => I18n::t('admin.posts.form.hints.tag_list') %>
+  <%= form.input :image,
+                 :required => false,
+                 :hint     => I18n::t('admin.posts.form.hints.image'),
+                 :label    => I18n::t('admin.posts.columns.image') %>
   <%= form.input :published_at,
                  :as       => 'string',
                  :input_html => {:class => "datepicker", :value => l(@record.published_at || Time.now, :format => "%d/%m/%Y")},

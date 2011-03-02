@@ -3,7 +3,7 @@
     <h2><%= I18n::t('admin.posts.form.new') %></h2>
     <% semantic_form_for :record, @record,
                          :url => admin_posts_path,
-                         :html => { :class => 'create', :id => 'new_post' } do |form| -%>
+                         :html => { :class => 'create', :id => 'new_post', :multipart => true } do |form| -%>
       <%= render :partial => 'form', :locals => { :form => form } %>
       <% form.buttons do -%>
         <%= form.commit_button I18n::t('admin.posts.form.create_button'),

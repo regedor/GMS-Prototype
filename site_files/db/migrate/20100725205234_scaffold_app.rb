@@ -32,6 +32,7 @@ class ScaffoldApp < ActiveRecord::Migration
       t.datetime  :last_login_at
       t.string    :current_login_ip
       t.string    :last_login_ip
+      # Avatar 
       t.string    :avatar_file_name
       t.string    :avatar_content_type
       t.integer   :avatar_file_size
