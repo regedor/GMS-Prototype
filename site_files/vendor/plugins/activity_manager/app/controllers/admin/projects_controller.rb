@@ -1,18 +1,18 @@
 class Admin::ProjectsController < Admin::BaseController
-  filter_access_to :all,           :require => any_as_privilege
-  filter_access_to :create, :new, :require => :create
+  filter_access_to :all,                               :require => any_as_privilege
+  filter_access_to :create, :new, :delete, :destroy,   :require => :create
 
   active_scaffold :project do |config|
 
     config.columns[:groups].form_ui = :select
     config.columns[:groups].options = {:draggabledd_lists => true}
 
-    Scaffoldapp::active_scaffold config, "admin.project",
-      :list     => [ :name, :description, :user ],
-      :show     => [ ],
-      :create   => [ :name, :description, :users ],
-      :edit     => [ :name, :description, :users ]
-  end
+    Scaffoldapp::active_scaffold config, "admin.project", 
+      :list     => [ :name, :description, :user ],        
+      :show     => [ ],                                   
+      :create   => [ :name, :description, :users ],       
+      :edit     => [ :name, :description, :users ]        
+  end                                                     
 
   def do_list
     require 'ostruct'

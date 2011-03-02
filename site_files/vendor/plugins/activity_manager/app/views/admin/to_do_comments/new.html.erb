@@ -25,9 +25,9 @@
     <% @todo.comments.each do |comment| %>
       <div id="comment-<%= comment.id %>" class="comment">
 	  <div class="avatar"><%= image_tag avatar_url(comment.user,:size => :small) %></div>
-	  <% classStr = (comment.user == current_user) ? "comments_meta highlight" : "comments_meta" %>
+	  <% classStr = (comment.user && comment.user == current_user) ? "comments_meta highlight" : "comments_meta" %>
 	  <div class="<%= classStr %>">
-		<span class="name"><%= comment.user.name %></span>
+		<span class="name"><%= (comment.user) ? comment.user.name : t("admin.to_do_comment.deleted_user") %></span>
 		<span class="date"><%= l(comment.created_at, :format => :default) %></span>
 	  </div>
 	  <span class="text">
