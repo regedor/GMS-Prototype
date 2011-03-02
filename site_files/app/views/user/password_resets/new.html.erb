@@ -9,7 +9,6 @@
     <% f.inputs :name => t('user_password_resets.new.form_inputs_name') do %>
       <%= f.input :email, :label => I18n::t('user_password_resets.new.email') %>
     <% end %>
-    <div class="required_field_note"><%= I18n::t('generic_sentence.required_field') %></div>
     <% f.buttons do %>
       <%= f.commit_button I18n::t('user_password_resets.new.commit_button'),
                           :button_html => { :class => 'button positive' } %>  
