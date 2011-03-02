@@ -23,7 +23,7 @@ a:active                         { text-decoration: none; color: #2E2A2B; }
 a:hover                          { border-bottom: 3px solid #F8DA00; color: #555; }
 
 h1                               { font-size: 2.5em; }
-h2                               { font-size: 2.2em; color: #2E2A2B; }
+h2                               { font-size: 1.9em; color: #2E2A2B; }
 h3                               { font-size: 1.8em; }
 h4                               { font-size: 1.7em; color: #E22; }
 h5                               { font-size: 1.5em; }
@@ -63,6 +63,27 @@ div.announcements-bar span:hover { color: #F8DA00; }
 
 div#social-buttons               { text-align: right; }
 
+/* Buttons */
+
+a.button, button                 { text-decoration: none; }
+
+button,
+a.button,
+input.button                     { color: #2E2A2B; font-size: 0.8em !important; font-weight: bold !important; text-align: center !important; }
+
+button,
+input.button                     { line-height: 16px; }
+
+button.positive:hover,
+a.positive:hover,
+input.positive:hover             { color: #591 !important; }
+
+button.negative:hover,
+a.negative:hover,
+input.negative:hover             { color: #D32 !important; }
+
+a.google_ico,
+a.yahoo_ico                      { font-size: 1em; }
 
 /* Tag cloud */
 

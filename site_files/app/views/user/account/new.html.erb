@@ -27,7 +27,6 @@
                     :collection => select_language_collection unless configatron.force_locale %>
       <% end %>
     <% end -%>
-    <div class="required_field_note"><%= t('generic_sentence.required_field') %></div>
     <% f.buttons do %>
       <%= f.commit_button :label => t('users.new.commit_button'),
                           :button_html => { :class => 'button positive' } %>
