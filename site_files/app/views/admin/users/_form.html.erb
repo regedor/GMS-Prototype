@@ -27,6 +27,9 @@
                  :as       => :radio,
                  :collection => [[I18n::t('generic_sentence.male_value'),true],[I18n::t('generic_sentence.female_value'),false]],
                  :label    => I18n::t('admin.users.columns.gender') %>
+  <%= form.input :role,
+                 :required => false,
+                 :label    => I18n::t('admin.users.columns.role') %>
   <%= form.input :groups,
                  :as       => :check_boxes,
                  :required => false,

@@ -4,36 +4,40 @@ authorization do
     has_omnipotence
   end
 
+  ##########################################################################################################
+
   role :admin do
-    includes :users_manager
+    includes :general_manager
+    has_permission_on [:admin_projects],                  :to =>  [ :manage    ]
+    has_permission_on [:admin_users],                     :to =>  [ :as_manage ]
+    has_permission_on [:admin_deleted_users],             :to =>  [ :as_manage ]
+    #has_permission_on [:user_roles],                :to =>  [ :as_manage ]
+  end
+
+  ##########################################################################################################
+
+  role :general_manager do
     includes :project_manager
-    includes :website_manager 
-    has_permission_on [:admin_history_actions],     :to =>  [ :as_manage ]
-    has_permission_on [:user_roles],                :to =>  [ :as_manage ]
+    includes :website_manager
+    has_permission_on [:admin_users],                     :to =>  [ :as_read ]
+    has_permission_on [:admin_deleted_users],             :to =>  [ :as_read ]
+    has_permission_on [:admin_groups],                    :to =>  [ :as_manage ]
+    has_permission_on [:admin_user_optional_group_picks], :to =>  [ :as_manage ]
+    has_permission_on [:history_entries],                 :to =>  [ :as_manage ]
     has_permission_on [:admin_mails],               :to =>  [ :as_manage ]
     has_permission_on [:admin_settings],            :to =>  [ :as_manage ]
+    #security issue
+    has_permission_on [:admin_history_actions],     :to =>  [ :as_manage ]
   end
-  
+
+ 
+  ##########################################################################################################
+
   role :project_manager do
-    includes :user
+    includes :member
     has_permission_on [:admin_projects],            :to =>  [:create]
   end
 
-
-  ##########################################################################################################
-
-  role :users_manager do
-    includes :user
-    has_permission_on [:admin_dashboard],           :to =>  [:read]
-    has_permission_on [:admin_users],               :to =>  [ :as_manage ]
-    has_permission_on [:admin_deleted_users],       :to =>  [ :as_manage ]
-    has_permission_on [:admin_groups],              :to =>  [ :as_manage ]
-    has_permission_on [:admin_user_optional_group_picks], :to =>  [ :as_manage ]
-    has_permission_on [:history_entries],            :to =>  [ :as_manage ]
-  end
-
-
-  ##########################################################################################################
 
   role :website_manager do
     includes :blogger
@@ -46,18 +50,21 @@ authorization do
     has_permission_on [:admin_user_optional_group_picks], :to =>  [ :as_read ]
   end
 
+  ##########################################################################################################
 
   role :blogger do
-    includes :user
-    has_permission_on [:admin_dashboard],           :to =>  [:read]
+    includes :member
     has_permission_on [:admin_unpublished_posts],   :to =>  [ :as_manage ]
   end
 
-  role :user do
+  ##########################################################################################################
+
+  role :member do
     includes :guest
+    has_permission_on [:admin_dashboard],           :to =>  [:read]
     has_permission_on [:comments],                  :to => [:create]
     has_permission_on [:admin_projects],            :to => [:as_read]
-    has_permission_on [:admin_to_do_lists],         :to =>  [:manage] do
+    has_permission_on [:admin_to_do_lists],         :to => [:manage] do
       if_attribute :users => contains { user }
     end
     has_permission_on [:admin_to_dos],              :to =>  [:manage] do
@@ -80,6 +87,8 @@ authorization do
       if_attribute :project => { :user => is { user } }
     end
   end
+
+  ##########################################################################################################
 
   role :guest do
     has_permission_on :posts,                       :to =>  [ :read ]
