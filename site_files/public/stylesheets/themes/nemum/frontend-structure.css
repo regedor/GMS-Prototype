@@ -10,6 +10,8 @@ h2                            { margin: 0 0 15px; }
 h3                            { margin: 0 0 1em; }
 h4                            { margin: 0 0 1em; }
 
+hr                            { clear: left; background-color: #DDD; height: 1px; border: none; margin: 15px 0; }
+
 div#container                 { margin: auto; width: 960px; }
 div#wrapper                   { margin-left: 200px; position: relative; width: 760px; z-index: 1; }
 div#header                    { float: left; position: relative; width: 200px; z-index: 0; }
@@ -91,12 +93,12 @@ div.post-image                { float: left; margin: 0 15px 5px 0; }
 
 /* Comments */
 
-hr                            { clear: left; background-color: #DDD; height: 1px; border: none; margin: 15px 0; }
 div.avatar                    { margin-right: 20px; float: left; }
 div.avatar img                { border: 1px solid #999; }
-span.comment-meta             { display: block; clear: both; padding: 15px 0 0; }
+span.comment-meta             { display: block; clear: both; }
 div.new-comment               { padding: 0 0.8em; }
 ol.comment-list               { padding: 0.8em; }
+ol.comment-list p             { padding: 1.1em 0 0; }
 
 /* Buttons */
 
