@@ -9,13 +9,13 @@ en:
 
   users:
     roles:
+      user: "User"
       root: "Root"
       admin: "Administrator"
       general_manager: "General Manager"
       projects_manager: "Projects Manager"
       website_manager: "Website Manager"
       blogger: "Blogger" 
-      member: "Normal User"
     form:
       name: "Name"
       email: "Email"
@@ -200,6 +200,8 @@ en:
         description_hint: "This description is optional, use it to explain the purpose of the list, if needed"
         create_button: "Create"  
         cancel_button: "Cancel"
+      delete:
+        link: "<img src='/stylesheets/themes/nemum/icons/bin_closed.png' alt='Remove' />"
       empty: "There are no To-Do lists"    
     
     to_do:
@@ -988,6 +990,7 @@ en:
     description_required: "Description field is required."
     invalid_date: "Invalid date format."
     project_created: "Succesfully created the project."
+    to_do_created: "Succesfully created the to-do list."
     project_creation_fail: "An error occured while creating the project."
     to_do_comment_creation_fail: "An error occured while creating the comment."
     to_do_comment_created: "Succesfully created the comment on %{todo}."

@@ -9,10 +9,14 @@
 
       <% if @todo.done? %>
         <div id="todo" class="done">
-          <span class="due-date"><%= l(@todo.finished_date, :format => :medium) %></span>
+          <% if @todo.finished_date? %>
+            <span class="due-date"><%= l(@todo.finished_date, :format => :medium) %></span>
+          <% end %>
       <% else %>
         <div id="todo" class="not-done">
-          <span class="due-date"><%= l(@todo.due_date, :format => :medium) %></span>
+          <% if @todo.due_date? %>
+            <span class="due-date"><%= l(@todo.due_date, :format => :medium) %></span>
+          <% end %>
       <% end %>
 	  <% if @todo.user %>
           <span class="responsible"><%= @todo.user.name %>:</span>
@@ -47,11 +51,11 @@
             <%= f.commit_button :label => t('admin.to_do_comment.new.create_button'),
                                 :button_html => { :class => 'button positive' } %>
 	    <%= f.button_link t('admin.to_do_comment.new.preview_button'), '#new_to_do_comment',
-                              :button_html => { :class => 'button positive preview' }  %>
+                              :button_html => { :class => 'button positive preview' } %>
 	    <%= f.button_link t('admin.to_do_comment.new.edit_button'), '#new_to_do_comment',
-			      :button_html => { :class => 'button positive edit' }  %>
+			      :button_html => { :class => 'button positive edit' } %>
 	    <%= f.button_link t('admin.to_do_comment.new.cancel'), admin_project_to_do_lists_path(params[:project_id]),
-			      :button_html => { :class => 'button negative' }  %>
+			      :button_html => { :class => 'button negative' } %>
           <% end %>
    <% end %>
   </div>
