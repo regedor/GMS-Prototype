@@ -132,6 +132,7 @@ jQuery.fn.makeSortable = function(){
 			      },
 			      success: function(r) {
 				  		$("#todo_content-"+r.id).html(r.html);
+						$.datepicker.setDefaults( $.datepicker.regional[ '' ] );
 						$( ".datepicker" ).datepicker($.datepicker.regional[locale]);
 			      }
 			    });
