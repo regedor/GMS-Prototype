@@ -16,6 +16,8 @@ class Post < ActiveRecord::Base
 
   named_scope :not_deleted, :conditions => {:deleted => false}
 
+  has_attached_file :image, :styles => { :image => "250x250" }
+
   # Makes this model historicable
   include HistoryEntry::Historicable
 

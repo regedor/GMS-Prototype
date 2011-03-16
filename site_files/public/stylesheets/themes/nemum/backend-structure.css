@@ -69,10 +69,46 @@ div#social-buttons                       { margin: 0 0 5px; }
 div#social-buttons iframe                { vertical-align: bottom; }
 div#social-buttons a span                { border: 1px solid #5F78AB; border-bottom: 1px solid #29447E; }
 
-/* Tree */
+/* Buttons */
 
-ul.options li { background: url("/images/tree/node.png") no-repeat; }
-ul.options li a { padding-left: 10px; }
+button,
+a.button,
+input.button                             { cursor: pointer; float: left; background-color: #F5F5F5; }
+button,
+a.button,
+a.button:hover,
+input.button                             { border: 1px solid #AAA; }
+
+a.button                                 { padding: 6px 10px; }
+input.button                             { padding: 5px 10px !important; }
+button                                   { padding: 5px 10px; }
+
+button,
+a.button,
+input.button                             { background: -webkit-gradient(linear,0% 30%,0% 90%,from(#F9F9F9),to(#E9E9E9)); background: -moz-linear-gradient(top, #FFF, #E9E9E9); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F9F9F9, endColorstr=#E9E9E9); -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#F9F9F9, endColorstr=#E9E9E9"; }
+button:active,
+a.button:active,
+input.button:active                      { background: -webkit-gradient(linear,0% 30%,0% 90%,from(#E9E9E9),to(#F9F9F9)); background: -moz-linear-gradient(top, #E9E9E9, #FFF); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#E9E9E9, endColorstr=#F9F9F9); -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#E9E9E9, endColorstr=#F9F9F9"; }
+
+button,
+a.button,
+input.button                             { -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; }
+
+*:first-child+html input[type]           { padding: 2px 10px 3px; /* IE7 */ }
+
+a.google_ico,
+a.yahoo_ico                              { margin: 0 0 15px 0; width: 90% }
+
+/* Revert info */
+
+ul.options li { background: url("/stylesheets/themes/nemum/icons/bullet_black.png") no-repeat; }
+ul.options li a { padding-left: 18px; }
+
+/* Groups tree */
+
+ul.inner li { background: url("/stylesheets/themes/nemum/icons/node.png") no-repeat; text-indent: 14px; margin: 0 !important; line-height: 1.5em; }
+ul.inner ul { background: url("/stylesheets/themes/nemum/icons/vline.png") repeat-y; }
+ul.inner ul { padding-left: 15px; }
 
 /* Rounded borders */
 

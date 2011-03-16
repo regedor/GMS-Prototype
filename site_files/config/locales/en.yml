@@ -9,12 +9,13 @@ en:
 
   users:
     roles:
+      user: "User"
       root: "Root"
       admin: "Administrator"
-      users_manager: "Users Manager"
+      general_manager: "General Manager"
+      projects_manager: "Projects Manager"
       website_manager: "Website Manager"
       blogger: "Blogger" 
-      user: "Normal User"
     form:
       name: "Name"
       email: "Email"
@@ -199,6 +200,8 @@ en:
         description_hint: "This description is optional, use it to explain the purpose of the list, if needed"
         create_button: "Create"  
         cancel_button: "Cancel"
+      delete:
+        link: "<img src='/stylesheets/themes/nemum/icons/bin_closed.png' alt='Remove' />"
       empty: "There are no To-Do lists"    
     
     to_do:
@@ -549,7 +552,8 @@ en:
         edit: "Update user"
         hints:
           avatar: "If you upload an image this will be shown. If you do not upload an image and the user has a gravatar, it will be used. Otherwise a default image will be shown."
-          active: "If a user is not active, he/she cannot login."
+          active: "A user must be active to be able to login."
+          phone: "Please include your country's prefix as well."
           groups: "Select the groups that the user will belong to."
 
     deleted_users:
@@ -642,8 +646,9 @@ en:
         user_choosable: "User choosable"
         behavior_type: "Behavior type"
         behavior_at_time: "Execute behavior at"
-        behavior_after_time: "Execute behavior after days in the group"
-        behavior_file_name: "Wanted behavior"
+        behavior_after_time: "Execute behavior after"
+        behavior_file_name: "Behavior"
+        behavior_group_to_jump: "Jump to"
       create:
         title: "Group"
       form:
@@ -666,6 +671,10 @@ en:
           behavior_type: "Select the type of behaviour"
           groups: "Select sub-group(s)"
           direct_users: "Select belonging user(s) by default"
+          behavior_at_time: "The time at which the behavior applies"
+          behavior_group_to_jump: "Select the desired group"
+          behavior_file_name: "Select the desired behavior"
+          behavior_after_time: "The number of days elapsed until the behavior applies"
       list_actions:
         delete_by_ids!: "Delete"
       list:
@@ -784,6 +793,7 @@ en:
         total_approved_comments: "Comments"
         body: "Body"
         slug: "Slug"
+        image: "Image"
         tag_list: "Tag List"
         minor_edit: "Minor Edit"
       preview:
@@ -808,6 +818,7 @@ en:
         close_button: "Close"
         hints:
           body: "<a href='http://textile.thresholdstate.com/'>Textile enabled</a>. Use Ctrl+Alt+E to switch between preview and edit mode."
+          image: "Select a post image."
           tag_list: "Comma separated: ruby, rails&hellip;"
           published_at: "Click on the field to open the calendar."
           slug: "Leave blank for an auto-generated slug based on the title."
@@ -843,7 +854,7 @@ en:
           title: "Edit Post"
           paragraph: "You are editing post information. Aside from the post's <b title=\"The title is the post identification.\">title</b> and <b title=\"The body corresponds to the post content\">body</b>, you can change the <b title=\"Tags are a set of keywords meant to identify the posts.\">tag list</b>, the <b title=\"\">publish date</b> and the <b title=\"The slug is the unique identification of the post, useful for links.\">slug</b>. There's also a <b title=\"Check if you don't want users to be notified via feed.\">minor edit</b> checkbox.<br/><br/>You can preview the contents of your post before pressing <b title=\"The Save button saves the post.\">Save</b> by clicking on the <b title=\"The Preview button lets you preview the post.\">Preview</b> button. To discard any changes, press <b title=\"The Cancel button discards any changes.\">Cancel</b>."
         tags:
-          paragraph: "You can also filter posts by <b title=\"Tags are a set of keywords meant to identify the posts.\">tags</b> on the list below. When you click on a tag, all posts <b title=\"If you click the tag 'a' and 'b', only the posts containing both keywords will be shown.\">containing</b> every tag you selected will be shown."
+          paragraph: "You can also filter posts by <b title=\"Tags are a set of keywords meant to identify the posts.\">tags</b> on the list below. When you click on a tag, the posts <b title=\"If you click the tag 'a' and 'b', only the posts containing both keywords will be shown.\">containing</b> all the tags you selected will be shown."
 
     comments:
       index:
@@ -913,10 +924,10 @@ en:
         paragraph: "You can <b title=\"Use the 'New Announcement' button.\">create</b> new announcements and <b title=\"Use the 'Delete' button.\">remove</b> existing ones. You can also <b title=\"Use the 'Details' button.\">view</b> and <b title=\"Use the 'Edit' button.\">edit</b> current announcements.<br/><br/>It's possible to order the announcement list by <b title=\"Click in 'Title'.\">title</b>, <b title=\"Click in 'Message'.\">message</b>, <b title=\"Click in 'Start Date'.\">start date</b>, <b title=\"Click in 'End Date'.\">end date</b> or <b title=\"Click in 'URL'.\">URL</b> as well as <b title=\"The filter box is next to the add button.\">filter</b> its contents.<br/><br/>By clicking on the announcement's title, you'll be redirected to the corresponding announcement in the frontend."
         show:
           title: "Announcement Details"
-          paragraph: "You are now viewing the details of an announcement. To edit this announcement, go to the announcements tab and chose edit."
+          paragraph: "You are now viewing the details of an announcement. To edit this announcement, go to the announcements tab and click edit."
         edit:
-          title: "Edit announcement"
-          paragraph: "You are editing an announcement. You can specify a <b title=\"The title will identify the announcement.\">title</b>, change the <b title=\"The announcement will be visible between the start and end date.\" >date</b> when it will be visible. You can edit the target <b title=\"The url is the target page, when the image is clicked.\">url</b>, and the background <b title=\"The image will fill all the banner area.\">image</b>. Finally you can change the <b title=\"If your message is too long, it will cover cover the image.\">message</b> which appear in front of the image.<br/>If you want to create a big announcement, you should the create a <b title=\"See the link on the tab above.\">static page</b> with all the information, and link the announcement to that page."
+          title: "Edit Announcement"
+          paragraph: "You are editing announcement information. Aside from the announcement's <b title=\"The title is the announcement's identification.\">title</b> and <b title=\"The message corresponds to the announcement's content.\">message</b>, you can define a <b title=\"The announcement will be visible between the start and end date.\">period of time</b> in which this announcement will be displayed, choose a <b title=\"The image will fill the banner area.\">background image</b> and link the announcement to a <b title=\"When the image is clicked, the user is redirected to the specified URL.\">URL</b>.<br/><br/>You can preview the contents of your announcement before pressing <b title=\"The Save button saves the announcement.\">Save</b> by clicking on the <b title=\"The Preview button lets you preview the announcement.\">Preview</b> button. To discard any changes, press <b title=\"The Cancel button discards any changes.\">Cancel</b>."
 
     settings:
       title: "Settings"
@@ -979,6 +990,7 @@ en:
     description_required: "Description field is required."
     invalid_date: "Invalid date format."
     project_created: "Succesfully created the project."
+    to_do_created: "Succesfully created the to-do list."
     project_creation_fail: "An error occured while creating the project."
     to_do_comment_creation_fail: "An error occured while creating the comment."
     to_do_comment_created: "Succesfully created the comment on %{todo}."

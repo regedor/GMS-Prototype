@@ -216,8 +216,9 @@ jQuery.fn.makeSortable = function(){
     <% @project.ordered_lists.each do |list| %>
     <div class="title">
       <h2><%= list.name %></h2>
+      <span class="todo_list_delete"><%= link_to t("admin.to_do_list.delete.link"), "#to_do_lists#{list.id}", { :id => "delete_#{list.id}", :class => "delete_list", :onclick => "jQuery(this).delete();" } %></span>
     </div>
-  
+
     <div id="list_<%= list.id %>" class="todo_list">
       <%= render :partial => 'admin/to_do_lists/list.html.erb', :locals => {:list => list, :project => @project} %>
     </div>
