@@ -155,6 +155,22 @@ jQuery.fn.makeSortable = function(){
 
 	return false;
   }	
+
+ jQuery.fn.deleteList = function(){
+		jQuery.ajax({
+	      type: 'DELETE',
+	      url: window.location.href.replace(/\#.*/,"")+"/"+$(this).attr("id").split("_")[1],
+	      error: function() {
+	        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"destroy"});
+			return false;
+	      },
+	      success: function(r) {
+		  		$("#list_"+r).remove();
+	      }
+	    });
+
+	return false;
+  }
 	
  jQuery.fn.addTodo = function(){
 	$(this).parent().hide();
@@ -208,21 +224,17 @@ jQuery.fn.makeSortable = function(){
 </script>
 
 <div class="content">
+  
 <% if @project.ordered_lists.empty? %>
   <center><%= t("admin.to_do_list.empty") %></center>
 <% else %>	
   <% if @reorder.nil? %>	
     <% counter = 1 %>
     <% @project.ordered_lists.each do |list| %>
-    <div class="title">
-      <h2><%= list.name %></h2>
-      <span class="todo_list_delete"><%= link_to t("admin.to_do_list.delete.link"), "#to_do_lists#{list.id}", { :id => "delete_#{list.id}", :class => "delete_list", :onclick => "jQuery(this).delete();" } %></span>
-    </div>
-
-    <div id="list_<%= list.id %>" class="todo_list">
-      <%= render :partial => 'admin/to_do_lists/list.html.erb', :locals => {:list => list, :project => @project} %>
-    </div>
-    <% end %>
+      <div id="list_<%= list.id %>" class="todo_list">
+	    <%= render :partial => 'admin/to_do_lists/list.html.erb', :locals => {:list => list, :project => @project} %>
+	  </div>
+	<% end %>
     <% counter = counter+1 %>
   
   <% else %>

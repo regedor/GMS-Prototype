@@ -23,6 +23,7 @@ class Admin::ToDoCommentsController < Admin::BaseController
             end  
             mail.recipients = mailing_list
             mail.set_xmls(mailing_list)
+            mail.message_type = "email"
             mail.save
 
             begin

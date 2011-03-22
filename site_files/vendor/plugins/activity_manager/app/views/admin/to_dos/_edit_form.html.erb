@@ -1,7 +1,7 @@
 <% semantic_form_for(:todo, @todo, :url => admin_project_to_do_path(params[:project_id],@todo),:html => {:method => "put"}) do |f| %>
   <% f.inputs do %>
     <%= f.input :description, :as => :text, :input_html => {:rows => 3, :cols => 40}, :label => t("admin.to_do.edit.title"), :required => false %>
-    <%= f.input :user_id, :label => t("admin.to_do.edit.responsible") , :as => :select, :collection => @project.users + ((@project.user) ? [@project.user] : []), :required => false, :hint => t("admin.to_do.edit.hint") %>
+    <%= f.input :user_id, :label => t("admin.to_do.edit.responsible") , :as => :select, :collection => @project.users, :required => false, :hint => t("admin.to_do.edit.hint") %>
     <%= f.input :due_date, :as => :string, :required => false, :input_html => { :class => "datepicker", :id => "todo_due_date_#{@todo.id}", :value => @todo.due_date? ? l(@todo.due_date, :format => :showdate) : '' } %>
     <%= f.input :to_do_list_id, :as => :hidden %>
   <% end  %>

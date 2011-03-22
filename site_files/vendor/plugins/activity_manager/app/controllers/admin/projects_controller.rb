@@ -32,7 +32,7 @@ class Admin::ProjectsController < Admin::BaseController
 
   def edit
     @project = Project.find(params[:id])
-    @users = User.all - [@project.user]
+    @users = User.all
     
     render :edit
   end  
@@ -59,6 +59,7 @@ class Admin::ProjectsController < Admin::BaseController
   def create
     project = Project.new params[:project]
     project.user = current_user
+    #project.users << current_user
     if project.save
       flash[:notice] = t("flash.project_created")   
       redirect_to admin_projects_path 
@@ -71,6 +72,7 @@ class Admin::ProjectsController < Admin::BaseController
   def new
     @project = Project.new
     @users = User.all
+    @project.users << current_user
 
     render :new
   end

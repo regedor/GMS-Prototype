@@ -1,3 +1,8 @@
+  <div class="title">
+    <h2><%= list.name %></h2>
+    <span class="todo_list_delete"><%= link_to t("admin.to_do_list.delete.link"), "#list_#{list.id}", { :id => "delete_#{list.id}", :class => "delete_list", :onclick => "jQuery(this).deleteList();" } %></span>
+  </div>
+
   <div class="description">
     <p>
       <%= list.description %>
@@ -26,8 +31,8 @@
 		<% semantic_form_for(:todo, :url => admin_project_to_dos_path, :html => {:id => "form_#{list.id}"}) do |f| %>
 		  <% f.inputs do %>
 		    <%= f.input :description, :as => :text, :input_html => {:rows => 3, :cols => 40}, :label => t("admin.to_do.add_new.title") %>
-			<%= f.input :responsible, :as => :select, :collection => project.users + ((project.user) ? [project.user] : []), :required => false, :hint => t("admin.to_do.add_new.hint") %>
-			<%= f.input :due_date, :as => :string, :required => false, :input_html => {:class => "datepicker"} %>			
+			<%= f.input :responsible, :as => :select, :collection => project.users, :required => false, :hint => t("admin.to_do.add_new.hint") %>
+			<%= f.input :due_date, :as => :string, :required => false, :input_html => {:class => "datepicker", :id => "todo_due_date_#{list.id}"} %>			
 			<%= f.input :to_do_list_id, :as => :hidden, :value => list.id %>
 		  <% end  %>
 		  <% f.buttons do %>
