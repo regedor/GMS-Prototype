@@ -1000,6 +1000,8 @@ en:
     category_deleted: "Category succesfully deleted"
     project_deleted: "Deleted %{project}"
     project_not_deleted: "Could not delete %{project}"
+    to_do_list_created: "To-Do list %{name} created"
+    to_do_list_not_created: "Could not create to-do list"
   
   notifier: 
     to_do_notification: 

@@ -12,7 +12,19 @@ class Admin::ToDoListsController < Admin::BaseController
   
   def new
     @list = ToDoList.new
-  end  
+  end 
+  
+  def create
+    to_do_list = ToDoList.new params[:to_do_list]
+    to_do_list.project_id = params[:project_id] 
+    if to_do_list.save
+      flash[:notice] = t("flash.to_do_list_created", :name => to_do_list.name)   
+      redirect_to admin_project_to_do_lists_path(params[:project_id]) 
+    else
+      flash[:error] = t("flash.to_do_list_not_created")
+      render :index
+    end
+  end   
   
   def changeState
     todo = ToDo.find(params[:itemid])
@@ -75,5 +87,18 @@ class Admin::ToDoListsController < Admin::BaseController
       format.js { render :text => "" }
     end
   end  
+  
+  def destroy
+    list = ToDoList.find(params[:id])
+    
+    if list.destroy
+      respond_to do |format|
+        format.js { render :text  => params[:id] }
+      end
+    else
+      flash[:error] = t("admin.to_do_list.destroy.error")
+      redirect_to admin_project_to_do_lists_path(params[:project_id])
+    end
+  end
   
 end  
