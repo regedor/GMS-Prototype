@@ -193,6 +193,7 @@ en:
         select_title: "Change project:"
         back: "Back to projects list"
         reorderLists: "Reorder To-Do lists"
+      done: "Done"
       new:
         link: "New to-do list"
         name: "Name"

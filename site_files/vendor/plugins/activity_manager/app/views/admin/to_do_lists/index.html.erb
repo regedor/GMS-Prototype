@@ -242,6 +242,9 @@ jQuery.fn.makeSortable = function(){
     <% @project.ordered_lists.each do |list| %>
       <li id="list_<%= list.id %>"><h2><%= list.name %></h2></li>
     <% end %>
+	<div>
+	  <%= link_to t("admin.to_do_list.done"), admin_project_to_do_lists_path(@project.id), :class => "button" %>
+	</div>
     </div>
   <% end %>
 <% end %>
