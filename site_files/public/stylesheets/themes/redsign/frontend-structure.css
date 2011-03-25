@@ -4,7 +4,7 @@
 ============================================================================
 */
 
-body                          { background-color: #2E2A2B; }
+body                          { background-color: white; }
 
 h2                            { margin: 0 0 15px; }
 h3                            { margin: 0 0 1em; }
@@ -12,22 +12,29 @@ h4                            { margin: 0 0 1em; }
 
 hr                            { clear: left; background-color: #DDD; height: 1px; border: none; margin: 15px 0; }
 
-div#container                 { margin: auto; width: 960px; }
-div#wrapper                   { margin-left: 200px; position: relative; width: 760px; z-index: 1; }
-div#header                    { float: left; position: relative; width: 200px; z-index: 0; }
-div#navigation                { background-color: #555; padding: 1em; width: 175px; }
-div#navigation li             { margin: 0.5em; }
-div#navigation a:hover,
+div#container                 { margin: auto; width: 100%; }
+div#wrapper                   { position: relative; width: 100%; z-index: 1; } /* width 760px */
+div#account-info              { background-color: #FFF; padding: 5px 15px 10px; position: relative; z-index: 1; }
+div#header                    { left; position: relative; height:200px; z-index: 0; }
+div#logotopbars               { background: url("/stylesheets/themes/redsign/images/redbars.png") repeat-x; height:100px; width:100% }
+
 div#site-title a:hover        { border: none; }
 div#site-title                { margin: 100px 0 80px; }
 div#site-title h1 a           { display: block; height: 120px; max-width: 200px; text-indent: -6000px}
-div#site-title h1 a           { background: url("/stylesheets/themes/nemum/images/bg_logo.png") no-repeat; }
-div#account-info              { background-color: #FFF; padding: 5px 15px 10px; position: relative; z-index: 1; }
-div#content.double            { margin-right: 185px; min-height: 200px; }
+div#site-title h1 a           { background: url("/stylesheets/themes/redsign/images/bg_logo.png") no-repeat; }
+
+div#menu                      { margin-top: 77px; background: url("/stylesheets/themes/redsign/images/redbarsmenu2.png") repeat-x; height: 40px; width: 100%; }
+div#navigate ul               { font-weight: bold; position: absolute; margin-left: 50px; margin-top: 1em; }
+div#navigate ul li            { display: inline; }
+div#navigate ul li a:hover    { padding: 7px 12px 8px; background: url("/stylesheets/themes/redsign/images/redbarsmenu3drk.png") repeat-x; }
+div#navigate ul li a          { padding: 0.2em 1em; font-size: 1em; color: #FFF; }
+
+div#content                   { margin: 5% 23% 0 0; }
+div#content.single            { margin: 5%; }
 div#content p                 { margin: 0 0 1em; }
 div#content table             { margin: 0 0 1em; }
-div#sidebar                   { float: right; height: auto; width: 170px; }
-div#main                      { background-color: #FFF; padding: 20px; position: relative; z-index: 2; }
+div#sidebar                   { background: #FFE9E9; float: right; width: 190px; padding: 20px; margin: 0 5%; border-radius: 5px; }
+div#main                      { background-color: #FFF; margin: 20px 0; position: relative; z-index: 2; }
 div#main p                    { margin: 0 0 1.2em; }
 
 div#main table                { border-collapse: collapse; width: 100%; } /* border-collapse ta a broquear padding */
@@ -37,24 +44,24 @@ div#main th                   { border-bottom: solid 1px #DDD; padding: 0.4em 0;
 div#main div#user-info        { margin: 15px 10px; }
 div#main div#user-invite      { margin: 15px 10px; }
 
-div.meta                      { background-color: #EEE; margin: 0 10px; padding: 0.8em; }
+div.meta                      { background-color: #EEE; margin: 0 10px; padding: 0.8em; border-radius: 5px; }
 div#footer                    { margin: 1.5em; }
 
 div#flash                     { background-image: url("/images/dark_transparency.png"); padding: 1em 0; position: fixed; }
 div#flash                     { width: 100%; left: 0; bottom: 0; border-top: 1px solid #000; }
 div#flash div.message         { height: 64px; }
 div#flash div.message p       { margin: 0 100px; padding: 20px; }
-div#flash div.message.error   { background: url("/stylesheets/themes/nemum/images/flash/error.png") no-repeat 0 50%; }
-div#flash div.message.warning { background: url("/stylesheets/themes/nemum/images/flash/warning.png") no-repeat 0 50%; }
+div#flash div.message.error   { background: url("/stylesheets/themes/redsign/images/flash/error.png") no-repeat 0 50%; }
+div#flash div.message.warning { background: url("/stylesheets/themes/redsign/images/flash/warning.png") no-repeat 0 50%; }
 div#flash div.message.info,
-div#flash div.message.notice  { background: url("/stylesheets/themes/nemum/images/flash/notice.png") no-repeat 2% 50%; }
+div#flash div.message.notice  { background: url("/stylesheets/themes/redsign/images/flash/notice.png") no-repeat 2% 50%; }
 
 span.options                  { float: right; }
 .pagination a:hover,
 .meta a:hover,
 .options a:hover,
 #archives a:hover,
-div#footer a:hover            { border-bottom: 2px solid #F8DA00; }
+div#footer a:hover            { border-bottom: 2px solid #E11111; }
 
 /* Social buttons */
 
@@ -64,7 +71,7 @@ div#social-buttons a span     { border: 1px solid #5F78AB; border-bottom: 1px so
 
 /* Announcements */
 
-div#announcements             { margin: 0 15px; overflow: hidden; z-index: 0; position: relative; }
+div#announcements             { margin: auto auto; overflow: hidden; z-index: 0; position: relative; width:730px; }
 div#announcements             { border-left: 1px solid #555; border-right: 1px solid #555; }
 div#announcements a:hover     { border: none; }
 div.announcement-tail         { display: none; }
@@ -156,8 +163,3 @@ div#navigation   { -moz-border-radius-topleft: 12px; -webkit-border-top-left-rad
 div#main         { -moz-border-radius-topright: 12px; -webkit-border-top-right-radius: 12px; border-top-right-radius: 12px; }
 
 div#flash div.message { -moz-border-radius: 6px; -webkit-border-radius: 6px; border-radius: 6px; }
-
-/* Shadows */
-
-div#main,
-div#account-info { -moz-box-shadow: 0 0 15px #333; -webkit-box-shadow: 0 0 15px #333; box-shadow: 0 0 15px #333; }
