@@ -1,12 +1,10 @@
 <div id="footer">
   <div class="block">
-    <p>© 2010-<%= Time.now.year %> <%= link_to configatron.site_name, configatron.site_url %>. All rights reserved.</p>
+    <p>© 2010-<%= Time.now.year %> <%= link_to configatron.site_name, configatron.site_url %>. All Rights Reserved.</p>
     <p>
       <% if current_user -%>
-        <span><%=h t 'footer.last_session_paragraph',
-          :time_ago => time_ago_in_words(current_user.last_login_at || Time.now),
-          :ip       => current_user.last_login_ip %>
-        </span>
+        <%=h t 'footer.last_session_paragraph', :time_ago => time_ago_in_words(current_user.last_login_at || Time.now),
+                                                :ip       => current_user.last_login_ip %>
       <% end -%>
     </p>
 

@@ -76,7 +76,7 @@ en:
     errors:
       invalid_open_id: "OpenID authentication failed. Verify your data and try again."
     bar:
-      last_session_paragraph: "Your last login was %{time_ago} ago, your ip was %{ip}"
+      last_session_paragraph: "Your last login was %{time_ago} ago, your IP was %{ip}"
       account_link: "Account details"
       logout: "Sign Out"
       signin: "Sign In"
@@ -1043,7 +1043,7 @@ en:
       no_selection: "You must select at least one item from the table to execute an action."
 
   footer:
-    last_session_paragraph: "Your last login was %{time_ago} ago, your ip was %{ip}."
+    last_session_paragraph: "Your last login was %{time_ago} ago, your IP was %{ip}."
     browser_warning: "The web site is not rendering correctly because you are using an old version of <span style='color:red;'>Microsoft Internet Explorer</span>.<br /> Upgrade your browser or download <a href='http://www.mozilla.com/firefox/'>Mozilla Firefox</a>."
 
   generic_sentence:
