@@ -48,6 +48,10 @@ hr                                                          { clear: left; backg
 
 div.titles.sortable                                         { padding: 0 0 20px 0; }
 
+div.title span.todo_list_delete                             { display: none; }
+div.title:hover span.todo_list_delete                       { display: inline; }
+div.title h2                                                { display: inline; }
+
 div.todo_list                                               { padding: 20px; }
 div.todo_list div.description p                             { margin: 0 0 15px; }
 
