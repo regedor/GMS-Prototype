@@ -1,5 +1,4 @@
-<div class="block">
-  <div class="content">
+  <div id="content" class="single">
     <div class="inner">
       <h2><%= I18n::t('users.show.title') %></h2>
       <p>
@@ -94,20 +93,20 @@
         <% end %>
       </p>
     </div>
-  </div>
+
+    <form class="formtastic">
+      <fieldset class="buttons">
+        <ol>
+          <li class="commit">
+            <%= link_to "#{t("users.show.list_link")}", user_accounts_path, :class => "button positive create" %>
+          </li>
+          <li class="commit">
+            <%= link_to "#{t("users.show.edit_link")}", edit_user_account_path, :class => "button positive create" %>
+          </li>
+          <li class="commit">
+            <%= link_to "#{t("users.show.session_link")}", user_session_path, :class => "button positive create" %>
+          </li>
+        </ol>
+      </fieldset>
+    </form>
 </div>
-<form class="formtastic" >
-  <fieldset class="buttons">
-    <ol>
-      <li class="commit">
-        <%= link_to "#{t("users.show.list_link")}", user_accounts_path, :class => "button positive create" %>
-      </li>
-      <li class="commit">
-        <%= link_to "#{t("users.show.edit_link")}", edit_user_account_path, :class => "button positive create" %>
-      </li>
-      <li class="commit">
-        <%= link_to "#{t("users.show.session_link")}", user_session_path, :class => "button positive create" %>
-      </li>
-    </ol>
-  </fieldset>
-</form>
