@@ -31,7 +31,14 @@ div#main th                      { vertical-align: middle; }
 div#footer                       { font-size: 1em; text-align: center; line-height: 1.1em; color: #FFF; }
 div#footer a                     { font-weight: bold; color: #E11111 }
 
-div#navigate ul                  { font-weight: bold; }
+div#navigation                   { font-size: 1.1em; }
+div#navigation li                { text-align: right; }
+div#navigation a,
+div#navigation a:visited,
+div#navigation a:link,
+div#navigation a:active          { color: #FFF; }
+div#navigation a:hover           { color: #F8DA00; }
+div#navigation a.active          { color: #F8DA00; }
 
 div.meta li                      { line-height: 1.4em; }
 

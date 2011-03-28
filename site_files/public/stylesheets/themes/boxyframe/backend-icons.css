@@ -1,0 +1,79 @@
+/*
+============================================================================
+= Resources
+============================================================================
+*/
+
+.male         { background: url("/stylesheets/themes/nemum/icons/male.png") no-repeat; text-indent: 20px; }
+.female       { background: url("/stylesheets/themes/nemum/icons/female.png") no-repeat; text-indent: 20px; }
+
+.tick         { background: url("/stylesheets/themes/nemum/icons/tick.png") no-repeat; text-indent: -6000px; }
+.cross        { background: url("/stylesheets/themes/nemum/icons/cross.png") no-repeat; text-indent: -6000px; }
+
+div.active-scaffold-header div.actions a.new { background: url("/stylesheets/themes/nemum/icons/add.png") no-repeat; padding-left: 18px; background-position: 0 50%; }
+
+div.active-scaffold-header div.actions input[type=text] { background: url("/stylesheets/themes/nemum/icons/magnifier.png") no-repeat; text-indent: 20px; background-position: 4px 50%; }
+
+/* Users */
+
+#as_admin__users-content a.show   { background: url("/stylesheets/themes/nemum/icons/user.png") no-repeat; padding-left: 18px; }
+#as_admin__users-content a.edit   { background: url("/stylesheets/themes/nemum/icons/user_edit.png") no-repeat; padding-left: 18px; }
+#as_admin__users-content a.delete { background: url("/stylesheets/themes/nemum/icons/user_delete.png") no-repeat; padding-left: 18px; }
+
+/* Deleted users */
+
+#as_admin__deleted_users-content a.show   { background: url("/stylesheets/themes/nemum/icons/user.png") no-repeat; padding-left: 18px;}
+#as_admin__deleted_users-content a.delete { background: url("/stylesheets/themes/nemum/icons/user_delete.png") no-repeat; padding-left: 18px;}
+#as_admin__deleted_users-content a.undelete { background: url("/stylesheets/themes/nemum/icons/user_add.png") no-repeat; padding-left: 18px;}
+
+/* Groups */
+
+#as_admin__groups-content a.show { background: url("/stylesheets/themes/nemum/icons/group.png") no-repeat; padding-left: 18px; }
+#as_admin__groups-content a.edit { background: url("/stylesheets/themes/nemum/icons/group_edit.png") no-repeat; padding-left: 18px; }
+#as_admin__groups-content a.delete { background: url("/stylesheets/themes/nemum/icons/group_delete.png") no-repeat; padding-left: 18px; }
+
+/* Posts */
+
+#as_admin__posts-content a.comments { background: url("/stylesheets/themes/nemum/icons/comments.png") no-repeat; padding-left: 18px; }
+#as_admin__posts-content a.show { background: url("/stylesheets/themes/nemum/icons/pencil.png") no-repeat; padding-left: 18px; }
+#as_admin__posts-content a.delete { background: url("/stylesheets/themes/nemum/icons/pencil_delete.png") no-repeat; padding-left: 18px; }
+#as_admin__posts-content a.edit { background: url("/stylesheets/themes/nemum/icons/pencil.png") no-repeat; padding-left: 18px; }
+
+/* Pages */
+
+#as_admin__pages-content a.show { background: url("/stylesheets/themes/nemum/icons/page.png") no-repeat; padding-left: 18px; }
+#as_admin__pages-content a.delete { background: url("/stylesheets/themes/nemum/icons/page_delete.png") no-repeat; padding-left: 18px; }
+#as_admin__pages-content a.edit { background: url("/stylesheets/themes/nemum/icons/page_edit.png") no-repeat; padding-left: 18px; }
+
+/* Projects */
+
+#as_admin__projects-content a.show { background: url("/stylesheets/themes/nemum/icons/table.png") no-repeat; padding-left: 18px; }
+#as_admin__projects-content a.delete { background: url("/stylesheets/themes/nemum/icons/table_delete.png") no-repeat; padding-left: 18px; }
+#as_admin__projects-content a.edit { background: url("/stylesheets/themes/nemum/icons/table_edit.png") no-repeat; padding-left: 18px; }
+
+/* Events */
+
+#as_admin__events-content a.show { background: url("/stylesheets/themes/nemum/icons/calendar.png") no-repeat; padding-left: 18px; }
+#as_admin__events-content a.delete { background: url("/stylesheets/themes/nemum/icons/calendar_delete.png") no-repeat; padding-left: 18px; }
+#as_admin__events-content a.edit { background: url("/stylesheets/themes/nemum/icons/calendar_edit.png") no-repeat; padding-left: 18px; }
+
+/* Ordering */
+
+div.active-scaffold th.desc a, 
+div.active-scaffold th.desc a:hover { background: url("/stylesheets/themes/nemum/icons/arrow_down.gif") no-repeat 0px 4px; padding-left: 18px; }
+div.active-scaffold th.asc a,
+div.active-scaffold th.asc a:hover { background: url("/stylesheets/themes/nemum/icons/arrow_up.gif") no-repeat 0px 4px; padding-left: 18px; }
+
+/* Announcements */
+
+#as_admin__announcements-content a.show { background: url("/stylesheets/themes/nemum/icons/date.png") no-repeat; padding-left: 18px; }
+#as_admin__announcements-content a.edit { background: url("/stylesheets/themes/nemum/icons/date_edit.png") no-repeat; padding-left: 18px; }
+#as_admin__announcements-content a.delete { background: url("/stylesheets/themes/nemum/icons/date_delete.png") no-repeat; padding-left: 18px; }
+
+/* Account */
+
+.logout_ico   { background: url("/stylesheets/themes/nemum/icons/door_out.png") no-repeat; padding-left: 18px; }
+
+/* Mails */
+#as_admin__mails-content a.show   { background: url("/stylesheets/themes/nemum/icons/email.png") no-repeat; padding-left: 18px; }
+#as_admin__mails-content a.delete { background: url("/stylesheets/themes/nemum/icons/email_delete.png") no-repeat; padding-left: 18px; }

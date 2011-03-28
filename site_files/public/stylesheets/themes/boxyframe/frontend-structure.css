@@ -12,32 +12,33 @@ h4                            { margin: 0 0 1em; }
 
 hr                            { clear: left; background-color: #DDD; height: 1px; border: none; margin: 15px 0; }
 
-div#wrapper                   { width: 100%; }
-div#account-info              { background-color: #FFF; padding: 5px 15px 8px; position: relative; top: 10px; z-index: 1; width: 98%; }
-div#account-info              { -webkit-box-shadow: 0 0 10px #444; -moz-box-shadow: 0 0 10px #444; box-shadow: 0 0 10px #444; }
-div#header                    { overflow: hidden; }
-div#logotopbars               { position: relative; top: -30px; background-color: #BB0000 !important; }
-div#logotopbars               { background: url("/stylesheets/themes/redsign/images/topbar.png") repeat-x; height: 100px; width: 100% }
+div#wrapper                   { width: 100%; } /* width 760px */
+div#account-info              { background-color: #FFF;  margin: 50px auto 0 auto; height: 30px; width: 980px; }
+div#account-info              { border: 2px solid #000; }
+div#account-info span.options { float: right; margin: 7px 20px; }
+div#account-info span.title   { float: left; margin: 7px 20px; }
 
 div#site-title a:hover        { border: none; }
 div#site-title                { margin: 100px 0 80px; }
 div#site-title h1 a           { display: block; height: 120px; max-width: 200px; text-indent: -6000px}
 div#site-title h1 a           { background: url("/stylesheets/themes/redsign/images/bg_logo.png") no-repeat; }
 
-div#menu                      { background-color: #BB0000 !important; }
-div#menu                      { background: url("/stylesheets/themes/redsign/images/menu.png") repeat-x; height: 40px; width: 100%; }
-div#navigate ul               { position: absolute; margin: 1em 0 0 150px; }
+div#menu                      { background-color: #7697BC !important; margin: auto; border: 2px solid #000; }
+div#menu                      { background: url("/stylesheets/themes/redsign/images/menu.png") repeat-x; height: 40px; width: 980px; }
+div#navigate ul               { font-weight: bold; position: absolute; margin: 1em 0 0 0; }
 div#navigate ul li            { display: inline; }
-div#navigate ul li a:hover    { background-color: #A00000; }
-div#navigate ul li a          { border: none; padding: 12px 1em; color: #FFF; }
+div#navigate ul li a:hover    { background-color: #2E3784; }
+div#navigate ul li a          { border: none; padding: 12px 15px 14px; color: #FFF; }
+
+div#panel                     { width: 980px; margin: auto; border-left: 2px solid #000; border-right: 2px solid #000; background-color: #FFF; }
 
 div#content                   { margin: 0 220px 0 0; }
 div#content.single            { margin: 35px; }
 div#content p                 { margin: 0 0 1em; }
 div#content table             { margin: 0 0 1em; }
-div#sidebar                   { background-color: #FFE9E9; float: right; width: 190px; padding: 20px; margin: 20px; }
+div#sidebar                   { background: #FFE9E9; float: right; width: 190px; padding: 20px; margin: 20px; }
 div#sidebar                   { -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }
-div#main                      { background-color: #FFF; margin: auto; width: 1000px; border-left: 3px solid #111; border-right: 3px solid #111; border-bottom: 3px solid #111; padding: 1px 0; }
+div#main                      { background-color: #FFF; margin: auto; width: 980px; border-left: 2px solid #111; border-right: 2px solid #111; border-bottom: 2px solid #111; padding: 1px 0; }
 div#main p                    { margin: 0 0 1.2em; }
 
 div#main table                { border-collapse: collapse; width: 100%; } /* border-collapse ta a broquear padding */
@@ -60,7 +61,6 @@ div#flash div.message.warning { background: url("/stylesheets/themes/redsign/ima
 div#flash div.message.info,
 div#flash div.message.notice  { background: url("/stylesheets/themes/redsign/images/flash/notice.png") no-repeat 2% 50%; }
 
-span.options                  { float: right; }
 .pagination a:hover,
 .meta a:hover,
 .options a:hover,
@@ -75,7 +75,7 @@ div#social-buttons a span     { border: 1px solid #5F78AB; border-bottom: 1px so
 
 /* Announcements */
 
-div#announcements             { margin: 77px auto; overflow: hidden; position: relative; width: 730px; }
+div#announcements             { margin-left: 250px; overflow: hidden; position: relative; width: 730px; }
 div#announcements a:hover     { border: none; }
 div.announcement-tail         { display: none; }
 div.announcements-bar         { padding: 0.8em; position: absolute; }
