@@ -12,7 +12,7 @@ h4                            { margin: 0 0 1em; }
 
 hr                            { clear: left; background-color: #DDD; height: 1px; border: none; margin: 15px 0; }
 
-div#wrapper                   { width: 100%; } /* width 760px */
+div#wrapper                   { width: 100%; }
 div#account-info              { background-color: #FFF;  margin: 50px auto 0 auto; height: 30px; width: 980px; }
 div#account-info              { border: 2px solid #000; }
 div#account-info span.options { float: right; margin: 7px 20px; }
@@ -27,7 +27,7 @@ div#menu                      { background-color: #7697BC !important; margin: au
 div#menu                      { background: url("/stylesheets/themes/redsign/images/menu.png") repeat-x; height: 40px; width: 980px; }
 div#navigate ul               { font-weight: bold; position: absolute; margin: 1em 0 0 0; }
 div#navigate ul li            { display: inline; }
-div#navigate ul li a:hover    { background-color: #2E3784; }
+div#navigate ul li a:hover    { background-color: #6683A2; }
 div#navigate ul li a          { border: none; padding: 12px 15px 14px; color: #FFF; }
 
 div#panel                     { width: 980px; margin: auto; border-left: 2px solid #000; border-right: 2px solid #000; background-color: #FFF; }
@@ -36,7 +36,7 @@ div#content                   { margin: 0 220px 0 0; }
 div#content.single            { margin: 35px; }
 div#content p                 { margin: 0 0 1em; }
 div#content table             { margin: 0 0 1em; }
-div#sidebar                   { background: #FFE9E9; float: right; width: 190px; padding: 20px; margin: 20px; }
+div#sidebar                   { background: #E9E9FF; float: right; width: 190px; padding: 20px; margin: 20px; }
 div#sidebar                   { -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }
 div#main                      { background-color: #FFF; margin: auto; width: 980px; border-left: 2px solid #111; border-right: 2px solid #111; border-bottom: 2px solid #111; padding: 1px 0; }
 div#main p                    { margin: 0 0 1.2em; }
@@ -65,7 +65,7 @@ div#flash div.message.notice  { background: url("/stylesheets/themes/redsign/ima
 .meta a:hover,
 .options a:hover,
 #archives a:hover,
-div#footer a:hover            { border-bottom: 2px solid #E11111; }
+div#footer a:hover            { border-bottom: 2px solid #6683A2; }
 
 /* Social buttons */
 

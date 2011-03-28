@@ -10,7 +10,7 @@ a,
 a:visited,
 a:link,
 a:active                         { text-decoration: none; color: #2E2A2B; }
-a:hover                          { border-bottom: 3px solid #E11111; }
+a:hover                          { border-bottom: 3px solid #6683A2; }
 
 h1                               { font-size: 2.5em; }
 h2                               { font-size: 1.9em; color: #2E2A2B; }
@@ -29,16 +29,7 @@ div#main table                   { font-size: 1.1em; line-height: 1.8em; }
 div#main th                      { vertical-align: middle; } 
 
 div#footer                       { font-size: 1em; text-align: center; line-height: 1.1em; color: #FFF; }
-div#footer a                     { font-weight: bold; color: #E11111 }
-
-div#navigation                   { font-size: 1.1em; }
-div#navigation li                { text-align: right; }
-div#navigation a,
-div#navigation a:visited,
-div#navigation a:link,
-div#navigation a:active          { color: #FFF; }
-div#navigation a:hover           { color: #F8DA00; }
-div#navigation a.active          { color: #F8DA00; }
+div#footer a                     { font-weight: bold; color: #6683A2; }
 
 div.meta li                      { line-height: 1.4em; }
 
@@ -50,7 +41,7 @@ div.announcements-bar a,
 div.announcements-bar span,
 div.announcement-text            { color: #FFF; text-align: justify; }
 div.announcements-bar a:hover,
-div.announcements-bar span:hover { color: #E11111; }
+div.announcements-bar span:hover { color: #6683A2; }
 
 /* Comments */
 
