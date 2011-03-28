@@ -4,7 +4,8 @@
 ============================================================================
 */
 
-body                          { background-color: #2E2A2B; }
+
+body                          { background-color: #2E2A2B; behavior: url("/public/stylesheets/ie-css3.htc"); }
 
 h2                            { margin: 0 0 15px; }
 h3                            { margin: 0 0 1em; }
