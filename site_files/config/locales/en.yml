@@ -271,6 +271,7 @@ en:
           body: "<a href='http://textile.thresholdstate.com/'>Textile enabled</a>. Use Ctrl+Alt+E to switch between preview and edit mode."
       comments:
         comment: "New comment"
+        ghost: "Deleted user"
       sidebar:
         title: "Messages"
         paragraph: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."          

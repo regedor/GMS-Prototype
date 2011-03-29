@@ -1,5 +1,13 @@
 <hr/>
-<span><%= link_to comment.user.nickname_or_first_and_last_name, user_account_path(comment.user_id), :class => 'author' %> <%= I18n::t('comments.says')%></span>
-<div class="avatar"><%= image_tag avatar_url(comment.user, :size => :small), :alt => '' %></div>
+<% if comment.user %>
+  <span>
+    <%= link_to comment.user.nickname_or_first_and_last_name, user_account_path(comment.user_id), :class => 'author' %> <%= I18n::t('comments.says')%>
+  </span>
+<% else %>
+  <span><%= link_to (comment.user) ? comment.user.name : t('admin.messages.comments.ghost'), "#", :class => 'author' %></span>
+<% end %>
+<div class="avatar">
+  <%= image_tag avatar_url(comment.user, :size => :small), :alt => '' %>
+</div>
 <p><%=raw comment.body_html %></p>
 <span class="comment-meta"><a href="#comment-<%= comment.id %>" title=""><%= format_comment_date(comment.created_at) %></a></span>

@@ -75,13 +75,13 @@ puts "Saving Groups..."
   admin_group.save
 
 puts "Creating projects..."
-  p1 = Project.new :name => "Project 1", :description => "O primeiro projecto do mundo!", :user_id => 1
+  p1 = Project.new :name => "Project 1", :description => "O primeiro projecto do mundo!", :user_id => 1, :users => [User.first,User.find(2)]
 
-  t1 = ToDo.new :description => "Fazer coisas" , :user => User.find(2), :due_date => Time.now 
-  t2 = ToDo.new :description => "Entregar documento X", :user => User.find(3), :due_date => Time.now + 1.day 
-  t3 = ToDo.new :description => "Falar com fulano de tal acerca daquela coisa", :user => User.find(1), :due_date => Time.now + 2.days
-  t4 = ToDo.new :description => "Aprender js"  , :user => User.find(3), :due_date => Time.now + 1.day 
-  t5 = ToDo.new :description => "Aprender ruby", :user => User.find(1), :due_date => Time.now + 2.days  
+  t1 = ToDo.new :description => "Fazer coisas" , :user => User.find(2), :due_date => Time.now.strftime("%d/%m/%Y")
+  t2 = ToDo.new :description => "Entregar documento X", :user => User.find(3), :due_date => (Time.now+1.day).strftime("%d/%m/%Y")
+  t3 = ToDo.new :description => "Falar com fulano de tal acerca daquela coisa", :user => User.find(1), :due_date =>  (Time.now+2.days).strftime("%d/%m/%Y")
+  t4 = ToDo.new :description => "Aprender js"  , :user => User.find(3), :due_date => (Time.now+1.day).strftime("%d/%m/%Y")
+  t5 = ToDo.new :description => "Aprender ruby", :user => User.find(1), :due_date => (Time.now+2.days).strftime("%d/%m/%Y")
 
   tdl1 = ToDoList.new :name => "Plano de Imagem", :description => "Preparar plano de imagem do projecto"
   tdl1.to_dos << t1
@@ -92,7 +92,7 @@ puts "Creating projects..."
   t3.save
   tdl1.save
 
-  tdl2 = ToDoList.new :name => "Gestão de socios", :description => "Relativo a toda a gestão de associados"
+  tdl2 = ToDoList.new :name => "Gestão de sócios", :description => "Relativo a toda a gestão de associados"
   tdl2.to_dos << t4
   tdl2.to_dos << t5
   t4.save

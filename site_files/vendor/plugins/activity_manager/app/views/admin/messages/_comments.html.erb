@@ -3,7 +3,7 @@
     <div id="comment-<%= comment.id %>" class="comment">
       <% commentator = comment.user %>
       <div class="avatar"><%= image_tag avatar_url(commentator, :size => :small) %></div>
-      <span class="author"><%= (commentator) ? commentator.name : 'admin.messages.comments.ghost' %></span>
+      <span class="author"><%= (commentator) ? commentator.name : t('admin.messages.comments.ghost') %></span>
       <span class="date"><%= l(message.created_at, :format => :default) %></span>
       <div class="entrybody">
         <%= raw comment.body_html %>

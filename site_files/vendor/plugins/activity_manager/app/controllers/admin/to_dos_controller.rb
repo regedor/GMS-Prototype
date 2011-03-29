@@ -104,5 +104,18 @@ class Admin::ToDosController < Admin::BaseController
       redirect_to admin_project_to_do_lists_path(params[:project_id])
     end
   end
+  
+  def edit 
+    @todo = ToDo.find(params[:id])
+    @project = Project.find(params[:project_id])
+    
+    respond_to do |format|
+      format.json { render :json  =>  {
+            'id' => params[:id],
+            'html'=> render_to_string(:partial => "admin/to_dos/edit_form.html.erb", :layout => false) 
+        }  
+      }
+    end  
+  end
 
 end

@@ -14,6 +14,10 @@ class Admin::ToDoListsController < Admin::BaseController
     @list = ToDoList.new
   end 
   
+  def update
+    
+  end  
+  
   def create
     to_do_list = ToDoList.new params[:to_do_list]
     to_do_list.project_id = params[:project_id] 
@@ -43,19 +47,7 @@ class Admin::ToDoListsController < Admin::BaseController
       }
     end  
   end    
-  
-  def edit 
-    @todo = ToDo.find(params[:id])
-    @project = Project.find(params[:project_id])
     
-    respond_to do |format|
-      format.json { render :json  =>  {
-            'id' => params[:id],
-            'html'=> render_to_string(:partial => "admin/to_dos/edit_form.html.erb", :layout => false) 
-        }  
-      }
-    end  
-  end  
   
   def cancel
     @todo = ToDo.find(params[:id])

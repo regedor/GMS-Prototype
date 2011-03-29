@@ -124,7 +124,7 @@ jQuery.fn.makeSortable = function(){
 				$(this).parent().parent().parent().addClass("sort-disabled");
 				jQuery.ajax({
 			      type: 'GET',
-			      url: window.location.href.replace(/\#.*/,"")+"/"+$(this).attr("id").split("_")[1]+"/edit",
+			      url: window.location.href.replace(/\#.*/,"").replace("to_do_lists","to_dos")+"/"+$(this).attr("id").split("_")[1]+"/edit",
 				  dataType: "json",
 			      error: function() {
 			        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"edit"});
