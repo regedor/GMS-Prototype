@@ -203,6 +203,8 @@ en:
         cancel_button: "Cancel"
       delete:
         link: "<img src='/stylesheets/themes/nemum/icons/bin_closed.png' alt='Remove' />"
+      edit:
+        link: "<img src='/stylesheets/themes/nemum/icons/pencil.png' alt='Edit' />"
       empty: "There are no To-Do lists"    
     
     to_do:
