@@ -239,6 +239,7 @@ en:
         preview_button: "Preview"
         cancel: "Cancel"
         edit_button: "Edit"
+        file: "Attachment"
       sidebar:
         back: "Back to To-Do Lists"                       
         
@@ -795,6 +796,7 @@ en:
         body: "Body"
         slug: "Slug"
         image: "Image"
+        generic_file: "Attachment"
         tag_list: "Tag List"
         minor_edit: "Minor Edit"
       preview:
@@ -820,6 +822,7 @@ en:
         hints:
           body: "<a href='http://textile.thresholdstate.com/'>Textile enabled</a>. Use Ctrl+Alt+E to switch between preview and edit mode."
           image: "Select a post image."
+          generic_file: "Attach a file"
           tag_list: "Comma separated: ruby, rails&hellip;"
           published_at: "Click on the field to open the calendar."
           slug: "Leave blank for an auto-generated slug based on the title."

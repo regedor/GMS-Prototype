@@ -40,6 +40,13 @@ jQuery(document).ready(function($){
                  :required => false,
                  :hint     => I18n::t('admin.announcements.form.hints.avatar'),
                  :label    => I18n::t('admin.announcements.columns.avatar') %>
+  <%= form.input :priority,
+                 :as         => 'select',
+                 :required   => false,
+                 :collection => (1..99),
+                 :selected   => @record.priority,
+                 :label      => I18n::t('admin.pages.columns.priority'),
+                 :hint       => I18n::t('admin.pages.form.hints.priority') %>
   <%= form.input :message,
                  :required => false,
                  :hint     => I18n::t('admin.announcements.form.hints.message'),

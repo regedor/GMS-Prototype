@@ -39,6 +39,14 @@ module ApplicationHelper
     end
   end
 
+  def file_icon_displayer(file)
+    if file.content_type =~ /^image\//
+      return file.url(:image)
+    else
+      return "#{root_url}images/icons/door.png"
+    end    
+  end  
+
   def include_i18n_calendar_javascript
     content_for :head do
      javascript_include_tag case I18n.locale.to_s

@@ -11,7 +11,7 @@ class ToDo < ActiveRecord::Base
   # Validations
   # ==========================================================================
 
-   
+   validates_presence_of :description
 
   # ==========================================================================
   # Extra defnitions

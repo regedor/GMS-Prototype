@@ -4,7 +4,7 @@ class Admin::UsersController < Admin::BaseController
   before_filter :load_groups, :only => :index
 
   active_scaffold :user do |config|
-  
+    
     group_actions = Group.find_all_by_show_in_user_actions(true).map do |group|
       group = [ { :method => "add_to_group_#{group.id}", :name => group.name },
                 { :method => "remove_from_group_#{group.id}", :name => group.name } ]

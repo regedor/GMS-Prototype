@@ -1,7 +1,7 @@
 <div class="content">
   <div class="inner">
     <h2><%= I18n::t('admin.posts.form.edit_tag', :name => @tag.name) %></h2>
-    <% semantic_form_for(@tag, :url => { :action => 'update_tag', :id => @tag.id } ) do |form| -%>
+    <% semantic_form_for(@tag, :url => { :action => 'update_tag', :id => @tag.id }, :html => {:multipart => true} ) do |form| -%>
       <% form.input_field_set do -%>
         <%= form.input :name %>
       <% end -%>

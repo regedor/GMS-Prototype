@@ -11,7 +11,7 @@ class Admin::PostsController < Admin::BaseController
       :list   => [ :title, :excert, :published_at, :total_approved_comments ],
       :show   => [ ],
       :create => [ :title, :body, :tag_list, :published_at, :slug, :image ],
-      :edit   => [ :title, :body, :tag_list, :published_at, :slug, :minor_edit, :image ]
+      :edit   => [ :title, :body, :tag_list, :published_at, :slug, :minor_edit, :image, :generic ]
   end
 
   def custom_finder_options
