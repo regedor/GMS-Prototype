@@ -30,7 +30,8 @@ div#navigate ul li            { display: inline; }
 div#navigate ul li a:hover    { background-color: #6683A2; }
 div#navigate ul li a          { border: none; padding: 12px 15px 14px; color: #FFF; }
 
-div#panel                     { width: 980px; margin: auto; border-left: 2px solid #000; border-right: 2px solid #000; background-color: #FFF; }
+div#logo                      { height: 200px; width: 230px; margin: 25px 0; position: absolute; float: left; background: url("/images/dark_transparency.png"); }
+div#panel                     { width: 980px; margin: auto; border-left: 2px solid #000; border-right: 2px solid #000; }
 
 div#content                   { margin: 0 220px 0 0; }
 div#content.single            { margin: 35px; }
@@ -75,12 +76,12 @@ div#social-buttons a span     { border: 1px solid #5F78AB; border-bottom: 1px so
 
 /* Announcements */
 
-div#announcements             { margin-left: 250px; overflow: hidden; position: relative; width: 730px; }
+div#announcements             { overflow: hidden; position: relative; width: 980px; }
 div#announcements a:hover     { border: none; }
 div.announcement-tail         { display: none; }
-div.announcements-bar         { padding: 0.8em; position: absolute; }
+div.announcements-bar         { padding: 0.8em; position: absolute; right: 0; }
 div.announcements-bar         { background: url("/images/dark_transparency.png"); }
-div.announcement-block img    { height: 250px; width: 730px; }
+div.announcement-block img    { height: 250px; width: 980px; }
 div.announcement-text         { bottom: 0; position: absolute; right: 0; }
 div.announcement-text         { background: url("/images/dark_transparency.png"); padding: 1.2em; width: 300px; }
 div.announcement-text p.title { padding: 0 0 1em; }
