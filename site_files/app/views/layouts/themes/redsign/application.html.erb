@@ -51,7 +51,7 @@
       </div>
       <% end %>
 
-      <% announcements = Announcement.active %>
+      <% announcements = Announcement.prioritize.active %>
       <div id="announcements">
         <% if(announcements.size > 0) %>
           <div class="announcements-bar">
