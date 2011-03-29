@@ -41,7 +41,6 @@
         </span>
         <span class="title"><%= configatron.site_header %></span>
       </div>
-      <div id="logotopbars"></div>	
     </div>
 
     <div id="wrapper">
@@ -52,8 +51,9 @@
       <% end %>
 
       <div id="panel">
-      <% announcements = Announcement.active %>
+      <% announcements = Announcement.prioritize.active %>
       <div id="announcements">
+        <div id="logo"></div>
         <% if(announcements.size > 0) %>
           <div class="announcements-bar">
             <% announcements.each_with_index do |announcement, i| -%>
