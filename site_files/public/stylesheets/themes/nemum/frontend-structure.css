@@ -4,7 +4,8 @@
 ============================================================================
 */
 
-body                          { background-color: #2E2A2B; }
+
+body                          { background-color: #2E2A2B; behavior: url("/public/stylesheets/ie-css3.htc"); }
 
 h2                            { margin: 0 0 15px; }
 h3                            { margin: 0 0 1em; }
@@ -23,7 +24,7 @@ div#site-title                { margin: 100px 0 80px; }
 div#site-title h1 a           { display: block; height: 120px; max-width: 200px; text-indent: -6000px}
 div#site-title h1 a           { background: url("/stylesheets/themes/nemum/images/bg_logo.png") no-repeat; }
 div#account-info              { background-color: #FFF; padding: 5px 15px 10px; position: relative; z-index: 1; }
-div#content                   { margin-right: 185px; min-height: 200px; }
+div#content.double            { margin-right: 185px; min-height: 200px; }
 div#content p                 { margin: 0 0 1em; }
 div#content table             { margin: 0 0 1em; }
 div#sidebar                   { float: right; height: auto; width: 170px; }

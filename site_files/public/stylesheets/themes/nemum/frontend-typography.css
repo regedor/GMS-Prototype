@@ -53,12 +53,11 @@ div.meta li                      { line-height: 1.4em; }
 div#flash div.message p          { color: #FFF; font-size: 1.6em; font-weight: bold; }
 
 div.announcement-text p.title    { font-weight: bold; font-size: 1.2em; }
-div.announcement-text,
+div.announcements-bar,
 div.announcements-bar a,
-div.announcements-bar a:active,
+div.announcements-bar span,
+div.announcement-text            { color: #FFF; text-align: justify; }
 div.announcements-bar a:hover,
-div.announcements-bar a:visited,
-div.announcements-bar            { color: #FFF; text-align: justify; }
 div.announcements-bar span:hover { color: #F8DA00; }
 
 /* Comments */

@@ -1,3 +1,4 @@
+<div id="content" class="single">
 <ol class="comment-list">
   <% commentable.approved_comments.each do |_comment| -%>
   <li<%=raw cycle(' class="alt"', '') %> id="comment-<%= _comment.id %>">
@@ -22,3 +23,4 @@
     </div>
   <% end -%>
 <% end -%>
+</div>
