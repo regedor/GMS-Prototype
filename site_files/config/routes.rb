@@ -77,6 +77,26 @@ ActionController::Routing::Routes.draw do |map|
                                      :collection      => { :values => :get }     
     admin.resources :user_optional_group_picks, :active_scaffold => true, :active_scaffold_sortable => true      
     admin.posts_with_tags 'posts/tags/:tag_ids', :controller => 'posts', :action => 'index'
+    
+    # ==========================================================================
+    # Projects Resources
+    # ==========================================================================
+    
+    
+    admin.resources :projects,          :active_scaffold => true, :active_scaffold_sortable => true 
+    
+    admin.resources :projects do |project|
+      project.resources :to_do_lists,   :collection => { :sortList => :post },
+                                        :member => { :changeState => :post, :cancel => :get}
+      project.resources :to_dos,        :collection => { :create => :post }
+      
+      project.resources :to_dos do |todo|
+        todo.resources  :comments,      :controller  => "to_do_comments", :collection => { :preview => :post }
+      end  
+      project.resources :categories,    :collection => {:create => :post}
+      project.resources :messages,      :active_scaffold => true, :active_scaffold_sortable => true, :has_many => :messages_comments
+      project.resources :messages_comment, :collection => {:create => :post} 
+    end
   end
 
   
@@ -87,6 +107,4 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace :api do |api|
    api.resource :i18n
   end
-
-
 end

@@ -12,11 +12,7 @@ class Admin::ToDoListsController < Admin::BaseController
   
   def new
     @list = ToDoList.new
-  end 
-  
-  def update
-    
-  end  
+  end   
   
   def create
     to_do_list = ToDoList.new params[:to_do_list]
@@ -47,7 +43,22 @@ class Admin::ToDoListsController < Admin::BaseController
       }
     end  
   end    
-    
+  
+  def edit
+    @list = ToDoList.find(params[:id])
+  end
+  
+  def update
+    to_do_list = ToDoList.new params[:to_do_list]
+    to_do_list.project_id = params[:project_id] 
+    if to_do_list.save
+      flash[:notice] = t("flash.to_do_list_created", :name => to_do_list.name)   
+      redirect_to admin_project_to_do_lists_path(params[:project_id]) 
+    else
+      flash[:error] = t("flash.to_do_list_not_created")
+      render :index
+    end 
+  end      
   
   def cancel
     @todo = ToDo.find(params[:id])

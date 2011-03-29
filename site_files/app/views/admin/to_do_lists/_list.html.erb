@@ -1,6 +1,7 @@
   <div class="title">
     <h2><%= list.name %></h2>
     <span class="todo_list_delete"><%= link_to t("admin.to_do_list.delete.link"), "#list_#{list.id}", { :id => "delete_#{list.id}", :class => "delete_list", :onclick => "jQuery(this).deleteList();" } %></span>
+    <span class="todo_list_edit"><%= link_to t("admin.to_do_list.edit.link"), edit_admin_project_path(list.project), { :id => "edit_#{list.id}", :class => "edit_list" } %></span>
   </div>
 
   <div class="description">
