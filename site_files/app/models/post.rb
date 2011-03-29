@@ -13,10 +13,13 @@ class Post < ActiveRecord::Base
 
   validates_presence_of   :title, :slug, :body
   validates_uniqueness_of :slug
+  validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/jpg', 'image/png']
+
 
   named_scope :not_deleted, :conditions => {:deleted => false}
 
   has_attached_file :image, :styles => { :image => "250x250" }
+  has_attached_file :generic
 
   # Makes this model historicable
   include HistoryEntry::Historicable

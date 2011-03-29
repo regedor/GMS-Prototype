@@ -22,6 +22,9 @@ class ToDoComment < ActiveRecord::Base
   # Extra defnitions
   # ==========================================================================
 
+  has_attached_file :generic
+  
+
   def apply_filter
     self.body_html = TextFormatter.format_as_xhtml(self.body)
   end

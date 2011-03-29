@@ -6,6 +6,10 @@ class AddPictureToPosts < ActiveRecord::Migration
     add_column :posts, :image_updated_at    , :datetime
   end
 
-  def self.down
-  end
+  def self.down                            
+    remove_column :posts, :image_file_name    
+    remove_column :posts, :image_content_type 
+    remove_column :posts, :image_file_size    
+    remove_column :posts, :image_updated_at   
+  end                                      
 end

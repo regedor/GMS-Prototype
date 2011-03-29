@@ -7,7 +7,7 @@ class Admin::AnnouncementsController < Admin::BaseController
     Scaffoldapp::active_scaffold config, "admin.announcements",
       :list         => [ :title, :message, :starts_at, :ends_at, :url ],
       :show         => [ :title, :starts_at, :ends_at, :url, :avatar, :message ],
-      :create       => [ :title, :starts_at, :ends_at, :url, :avatar, :message ],
+      :create       => [ :title, :starts_at, :ends_at, :url, :avatar, :message, :priority ],
       :edit         => [  ]
   end
 
