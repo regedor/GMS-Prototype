@@ -41,14 +41,16 @@ div#footer a                     { font-weight: bold; color: #F8DA00; }
 
 div#navigation                   { font-size: 1.1em; }
 div#navigation                   { text-align: right; }
+div#navigation h2,
 div#navigation a,
 div#navigation a:visited,
 div#navigation a:link,
 div#navigation a:active          { color: #FFF; }
 div#navigation a:hover           { color: #F8DA00; }
 div#navigation a.active          { color: #F8DA00; }
-div#navigation div#tag-cloud     { border-top: 1px solid #666; margin-top: 15px; }
-div#navigation div#tag-cloud h2  { font-size: 1.2em; margin: 10px 0 0.5em 0; }
+div#navigation div#tag-cloud h2  { font-size: 1em; }
+div#navigation div#tag-cloud a   { color: #CCC; }
+div#navigation div#tag-cloud a:hover { color: #F8DA00; }
 
 div.meta li                      { line-height: 1.4em; }
 
@@ -61,6 +63,8 @@ div.announcements-bar span,
 div.announcement-text            { color: #FFF; text-align: justify; }
 div.announcements-bar a:hover,
 div.announcements-bar span:hover { color: #F8DA00; }
+
+div#archives                     { font-size: 1.2em; }
 
 /* Comments */
 
@@ -95,10 +99,10 @@ a.yahoo_ico                      { font-size: 1em; }
 
 /* Tag cloud */
 
-.nube1                           { font-size: 1.0em; }
-.nube2                           { font-size: 1.2em; }
-.nube3                           { font-size: 1.4em; }
-.nube4                           { font-size: 1.6em; }
-.nube5                           { font-size: 1.8em; }
-.nube6                           { font-size: 2.0em; }
+.nube1                           { font-size: 0.9em; }
+.nube2                           { font-size: 1em; }
+.nube3                           { font-size: 1.1em; }
+.nube4                           { font-size: 1.2em; }
+.nube5                           { font-size: 1.3em; }
+.nube6                           { font-size: 1.4em; }
 .selected                        { font-weight: bold; color: #999; }

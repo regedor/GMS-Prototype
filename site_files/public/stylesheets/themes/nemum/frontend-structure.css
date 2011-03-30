@@ -16,6 +16,10 @@ hr                            { clear: left; background-color: #DDD; height: 1px
 div#container                 { margin: auto; width: 960px; }
 div#wrapper                   { margin-left: 200px; position: relative; width: 760px; z-index: 1; }
 div#header                    { float: left; position: relative; width: 200px; z-index: 0; }
+
+div#navigation div#tag-cloud  { background: url("/stylesheets/themes/nemum/images/line.png") no-repeat top right; margin: 1em 0.5em 0 0; }
+div#navigation div#tag-cloud h2 { padding: 1em 0 0; margin: 0 0 0.5em; }
+
 div#navigation                { background-color: #555; padding: 1em; width: 175px; }
 div#navigation li             { margin: 0.5em; }
 div#navigation a:hover,
@@ -27,7 +31,6 @@ div#account-info              { background-color: #FFF; padding: 5px 15px 10px; 
 div#content.double            { margin-right: 185px; min-height: 200px; }
 div#content p                 { margin: 0 0 1em; }
 div#content table             { margin: 0 0 1em; }
-div#sidebar                   { float: right; height: auto; width: 170px; }
 div#main                      { background-color: #FFF; padding: 20px; position: relative; z-index: 2; }
 div#main p                    { margin: 0 0 1.2em; }
 
@@ -49,6 +52,8 @@ div#flash div.message.error   { background: url("/stylesheets/themes/nemum/image
 div#flash div.message.warning { background: url("/stylesheets/themes/nemum/images/flash/warning.png") no-repeat 0 50%; }
 div#flash div.message.info,
 div#flash div.message.notice  { background: url("/stylesheets/themes/nemum/images/flash/notice.png") no-repeat 2% 50%; }
+
+div#archives                  { float: right; margin: 0 10px; }
 
 span.options                  { float: right; }
 .pagination a:hover,
