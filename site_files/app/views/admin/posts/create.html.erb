@@ -1,38 +1,20 @@
-<% if File.exists?(Rails.root.join("app", "views", params[:controller], "_new_sidebar.html.erb")) %>
-  <% content_for :sidebar do -%>
-    <%= render :partial => 'new_sidebar' %>
-  <% end -%>
-<% elsif File.exists?(Rails.root.join("app", "views", params[:controller], "_sidebar.html.erb")) %>
-  <% content_for :sidebar do -%>
-    <%= render :partial => 'sidebar' %>
-  <% end -%>
-<% end -%>
-
-  <div class="content">
-    <div class="inner">
-
-      <h2><%= I18n::t('admin.posts.form.new') %></h2>
-
-      <% semantic_form_for :record, @record,
-                           :url => admin_posts_path,
-                           :html => { :class => 'create', :id => 'new_post' } do |form| -%>
-
-        <%= render :partial => 'form', :locals => {:form => form} %>
-
-        <p class="form-footer">
-          <% form.buttons do -%>
-            <%= form.button_link   t('admin.posts.form.preview_button'), "javascript: void(0);",
-                                   :button_html => {:class => "preview_button"} %>
-            <%= form.button_link   t('admin.posts.form.edit_button'), "javascript: void(0);",
-                                   :button_html => {:style => "display: none;", :class => "edit_button"} %>
-            <%= form.commit_button t('admin.posts.form.create_button'),
-                                   :button_html => {:class => "submit"} %>
-            <%= form.button_link   t('admin.posts.form.cancel_button'), admin_posts_path,
-                                   :button_html => {:class => "negative"} %>
-          <% end -%>
-        </p>
-
+<div class="content">
+  <div class="inner">
+    <h2><%= I18n::t('admin.posts.form.new') %></h2>
+    <% semantic_form_for :record, @record,
+                         :url => admin_posts_path,
+                         :html => { :class => 'create', :id => 'new_post', :multipart => true } do |form| -%>
+      <%= render :partial => 'form', :locals => { :form => form } %>
+      <% form.buttons do -%>
+        <%= form.commit_button I18n::t('admin.posts.form.create_button'),
+                               :button_html => { :class => 'button positive' } %>
+        <%= form.button_link   I18n::t('admin.posts.form.preview_button'), '#',
+                               :button_html => { :class => 'button positive preview' } %>
+        <%= form.button_link   I18n::t('admin.pages.form.edit_button'), '#',
+                               :button_html => { :class => 'button positive edit' } %>
+        <%= form.button_link   I18n::t('admin.posts.form.cancel_button'), admin_posts_path,
+                               :button_html => { :class => 'button negative' } %>
       <% end -%>
-    </div>
+    <% end -%>
   </div>
-
+</div>

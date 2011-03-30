@@ -1,12 +1,16 @@
 <%# List page %>
-<% if @records -%>
+<% if @records and (controller.action_name != "show") -%>
   <div class="block">
     <div id="sidebar_head">
       <h3><%= t("admin.users.sidebar.title") %></h3>
     </div>
     <div class="content">
-      <p><%= t("admin.users.sidebar.paragraph") %></p>
-    </div>
+      <p><%= t("admin.users.sidebar.text") %></p>
+      <p><%=h t("admin.users.sidebar.deleted_users.paragraph") %></p>
+      <ul class="navigation"> 
+        <li><a href="<%= :deleted_users %>"><%=h t("admin.users.sidebar.deleted_users.link") %></a></li> 
+      </ul> 
+   </div>
   </div>
 
   <div class="block">
@@ -25,40 +29,50 @@
       </ul>
     </div>
   </div>
-
-  <div class="block">
-    <h3><%=h t("admin.users.sidebar.deleted_users.title") %></h3>
-    <div class="content">
-      <p><%=h t("admin.users.sidebar.deleted_users.paragraph") %></p>
-      <ul class="navigation"> 
-        <li><%= link_to t("admin.users.sidebar.deleted_users.link"), admin_deleted_users_path %></li> 
-     </ul> 
-    </div>
-  </div>
 <% end -%>
-
 
 <%# Revert Preview, show and delete pages %>
 <%# History list %>
-<% if (controller.action_name != "edit") and (@history_entry or @record && !@record.new_record?) -%>
+<% if (controller.action_name == "show") and (@history_entry or @record && !@record.new_record?) -%>
   <div class="block">
     <h3><%= t "admin.users.sidebar.history.title", :name => @record.small_name %></h3>
     <div class="content">
-      <p><%= t("admin.users.sidebar.history.paragraph") %></p>
+      <% if @record.id %>
+        <p><%= t("admin.users.sidebar.history.paragraph", :url => "#{@record.id}/edit") %></p>
+      <% else %>
+        <p><%= t("admin.users.sidebar.history.paragraph_no_link", :url => "") %></p>
+      <% end %>
       <ul class="options">
         <% history_rows = ( @actual_record || @record ).history_entries_list -%>
         <% if (first_entry = history_rows.shift) -%>
           <li class="<%= 'selected' unless params[:history_entry_id] %>">
             <%= link_to t("generic_sentence.time_ago", {:time_ago => time_ago_in_words(first_entry.created_at)}), 
                         admin_user_path(first_entry.historicable) %>
-            <%= first_entry.user_name %>
+            <%#= first_entry.user_name %>
+            <%#= HistoryEntry.get_name(( @actual_record || @record ).history_entries_list.first.user_id)  %>
+            <% user = HistoryEntry.get_name_and_type(( @actual_record || @record ).history_entries_list.first.user_id)  %>
+            <span class="<%= user[:type] %>">
+              <%= "<a href=\"#{admin_deleted_users_path}\">" if user[:type] == 'deleted_user' %>
+              <%= "<a href=\"#{admin_user_path(( @actual_record || @record ).history_entries_list.first.user_id)}\">" if user[:type] == 'user' %>
+                <%= user[:name] %>
+              <%= "</a>" if user[:type] != "destroyed_user" %>
+            </span>
           </li>
+          
         <% end -%>
         <% history_rows.each do |entry| -%>
           <li class="<%= 'selected' if params[:history_entry_id].to_s == entry.id.to_s %>">
             <%= link_to t("generic_sentence.time_ago", {:time_ago => time_ago_in_words(entry.created_at)}), 
                         admin_user_path(entry.historicable,{:history_entry_id => entry.id}) %>
-            <%= entry.user_name %>
+            <%#= entry.user_name %>
+            <% user = HistoryEntry.get_name_and_type(entry.user_id)  %>
+            <span class="<%= user[:type] %>">
+              <%= "<a href=\"#{admin_deleted_users_path}\">" if user[:type] == 'deleted_user' %>
+              <%= "<a href=\"#{admin_user_path(( @actual_record || @record ).history_entries_list.first.user_id)}\">" if user[:type] == 'user' %>
+                <%= user[:name] %>
+              <%= "</a>" if user[:type] != "destroyed_user" %>
+            </span>
+            
           </li>
         <% end -%>
       </ul> 
@@ -74,9 +88,8 @@
 <%# History show preview page %>
 <% if  @history_entry -%>
   <div class="block notice">
-<!--    <h3><%= t "admin.users.sidebar.reversion.title"%></h3> not coherent with pilu themes! -->
     <h4><%= t "admin.users.sidebar.reversion.subtitle"%></h4>
-    <p><%= t "admin.users.sidebar.reversion.paragraph"%></p>
+    <p><%= t "admin.users.sidebar.reversion.message"%></p>
     <%= link_to t("admin.users.sidebar.reversion.link"), admin_history_entries_path({:id => @history_entry.id, :redirect_url => admin_user_url(@actual_record.id)}),
                  :method => :post %>
   </div>
@@ -88,7 +101,7 @@
   <div class="block">
     <h3><%= t("admin.users.sidebar.edit.title") %></h3>
     <div class="content">
-      <p><%= t("admin.users.sidebar.edit.paragraph") %></p>
+      <p><%= t("admin.users.sidebar.edit.text") %></p>
     </div>
   </div>
 <% end -%>

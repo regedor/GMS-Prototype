@@ -1,0 +1,7 @@
+<div class="content">
+  <div class="inner">
+    <% semantic_form_for @list, :url => admin_project_to_do_lists_path(params[:project_id]), :html => {:method => :post} do |f| %>
+      <%= render :partial => "admin/to_dos/form.html.erb", :layout => false %>
+    <% end %>
+  </div>
+</div>

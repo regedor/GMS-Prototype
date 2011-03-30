@@ -1,11 +1,35 @@
-<div class="block">
-  <div id="sidebar_head">
-    <h3><%= t("admin.deleted_users.sidebar.title") %></h3>
+<% if (controller.action_name == "index") %>
+  <div class="block">
+    <div id="sidebar_head">
+      <h3><%= t("admin.deleted_users.sidebar.title") %></h3>
+    </div>
+    <div class="content">
+      <p><%= t("admin.deleted_users.sidebar.text") %></p>
+      <ul class="navigation"> 
+              <li><a href="<%= :users %>"><%=h t("admin.groups.sidebar.users.go_to_users") %></a></li> 
+     </ul> 
+    </div>
   </div>
-  <div class="content">
-    <p><%= t("admin.deleted_users.sidebar.paragraph") %></p>
-    <ul class="navigation"> 
-      <li><%= link_to t("admin.deleted_users.sidebar.link"), admin_users_path %></li> 
-   </ul> 
+<% end %>
+
+<% if (controller.action_name == "show") %>
+  <div class="block">
+    <div id="sidebar_head">
+      <h3><%= I18n::t("admin.deleted_users.sidebar.show.title") %></h3>
+    </div>
+    <div class="content">
+      <p><%= I18n::t("admin.deleted_users.sidebar.show.text") %></p>
+    </div>
   </div>
-</div>
+<% end %>
+
+<% if (controller.action_name == "delete") %>
+  <div class="block">
+    <div id="sidebar_head">
+      <h3><%= t("admin.deleted_users.sidebar.delete.title") %></h3>
+    </div>
+    <div class="content">
+      <p><%= t("admin.deleted_users.sidebar.delete.text") %></p>
+    </div>
+  </div>
+<% end %>

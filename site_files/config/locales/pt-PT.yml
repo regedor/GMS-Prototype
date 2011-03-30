@@ -1,11 +1,23 @@
 # Sample localization file for English. Add more files in this directory for other locales.
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
-en:
+pt-PT:
   navigation:
     home: "Home"
     about: "Sobre"
     administration: "Administração"
+
+  posts:
+    meta:
+      date: "Publicado em"
+      comments:
+        many: "%{count} comentários"
+        one: "%{count} comentário"
+      tags: "Tagged"
+    archive: "Arquivo de posts"
+    share_on_facebook: "Partilhar"
+    tags:
+      title: "Tags"
 
   users:
     roles:
@@ -30,7 +42,7 @@ en:
     new:
       title: "Criar nova conta"
       openid: "OpenID"
-      form_inputs_name: "Por favor insira o seu endereço de email e escolha uma password:"
+      form_inputs_name: "Por favor insira o seu email e escolha uma password:"
       form_openid_inputs_name: "Esteja ciente de que o email na página do formulário OpenID, irá substituir este."
       form_side_notes: 
         first: "Porque ninguém quer memorizar milhares de passwords diferentes, recomendamos
@@ -99,11 +111,11 @@ en:
         dashboard: "Painel de Controlo"
         users: "Gestão de Uilizadores"
         website: "Website"
-        system: "Sistema"
+        system: "Sócios"
         communication: "Comunicação"
       secondary:
         dashboard: "Painel de Controlo"
-        users: "Sócios"
+        users: "Contas"
         groups: "Grupos"
         posts: "Posts"
         comments: "Comentários"
@@ -182,20 +194,22 @@ en:
         country: "País"
         gender: "Sexo"
         groups: "Grupos"
+        phone: "Telefone"
+        avatar: "Avatar"
       sidebar:
         history:
           title: "Histórico de Acções"
-          paragraph: "Veja abaixo as alterações feitas por este sócio"
+          paragraph: "Aqui pode reverter informação dos sócios. Escolha uma data abaixo para ver o estado do sócio nessa data. Clique em <b title=\"O link para reverter aparecerá assim que clique numa data.\">\"Reverter\"</b> para completar o processo. <br/>A informação relativa a grupos não será revertida. Para editar esta informação proceda para a página de <a href=\"%{url}\">edição</a>."
         reversion:
           title: "A reverter"
           subtitle: "Está a reverter informação"
-          message: "Se clicar em \"Revert\" abaixo, está a tornar as suas acções permanentes!"
+          message: "Se clicar em <b title=\"O link está por baixo.\">\"Reverter\"</b> abaixo, está a tornar as suas acções permanentes!"
           link: "Reverter"
-        title: "Gestão de Uilizadores"
-        text: "Nesta página podes gerir os sócios."
+        title: "Gestão de Sócios"
+        text: "A gestão de sócios é feita nesta página. Pode <b title=\"A caixa de acções está no topo da tabela.\">desactivar</b>, <b title=\"A caixa de acções está no topo da tabela.\">activar</b> e <b title=\"A caixa de acções está no topo da tabela.\">apagar</b> (veja o link abaixo para ir para a página de sócios apagados). Também pode <b title=\"O link está no fim da linha relativa ao sócio.\">editar</b> informação e ver os <b title=\"O link está no fim da linha relativa ao sócio.\">detalhes</b> de um sócio.<br/> As acções de <b title=\"A caixa de acções está no topo da tabela.\">activar</b>, <b title=\"A caixa de acções está no topo da tabela.\">desactivar</b> e <b title=\"A caixa de acções está no topo da tabela.\">apagar</b> podem ser escolhidas da caixa de acção e serão aplicadas ao grupo de sócios seleccionados da tabela.<br/><br/> Se um sócio tiver um cruz vermelha em frente do nome significa que está <b title=\"Veja a coluna Activo.\">desactivado</b> e não pode fazer login. Se tiver um visto verde está <b title=\"Veja a coluna Activo.\">activo</b>.<br/>Para aplicar uma acção a um grupo de sócios, marque um <b title=\"A caixa de marcação encontra-se do lado esquerdo do nome do sócio.\">visto</b> nos sócios pretendidos.<br/><br/>Para filtrar os sócios, utilize a <b title=\"Repare na caixa com uma lupa, por cima da tabela.\">caixa de pesquisa</b>.<br/> Pode ordenar os sócios clicando nos títulos das colunas.<br>Nota: Poderá necessitar de recarregar a página se após uma operação vir uma mensagem de sucesso, mas não vir os resultados."
         edit:
           title: "Editar sócio"
-          text: "Nesta página pode editar a informação de um sócio. Pode também ver versões anteriores dos dados do sócio."
+          text: "Nesta página pode editar os detalhes de um sócio e alterar os seus dados. O <b title=\"Veja o campo na esquerda.\">email</b> especifica o endereço de correio electrónico do sócio.<br/> A opção <b title=\"Veja o campo na esquerda.\">Activo</b> especifíca se um sócio está activo ou desactivo. Pode também alterar o <b title=\"Veja o campo na esquerda.\">número</b> de telefone do sócio.<br/> O <b title=\"Veja o campo de carregamento de imagens na esquerda.\">avatar</b> especifica a imagem do sócio. Pode carregar qualquer imagem que será cortada para 100x100 pixeis.<br/> No <b title=\"Veja o campo na esquerda.\">perfile</b> está uma pequena descrição sobre o sócio.<br/> Pode alterar também o <b title=\"Veja o campo na esquerda.\">website</b> que especifica a página pessoal do sócio bem como o <b title=\"Veja o campo na esquerda.\">país </b> e o <b title=\"Veja o campo na esquerda.\">sexo</b>. <br/> A gestão dos <b title=\"Veja as caixas de verificação na esquerda.\">grupos</b> é feita nesta página, seleccionando os grupos que pretende que o sócio pertença. A informação de alteração de grupos não será guardada para reversão. Assim que guarde a alteração o estado anterior será perdido.<br/> Quando guardar, uma nova entrada de reversão será guardada, e um estado anterior (com excepção dos grupos) poderá ser obtido.<br/> Os campos com um asterisco (*) são obrigatórios."
       delete:
         title: "Apagar Sócio"
         question: "Tem a certeza que quer apagar %{username}?"
@@ -206,6 +220,7 @@ en:
       destroy_by_ids: "Apagar"
       activate!: "Activar"
       deactivate!: "Desactivar"
+      delete_by_ids!: "Apagar"
       list:
         found:
           more: "%{count} Sócios Encontrados"
@@ -226,11 +241,18 @@ en:
         role:     "Papel"
         cancel:   "Fechar"
         
+      form:
+        update_button: "Actualizar"
+        cancel_button: "Cancelar"
+        
     deleted_users:
       index:
         title: "Lista de Sócios Apagados"
         search: "Encontrar sócios"
         create: "Criar Sócio"
+        show_link: "Mostrar"
+        destroy_link: "Destruir"
+        undelete_link: "Recuperar"
       columns:
         created_at: "Criado em"
         email: "Email"
@@ -243,7 +265,8 @@ en:
         undelete_link: "Anular"
       destroy_by_ids: "Apagar"
       activate!: "Activar"
-      undelete_by_ids: "Reactivar"
+      undelete_by_ids: "Recuperar"
+      destroy_by_ids!: "Destruir"
       list:
         found:
           more: "%{count} Sócios Encontrados"
@@ -251,7 +274,18 @@ en:
         noentries: "Nenhum sócio encontrado"
       sidebar:
         title: "Sócios apagados"
-        text: "Aqui podes gerir os sócios apagados."
+        text: "Aqui podes gerir os sócios apagados. Pode <b title=\"O link está no fim da linha.\">Recuperar</b> um sócio, ver os <b title=\"O link está no fim da linha.\">Detalhes</b> de um sócio ou remover completamente um sócio escolhendo <b title=\"O link está no fim da linha.\">Destruir</b>. Essa acção é <b title=\"Cuidado com esta operação.\">irreversível</b>.<br/> Pode aplicar estas acções a um grupo de sócios, marcando-os e seleccionando a acção da caixa de <b title=\"A caixa está no topo da tabela.\">acção</b>.<br/>Para sair desta página, clique em \"Ir para sócios\", abaixo."
+        show:
+          title: "Detalhes de sócio apagado"
+          text: "Está a ver a informação de um sócio apagado. Não pode alterar esta informação. Se pretende fazer alterações, <b title=\"A opção de recuperar está disponível na listagem de sócios apagados.\">recupere</b> este sócio."
+        delete:
+          title: "Destruir um sócio!"
+          text: "<b title=\"Esta acção é permanente.\">Está a remover permanentemente este sócio. Toda a informação será perdida e não poderá ser recuperada se confirmar esta acção. Por favor confirme que deseja concluir esta acção e verifique sempre se é o sócio correcto.</b>"
+      undelete:
+        title: "Recuperar o sócio?"
+        submit: "Recuperar"
+        cancel_link: "Cancelar"
+          
           
     groups:
       index:
@@ -339,8 +373,9 @@ en:
           one: "%{count} Comentário"
         search: "Procurar Posts"
         create: "Novo Post"
+      archive: "Arquivo de posts"
       columns:
-        published_at: "Públicado em"
+        published_at: "Publicado em"
         title: "Título"
         excert: "Excerto"
         total_approved_comments: "Comentários"
@@ -353,6 +388,12 @@ en:
         found:
           more: "%{count} Posts Encontrados"
           one: "%{count} Post Encontrado"
+      meta:
+        date: "Publicado em"
+        comments:
+          many: "%{count} comentários"
+          one: "%{count} comentário"
+        tags: "Tagged"
       form:
         show: "Mostrar Post"
         new: "Novo Post"
@@ -544,6 +585,12 @@ en:
     false_value: "Não"
     male_value: "Masculino"
     female_value: "Feminino"
+
+  active_scaffold: 
+    are_you_sure_to_undelete: "Tem a certeza que quer recuperar o sócio?"
+    are_you_sure: "Tem a certeza?"
+    cancel: "Cancelar"
+    delete: "Apagar"
 
 #data
 

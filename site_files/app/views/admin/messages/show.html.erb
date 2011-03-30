@@ -1,0 +1,6 @@
+<div class="content">
+  <div class="inner">
+    <%= render :partial => 'admin/messages/message',  :locals => {:message => @message} %>
+    <%= render :partial => 'admin/messages/comments',  :locals => {:comments => @comments, :message => @message} %>
+  </div>
+</div>

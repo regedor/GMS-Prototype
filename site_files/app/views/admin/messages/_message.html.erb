@@ -1,0 +1,15 @@
+<div id="message-header">
+  <div id="title"><h2><%= message.title %></h2></div>
+  <ul>
+    <li class="author"><span><%= I18n::t('admin.messages.form.from')%>: </span><%= (@creator) ? @creator.name : 'admin.messages.form.ghost' %></li>
+    <li class="date"><span><%= I18n::t('admin.messages.form.date')%>: </span><%= l(message.created_at, :format => :default) %></li>
+  </ul>
+</div>
+<hr>
+<div id="message">
+  <div class="avatar"><%= image_tag avatar_url(@creator, :size => :medium) %></div>
+  <div class="entrybody">
+    <%= raw message.body_html %>
+  </div>
+</div>
+<hr>

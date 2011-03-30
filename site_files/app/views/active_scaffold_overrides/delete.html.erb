@@ -1,17 +1,17 @@
 <!-- If a sidebar file exists in the views/controller folder it is rendered, otherwise it does not -->
 
-<% if File.exists?(Rails.root.join("app", "views", params[:controller], "_delete_sidebar.html.erb")) %>
-  <% content_for :sidebar do -%>
-    <%= render :partial => 'delete_sidebar'  %>
-  <% end -%>
-<% elsif File.exists?(Rails.root.join("app", "views", params[:controller], "_sidebar.html.erb")) %>
-  <% content_for :sidebar do -%>
-    <%= render :partial => 'sidebar'  %>
-  <% end -%>
-<% end -%>
 <div class="content">
   <div class="inner">
-    <%= render :super %>
+    <h2>Are you sure you want to delete?</h2>
+    <% semantic_form_for :record, @record,
+                         :url => send("admin_#{@record.class.to_s.underscore.downcase}_path",@record),
+                         :html => { :method => :delete } do |form| -%>
+      <% form.buttons do -%>
+        <%= form.commit_button I18n::t('admin.users.form.delete_button'),
+                               :button_html => { :class => 'button positive' } %>
+        <%= form.button_link I18n::t('admin.users.form.cancel_button'), send("admin_#{@record.class.to_s.pluralize.underscore.downcase}_path"),
+                             :button_html => { :class => 'button negative' } %>
+      <% end -%>
+    <% end -%>
   </div>
 </div>
-

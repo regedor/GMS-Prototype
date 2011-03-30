@@ -1,0 +1,19 @@
+<div class="content">
+  <div class="inner">
+    <h2><%= I18n::t('admin.categories.form.edit') %></h2>
+    <% semantic_form_for :record, @record,
+                         :url => admin_project_category_path(params[:project_id],@record),
+                         :html => { :method => :put } do |form| -%>
+      <% form.input_field_set do -%>
+        <%= form.input :name,
+                       :label    => I18n::t('admin.categories.form.name') %>       
+      <% end -%>
+      <% form.buttons do -%>
+        <%= form.commit_button t('admin.categories.form.edit_button'),
+                               :button_html => {:class => "button positive submit"} %>
+        <%= form.button_link   t('admin.categories.form.cancel_button'), admin_project_categories_path,
+                               :button_html => {:class => "button negative"} %>
+      <% end -%>
+    <% end -%>
+  </div>
+</div>

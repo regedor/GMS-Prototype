@@ -1,0 +1,16 @@
+<div class="content">
+  <div class="inner">
+    <h2><%= I18n::t('admin.users.form.edit') + ' - ' + link_to(h(@record.nickname_or_first_and_last_name), admin_user_path(@record)) %></h2>
+    <% semantic_form_for :record, @record, 
+                         :url => admin_user_path(@record), 
+                         :html => { :method => :put, :id => "edit_user_#{@record.id}", :multipart => true } do |form| -%>
+      <%= render :partial => 'form', :locals => { :form => form } %>
+      <% form.buttons do -%>
+        <%= form.button      :label => I18n::t('admin.users.form.update_button'),
+                             :button_html => { :class => 'button positive' } %>
+        <%= form.button_link I18n::t('admin.users.form.cancel_button'), admin_users_path,
+                             :button_html => { :class => 'button negative' } %>
+      <% end -%>
+    <% end -%>
+  </div>
+</div>

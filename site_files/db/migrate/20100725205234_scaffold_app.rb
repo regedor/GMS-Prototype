@@ -4,16 +4,16 @@ class ScaffoldApp < ActiveRecord::Migration
     create_table :users do |t|
       # User info
       t.string    :email,               :null => false,                   :limit => 100
-      t.string    :name
-      t.string    :nickname
+      t.string    :name,                                                  :limit => 100
+      t.string    :nickname,                                              :limit => 30
       t.boolean   :gender,              :null => false, :default => true # True = Male and False = Female
       t.text      :profile
       t.string    :website
       t.string    :country
-      t.string    :phone
+      t.string    :phone,                                                 :limit => 30
       t.boolean   :emails               # wanna receive emails
       # User values
-      t.integer   :role_id,             :null => false, :default => 6 # Normal user. Role is created in seeds
+      t.integer   :role_id,             :null => false, :default => 1
       t.boolean   :deleted,             :null => false, :default => false
       t.string    :language,            :null => false, :default => "en"
       t.boolean   :active,              :null => false, :default => false
@@ -32,6 +32,11 @@ class ScaffoldApp < ActiveRecord::Migration
       t.datetime  :last_login_at
       t.string    :current_login_ip
       t.string    :last_login_ip
+      # Avatar 
+      t.string    :avatar_file_name
+      t.string    :avatar_content_type
+      t.integer   :avatar_file_size
+      t.datetime  :avatar_updated_at
     end
     add_index :users, :email, :unique => true
 
@@ -57,14 +62,19 @@ class ScaffoldApp < ActiveRecord::Migration
 
 
     create_table :groups, :force => true do |t|
-      t.string  :name,                        :null => false, :uniq => true
-      t.text    :description
-      t.boolean :mailable,                    :null => false, :default => false
-      t.boolean :show_in_user_actions,        :null => false, :default => false
-      t.boolean :user_choosable,              :null => false, :default => false
-      t.boolean :root_edit_only,              :null => false, :default => false #root field
-      t.boolean :blocks_direct_users_access,  :null => false, :default => false #root field
-      t.integer :user_count,                  :null => false, :default => 0
+      t.string   :name,                        :null => false, :uniq => true
+      t.text     :description
+      t.boolean  :mailable,                    :null => false, :default => false
+      t.boolean  :show_in_user_actions,        :null => false, :default => false
+      t.boolean  :user_choosable,              :null => false, :default => false
+      t.boolean  :root_edit_only,              :null => false, :default => false #root field
+      t.boolean  :blocks_direct_users_access,  :null => false, :default => false #root field
+      t.datetime :behavior_at_time
+      t.integer  :behavior_after_time #seconds
+      t.string   :behavior_file_name
+      t.integer  :behavior_group_to_jump_id
+      t.integer  :behavior_delayed_job_id
+      t.integer  :user_count,                  :null => false, :default => 0
       t.timestamps
     end
 
@@ -87,6 +97,7 @@ class ScaffoldApp < ActiveRecord::Migration
     create_table :groups_users do |t|
       t.integer :group_id
       t.integer :user_id
+      t.timestamps
     end
 
 
@@ -193,20 +204,34 @@ class ScaffoldApp < ActiveRecord::Migration
       t.text     :message
       t.string   :subject,              :null => false
       t.integer  :user_id #sender
+      t.string   :message_type,         :null => false #type of the message
       t.text     :xml_groups_and_users
       t.text     :xml_users
     end
 
-    create_table :settings do |t|
+    create_table :settings, :force => true do |t|
       t.string :identifier
       t.string :field_type, :default => 'string'
       t.text   :value
       t.timestamps
     end
-    
+
+    create_table :delayed_jobs, :force => true do |t|
+      t.integer  :priority, :default => 0      # Allows some jobs to jump to the front of the queue
+      t.integer  :attempts, :default => 0      # Provides for retries, but still fail eventually.
+      t.text     :handler                      # YAML-encoded string of the object that will do work
+      t.text     :last_error                   # reason for last failure (See Note below)
+      t.datetime :run_at                       # When to run. Could be Time.zone.now for immediately, or sometime in the future.
+      t.datetime :locked_at                    # Set when a client is working on this object
+      t.datetime :failed_at                    # Set when all retries have failed (actually, by default, the record is deleted instead)
+      t.string   :locked_by                    # Who is working on this object (if locked)
+      t.timestamps
+    end
+    add_index :delayed_jobs, [:priority, :run_at], :name => 'delayed_jobs_priority'
   end
 
+
   def self.down
-    raise IrreversibleMigration, "Simon logo sucks!"
+    raise IrreversibleMigration, "Irreversible Migration."
   end
 end

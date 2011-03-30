@@ -6,6 +6,10 @@ module Admin::BaseHelper
         link_to(record.title, post_path(record))
       when 'Page' then
         link_to(record.title, page_path(record))
+      when 'Event' then
+        link_to(record.title, event_path(record))
+      when 'EventActivity' then
+        link_to(record.title, event_event_activity_path(record.event_id,record))
       else
         record.title
     end
@@ -41,8 +45,8 @@ module Admin::BaseHelper
     truncate(record.message,50,"...")
   end  
 
-  def role_column(record)
-    record.role.nil? ? '-' : t('users.roles.' + record.role.label)
+  def role_column(user)
+    t("users.roles." + user.role.label)
   end
 
   def row_mark_column(record)
@@ -65,6 +69,22 @@ module Admin::BaseHelper
       link_to(message, send("admin_#{commentable.class.to_s.downcase}_comments_path", commentable))
     else
       message
+    end
+  end
+
+  def starts_at_column(record)
+    if record.starts_at == record.starts_at.at_beginning_of_day
+      record.starts_at.strftime('%d/%m/%Y')
+    else
+      record.starts_at.strftime('%d/%m/%Y %H:%M')
+    end
+  end
+
+  def ends_at_column(record)
+    if record.ends_at == record.ends_at.at_beginning_of_day
+      record.ends_at.strftime('%d/%m/%Y')
+    else
+      record.ends_at.strftime('%d/%m/%Y %H:%M')
     end
   end
   
@@ -90,17 +110,17 @@ module Admin::BaseHelper
   
   def active_column(record)
     if record.active
-      '<p class = "true-tick">'+I18n::t('generic_sentence.true_value')+'</p>'
+      '<p class = "tick">'+I18n::t('generic_sentence.true_value')+'</p>'
     else
-      '<p class = "false-cross">'+I18n::t("generic_sentence.false_value")+'</p>'
+      '<p class = "cross">'+I18n::t("generic_sentence.false_value")+'</p>'
     end
   end
   
   def mailable_column(record)
     if record.mailable
-      '<p class = "true-tick">'+I18n::t('generic_sentence.true_value')+'</p>'
+      '<p class = "tick">'+I18n::t('generic_sentence.true_value')+'</p>'
     else
-      '<p class = "false-cross">'+I18n::t("generic_sentence.false_value")+'</p>'
+      '<p class = "cross">'+I18n::t("generic_sentence.false_value")+'</p>'
     end  
   end
 

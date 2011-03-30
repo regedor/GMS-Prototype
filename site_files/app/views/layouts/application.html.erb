@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="application/xhtml+xml;charset=UTF-8" />
   <link rel="shortcut icon" href="/favicon.png" />
-  <title> <%= yield(:page_title) || h(configatron.title)%> </title>
+  <title><%= yield(:page_title) || h(configatron.title)%></title>
 
   <%= javascript_include_tag 'jquery',
                              'jquery-ui-1.8.7.custom.min',
@@ -31,22 +31,11 @@
       <div id="site-title">
         <h1><a href="<%= root_path %>"><%= configatron.site_name %></a></h1>
       </div>
-      <div id="navigation" >
-        <%= frontend_navigation_content %>
-
-        <div id="sidebar">
-          <div id="tag-cloud">
-            <h2><%= I18n::t('posts.tags.title') %></h2>
-            <% tag_cloud @tags_for_cloud, ['nube1', 'nube2', 'nube3', 'nube4', 'nube5', 'nube6'] do |name, css_class| %>
-              <% classes = (@tags && (@tags.include? name)) ? (css_class + ' selected') : css_class %>
-              <%= link_to name, posts_path(:tags => @tags, :this_tag => name), :class => classes %>
-            <% end %>
-          </div>
-          <div id="archives">
-            <p><%= link_to(I18n::t('posts.archive'), archives_path) %></p>
-          </div>
+      <div id="navigation">
+        <div id="menu" >
+          <%= frontend_navigation_content %>
         </div>
-
+        <%= yield :side_bar %>
       </div>
     </div>
 
@@ -61,7 +50,7 @@
         -->
         <span class="options">
         <% if logged_in? %>
-          <%= @current_user.small_name %> |
+          <%= link_to @current_user.small_name, user_account_path, :class => "user_ico" %> |
           <%= link_to t('navigation.administration'), admin_root_path, :class => "key_ico" if permitted_to? :read, :admin_dashboard %> |
           <%= link_to t('user_session.bar.logout'), user_logout_path, :class => "logout_ico" %>
         <% else %>
@@ -69,9 +58,7 @@
           <%= link_to t("user_session.bar.signup"), new_user_account_path, :class => "user_add_ico"                %>
         <% end %>
         </span>
-        <span class="title">
-          Núcleo de Estudantes de Medicina da Universidade do Minho
-        </span>
+        <span class="title"><%= configatron.site_header %></span>
       </div>
 
       <% if @show_admin_menu %>
@@ -80,7 +67,7 @@
       </div>
       <% end %>
 
-      <% announcements = Announcement.active %>
+      <% announcements = Announcement.prioritize.active %>
       <div id="announcements">
         <% if(announcements.size > 0) %>
           <div class="announcements-bar">
@@ -101,9 +88,12 @@
 
       <div id="main" class="selfclear">
         <%= '<div id="flash"><div class="message notice"><p>'+ flash[:notice] +'</p></div></div>' unless flash[:notice].blank? %>
-        <%= '<div class="message error"><p>'+ flash[:error] +'</p></div>' unless flash[:error].blank? %>
-        <%= '<script>jQuery("#flash").delay(4000).toggle("slide", {direction: "down"}, 1500);</script>' unless flash[:notice].blank? and flash[:error].blank? %>
-        <%= yield %>
+        <%= '<div id="flash"><div class="message error"><p>'+ flash[:error] +'</p></div></div>' unless flash[:error].blank? %>
+        <%= '<script>jQuery("#flash").hide().toggle("fade", {}, 2500).delay(4000).toggle("slide", { direction: "down" }, 1500);</script>' unless flash[:notice].blank? and flash[:error].blank? %>
+
+        <div id="content" class=" <%= yield(:side_bar) ? 'double' : 'single' %> ">
+          <%= yield %>
+        </div>
       </div>
 
       <%= render :partial => 'shared/footer' %>

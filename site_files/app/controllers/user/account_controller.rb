@@ -8,13 +8,9 @@ class User::AccountController < ApplicationController
   
   def new
     @user = User.new
-    #FIXME: Account creation is blocked. Remove next line when it is not supposed so.
-    redirect_to root_path
   end
   
   def create
-    #FIXME: Account creation is blocked. Remove next line when it is not supposed so.
-    redirect_to root_path
     @user = User.new(params[:user])
     @user.save do | result | 
       if result 
@@ -61,7 +57,8 @@ class User::AccountController < ApplicationController
   
   def update
     @user = current_user
-    #FIXME: Improve the following choosable groups validations (these validations are only needed in the frontend)
+
+    # VALIDATION: Are all choosable groups in fact user choosable?
     if params[:user][:choosable_group_ids]
       params[:user][:choosable_group_ids].each do |id|
         next if (id == "") || Group.find(id).user_choosable
@@ -70,17 +67,30 @@ class User::AccountController < ApplicationController
         return
       end
     end
+
+    # VALIDATION: Is the pick actually meant for this user?
+    # VALIDATION: Is the selected option for each pick actually a selectable option?
     if params[:user][:user_optional_group_picks]
+      user_picks_hash = { }
+      user_picks = UserOptionalGroupPick.for_user(@user).each { |pick| user_picks_hash[pick.id.to_s] = pick }
+      user_picks.each { |pick| user_picks_hash[pick.id.to_s] = pick }
       params[:user][:user_optional_group_picks].each do |pick_id, group_id|
-        next if UserOptionalGroupPick.find(pick_id).groups.map(&:id).member? group_id.to_i
+        pick = user_picks_hash[pick_id]
+        next if !pick.nil? && (pick.group_ids.member? group_id.to_i)
         # Only a malicious user reaches here
         head 500
         return
       end
     end
 
+    # Restore point in case the final group state is invalid
     initial_group_ids = @user.group_ids.dup
+
+    # Clean up every option
     group_ids = @user.group_ids.dup - Group.all(:conditions => { :user_choosable => true }).map(&:id)
+    user_picks.each { |pick| group_ids -= pick.group_ids } if params[:user][:user_optional_group_picks]
+
+    # Add all the chosen groups
     group_ids |= (params[:user][:choosable_group_ids] - [""]).map(&:to_i) if params[:user][:choosable_group_ids]
     if params[:user][:user_optional_group_picks]
       params[:user][:user_optional_group_picks].each do |pick_id, group_id|
@@ -92,18 +102,21 @@ class User::AccountController < ApplicationController
     @user.attributes = params[:user]
     @user.save do |result|
       if result
-        if (validation_errors = @user.validate_group_picks).empty?
+        # Validates if the group set is valid
+        if (validation_errors = @user.validate_group_picks(user_picks)).empty?
+          # Valid model but invalid group set
           session[:language] = @user.language
           flash[:notice] = t('flash.account_updated')
           redirect_to user_account_path(@user)
         else
           # Groups are an association, therefore they are always saved
-          # This reverts the groups to the initial state, in case something is not validated
+          # This reverts the groups to the restore point (initial state), in case something is not validated
           @user.group_ids = initial_group_ids
           flash[:error] = t('users.errors.user_optional_group_picks.generic') + ":<br />" + validation_errors.map(&:to_s).join('<br />')
           redirect_to :action => 'edit'
         end
       else
+        # Invalid model
         flash[:error] = t('users.errors.invalid_fields') + ":<br />" + @user.errors.each { |i,e| e.to_s}.join(', ')
         redirect_to :action => 'edit'
       end

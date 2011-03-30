@@ -2,7 +2,7 @@
 
 <div class="form_side_notes">
   <div class="note">
-    <p><%= t('users.edit.form_side_notes.first') %></p>
+    <p><%= t('users.edit.form_side_notes') %></p>
   </div>
 </div>
 
@@ -13,8 +13,11 @@
       <%= f.input :gender, :as => :radio, :label => t('users.form.gender'),
                   :collection => [[t('generic_sentence.female_value'), false], [t('generic_sentence.male_value'), true]] %>
       <%= f.input :email, :label => t('users.form.email') %>
+      <%= f.input :emails, :as => :radio,
+                           :label => t('users.form.emails') %>
       <%= f.input :phone, :label => t('users.form.phone') %>
-      <%= f.input :language, :as => :select, :label => t('users.form.language'), :collection => select_language_collection %>
+      <%= f.input :country, :label => t('users.form.country') %>
+      <%= f.input :language, :as => :select, :label => t('users.form.language'), :collection => select_language_collection unless configatron.force_locale %>
     <% end %>
     <% f.inputs :name => t('users.edit.form_auth_inputs_name') do %>
       <%= f.input :password, :label => t('users.form.change_password'), :required => false %>
@@ -32,12 +35,16 @@
                        :wrapper_html => { :id => "user_user_optional_group_picks_groups_input_#{pick.id}" } %>
         <% end -%>
       <% end -%>
+      <% f.inputs :name => t('users.edit.form_profile_inputs_name') do %>
+        <%= f.input :profile, :required => false,
+                    :label => t('users.form.profile') %>
+      <% end %>
     <% end %>
     <div class="required_field_note"><%= t('generic_sentence.required_field') %></div>
     <% f.buttons do %>
-      <%= f.button :label => icon_tag('user_edit')+t('users.update.commit_button') %> 
-      <%= f.button_link icon_tag('arrow_undo')+t('generic_word.go_back'), user_session_path, 
-                         :button_html => {:class => "negative"} %> 
+      <%= f.commit_button :label => t('users.update.commit_button'), :button_html =>{ :class => "button positive" } %> 
+      <%= f.button_link t('users.update.cancel_button'), user_session_path, 
+                         :button_html => {:class => "button negative"} %> 
     <% end %>
   <% end %>
 </div>

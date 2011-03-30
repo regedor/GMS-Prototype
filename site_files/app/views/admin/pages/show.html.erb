@@ -1,32 +1,15 @@
-<% if File.exists?(Rails.root.join("app", "views", params[:controller], "_show_sidebar.html.erb")) %>
-  <% content_for :sidebar do -%>
-    <%= render :partial => 'show_sidebar' %>
-  <% end -%>
-<% elsif File.exists?(Rails.root.join("app", "views", params[:controller], "_sidebar.html.erb")) %>
-  <% content_for :sidebar do -%>
-    <%= render :partial => 'sidebar' %>
-  <% end -%>
-<% end -%>
-
-  <div class="content">
-    <div class="inner">
-
-      <h2><%= I18n::t('admin.pages.form.show') %></h2>
-
-      <div id="preview">
-        <div class="content">
-          <%= render :partial => 'pages/page', :locals => { :page => @record } %>
-        </div>
+<div class="content">
+  <div class="inner">
+    <h2><%= I18n::t('admin.pages.form.show') %></h2>
+    <div id="preview">
+      <div class="content">
+        <%= render :partial => 'pages/page', :locals => { :page => @record } %>
       </div>
-
-      <div class="active-scaffold">
-        <div class="show-view view">
-          <p class="form-footer">
-            <%= link_to t('admin.pages.form.close_button'), admin_pages_path, :class => "cancel" %>
-          </p>
-        </div>
-      </div>
-
-
     </div>
+    <fieldset class="buttons">
+      <li class="commit">
+        <%= link_to t('admin.pages.form.close_button'), admin_pages_path, :class => 'button negative' %>
+      </li>
+    </fieldset>
   </div>
+</div>

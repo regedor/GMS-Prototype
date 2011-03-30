@@ -1,0 +1,54 @@
+<%= include_i18n_calendar_javascript %>
+
+<script>
+jQuery.noConflict();
+
+jQuery(document).ready(function($){
+
+  var counter = 0;
+  var locale = ""
+  for (i in $.datepicker.regional) {
+    if (counter == 1) {
+      locale = i;
+      break;
+    }
+    counter++;
+  }
+
+  $.datepicker.setDefaults( $.datepicker.regional[ '' ] );      
+  $( ".datepicker" ).datetimepicker($.datepicker.regional[locale]);
+
+});
+</script>
+
+<% form.input_field_set do -%>
+  <%= form.input :title,
+                 :label    => I18n::t('admin.announcements.columns.title') %>
+  <%= form.input :starts_at,
+                 :as => :string,
+                 :input_html => { :class => "datepicker", :value => l(@record.starts_at, :format => "%d/%m/%Y %H:%M") },
+                 :label    => I18n::t('admin.announcements.columns.starts_at') %>
+  <%= form.input :ends_at,
+                 :as => :string,
+                 :input_html => { :class => "datepicker", :value => @record.ends_at ? l(@record.ends_at, :format => "%d/%m/%Y %H:%M") : '' },
+                 :label    => I18n::t('admin.announcements.columns.ends_at') %>
+  <%= form.input :url,
+                 :required => false,
+                 :hint     => I18n::t('admin.announcements.form.hints.url'),
+                 :label    => I18n::t('admin.announcements.columns.url') %>
+  <%= form.input :avatar,
+                 :required => false,
+                 :hint     => I18n::t('admin.announcements.form.hints.avatar'),
+                 :label    => I18n::t('admin.announcements.columns.avatar') %>
+  <%= form.input :priority,
+                 :as         => 'select',
+                 :required   => false,
+                 :collection => (1..99),
+                 :selected   => @record.priority,
+                 :label      => I18n::t('admin.pages.columns.priority'),
+                 :hint       => I18n::t('admin.pages.form.hints.priority') %>
+  <%= form.input :message,
+                 :required => false,
+                 :hint     => I18n::t('admin.announcements.form.hints.message'),
+                 :label    => I18n::t('admin.announcements.columns.message') %>
+<% end -%>

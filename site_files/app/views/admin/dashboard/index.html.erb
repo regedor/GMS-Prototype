@@ -1,59 +1,10 @@
 <% content_for :header do -%> <%= configatron.site_name %> Administrations <% end -%>
-<% content_for :sidebar, render(:partial => 'sidebar') -%>
-
 
 <div class="block">
   <div class="content">
-<!--        <%= sparkline_tag @graphArray,
-                    :type => 'discrete',
-                    :height => 30,
-                    :upper => 80,
-                    :above_color => 'green',
-                    :below_color => 'blue' %>
-        <br>
-        <%= sparkline_tag @graphArray,
-                    :type => 'smooth',
-                    :height => 30,
-                    :min_color => 'red',
-                    :max_color => 'green',
-                    :below_color => 'blue' %>
-        <br>
-        <%= sparkline_tag @graphArray,
-                    :type => 'bar',
-                    :height => 30,
-                    :above_color => 'red',
-                    :below_color => 'blue' %>
-        <br>
-        <%= sparkline_tag [90],
-                    :type => 'pie',
-                    :diameter => 50 %>
-        <%= sparkline_tag [70],
-                    :type => 'pie',
-                    :diameter => 50 %>
-        <%= sparkline_tag [50],
-                    :type => 'pie',
-                    :diameter => 50 %>
-        <%= sparkline_tag [30],
-                    :type => 'pie',
-                    :diameter => 50 %>
-        <%= sparkline_tag [10],
-                    :type => 'pie',
-                    :diameter => 50 %>
-        <br>
-        <%= @valor = rand(100) %>
-        <%= sparkline_tag [@valor],
-                    :type => 'bullet',
-                    :good => 100,
-                    :width => 200,
-                    :bad => 10,
-                    :satisfactory => 50,
-                    :good_color => 'green',
-                    :satisfatory_color => 'yellow',
-                    :bad_color => 'red' %> -->
     <h2 class="title"><%= t("web-app-theme.all", :default => "Dashboard") %></h2>
     <div class="inner">
-      <h3> <%= I18n::t("admin.dashboard.title") %></h3>
-        <%= I18n::t("admin.dashboard.text") %>
+      <p><%= I18n::t("admin.dashboard.text") %></p>
     </div>
   </div>
 </div>
