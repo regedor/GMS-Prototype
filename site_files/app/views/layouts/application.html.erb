@@ -29,7 +29,10 @@
 
     <div id="header">
       <div id="site-title">
-        <h1><a href="<%= root_path %>"><%= configatron.site_name %></a></h1>
+        <% if false -%>
+          <h1><a href="<%= root_path %>"><%= configatron.site_name %></a></h1>  
+        <% end -%>
+        <%= render :partial => 'shared/flash_logo' %>
       </div>
       <div id="navigation">
         <div id="menu" >
@@ -91,7 +94,7 @@
         <%= '<div id="flash"><div class="message error"><p>'+ flash[:error] +'</p></div></div>' unless flash[:error].blank? %>
         <%= '<script>jQuery("#flash").hide().toggle("fade", {}, 2500).delay(4000).toggle("slide", { direction: "down" }, 1500);</script>' unless flash[:notice].blank? and flash[:error].blank? %>
 
-        <div id="content" class=" <%= yield(:side_bar) ? 'double' : 'single' %> ">
+        <div id="content" class=" <%# yield(:side_bar) ? 'double' : 'single' %> ">
           <%= yield %>
         </div>
       </div>

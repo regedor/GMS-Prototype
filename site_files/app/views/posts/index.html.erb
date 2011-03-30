@@ -9,14 +9,10 @@
 <% content_for :side_bar do %>
   <div id="tag-cloud">
     <h2><%= I18n::t('posts.tags.title') %></h2>
-      <% tag_cloud @tags_for_cloud, ['nube1', 'nube2', 'nube3', 'nube4', 'nube5', 'nube6'] do |name, css_class| %>
-        <% classes = (@tags && (@tags.include? name)) ? (css_class + ' selected') : css_class %>
-        <%= link_to name, posts_path(:tags => @tags, :this_tag => name), :class => classes %>
-      <% end %>
-    </div>
-    <div id="archives">
-      <p><%= link_to(I18n::t('posts.archive'), archives_path) %></p>
-    </div>
+    <% tag_cloud @tags_for_cloud, ['nube1', 'nube2', 'nube3', 'nube4', 'nube5', 'nube6'] do |name, css_class| %>
+      <% classes = (@tags && (@tags.include? name)) ? (css_class + ' selected') : css_class %>
+      <%= link_to name, posts_path(:tags => @tags, :this_tag => name), :class => classes %>
+    <% end %>
   </div>
 <% end %>
 
@@ -34,4 +30,7 @@
                             :next_label     => I18n::t('posts.pagination.next')) %>
 </div>
 
+<div id="archives">
+  <p><%= link_to(I18n::t('posts.archive'), archives_path) %></p>
+</div>
 

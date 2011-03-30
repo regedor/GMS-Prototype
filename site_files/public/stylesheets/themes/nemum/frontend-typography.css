@@ -40,13 +40,15 @@ div#footer                       { font-size: 1em; text-align: center; line-heig
 div#footer a                     { font-weight: bold; color: #F8DA00; }
 
 div#navigation                   { font-size: 1.1em; }
-div#navigation li                { text-align: right; }
+div#navigation                   { text-align: right; }
 div#navigation a,
 div#navigation a:visited,
 div#navigation a:link,
 div#navigation a:active          { color: #FFF; }
 div#navigation a:hover           { color: #F8DA00; }
 div#navigation a.active          { color: #F8DA00; }
+div#navigation div#tag-cloud     { border-top: 1px solid #666; margin-top: 15px; }
+div#navigation div#tag-cloud h2  { font-size: 1.2em; margin: 10px 0 0.5em 0; }
 
 div.meta li                      { line-height: 1.4em; }
 
