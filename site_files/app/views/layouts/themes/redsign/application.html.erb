@@ -28,6 +28,7 @@
   <div id="container">
 
     <div id="header">
+      <div id="logotopbars"></div>	
       <div id="account-info">
         <span class="options">
           <% if logged_in? %>
@@ -41,7 +42,6 @@
         </span>
         <span class="title"><%= configatron.site_header %></span>
       </div>
-      <div id="logotopbars"></div>	
     </div>
 
     <div id="wrapper">
@@ -51,24 +51,27 @@
       </div>
       <% end %>
 
-      <% announcements = Announcement.prioritize.active %>
-      <div id="announcements">
-        <% if(announcements.size > 0) %>
-          <div class="announcements-bar">
-            <% announcements.each_with_index do |announcement, i| -%>
-              <% if announcement.url -%>
-                <a href="<%= announcement.url %>" onmouseover="changeAnnouncement(<%= i %>)"><%= i+1 %></a>
-              <% else -%>
-                <span onmouseover="changeAnnouncement(<%= i %>)"><%= i+1 %></span>
+      <div id="panel">
+        <% announcements = Announcement.prioritize.active %>
+        <div id="announcements">
+          <% if(announcements.size > 0) %>
+            <div class="announcements-bar">
+              <% announcements.each_with_index do |announcement, i| -%>
+                <% if announcement.url -%>
+                  <a href="<%= announcement.url %>" onmouseover="changeAnnouncement(<%= i %>)"><%= i+1 %></a>
+                <% else -%>
+                  <span onmouseover="changeAnnouncement(<%= i %>)"><%= i+1 %></span>
+                <% end -%>
+                <%= "|" unless i+1 == announcements.size %>
               <% end -%>
-              <%= "|" unless i+1 == announcements.size %>
-            <% end -%>
-          </div>
-          <%= render :partial => 'announcements/announcement', :collection => announcements %>
-        <% else %>
-          <p><%= I18n::t('announcements.none') %></p>
-        <% end %>
+            </div>
+            <%= render :partial => 'announcements/announcement', :collection => announcements %>
+          <% else %>
+            <p><%= I18n::t('announcements.none') %></p>
+          <% end %>
+        </div>
       </div>
+
       <div id="menu">
        <div id="navigate">
 	 <%= frontend_navigation_content %>
