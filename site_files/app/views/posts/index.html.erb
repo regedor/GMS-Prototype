@@ -17,6 +17,14 @@
 <% end %>
 
 <div id="posts">
+  <% if @tags %>
+    <div class="tag-search-bar">
+      <span><%= t('posts.tags.tagged_with') %></span>
+      <span class="taggs"><%= (@tags.map do |tag|  link_to tag, posts_path(:tags => @tags, :this_tag => tag) end).to_sentence %>.</span>
+      <span class="clear-link">(<%= link_to t('posts.tags.clear_selection'), posts_path %>)</span>
+    </div>
+  <% end -%>
+    
   <% if @posts.empty? -%>
     <p><%= I18n::t('posts.none') %></p>
   <% else -%>
