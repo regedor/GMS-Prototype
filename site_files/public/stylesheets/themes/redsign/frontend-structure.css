@@ -80,7 +80,7 @@ div#social-buttons a span     { border: 1px solid #5F78AB; border-bottom: 1px so
 div#announcements             { margin: 77px auto; overflow: hidden; position: relative; width: 730px; }
 div#announcements a:hover     { border: none; }
 div.announcement-tail         { display: none; }
-div.announcements-bar         { padding: 0.8em; position: absolute; }
+div.announcements-bar         { padding: 0.8em; position: absolute; cursor: default; }
 div.announcements-bar         { background: url("/images/dark_transparency.png"); }
 div.announcement-block img    { height: 250px; width: 730px; }
 div.announcement-text         { bottom: 0; position: absolute; right: 0; }
