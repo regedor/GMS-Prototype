@@ -12,11 +12,14 @@ h4                            { margin: 0 0 1em; }
 
 hr                            { clear: left; background-color: #DDD; height: 1px; border: none; margin: 15px 0; }
 
+div#panel                     { width: 770px; height: 290px; margin: 25px auto 25px; background: url("/stylesheets/themes/redsign/images/metal-frame.png") no-repeat; }
+
 div#wrapper                   { width: 100%; }
-div#account-info              { background-color: #FFF; padding: 5px 15px 8px; position: relative; top: 10px; z-index: 1; width: 98%; }
-div#account-info              { -webkit-box-shadow: 0 0 10px #444; -moz-box-shadow: 0 0 10px #444; box-shadow: 0 0 10px #444; }
+div#account-info              { background-color: #FFF; position: absolute; top: 10px; z-index: 1; width: 100%; }
+div#account-info              { -webkit-box-shadow: 0 0 10px #222; -moz-box-shadow: 0 0 10px #222; box-shadow: 0 0 10px #222; }
+div#account-info span.options { float: right; margin: 6px 10px 7px; }
 div#header                    { overflow: hidden; }
-div#logotopbars               { position: relative; top: -30px; background-color: #BB0000 !important; }
+div#logotopbars               { background-color: #BB0000 !important; }
 div#logotopbars               { background: url("/stylesheets/themes/redsign/images/topbar.png") repeat-x; height: 100px; width: 100% }
 
 div#site-title a:hover        { border: none; }
@@ -24,7 +27,7 @@ div#site-title                { margin: 100px 0 80px; }
 div#site-title h1 a           { display: block; height: 120px; max-width: 200px; text-indent: -6000px}
 div#site-title h1 a           { background: url("/stylesheets/themes/redsign/images/bg_logo.png") no-repeat; }
 
-div#menu                      { background-color: #BB0000 !important; }
+div#menu                      { background-color: #BB0000 !important; -webkit-box-shadow: 0 0 10px #222; -moz-box-shadow: 0 0 10px #222; box-shadow: 0 0 10px #222; position: relative; }
 div#menu                      { background: url("/stylesheets/themes/redsign/images/menu.png") repeat-x; height: 40px; width: 100%; }
 div#navigate ul               { position: absolute; margin: 1em 0 0 150px; }
 div#navigate ul li            { display: inline; }
@@ -62,7 +65,6 @@ div#flash div.message.warning { background: url("/stylesheets/themes/redsign/ima
 div#flash div.message.info,
 div#flash div.message.notice  { background: url("/stylesheets/themes/redsign/images/flash/notice.png") no-repeat 2% 50%; }
 
-span.options                  { float: right; }
 .pagination a:hover,
 .meta a:hover,
 .options a:hover,
@@ -77,7 +79,7 @@ div#social-buttons a span     { border: 1px solid #5F78AB; border-bottom: 1px so
 
 /* Announcements */
 
-div#announcements             { margin: 77px auto; overflow: hidden; position: relative; width: 730px; }
+div#announcements             { margin: auto; overflow: hidden; position: relative; top: 20px; width: 730px; }
 div#announcements a:hover     { border: none; }
 div.announcement-tail         { display: none; }
 div.announcements-bar         { padding: 0.8em; position: absolute; cursor: default; }
