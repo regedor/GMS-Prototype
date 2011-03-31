@@ -74,7 +74,7 @@ div#announcements             { margin: 0 15px; overflow: hidden; z-index: 0; po
 div#announcements             { border-left: 1px solid #555; border-right: 1px solid #555; }
 div#announcements a:hover     { border: none; }
 div.announcement-tail         { display: none; }
-div.announcements-bar         { padding: 0.8em; position: absolute; z-index: 1; }
+div.announcements-bar         { padding: 0.8em; position: absolute; z-index: 1; cursor: default; }
 div.announcements-bar         { background: url("/images/dark_transparency.png"); }
 div.announcement-block img    { height: 250px; width: 730px; }
 div.announcement-text         { bottom: 0; position: absolute; right: 0; z-index: 1; }
