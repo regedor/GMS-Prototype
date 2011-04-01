@@ -5,7 +5,7 @@
 */
 
 
-body                          { background-color: #2E2A2B; behavior: url("/stylesheets/ie-css3.htc"); }
+body                          { background-color: #2E2A2B; }
 
 h2                            { margin: 0 0 15px; }
 h3                            { margin: 0 0 1em; }
@@ -149,7 +149,7 @@ a.yahoo_ico                   { margin: 0 0 15px 0; width: 90% }
 
 div#main,
 div#navigation,
-div#account-info { -moz-border-radius-bottomleft: 12px; -webkit-border-bottom-left-radius: 12px; border-bottom-left-radius: 12px; }
+div#account-info { -moz-border-radius-bottomleft: 12px; -webkit-border-bottom-left-radius: 12px; border-bottom-left-radius: 12px; behavior: url("/stylesheets/pie.htc");}
 
 div.announcements-bar,
 div#main,
@@ -159,9 +159,10 @@ div.announcement-text,
 div#main,
 div#navigation   { -moz-border-radius-topleft: 12px; -webkit-border-top-left-radius: 12px; border-top-left-radius: 12px; }
 
-div#main         { -moz-border-radius-topright: 12px; -webkit-border-top-right-radius: 12px; border-top-right-radius: 12px; }
+div#main         { -moz-border-radius-topright: 12px; -webkit-border-top-right-radius: 12px;  }
 
 div#flash div.message { -moz-border-radius: 6px; -webkit-border-radius: 6px; border-radius: 6px; }
+
 
 /* Shadows */
 
