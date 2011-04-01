@@ -20,6 +20,10 @@ div#header                    { float: left; position: relative; width: 200px; z
 div#navigation div#tag-cloud  { background: url("/stylesheets/themes/nemum/images/line.png") no-repeat top right; margin: 1em 0.5em 0 0; }
 div#navigation div#tag-cloud h2 { padding: 1em 0 0; margin: 0 0 0.5em; }
 
+div#tag-search-bar            { margin: 0 0 1em; font-size: 1.1em; }
+div#tag-search-bar div#tags   { margin: 10px 0 10px 10px; }
+div#tag-search-bar div#tags a { border: none; background: url("/stylesheets/themes/nemum/icons/tag_delete.png") no-repeat; padding: 0     5px 0 18px; }
+
 div#navigation                { background-color: #555; padding: 1em; width: 175px; }
 div#navigation li             { margin: 0.5em; }
 div#navigation a:hover,

@@ -52,6 +52,9 @@ div#navigation div#tag-cloud h2  { font-size: 1em; }
 div#navigation div#tag-cloud a   { color: #CCC; }
 div#navigation div#tag-cloud a:hover { color: #F8DA00; }
 
+div#tag-search-bar span#tagged-with { font-size: 1.2em; }
+div#tag-search-bar span#clear-link { font-size: 0.9em; }
+
 div.meta li                      { line-height: 1.4em; }
 
 div#flash div.message p          { color: #FFF; font-size: 1.6em; font-weight: bold; }
