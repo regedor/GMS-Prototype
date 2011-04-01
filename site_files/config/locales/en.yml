@@ -140,8 +140,8 @@ en:
         many: "%{count} comments"
     tags:
       title: "Tag Cloud"
-      tagged_with: "Posts tagges with:"
-      clear_selection: "Clear all"
+      tagged_with: "Posts tagged with:"
+      clear_selection: "clear all"
     archives:
       title: "Archives"
       none: "There are no posts so far."

@@ -18,10 +18,10 @@
 
 <div id="posts">
   <% if @tags %>
-    <div class="tag-search-bar">
-      <span><%= t('posts.tags.tagged_with') %></span>
-      <span class="taggs"><%= (@tags.map do |tag|  link_to tag, posts_path(:tags => @tags, :this_tag => tag) end).to_sentence %>.</span>
-      <span class="clear-link">(<%= link_to t('posts.tags.clear_selection'), posts_path %>)</span>
+    <div id="tag-search-bar">
+      <span id="tagged-with"><%= t('posts.tags.tagged_with') %></span>
+      <span id="clear-link">(<%= link_to t('posts.tags.clear_selection'), posts_path %>)</span>
+      <div id="tags"><%= (@tags.map do |tag| link_to tag, posts_path(:tags => @tags, :this_tag => tag) end).join %></div>
     </div>
   <% end -%>
     

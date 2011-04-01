@@ -10,7 +10,7 @@ a,
 a:visited,
 a:link,
 a:active                         { text-decoration: none; color: #2E2A2B; }
-a:hover                          { border-bottom: 3px solid #E11111; }
+a:hover                          { border-bottom: 3px solid #8EF13C; }
 
 h1                               { font-size: 2.5em; }
 h2                               { font-size: 1.9em; color: #2E2A2B; }
@@ -18,10 +18,9 @@ h3                               { font-size: 1.8em; }
 h4                               { font-size: 1.7em; color: #E22; }
 h5                               { font-size: 1.5em; }
 
-div#account-info                 { font-size: 1em; }
-div#account-info span.title      { color: #2E2A2B; font-weight: bold; }
-
-div#menu                         { -webkit-text-shadow: 0 1px #000; -moz-text-shadow: 0 1px #000; text-shadow: 0 1px #000; }
+div#account-info a:hover         { border: none; color: #8EF13C; }
+div#account-info a,
+div#account-info span            { color: #777; }
 
 div#main p                       { font-size: 1.1em; text-align: justify; line-height: 1.2em; }
 div#main p.inline-errors         { font-size: 0.8em; }
@@ -29,9 +28,10 @@ div#main table                   { font-size: 1.1em; line-height: 1.8em; }
 div#main th                      { vertical-align: middle; } 
 
 div#footer                       { font-size: 1em; text-align: center; line-height: 1.1em; color: #FFF; }
-div#footer a                     { font-weight: bold; color: #E11111 }
+div#footer a                     { font-weight: bold; color: #8EF13C; }
 
-div#navigate ul                  { font-weight: bold; }
+div#navigate li a                { color: #777; }
+div#navigate li a:hover          { color: #8EF13C; }
 
 div#tag-search-bar span#tagged-with { font-size: 1.2em; }
 div#tag-search-bar span#clear-link { font-size: 0.9em; }
@@ -48,7 +48,7 @@ div.announcements-bar a,
 div.announcements-bar span,
 div.announcement-text            { color: #FFF; text-align: justify; }
 div.announcements-bar a:hover,
-div.announcements-bar span:hover { color: #E11111; }
+div.announcements-bar span:hover { color: #8EF13C; }
 
 /* Comments */
 
