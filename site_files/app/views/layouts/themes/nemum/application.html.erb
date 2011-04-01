@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="application/xhtml+xml;charset=UTF-8" />
-  <link rel="shortcut icon" href="/favicon.png" />
+  <link rel="shortcut icon" href="/favicon.ico" />
   <title><%= yield(:page_title) || h(configatron.title)%></title>
 
   <%= javascript_include_tag 'jquery',
@@ -29,10 +29,16 @@
 
     <div id="header">
       <div id="site-title">
-        <h1><a href="<%= root_path %>"><%= configatron.site_name %></a></h1>
+        <% if false -%>
+          <h1><a href="<%= root_path %>"><%= configatron.site_name %></a></h1>  
+        <% end -%>
+        <%= render :partial => 'shared/flash_logo' %>
       </div>
-      <div id="navigation" >
-        <%= frontend_navigation_content %>
+      <div id="navigation">
+        <div id="menu" >
+          <%= frontend_navigation_content %>
+        </div>
+        <%= yield :side_bar %>
       </div>
     </div>
 
@@ -87,7 +93,10 @@
         <%= '<div id="flash"><div class="message notice"><p>'+ flash[:notice] +'</p></div></div>' unless flash[:notice].blank? %>
         <%= '<div id="flash"><div class="message error"><p>'+ flash[:error] +'</p></div></div>' unless flash[:error].blank? %>
         <%= '<script>jQuery("#flash").hide().toggle("fade", {}, 2500).delay(4000).toggle("slide", { direction: "down" }, 1500);</script>' unless flash[:notice].blank? and flash[:error].blank? %>
-        <%= yield %>
+
+        <div id="content" class=" <%# yield(:side_bar) ? 'double' : 'single' %> ">
+          <%= yield %>
+        </div>
       </div>
 
       <%= render :partial => 'shared/footer' %>

@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user_session, :current_user, :logged_in?
   before_filter { |c| Authorization.current_user = c.current_user }
   before_filter :set_user_language
+  layout "themes/#{configatron.theme}/application"
         
   # Returns the current user session.
   def current_user_session
