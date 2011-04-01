@@ -34,6 +34,10 @@ div#navigate ul li            { display: inline; }
 div#navigate ul li a:hover    { background-color: #A00000; }
 div#navigate ul li a          { border: none; padding: 12px 1em; color: #FFF; }
 
+div#tag-search-bar            { margin: 0 0 1em; font-size: 1.1em; }
+div#tag-search-bar div#tags   { margin: 10px 0 10px 10px; }
+div#tag-search-bar div#tags a { border: none; background: url("/stylesheets/themes/nemum/icons/tag_delete.png") no-repeat; padding: 0     5px 0 18px; }
+
 div#content                   { margin: 0 220px 0 0; }
 div#content.single            { margin: 35px; }
 div#content p                 { margin: 0 0 1em; }

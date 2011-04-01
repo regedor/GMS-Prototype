@@ -31,6 +31,9 @@ div#main th                      { vertical-align: middle; }
 div#footer                       { font-size: 1em; text-align: center; line-height: 1.1em; color: #FFF; }
 div#footer a                     { font-weight: bold; color: #6683A2; }
 
+div#tag-search-bar span#tagged-with { font-size: 1.2em; }
+div#tag-search-bar span#clear-link { font-size: 0.9em; }
+
 div.meta li                      { line-height: 1.4em; }
 
 div#flash div.message p          { color: #FFF; font-size: 1.6em; font-weight: bold; }
