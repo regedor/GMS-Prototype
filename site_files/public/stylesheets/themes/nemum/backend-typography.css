@@ -1,66 +1,100 @@
-/*
-============================================================================
-= Typography
-============================================================================
-*/
+/* line 16, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
+body {
+  color: #2e2e2e;
+  font: 12px Verdana, HelveticaNeue, Helvetica, Arial, Sans-Serif;
+}
 
-body                                      { font: 0.75em Verdana, HelveticaNeue, Helvetica, Arial, Sans-Serif; color: #333; }
+/* line 21, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
+a, a:active, a:link, a:visited {
+  color: #2e2e2e;
+  text-decoration: none;
+}
 
-a,
-a:link,
-a:visited,
-a:active                                  { text-decoration: none; color: #2E2A2B; }
-a:hover                                   { color: #555; }
+/* line 26, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
+a:hover {
+  color: #555555;
+}
 
-p                                         { text-align: justify; line-height: 1.3em; }
+/* line 30, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
+h2 {
+  font-size: 24px;
+}
 
-div#header div#user-navigation a,
-div#header div#user-navigation a:active,
-div#header div#user-navigation a:visited,
-div#header div#user-navigation a:hover,
-div#header div#user-navigation a:link     { color: #FFF; }
+/* line 34, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
+p {
+  text-align: justify;
+}
 
-div#sidebar h3                            { border-bottom: 1px solid #C0C0C0; font-size: 1.2em; }
+/* line 40, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
+div#main-navigation ul li a {
+  display: block;
+  font-size: 14px;
+  padding: 8px 15px;
+}
+/* line 45, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
+div#main-navigation ul li a:hover {
+  color: #555555;
+}
 
-div#main-navigation ul li a               { font-size: 1.2em; display: block; padding: 8px 15px; }
-div#main-navigation ul li a:link,
-div#main-navigation ul li a:visited,
-div#main-navigation ul li a:active        { color: #111; }
-div#main-navigation ul li a:hover         { color: #555; }
+/* line 49, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
+div.meta li {
+  line-height: 18px;
+}
 
-div.meta li                               { line-height: 1.3em; }
+/* line 55, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
+div.secondary-navigation ul li.active {
+  background: white;
+}
 
-div.secondary-navigation                  { font-size: 1.1em; }
-div.secondary-navigation ul li.active     { background: #FFF; }
+/* line 60, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
+div#main div.block div.content p {
+  font-size: 1.1em;
+}
 
-div#main div.block div.content h2         { font-size: 2em; font-weight: bold; }
-div#main div.block div.content p          { font-size: 1.1em; }
+/* line 65, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
+div#preview table {
+  font-size: 1.1em;
+  line-height: 1.8em;
+}
+/* line 68, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
+div#preview th {
+  vertical-align: middle;
+}
 
-div#preview table                         { font-size: 1.1em; line-height: 1.8em; }
-div#preview th                            { vertical-align: middle; }
+/* line 72, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
+div#footer div.block p, div#flash div.message p {
+  text-align: center;
+}
 
-div#footer div.block p                    { text-align: center; }
+/* line 76, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
+div#social-buttons {
+  text-align: right;
+}
 
-div#flash div.message p                   { text-align: center; }
+/* line 85, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
+button, a.button {
+  text-decoration: none;
+}
 
-div#social-buttons                        { text-align: right; }
+/* line 89, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
+button, input.button {
+  line-height: 16px;
+}
 
-a.button, button                          { text-decoration: none; }
+/* line 93, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
+button, a.button, input.button {
+  color: #2e2e2e;
+  font-size: 12px !important;
+  font-weight: bold !important;
+  text-align: center !important;
+}
 
-button,
-a.button,
-input.button                              { color: #2E2A2B; font-size: 0.8em !important; font-weight: bold !important; text-align: center !important; }
+/* line 100, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
+button.positive:hover, a.positive:hover, input.positive:hover {
+  color: #559911;
+}
 
-button,
-input.button                              { line-height: 16px; }
-
-button.positive:hover,
-a.positive:hover,
-input.positive:hover                      { color: #591 !important; }
-
-button.negative:hover,
-a.negative:hover,
-input.negative:hover                      { color: #D32 !important; }
-
-a.google_ico,
-a.yahoo_ico                               { font-size: 1em; }
+/* line 104, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
+button.negative:hover, a.negative:hover, input.negative:hover {
+  color: #dd3322;
+}

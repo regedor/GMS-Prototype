@@ -2,24 +2,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="application/xhtml+xml;charset=UTF-8" />
-  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="shortcut icon" href=<%= "/stylesheets/themes/#{configatron.theme}/favicon.ico" %> />
   <title><%= yield(:page_title) || h(configatron.title)%></title>
 
   <%= javascript_include_tag 'jquery',
                              'jquery-ui-1.8.7.custom.min',
                              'announcements', 
-                             'utils',                                          :cache => "cache/frontend" %>
+                             'utils',                                          :cache => 'cache/frontend' %>
 
-  <%= stylesheet_link_tag    'reset',
-                             'smoothness/jquery-ui-1.8.7.custom',
+  <%= stylesheet_link_tag    'screen.css', :media => 'screen, projection',     :cache => 'cache/frontend' %>
+  <%= stylesheet_link_tag    'print.css', :media => 'print',                   :cache => 'cache/frontend' %>
+  <%= stylesheet_link_tag    'reset.css', :media => 'screen',                  :cache => 'cache/frontend' %>
+
+  <%= stylesheet_link_tag    'smoothness/jquery-ui-1.8.7.custom',
                              'formtastic/formtastic',
                              "themes/#{configatron.theme}/formtastic-changes", 
                              "themes/#{configatron.theme}/frontend-structure", 
                              "themes/#{configatron.theme}/frontend-typography",
-                             "themes/#{configatron.theme}/frontend-icons",     :cache => "cache/frontend" %>
+                             "themes/#{configatron.theme}/frontend-icons",     :cache => 'cache/frontend' %>
 
   <!--[if lt IE 8]>
-  <%# stylesheet_link_tag "themes/#{configatron.theme}/ie",                    :cache => "cache/ie" %>
+    <%= stylesheet_link_tag 'ie.css', :media => 'screen, projection',          :cache => 'cache/ie' %>
   <![endif]-->
   <%= yield :head %>
 </head>
@@ -44,21 +47,14 @@
 
     <div id="wrapper">
       <div id="account-info">
-        <!--
-          <span class="language-options"> 
-            <span class="hidden"><%= t("user_session.bar.change_language") %></span>
-            <%= link_to "English",   user_language_path('en') , :alt => "Change language to english.", :class => "english" %> <span class="hidden">,</span>
-            <%= link_to "Português", user_language_path('pt-PT'), :alt => "Mudar língua para português.", :class => "portugues" %>
-          </span>
-        -->
         <span class="options">
         <% if logged_in? %>
-          <%= link_to @current_user.small_name, user_account_path, :class => "user_ico" %> |
-          <%= link_to t('navigation.administration'), admin_root_path, :class => "key_ico" if permitted_to? :read, :admin_dashboard %> |
-          <%= link_to t('user_session.bar.logout'), user_logout_path, :class => "logout_ico" %>
+          <%= link_to @current_user.small_name, user_account_path %> |
+          <%= link_to t('navigation.administration'), admin_root_path if permitted_to? :read, :admin_dashboard %> |
+          <%= link_to t('user_session.bar.logout'), user_logout_path %>
         <% else %>
-          <%= link_to t("user_session.bar.signin"), new_user_session_path, :class => "login_ico"                   %> |
-          <%= link_to t("user_session.bar.signup"), new_user_account_path, :class => "user_add_ico"                %>
+          <%= link_to t("user_session.bar.signin"), new_user_session_path %> |
+          <%= link_to t("user_session.bar.signup"), new_user_account_path %>
         <% end %>
         </span>
         <span class="title"><%= configatron.site_header %></span>
@@ -94,7 +90,7 @@
         <%= '<div id="flash"><div class="message error"><p>'+ flash[:error] +'</p></div></div>' unless flash[:error].blank? %>
         <%= '<script>jQuery("#flash").hide().toggle("fade", {}, 2500).delay(4000).toggle("slide", { direction: "down" }, 1500);</script>' unless flash[:notice].blank? and flash[:error].blank? %>
 
-        <div id="content" class=" <%# yield(:side_bar) ? 'double' : 'single' %> ">
+        <div id="content" class="<%# yield(:side_bar) ? 'double' : 'single' %>">
           <%= yield %>
         </div>
       </div>
@@ -102,11 +98,13 @@
       <%= render :partial => 'shared/footer' %>
     </div>
   </div>
+
   <% javascript_tag do %>
     window.onload = setTimeout(function() {
       announcementsRoutine(<%= announcements.size %>);
       float_bar("#navigation","60px");
     }, 0);
   <% end %>
+
 </body>
 </html>
