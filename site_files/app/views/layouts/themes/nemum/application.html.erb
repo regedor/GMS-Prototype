@@ -10,10 +10,8 @@
                              'announcements', 
                              'utils',                                          :cache => 'cache/frontend' %>
 
-  <%= stylesheet_link_tag    'screen.css', :media => 'screen, projection',     :cache => 'cache/frontend' %>
-  <%= stylesheet_link_tag    'print.css', :media => 'print',                   :cache => 'cache/frontend' %>
-  <%= stylesheet_link_tag    'reset.css', :media => 'screen',                  :cache => 'cache/frontend' %>
-
+  <%= stylesheet_link_tag    'screen.css', :media => 'screen'                                             %>
+  <%= stylesheet_link_tag    'reset.css', :media => 'screen'                                              %>
   <%= stylesheet_link_tag    'smoothness/jquery-ui-1.8.7.custom',
                              'formtastic/formtastic',
                              "themes/#{configatron.theme}/formtastic-changes", 
@@ -22,8 +20,9 @@
                              "themes/#{configatron.theme}/frontend-icons",     :cache => 'cache/frontend' %>
 
   <!--[if lt IE 8]>
-    <%= stylesheet_link_tag 'ie.css', :media => 'screen, projection',          :cache => 'cache/ie' %>
+    <%= stylesheet_link_tag  'ie.css', :media => 'screen, projection',          :cache => 'cache/ie'      %>
   <![endif]-->
+  <%= stylesheet_link_tag    'print.css', :media => 'print'                                               %>
   <%= yield :head %>
 </head>
 
