@@ -1,6 +1,5 @@
 <div class="block">
-
-  <h3><%= t("admin.messages.sidebar.title") %></h3>
+  <h5><%= t("admin.messages.sidebar.title") %></h5>
   <div class="content">
     <ul class="navigation">
       <li><%= link_to I18n::t('admin.messages.index.create'), new_admin_project_message_path %></li>
@@ -12,11 +11,10 @@
     <p><%= t("admin.messages.sidebar.paragraph") %></p>
     <p><%= t("admin.messages.sidebar.categories") %></p>
     <ul class="navigation">
-    <li> <%= link_to "All Messages", admin_project_messages_path(params[:project_id]) %> </li>
-    <% @categories.each do |c| %>
-     <li><%= link_to c.name, admin_project_category_path(params[:project_id],c.id) %></li>
-     <p>
-    <% end %>
+      <li><%= link_to "All Messages", admin_project_messages_path(params[:project_id]) %></li>
+      <% @categories.each do |c| %>
+        <li><%= link_to c.name, admin_project_category_path(params[:project_id],c.id) %></li>
+      <% end %>
     </ul>
   </div>
 </div>

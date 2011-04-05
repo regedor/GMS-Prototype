@@ -2,20 +2,20 @@
 
 <% if @tags -%>
   <div class="block">
-    <h3><%= t("admin.posts.sidebar.index.title") %></h3>
+    <h5><%= t("admin.posts.sidebar.index.title") %></h5>
     <div class="content">
       <p><%= t("admin.posts.sidebar.index.paragraph") %></p>
     </div>
   </div>
 
   <div class="block">
-    <h3><%= I18n::t("#{i_env}.title") %>
+    <h5><%= I18n::t("#{i_env}.title") %>
       <% if @tags.total_pages > 1 -%>
         <%= will_paginate(@tags, :previous_label => I18n::t("#{i_env}.pagination.previous"),
                                  :next_label     => I18n::t("#{i_env}.pagination.next"),
                                  :param_name     => :tag_page) %>
       <% end -%>
-    </h3>
+    </h5>
 
     <div class="content">
       <p><%= t("admin.posts.sidebar.tags.paragraph") %></p>
@@ -43,7 +43,7 @@
 <%# History list %>
 <% if (controller.action_name != "edit") and (@history_entry or @record && !@record.new_record?) -%>
   <div class="block">
-    <h3><%= t "admin.posts.sidebar.history.title", :name => @record.title %></h3>
+    <h5><%= t "admin.posts.sidebar.history.title", :name => @record.title %></h5>
     <div class="content">
       <p><%= t("admin.posts.sidebar.history.paragraph") %></p>
       <ul class="options">
@@ -69,7 +69,7 @@
 
 <% if (controller.action_name == "edit")-%>
   <div class="block">
-    <h3><%= t "admin.posts.sidebar.edit.title", :name => @record.title %></h3>
+    <h5><%= t "admin.posts.sidebar.edit.title", :name => @record.title %></h5>
     <div class="content">
       <p><%= t("admin.posts.sidebar.edit.paragraph") %></p>
     </div>
@@ -79,7 +79,7 @@
 <%# History edit preview page %>
 <% if @history_entry -%>
   <div class="block">
-    <h3><%= t "admin.posts.sidebar.reversion.title" %></h3>
+    <h5><%= t "admin.posts.sidebar.reversion.title" %></h5>
     <div class="content">
       <p><%= t "admin.posts.sidebar.reversion.message" %></p>
       <%= link_to t("admin.posts.sidebar.reversion.link"), admin_history_entries_path({:id => @history_entry.id,

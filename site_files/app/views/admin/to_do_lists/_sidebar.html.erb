@@ -1,14 +1,14 @@
 <div class="block">	
-  <h3><%= t("admin.to_do_list.sidebar.title") %></h3>
+  <h5><%= t("admin.to_do_list.sidebar.title") %></h5>
   <div class="content">
     <p><%= t("admin.to_do_list.sidebar.paragraph") %></p>
     <ul class="navigation">
       <li><%= link_to t("admin.to_do_list.new.link"), new_admin_project_to_do_list_path(@project_id) %></li>
       <li><%= link_to t("admin.to_do_list.sidebar.back"), admin_projects_path %></li>
-	  <% if params[:reorder] %>
-	    <li><%= link_to t("admin.to_do_list.sidebar.title"), admin_project_to_do_lists_path(@project_id) %></li>
-	  <% else %>
-      	<li><%= link_to t("admin.to_do_list.sidebar.reorderLists"), admin_project_to_do_lists_path(@project_id)+"?reorder=true" %></li>
+      <% if params[:reorder] %>
+        <li><%= link_to t("admin.to_do_list.sidebar.title"), admin_project_to_do_lists_path(@project_id) %></li>
+      <% else %>
+        <li><%= link_to t("admin.to_do_list.sidebar.reorderLists"), admin_project_to_do_lists_path(@project_id)+"?reorder=true" %></li>
       <% end %>
     </ul>
   </div>
