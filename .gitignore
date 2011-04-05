@@ -32,6 +32,8 @@ capybara-*.html
 /site_files/config/*.yml
 rerun.txt
 
+/site_files/app/views/layouts/application.html.erb
+
 # Linux ignores
 .*
 *~
