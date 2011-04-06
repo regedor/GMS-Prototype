@@ -25,6 +25,7 @@ jQuery(document).ready(function($){
                  :label    => I18n::t('admin.posts.columns.title') %>
   <%= form.input :body,
                  :label    => I18n::t('admin.posts.columns.body'),
+                 :input_html => { :class    => "textile" },
                  :hint     => I18n::t('admin.posts.form.hints.body').html_safe %>
   <%= form.input :tag_list,
                  :as       => 'string',
