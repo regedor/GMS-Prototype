@@ -21,67 +21,79 @@ h2 {
 }
 
 /* line 34, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
+h5 {
+  font-size: 14px;
+}
+
+/* line 38, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
 p {
   text-align: justify;
 }
 
-/* line 40, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
+/* line 44, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
 div#main-navigation ul li a {
   display: block;
   font-size: 14px;
   padding: 8px 15px;
 }
-/* line 45, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
+/* line 49, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
 div#main-navigation ul li a:hover {
   color: #555555;
 }
 
-/* line 49, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
+/* line 53, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
+div#user-navigation a {
+  color: white;
+}
+
+/* line 57, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
+div#sidebar {
+  font-size: 12px;
+}
+/* line 60, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
+div#sidebar h5 {
+  color: #444444;
+  padding: 0 0 5px;
+  border-bottom: 1px solid #aaaaaa;
+}
+
+/* line 66, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
 div.meta li {
   line-height: 18px;
 }
 
-/* line 55, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
+/* line 70, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
 div.secondary-navigation ul li.active {
   background: white;
 }
 
-/* line 60, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
-div#main div.block div.content p {
-  font-size: 1.1em;
-}
-
-/* line 65, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
+/* line 76, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
 div#preview table {
-  font-size: 1.1em;
-  line-height: 1.8em;
-}
-/* line 68, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
-div#preview th {
-  vertical-align: middle;
+  font-size: 13px;
+  line-height: 25px;
 }
 
-/* line 72, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
+/* line 81, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
 div#footer div.block p, div#flash div.message p {
   text-align: center;
 }
 
-/* line 76, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
+/* line 85, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
 div#social-buttons {
   text-align: right;
 }
 
-/* line 85, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
+/* line 94, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
 button, a.button {
   text-decoration: none;
 }
 
-/* line 89, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
+/* line 98, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
 button, input.button {
   line-height: 16px;
 }
 
-/* line 93, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
+/* line 102, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
 button, a.button, input.button {
   color: #2e2e2e;
   font-size: 12px !important;
@@ -89,12 +101,12 @@ button, a.button, input.button {
   text-align: center !important;
 }
 
-/* line 100, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
+/* line 109, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
 button.positive:hover, a.positive:hover, input.positive:hover {
   color: #559911;
 }
 
-/* line 104, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
+/* line 113, ../../../../app/stylesheets/themes/nemum/backend-typography.sass */
 button.negative:hover, a.negative:hover, input.negative:hover {
   color: #dd3322;
 }

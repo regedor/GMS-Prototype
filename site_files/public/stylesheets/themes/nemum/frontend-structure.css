@@ -366,40 +366,41 @@ button:active, a.button:active, input.button:active {
   background: -moz-linear-gradient(top, #e9e9e9, #f9f9f9);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$start-color, endColorstr=$end-color);
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#e9e9e9, endColorstr=#f9f9f9)";
+  behavior: url("/stylesheets/pie.htc");
 }
 
-/* line 362, ../../../../app/stylesheets/themes/nemum/frontend-structure.sass */
+/* line 363, ../../../../app/stylesheets/themes/nemum/frontend-structure.sass */
 a.button {
   padding: 6px 10px;
 }
 
-/* line 366, ../../../../app/stylesheets/themes/nemum/frontend-structure.sass */
+/* line 367, ../../../../app/stylesheets/themes/nemum/frontend-structure.sass */
 input.button {
   padding: 5px 10px !important;
 }
 
-/* line 370, ../../../../app/stylesheets/themes/nemum/frontend-structure.sass */
+/* line 371, ../../../../app/stylesheets/themes/nemum/frontend-structure.sass */
 button {
   padding: 5px 10px;
 }
 
-/* line 374, ../../../../app/stylesheets/themes/nemum/frontend-structure.sass */
+/* line 375, ../../../../app/stylesheets/themes/nemum/frontend-structure.sass */
 *:first-child + html input[type] {
   padding: 2px 10px 3px;
 }
 
-/* line 379, ../../../../app/stylesheets/themes/nemum/frontend-structure.sass */
+/* line 380, ../../../../app/stylesheets/themes/nemum/frontend-structure.sass */
 a.google_ico, a.yahoo_ico {
   margin: 0 0 15px 0;
   width: 90%;
 }
 
-/* line 386, ../../../../app/stylesheets/themes/nemum/frontend-structure.sass */
+/* line 387, ../../../../app/stylesheets/themes/nemum/frontend-structure.sass */
 .selfclear {
   display: inline-block;
   display: block;
 }
-/* line 387, ../../../../app/stylesheets/themes/nemum/frontend-structure.sass */
+/* line 388, ../../../../app/stylesheets/themes/nemum/frontend-structure.sass */
 .selfclear:after {
   content: ".";
   display: block;
