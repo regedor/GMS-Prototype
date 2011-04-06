@@ -69,26 +69,33 @@
         <% else %>
           <p><%= I18n::t('announcements.none') %></p>
         <% end %>
+        </div>
       </div>
-      </div>
+
       <div id="menu">
         <div id="navigate"><%= frontend_navigation_content %></div>
       </div>
+
       <div id="main" class="selfclear">
         <%= '<div id="flash"><div class="message notice"><p>'+ flash[:notice] +'</p></div></div>' unless flash[:notice].blank? %>
         <%= '<div id="flash"><div class="message error"><p>'+ flash[:error] +'</p></div></div>' unless flash[:error].blank? %>
         <%= '<script>jQuery("#flash").hide().toggle("fade", {}, 2500).delay(4000).toggle("slide", { direction: "down" }, 1500);</script>' unless flash[:notice].blank? and flash[:error].blank? %>
-        <%= yield %>
+
+        <div id="content" class="<%# yield(:side_bar) ? 'double' : 'single' %>">
+          <%= yield %>
+        </div>
       </div>
 
       <%= render :partial => 'shared/footer' %>
     </div>
   </div>
+
   <% javascript_tag do %>
     window.onload = setTimeout(function() {
       announcementsRoutine(<%= announcements.size %>);
       float_bar("#navigation","60px");
     }, 0);
   <% end %>
+
 </body>
 </html>
