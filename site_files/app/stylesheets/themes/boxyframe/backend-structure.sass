@@ -1,0 +1,316 @@
+// ============================================================================
+// = Variables
+// ============================================================================
+
+
+$background-color: #E5E5E5
+$header-background-color: #2E2E2E
+$default-color: #6683A2
+
+$button-gradient-start-color: #F9F9F9
+$button-gradient-end-color:   #E9E9E9
+
+
+// ============================================================================
+// = Mixins
+// ============================================================================
+
+
+@mixin box-shadow($right, $bottom, $blur, $color)
+  -moz-box-shadow: $right $bottom $blur $color
+  -webkit-box-shadow: $right $bottom $blur $color
+  box-shadow: $right $bottom $blur $color
+
+
+@mixin linear-gradient($start-color, $end-color)
+  background: -webkit-gradient(linear, left top, left bottom, from($start-color), to($end-color))
+  background: -moz-linear-gradient(top, $start-color, $end-color)
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$start-color, endColorstr=$end-color)
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr="+$start-color+", endColorstr="+$end-color+")"
+
+
+@mixin round-corners($top-left, $top-right, $bottom-right, $bottom-left)
+  -moz-border-radius: $top-left $top-right $bottom-right $bottom-left
+  -webkit-border-radius: $top-left $top-right $bottom-right $bottom-left
+  border-radius: $top-left $top-right $bottom-right $bottom-left
+
+
+@mixin enable-ie-css3
+  behavior: url("/stylesheets/pie.htc")
+
+
+// ============================================================================
+// = Rules
+// ============================================================================
+
+
+body
+  background-color: $background-color
+
+
+h2 a:hover
+  border-bottom: 3px solid $default-color
+
+
+h4
+  margin: 15px 0 0
+
+
+div#container
+  min-width: 960px
+
+
+div.content
+  margin: 20px
+
+
+div#main
+  float: left
+  width: 71%
+
+
+div#main > div.block
+  background-color: #FFF
+  @include box-shadow(1px, 1px, 3px, #777)
+  @include round-corners(10px, 10px, 10px, 10px)
+  @include enable-ie-css3
+
+
+div.entrybody p
+  margin: 0 0 1.2em
+
+
+div#main-navigation
+
+  li
+    @include round-corners(10px, 10px, 0, 0)
+    @include enable-ie-css3
+
+  ul li
+    background-color: #ADADAD
+    float: left
+    margin: 0 5px 0 0
+
+  ul li.active
+    background-color: #FFF
+    @include linear-gradient(#FFF, $background-color)
+    @include enable-ie-css3
+
+
+div.secondary-navigation
+  background-image: url("/stylesheets/themes/nemum/images/boxbar-background.png")
+  @include round-corners(10px, 10px, 0, 0)
+  @include enable-ie-css3
+
+  li.active.first
+    @include round-corners(10px, 0, 0, 0)
+    @include enable-ie-css3
+
+  ul li
+    float: left
+
+    a
+      display: block
+      padding: 10px 15px
+
+
+div#user-navigation
+  float: right
+  margin: 5px 0
+
+
+div#sidebar
+  float: right
+  width: 29%
+
+  h3
+    padding: 0 0 5px 0
+
+  div.block
+    margin: 0 0 0 15px
+
+    div.content
+
+      p
+        margin: 15px 0
+
+      ul.navigation a
+        margin: 15px 0 0
+
+      ul.options li
+        margin: 5px 0
+
+        a
+          margin: 15px 0 0 15px
+
+  ul.navigation
+    list-style-type: none
+
+    li a:link, li a:visited
+      display: block
+
+    a
+      padding-left: 18px
+
+
+div#footer
+  margin: 25px
+
+  a:hover
+    border-bottom: 2px solid $default-color
+
+
+div#flash
+
+  div.message
+    margin: 20px 20px 0
+    @include round-corners(6px, 6px, 6px, 6px)
+    @include enable-ie-css3
+
+    p
+      margin: 8px
+
+  div.message.error
+    border: 1px solid #ffbbbb
+    background-color: #ffdddd
+
+  div.message.warning
+    border: 1px solid #ffff88
+    background-color: #ffffcc
+
+  div.message.info, div.message.notice
+    border: 1px solid #1fdf00
+    background-color: #bbffb6
+
+
+div#header
+  background-color: $header-background-color
+  padding: 0 15px
+  @include linear-gradient($header-background-color, #423D3E)
+  @include enable-ie-css3
+
+  h1
+    padding: 30px 15px
+
+    a
+      display: block
+      text-indent: -6000px
+      height: 100px
+      width: 350px
+      background: url("/stylesheets/themes/nemum/images/bg_logo_admin.png") no-repeat
+
+
+div#wrapper
+  margin: 15px
+
+
+div#preview
+
+  div.meta
+    background-color: #EEE
+    margin: 0 0 10px
+    padding: 10px
+
+    a:hover
+      border-bottom: 2px solid $default-color
+
+  table
+    border-collapse: collapse
+    margin: 0 0 10px
+    width: 100%
+
+  td, th
+    border-bottom: solid 1px #DDD
+    padding: 5px 0
+    margin: 0 10px
+
+
+.wat-cf
+  &:after
+    content: "."
+    display: block
+    height: 0
+    clear: both
+    visibility: hidden
+  display: inline-block
+
+
+// ==============
+// Social buttons
+// ==============
+
+
+div#social-buttons
+  margin: 0 0 5px
+
+  iframe
+    vertical-align: bottom
+
+  a span
+    border: 1px solid #5F78AB
+    border-bottom: 1px solid #29447E
+
+
+// =======
+// Buttons
+// =======
+
+
+button, a.button, input.button
+  background-color: $button-gradient-end-color // graceful degrade for Opera
+  border: 1px solid #AAA
+  cursor: pointer
+  float: left
+  @include linear-gradient($button-gradient-start-color, $button-gradient-end-color)
+  @include round-corners(4px, 4px, 4px, 4px)
+  @include enable-ie-css3
+
+
+button:active, a.button:active, input.button:active
+  @include linear-gradient($button-gradient-end-color, $button-gradient-start-color)
+  @include enable-ie-css3
+
+
+a.button
+  padding: 6px 10px
+
+
+input.button
+  padding: 5px 10px !important
+
+
+button
+  padding: 5px 10px
+
+
+*:first-child + html input[type]
+  padding: 2px 10px 3px // IE7
+
+
+a.google_ico, a.yahoo_ico
+  margin: 0 0 15px 0
+  width: 90%
+
+
+// the following rules are necessary due to the usage of active-scaffold and will be removed later
+
+div#main div.block div.block div.content
+
+  h2.title
+    padding: 0 0 15px
+
+  h3
+    font-size: 1.1em
+    padding: 0 0 15px
+
+div.active-scaffold tr.record
+  background-color: #FFF
+
+
+// Hides from IE-MAC
+
+* html .wat-cf
+  height: 1%
+
+.wat-cf
+  display: block

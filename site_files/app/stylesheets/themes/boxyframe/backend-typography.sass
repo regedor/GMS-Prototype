@@ -1,0 +1,114 @@
+// ============================================================================
+// = Variables
+// ============================================================================
+
+
+$text-color:          #2E2E2E
+$text-color-positive: #591
+$text-color-negative: #D32
+
+
+// ============================================================================
+// = Rules
+// ============================================================================
+
+
+body
+  color: $text-color
+  font: 12px Verdana, HelveticaNeue, Helvetica, Arial, Sans-Serif
+
+
+a, a:active, a:link, a:visited
+  color: $text-color
+  text-decoration: none
+
+
+a:hover
+  color: #555
+
+
+h2
+  font-size: 24px
+
+
+h5
+  font-size: 14px
+
+
+p
+  text-align: justify
+
+
+div#main-navigation ul li
+
+  a
+    display: block
+    font-size: 14px
+    padding: 8px 15px // OH SHIT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+  a:hover
+    color: #555
+
+
+div#user-navigation a
+  color: #FFF
+
+
+div#sidebar
+  font-size: 12px
+
+  h5
+    color: #444
+    padding: 0 0 5px // OH SHIT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    border-bottom: 1px solid #AAA
+
+
+div.meta li
+  line-height: 18px
+
+
+div.secondary-navigation ul li.active
+  background: #FFF
+
+
+div#preview
+
+  table
+    font-size: 13px
+    line-height: 25px
+
+
+div#footer div.block p, div#flash div.message p
+  text-align: center
+
+
+div#social-buttons
+  text-align: right
+
+
+// =======
+// Buttons
+// =======
+
+
+button, a.button
+  text-decoration: none
+
+
+button, input.button
+  line-height: 16px
+
+
+button, a.button, input.button
+  color: $text-color
+  font-size: 12px !important
+  font-weight: bold !important
+  text-align: center !important
+
+
+button.positive:hover, a.positive:hover, input.positive:hover
+  color: $text-color-positive
+
+
+button.negative:hover, a.negative:hover, input.negative:hover
+  color: $text-color-negative
