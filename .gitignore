@@ -10,27 +10,26 @@
 # Rails ignores
 *.rbc
 *.sassc
+**.orig
 .sass-cache
 capybara-*.html
 .rspec
+rerun.txt
+/site_files/.bundle
+/site_files/Gemfile.lock
 /site_files/log/*
 /site_files/tmp/*
 /site_files/db/*.sqlite3
+/site_files/db/schema.rb
 /site_files/vendor/bundle
+/site_files/public/spec.html
+/site_files/public/stylesheets/themes/*
 /site_files/public/system/*
 /site_files/coverage/
 /site_files/spec/tmp/*
-/site_files/config/database.yml
-/site_files/db/schema.rb
-/site_files/config/mailer.yml
-/site_files/public/spec.html
-/site_files/public/system/*
-/site_files/Gemfile.lock
-/site_files/.bundle
-/site_files/public/spec.html
-**.orig
 /site_files/config/*.yml
-rerun.txt
+/site_files/config/database.yml
+/site_files/config/mailer.yml
 
 /site_files/app/views/layouts/application.html.erb
 
