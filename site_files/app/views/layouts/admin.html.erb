@@ -21,21 +21,21 @@
   <link href="/stylesheets/active_scaffold/default/stylesheet.css"        media="screen" rel="stylesheet" type="text/css" />
   <link href="/stylesheets/calendar_date_select/default.css"              media="screen" rel="stylesheet" type="text/css" />
 
-  <%= stylesheet_link_tag 'shared/screen.css', :media => 'screen'                                      %>
-  <%= stylesheet_link_tag 'shared/reset.css', :media => 'screen'                                       %>
+  <%= stylesheet_link_tag 'shared/screen', :media => 'screen'                                          %>
+  <%= stylesheet_link_tag 'shared/reset', :media => 'screen'                                           %>
   <%= stylesheet_link_tag 'formtastic/formtastic',
                           'smoothness/jquery-ui-1.8.7.custom',
-                          "projects_plugin/base",
-                          "themes/#{configatron.theme}/formtastic-changes",
-                          "themes/#{configatron.theme}/active-scaffold-changes",
-                          "themes/#{configatron.theme}/backend", :cache => "backend" %>
+                          'projects_plugin/base',
+                          'shared/formtastic-changes',
+                          'shared/active-scaffold-changes',
+                          "themes/#{configatron.theme}/backend", :cache => "backend"                   %>
   <!--[if IE]>
     <link href="/stylesheets/active_scaffold/default/stylesheet-ie.css?1296162786" media="screen" rel="stylesheet" type="text/css" />
   <![endif]-->
   <!--[if lt IE 8]>
-    <%= stylesheet_link_tag  'shared/ie.css', :media => 'screen, projection',  :cache => 'cache/ie'    %>
+    <%= stylesheet_link_tag  'shared/ie', :media => 'screen, projection',  :cache => 'cache/ie'        %>
   <![endif]-->
-  <%= stylesheet_link_tag    'shared/print.css', :media => 'print'                                     %>
+  <%= stylesheet_link_tag    'shared/print', :media => 'print'                                         %>
   <%= yield :head %>
 
   <% if File.exists?(Rails.root.join("vendor","plugins","activity_manager","app", "views", params[:controller], "_sidebar.html.erb")) %>
