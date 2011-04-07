@@ -6,6 +6,7 @@
 
 form.formtastic                                      { font-size: 1.3em; }
 form.formtastic abbr                                 { color: #E22; }
+form.formtastic fieldset.buttons ol li               { margin-bottom: 0; }
 form.formtastic fieldset ol li p.inline-errors       { color: #D32; }
 form.formtastic fieldset ol li p.inline-hints        { color: #A1A1A1; font-size: 0.8em !important; margin: 0 0 0 165px; }
 form.formtastic fieldset ol li label                 { color: #555; font-size: 0.8em; }
