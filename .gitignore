@@ -32,6 +32,7 @@ rerun.txt
 /site_files/config/mailer.yml
 
 /site_files/app/views/layouts/application.html.erb
+/site_files/rails_best_practices_output.html
 
 # Linux ignores
 .*
