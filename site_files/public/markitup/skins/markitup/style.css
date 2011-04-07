@@ -2,9 +2,6 @@
 // markItUp! Universal MarkUp Engine, JQuery plugin
 // By Jay Salvat - http://markitup.jaysalvat.com/
 // ------------------------------------------------------------------*/
-textarea.markItUpEditor {
-}
-
 .markItUp * {
 	margin:0px; padding:0px;
 	outline:none;
@@ -16,10 +13,9 @@ textarea.markItUpEditor {
 }
 .markItUp  {
 	margin:5px 0 5px 165px;
-	border:5px solid #F5F5F5;	
 }
 .markItUpContainer  {
-	border:1px solid #3C769D;	
+	border:1px solid #9E9E9E;
 	background:#FFF url(images/bg-container.png) repeat-x top left;
 	padding:5px 5px 2px 5px;
 	font:14px Verdana, Arial, Helvetica, sans-serif;
@@ -33,14 +29,6 @@ textarea.markItUpEditor {
 	clear:both;
 	line-height:18px;
 	overflow:auto;
-}
-.markItUpPreviewFrame	{
-	overflow:auto;
-	background-color:#FFFFFF;
-	border:1px solid #3C769D;
-	width:99.9%;
-	height:300px;
-	margin:5px 0;
 }
 .markItUpFooter {
 	width:100%;
