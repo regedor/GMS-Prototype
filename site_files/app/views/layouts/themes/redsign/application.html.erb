@@ -2,25 +2,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="application/xhtml+xml;charset=UTF-8" />
-  <link rel="shortcut icon" href="/favicon.png" />
+  <link rel="shortcut icon" href=<%= "/stylesheets/themes/#{configatron.theme}/favicon.ico" %> />
   <title><%= yield(:page_title) || h(configatron.title)%></title>
 
   <%= javascript_include_tag 'jquery',
                              'jquery-ui-1.8.7.custom.min',
                              'announcements', 
-                             'utils',                                          :cache => "cache/frontend" %>
+                             'utils',                                          :cache => 'cache/frontend' %>
 
-  <%= stylesheet_link_tag    'reset',
-                             'smoothness/jquery-ui-1.8.7.custom',
+  <%= stylesheet_link_tag    'shared/screen.css', :media => 'screen'                                      %>
+  <%= stylesheet_link_tag    'shared/reset.css', :media => 'screen'                                       %>
+  <%= stylesheet_link_tag    'smoothness/jquery-ui-1.8.7.custom',
                              'formtastic/formtastic',
                              "themes/#{configatron.theme}/formtastic-changes", 
                              "themes/#{configatron.theme}/frontend-structure", 
                              "themes/#{configatron.theme}/frontend-typography",
-                             "themes/#{configatron.theme}/frontend-icons",     :cache => "cache/frontend" %>
+                             "themes/#{configatron.theme}/frontend-icons",     :cache => 'cache/frontend' %>
 
   <!--[if lt IE 8]>
-  <%= stylesheet_link_tag "themes/#{configatron.theme}/ie",                    :cache => "cache/ie" %>
+    <%= stylesheet_link_tag  'shared/ie.css', :media => 'screen, projection',  :cache => 'cache/ie'       %>
   <![endif]-->
+  <%= stylesheet_link_tag    'shared/print.css', :media => 'print'                                        %>
   <%= yield :head %>
 </head>
 
@@ -82,7 +84,10 @@
         <%= '<div id="flash"><div class="message notice"><p>'+ flash[:notice] +'</p></div></div>' unless flash[:notice].blank? %>
         <%= '<div id="flash"><div class="message error"><p>'+ flash[:error] +'</p></div></div>' unless flash[:error].blank? %>
         <%= '<script>jQuery("#flash").hide().toggle("fade", {}, 2500).delay(4000).toggle("slide", { direction: "down" }, 1500);</script>' unless flash[:notice].blank? and flash[:error].blank? %>
-        <%= yield %>
+
+        <div id="content" class="<%# yield(:side_bar) ? 'double' : 'single' %>">
+          <%= yield %>
+        </div>
       </div>
 
       <%= render :partial => 'shared/footer' %>
