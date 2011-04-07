@@ -16,84 +16,97 @@ a:hover {
 }
 
 /* line 30, ../../../../app/stylesheets/themes/redsign/backend-typography.sass */
+h1 {
+  font-size: 28px;
+}
+
+/* line 34, ../../../../app/stylesheets/themes/redsign/backend-typography.sass */
 h2 {
   font-size: 24px;
 }
 
-/* line 34, ../../../../app/stylesheets/themes/redsign/backend-typography.sass */
+/* line 38, ../../../../app/stylesheets/themes/redsign/backend-typography.sass */
+h3 {
+  font-size: 20px;
+}
+
+/* line 42, ../../../../app/stylesheets/themes/redsign/backend-typography.sass */
+h4 {
+  font-size: 16px;
+}
+
+/* line 46, ../../../../app/stylesheets/themes/redsign/backend-typography.sass */
 h5 {
   font-size: 14px;
 }
 
-/* line 38, ../../../../app/stylesheets/themes/redsign/backend-typography.sass */
+/* line 50, ../../../../app/stylesheets/themes/redsign/backend-typography.sass */
 p {
   text-align: justify;
 }
 
-/* line 44, ../../../../app/stylesheets/themes/redsign/backend-typography.sass */
+/* line 56, ../../../../app/stylesheets/themes/redsign/backend-typography.sass */
 div#main-navigation ul li a {
   display: block;
   font-size: 14px;
-  padding: 8px 15px;
 }
-/* line 49, ../../../../app/stylesheets/themes/redsign/backend-typography.sass */
+/* line 60, ../../../../app/stylesheets/themes/redsign/backend-typography.sass */
 div#main-navigation ul li a:hover {
   color: #555555;
 }
 
-/* line 53, ../../../../app/stylesheets/themes/redsign/backend-typography.sass */
+/* line 64, ../../../../app/stylesheets/themes/redsign/backend-typography.sass */
 div#user-navigation a {
   color: white;
 }
 
-/* line 57, ../../../../app/stylesheets/themes/redsign/backend-typography.sass */
+/* line 68, ../../../../app/stylesheets/themes/redsign/backend-typography.sass */
 div#sidebar {
   font-size: 12px;
 }
-/* line 60, ../../../../app/stylesheets/themes/redsign/backend-typography.sass */
+/* line 71, ../../../../app/stylesheets/themes/redsign/backend-typography.sass */
 div#sidebar h5 {
   color: #444444;
-  padding: 0 0 5px;
   border-bottom: 1px solid #aaaaaa;
 }
 
-/* line 66, ../../../../app/stylesheets/themes/redsign/backend-typography.sass */
+/* line 76, ../../../../app/stylesheets/themes/redsign/backend-typography.sass */
 div.meta li {
   line-height: 18px;
 }
 
-/* line 70, ../../../../app/stylesheets/themes/redsign/backend-typography.sass */
+/* line 80, ../../../../app/stylesheets/themes/redsign/backend-typography.sass */
 div.secondary-navigation ul li.active {
   background: white;
 }
 
-/* line 76, ../../../../app/stylesheets/themes/redsign/backend-typography.sass */
+/* line 86, ../../../../app/stylesheets/themes/redsign/backend-typography.sass */
 div#preview table {
   font-size: 13px;
   line-height: 25px;
 }
 
-/* line 81, ../../../../app/stylesheets/themes/redsign/backend-typography.sass */
+/* line 91, ../../../../app/stylesheets/themes/redsign/backend-typography.sass */
 div#footer div.block p, div#flash div.message p {
   text-align: center;
 }
 
-/* line 85, ../../../../app/stylesheets/themes/redsign/backend-typography.sass */
+/* line 95, ../../../../app/stylesheets/themes/redsign/backend-typography.sass */
 div#social-buttons {
   text-align: right;
 }
 
-/* line 94, ../../../../app/stylesheets/themes/redsign/backend-typography.sass */
+/* line 104, ../../../../app/stylesheets/themes/redsign/backend-typography.sass */
 button, a.button {
   text-decoration: none;
 }
 
-/* line 98, ../../../../app/stylesheets/themes/redsign/backend-typography.sass */
+/* line 108, ../../../../app/stylesheets/themes/redsign/backend-typography.sass */
 button, input.button {
   line-height: 16px;
 }
 
-/* line 102, ../../../../app/stylesheets/themes/redsign/backend-typography.sass */
+/* line 112, ../../../../app/stylesheets/themes/redsign/backend-typography.sass */
 button, a.button, input.button {
   color: #2e2e2e;
   font-size: 12px !important;
@@ -101,12 +114,12 @@ button, a.button, input.button {
   text-align: center !important;
 }
 
-/* line 109, ../../../../app/stylesheets/themes/redsign/backend-typography.sass */
+/* line 119, ../../../../app/stylesheets/themes/redsign/backend-typography.sass */
 button.positive:hover, a.positive:hover, input.positive:hover {
   color: #559911;
 }
 
-/* line 113, ../../../../app/stylesheets/themes/redsign/backend-typography.sass */
+/* line 123, ../../../../app/stylesheets/themes/redsign/backend-typography.sass */
 button.negative:hover, a.negative:hover, input.negative:hover {
   color: #dd3322;
 }

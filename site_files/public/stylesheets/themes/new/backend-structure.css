@@ -1,35 +1,35 @@
-/* line 47, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 22, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 body {
   background-color: #e5e5e5;
 }
 
-/* line 51, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 26, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 h2 a:hover {
   border-bottom: 3px solid #f8da00;
 }
 
-/* line 55, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 30, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 h4 {
   margin: 15px 0 0;
 }
 
-/* line 59, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 34, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div#container {
   min-width: 960px;
 }
 
-/* line 63, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 38, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div.content {
   margin: 20px;
 }
 
-/* line 67, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 42, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div#main {
   float: left;
   width: 71%;
 }
 
-/* line 72, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 47, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div#main > div.block {
   background-color: white;
   -moz-box-shadow: 1px 1px 3px #777777;
@@ -41,25 +41,29 @@ div#main > div.block {
   behavior: url("/stylesheets/pie.htc");
 }
 
-/* line 79, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 54, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div.entrybody p {
   margin: 0 0 1.2em;
 }
 
-/* line 85, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 60, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div#main-navigation li {
   -moz-border-radius: 10px 10px 0 0;
   -webkit-border-radius: 10px 10px 0 0;
   border-radius: 10px 10px 0 0;
   behavior: url("/stylesheets/pie.htc");
 }
-/* line 89, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 64, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div#main-navigation ul li {
   background-color: #adadad;
   float: left;
   margin: 0 5px 0 0;
 }
-/* line 94, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 69, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+div#main-navigation ul li a {
+  padding: 8px 15px;
+}
+/* line 72, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div#main-navigation ul li.active {
   background-color: white;
   background: -webkit-gradient(linear, left top, left bottom, from(white), to(#e5e5e5));
@@ -69,7 +73,7 @@ div#main-navigation ul li.active {
   behavior: url("/stylesheets/pie.htc");
 }
 
-/* line 100, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 78, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div.secondary-navigation {
   background-image: url("/stylesheets/themes/nemum/images/boxbar-background.png");
   -moz-border-radius: 10px 10px 0 0;
@@ -77,81 +81,85 @@ div.secondary-navigation {
   border-radius: 10px 10px 0 0;
   behavior: url("/stylesheets/pie.htc");
 }
-/* line 105, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 83, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div.secondary-navigation li.active.first {
   -moz-border-radius: 10px 0 0 0;
   -webkit-border-radius: 10px 0 0 0;
   border-radius: 10px 0 0 0;
   behavior: url("/stylesheets/pie.htc");
 }
-/* line 109, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 87, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div.secondary-navigation ul li {
   float: left;
 }
-/* line 112, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 90, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div.secondary-navigation ul li a {
   display: block;
   padding: 10px 15px;
 }
 
-/* line 117, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 95, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div#user-navigation {
   float: right;
   margin: 5px 0;
 }
 
-/* line 122, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 100, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div#sidebar {
   float: right;
   width: 29%;
 }
-/* line 126, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 104, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div#sidebar h3 {
   padding: 0 0 5px 0;
 }
-/* line 129, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 107, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+div#sidebar h5 {
+  padding: 0 0 5px;
+}
+/* line 110, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div#sidebar div.block {
   margin: 0 0 0 15px;
 }
-/* line 134, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 115, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div#sidebar div.block div.content p {
   margin: 15px 0;
 }
-/* line 137, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 118, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div#sidebar div.block div.content ul.navigation a {
   margin: 15px 0 0;
 }
-/* line 140, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 121, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div#sidebar div.block div.content ul.options li {
   margin: 5px 0;
 }
-/* line 143, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 124, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div#sidebar div.block div.content ul.options li a {
   margin: 15px 0 0 15px;
 }
-/* line 146, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 127, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div#sidebar ul.navigation {
   list-style-type: none;
 }
-/* line 149, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 130, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div#sidebar ul.navigation li a:link, div#sidebar ul.navigation li a:visited {
   display: block;
 }
-/* line 152, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 133, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div#sidebar ul.navigation a {
   padding-left: 18px;
 }
 
-/* line 156, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 137, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div#footer {
   margin: 25px;
 }
-/* line 159, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 140, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div#footer a:hover {
   border-bottom: 2px solid #f8da00;
 }
 
-/* line 165, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 146, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div#flash div.message {
   margin: 20px 20px 0;
   -moz-border-radius: 6px 6px 6px 6px;
@@ -159,27 +167,27 @@ div#flash div.message {
   border-radius: 6px 6px 6px 6px;
   behavior: url("/stylesheets/pie.htc");
 }
-/* line 170, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 151, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div#flash div.message p {
   margin: 8px;
 }
-/* line 173, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 154, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div#flash div.message.error {
   border: 1px solid #ffbbbb;
   background-color: #ffdddd;
 }
-/* line 177, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 158, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div#flash div.message.warning {
   border: 1px solid #ffff88;
   background-color: #ffffcc;
 }
-/* line 181, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 162, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div#flash div.message.info, div#flash div.message.notice {
   border: 1px solid #1fdf00;
   background-color: #bbffb6;
 }
 
-/* line 186, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 167, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div#header {
   background-color: #2e2e2e;
   padding: 0 15px;
@@ -189,11 +197,11 @@ div#header {
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#2e2e2e, endColorstr=#423d3e)";
   behavior: url("/stylesheets/pie.htc");
 }
-/* line 192, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 173, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div#header h1 {
   padding: 30px 15px;
 }
-/* line 195, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 176, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div#header h1 a {
   display: block;
   text-indent: -6000px;
@@ -202,39 +210,39 @@ div#header h1 a {
   background: url("/stylesheets/themes/nemum/images/bg_logo_admin.png") no-repeat;
 }
 
-/* line 203, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 184, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div#wrapper {
   margin: 15px;
 }
 
-/* line 209, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 190, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div#preview div.meta {
   background-color: #eeeeee;
   margin: 0 0 10px;
   padding: 10px;
 }
-/* line 214, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 195, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div#preview div.meta a:hover {
   border-bottom: 2px solid #f8da00;
 }
-/* line 217, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 198, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div#preview table {
   border-collapse: collapse;
   margin: 0 0 10px;
   width: 100%;
 }
-/* line 222, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 203, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div#preview td, div#preview th {
   border-bottom: solid 1px #dddddd;
   padding: 5px 0;
   margin: 0 10px;
 }
 
-/* line 228, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 209, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 .wat-cf {
   display: inline-block;
 }
-/* line 229, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 210, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 .wat-cf:after {
   content: ".";
   display: block;
@@ -243,21 +251,21 @@ div#preview td, div#preview th {
   visibility: hidden;
 }
 
-/* line 243, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 224, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div#social-buttons {
   margin: 0 0 5px;
 }
-/* line 246, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 227, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div#social-buttons iframe {
   vertical-align: bottom;
 }
-/* line 249, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 230, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div#social-buttons a span {
   border: 1px solid #5f78ab;
   border-bottom: 1px solid #29447e;
 }
 
-/* line 259, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 240, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 button, a.button, input.button {
   background-color: #e9e9e9;
   border: 1px solid #aaaaaa;
@@ -273,7 +281,7 @@ button, a.button, input.button {
   behavior: url("/stylesheets/pie.htc");
 }
 
-/* line 269, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 250, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 button:active, a.button:active, input.button:active {
   background: -webkit-gradient(linear, left top, left bottom, from(#e9e9e9), to(#f9f9f9));
   background: -moz-linear-gradient(top, #e9e9e9, #f9f9f9);
@@ -282,53 +290,53 @@ button:active, a.button:active, input.button:active {
   behavior: url("/stylesheets/pie.htc");
 }
 
-/* line 274, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 255, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 a.button {
   padding: 6px 10px;
 }
 
-/* line 278, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 259, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 input.button {
   padding: 5px 10px !important;
 }
 
-/* line 282, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 263, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 button {
   padding: 5px 10px;
 }
 
-/* line 286, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 267, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 *:first-child + html input[type] {
   padding: 2px 10px 3px;
 }
 
-/* line 290, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 271, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 a.google_ico, a.yahoo_ico {
   margin: 0 0 15px 0;
   width: 90%;
 }
 
-/* line 299, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 280, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div#main div.block div.block div.content h2.title {
   padding: 0 0 15px;
 }
-/* line 302, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 283, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div#main div.block div.block div.content h3 {
   font-size: 1.1em;
   padding: 0 0 15px;
 }
 
-/* line 306, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 287, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 div.active-scaffold tr.record {
   background-color: white;
 }
 
-/* line 312, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 293, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 * html .wat-cf {
   height: 1%;
 }
 
-/* line 315, ../../../../app/stylesheets/themes/new/backend-structure.sass */
+/* line 296, ../../../../app/stylesheets/themes/new/backend-structure.sass */
 .wat-cf {
   display: block;
 }

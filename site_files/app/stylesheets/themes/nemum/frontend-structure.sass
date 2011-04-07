@@ -1,3 +1,6 @@
+@import "partials/mixins"
+
+
 // ============================================================================
 // Variables
 // ============================================================================
@@ -9,34 +12,6 @@ $default-color:    #F8DA00
 
 $button-gradient-start-color: #F9F9F9
 $button-gradient-end-color:   #E9E9E9
-
-
-// ============================================================================
-// Mixins
-// ============================================================================
-
-
-@mixin linear-gradient($start-color, $end-color)
-  background: -webkit-gradient(linear, left top, left bottom, from($start-color), to($end-color))
-  background: -moz-linear-gradient(top, $start-color, $end-color)
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$start-color, endColorstr=$end-color)
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr="+$start-color+", endColorstr="+$end-color+")"
-
-
-@mixin round-corners($top-left, $top-right, $bottom-right, $bottom-left)
-  -moz-border-radius: $top-left $top-right $bottom-right $bottom-left
-  -webkit-border-radius: $top-left $top-right $bottom-right $bottom-left
-  border-radius: $top-left $top-right $bottom-right $bottom-left
-
-
-@mixin box-shadow($right, $bottom, $blur, $color)
-  -moz-box-shadow: $right $bottom $blur $color
-  -webkit-box-shadow: $right $bottom $blur $color
-  box-shadow: $right $bottom $blur $color
-
-
-@mixin enable-ie-css3
-  behavior: url("/stylesheets/pie.htc")
 
 
 // ============================================================================
