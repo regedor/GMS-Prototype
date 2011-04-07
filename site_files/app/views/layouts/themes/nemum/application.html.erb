@@ -10,19 +10,19 @@
                              'announcements', 
                              'utils',                                          :cache => 'cache/frontend' %>
 
-  <%= stylesheet_link_tag    'shared/screen.css', :media => 'screen'                                      %>
-  <%= stylesheet_link_tag    'shared/reset.css', :media => 'screen'                                       %>
+  <%= stylesheet_link_tag    'shared/screen', :media => 'screen'                                          %>
+  <%= stylesheet_link_tag    'shared/reset', :media => 'screen'                                           %>
   <%= stylesheet_link_tag    'smoothness/jquery-ui-1.8.7.custom',
                              'formtastic/formtastic',
-                             "themes/#{configatron.theme}/formtastic-changes", 
-                             "themes/#{configatron.theme}/frontend-structure", 
+                             'shared/formtastic-changes',
+                             "themes/#{configatron.theme}/frontend-structure",
                              "themes/#{configatron.theme}/frontend-typography",
                              "themes/#{configatron.theme}/frontend-icons",     :cache => 'cache/frontend' %>
 
   <!--[if lt IE 8]>
-    <%= stylesheet_link_tag  'shared/ie.css', :media => 'screen, projection',  :cache => 'cache/ie'       %>
+    <%= stylesheet_link_tag  'shared/ie', :media => 'screen, projection',      :cache => 'cache/ie'       %>
   <![endif]-->
-  <%= stylesheet_link_tag    'shared/print.css', :media => 'print'                                        %>
+  <%= stylesheet_link_tag    'shared/print', :media => 'print'                                            %>
   <%= yield :head %>
 </head>
 
