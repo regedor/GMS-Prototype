@@ -45,3 +45,5 @@ group :test do
 
   gem 'tweet-button'
 end
+
+gem 'metric_fu'
