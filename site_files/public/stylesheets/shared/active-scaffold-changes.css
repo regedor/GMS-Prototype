@@ -290,8 +290,4 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 
 .content a.disabled                                      { display: none; }
 
-div.active-scaffold .button                              { margin: 10px 10px 0; text-decoration: none; font-weight: bold; }
-
-/* Hacks */
-
-li { list-style: none; }
+.active-scaffold .button                              { margin: 10px 10px 0; text-decoration: none; font-weight: bold; }

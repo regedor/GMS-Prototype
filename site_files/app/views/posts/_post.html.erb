@@ -1,13 +1,16 @@
 <h2><%= link_to(post.title, post_path(post)) %></h2>
 <div class="entrybody">
-  <%= content_tag :div, image_tag(post.image.url(:image)), :class => 'post-image' if post.image? %>
-  <% if controller.action_name == "index" -%>
-    <%= raw post.excerpt_html %>
-    <%= post.splitted ? "<p class='more'>#{link_to I18n::t('posts.read_more'), post_path(post)}</p>" : "" %>
-  <% else -%>
-    <%= raw post.body_html %>
-  <% end -%>
+  <div class="textile-body">
+    <%= content_tag :div, image_tag(post.image.url(:image)), :class => 'post-image' if post.image? %>
+    <% if controller.action_name == "index" -%>
+      <%= raw post.excerpt_html %>
+      <%= post.splitted ? "<p class='more'>#{link_to I18n::t('posts.read_more'), post_path(post)}</p>" : "" %>
+    <% else -%>
+      <%= raw post.body_html %>
+    <% end -%>
+  </div>
 </div>
+
 <div id="social-buttons">
   <%= tweet_button(:via => configatron.site_name, :text => post.title, :count => "none", :url => (configatron.site_url+post_path(post))) %>
   <a name="fb_share" type="button" share_url="<%= (configatron.site_url+post_path(post)) %>"> <%= I18n::t("posts.share_on_facebook")%></a>
