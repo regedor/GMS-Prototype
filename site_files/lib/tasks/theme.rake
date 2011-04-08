@@ -6,7 +6,7 @@ namespace :themes do
       puts i.to_s + " - " + path.split("/").last 
     end
     theme_path = paths[STDIN.gets.chomp.to_i]
-    cp_r(theme_path+'/.', '/Users/regedor/coiso') 
+    cp_r(theme_path+'/.', RAILS_ROOT) 
 
     #puts "----"+theme+"--"
   end
