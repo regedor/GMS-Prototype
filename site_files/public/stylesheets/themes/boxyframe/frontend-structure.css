@@ -58,6 +58,7 @@ div#main p                    { margin: 0 0 1.2em; }
 div#main table                { border-collapse: collapse; width: 100%; } /* border-collapse ta a broquear padding */
 div#main td,
 div#main th                   { border-bottom: solid 1px #DDD; padding: 0.4em 0; margin: 0 10px; }
+div#main th                   { background-color: #8BBAC3; font-size: 14px; }
 
 div#main div#user-info        { margin: 15px 10px; }
 div#main div#user-invite      { margin: 15px 10px; }
