@@ -25,7 +25,7 @@ namespace :db do
         Page.create(
           :title        => "A Direcção",
           :has_comments => false,
-          :body         => "|Presidente|Rita Trindade|\n|Vice-presidente|Susana Sousa|\n|Vogal|Frederico Machado|\n|Tesoureira|Filipa Gonçalves|\n|Secretária|Amanda de Sousa|\n|\\2{background: #F8DA00; color: #333}.Departamento Cultural|\n|Director|Eduardo Gomes|\n|Adjunta|Fabiana Gomes|\n|Adjunto|Jorge Correia|\n|\\2{background: #F8DA00; color: #333}.Departamento de Divulgação|\n|Directora|Diana Lobo|\n|Adjunto|Adrien Machado|\n|Adjunto|Bruno Silva|\n|\\2{background: #F8DA00; color: #333}.Departamento de Apoio ao Aluno|\n|Directora|Rute Chitas|\n|Adjunto|Eduardo Campos|\n|\\2{background: #F8DA00; color: #333}.Departamento Comercial|\n|Directora|Ana Patrícia Ribeiro|\n|Adjunta|Ana Margarida Cunha|",
+          :body         => "|Presidente|Rita Trindade|\n|Vice-presidente|Susana Sousa|\n|Vogal|Frederico Machado|\n|Tesoureira|Filipa Gonçalves|\n|Secretária|Amanda de Sousa|\n|_\\2.Departamento Cultural|\n|Director|Eduardo Gomes|\n|Adjunta|Fabiana Gomes|\n|Adjunto|Jorge Correia|\n|_\\2.Departamento de Divulgação|\n|Directora|Diana Lobo|\n|Adjunto|Adrien Machado|\n|Adjunto|Bruno Silva|\n|_\\2.Departamento de Apoio ao Aluno|\n|Directora|Rute Chitas|\n|Adjunto|Eduardo Campos|\n|_\\2.Departamento Comercial|\n|Directora|Ana Patrícia Ribeiro|\n|Adjunta|Ana Margarida Cunha|",
           :show_in_navigation => true
         )
 
