@@ -2,24 +2,62 @@ class Event < ActiveRecord::Base
   # ==========================================================================
   # Relationships
   # ==========================================================================
-  has_many :events_users
-  has_many :users, :through => :events_users
-  has_many :event_activities
+  has_many   :events_users
+  has_many   :users, :through => :events_users
+  has_many   :event_activities
+  belongs_to :post
+  belongs_to :announcement
 
   # ==========================================================================
   # Validations
   # ==========================================================================
 
-  validates_presence_of :description
-
+  validates_presence_of :description, :name, :starts_at, :ends_at, :price
+  
   # ==========================================================================
   # Instance Methods
   # ==========================================================================
 
   before_save :format_description
+  before_save :save_virtual_data
 
   attr_accessor :starts_at_natural
   attr_accessor :ends_at_natural
+  attributes_to_add = Post.new.attributes.keys - ["generic_updated_at","image_file_name","created_at","image_file_size",
+                                                  "updated_at","image_content_type","generic_file_name","id","generic_content_type",
+                                                  "image_updated_at","generic_file_size"]                                                                                                  
+  attributes_to_add.each do |attribute| 
+    attr_accessor attribute.to_sym
+    define_method((attribute+"_authorized?").to_sym) do
+      return false
+    end  
+  end  
+  attr_accessor :tag_list
+  has_attached_file :image, :styles => { :image => "250x250" }
+  has_attached_file :generic
+  
+  def image_authorized?;    return false; end 
+  def tag_list_authorized?; return false; end 
+  def generic_authorized?;  return false; end  
+
+  def save_virtual_data
+    unless self.title.blank?
+      p = Post.new
+      p.title = self.title
+      p.body = self.body
+      p.tag_list = self.tag_list
+      p.published_at = self.published_at
+      p.slug = self.slug
+   
+      if p.valid?
+        p.save
+        self.post = p
+      else
+        self.errors[:errors] << p.errors[:errors] if p.errors[:errors]
+        return false 
+      end   
+    end  
+  end  
 
   def format_description
     self.description_html = TextFormatter.format_as_xhtml(self.description)

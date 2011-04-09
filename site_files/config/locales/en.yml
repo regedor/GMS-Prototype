@@ -364,7 +364,7 @@ en:
           button:
             search: "Search"
         columns:
-          title: "Title"
+          name: "Name"
           description: "Description"
           starts_at: "Starting date"
           ends_at: "Ending date"
@@ -388,7 +388,7 @@ en:
         update_link: "Edit"
         destroy_link: "Delete"
       columns:
-        title: "Title"
+        name: "Name"
         description: "Description"
         starts_at: "Starting date"
         ends_at: "Ending date"
@@ -396,6 +396,8 @@ en:
       create:
         title: "Event"
       view:
+        addPost: "Add a post"
+        hidePost: "Hide the post"  
         activities: "Activities"
         title: "Title"
         description: "Description"

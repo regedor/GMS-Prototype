@@ -8,7 +8,7 @@ class EventsController < ApplicationController
     @record = Event.find(params[:id])
     @checked_activities = @record.checked_activities(current_user.id)
     @unchecked_activities = @record.unchecked_activities(current_user.id)
-  end
+  end 
  
   def userUpdate
 

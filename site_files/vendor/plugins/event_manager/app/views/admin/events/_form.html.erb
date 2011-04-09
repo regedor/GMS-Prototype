@@ -18,16 +18,73 @@ jQuery(document).ready(function($){
   $.datepicker.setDefaults( $.datepicker.regional[ '' ] );      
   $( ".datepicker" ).datetimepicker($.datepicker.regional[locale]);
 
+  $("#PostInputs").hide();
+  $("#hidePost").hide();
+
+  $("#hidePost").click(function(){
+	$("#PostInputs").hide();
+	$("#addPost").show();
+	$("#hidePost").hide();
+  });
+
+  $("#addPost").click(function(){
+	$("#PostInputs").show();
+	$("#addPost").hide();
+	$("#hidePost").show();
+  });
+
 });
 </script>
 
-      <% form.inputs do %>
-        <%= form.input :title, :label => t('admin.events.view.title') %>
-        <%= form.input :description, :label => t('admin.events.view.description') %>
-        <%= form.input :starts_at,  :as => :string,
-                 :input_html => { :class => "datepicker", :value => @record.starts_at ? l(@record.starts_at, :format => "%d/%m/%Y %H:%M") : '' }, :label => t('admin.events.view.starts_at') %>
-        <%= form.input :ends_at, :as => :string,
-                 :input_html => { :class => "datepicker", :value => @record.ends_at ? l(@record.ends_at, :format => "%d/%m/%Y %H:%M") : '' }, :label => t('admin.events.view.ends_at') %>
-        <%= form.input :price, :as => :numeric, :label => t('admin.events.view.price') %>
-        <%= form.input :participation_message, :as => :text, :label => t('admin.events.view.participation_message') %>
-      <% end %>
+  <% form.inputs do %>
+    <%= form.input :name, :label => t('admin.events.view.title') %>
+    <%= form.input :description, :label => t('admin.events.view.description') %>
+    <%= form.input :starts_at,  :as => :string,
+                   :input_html => { :class => "datepicker", :value => @record.starts_at ? l(@record.starts_at, :format => "%d/%m/%Y %H:%M") : '' }, :label => t('admin.events.view.starts_at') %>
+    <%= form.input :ends_at, :as => :string,
+                   :input_html => { :class => "datepicker", :value => @record.ends_at ? l(@record.ends_at, :format => "%d/%m/%Y %H:%M") : '' }, :label => t('admin.events.view.ends_at') %>
+     <%= form.input :price, :as => :numeric, :label => t('admin.events.view.price') %>
+     <%= form.input :participation_message, :as => :text, :label => t('admin.events.view.participation_message') %>
+  <% end %>
+  
+  <div id="addPost" class="addPost"><%= link_to t('admin.events.view.addPost'), "#addPost" %></div>
+  <div id="hidePost" class="hidePost"><%= link_to t('admin.events.view.hidePost'), "#hidePost" %></div>
+
+  <% form.inputs :name => "Post", :id  => "PostInputs" do %>
+    <%= form.input :title,
+	               :label    => I18n::t('admin.posts.columns.title') %>
+	<%= form.input :body,
+	               :label    => I18n::t('admin.posts.columns.body'),
+	               :hint     => I18n::t('admin.posts.form.hints.body').html_safe %>
+	<%= form.input :tag_list,
+	               :as       => 'string',
+	               :required => false,
+	               :label    => I18n::t('admin.posts.columns.tag_list'),
+	               :hint     => I18n::t('admin.posts.form.hints.tag_list') %>
+	<% if @record.image.content_type %>
+	  <span class="file_icon"><%= image_tag file_icon_displayer(@record.image) %></span>
+	<% end %>
+	<%= form.input :image,
+	               :required => false,
+	  			   :as => :file,
+	               :hint     => I18n::t('admin.posts.form.hints.image'),
+	               :label    => I18n::t('admin.posts.columns.image') %>
+	<% if @record.generic.content_type %>
+	  <span class="file_icon"><%= image_tag file_icon_displayer(@record.generic) %></span>
+	<% end %>
+	<%= form.input :generic,
+	               :required => false,
+	  			   :as => :file,
+	               :hint     => I18n::t('admin.posts.form.hints.generic_file'),
+	               :label    => I18n::t('admin.posts.columns.generic_file') %>
+	<%= form.input :published_at,
+	               :as       => 'string',
+	               :input_html => {:class => "datepicker", :value => l(@record.published_at || Time.now, :format => "%d/%m/%Y")},
+	               :label    => I18n::t('admin.posts.columns.published_at'),
+	               :hint     => I18n::t('admin.posts.form.hints.published_at').html_safe %>  
+	<%= form.input :slug,
+	               :required => false,
+	               :label    => I18n::t('admin.posts.columns.slug'),
+	               :hint     => I18n::t('admin.posts.form.hints.slug') %>
+  <% end %>
+     

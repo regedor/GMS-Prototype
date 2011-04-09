@@ -8,11 +8,18 @@ class Admin::EventsController < Admin::BaseController
                                      :label => I18n::t("admin.events.index.list_activities")    
 
     Scaffoldapp::active_scaffold config, "admin.events",
-      :create => [ :title, :description, :starts_at, :ends_at, :price, :participation_message ],
-      :edit   => [ :title, :description, :starts_at, :ends_at, :price, :participation_message ],
-      :list   => [ :title, :starts_at, :ends_at, :price ],
+      :create => [ :name, :description, :starts_at, :ends_at, :price, :participation_message, :tag_list, :body, :title, :slug, :published_at ],
+      :edit   => [ :name, :description, :starts_at, :ends_at, :price, :participation_message ],
+      :list   => [ :name, :starts_at, :ends_at, :price ],
       :show   => [ ]
   end
+
+  def create
+    e = Event.new params[:record]
+    e.save
+    
+    redirect_to admin_events_path
+  end  
 
   def list_activities
     redirect_to :action => 'index', :controller => 'admin/event_activities', :event_id => params[:id]
