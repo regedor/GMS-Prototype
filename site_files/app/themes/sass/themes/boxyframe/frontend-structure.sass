@@ -1,0 +1,428 @@
+@import "partials/mixins"
+
+
+// ============================================================================
+// Variables
+// ============================================================================
+
+
+$background-color: #404040
+$content-margin:   15px
+$default-color:    #6683A2
+
+$button-gradient-start-color: #F9F9F9
+$button-gradient-end-color:   #E9E9E9
+
+
+// ============================================================================
+// Rules
+// ============================================================================
+
+
+body
+  background-color: $background-color
+
+
+h2
+  margin: 0 0 $content-margin
+
+  a:hover
+    border-bottom: 3px solid $default-color
+
+
+h3, h4
+  margin: 0 0 10px
+
+
+h5
+  margin: 0 0 10px
+
+
+hr
+  background-color: #DDD
+  border: none
+  clear: left
+  height: 1px
+  margin: $content-margin 0
+
+
+div#account-info
+  background-color: #FFF
+  border: 2px solid #111
+  margin: 50px auto 0
+  height: 20px
+  padding: 5px $content-margin 2px
+  width: 950px
+
+  span.options
+    float: right
+
+    a:hover
+      border-bottom: 2px solid $default-color
+
+
+div#menu
+  background-color: #CCDDEE
+  background-image: url("/stylesheets/themes/boxyframe/images/menu.png")
+  background-repeat: repeat-x
+  border: 2px solid #000
+  margin: auto
+  height: 40px
+  width: 980px
+
+
+div#navigation-nojs ul
+  margin: 12px 0 0
+
+  li
+    display: inline
+
+    a
+      border: none
+      color: #FFF
+      padding: 12px 20px 14px
+
+    a:hover
+      background-color: #B0C0D0
+
+
+div#tag-cloud
+  background-color: #DFEFFF
+  margin: 0 25px 20px 780px
+  min-height: 100px
+  padding: 10px 20px
+  position: relative
+  top: $content-margin
+  @include round-corners(5px, 5px, 5px, 5px)
+  @include enable-ie-css3
+
+
+div#tag-search-bar
+  margin: 0 0 15px
+
+  div#tags
+    margin: 10px
+
+    a
+      background: url("/images/icons/tag_delete.png") no-repeat
+      border: none
+      padding: 0 10px 0 20px
+
+
+div#logo
+  background-color: #FFF
+  background-image: url("/stylesheets/themes/boxyframe/images/logo_nebaum.png")
+  background-position: 50% 50%
+  background-repeat: no-repeat
+  border-top: 2px solid #111
+  border-right: 2px solid #111
+  border-bottom: 2px solid #111
+  height: 130px
+  margin: 38px 0
+  position: absolute
+  top: 20px
+  width: 270px
+  @include round-corners(0, 15px, 15px, 0)
+  @include enable-ie-css3
+
+
+div#flash-content
+  margin: 5px 0
+
+
+div#panel
+  border-left: 2px solid #111
+  border-right: 2px solid #111
+  margin: auto
+  width: 980px
+
+
+div#content.single
+  float: left
+  width: 96% // OH SHIT!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  margin: 20px 20px 30px
+
+
+div#content.double
+  float: left
+  width: 745px
+  margin: 20px 20px 30px
+
+
+div#sidebar
+  background: #E9E9FF
+  float: right
+  padding: 20px
+  margin: 20px
+  width: 190px
+  @include round-corners(5px, 5px, 5px, 5px)
+  @include enable-ie-css3
+
+
+div#main
+  background-color: #FFF
+  border-left: 2px solid #111
+  border-right: 2px solid #111
+  border-bottom: 2px solid #111
+  margin: auto
+  width: 980px
+
+  p
+    margin: 0 0 1.2em
+
+  table
+    border-collapse: collapse
+    width: 100%
+
+  td
+    border-bottom: solid 1px #DDD
+    padding: 0.4em 0
+    margin: 0 10px
+
+  th
+    border-bottom: solid 1px #DDD
+    padding: 0.4em 0
+    margin: 0 10px
+    background-color: #ccddee
+
+
+div#user-info, div#user-invite
+  margin: $content-margin 10px
+
+
+div#footer
+  margin: 25px
+
+  a:hover
+    border-bottom: 2px solid $default-color
+
+
+div#flash
+  background-image: url("/images/dark_transparency.png")
+  border-top: 1px solid #000
+  bottom: 0
+  left: 0
+  padding: 15px 0
+  position: fixed
+  width: 100%
+
+  div.message
+    height: 64px
+    @include round-corners(6px, 6px, 6px, 6px)
+    @include enable-ie-css3
+
+    p
+      margin: 0 100px
+      padding: 20px
+
+  div.message.error
+    background: url("/stylesheets/themes/nemum/images/flash/error.png") no-repeat 0 50%
+
+  div.message.warning
+    background: url("/stylesheets/themes/nemum/images/flash/warning.png") no-repeat 0 50%
+
+  div.message.info, div.message.notice
+    background: url("/stylesheets/themes/nemum/images/flash/notice.png") no-repeat 0 50%
+
+
+div#archives
+  float: right
+  margin: 10px
+
+  a:hover
+    border-bottom: 3px solid $default-color
+
+
+// ==============
+// Social buttons
+// ==============
+
+
+div#social-buttons
+  margin: 0 10px 5px
+  clear: both
+
+  iframe
+    vertical-align: bottom
+
+  a span
+    border: 1px solid #5F78AB
+    border-bottom: 1px solid #29447E
+
+
+// =============
+// Announcements
+// =============
+
+
+div#announcements
+  overflow: hidden
+  position: relative
+  width: 980px
+
+  a:hover
+    border: none
+
+
+div.announcement-tail
+  display: none
+
+
+div.announcements-bar
+  background: url("/images/dark_transparency.png")
+  cursor: default
+  padding: 12px
+  position: absolute
+  right: 0
+
+
+div.announcement-block img
+  height: 250px
+  width: 980px
+
+
+div.announcement-text
+  background: url("/images/dark_transparency.png")
+  bottom: 0
+  padding: 14px
+  position: absolute
+  right: 0
+  width: 300px
+
+  p.title
+    padding: 0 0 15px
+
+
+// =====
+// Pages
+// =====
+
+
+body#pages_show div#main
+
+  ul li, ol li
+    list-style-position: inside
+    margin: $content-margin 30px
+
+  ul li
+    list-style-type: disc
+
+  ol li
+    list-style-type: decimal
+
+
+// =====
+// Posts
+// =====
+
+
+div.post
+  margin: 0 0 30px
+
+
+div.entrybody
+  margin: 0 10px
+
+  ul
+    list-style: circle
+    padding-left: 5px
+
+
+div.post-image
+  float: left
+  margin: 0 15px 5px 0
+
+
+div.meta
+  background-color: #EEE
+  margin: 0 10px
+  padding: 10px
+  @include round-corners(5px, 5px, 5px, 5px)
+  @include enable-ie-css3
+
+  a:hover
+    border-bottom: 2px solid $default-color
+
+
+// ========
+// Comments
+// ========
+
+
+div.avatar
+  float: left
+  margin-right: 20px
+
+  img
+    border: 1px solid #999
+
+
+span.comment-meta
+  clear: both
+  display: block
+
+
+div.new-comment
+  padding: 0 $content-margin
+
+
+ol.comment-list
+  margin: $content-margin
+
+  p
+    padding: $content-margin 0 0
+
+
+// =======
+// Buttons
+// =======
+
+
+button, a.button, input.button
+  background-color: $button-gradient-end-color // graceful degrade for Opera
+  border: 1px solid #AAA
+  cursor: pointer
+  float: left
+  @include linear-gradient($button-gradient-start-color, $button-gradient-end-color)
+  @include round-corners(4px, 4px, 4px, 4px)
+  @include enable-ie-css3
+
+
+button:active, a.button:active, input.button:active
+  @include linear-gradient($button-gradient-end-color, $button-gradient-start-color)
+  @include enable-ie-css3
+
+
+a.button
+  padding: 6px 10px
+
+
+input.button
+  padding: 5px 10px !important
+
+
+button
+  padding: 5px 10px
+
+
+*:first-child + html input[type]
+  padding: 2px 10px 3px
+  // IE7
+
+
+a.google_ico, a.yahoo_ico
+  margin: 0 0 15px 0
+  width: 90%
+
+
+// Self-clearing floats and IE hacks
+
+.selfclear
+  &:after
+    content: "."
+    display: block
+    height: 0
+    clear: both
+    visibility: hidden
+  display: inline-block // IE 7
+  display: block
