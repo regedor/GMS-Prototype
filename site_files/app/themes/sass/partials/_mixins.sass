@@ -17,5 +17,11 @@
   box-shadow: $right $bottom $blur $color
 
 
+@mixin text-shadow($right, $bottom, $blur, $color)
+  -moz-text-shadow: $right $bottom $blur $color
+  -webkit-text-shadow: $right $bottom $blur $color
+  text-shadow: $right $bottom $blur $color
+
+
 @mixin enable-ie-css3
   behavior: url("/stylesheets/pie.htc")
