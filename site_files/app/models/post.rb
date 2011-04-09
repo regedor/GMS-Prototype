@@ -128,6 +128,14 @@ class Post < ActiveRecord::Base
       month = Struct.new(:date, :posts)
       posts.group_by(&:month).inject([]) {|a, v| a << month.new(v[0], v[1])}
     end
+    
+    def all(*params)
+      unless params.member? :order
+        self.find :all, :order => 'posts.published_at DESC', *params     
+      else
+        self.find :all, *params
+      end    
+    end  
 
     # Paginate by publication date
     def paginate_by_published_date(page)

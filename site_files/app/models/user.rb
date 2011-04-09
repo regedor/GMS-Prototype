@@ -227,6 +227,10 @@ class User < ActiveRecord::Base
   def nickname_or_first_and_last_name
     self.nickname || first_and_last_name
   end
+  
+  def name
+    super || self.email
+  end   
 
   def list_groups
     r = []

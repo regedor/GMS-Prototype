@@ -37,7 +37,8 @@ class Admin::PostsController < Admin::BaseController
   end
 
   def preview
-    @post = Post.build_for_preview(params[:record])
+    #@post = Post.build_for_preview(params[:record])
+    @post = Post.find(params[:id])
 
     respond_to do |format|
       format.js {
