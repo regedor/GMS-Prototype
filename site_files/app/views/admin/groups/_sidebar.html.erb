@@ -1,6 +1,6 @@
 <% if (controller.action_name == "index") %>
- <div class="block">
-    <h3><%=h t("admin.groups.sidebar.hierarchy.index.title") %></h3>
+  <div class="block">
+    <h5><%=h t("admin.groups.sidebar.hierarchy.index.title") %></h5>
     <div class="content">
       <p>
         <%= t("admin.groups.sidebar.hierarchy.index.paragraph") %>
@@ -9,7 +9,7 @@
   </div>
 
   <div class="block">
-    <h3><%=h t("admin.groups.sidebar.user_optional_group_picks.title") %></h3>
+    <h5><%=h t("admin.groups.sidebar.user_optional_group_picks.title") %></h5>
     <div class="content">
       <p><%=h t("admin.groups.sidebar.user_optional_group_picks.paragraph") %></p>
       <ul class="navigation">
@@ -20,9 +20,8 @@
 <% end %>
 
 <% if (controller.action_name == "show") %>
-
   <div class="block">
-    <h3><%=h t("admin.groups.sidebar.hierarchy.name") %></h3>
+    <h5><%=h t("admin.groups.sidebar.hierarchy.name") %></h5>
     <div class="content">
       <p>
         <% if @record.groups.count>0 %>
@@ -36,16 +35,13 @@
       </p>
     </div>
   </div>
-
 <% elsif (controller.action_name == "edit") %>
-
   <div class="block">
-    <h3><%=h t("admin.groups.sidebar.edit.title") %></h3>
+    <h5><%=h t("admin.groups.sidebar.edit.title") %></h5>
     <div class="content">
       <p>
         <%= t("admin.groups.sidebar.edit.paragraph") %>
       </p>
     </div>
   </div>
-
 <% end %>

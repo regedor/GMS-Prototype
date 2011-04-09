@@ -1,3 +1,5 @@
 <div id="category_<%= category.id %>" class="category">
-  <h3><%= category.name %> <%= link_to "Edit", edit_admin_project_category_path(project,category) %> <%= link_to "Delete", "#", :class => "delete", :onclick => "jQuery(this).delete();" %></h3>
+  <h4><%= category.name %></h4>
+  <%= link_to "Edit", edit_admin_project_category_path(project,category) %>
+  <%= link_to "Delete", "#", :class => "delete", :onclick => "jQuery(this).delete();" %>
 </div>

@@ -33,9 +33,14 @@ div#footer a                     { font-weight: bold; color: #E11111 }
 
 div#navigate ul                  { font-weight: bold; }
 
+div#tag-search-bar span#tagged-with { font-size: 1.2em; }
+div#tag-search-bar span#clear-link { font-size: 0.9em; }
+
 div.meta li                      { line-height: 1.4em; }
 
 div#flash div.message p          { color: #FFF; font-size: 1.6em; font-weight: bold; }
+
+div#archives                     { font-size: 1.2em; }
 
 div.announcement-text p.title    { font-weight: bold; font-size: 1.2em; }
 div.announcements-bar,

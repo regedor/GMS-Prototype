@@ -1,0 +1,373 @@
+@import "partials/mixins"
+
+
+// ============================================================================
+// Variables
+// ============================================================================
+
+
+$background-color: #2E2A2B
+$content-margin:   15px
+$default-color:    #F8DA00
+
+$button-gradient-start-color: #F9F9F9
+$button-gradient-end-color:   #E9E9E9
+
+
+// ============================================================================
+// Rules
+// ============================================================================
+
+
+body
+  background-color: $background-color
+
+
+h2
+  margin: 0 0 $content-margin
+
+  a:hover
+    border-bottom: 3px solid $default-color
+
+
+h3, h4
+  margin: 0 0 10px
+
+
+hr
+  background-color: #DDD
+  border: none
+  clear: left
+  height: 1px
+  margin: $content-margin 0
+
+
+div#container
+  margin: auto
+  width: 960px
+
+
+div#header
+  float: left
+  position: relative
+  width: 200px
+  z-index: 0
+
+
+div#wrapper
+  margin: 0 0 0 200px
+
+
+div#navigation
+  background-color: #555
+  padding: 12px 13px 12px
+  width: 175px
+  @include round-corners(12px, 0, 0, 12px)
+  @include enable-ie-css3
+
+  li
+    margin: 5px
+
+  a:hover
+    border: none
+
+
+div#navigation div#tag-cloud
+  background: url("/stylesheets/themes/nemum/images/line.png") no-repeat top right
+  margin: 10px 5px 5px 0
+
+  h5
+    margin: 0 0 5px
+    padding: 10px 0 0
+
+
+div#tag-search-bar
+  margin: 0 0 10px
+
+  div#tags
+    margin: 10px 10px 15px
+
+    a
+      background: url("/stylesheets/themes/nemum/icons/tag_delete.png") no-repeat
+      border: none
+      padding: 0 5px 0 18px
+
+
+div#site-title
+  margin: 100px 0 80px
+
+  div#flash-content
+    min-height: 120px
+
+
+div#account-info
+  background-color: #FFF
+  padding: 5px $content-margin 8px
+  position: relative
+  z-index: 1
+  @include round-corners(0, 0, 12px, 12px)
+  @include box-shadow(0, 0, 15px, #333)
+  @include enable-ie-css3
+
+  span.options
+    float: right
+
+    a:hover
+      border-bottom: 2px solid $default-color
+
+
+div#main
+  background-color: #FFF
+  padding: 20px
+  position: relative
+  z-index: 1
+  @include round-corners(12px, 12px, 12px, 12px)
+  @include box-shadow(0, 0, 15px, #333)
+  @include enable-ie-css3
+
+  p
+    margin: 0 0 15px
+
+  table
+    border-collapse: collapse
+    margin: 0 0 10px
+    width: 100%
+
+  td, th
+    border-bottom: solid 1px #DDD
+    padding: 5px 0
+    margin: 0 10px
+
+  div#user-info, div#user-invite
+    margin: 15px 10px
+
+
+div#footer
+  margin: 25px
+
+  a:hover
+    border-bottom: 2px solid $default-color
+
+
+div#flash
+  background-image: url("/images/dark_transparency.png")
+  border-top: 1px solid #000
+  bottom: 0
+  left: 0
+  padding: 15px 0
+  position: fixed
+  width: 100%
+
+  div.message
+    height: 64px
+    @include round-corners(6px, 6px, 6px, 6px)
+    @include enable-ie-css3
+
+    p
+      margin: 0 100px
+      padding: 20px
+
+  div.message.error
+    background: url("/stylesheets/themes/nemum/images/flash/error.png") no-repeat 0 50%
+
+  div.message.warning
+    background: url("/stylesheets/themes/nemum/images/flash/warning.png") no-repeat 0 50%
+
+  div.message.info, div.message.notice
+    background: url("/stylesheets/themes/nemum/images/flash/notice.png") no-repeat 0 50%
+
+
+div#archives
+  float: right
+  margin: 10px
+
+  a:hover
+    border-bottom: 3px solid $default-color
+
+
+// ==============
+// Social buttons
+// ==============
+
+
+div#social-buttons
+  margin: 0 10px 5px
+  clear: both
+
+  iframe
+    vertical-align: bottom
+
+  a span
+    border: 1px solid #5F78AB
+    border-bottom: 1px solid #29447E
+
+
+// =============
+// Announcements
+// =============
+
+
+div#announcements
+  border-left: 2px solid #444
+  border-right: 2px solid #444
+  margin: 0 $content-margin
+  overflow: hidden
+  position: relative
+
+  a:hover
+    border: none
+
+
+div.announcement-tail
+  display: none
+
+
+div.announcements-bar
+  background: url("/images/dark_transparency.png")
+  cursor: default
+  padding: 12px
+  position: absolute
+  @include round-corners(0, 0, 12px, 0)
+  @include enable-ie-css3
+
+
+div.announcement-block img
+  height: 250px
+  width: 730px
+
+
+div.announcement-text
+  background: url("/images/dark_transparency.png")
+  bottom: 0
+  padding: 14px
+  position: absolute
+  right: 0
+  width: 300px
+  @include round-corners(12px, 0, 0, 0)
+  @include enable-ie-css3
+
+  p.title
+    padding: 0 0 15px
+
+
+// =====
+// Pages
+// =====
+
+
+body#pages_show div#main
+  ul li, ol li
+    list-style-position: inside
+    margin: 15px 30px
+  ul li
+    list-style-type: disc
+  ol li
+    list-style-type: decimal
+
+
+// =====
+// Posts
+// =====
+
+
+div.post
+  margin: 0 0 30px
+
+
+div.entrybody
+  margin: 0 10px
+
+  ul
+    list-style: circle
+    padding-left: 5px
+
+
+div.post-image
+  float: left
+  margin: 0 15px 5px 0
+
+
+div.meta
+  background-color: #EEE
+  margin: 0 10px
+  padding: 10px
+
+  a:hover
+    border-bottom: 2px solid $default-color
+
+
+// ========
+// Comments
+// ========
+
+
+div.avatar
+  float: left
+  margin-right: 20px
+
+  img
+    border: 1px solid #999
+
+
+span.comment-meta
+  display: block
+  clear: both
+
+
+ol.comment-list p
+  padding: 15px 0 0
+
+
+// =======
+// Buttons
+// =======
+
+
+button, a.button, input.button
+  background-color: $button-gradient-end-color // graceful degrade for Opera
+  border: 1px solid #AAA
+  cursor: pointer
+  float: left
+  @include linear-gradient($button-gradient-start-color, $button-gradient-end-color)
+  @include round-corners(4px, 4px, 4px, 4px)
+  @include enable-ie-css3
+
+
+button:active, a.button:active, input.button:active
+  @include linear-gradient($button-gradient-end-color, $button-gradient-start-color)
+  @include enable-ie-css3
+
+
+a.button
+  padding: 6px 10px
+
+
+input.button
+  padding: 5px 10px !important
+
+
+button
+  padding: 5px 10px
+
+
+*:first-child + html input[type]
+  padding: 2px 10px 3px
+  // IE7
+
+
+a.google_ico, a.yahoo_ico
+  margin: 0 0 15px 0
+  width: 90%
+
+
+// Self-clearing floats and IE hacks
+
+.selfclear
+  &:after
+    content: "."
+    display: block
+    height: 0
+    clear: both
+    visibility: hidden
+  display: inline-block // IE 7
+  display: block

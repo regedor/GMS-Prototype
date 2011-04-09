@@ -1,40 +1,54 @@
+div.textile-body strong { font-weight: bold; }
+div.textile-body cite, em { font-style: italic; }
+div.textile-body ul { list-style-type: disc; margin: 0 0 0 20px; }
+div.textile-body ol { list-style-type: decimal; margin: 0 0 0 20px; }
+div.textile-body pre, code, tt { font-family: 'lucida console', Monospace; }
+
+
 /*
 ============================================================================
 = General Structure
 ============================================================================
 */
 
-body                          { background-color: #302F2D; }
+body                          { background-color: #404040; }
 
 h2                            { margin: 0 0 15px; }
 h3                            { margin: 0 0 1em; }
 h4                            { margin: 0 0 1em; }
+h5                            { margin: 0 0 10px; }
 
 hr                            { clear: left; background-color: #DDD; height: 1px; border: none; margin: 15px 0; }
 
 div#wrapper                   { width: 100%; }
-div#account-info              { background-color: #FFF;  margin: 50px auto 0 auto; height: 30px; width: 980px; }
+div#account-info              { background-color: #FFF;  margin: 50px auto 0 auto; height: 28px; width: 980px; }
 div#account-info              { border: 2px solid #000; }
-div#account-info span.options { float: right; margin: 7px 20px; }
-div#account-info span.title   { float: left; margin: 7px 20px; }
+div#account-info span.options { float: right; margin: 6px 20px; }
+div#account-info span.title   { float: left; margin: 6px 20px; }
 
 div#site-title a:hover        { border: none; }
 div#site-title                { margin: 100px 0 80px; }
 div#site-title h1 a           { display: block; height: 120px; max-width: 200px; text-indent: -6000px}
 div#site-title h1 a           { background: url("/stylesheets/themes/redsign/images/bg_logo.png") no-repeat; }
 
-div#menu                      { background-color: #7697BC !important; margin: auto; border: 2px solid #000; }
+div#menu                      { background-color: #ccddee !important; margin: auto; border: 2px solid #000; }
 div#menu                      { background: url("/stylesheets/themes/redsign/images/menu.png") repeat-x; height: 40px; width: 980px; }
 div#navigate ul               { font-weight: bold; position: absolute; margin: 1em 0 0 0; }
 div#navigate ul li            { display: inline; }
-div#navigate ul li a:hover    { background-color: #6683A2; }
+div#navigate ul li a:hover    { background-color: #b0c0d0; }
 div#navigate ul li a          { border: none; padding: 12px 15px 14px; color: #FFF; }
 
-div#logo                      { height: 200px; width: 230px; margin: 25px 0; position: absolute; float: left; background: url("/images/dark_transparency.png"); }
+div#tag-cloud                 { margin: 15px 25px 20px 780px; min-height: 100px; padding: 10px 20px; background-color: #DFEFFF; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
+div#tag-search-bar            { margin: 0 0 1em; font-size: 1.1em; }
+div#tag-search-bar div#tags   { margin: 10px 0 10px 10px; }
+div#tag-search-bar div#tags a { border: none; background: url("/stylesheets/themes/nemum/icons/tag_delete.png") no-repeat; padding: 0 5px 0 18px; }
+
+div#logo                      { height: 130px; width: 270px; margin: 38px 0; position: absolute; top: 20px; float: left; background-color: #FFF; border-top: 2px solid #000; border-right: 2px solid #000; border-bottom: 2px solid #000; -moz-border-radius: 0 15px 15px 0; -webkit-border-radius: 0 15px 15px 0; border-radius: 0 15px 15px 0; background-image: url("/stylesheets/themes/boxyframe/images/logo_nebaum.png"); background-repeat: no-repeat; background-position: 50% 50%; }
+div#logo #flash-content       { margin-top: 5px ;}
 div#panel                     { width: 980px; margin: auto; border-left: 2px solid #000; border-right: 2px solid #000; }
 
-div#content                   { margin: 0 220px 0 0; }
-div#content.single            { margin: 35px; }
+div#content.single            { float: left; width: 96%; margin: 20px 20px 30px 20px; }
+div#content.double            { float: left; width: 745px; margin: 20px 20px 30px 20px; }
 div#content p                 { margin: 0 0 1em; }
 div#content table             { margin: 0 0 1em; }
 div#sidebar                   { background: #E9E9FF; float: right; width: 190px; padding: 20px; margin: 20px; }
@@ -45,6 +59,7 @@ div#main p                    { margin: 0 0 1.2em; }
 div#main table                { border-collapse: collapse; width: 100%; } /* border-collapse ta a broquear padding */
 div#main td,
 div#main th                   { border-bottom: solid 1px #DDD; padding: 0.4em 0; margin: 0 10px; }
+div#main th                   { background-color: #ccddee; font-size: 14px; }
 
 div#main div#user-info        { margin: 15px 10px; }
 div#main div#user-invite      { margin: 15px 10px; }
@@ -62,7 +77,7 @@ div#flash div.message.warning { background: url("/stylesheets/themes/redsign/ima
 div#flash div.message.info,
 div#flash div.message.notice  { background: url("/stylesheets/themes/redsign/images/flash/notice.png") no-repeat 2% 50%; }
 
-div#archives                  { float: right; margin: 0 45px 20px 0; }
+div#archives                  { float: right; margin: 0 10px 0 0; }
 
 .pagination a:hover,
 .meta a:hover,
@@ -81,7 +96,7 @@ div#social-buttons a span     { border: 1px solid #5F78AB; border-bottom: 1px so
 div#announcements             { overflow: hidden; position: relative; width: 980px; }
 div#announcements a:hover     { border: none; }
 div.announcement-tail         { display: none; }
-div.announcements-bar         { padding: 0.8em; position: absolute; right: 0; }
+div.announcements-bar         { padding: 0.8em; position: absolute; right: 0; cursor: default; }
 div.announcements-bar         { background: url("/images/dark_transparency.png"); }
 div.announcement-block img    { height: 250px; width: 980px; }
 div.announcement-text         { bottom: 0; position: absolute; right: 0; }

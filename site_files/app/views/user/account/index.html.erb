@@ -1,34 +1,32 @@
 <div class="block">
-  <div class="content">   
-	<h2><%= @var %></h2>       
-    <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> Users</h2>
-    <div class="inner">
-      <table class="table">
-        <tr>             
-          <th class="first">ID</th>
-                    <th>
-            <%= t("activerecord.attributes.user.email", :default => t("activerecord.labels.email", :default => "Email")) %>
-          </th>
-                    <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
-          <th class="last">&nbsp;</th>
-        </tr>
-		<% unless @users.nil? %>
+  <h2><%= @var %></h2>       
+  <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> Users</h2>
+  <div class="inner">
+    <table class="table">
+      <tr>             
+        <th class="first">ID</th>
+        <th>
+          <%= t("activerecord.attributes.user.email", :default => t("activerecord.labels.email", :default => "Email")) %>
+        </th>
+        <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
+        <th class="last">&nbsp;</th>
+      </tr>
+      <% unless @users.nil? %>
         <% @users.each do |user| -%>
-        <tr class="<%= cycle("odd", "even") %>">
-          <td>
-            <%= user.id %>
-          </td>
-                    <td>
-            <%= link_to user.email, user_account_path(user) %>
-          </td>
-                    <td>
-            <%= user.created_at %>
-          </td>
-        </tr>
+          <tr class="<%= cycle("odd", "even") %>">
+            <td>
+              <%= user.id %>
+            </td>
+            <td>
+              <%= link_to user.email, user_account_path(user) %>
+            </td>
+            <td>
+              <%= user.created_at %>
+            </td>
+          </tr>
         <% end -%>
-		<% end %>
-      </table>
-    </div>
+      <% end %>
+    </table>
   </div>
 </div>
 

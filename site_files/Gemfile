@@ -4,12 +4,12 @@ source 'http://rubygems.org'
 gem 'rails'                      , '2.3.8'
 
 gem 'authlogic'                  , '2.1.6'
-gem 'authlogic-oid'              , '1.0.4'      , :require => 'authlogic_openid'
-gem 'ruby-openid'                ,                :require => 'openid'
+gem 'authlogic-oid'              , '1.0.4'  , :require => 'authlogic_openid'
+gem 'ruby-openid'                           , :require => 'openid'
 gem 'declarative_authorization'
 
 gem 'will_paginate'
-gem 'rmagick'                    , '2.13.1'     , :require => false
+gem 'rmagick'                    , '2.13.1' , :require => false
 gem 'paperclip'                  , '2.3.8'
 gem 'formtastic'                 , '0.9.10'  
 gem 'calendar_date_select'       , '1.16.1'  
@@ -23,6 +23,8 @@ gem 'chronic'                    , '0.3.0'
 gem 'tweet-button'
 gem 'clickatell'
 
+gem 'compass'                    , '0.10.6'
+
 
 group :development do
   gem 'sqlite3-ruby'
@@ -32,14 +34,16 @@ group :test do
   gem 'cucumber'                 , '0.8.5'
   gem 'cucumber-rails'           , '0.3.2'
   gem 'database_cleaner'         , '0.6.0'
-  gem 'rspec'                    , '1.3.0'     , :require => 'spec'
+  gem 'rspec'                    , '1.3.0'  , :require => 'spec'
   gem 'rspec-rails'              , '1.3.2'
   gem 'capybara'                 , '0.4.0'
   gem 'factory_girl'
-# gem 'email_spec'              , '0.6.5'
+#  gem 'email_spec'               , '0.6.5'
   gem 'shoulda'                  , '2.11.1'
-# gem 'autotest-rails'          , '4.1.0'
+#  gem 'autotest-rails'           , '4.1.0'
   gem 'rcov'
 
   gem 'tweet-button'
 end
+
+gem 'metric_fu'
