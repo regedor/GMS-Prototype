@@ -18,6 +18,11 @@ h3, h4 {
 }
 
 /* line 37, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+h5 {
+  margin: 0 0 10px;
+}
+
+/* line 41, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 hr {
   background-color: #dddddd;
   border: none;
@@ -26,13 +31,13 @@ hr {
   margin: 15px 0;
 }
 
-/* line 45, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 49, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div#container {
   margin: auto;
   width: 960px;
 }
 
-/* line 50, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 54, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div#header {
   float: left;
   position: relative;
@@ -40,12 +45,12 @@ div#header {
   z-index: 0;
 }
 
-/* line 57, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 61, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div#wrapper {
   margin: 0 0 0 200px;
 }
 
-/* line 61, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 65, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div#navigation {
   background-color: #555555;
   padding: 12px 13px 12px;
@@ -55,51 +60,51 @@ div#navigation {
   border-radius: 12px 0 0 12px;
   behavior: url("/stylesheets/pie.htc");
 }
-/* line 68, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 72, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div#navigation li {
   margin: 5px;
 }
-/* line 71, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 75, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div#navigation a:hover {
   border: none;
 }
 
-/* line 75, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 79, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div#navigation div#tag-cloud {
   background: url("/stylesheets/themes/nemum/images/line.png") no-repeat top right;
   margin: 10px 5px 5px 0;
 }
-/* line 79, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 83, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div#navigation div#tag-cloud h5 {
   margin: 0 0 5px;
   padding: 10px 0 0;
 }
 
-/* line 84, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 88, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div#tag-search-bar {
   margin: 0 0 10px;
 }
-/* line 87, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 91, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div#tag-search-bar div#tags {
   margin: 10px 10px 15px;
 }
-/* line 90, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 94, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div#tag-search-bar div#tags a {
   background: url("/stylesheets/themes/nemum/icons/tag_delete.png") no-repeat;
   border: none;
   padding: 0 5px 0 18px;
 }
 
-/* line 96, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 100, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div#site-title {
   margin: 100px 0 80px;
 }
-/* line 99, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 103, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div#site-title div#flash-content {
   min-height: 120px;
 }
 
-/* line 103, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 107, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div#account-info {
   background-color: white;
   padding: 5px 15px 8px;
@@ -113,16 +118,16 @@ div#account-info {
   box-shadow: 0 0 15px #333333;
   behavior: url("/stylesheets/pie.htc");
 }
-/* line 112, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 116, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div#account-info span.options {
   float: right;
 }
-/* line 115, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 119, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div#account-info span.options a:hover {
   border-bottom: 2px solid #f8da00;
 }
 
-/* line 119, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 123, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div#main {
   background-color: white;
   padding: 20px;
@@ -136,37 +141,37 @@ div#main {
   box-shadow: 0 0 15px #333333;
   behavior: url("/stylesheets/pie.htc");
 }
-/* line 128, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 132, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div#main p {
   margin: 0 0 15px;
 }
-/* line 131, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 135, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div#main table {
   border-collapse: collapse;
   margin: 0 0 10px;
   width: 100%;
 }
-/* line 136, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 140, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div#main td, div#main th {
   border-bottom: solid 1px #dddddd;
   padding: 5px 0;
   margin: 0 10px;
 }
-/* line 141, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 145, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div#main div#user-info, div#main div#user-invite {
   margin: 15px 10px;
 }
 
-/* line 145, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 149, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div#footer {
   margin: 25px;
 }
-/* line 148, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 152, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div#footer a:hover {
   border-bottom: 2px solid #f8da00;
 }
 
-/* line 152, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 156, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div#flash {
   background-image: url("/images/dark_transparency.png");
   border-top: 1px solid black;
@@ -176,7 +181,7 @@ div#flash {
   position: fixed;
   width: 100%;
 }
-/* line 161, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 165, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div#flash div.message {
   height: 64px;
   -moz-border-radius: 6px 6px 6px 6px;
@@ -184,50 +189,50 @@ div#flash div.message {
   border-radius: 6px 6px 6px 6px;
   behavior: url("/stylesheets/pie.htc");
 }
-/* line 166, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 170, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div#flash div.message p {
   margin: 0 100px;
   padding: 20px;
 }
-/* line 170, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 174, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div#flash div.message.error {
   background: url("/stylesheets/themes/nemum/images/flash/error.png") no-repeat 0 50%;
 }
-/* line 173, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 177, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div#flash div.message.warning {
   background: url("/stylesheets/themes/nemum/images/flash/warning.png") no-repeat 0 50%;
 }
-/* line 176, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 180, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div#flash div.message.info, div#flash div.message.notice {
   background: url("/stylesheets/themes/nemum/images/flash/notice.png") no-repeat 0 50%;
 }
 
-/* line 180, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 184, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div#archives {
   float: right;
   margin: 10px;
 }
-/* line 184, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 188, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div#archives a:hover {
   border-bottom: 3px solid #f8da00;
 }
 
-/* line 193, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 197, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div#social-buttons {
   margin: 0 10px 5px;
   clear: both;
 }
-/* line 197, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 201, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div#social-buttons iframe {
   vertical-align: bottom;
 }
-/* line 200, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 204, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div#social-buttons a span {
   border: 1px solid #5f78ab;
   border-bottom: 1px solid #29447e;
 }
 
-/* line 210, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 214, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div#announcements {
   border-left: 2px solid #444444;
   border-right: 2px solid #444444;
@@ -235,17 +240,17 @@ div#announcements {
   overflow: hidden;
   position: relative;
 }
-/* line 217, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 221, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div#announcements a:hover {
   border: none;
 }
 
-/* line 221, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 225, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div.announcement-tail {
   display: none;
 }
 
-/* line 225, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 229, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div.announcements-bar {
   background: url("/images/dark_transparency.png");
   cursor: default;
@@ -257,13 +262,13 @@ div.announcements-bar {
   behavior: url("/stylesheets/pie.htc");
 }
 
-/* line 234, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 238, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div.announcement-block img {
   height: 250px;
   width: 730px;
 }
 
-/* line 239, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 243, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div.announcement-text {
   background: url("/images/dark_transparency.png");
   bottom: 0;
@@ -276,79 +281,88 @@ div.announcement-text {
   border-radius: 12px 0 0 0;
   behavior: url("/stylesheets/pie.htc");
 }
-/* line 249, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 253, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div.announcement-text p.title {
   padding: 0 0 15px;
 }
 
-/* line 259, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 263, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 body#pages_show div#main ul li, body#pages_show div#main ol li {
   list-style-position: inside;
   margin: 15px 30px;
 }
-/* line 262, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 266, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 body#pages_show div#main ul li {
   list-style-type: disc;
 }
-/* line 264, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 268, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 body#pages_show div#main ol li {
   list-style-type: decimal;
 }
 
-/* line 273, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 277, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div.post {
   margin: 0 0 30px;
 }
 
-/* line 277, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 281, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div.entrybody {
   margin: 0 10px;
 }
-/* line 280, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 284, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div.entrybody ul {
   list-style: circle;
   padding-left: 5px;
 }
 
-/* line 285, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 289, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div.post-image {
   float: left;
   margin: 0 15px 5px 0;
 }
 
-/* line 290, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 294, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div.meta {
   background-color: #eeeeee;
   margin: 0 10px;
   padding: 10px;
 }
-/* line 295, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 299, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div.meta a:hover {
   border-bottom: 2px solid #f8da00;
 }
 
-/* line 304, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 308, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div.avatar {
   float: left;
   margin-right: 20px;
 }
-/* line 308, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 312, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 div.avatar img {
   border: 1px solid #999999;
 }
 
-/* line 312, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 316, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 span.comment-meta {
-  display: block;
   clear: both;
+  display: block;
 }
 
-/* line 317, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 321, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+div.new-comment {
+  padding: 0 15px;
+}
+
+/* line 325, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+ol.comment-list {
+  margin: 15px;
+}
+/* line 328, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 ol.comment-list p {
   padding: 15px 0 0;
 }
 
-/* line 326, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 337, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 button, a.button, input.button {
   background-color: #e9e9e9;
   border: 1px solid #aaaaaa;
@@ -364,7 +378,7 @@ button, a.button, input.button {
   behavior: url("/stylesheets/pie.htc");
 }
 
-/* line 336, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 347, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 button:active, a.button:active, input.button:active {
   background: -webkit-gradient(linear, left top, left bottom, from(#e9e9e9), to(#f9f9f9));
   background: -moz-linear-gradient(top, #e9e9e9, #f9f9f9);
@@ -373,38 +387,38 @@ button:active, a.button:active, input.button:active {
   behavior: url("/stylesheets/pie.htc");
 }
 
-/* line 341, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 352, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 a.button {
   padding: 6px 10px;
 }
 
-/* line 345, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 356, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 input.button {
   padding: 5px 10px !important;
 }
 
-/* line 349, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 360, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 button {
   padding: 5px 10px;
 }
 
-/* line 353, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 364, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 *:first-child + html input[type] {
   padding: 2px 10px 3px;
 }
 
-/* line 358, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 369, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 a.google_ico, a.yahoo_ico {
   margin: 0 0 15px 0;
   width: 90%;
 }
 
-/* line 365, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 376, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 .selfclear {
   display: inline-block;
   display: block;
 }
-/* line 366, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
+/* line 377, ../../../../app/themes/sass/themes/nemum/frontend-structure.sass */
 .selfclear:after {
   content: ".";
   display: block;

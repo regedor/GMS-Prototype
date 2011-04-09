@@ -34,6 +34,10 @@ h3, h4
   margin: 0 0 10px
 
 
+h5
+  margin: 0 0 10px
+
+
 hr
   background-color: #DDD
   border: none
@@ -258,7 +262,7 @@ div.announcement-text
 body#pages_show div#main
   ul li, ol li
     list-style-position: inside
-    margin: 15px 30px
+    margin: $content-margin 30px
   ul li
     list-style-type: disc
   ol li
@@ -310,12 +314,19 @@ div.avatar
 
 
 span.comment-meta
-  display: block
   clear: both
+  display: block
 
 
-ol.comment-list p
-  padding: 15px 0 0
+div.new-comment
+  padding: 0 $content-margin
+
+
+ol.comment-list
+  margin: $content-margin
+
+  p
+    padding: $content-margin 0 0
 
 
 // =======
