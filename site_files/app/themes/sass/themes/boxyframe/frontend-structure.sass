@@ -14,6 +14,11 @@ $button-gradient-start-color: #F9F9F9
 $button-gradient-end-color:   #E9E9E9
 
 
+// ============================================================================
+// = Imports
+// ===========================================================================
+
+
 @import "partials/mixins"
 @import "partials/textile"
 
@@ -107,9 +112,6 @@ div#tag-search-bar
   div#tags
     margin: 10px
 
-    a
-      border: none
-
 
 div#logo
   background-color: #FFF
@@ -184,14 +186,9 @@ div#flash
   position: fixed
   width: 100%
 
-  div.message
-    height: 64px
-    @include round-corners(6px, 6px, 6px, 6px)
-    @include enable-ie-css3
-
-    p
-      margin: 0 100px
-      padding: 20px
+  div.message p
+    margin: 0 100px
+    padding: 20px
 
   div.message.error
     background: url("/stylesheets/themes/nemum/images/flash/error.png") no-repeat 0 50%
@@ -269,18 +266,6 @@ div.announcement-text
 
   p.title
     padding: 0 0 15px
-
-
-// =====
-// Pages
-// =====
-
-
-body#pages_show div#main
-
-  ul li, ol li
-    list-style-position: inside
-    margin: $content-margin 30px
 
 
 // =====
