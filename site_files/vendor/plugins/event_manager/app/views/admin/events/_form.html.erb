@@ -16,7 +16,8 @@ jQuery(document).ready(function($){
   }
 
   $.datepicker.setDefaults( $.datepicker.regional[ '' ] );      
-  $( ".datepicker" ).datetimepicker($.datepicker.regional[locale]);
+  $( ".datetimepicker" ).datetimepicker($.datepicker.regional[locale]);
+  $( ".datepicker" ).datepicker($.datepicker.regional[locale]);
 
   $("#PostInputs").hide();
   $("#hidePost").hide();
@@ -38,13 +39,13 @@ jQuery(document).ready(function($){
 
   <% form.inputs do %>
     <%= form.input :name, :label => t('admin.events.view.title') %>
-    <%= form.input :description, :label => t('admin.events.view.description') %>
+    <%= form.input :description, :as => :text,  :label => t('admin.events.view.description') %>
     <%= form.input :starts_at,  :as => :string,
-                   :input_html => { :class => "datepicker", :value => @record.starts_at ? l(@record.starts_at, :format => "%d/%m/%Y %H:%M") : '' }, :label => t('admin.events.view.starts_at') %>
+                   :input_html => { :class => "datetimepicker", :value => @record.starts_at ? l(@record.starts_at, :format => "%d/%m/%Y %H:%M") : '' }, :label => t('admin.events.view.starts_at') %>
     <%= form.input :ends_at, :as => :string,
-                   :input_html => { :class => "datepicker", :value => @record.ends_at ? l(@record.ends_at, :format => "%d/%m/%Y %H:%M") : '' }, :label => t('admin.events.view.ends_at') %>
+                   :input_html => { :class => "datetimepicker", :value => @record.ends_at ? l(@record.ends_at, :format => "%d/%m/%Y %H:%M") : '' }, :label => t('admin.events.view.ends_at') %>
      <%= form.input :price, :as => :numeric, :label => t('admin.events.view.price') %>
-     <%= form.input :participation_message, :as => :text, :label => t('admin.events.view.participation_message') %>
+     <%= form.input :participation_message, :as => :text, :label => t('admin.events.view.participation_message'), :required => false %>
   <% end %>
   
   <div id="addPost" class="addPost"><%= link_to t('admin.events.view.addPost'), "#addPost" %></div>
@@ -78,7 +79,7 @@ jQuery(document).ready(function($){
 	               :hint     => I18n::t('admin.posts.form.hints.generic_file'),
 	               :label    => I18n::t('admin.posts.columns.generic_file') %>
 	<%= form.input :published_at,
-	               :as       => 'string',
+	               :as       => :string,
 	               :input_html => {:class => "datepicker", :value => l(@record.published_at || Time.now, :format => "%d/%m/%Y")},
 	               :label    => I18n::t('admin.posts.columns.published_at'),
 	               :hint     => I18n::t('admin.posts.form.hints.published_at').html_safe %>  

@@ -15,10 +15,10 @@ class Admin::EventsController < Admin::BaseController
   end
 
   def create
-    e = Event.new params[:record]
-    e.save
+    @record = Event.new params[:record]
     
-    redirect_to admin_events_path
+    redirect_to admin_events_path if @record.save
+    
   end  
 
   def list_activities

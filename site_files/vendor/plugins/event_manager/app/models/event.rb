@@ -20,6 +20,7 @@ class Event < ActiveRecord::Base
 
   before_save :format_description
   before_save :save_virtual_data
+  after_save  :link_to_post
 
   attr_accessor :starts_at_natural
   attr_accessor :ends_at_natural
@@ -33,8 +34,8 @@ class Event < ActiveRecord::Base
     end  
   end  
   attr_accessor :tag_list
-  has_attached_file :image, :styles => { :image => "250x250" }
-  has_attached_file :generic
+  #has_attached_file :image, :styles => { :image => "250x250" }
+  #has_attached_file :generic
   
   def image_authorized?;    return false; end 
   def tag_list_authorized?; return false; end 
@@ -46,7 +47,7 @@ class Event < ActiveRecord::Base
       p.title = self.title
       p.body = self.body
       p.tag_list = self.tag_list
-      p.published_at = self.published_at
+      p.published_at = Date.strptime self.published_at, "%d/%m/%Y"
       p.slug = self.slug
    
       if p.valid?
@@ -56,7 +57,22 @@ class Event < ActiveRecord::Base
         self.errors[:errors] << p.errors[:errors] if p.errors[:errors]
         return false 
       end   
+    end
+  end  
+  
+  def link_to_post
+    if self.post
+      new_post = self.post
+      new_post.event = self
+      new_post.save
     end  
+  end  
+
+  def initialize(*args)
+    super(*args)
+    if self.title.blank?
+      self.published_at = nil
+    end    
   end  
 
   def format_description
