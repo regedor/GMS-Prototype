@@ -33,7 +33,7 @@ module UrlHelper
   def post_path(post, options = {})
     suffix = options[:anchor] ? "##{options[:anchor]}" : ""
     path = post.published_at.strftime("/%Y/%m/%d/") + post.slug + suffix
-    path = URI.join(configatron.site_url, path) if options[:only_path] == false
+    path = URI.join(configatron.site_url, path) if options[:only_path] && options[:only_path] == false
     path.untaint
   end
 
