@@ -1,17 +1,21 @@
-@import "partials/mixins"
-
-
 // ============================================================================
 // Variables
 // ============================================================================
 
 
-$background-color: #404040
-$content-margin:   15px
-$default-color:    #6683A2
+$content-margin:     15px
+$background-color:   #404040
+$default-color:      #6683A2
+$menu-default-color: #7499BF
+$menu-hover-color:   #6683A2
+$tag-cloud-color:    #E0E9F2
 
 $button-gradient-start-color: #F9F9F9
 $button-gradient-end-color:   #E9E9E9
+
+
+@import "partials/mixins"
+@import "partials/textile"
 
 
 // ============================================================================
@@ -62,7 +66,7 @@ div#account-info
 
 
 div#menu
-  background-color: #CCDDEE
+  background-color: $menu-default-color
   background-image: url("/stylesheets/themes/boxyframe/images/menu.png")
   background-repeat: repeat-x
   border: 2px solid #000
@@ -83,11 +87,11 @@ div#navigation-nojs ul
       padding: 12px 20px 14px
 
     a:hover
-      background-color: #B0C0D0
+      background-color: $menu-hover-color
 
 
 div#tag-cloud
-  background-color: #DFEFFF
+  background-color: $tag-cloud-color
   margin: 0 25px 20px 780px
   min-height: 100px
   padding: 10px 20px
@@ -98,15 +102,13 @@ div#tag-cloud
 
 
 div#tag-search-bar
-  margin: 0 0 15px
+  margin: 0 0 $content-margin
 
   div#tags
     margin: 10px
 
     a
-      background: url("/images/icons/tag_delete.png") no-repeat
       border: none
-      padding: 0 10px 0 20px
 
 
 div#logo
@@ -137,6 +139,10 @@ div#panel
   width: 980px
 
 
+div.entrybody
+  margin: 0 10px
+
+
 div#content.single
   float: left
   width: 96% // OH SHIT!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -149,16 +155,6 @@ div#content.double
   margin: 20px 20px 30px
 
 
-div#sidebar
-  background: #E9E9FF
-  float: right
-  padding: 20px
-  margin: 20px
-  width: 190px
-  @include round-corners(5px, 5px, 5px, 5px)
-  @include enable-ie-css3
-
-
 div#main
   background-color: #FFF
   border-left: 2px solid #111
@@ -166,24 +162,6 @@ div#main
   border-bottom: 2px solid #111
   margin: auto
   width: 980px
-
-  p
-    margin: 0 0 1.2em
-
-  table
-    border-collapse: collapse
-    width: 100%
-
-  td
-    border-bottom: solid 1px #DDD
-    padding: 0.4em 0
-    margin: 0 10px
-
-  th
-    border-bottom: solid 1px #DDD
-    padding: 0.4em 0
-    margin: 0 10px
-    background-color: #ccddee
 
 
 div#user-info, div#user-invite
@@ -304,12 +282,6 @@ body#pages_show div#main
     list-style-position: inside
     margin: $content-margin 30px
 
-  ul li
-    list-style-type: disc
-
-  ol li
-    list-style-type: decimal
-
 
 // =====
 // Posts
@@ -320,17 +292,9 @@ div.post
   margin: 0 0 30px
 
 
-div.entrybody
-  margin: 0 10px
-
-  ul
-    list-style: circle
-    padding-left: 5px
-
-
 div.post-image
   float: left
-  margin: 0 15px 5px 0
+  margin: 0 $content-margin 5px 0
 
 
 div.meta
@@ -411,7 +375,7 @@ button
 
 
 a.google_ico, a.yahoo_ico
-  margin: 0 0 15px 0
+  margin: 0 0 $content-margin 0
   width: 90%
 
 
