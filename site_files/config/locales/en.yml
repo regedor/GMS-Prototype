@@ -1052,7 +1052,7 @@ en:
 
   footer:
     last_session_paragraph: "Your last login was %{time_ago} ago, your IP was %{ip}."
-    browser_warning: "The web site is not rendering correctly because you are using an old version of <span style='color:red;'>Microsoft Internet Explorer</span>.<br /> Upgrade your browser or download <a href='http://www.mozilla.com/firefox/'>Mozilla Firefox</a>."
+    browser_warning: "This website is not rendering correctly because you are using an outdated version of <span style='color:red;'>Microsoft Internet Explorer</span>.<br />For a safer and faster browsing experience, upgrade your browser or download <a href='http://www.mozilla.com/firefox/'>Mozilla Firefox</a>."
 
   generic_sentence:
     required_field: "<abbr>*</abbr> Required field."
