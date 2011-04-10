@@ -6,9 +6,9 @@
 // ============================================================================
 
 
-$background-color: #2E2A2B
+$background-color: #404040
 $content-margin:   15px
-$default-color:    #F8DA00
+$default-color:    #6683A2
 
 $button-gradient-start-color: #F9F9F9
 $button-gradient-end-color:   #E9E9E9
@@ -46,72 +46,13 @@ hr
   margin: $content-margin 0
 
 
-div#container
-  margin: auto
-  width: 960px
-
-
-div#header
-  float: left
-  position: relative
-  width: 200px
-  z-index: 0
-
-
-div#wrapper
-  margin: 0 0 0 200px
-
-
-div#navigation
-  background-color: #555
-  padding: 12px 13px 12px
-  width: 175px
-  @include round-corners(12px, 0, 0, 12px)
-  @include enable-ie-css3
-
-  li
-    margin: 5px
-
-  a:hover
-    border: none
-
-
-div#navigation div#tag-cloud
-  background: url("/stylesheets/themes/nemum/images/line.png") no-repeat top right
-  margin: 10px 5px 5px 0
-
-  h5
-    margin: 0 0 5px
-    padding: 10px 0 0
-
-
-div#tag-search-bar
-  margin: 0 0 10px
-
-  div#tags
-    margin: 10px 10px 15px
-
-    a
-      background: url("/stylesheets/themes/nemum/icons/tag_delete.png") no-repeat
-      border: none
-      padding: 0 5px 0 18px
-
-
-div#site-title
-  margin: 100px 0 80px
-
-  div#flash-content
-    min-height: 120px
-
-
 div#account-info
   background-color: #FFF
-  padding: 5px $content-margin 8px
-  position: relative
-  z-index: 1
-  @include round-corners(0, 0, 12px, 12px)
-  @include box-shadow(0, 0, 15px, #333)
-  @include enable-ie-css3
+  border: 2px solid #111
+  margin: 50px auto 0
+  height: 20px
+  padding: 5px $content-margin 2px
+  width: 950px
 
   span.options
     float: right
@@ -120,30 +61,133 @@ div#account-info
       border-bottom: 2px solid $default-color
 
 
-div#main
-  background-color: #FFF
-  padding: 20px
+div#menu
+  background-color: #CCDDEE
+  background-image: url("/stylesheets/themes/boxyframe/images/menu.png")
+  background-repeat: repeat-x
+  border: 2px solid #000
+  margin: auto
+  height: 40px
+  width: 980px
+
+
+div#navigation-nojs ul
+  margin: 12px 0 0
+
+  li
+    display: inline
+
+    a
+      border: none
+      color: #FFF
+      padding: 12px 20px 14px
+
+    a:hover
+      background-color: #B0C0D0
+
+
+div#tag-cloud
+  background-color: #DFEFFF
+  margin: 0 25px 20px 780px
+  min-height: 100px
+  padding: 10px 20px
   position: relative
-  z-index: 1
-  @include round-corners(12px, 12px, 12px, 12px)
-  @include box-shadow(0, 0, 15px, #333)
+  top: $content-margin
+  @include round-corners(5px, 5px, 5px, 5px)
   @include enable-ie-css3
 
+
+div#tag-search-bar
+  margin: 0 0 15px
+
+  div#tags
+    margin: 10px
+
+    a
+      background: url("/images/icons/tag_delete.png") no-repeat
+      border: none
+      padding: 0 10px 0 20px
+
+
+div#logo
+  background-color: #FFF
+  background-image: url("/stylesheets/themes/boxyframe/images/logo_nebaum.png")
+  background-position: 50% 50%
+  background-repeat: no-repeat
+  border-top: 2px solid #111
+  border-right: 2px solid #111
+  border-bottom: 2px solid #111
+  height: 130px
+  margin: 38px 0
+  position: absolute
+  top: 20px
+  width: 270px
+  @include round-corners(0, 15px, 15px, 0)
+  @include enable-ie-css3
+
+
+div#flash-content
+  margin: 5px 0
+
+
+div#panel
+  border-left: 2px solid #111
+  border-right: 2px solid #111
+  margin: auto
+  width: 980px
+
+
+div#content.single
+  float: left
+  width: 96% // OH SHIT!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  margin: 20px 20px 30px
+
+
+div#content.double
+  float: left
+  width: 745px
+  margin: 20px 20px 30px
+
+
+div#sidebar
+  background: #E9E9FF
+  float: right
+  padding: 20px
+  margin: 20px
+  width: 190px
+  @include round-corners(5px, 5px, 5px, 5px)
+  @include enable-ie-css3
+
+
+div#main
+  background-color: #FFF
+  border-left: 2px solid #111
+  border-right: 2px solid #111
+  border-bottom: 2px solid #111
+  margin: auto
+  width: 980px
+
   p
-    margin: 0 0 15px
+    margin: 0 0 1.2em
 
   table
     border-collapse: collapse
-    margin: 0 0 10px
     width: 100%
 
-  td, th
+  td
     border-bottom: solid 1px #DDD
-    padding: 5px 0
+    padding: 0.4em 0
     margin: 0 10px
 
-  div#user-info, div#user-invite
-    margin: 15px 10px
+  th
+    border-bottom: solid 1px #DDD
+    padding: 0.4em 0
+    margin: 0 10px
+    background-color: #ccddee
+
+
+div#user-info, div#user-invite
+  margin: $content-margin 10px
 
 
 div#footer
@@ -212,11 +256,9 @@ div#social-buttons
 
 
 div#announcements
-  border-left: 2px solid #444
-  border-right: 2px solid #444
-  margin: 0 $content-margin
   overflow: hidden
   position: relative
+  width: 980px
 
   a:hover
     border: none
@@ -231,13 +273,12 @@ div.announcements-bar
   cursor: default
   padding: 12px
   position: absolute
-  @include round-corners(0, 0, 12px, 0)
-  @include enable-ie-css3
+  right: 0
 
 
 div.announcement-block img
   height: 250px
-  width: 730px
+  width: 980px
 
 
 div.announcement-text
@@ -247,8 +288,6 @@ div.announcement-text
   position: absolute
   right: 0
   width: 300px
-  @include round-corners(12px, 0, 0, 0)
-  @include enable-ie-css3
 
   p.title
     padding: 0 0 15px
@@ -260,11 +299,14 @@ div.announcement-text
 
 
 body#pages_show div#main
+
   ul li, ol li
     list-style-position: inside
     margin: $content-margin 30px
+
   ul li
     list-style-type: disc
+
   ol li
     list-style-type: decimal
 
@@ -295,6 +337,8 @@ div.meta
   background-color: #EEE
   margin: 0 10px
   padding: 10px
+  @include round-corners(5px, 5px, 5px, 5px)
+  @include enable-ie-css3
 
   a:hover
     border-bottom: 2px solid $default-color

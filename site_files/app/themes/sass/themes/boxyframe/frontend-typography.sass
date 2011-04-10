@@ -1,9 +1,12 @@
+@import "partials/mixins"
+
+
 // ============================================================================
 // Variables
 // ============================================================================
 
 
-$default-color:       #F8DA00
+$default-color:       #6683A2
 $text-color:          #2E2E2E
 $text-color-positive: #591
 $text-color-negative: #D32
@@ -86,46 +89,44 @@ div#main
     font-size: 13px
     line-height: 25px
 
+  th
+    font-size: 14px
 
-div#navigation
-  color: #FFF
-  font-size: 13px
-  text-align: right
 
-  a, a:active, a:link, a:visited
-    color: #FFF
+div#menu
+  @include text-shadow(0, 1px, 0, #000)
+  @include enable-ie-css3
 
-  a:hover, a.active
-    color: $default-color
 
-  div#tag-cloud
+div#navigation-nojs ul
+  font-weight: bold
 
-    a
-      color: #CCC
 
-    a:hover
-      color: $default-color
+div#tag-cloud
 
-    a.nube1
-      font-size: 10px 
+  a:hover
+    border-bottom: 2px solid $default-color
 
-    a.nube2
-      font-size: 12px
+  a.nube1
+    font-size: 10px
 
-    a.nube3
-      font-size: 14px
+  a.nube2
+    font-size: 12px
 
-    a.nube4
-      font-size: 16px
+  a.nube3
+    font-size: 14px
 
-    a.nube5
-      font-size: 18px
+  a.nube4
+    font-size: 16px
 
-    a.nube6
-      font-size: 20px
+  a.nube5
+    font-size: 18px
 
-    a.selected
-      font-weight: bold
+  a.nube6
+    font-size: 20px
+
+  a.selected
+    font-weight: bold
 
 
 div#tag-search-bar
