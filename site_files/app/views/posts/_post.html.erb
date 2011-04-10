@@ -8,6 +8,11 @@
     <% else -%>
       <%= raw post.body_html %>
     <% end -%>
+ 
+	<% if post.event  %>
+	  <h2>There is an event</h2>
+	  <%= content_tag :div, post.event.name %>
+	<% end %>
   </div>
   <div id="social-buttons">
     <%= tweet_button(:via => configatron.site_name, :text => post.title, :count => "none", :url => (configatron.site_url+post_path(post))) %>

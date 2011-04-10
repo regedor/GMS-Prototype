@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
           @page = Page.find_by_slug(params[:slug])
           @comment.commentable = @page
       end
-      begin; @comment.user_id = current_user.id; rescue; end;
+      begin; @comment.user = current_user; rescue; end;
     end
 
     def success

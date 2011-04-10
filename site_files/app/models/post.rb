@@ -130,6 +130,18 @@ class Post < ActiveRecord::Base
       posts.group_by(&:month).inject([]) {|a, v| a << month.new(v[0], v[1])}
     end
 
+    def all(*params)
+      if params && params[0] && (params[0].member? :conditions) && params[0][:conditions][0]
+        params[0][:conditions][0] =  params[0][:conditions][0] + " AND event_id is NULL"
+      else
+        params[0].merge!({:conditions => ['event_id is ?',nil]})
+      end 
+      
+      params[0].merge!({:order => 'posts.published_at DESC'}) if params && params[0] && (params[0].member? :order)       
+      
+      self.find :all, *params     
+    end
+
     # Paginate by publication date
     def paginate_by_published_date(page)
       paginate :per_page => 5, :page => page,

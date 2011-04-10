@@ -1,5 +1,5 @@
 <% content_for(:page_title) do -%>
   <%= post_title(@post) -%>
 <% end -%>
-<%= render :partial => 'posts/post',        :locals => {:post => @post} %>
+<%= render :partial => 'posts/post',        :locals => {:post => @post, :event => @event} %>
 <%= render :partial => 'comments/comments', :locals => {:commentable => @post, :comment => @comment} %>

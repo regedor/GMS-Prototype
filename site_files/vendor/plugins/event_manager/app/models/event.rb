@@ -34,8 +34,8 @@ class Event < ActiveRecord::Base
     end  
   end  
   attr_accessor :tag_list
-  #has_attached_file :image, :styles => { :image => "250x250" }
-  #has_attached_file :generic
+  has_attached_file :image, :styles => { :image => "250x250" }
+  has_attached_file :generic
   
   def image_authorized?;    return false; end 
   def tag_list_authorized?; return false; end 
