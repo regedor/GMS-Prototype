@@ -1,5 +1,31 @@
 div.textile-body
 
+  p
+    font-size: 13px
+    margin: 0 0 15px
+    text-align: justify
+
+  p.inline-errors
+    font-size: 10px
+
+  table
+    font-size: 13px
+    line-height: 25px
+    border-collapse: collapse
+    width: 100%
+
+    td
+      border-bottom: solid 1px #DDD
+      padding: 5px 0
+      margin: 0 10px
+
+    th
+      background-color: $default-color
+      border-bottom: solid 1px #DDD
+      font-size: 15px
+      padding: 5px 0
+      margin: 0 10px
+
   strong
     font-weight: bold
 
@@ -8,11 +34,13 @@ div.textile-body
 
   ul
     list-style-type: disc
-    margin: 0 0 0 20px
+    padding: 0 5px 0
+
+  li
+    margin: $content-margin 30px
 
   ol
     list-style-type: decimal
-    margin: 0 0 0 20px
 
   pre, code, tt
     font-family: 'lucida console', Monospace
