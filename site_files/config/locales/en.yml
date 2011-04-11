@@ -204,9 +204,9 @@ en:
         create_button: "Create"  
         cancel_button: "Cancel"
       delete:
-        link: "<img src='/stylesheets/themes/nemum/icons/bin_closed.png' alt='Remove' />"
+        link: "<img src='/images/icons/bin_closed.png' alt='Remove' />"
       edit:
-        link: "<img src='/stylesheets/themes/nemum/icons/pencil.png' alt='Edit' />"
+        link: "<img src='/images/icons/pencil.png' alt='Edit' />"
       empty: "There are no To-Do lists"    
     
     to_do:
@@ -227,7 +227,7 @@ en:
       delete:
         link: "Remove"  
       comment:
-        link: "<img src='/stylesheets/themes/nemum/icons/comment.png' alt='Comments' />"
+        link: "<img src='/images/icons/comment.png' alt='Comments' />"
         title: "Comment to-do from %{list}"     
         hint: "Leave a comment..."     
       done:
