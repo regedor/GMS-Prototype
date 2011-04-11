@@ -701,29 +701,33 @@ div.active-scaffold th.asc a:hover {
 }
 
 /* line 3, ../../../../app/themes/sass/partials/_textile.sass */
+div.textile-body a {
+  border-bottom: 2px solid #f8da00;
+}
+/* line 6, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body p {
   font-size: 13px;
   margin: 0 0 15px;
   text-align: justify;
 }
-/* line 8, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 11, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body p.inline-errors {
   font-size: 10px;
 }
-/* line 11, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 14, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body table {
   font-size: 13px;
   line-height: 25px;
   border-collapse: collapse;
   width: 100%;
 }
-/* line 17, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 20, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body table td {
   border-bottom: solid 1px #dddddd;
   padding: 5px 0;
   margin: 0 10px;
 }
-/* line 22, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 25, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body table th {
   background-color: #f8da00;
   border-bottom: solid 1px #dddddd;
@@ -731,28 +735,28 @@ div.textile-body table th {
   padding: 5px 0;
   margin: 0 10px;
 }
-/* line 29, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 32, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body strong {
   font-weight: bold;
 }
-/* line 32, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 35, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body cite, div.textile-body em {
   font-style: italic;
 }
-/* line 35, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 38, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body ul {
   list-style-type: disc;
   padding: 0 5px 0;
 }
-/* line 39, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 42, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body li {
   margin: 15px 30px;
 }
-/* line 42, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 45, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body ol {
   list-style-type: decimal;
 }
-/* line 45, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 48, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body pre, div.textile-body code, div.textile-body tt {
   font-family: "lucida console", Monospace;
 }
