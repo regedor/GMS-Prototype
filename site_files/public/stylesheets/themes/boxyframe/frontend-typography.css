@@ -81,7 +81,7 @@ div#menu {
 }
 
 /* line 90, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
-div#navigation-nojs ul {
+div#navigation-nojs ul li a {
   font-weight: bold;
 }
 

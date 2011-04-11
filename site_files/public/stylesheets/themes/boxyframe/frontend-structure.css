@@ -21,7 +21,7 @@ div.textile-body table {
 }
 /* line 20, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body table td {
-  border-bottom: solid 1px #dddddd;
+  border-bottom: 1px solid #dddddd;
   padding: 5px 0;
   margin: 0 10px;
 }
@@ -29,61 +29,68 @@ div.textile-body table td {
 div.textile-body table th {
   background-color: #6683a2;
   border-bottom: solid 1px #dddddd;
-  font-size: 15px;
+  font-weight: bold;
   padding: 5px 0;
   margin: 0 10px;
+  color: white;
+  text-shadow: 0 1px 0 black;
 }
-/* line 32, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 34, ../../../../app/themes/sass/partials/_textile.sass */
+div.textile-body table tr:first-child {
+  border-top: 1px solid #dddddd;
+}
+/* line 37, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body strong {
   font-weight: bold;
 }
-/* line 35, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 40, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body cite, div.textile-body em {
   font-style: italic;
 }
-/* line 38, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 43, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body ul {
   list-style-type: disc;
-  padding: 0 5px 0;
+  list-style-position: inside;
 }
-/* line 42, ../../../../app/themes/sass/partials/_textile.sass */
-div.textile-body li {
-  margin: 15px 30px;
-}
-/* line 45, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 47, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body ol {
   list-style-type: decimal;
+  list-style-position: inside;
 }
-/* line 48, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 51, ../../../../app/themes/sass/partials/_textile.sass */
+div.textile-body li {
+  margin: 10px 30px;
+}
+/* line 54, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body pre, div.textile-body code, div.textile-body tt {
   font-family: "lucida console", Monospace;
 }
 
-/* line 31, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 34, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 body {
   background-color: #404040;
 }
 
-/* line 35, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 38, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 h2 {
   margin: 0 0 15px;
 }
-/* line 38, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 41, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 h2 a:hover {
   border-bottom: 3px solid #6683a2;
 }
 
-/* line 42, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 45, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 h3, h4 {
   margin: 0 0 10px;
 }
 
-/* line 46, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 49, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 h5 {
   margin: 0 0 10px;
 }
 
-/* line 50, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 53, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 hr {
   background-color: #dddddd;
   border: none;
@@ -92,7 +99,7 @@ hr {
   margin: 15px 0;
 }
 
-/* line 58, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 61, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div#account-info {
   background-color: white;
   border: 2px solid #111111;
@@ -101,16 +108,16 @@ div#account-info {
   padding: 5px 15px 2px;
   width: 950px;
 }
-/* line 66, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 69, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div#account-info span.options {
   float: right;
 }
-/* line 69, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 72, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div#account-info span.options a:hover {
   border-bottom: 2px solid #6683a2;
 }
 
-/* line 73, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 76, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div#menu {
   background-color: #7499bf;
   background-image: url("/stylesheets/themes/boxyframe/images/menu.png");
@@ -121,26 +128,26 @@ div#menu {
   width: 980px;
 }
 
-/* line 83, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 86, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div#navigation-nojs ul {
   margin: 12px 0 0;
 }
-/* line 86, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 89, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div#navigation-nojs ul li {
   display: inline;
 }
-/* line 89, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 92, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div#navigation-nojs ul li a {
   border: none;
   color: white;
   padding: 12px 20px 14px;
 }
-/* line 94, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 97, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div#navigation-nojs ul li a:hover {
   background-color: #6683a2;
 }
 
-/* line 98, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 101, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div#tag-cloud {
   background-color: #e0e9f2;
   margin: 0 25px 20px 780px;
@@ -154,16 +161,16 @@ div#tag-cloud {
   behavior: url("/stylesheets/pie.htc");
 }
 
-/* line 109, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 112, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div#tag-search-bar {
   margin: 0 0 15px;
 }
-/* line 112, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 115, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div#tag-search-bar div#tags {
   margin: 10px;
 }
 
-/* line 116, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 119, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div#logo {
   background-color: white;
   background-image: url("/stylesheets/themes/boxyframe/images/logo_nebaum.png");
@@ -183,12 +190,12 @@ div#logo {
   behavior: url("/stylesheets/pie.htc");
 }
 
-/* line 133, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 136, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div#flash-content {
   margin: 5px 0;
 }
 
-/* line 137, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 140, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div#panel {
   border-left: 2px solid #111111;
   border-right: 2px solid #111111;
@@ -196,26 +203,26 @@ div#panel {
   width: 980px;
 }
 
-/* line 144, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 147, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div.entrybody {
   margin: 0 10px;
 }
 
-/* line 148, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 151, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div#content.single {
   float: left;
   width: 96%;
   margin: 20px 20px 30px;
 }
 
-/* line 154, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 157, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div#content.double {
   float: left;
   width: 745px;
   margin: 20px 20px 30px;
 }
 
-/* line 160, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 163, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div#main {
   background-color: white;
   border-left: 2px solid #111111;
@@ -225,21 +232,21 @@ div#main {
   width: 980px;
 }
 
-/* line 169, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 172, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div#user-info, div#user-invite {
   margin: 15px 10px;
 }
 
-/* line 173, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 176, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div#footer {
   margin: 25px;
 }
-/* line 176, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 179, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div#footer a:hover {
   border-bottom: 2px solid #6683a2;
 }
 
-/* line 180, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 183, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div#flash {
   background-image: url("/images/dark_transparency.png");
   border-top: 1px solid black;
@@ -249,66 +256,66 @@ div#flash {
   position: fixed;
   width: 100%;
 }
-/* line 189, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 192, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div#flash div.message p {
   margin: 0 100px;
   padding: 20px;
 }
-/* line 193, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 196, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div#flash div.message.error {
   background: url("/stylesheets/themes/nemum/images/flash/error.png") no-repeat 0 50%;
 }
-/* line 196, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 199, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div#flash div.message.warning {
   background: url("/stylesheets/themes/nemum/images/flash/warning.png") no-repeat 0 50%;
 }
-/* line 199, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 202, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div#flash div.message.info, div#flash div.message.notice {
   background: url("/stylesheets/themes/nemum/images/flash/notice.png") no-repeat 0 50%;
 }
 
-/* line 203, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 206, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div#archives {
   float: right;
   margin: 10px;
 }
-/* line 207, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 210, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div#archives a:hover {
   border-bottom: 3px solid #6683a2;
 }
 
-/* line 216, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 219, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div#social-buttons {
   margin: 0 10px 5px;
   clear: both;
 }
-/* line 220, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 223, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div#social-buttons iframe {
   vertical-align: bottom;
 }
-/* line 223, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 226, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div#social-buttons a span {
   border: 1px solid #5f78ab;
   border-bottom: 1px solid #29447e;
 }
 
-/* line 233, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 236, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div#announcements {
   overflow: hidden;
   position: relative;
   width: 980px;
 }
-/* line 238, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 241, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div#announcements a:hover {
   border: none;
 }
 
-/* line 242, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 245, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div.announcement-tail {
   display: none;
 }
 
-/* line 246, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 249, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div.announcements-bar {
   background: url("/images/dark_transparency.png");
   cursor: default;
@@ -317,13 +324,13 @@ div.announcements-bar {
   right: 0;
 }
 
-/* line 254, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 257, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div.announcement-block img {
   height: 250px;
   width: 980px;
 }
 
-/* line 259, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 262, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div.announcement-text {
   background: url("/images/dark_transparency.png");
   bottom: 0;
@@ -332,23 +339,23 @@ div.announcement-text {
   right: 0;
   width: 300px;
 }
-/* line 267, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 270, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div.announcement-text p.title {
   padding: 0 0 15px;
 }
 
-/* line 276, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 279, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div.post {
   margin: 0 0 30px;
 }
 
-/* line 280, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 283, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div.post-image {
   float: left;
   margin: 0 15px 5px 0;
 }
 
-/* line 285, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 288, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div.meta {
   background-color: #eeeeee;
   margin: 0 10px;
@@ -358,42 +365,42 @@ div.meta {
   border-radius: 5px 5px 5px 5px;
   behavior: url("/stylesheets/pie.htc");
 }
-/* line 292, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 295, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div.meta a:hover {
   border-bottom: 2px solid #6683a2;
 }
 
-/* line 301, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 304, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div.avatar {
   float: left;
   margin-right: 20px;
 }
-/* line 305, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 308, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div.avatar img {
   border: 1px solid #999999;
 }
 
-/* line 309, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 312, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 span.comment-meta {
   clear: both;
   display: block;
 }
 
-/* line 314, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 317, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 div.new-comment {
   padding: 0 15px;
 }
 
-/* line 318, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 321, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 ol.comment-list {
   margin: 15px;
 }
-/* line 321, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 324, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 ol.comment-list p {
   padding: 15px 0 0;
 }
 
-/* line 330, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 333, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 button, a.button, input.button {
   background-color: #e9e9e9;
   border: 1px solid #aaaaaa;
@@ -409,7 +416,7 @@ button, a.button, input.button {
   behavior: url("/stylesheets/pie.htc");
 }
 
-/* line 340, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 343, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 button:active, a.button:active, input.button:active {
   background: -webkit-gradient(linear, left top, left bottom, from(#e9e9e9), to(#f9f9f9));
   background: -moz-linear-gradient(top, #e9e9e9, #f9f9f9);
@@ -418,38 +425,38 @@ button:active, a.button:active, input.button:active {
   behavior: url("/stylesheets/pie.htc");
 }
 
-/* line 345, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 348, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 a.button {
   padding: 6px 10px;
 }
 
-/* line 349, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 352, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 input.button {
   padding: 5px 10px !important;
 }
 
-/* line 353, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 356, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 button {
   padding: 5px 10px;
 }
 
-/* line 357, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 360, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 *:first-child + html input[type] {
   padding: 2px 10px 3px;
 }
 
-/* line 362, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 365, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 a.google_ico, a.yahoo_ico {
   margin: 0 0 15px 0;
   width: 90%;
 }
 
-/* line 369, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 372, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 .selfclear {
   display: inline-block;
   display: block;
 }
-/* line 370, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
+/* line 373, ../../../../app/themes/sass/themes/boxyframe/frontend-structure.sass */
 .selfclear:after {
   content: ".";
   display: block;
