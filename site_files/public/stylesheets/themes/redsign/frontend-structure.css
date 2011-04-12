@@ -1,6 +1,6 @@
 /* line 3, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body a {
-  border-bottom: 2px solid #e11111;
+  border-bottom: 2px solid #cc0000;
 }
 /* line 6, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body p {
@@ -22,15 +22,15 @@ div.textile-body table {
 /* line 20, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body table td {
   border-bottom: 1px solid #dddddd;
-  padding: 5px 0;
+  padding: 5px 10px;
   margin: 0 10px;
 }
 /* line 25, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body table th {
-  background-color: #e11111;
+  background-color: #cc0000;
   border-bottom: solid 1px #dddddd;
   font-weight: bold;
-  padding: 5px 0;
+  padding: 5px 10px;
   margin: 0 10px;
   color: white;
   text-shadow: 0 1px 0 black;
@@ -78,7 +78,7 @@ h2 {
 }
 /* line 42, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
 h2 a:hover {
-  border-bottom: 3px solid #e11111;
+  border-bottom: 3px solid #cc0000;
 }
 
 /* line 46, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
@@ -128,7 +128,7 @@ div#account-info span.options {
 }
 /* line 83, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
 div#account-info span.options a:hover {
-  border-bottom: 2px solid #e11111;
+  border-bottom: 2px solid #cc0000;
 }
 
 /* line 87, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
@@ -238,7 +238,7 @@ div#footer {
 }
 /* line 173, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
 div#footer a:hover {
-  border-bottom: 2px solid #e11111;
+  border-bottom: 2px solid #cc0000;
 }
 
 /* line 177, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
@@ -276,7 +276,7 @@ div#archives {
 }
 /* line 204, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
 div#archives a:hover {
-  border-bottom: 3px solid #e11111;
+  border-bottom: 3px solid #cc0000;
 }
 
 /* line 213, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
@@ -364,7 +364,7 @@ div.meta {
 }
 /* line 291, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
 div.meta a:hover {
-  border-bottom: 2px solid #e11111;
+  border-bottom: 2px solid #cc0000;
 }
 
 /* line 300, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */

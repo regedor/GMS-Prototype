@@ -22,7 +22,7 @@ div.textile-body table {
 /* line 20, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body table td {
   border-bottom: 1px solid #dddddd;
-  padding: 5px 0;
+  padding: 5px 10px;
   margin: 0 10px;
 }
 /* line 25, ../../../../app/themes/sass/partials/_textile.sass */
@@ -30,7 +30,7 @@ div.textile-body table th {
   background-color: #6683a2;
   border-bottom: solid 1px #dddddd;
   font-weight: bold;
-  padding: 5px 0;
+  padding: 5px 10px;
   margin: 0 10px;
   color: white;
   text-shadow: 0 1px 0 black;
