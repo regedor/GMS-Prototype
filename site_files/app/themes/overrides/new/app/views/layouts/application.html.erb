@@ -10,7 +10,6 @@
                              'announcements', 
                              'utils',                                          :cache => 'cache/frontend' %>
 
-  <%= stylesheet_link_tag    'shared/screen', :media => 'screen'                                          %>
   <%= stylesheet_link_tag    'shared/reset', :media => 'screen'                                           %>
   <%= stylesheet_link_tag    'smoothness/jquery-ui-1.8.7.custom',
                              'formtastic/formtastic',
@@ -18,27 +17,25 @@
                              "themes/#{configatron.theme}/frontend-structure", 
                              "themes/#{configatron.theme}/frontend-typography",
                              "themes/#{configatron.theme}/frontend-icons",     :cache => 'cache/frontend' %>
-
-  <!--[if lt IE 8]>
-    <%= stylesheet_link_tag  'shared/ie', :media => 'screen, projection',  :cache => 'cache/ie'           %>
-  <![endif]-->
-  <%= stylesheet_link_tag    'shared/print', :media => 'print'                                            %>
   <%= yield :head %>
 </head>
 
 <body id="<%= @controller.controller_name + "_" + @controller.action_name  %>" >
   <div id="container">
-
     <div id="header">
       <div id="account-info">
         <span class="options">
           <% if logged_in? %>
-            <%= link_to @current_user.small_name, user_account_path, :class => "user_ico" %> |
-            <%= link_to t('navigation.administration'), admin_root_path, :class => "key_ico" if permitted_to? :read, :admin_dashboard %> |
-            <%= link_to t('user_session.bar.logout'), user_logout_path, :class => "logout_ico" %>
+            <% if @current_user.small_name %>
+              <%= link_to @current_user.small_name, user_account_path                                            %> |
+            <% else %>
+              <%= link_to @current_user.email, user_account_path                                                 %> |
+            <% end %>
+            <%= link_to t('navigation.administration'), admin_root_path if permitted_to? :read, :admin_dashboard %> |
+            <%= link_to t('user_session.bar.logout'), user_logout_path %>
           <% else %>
-            <%= link_to t("user_session.bar.signin"), new_user_session_path, :class => "login_ico"                   %> |
-            <%= link_to t("user_session.bar.signup"), new_user_account_path, :class => "user_add_ico"                %>
+            <%= link_to t("user_session.bar.signin"), new_user_session_path                                      %> |
+            <%= link_to t("user_session.bar.signup"), new_user_account_path                                      %>
           <% end %>
         </span>
       </div>

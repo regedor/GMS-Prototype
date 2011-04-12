@@ -26,7 +26,11 @@
     <div id="account-info">
       <span class="options">
         <% if logged_in? %>
-          <%= link_to @current_user.small_name, user_account_path                                              %> |
+          <% if @current_user.small_name %>
+            <%= link_to @current_user.small_name, user_account_path                                            %> |
+          <% else %>
+            <%= link_to @current_user.email, user_account_path                                                 %> |
+          <% end %>
           <%= link_to t('navigation.administration'), admin_root_path if permitted_to? :read, :admin_dashboard %> |
           <%= link_to t('user_session.bar.logout'), user_logout_path                                           %>
         <% else %>

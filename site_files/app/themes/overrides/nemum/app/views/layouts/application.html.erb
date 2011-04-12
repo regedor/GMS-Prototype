@@ -41,14 +41,18 @@
     <div id="wrapper">
       <div id="account-info">
         <span class="options">
-        <% if logged_in? %>
-          <%= link_to @current_user.small_name, user_account_path                                              %> |
-          <%= link_to t('navigation.administration'), admin_root_path if permitted_to? :read, :admin_dashboard %> |
-          <%= link_to t('user_session.bar.logout'), user_logout_path                                           %>
-        <% else %>
-          <%= link_to t("user_session.bar.signin"), new_user_session_path                                      %> |
-          <%= link_to t("user_session.bar.signup"), new_user_account_path                                      %>
-        <% end %>
+          <% if logged_in? %>
+            <% if @current_user.small_name %>
+              <%= link_to @current_user.small_name, user_account_path                                            %> |
+            <% else %>
+              <%= link_to @current_user.email, user_account_path                                                 %> |
+            <% end %>
+            <%= link_to t('navigation.administration'), admin_root_path if permitted_to? :read, :admin_dashboard %> |
+            <%= link_to t('user_session.bar.logout'), user_logout_path                                           %>
+          <% else %>
+            <%= link_to t("user_session.bar.signin"), new_user_session_path                                      %> |
+            <%= link_to t("user_session.bar.signup"), new_user_account_path                                      %>
+          <% end %>
         </span>
         <span class="title"><%= configatron.site_header %></span>
       </div>
