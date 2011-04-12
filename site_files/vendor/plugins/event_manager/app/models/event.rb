@@ -60,6 +60,14 @@ class Event < ActiveRecord::Base
     end
   end  
   
+  def total_price(eventActivityUsers=[])
+    sum = self.price
+    eventActivityUsers.each do |eventActivityUser|
+      sum += eventActivityUser.event_activity.price
+    end  
+    return sum
+  end  
+  
   def link_to_post
     if self.post
       new_post = self.post

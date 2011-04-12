@@ -61,7 +61,7 @@ authorization do
 
   role :member do
     includes :guest
-    has_permission_on [:admin_dashboard],           :to =>  [:read]
+    has_permission_on [:admin_dashboard],           :to => [:read]
     has_permission_on [:comments],                  :to => [:create]
     has_permission_on [:admin_projects],            :to => [:as_read]
     has_permission_on [:admin_to_do_lists],         :to => [:manage] do

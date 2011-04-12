@@ -19,6 +19,10 @@ class EventActivity < ActiveRecord::Base
 
   before_save :format_description
 
+  def label
+    "<span class='title'>"+self.title+"</span><span class='price'>"+self.price.to_s+"</span>"
+  end  
+
   def format_description
     self.description_html = TextFormatter.format_as_xhtml(self.description)
   end

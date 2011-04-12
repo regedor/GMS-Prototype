@@ -146,6 +146,13 @@ en:
     pagination:
       previous: "««"
       next: "»»"
+    not_logged_in: "You must be logged in to subscribe to an event"  
+    form:
+      subscribe_button: "Subscribe"
+      cancel_button: "Cancel"
+      activities: "Activities"   
+      total_default: "0.00"
+      total: "Total:"   
 
   comments:
     title: "Post a comment"

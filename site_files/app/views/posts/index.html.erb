@@ -22,7 +22,7 @@
   <% else -%>
     <% @posts.each do |post| -%>
       <div id="post-<%= post.id %>" class="post">
-        <%= render :partial => 'post', :locals => {:post => post} %>
+        <%= render :partial => 'post', :locals => {:post => post, :event => nil} %>
       </div>
     <% end -%>
   <% end -%>

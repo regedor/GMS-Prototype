@@ -1,0 +1,44 @@
+<script>
+jQuery(document).ready(function($){
+
+  var ids = $("#hidden_events_ids").text().split(",");
+  for(id in ids)
+    $("#event_event_activity_ids_"+ids[id]).attr('checked',true);	
+
+  $(".activity_checkbox").click(function(){
+	if($(this).is(':checked'))
+	  var sum = parseFloat($("#total_price").text()) + parseFloat($(this).next().next().text()); 
+    else
+      var sum = parseFloat($("#total_price").text()) - parseFloat($(this).next().next().text());	
+    
+    if(sum<0)sum=0;
+    $("#total_price").html(sum.toFixed(2));
+  });	
+	
+});
+
+</script>
+
+<% semantic_form_for :event, event,
+                     :url => subscribe_admin_event_path(event),
+                     :html => { :class => 'create', :id => 'new_event_subscription' } do |form| -%>
+  <% form.inputs do %>
+    <%= form.input :event_activities, 
+                   :as => :check_boxes, 
+                   :collection => event.event_activities, 
+                   :label => t('posts.form.activities'),
+ 				   :label_method => :label,
+ 				   :input_html => {:class => "activity_checkbox", :checked => ""}%>
+  <% end %>
+  <% form.buttons do -%>
+    <%= form.commit_button I18n::t('posts.form.subscribe_button'),
+                           :button_html => { :class => 'button positive' } %>
+    <%= form.button_link   I18n::t('posts.form.cancel_button'), admin_events_path,
+                           :button_html => { :class => 'button negative' } %>
+  <% end -%>
+<% end -%>
+<div hidden id="hidden_events_ids"><%= subscribed_events.map(&:event_activity_id).join(",") %></div>
+<div class="total">
+  <span id="label" class="label"><%= t('posts.form.total') %></span> 
+  <span id="total_price" class="total_price"><%= total_price %></span>
+</div>

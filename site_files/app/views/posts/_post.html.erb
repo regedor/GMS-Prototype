@@ -9,9 +9,13 @@
       <%= raw post.body_html %>
     <% end -%>
  
-	<% if post.event  %>
-	  <h2>There is an event</h2>
-	  <%= content_tag :div, post.event.name %>
+	<% if event %>
+	  <% if current_user %>
+	    <h2><%= event.name %></h2>
+	    <%= render :partial => 'eventSubscription', :locals => {:event => event, :total_price => total_price, :subscribed_events  => subscribed_events} %>	    
+	  <% else %>
+		<h2><%= link_to t('posts.not_logged_in'), new_user_account_path %></h2>
+	  <% end %>	
 	<% end %>
   </div>
   <div id="social-buttons">

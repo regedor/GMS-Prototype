@@ -18,7 +18,10 @@ class Admin::EventsController < Admin::BaseController
     @record = Event.new params[:record]
     
     redirect_to admin_events_path if @record.save
-    
+  end  
+  
+  def subscribe
+    @event = Event.find(params[:id])
   end  
 
   def list_activities
