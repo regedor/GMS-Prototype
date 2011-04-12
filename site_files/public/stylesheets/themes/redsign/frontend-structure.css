@@ -1,158 +1,459 @@
-/*
-============================================================================
-= General Structure
-============================================================================
-*/
+/* line 3, ../../../../app/themes/sass/partials/_textile.sass */
+div.textile-body a {
+  border-bottom: 2px solid #e11111;
+}
+/* line 6, ../../../../app/themes/sass/partials/_textile.sass */
+div.textile-body p {
+  font-size: 13px;
+  margin: 0 0 15px;
+  text-align: justify;
+}
+/* line 11, ../../../../app/themes/sass/partials/_textile.sass */
+div.textile-body p.inline-errors {
+  font-size: 10px;
+}
+/* line 14, ../../../../app/themes/sass/partials/_textile.sass */
+div.textile-body table {
+  font-size: 13px;
+  line-height: 25px;
+  border-collapse: collapse;
+  width: 100%;
+}
+/* line 20, ../../../../app/themes/sass/partials/_textile.sass */
+div.textile-body table td {
+  border-bottom: 1px solid #dddddd;
+  padding: 5px 0;
+  margin: 0 10px;
+}
+/* line 25, ../../../../app/themes/sass/partials/_textile.sass */
+div.textile-body table th {
+  background-color: #e11111;
+  border-bottom: solid 1px #dddddd;
+  font-weight: bold;
+  padding: 5px 0;
+  margin: 0 10px;
+  color: white;
+  text-shadow: 0 1px 0 black;
+}
+/* line 34, ../../../../app/themes/sass/partials/_textile.sass */
+div.textile-body table tr:first-child {
+  border-top: 1px solid #dddddd;
+}
+/* line 37, ../../../../app/themes/sass/partials/_textile.sass */
+div.textile-body strong {
+  font-weight: bold;
+}
+/* line 40, ../../../../app/themes/sass/partials/_textile.sass */
+div.textile-body cite, div.textile-body em {
+  font-style: italic;
+}
+/* line 43, ../../../../app/themes/sass/partials/_textile.sass */
+div.textile-body ul {
+  list-style-type: disc;
+  list-style-position: inside;
+}
+/* line 47, ../../../../app/themes/sass/partials/_textile.sass */
+div.textile-body ol {
+  list-style-type: decimal;
+  list-style-position: inside;
+}
+/* line 51, ../../../../app/themes/sass/partials/_textile.sass */
+div.textile-body li {
+  margin: 10px 30px;
+}
+/* line 54, ../../../../app/themes/sass/partials/_textile.sass */
+div.textile-body pre, div.textile-body code, div.textile-body tt {
+  font-family: "lucida console", Monospace;
+}
 
-body                          { background-color: #302F2D; }
+/* line 34, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+body {
+  background-color: #302f2d;
+  overflow-x: hidden;
+}
 
-h2                            { margin: 0 0 15px; }
-h3                            { margin: 0 0 1em; }
-h4                            { margin: 0 0 1em; }
+/* line 39, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+h2 {
+  margin: 0 0 15px;
+}
+/* line 42, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+h2 a:hover {
+  border-bottom: 3px solid #e11111;
+}
 
-hr                            { clear: left; background-color: #DDD; height: 1px; border: none; margin: 15px 0; }
+/* line 46, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+h3, h4, h5 {
+  margin: 0 0 10px;
+}
 
-div#panel                     { width: 770px; height: 290px; margin: 25px auto 25px; background: url("/stylesheets/themes/redsign/images/metal-frame.png") no-repeat; }
+/* line 50, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+hr {
+  background-color: #dddddd;
+  border: none;
+  clear: left;
+  height: 1px;
+  margin: 15px 0;
+}
 
-div#wrapper                   { width: 100%; }
-div#account-info              { background-color: #FFF; position: absolute; top: 10px; z-index: 1; width: 100%; }
-div#account-info              { -webkit-box-shadow: 0 0 10px #222; -moz-box-shadow: 0 0 10px #222; box-shadow: 0 0 10px #222; }
-div#account-info span.options { float: right; margin: 6px 10px 7px; }
-div#header                    { overflow: hidden; }
-div#logotopbars               { background-color: #BB0000 !important; }
-div#logotopbars               { background: url("/stylesheets/themes/redsign/images/topbar.png") repeat-x; height: 100px; width: 100% }
+/* line 58, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div#panel {
+  background-image: url("/stylesheets/themes/redsign/images/metal-frame.png");
+  background-repeat: no-repeat;
+  height: 290px;
+  margin: 25px auto;
+  width: 770px;
+}
 
-div#site-title a:hover        { border: none; }
-div#site-title                { margin: 100px 0 80px; }
-div#site-title h1 a           { display: block; height: 120px; max-width: 200px; text-indent: -6000px}
-div#site-title h1 a           { background: url("/stylesheets/themes/redsign/images/bg_logo.png") no-repeat; }
+/* line 66, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div#account-info {
+  background-color: white;
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  z-index: 1;
+  -moz-box-shadow: 0 0 10px #222222;
+  -webkit-box-shadow: 0 0 10px #222222;
+  box-shadow: 0 0 10px #222222;
+  behavior: url("/stylesheets/pie.htc");
+}
+/* line 75, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div#account-info span.title {
+  float: left;
+  margin: 6px 15px 8px;
+}
+/* line 79, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div#account-info span.options {
+  float: right;
+  margin: 6px 15px 8px;
+}
 
-div#menu                      { background-color: #BB0000 !important; -webkit-box-shadow: 0 0 10px #222; -moz-box-shadow: 0 0 10px #222; box-shadow: 0 0 10px #222; position: relative; }
-div#menu                      { background: url("/stylesheets/themes/redsign/images/menu.png") repeat-x; height: 40px; width: 100%; }
-div#navigate ul               { position: absolute; margin: 1em 0 0 150px; }
-div#navigate ul li            { display: inline; }
-div#navigate ul li a:hover    { background-color: #A00000; }
-div#navigate ul li a          { border: none; padding: 12px 1em; color: #FFF; }
+/* line 84, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div#top-gradient {
+  background-color: #bb0000;
+  background-image: url("/stylesheets/themes/redsign/images/topbar.png");
+  background-repeat: repeat-x;
+  height: 100px;
+  width: 100%;
+}
 
-div#tag-search-bar            { margin: 0 0 1em; font-size: 1.1em; }
-div#tag-search-bar div#tags   { margin: 10px 0 10px 10px; }
-div#tag-search-bar div#tags a { border: none; background: url("/stylesheets/themes/nemum/icons/tag_delete.png") no-repeat; padding: 0     5px 0 18px; }
+/* line 92, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div#menu {
+  background-color: #bb0000;
+  background-image: url("/stylesheets/themes/redsign/images/menu.png");
+  background-repeat: repeat-x;
+  height: 40px;
+  position: relative;
+  width: 100%;
+  -moz-box-shadow: 0 0 10px #222222;
+  -webkit-box-shadow: 0 0 10px #222222;
+  box-shadow: 0 0 10px #222222;
+  behavior: url("/stylesheets/pie.htc");
+}
 
-div#content                   { margin: 0 220px 0 0; }
-div#content.single            { margin: 35px; }
-div#content p                 { margin: 0 0 1em; }
-div#content table             { margin: 0 0 1em; }
-div#sidebar                   { background-color: #FFE9E9; float: right; width: 190px; padding: 20px; margin: 20px; }
-div#sidebar                   { -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }
-div#main                      { background-color: #FFF; margin: auto; width: 1000px; border-left: 3px solid #111; border-right: 3px solid #111; border-bottom: 3px solid #111; padding: 1px 0; }
-div#main p                    { margin: 0 0 1.2em; }
+/* line 103, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div#navigation-nojs ul {
+  position: relative;
+  left: 130px;
+  top: 12px;
+}
+/* line 108, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div#navigation-nojs ul li {
+  display: inline;
+}
+/* line 111, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div#navigation-nojs ul li a {
+  border: none;
+  color: white;
+  padding: 12px 25px 14px;
+}
+/* line 116, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div#navigation-nojs ul li a:hover {
+  background-color: #a00000;
+}
 
-div#main table                { border-collapse: collapse; width: 100%; } /* border-collapse ta a broquear padding */
-div#main td,
-div#main th                   { border-bottom: solid 1px #DDD; padding: 0.4em 0; margin: 0 10px; }
+/* line 120, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div#tag-cloud {
+  background-color: #ffe9e9;
+  margin: 0 25px 20px 780px;
+  min-height: 100px;
+  padding: 10px 20px;
+  position: relative;
+  top: 15px;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  behavior: url("/stylesheets/pie.htc");
+}
 
-div#main div#user-info        { margin: 15px 10px; }
-div#main div#user-invite      { margin: 15px 10px; }
+/* line 131, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div#tag-search-bar {
+  margin: 0 0 15px;
+}
+/* line 134, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div#tag-search-bar div#tags {
+  margin: 10px;
+}
 
-div.meta                      { background-color: #EEE; margin: 0 10px; padding: 0.8em; }
-div.meta                      { -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }
-div#footer                    { margin: 1.5em; }
+/* line 138, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div.entrybody {
+  margin: 0 10px;
+}
 
-div#archives                  { float: right; margin: 0 45px 15px 0; }
+/* line 142, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div#content.single {
+  float: left;
+  width: 96%;
+  margin: 20px 20px 30px;
+}
 
-div#flash                     { background-image: url("/images/dark_transparency.png"); padding: 1em 0; position: fixed; }
-div#flash                     { width: 100%; left: 0; bottom: 0; border-top: 1px solid #000; }
-div#flash div.message         { height: 64px; }
-div#flash div.message p       { margin: 0 100px; padding: 20px; }
-div#flash div.message.error   { background: url("/stylesheets/themes/redsign/images/flash/error.png") no-repeat 0 50%; }
-div#flash div.message.warning { background: url("/stylesheets/themes/redsign/images/flash/warning.png") no-repeat 0 50%; }
-div#flash div.message.info,
-div#flash div.message.notice  { background: url("/stylesheets/themes/redsign/images/flash/notice.png") no-repeat 2% 50%; }
+/* line 148, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div#content.double {
+  float: left;
+  width: 745px;
+  margin: 20px 20px 30px;
+}
 
-.pagination a:hover,
-.meta a:hover,
-.options a:hover,
-div#archives a:hover,
-div#footer a:hover            { border-bottom: 2px solid #E11111; }
+/* line 154, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div#main {
+  background-color: white;
+  border-left: 3px solid #111111;
+  border-right: 3px solid #111111;
+  border-bottom: 3px solid #111111;
+  margin: auto;
+  width: 1000px;
+}
 
-/* Social buttons */
+/* line 163, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div#user-info, div#user-invite {
+  margin: 15px 10px;
+}
 
-div#social-buttons            { margin: 0 10px 5px; clear: both; }
-div#social-buttons iframe     { vertical-align: bottom; }
-div#social-buttons a span     { border: 1px solid #5F78AB; border-bottom: 1px solid #29447E; }
+/* line 167, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div#footer {
+  margin: 25px;
+}
+/* line 170, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div#footer a:hover {
+  border-bottom: 2px solid #e11111;
+}
 
-/* Announcements */
+/* line 174, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div#flash {
+  background-image: url("/images/dark_transparency.png");
+  border-top: 1px solid black;
+  bottom: 0;
+  left: 0;
+  padding: 15px 0;
+  position: fixed;
+  width: 100%;
+}
+/* line 183, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div#flash div.message p {
+  margin: 0 100px;
+  padding: 20px;
+}
+/* line 187, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div#flash div.message.error {
+  background: url("/stylesheets/themes/nemum/images/flash/error.png") no-repeat 0 50%;
+}
+/* line 190, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div#flash div.message.warning {
+  background: url("/stylesheets/themes/nemum/images/flash/warning.png") no-repeat 0 50%;
+}
+/* line 193, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div#flash div.message.info, div#flash div.message.notice {
+  background: url("/stylesheets/themes/nemum/images/flash/notice.png") no-repeat 0 50%;
+}
 
-div#announcements             { margin: auto; overflow: hidden; position: relative; top: 20px; width: 730px; }
-div#announcements a:hover     { border: none; }
-div.announcement-tail         { display: none; }
-div.announcements-bar         { padding: 0.8em; position: absolute; cursor: default; }
-div.announcements-bar         { background: url("/images/dark_transparency.png"); }
-div.announcement-block img    { height: 250px; width: 730px; }
-div.announcement-text         { bottom: 0; position: absolute; right: 0; }
-div.announcement-text         { background: url("/images/dark_transparency.png"); padding: 1.2em; width: 300px; }
-div.announcement-text p.title { padding: 0 0 1em; }
+/* line 197, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div#archives {
+  float: right;
+  margin: 10px;
+}
+/* line 201, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div#archives a:hover {
+  border-bottom: 3px solid #e11111;
+}
 
-/* Pages */
+/* line 210, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div#social-buttons {
+  margin: 0 10px 5px;
+  clear: both;
+}
+/* line 214, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div#social-buttons iframe {
+  vertical-align: bottom;
+}
+/* line 217, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div#social-buttons a span {
+  border: 1px solid #5f78ab;
+  border-bottom: 1px solid #29447e;
+}
 
-body#pages_show div#main ul li,
-body#pages_show div#main ol li { list-style-position: inside; margin: 1.5em 30px; }
-body#pages_show div#main ul li { list-style-type: disc; }
-body#pages_show div#main ol li { list-style-type: decimal; }
-body#pages_show div#main p     { margin: 1.2em 10px; }
+/* line 227, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div#announcements {
+  overflow: hidden;
+  position: relative;
+  left: 20px;
+  top: 20px;
+  width: 730px;
+}
+/* line 234, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div#announcements a:hover {
+  border: none;
+}
 
-/* Posts */
+/* line 238, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div.announcement-tail {
+  display: none;
+}
 
-div.post                      { margin: 0 0 2.5em; }
-div.entrybody ul              { padding-left: 5px; list-style: circle; }
-div.entrybody                 { margin: 0 10px; }
-div.post-image                { float: left; margin: 0 15px 5px 0; }
-.related                      { padding-bottom: 15px; } /* Ver depois */
+/* line 242, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div.announcements-bar {
+  background: url("/images/dark_transparency.png");
+  cursor: default;
+  padding: 12px;
+  position: absolute;
+  right: 0;
+}
 
-/* Comments */
+/* line 250, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div.announcement-block img {
+  height: 250px;
+  width: 730px;
+}
 
-div.avatar                    { margin-right: 20px; float: left; }
-div.avatar img                { border: 1px solid #999; }
-span.comment-meta             { display: block; clear: both; }
-div.new-comment               { padding: 0 0.8em; }
-ol.comment-list               { padding: 0.8em; }
-ol.comment-list p             { padding: 1.1em 0 0; }
+/* line 255, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div.announcement-text {
+  background: url("/images/dark_transparency.png");
+  bottom: 0;
+  padding: 14px;
+  position: absolute;
+  right: 0;
+  width: 300px;
+}
+/* line 263, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div.announcement-text p.title {
+  padding: 0 0 15px;
+}
 
-/* Buttons */
+/* line 272, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div.post {
+  margin: 0 0 30px;
+}
 
-button,
-a.button,
-input.button                  { cursor: pointer; float: left; background-color: #F5F5F5; }
-button,
-a.button,
-a.button:hover,
-input.button                  { border: 1px solid #AAA; }
+/* line 276, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div.post-image {
+  float: left;
+  margin: 0 15px 5px 0;
+}
 
-a.button                      { padding: 6px 10px; }
-input.button                  { padding: 5px 10px !important; }
-button                        { padding: 5px 10px; }
+/* line 281, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div.meta {
+  background-color: #eeeeee;
+  margin: 0 10px;
+  padding: 10px;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  behavior: url("/stylesheets/pie.htc");
+}
+/* line 288, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div.meta a:hover {
+  border-bottom: 2px solid #e11111;
+}
 
-button,
-a.button,
-input.button                  { background: -webkit-gradient(linear,0% 30%,0% 90%,from(#F9F9F9),to(#E9E9E9)); background: -moz-linear-gradient(top, #FFF, #E9E9E9); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F9F9F9, endColorstr=#E9E9E9); -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#F9F9F9, endColorstr=#E9E9E9"; }
-button:active,
-a.button:active,
-input.button:active           { background: -webkit-gradient(linear,0% 30%,0% 90%,from(#E9E9E9),to(#F9F9F9)); background: -moz-linear-gradient(top, #E9E9E9, #FFF); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#E9E9E9, endColorstr=#F9F9F9); -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#E9E9E9, endColorstr=#F9F9F9"; }
+/* line 297, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div.avatar {
+  float: left;
+  margin-right: 20px;
+}
+/* line 301, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div.avatar img {
+  border: 1px solid #999999;
+}
 
-button,
-a.button,
-input.button                  { -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; }
+/* line 305, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+span.comment-meta {
+  clear: both;
+  display: block;
+}
 
-*:first-child+html input[type] { padding: 2px 10px 3px; /* IE7 */ }
+/* line 310, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+div.new-comment {
+  padding: 0 15px;
+}
 
-a.google_ico,
-a.yahoo_ico                   { margin: 0 0 15px 0; width: 90% }
+/* line 314, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+ol.comment-list {
+  margin: 20px 0;
+}
+/* line 317, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+ol.comment-list p {
+  padding: 15px 0 0;
+}
 
-/* Self-clearing floats and IE hacks */
+/* line 326, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+button, a.button, input.button {
+  background-color: #e9e9e9;
+  border: 1px solid #aaaaaa;
+  cursor: pointer;
+  float: left;
+  background: -webkit-gradient(linear, left top, left bottom, from(#f9f9f9), to(#e9e9e9));
+  background: -moz-linear-gradient(top, #f9f9f9, #e9e9e9);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$start-color, endColorstr=$end-color);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#f9f9f9, endColorstr=#e9e9e9)";
+  -moz-border-radius: 4px 4px 4px 4px;
+  -webkit-border-radius: 4px 4px 4px 4px;
+  border-radius: 4px 4px 4px 4px;
+  behavior: url("/stylesheets/pie.htc");
+}
 
-.hidden                       { display: none; }
-.selfclear:after              { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
-.selfclear                    { display: inline-block; /* IE 7 */ }
-.selfclear                    { display: block; }
-* html .selfclear             { height: 1px; /* IE < 7 */ }
-* html .resource-list tr.table-header { background: #000; /* IE < 7 */}
+/* line 336, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+button:active, a.button:active, input.button:active {
+  background: -webkit-gradient(linear, left top, left bottom, from(#e9e9e9), to(#f9f9f9));
+  background: -moz-linear-gradient(top, #e9e9e9, #f9f9f9);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$start-color, endColorstr=$end-color);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#e9e9e9, endColorstr=#f9f9f9)";
+  behavior: url("/stylesheets/pie.htc");
+}
+
+/* line 341, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+a.button {
+  padding: 6px 10px;
+}
+
+/* line 345, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+input.button {
+  padding: 5px 10px !important;
+}
+
+/* line 349, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+button {
+  padding: 5px 10px;
+}
+
+/* line 353, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+*:first-child + html input[type] {
+  padding: 2px 10px 3px;
+}
+
+/* line 358, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+a.google_ico, a.yahoo_ico {
+  margin: 0 0 15px 0;
+  width: 90%;
+}
+
+/* line 365, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+.selfclear {
+  display: inline-block;
+  display: block;
+}
+/* line 366, ../../../../app/themes/sass/themes/redsign/frontend-structure.sass */
+.selfclear:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}

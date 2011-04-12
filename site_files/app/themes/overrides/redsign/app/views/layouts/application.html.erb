@@ -24,7 +24,7 @@
   <div id="container">
 
     <div id="header">
-      <div id="logotopbars"></div>	
+      <div id="top-gradient"></div>
       <div id="account-info">
         <span class="options">
           <% if logged_in? %>
@@ -69,7 +69,7 @@
       </div>
 
       <div id="menu">
-       <div id="navigate">
+       <div id="navigation-nojs">
 	 <%= frontend_navigation_content %>
       
        </div>
@@ -82,6 +82,7 @@
         <div id="content" class="<%= yield(:side_bar) ? 'double' : 'single' %>">
           <%= yield %>
         </div>
+        <%= yield :side_bar %>
       </div>
 
       <%= render :partial => 'shared/footer' %>
