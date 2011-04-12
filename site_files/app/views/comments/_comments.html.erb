@@ -9,7 +9,7 @@
 </div>
 
 <% unless current_user -%>
-  <h2><%= I18n::t('comments.log_in_to') %></h2>
+  <h2><%= link_to I18n::t('comments.log_in_to'), new_user_session_path %></h2>
 <% else -%>
   <h2><%= I18n::t('comments.title') %></h2>
   <div class="entrybody">
