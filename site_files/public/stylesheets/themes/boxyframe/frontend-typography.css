@@ -73,118 +73,117 @@ div.announcements-bar a:hover, div.announcements-bar span:hover {
 }
 
 /* line 85, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
-div#menu {
+div#navigation-nojs {
   -moz-text-shadow: 0 1px 0 black;
   -webkit-text-shadow: 0 1px 0 black;
   text-shadow: 0 1px 0 black;
   behavior: url("/stylesheets/pie.htc");
 }
-
-/* line 90, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
+/* line 89, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
 div#navigation-nojs ul li a {
   font-weight: bold;
 }
 
-/* line 96, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
+/* line 95, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
 div#tag-cloud a:hover {
   border-bottom: 2px solid #6683a2;
 }
-/* line 99, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
+/* line 98, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
 div#tag-cloud a.nube1 {
   font-size: 10px;
 }
-/* line 102, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
+/* line 101, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
 div#tag-cloud a.nube2 {
   font-size: 12px;
 }
-/* line 105, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
+/* line 104, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
 div#tag-cloud a.nube3 {
   font-size: 14px;
 }
-/* line 108, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
+/* line 107, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
 div#tag-cloud a.nube4 {
   font-size: 16px;
 }
-/* line 111, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
+/* line 110, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
 div#tag-cloud a.nube5 {
   font-size: 18px;
 }
-/* line 114, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
+/* line 113, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
 div#tag-cloud a.nube6 {
   font-size: 20px;
 }
-/* line 117, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
+/* line 116, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
 div#tag-cloud a.selected {
   font-weight: bold;
 }
 
-/* line 121, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
+/* line 120, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
 div#tag-search-bar {
   font-size: 14px;
 }
-/* line 124, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
+/* line 123, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
 div#tag-search-bar span#tagged-with {
   font-size: 16px;
 }
-/* line 127, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
+/* line 126, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
 div#tag-search-bar span#clear-link {
   font-size: 12px;
 }
 
-/* line 131, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
+/* line 130, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
 div.meta li {
   line-height: 18px;
 }
 
-/* line 135, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
+/* line 134, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
 div#flash div.message p {
   color: white;
   font-size: 20px;
   font-weight: bold;
 }
 
-/* line 141, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
+/* line 140, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
 div#archives {
   font-size: 14px;
 }
 
-/* line 145, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
+/* line 144, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
 div#footer {
   color: white;
   text-align: center;
 }
-/* line 149, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
+/* line 148, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
 div#footer a {
   color: #6683a2;
   font-weight: bold;
 }
 
-/* line 159, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
+/* line 158, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
 ol.comment-list a.author {
   font-weight: bold;
 }
 
-/* line 162, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
+/* line 161, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
 ol.comment-list span.comment-meta {
   text-align: right;
 }
 
-/* line 171, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
+/* line 170, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
 div#social-buttons {
   text-align: right;
 }
 
-/* line 180, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
+/* line 179, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
 button, a.button {
   text-decoration: none;
 }
 
-/* line 184, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
+/* line 183, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
 button, input.button {
   line-height: 16px;
 }
 
-/* line 188, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
+/* line 187, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
 button, a.button, input.button {
   color: #2e2e2e;
   font-size: 12px !important;
@@ -192,12 +191,12 @@ button, a.button, input.button {
   text-align: center !important;
 }
 
-/* line 195, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
+/* line 194, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
 button.positive:hover, a.positive:hover, input.positive:hover {
   color: #559911;
 }
 
-/* line 199, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
+/* line 198, ../../../../app/themes/sass/themes/boxyframe/frontend-typography.sass */
 button.negative:hover, a.negative:hover, input.negative:hover {
   color: #dd3322;
 }

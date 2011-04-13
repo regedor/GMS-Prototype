@@ -92,32 +92,30 @@ div#top-gradient
   width: 100%
 
 
-div#menu
+div#navigation-nojs
   background-color: $menu-default-color
   background-image: url("/stylesheets/themes/redsign/images/menu.png")
   background-repeat: repeat-x
-  height: 40px
+  padding: 12px 0
   position: relative
   width: 100%
   @include box-shadow(0, 0, 10px, #222)
   @include enable-ie-css3
 
+  ul
+    position: relative
+    left: 130px
 
-div#navigation-nojs ul
-  position: relative
-  left: 130px
-  top: 12px
+    li
+      display: inline
 
-  li
-    display: inline
+      a
+        border: none
+        color: #FFF
+        padding: 12px 25px
 
-    a
-      border: none
-      color: #FFF
-      padding: 12px 25px 14px
-
-    a:hover
-      background-color: $menu-hover-color
+      a:hover
+        background-color: $menu-hover-color
 
 
 div#tag-cloud
