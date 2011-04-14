@@ -14,9 +14,7 @@
   <%= stylesheet_link_tag    'smoothness/jquery-ui-1.8.7.custom',
                              'formtastic/formtastic',
                              'shared/formtastic-changes', 
-                             "themes/#{configatron.theme}/frontend-structure", 
-                             "themes/#{configatron.theme}/frontend-typography",
-                             "themes/#{configatron.theme}/frontend-icons",     :cache => 'cache/frontend' %>
+                             "themes/#{configatron.theme}/frontend",           :cache => 'cache/frontend' %>
   <%= yield :head %>
 </head>
 
@@ -72,12 +70,10 @@
         </div>
       </div>
 
-      <div id="menu">
-       <div id="navigation-nojs">
-	 <%= frontend_navigation_content %>
-      
-       </div>
+      <div id="navigation-nojs">
+        <%= frontend_navigation_content %>
       </div>
+
       <div id="main" class="selfclear">
         <%= '<div id="flash"><div class="message notice"><p>'+ flash[:notice] +'</p></div></div>' unless flash[:notice].blank? %>
         <%= '<div id="flash"><div class="message error"><p>'+ flash[:error] +'</p></div></div>' unless flash[:error].blank? %>

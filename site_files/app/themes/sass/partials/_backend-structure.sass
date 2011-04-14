@@ -1,5 +1,5 @@
 body
-  background-color: $background-color
+  background-color: $backend-background-color
 
 
 h2 a:hover
@@ -50,7 +50,7 @@ div#main-navigation
 
   ul li.active
     background-color: #FFF
-    @include linear-gradient(#FFF, $background-color)
+    @include linear-gradient(#FFF, $backend-background-color)
     @include enable-ie-css3
 
 
@@ -97,7 +97,7 @@ div#sidebar
       ul.navigation a
         margin: 15px 0 0
 
-      ul.options li
+      ul.bullet-list li
         margin: 5px 0
 
         a
@@ -144,9 +144,9 @@ div#flash
 
 
 div#header
-  background-color: $header-background-color
+  background-color: $backend-header-background-color
   padding: 0 15px
-  @include linear-gradient($header-background-color, #423D3E)
+  @include linear-gradient($backend-header-background-color, #423D3E)
   @include enable-ie-css3
 
   h1

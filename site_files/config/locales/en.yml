@@ -12,6 +12,7 @@ en:
       user: "User"
       root: "Root"
       admin: "Administrator"
+      member: "Member"
       general_manager: "General Manager"
       projects_manager: "Projects Manager"
       website_manager: "Website Manager"
@@ -565,6 +566,7 @@ en:
 
     deleted_users:
       index:
+        deleted_user: "Deleted User"
         title: "Deleted Users List"
         search: "Find users"
         create: "Create user"

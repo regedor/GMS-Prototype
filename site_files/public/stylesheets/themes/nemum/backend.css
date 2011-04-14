@@ -1,3 +1,67 @@
+/* line 3, ../../../../app/themes/sass/partials/_textile.sass */
+div.textile-body a {
+  border-bottom: 2px solid #f8da00;
+}
+/* line 6, ../../../../app/themes/sass/partials/_textile.sass */
+div.textile-body p {
+  font-size: 13px;
+  margin: 0 0 15px;
+  text-align: justify;
+}
+/* line 11, ../../../../app/themes/sass/partials/_textile.sass */
+div.textile-body table {
+  font-size: 13px;
+  line-height: 25px;
+  border-collapse: collapse;
+  width: 100%;
+}
+/* line 17, ../../../../app/themes/sass/partials/_textile.sass */
+div.textile-body table td {
+  border-bottom: 1px solid #dddddd;
+  padding: 5px 10px;
+  margin: 0 10px;
+}
+/* line 22, ../../../../app/themes/sass/partials/_textile.sass */
+div.textile-body table th {
+  background-color: #f8da00;
+  border-bottom: solid 1px #dddddd;
+  font-weight: bold;
+  padding: 5px 10px;
+  margin: 0 10px;
+  color: #444444;
+  text-shadow: 0 1px 0 #eeeeee;
+}
+/* line 31, ../../../../app/themes/sass/partials/_textile.sass */
+div.textile-body table tr:first-child {
+  border-top: 1px solid #dddddd;
+}
+/* line 34, ../../../../app/themes/sass/partials/_textile.sass */
+div.textile-body strong {
+  font-weight: bold;
+}
+/* line 37, ../../../../app/themes/sass/partials/_textile.sass */
+div.textile-body cite, div.textile-body em {
+  font-style: italic;
+}
+/* line 40, ../../../../app/themes/sass/partials/_textile.sass */
+div.textile-body ul {
+  list-style-type: disc;
+  list-style-position: inside;
+}
+/* line 44, ../../../../app/themes/sass/partials/_textile.sass */
+div.textile-body ol {
+  list-style-type: decimal;
+  list-style-position: inside;
+}
+/* line 48, ../../../../app/themes/sass/partials/_textile.sass */
+div.textile-body li {
+  margin: 10px 30px;
+}
+/* line 51, ../../../../app/themes/sass/partials/_textile.sass */
+div.textile-body pre, div.textile-body code, div.textile-body tt {
+  font-family: "lucida console", Monospace;
+}
+
 /* line 1, ../../../../app/themes/sass/partials/_backend-structure.sass */
 body {
   background-color: #e5e5e5;
@@ -130,11 +194,11 @@ div#sidebar div.block div.content ul.navigation a {
   margin: 15px 0 0;
 }
 /* line 100, ../../../../app/themes/sass/partials/_backend-structure.sass */
-div#sidebar div.block div.content ul.options li {
+div#sidebar div.block div.content ul.bullet-list li {
   margin: 5px 0;
 }
 /* line 103, ../../../../app/themes/sass/partials/_backend-structure.sass */
-div#sidebar div.block div.content ul.options li a {
+div#sidebar div.block div.content ul.bullet-list li a {
   margin: 15px 0 0 15px;
 }
 /* line 106, ../../../../app/themes/sass/partials/_backend-structure.sass */
@@ -500,7 +564,7 @@ div#sidebar div.block ul.navigation li {
 }
 
 /* line 35, ../../../../app/themes/sass/partials/_backend-icons.sass */
-div#sidebar div.block ul.options li {
+div#sidebar div.block ul.bullet-list li {
   background: url("/images/icons/bullet_black.png") no-repeat;
 }
 
@@ -698,72 +762,4 @@ div.active-scaffold th.asc a:hover {
 #as_admin__mails-content a.delete {
   background: url("/images/icons/email_delete.png") no-repeat;
   padding-left: 18px;
-}
-
-/* line 3, ../../../../app/themes/sass/partials/_textile.sass */
-div.textile-body a {
-  border-bottom: 2px solid #f8da00;
-}
-/* line 6, ../../../../app/themes/sass/partials/_textile.sass */
-div.textile-body p {
-  font-size: 13px;
-  margin: 0 0 15px;
-  text-align: justify;
-}
-/* line 11, ../../../../app/themes/sass/partials/_textile.sass */
-div.textile-body p.inline-errors {
-  font-size: 10px;
-}
-/* line 14, ../../../../app/themes/sass/partials/_textile.sass */
-div.textile-body table {
-  font-size: 13px;
-  line-height: 25px;
-  border-collapse: collapse;
-  width: 100%;
-}
-/* line 20, ../../../../app/themes/sass/partials/_textile.sass */
-div.textile-body table td {
-  border-bottom: 1px solid #dddddd;
-  padding: 5px 0;
-  margin: 0 10px;
-}
-/* line 25, ../../../../app/themes/sass/partials/_textile.sass */
-div.textile-body table th {
-  background-color: #f8da00;
-  border-bottom: solid 1px #dddddd;
-  font-weight: bold;
-  padding: 5px 0;
-  margin: 0 10px;
-  color: #444444;
-  text-shadow: 0 1px 0 #eeeeee;
-}
-/* line 34, ../../../../app/themes/sass/partials/_textile.sass */
-div.textile-body table tr:first-child {
-  border-top: 1px solid #dddddd;
-}
-/* line 37, ../../../../app/themes/sass/partials/_textile.sass */
-div.textile-body strong {
-  font-weight: bold;
-}
-/* line 40, ../../../../app/themes/sass/partials/_textile.sass */
-div.textile-body cite, div.textile-body em {
-  font-style: italic;
-}
-/* line 43, ../../../../app/themes/sass/partials/_textile.sass */
-div.textile-body ul {
-  list-style-type: disc;
-  list-style-position: inside;
-}
-/* line 47, ../../../../app/themes/sass/partials/_textile.sass */
-div.textile-body ol {
-  list-style-type: decimal;
-  list-style-position: inside;
-}
-/* line 51, ../../../../app/themes/sass/partials/_textile.sass */
-div.textile-body li {
-  margin: 10px 30px;
-}
-/* line 54, ../../../../app/themes/sass/partials/_textile.sass */
-div.textile-body pre, div.textile-body code, div.textile-body tt {
-  font-family: "lucida console", Monospace;
 }
