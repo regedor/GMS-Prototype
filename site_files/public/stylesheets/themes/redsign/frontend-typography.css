@@ -41,149 +41,154 @@ h5 {
 }
 
 /* line 59, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
+p.inline-errors {
+  font-size: 11px;
+}
+
+/* line 63, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
 div#account-info span.title {
   font-weight: bold;
 }
 
-/* line 63, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
+/* line 67, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
 div.announcement-text {
   color: white;
   text-align: justify;
 }
 
-/* line 68, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
+/* line 72, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
 div.announcement-text p.title {
   font-size: 14px;
   font-weight: bold;
 }
 
-/* line 73, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
+/* line 77, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
 div.announcements-bar {
   color: white;
   text-align: justify;
 }
-/* line 77, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
+/* line 81, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
 div.announcements-bar a, div.announcements-bar span {
   color: white;
   text-align: justify;
 }
-/* line 81, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
+/* line 85, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
 div.announcements-bar a:hover, div.announcements-bar span:hover {
   color: #e11111;
 }
 
-/* line 85, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
+/* line 89, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
 div#navigation-nojs {
   -moz-text-shadow: 0 1px 0 black;
   -webkit-text-shadow: 0 1px 0 black;
   text-shadow: 0 1px 0 black;
   behavior: url("/stylesheets/pie.htc");
 }
-/* line 89, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
+/* line 93, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
 div#navigation-nojs ul li a {
   font-weight: bold;
 }
 
-/* line 95, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
+/* line 99, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
 div#tag-cloud a:hover {
   border-bottom: 2px solid #e11111;
 }
-/* line 98, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
+/* line 102, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
 div#tag-cloud a.nube1 {
   font-size: 10px;
 }
-/* line 101, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
+/* line 105, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
 div#tag-cloud a.nube2 {
   font-size: 12px;
 }
-/* line 104, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
+/* line 108, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
 div#tag-cloud a.nube3 {
   font-size: 14px;
 }
-/* line 107, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
+/* line 111, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
 div#tag-cloud a.nube4 {
   font-size: 16px;
 }
-/* line 110, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
+/* line 114, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
 div#tag-cloud a.nube5 {
   font-size: 18px;
 }
-/* line 113, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
+/* line 117, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
 div#tag-cloud a.nube6 {
   font-size: 20px;
 }
-/* line 116, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
+/* line 120, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
 div#tag-cloud a.selected {
   font-weight: bold;
 }
 
-/* line 120, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
+/* line 124, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
 div#tag-search-bar {
   font-size: 14px;
 }
-/* line 123, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
+/* line 127, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
 div#tag-search-bar span#tagged-with {
   font-size: 16px;
 }
-/* line 126, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
+/* line 130, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
 div#tag-search-bar span#clear-link {
   font-size: 12px;
 }
 
-/* line 130, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
+/* line 134, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
 div.meta li {
   line-height: 18px;
 }
 
-/* line 134, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
+/* line 138, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
 div#flash div.message p {
   color: white;
   font-size: 20px;
   font-weight: bold;
 }
 
-/* line 140, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
+/* line 144, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
 div#archives {
   font-size: 14px;
 }
 
-/* line 144, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
+/* line 148, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
 div#footer {
   color: white;
   text-align: center;
 }
-/* line 148, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
+/* line 152, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
 div#footer a {
   color: #e11111;
   font-weight: bold;
 }
 
-/* line 158, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
+/* line 162, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
 ol.comment-list a.author {
   font-weight: bold;
 }
 
-/* line 161, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
+/* line 165, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
 ol.comment-list span.comment-meta {
   text-align: right;
 }
 
-/* line 170, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
+/* line 174, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
 div#social-buttons {
   text-align: right;
 }
 
-/* line 179, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
+/* line 183, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
 button, a.button {
   text-decoration: none;
 }
 
-/* line 183, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
+/* line 187, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
 button, input.button {
   line-height: 16px;
 }
 
-/* line 187, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
+/* line 191, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
 button, a.button, input.button {
   color: #2e2e2e;
   font-size: 12px !important;
@@ -191,12 +196,12 @@ button, a.button, input.button {
   text-align: center !important;
 }
 
-/* line 194, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
+/* line 198, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
 button.positive:hover, a.positive:hover, input.positive:hover {
   color: #559911;
 }
 
-/* line 198, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
+/* line 202, ../../../../app/themes/sass/themes/redsign/frontend-typography.sass */
 button.negative:hover, a.negative:hover, input.negative:hover {
   color: #dd3322;
 }
