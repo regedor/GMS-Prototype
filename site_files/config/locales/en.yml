@@ -566,6 +566,7 @@ en:
 
     deleted_users:
       index:
+        deleted_user: "Deleted User"
         title: "Deleted Users List"
         search: "Find users"
         create: "Create user"
