@@ -93,6 +93,7 @@ div#logo
   position: absolute
   top: 20px
   width: 270px
+  -webkit-background-clip: padding-box // Fixes bleeding background in WebKit browsers
   @include round-corners(0, 15px, 15px, 0)
   @include enable-ie-css3
 
@@ -153,9 +154,12 @@ div#flash
   position: fixed
   width: 100%
 
-  div.message p
-    margin: 0 100px
-    padding: 20px
+  div.message
+    margin: 0 0 0 30px
+
+    p
+      margin: 0 70px
+      padding: 20px
 
   div.message.error
     background: url("/stylesheets/themes/nebaum/images/flash/error.png") no-repeat 0 50%
