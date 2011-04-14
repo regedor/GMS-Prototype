@@ -17,6 +17,13 @@ class Admin::CommentsController < Admin::BaseController
       return { }
     end
   end
+  
+  def destroy
+    comment = Comment.find(params[:id])
+    comment.destroy
+    flash[:error] = t("admin.posts.comments.destroy.error")
+    redirect_to admin_post_comments_path(params[:project_id])
+  end
 
   protected
 
