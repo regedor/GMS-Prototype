@@ -1,0 +1,68 @@
+/*
+Syntax error: Undefined variable: "$frontend-background-color".
+        on line 7 of /home/golden/Desktop/Empresa/GroupBuddies/Projects/Regedor-Scaffold/site_files/app/themes/sass/partials/_boxyframe/frontend-structure.sass
+
+Backtrace:
+/home/golden/Desktop/Empresa/GroupBuddies/Projects/Regedor-Scaffold/site_files/app/themes/sass/partials/_boxyframe/frontend-structure.sass:7
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/script/variable.rb:39:in `_perform'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/script/node.rb:61:in `perform'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/tree/prop_node.rb:132:in `perform!'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/tree/node.rb:305:in `_perform'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/tree/node.rb:213:in `perform'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/tree/node.rb:327:in `perform_children'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/tree/node.rb:327:in `map'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/tree/node.rb:327:in `perform_children'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/tree/node.rb:317:in `perform!'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/tree/rule_node.rb:191:in `perform!'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/tree/node.rb:305:in `_perform'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/tree/node.rb:213:in `perform'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/tree/node.rb:327:in `perform_children'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/tree/node.rb:327:in `map'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/tree/node.rb:327:in `perform_children'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/tree/node.rb:317:in `perform!'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/tree/root_node.rb:59:in `perform!'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/tree/node.rb:305:in `_perform'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/tree/node.rb:213:in `perform'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/tree/root_node.rb:37:in `perform'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/tree/root_node.rb:29:in `render'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/engine.rb:197:in `_render'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/engine.rb:169:in `render'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/haml/util.rb:294:in `silence_haml_warnings'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/engine.rb:169:in `render'
+/usr/lib/ruby/gems/1.8/gems/compass-0.10.6/lib/compass/compiler.rb:103:in `compile'
+/usr/lib/ruby/gems/1.8/gems/compass-0.10.6/lib/compass/logger.rb:43:in `red'
+/usr/lib/ruby/gems/1.8/gems/compass-0.10.6/lib/compass/compiler.rb:102:in `compile'
+/usr/lib/ruby/gems/1.8/gems/compass-0.10.6/lib/compass/compiler.rb:93:in `compile_if_required'
+/usr/lib/ruby/gems/1.8/gems/compass-0.10.6/lib/compass/compiler.rb:84:in `run'
+/usr/lib/ruby/gems/1.8/gems/compass-0.10.6/lib/compass/compiler.rb:82:in `each'
+/usr/lib/ruby/gems/1.8/gems/compass-0.10.6/lib/compass/compiler.rb:82:in `run'
+/usr/lib/ruby/gems/1.8/gems/compass-0.10.6/lib/compass/commands/watch_project.rb:92:in `recompile'
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:29
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/vendor/fssm/lib/fssm/path.rb:71:in `call'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/vendor/fssm/lib/fssm/path.rb:71:in `run_callback'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/vendor/fssm/lib/fssm/path.rb:54:in `callback_action'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/vendor/fssm/lib/fssm/path.rb:34:in `update'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/vendor/fssm/lib/fssm/state/directory.rb:32:in `modified'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/vendor/fssm/lib/fssm/state/directory.rb:31:in `each'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/vendor/fssm/lib/fssm/state/directory.rb:31:in `modified'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/vendor/fssm/lib/fssm/state/directory.rb:16:in `refresh'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/vendor/fssm/lib/fssm/backends/polling.rb:17:in `run'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/vendor/fssm/lib/fssm/backends/polling.rb:17:in `each'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/vendor/fssm/lib/fssm/backends/polling.rb:17:in `run'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/vendor/fssm/lib/fssm/backends/polling.rb:15:in `loop'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/vendor/fssm/lib/fssm/backends/polling.rb:15:in `run'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/vendor/fssm/lib/fssm/monitor.rb:24:in `run'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/vendor/fssm/lib/fssm.rb:17:in `monitor'
+/usr/lib/ruby/gems/1.8/gems/compass-0.10.6/lib/compass/commands/watch_project.rb:61:in `perform'
+/usr/lib/ruby/gems/1.8/gems/compass-0.10.6/lib/compass/commands/base.rb:18:in `execute'
+/usr/lib/ruby/gems/1.8/gems/compass-0.10.6/lib/compass/commands/project_base.rb:19:in `execute'
+/usr/lib/ruby/gems/1.8/gems/compass-0.10.6/lib/compass/exec/sub_command_ui.rb:38:in `perform!'
+/usr/lib/ruby/gems/1.8/gems/compass-0.10.6/lib/compass/exec/sub_command_ui.rb:15:in `run!'
+/usr/lib/ruby/gems/1.8/gems/compass-0.10.6/bin/compass:26
+/usr/bin/compass:19:in `load'
+/usr/bin/compass:19
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Undefined variable: \"$frontend-background-color\".\A         on line 7 of /home/golden/Desktop/Empresa/GroupBuddies/Projects/Regedor-Scaffold/site_files/app/themes/sass/partials/_boxyframe/frontend-structure.sass"; }

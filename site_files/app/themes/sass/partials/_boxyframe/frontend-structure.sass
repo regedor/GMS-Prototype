@@ -1,0 +1,344 @@
+// ============================================================================
+// Rules
+// ============================================================================
+
+
+body
+  background-color: $frontend-background-color
+
+
+h2
+  margin: 0 0 $content-margin
+
+  a:hover
+    border-bottom: 3px solid $default-color
+
+
+h3, h4, h5
+  margin: 0 0 10px
+
+
+hr
+  background-color: #DDD
+  border: none
+  clear: left
+  height: 1px
+  margin: $content-margin 0
+
+
+div#account-info
+  background-color: #FFF
+  border: 2px solid #111
+  margin: 50px auto 0
+  height: 20px
+  padding: 5px $content-margin 2px
+  width: 950px
+
+  span.options
+    float: right
+
+    a:hover
+      border-bottom: 2px solid $default-color
+
+
+div#navigation-nojs
+  background-color: $menu-default-color
+  background-image: url("/stylesheets/themes/nebaum/images/menu.png")
+  background-repeat: repeat-x
+  border: 2px solid #000
+  margin: auto
+  padding: 12px 0
+  width: 980px
+
+  ul li
+    display: inline
+
+    a
+      border: none
+      color: #FFF
+      padding: 12px 20px
+
+    a:hover
+      background-color: $menu-hover-color
+
+
+div#tag-cloud
+  background-color: $tag-cloud-color
+  margin: 0 25px 20px 780px
+  min-height: 100px
+  padding: 10px 20px
+  position: relative
+  top: $content-margin
+  @include round-corners(5px, 5px, 5px, 5px)
+  @include enable-ie-css3
+
+
+div#tag-search-bar
+  margin: 0 0 $content-margin
+
+  div#tags
+    margin: 10px
+
+
+div#logo
+  background-color: #FFF
+  background-image: url("/stylesheets/themes/nebaum/images/logo_nebaum.png")
+  background-position: 50% 50%
+  background-repeat: no-repeat
+  border-top: 2px solid #111
+  border-right: 2px solid #111
+  border-bottom: 2px solid #111
+  height: 130px
+  margin: 38px 0
+  position: absolute
+  top: 20px
+  width: 270px
+  @include round-corners(0, 15px, 15px, 0)
+  @include enable-ie-css3
+
+
+div#flash-content
+  margin: 5px 0
+
+
+div#panel
+  border-left: 2px solid #111
+  border-right: 2px solid #111
+  margin: auto
+  width: 980px
+
+
+div.entrybody
+  margin: 0 10px
+
+
+div#content.single
+  float: left
+  width: 96% // OH SHIT!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  margin: 20px 20px 30px
+
+
+div#content.double
+  float: left
+  width: 745px
+  margin: 20px 20px 30px
+
+
+div#main
+  background-color: #FFF
+  border-left: 2px solid #111
+  border-right: 2px solid #111
+  border-bottom: 2px solid #111
+  margin: auto
+  width: 980px
+
+
+div#user-info, div#user-invite
+  margin: $content-margin 10px
+
+
+div#footer
+  margin: 25px
+
+  a:hover
+    border-bottom: 2px solid $default-color
+
+
+div#flash
+  background-image: url("/images/dark_transparency.png")
+  border-top: 1px solid #000
+  bottom: 0
+  left: 0
+  padding: 15px 0
+  position: fixed
+  width: 100%
+
+  div.message p
+    margin: 0 100px
+    padding: 20px
+
+  div.message.error
+    background: url("/stylesheets/themes/nebaum/images/flash/error.png") no-repeat 0 50%
+
+  div.message.warning
+    background: url("/stylesheets/themes/nebaum/images/flash/warning.png") no-repeat 0 50%
+
+  div.message.info, div.message.notice
+    background: url("/stylesheets/themes/nebaum/images/flash/notice.png") no-repeat 0 50%
+
+
+div#archives
+  float: right
+  margin: 10px
+
+  a:hover
+    border-bottom: 3px solid $default-color
+
+
+// ==============
+// Social buttons
+// ==============
+
+
+div#social-buttons
+  margin: 0 10px 5px
+  clear: both
+
+  iframe
+    vertical-align: bottom
+
+  a span
+    border: 1px solid #5F78AB
+    border-bottom: 1px solid #29447E
+
+
+// =============
+// Announcements
+// =============
+
+
+div#announcements
+  overflow: hidden
+  position: relative
+  width: 980px
+
+  a:hover
+    border: none
+
+
+div.announcement-tail
+  display: none
+
+
+div.announcements-bar
+  background: url("/images/dark_transparency.png")
+  cursor: default
+  padding: 12px
+  position: absolute
+  right: 0
+
+
+div.announcement-block img
+  height: 250px
+  width: 980px
+
+
+div.announcement-text
+  background: url("/images/dark_transparency.png")
+  bottom: 0
+  padding: 14px
+  position: absolute
+  right: 0
+  width: 300px
+
+  p.title
+    padding: 0 0 15px
+
+
+// =====
+// Posts
+// =====
+
+
+div.post
+  margin: 0 0 30px
+
+
+div.post-image
+  float: left
+  margin: 0 $content-margin 5px 0
+
+
+div.meta
+  background-color: #EEE
+  margin: 0 10px
+  padding: 10px
+  @include round-corners(5px, 5px, 5px, 5px)
+  @include enable-ie-css3
+
+  a:hover
+    border-bottom: 2px solid $default-color
+
+
+// ========
+// Comments
+// ========
+
+
+div.avatar
+  float: left
+  margin-right: 20px
+
+  img
+    border: 1px solid #999
+
+
+span.comment-meta
+  clear: both
+  display: block
+
+
+div.new-comment
+  padding: 0 $content-margin
+
+
+ol.comment-list
+  margin: 20px 0
+
+  p
+    padding: $content-margin 0 0
+
+
+// =======
+// Buttons
+// =======
+
+
+button, a.button, input.button
+  background-color: $button-gradient-end-color // graceful degrade for Opera
+  border: 1px solid #AAA
+  cursor: pointer
+  float: left
+  @include linear-gradient($button-gradient-start-color, $button-gradient-end-color)
+  @include round-corners(4px, 4px, 4px, 4px)
+  @include enable-ie-css3
+
+
+button:active, a.button:active, input.button:active
+  @include linear-gradient($button-gradient-end-color, $button-gradient-start-color)
+  @include enable-ie-css3
+
+
+a.button
+  padding: 6px 10px
+
+
+input.button
+  padding: 5px 10px !important
+
+
+button
+  padding: 5px 10px
+
+
+*:first-child + html input[type]
+  padding: 2px 10px 3px
+  // IE7
+
+
+a.google_ico, a.yahoo_ico
+  margin: 0 0 $content-margin 0
+  width: 90%
+
+
+// Self-clearing floats and IE hacks
+
+.selfclear
+  &:after
+    content: "."
+    display: block
+    height: 0
+    clear: both
+    visibility: hidden
+  display: inline-block // IE 7
+  display: block
