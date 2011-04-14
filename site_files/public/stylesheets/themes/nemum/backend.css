@@ -194,11 +194,11 @@ div#sidebar div.block div.content ul.navigation a {
   margin: 15px 0 0;
 }
 /* line 100, ../../../../app/themes/sass/partials/_backend-structure.sass */
-div#sidebar div.block div.content ul.options li {
+div#sidebar div.block div.content ul.bullet-list li {
   margin: 5px 0;
 }
 /* line 103, ../../../../app/themes/sass/partials/_backend-structure.sass */
-div#sidebar div.block div.content ul.options li a {
+div#sidebar div.block div.content ul.bullet-list li a {
   margin: 15px 0 0 15px;
 }
 /* line 106, ../../../../app/themes/sass/partials/_backend-structure.sass */
@@ -564,7 +564,7 @@ div#sidebar div.block ul.navigation li {
 }
 
 /* line 35, ../../../../app/themes/sass/partials/_backend-icons.sass */
-div#sidebar div.block ul.options li {
+div#sidebar div.block ul.bullet-list li {
   background: url("/images/icons/bullet_black.png") no-repeat;
 }
 

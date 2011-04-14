@@ -17,7 +17,7 @@
     <h5><%= t("admin.users.sidebar.groups.title") %></h5>
     <div class="content">
       <p><%= t("admin.users.sidebar.groups.paragraph") %></p>
-      <ul class="list">
+      <ul class="bullet-list">
         <% if params[:group] -%>
           <p><%= link_to I18n::t('admin.users.sidebar.groups.reset'), admin_users_path %></p>
         <% end -%>
@@ -42,7 +42,7 @@
       <% else %>
         <p><%= t("admin.users.sidebar.history.paragraph_no_link", :url => "") %></p>
       <% end %>
-      <ul class="options">
+      <ul class="bullet-list">
         <% history_rows = ( @actual_record || @record ).history_entries_list -%>
         <% if (first_entry = history_rows.shift) -%>
           <li class="<%= 'selected' unless params[:history_entry_id] %>">
