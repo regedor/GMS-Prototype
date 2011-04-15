@@ -47,7 +47,8 @@ class Comment < ActiveRecord::Base
 
   # Delegates
   def author
-    user.nickname_or_first_and_last_name
+    if user
+      user && user.nickname_or_first_and_last_name or I18n::t( "admin.deleted_users.index.deleted_user" )
   end
 
   class << self

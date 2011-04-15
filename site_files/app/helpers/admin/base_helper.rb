@@ -59,11 +59,7 @@ module Admin::BaseHelper
   end
 
   def commenter_column(comment)
-    begin
-      h comment.author 
-    rescue
-      "Deleted User"
-    end
+    h comment.author 
   end
 
   def total_approved_comments_column(commentable)
