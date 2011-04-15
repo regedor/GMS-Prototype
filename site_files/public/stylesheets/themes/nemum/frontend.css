@@ -1,10 +1,13 @@
-/* line 3, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 1, ../../../../app/themes/sass/partials/_textile.sass */
+div.textile-body {
+  font-size: 13px;
+}
+/* line 4, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body a {
   border-bottom: 2px solid #f8da00;
 }
-/* line 6, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 7, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body p {
-  font-size: 13px;
   margin: 0 0 15px;
   text-align: justify;
 }
