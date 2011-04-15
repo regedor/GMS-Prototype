@@ -19,15 +19,15 @@
 
     <div class="content">
       <p><%= t("admin.posts.sidebar.tags.paragraph") %></p>
-      <ul class="list">
+      <ul class="bullet-list">
         <% @tags.each do |tag| %>
         <li id="tag-<%= tag.id %>" class="<%= 'selected' if @tag_ids.include? tag.id.to_s %>">
-          <%= tag.name %>
-          (<%= link_to(
-                 I18n::t("#{i_env}.list.posts." + (tag.taggings_count == 1 ? "one" : "more"), :count => tag.taggings_count),
+          <%= link_to(
+                 tag.name + " (" +
+                 I18n::t("#{i_env}.list.posts." + (tag.taggings_count == 1 ? "one" : "more"), :count => tag.taggings_count) + ")",
                  admin_posts_path(:tag_ids => @tag_ids, :this_tag_id => tag.id)
-               )
-          %>)
+              )
+          %>
           <a class="float-right" href="<%= edit_tag_admin_post_path(tag) %>" onclick='edit_tag_js(<%= tag.id %>, "<%= tag.name %>"); return false;'>
              <%= I18n::t("#{i_env}.list.edit") %>
           </a>
