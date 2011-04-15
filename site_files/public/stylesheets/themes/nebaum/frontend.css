@@ -692,14 +692,16 @@ div#tags a {
 
 /* line 16, ../../../../app/themes/sass/partials/_boxyframe/frontend-icons.sass */
 fieldset.buttons li a.google_ico {
-  background-image: #f5f5f5 url("/images/google.png");
+  background-color: #f5f5f5;
+  background-image: url("/images/google.png");
   background-repeat: no-repeat;
   background-position: 5px 5px;
 }
 
-/* line 22, ../../../../app/themes/sass/partials/_boxyframe/frontend-icons.sass */
+/* line 23, ../../../../app/themes/sass/partials/_boxyframe/frontend-icons.sass */
 fieldset.buttons li a.yahoo_ico {
-  background: #f5f5f5 url("/images/yahoo.png");
+  background-color: #f5f5f5;
+  background-image: url("/images/yahoo.png");
   background-repeat: no-repeat;
   background-position: 5px 5px;
 }
