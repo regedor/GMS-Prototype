@@ -2,8 +2,11 @@ body
   background-color: $backend-background-color
 
 
-h2 a:hover
-  border-bottom: 3px solid $default-color
+h2
+  margin: 0 0 $content-margin
+
+  a:hover
+    border-bottom: 3px solid $default-color
 
 
 h4
@@ -31,7 +34,7 @@ div#main > div.block
 
 
 div.entrybody p
-  margin: 0 0 1.2em
+  margin: 0 0 15px
 
 
 div#main-navigation
@@ -173,6 +176,10 @@ div.meta
     border-bottom: 2px solid $default-color
 
 
+ul.list li
+  margin: $content-margin 0
+
+
 .wat-cf
   &:after
     content: "."
@@ -231,8 +238,12 @@ button
   padding: 5px 10px
 
 
-.buttons li
-  display: block
+ul.buttons
+  display: inline-block
+  margin: $content-margin 0
+
+  a
+    margin: 0 10px 0 0
 
 
 *:first-child + html input[type]

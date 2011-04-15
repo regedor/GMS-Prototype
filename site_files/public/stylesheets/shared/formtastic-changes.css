@@ -38,7 +38,7 @@ form.formtastic input#user_session_openid_identifier { background: url("/images/
 form.formtastic input#user_session_openid_identifier { background-position: 2% 50%; text-indent: 20px; }
 
 textarea,
-form.formtastic fieldset.inputs ol li textarea       { width: 620px; }
+form.formtastic fieldset.inputs ol li textarea       { width: 600px; }
 
 form.formtastic fieldset.inputs ol li input[type=password],
 form.formtastic fieldset.inputs ol li input[type=text] { width: 250px; }
