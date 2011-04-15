@@ -107,7 +107,7 @@ div#main > div.block {
 
 /* line 33, ../../../../app/themes/sass/partials/_backend-structure.sass */
 div.entrybody p {
-  margin: 0 0 1.2em;
+  margin: 0 0 15px;
 }
 
 /* line 39, ../../../../app/themes/sass/partials/_backend-structure.sass */
@@ -358,42 +358,47 @@ button {
 }
 
 /* line 234, ../../../../app/themes/sass/partials/_backend-structure.sass */
-.buttons li {
-  display: block;
+ul.buttons {
+  display: inline-block;
+  margin: 15px 0;
+}
+/* line 238, ../../../../app/themes/sass/partials/_backend-structure.sass */
+ul.buttons a {
+  margin: 0 10px 0 0;
 }
 
-/* line 238, ../../../../app/themes/sass/partials/_backend-structure.sass */
+/* line 242, ../../../../app/themes/sass/partials/_backend-structure.sass */
 *:first-child + html input[type] {
   padding: 2px 10px 3px;
 }
 
-/* line 242, ../../../../app/themes/sass/partials/_backend-structure.sass */
+/* line 246, ../../../../app/themes/sass/partials/_backend-structure.sass */
 a.google_ico, a.yahoo_ico {
   margin: 0 0 15px 0;
   width: 90%;
 }
 
-/* line 251, ../../../../app/themes/sass/partials/_backend-structure.sass */
+/* line 255, ../../../../app/themes/sass/partials/_backend-structure.sass */
 div#main div.block div.block div.content h2.title {
   padding: 0 0 15px;
 }
-/* line 254, ../../../../app/themes/sass/partials/_backend-structure.sass */
+/* line 258, ../../../../app/themes/sass/partials/_backend-structure.sass */
 div#main div.block div.block div.content h3 {
   font-size: 1.1em;
   padding: 0 0 15px;
 }
 
-/* line 258, ../../../../app/themes/sass/partials/_backend-structure.sass */
+/* line 262, ../../../../app/themes/sass/partials/_backend-structure.sass */
 div.active-scaffold tr.record {
   background-color: white;
 }
 
-/* line 264, ../../../../app/themes/sass/partials/_backend-structure.sass */
+/* line 268, ../../../../app/themes/sass/partials/_backend-structure.sass */
 * html .wat-cf {
   height: 1%;
 }
 
-/* line 267, ../../../../app/themes/sass/partials/_backend-structure.sass */
+/* line 271, ../../../../app/themes/sass/partials/_backend-structure.sass */
 .wat-cf {
   display: block;
 }

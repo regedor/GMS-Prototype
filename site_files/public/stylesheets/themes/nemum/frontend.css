@@ -257,40 +257,31 @@ ul.list li {
 }
 
 /* line 157, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
-ul.buttons {
-  margin: 15px 0;
-}
-/* line 160, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
-ul.buttons a {
-  margin: 0 10px 0 0;
-}
-
-/* line 164, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 div#archives {
   float: right;
   margin: 10px;
 }
-/* line 168, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 161, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 div#archives a:hover {
   border-bottom: 3px solid #f8da00;
 }
 
-/* line 177, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 170, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 div#social-buttons {
   margin: 0 10px 5px;
   clear: both;
 }
-/* line 181, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 174, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 div#social-buttons iframe {
   vertical-align: bottom;
 }
-/* line 184, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 177, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 div#social-buttons a span {
   border: 1px solid #5f78ab;
   border-bottom: 1px solid #29447e;
 }
 
-/* line 194, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 187, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 div#announcements {
   border-left: 2px solid #444444;
   border-right: 2px solid #444444;
@@ -298,17 +289,17 @@ div#announcements {
   overflow: hidden;
   position: relative;
 }
-/* line 201, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 194, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 div#announcements a:hover {
   border: none;
 }
 
-/* line 205, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 198, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 div.announcement-tail {
   display: none;
 }
 
-/* line 209, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 202, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 div.announcements-bar {
   background: url("/images/dark_transparency.png");
   cursor: default;
@@ -320,17 +311,17 @@ div.announcements-bar {
   behavior: url("/stylesheets/pie.htc");
 }
 
-/* line 218, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 211, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 div.announcement-block img {
   height: 250px;
   width: 730px;
 }
 
-/* line 223, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 216, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 div.announcement-text {
   background: url("/images/dark_transparency.png");
   bottom: 0;
-  padding: 12px;
+  padding: 14px 12px 12px 14px;
   position: absolute;
   right: 0;
   width: 300px;
@@ -339,78 +330,78 @@ div.announcement-text {
   border-radius: 12px 0 0 0;
   behavior: url("/stylesheets/pie.htc");
 }
-/* line 233, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 226, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 div.announcement-text p.title {
   padding: 0 0 15px;
 }
 
-/* line 243, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 236, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 body#pages_show div#main ul li, body#pages_show div#main ol li {
   list-style-position: inside;
   margin: 15px 30px;
 }
-/* line 246, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 239, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 body#pages_show div#main ul li {
   list-style-type: disc;
 }
-/* line 248, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 241, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 body#pages_show div#main ol li {
   list-style-type: decimal;
 }
 
-/* line 257, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 250, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 div.post {
   margin: 0 0 30px;
 }
 
-/* line 261, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 254, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 div.post-image {
   float: left;
   margin: 0 15px 5px 0;
 }
 
-/* line 266, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 259, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 div.meta {
   background-color: #eeeeee;
   margin: 0 10px;
   padding: 10px;
 }
-/* line 271, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 264, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 div.meta a:hover {
   border-bottom: 2px solid #f8da00;
 }
 
-/* line 280, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 273, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 div.avatar {
   float: left;
   margin-right: 20px;
 }
-/* line 284, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 277, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 div.avatar img {
   border: 1px solid #999999;
 }
 
-/* line 288, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 281, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 span.comment-meta {
   clear: both;
   display: block;
 }
 
-/* line 293, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 286, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 div.new-comment {
   padding: 0 15px;
 }
 
-/* line 297, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 290, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 ol.comment-list {
   margin: 15px;
 }
-/* line 300, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 293, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 ol.comment-list p {
   padding: 15px 0 0 72px;
 }
 
-/* line 309, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 302, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 button, a.button, input.button {
   background-color: #e9e9e9;
   border: 1px solid #aaaaaa;
@@ -426,7 +417,7 @@ button, a.button, input.button {
   behavior: url("/stylesheets/pie.htc");
 }
 
-/* line 319, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 312, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 button:active, a.button:active, input.button:active {
   background: -webkit-gradient(linear, left top, left bottom, from(#e9e9e9), to(#f9f9f9));
   background: -moz-linear-gradient(top, #e9e9e9, #f9f9f9);
@@ -435,19 +426,28 @@ button:active, a.button:active, input.button:active {
   behavior: url("/stylesheets/pie.htc");
 }
 
-/* line 324, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 317, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 a.button {
   padding: 6px 10px;
 }
 
-/* line 328, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 321, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 input.button {
   padding: 5px 10px !important;
 }
 
-/* line 332, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 325, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 button {
   padding: 5px 10px;
+}
+
+/* line 329, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+ul.buttons {
+  margin: 15px 0;
+}
+/* line 332, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+ul.buttons a {
+  margin: 0 10px 0 0;
 }
 
 /* line 336, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
