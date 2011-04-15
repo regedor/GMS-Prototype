@@ -1,16 +1,16 @@
 <h2><%= I18n::t('users.show.session.title') %></h2>
 
-<div id="user-info">
-  <table>
-    <tr><td><b>Name:</b></td><td><%=h @user.name %></td></tr>
-    <tr><td><b>Email:</b></td><td><%=h @user.email %></td></tr>
-    <tr><td><b>Login count:</b><td><%=h @user.login_count %></td></tr>
-    <tr><td><b>Last request at:</b></td><td><%=h @user.last_request_at %></td></tr>
-    <tr><td><b>Last login at:</b></td><td><%=h @user.last_login_at %></td></tr>
-    <tr><td><b>Current login at:</b></td><td><%=h @user.current_login_at %></td></tr>
-    <tr><td><b>Last login IP:</b></td><td><%=h @user.last_login_ip %></td></tr>
-    <tr><td><b>Current login IP:</b></td><td><%=h @user.current_login_ip %></td></tr>
-  </table>
+<div class="entrybody">
+  <ul class="list">
+    <li><b>Name:</b> <%=h @user.name %></li>
+    <li><b>Email:</b> <%=h @user.email %></li>
+    <li><b>Login count:</b> <%=h @user.login_count %></li>
+    <li><b>Last request at:</b> <%=h @user.last_request_at %></li>
+    <li><b>Last login at:</b> <%=h @user.last_login_at %></li>
+    <li><b>Current login at:</b> <%=h @user.current_login_at %></li>
+    <li><b>Last login IP:</b> <%=h @user.last_login_ip %></li>
+    <li><b>Current login IP:</b> <%=h @user.current_login_ip %></li>
+  </ul>
 </div>
 
 <h2><%= t('users.show.invite.title') %></h2>
@@ -18,6 +18,9 @@
   <p>Enter the emails, separated by comma:</p>
   <% form_tag :controller => :session, :action => :send_invitations do  %>
     <%= text_area 'invitation', 'emails', :rows => 12 %>
-    <p><%= submit_tag 'Send invitations' %></p>
+
+    <ul class="buttons">
+      <li class="commit"><%= submit_tag 'Send invitations', :class => 'button positive' %></li>
+    </ul>
   <% end %>
 </div>
