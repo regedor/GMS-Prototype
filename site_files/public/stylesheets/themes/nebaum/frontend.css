@@ -673,7 +673,7 @@ button, a.button, input.button {
   color: #2e2e2e;
   font-size: 12px !important;
   font-weight: bold !important;
-  text-align: center !important;
+  text-align: center;
 }
 
 /* line 179, ../../../../app/themes/sass/partials/_boxyframe/frontend-typography.sass */
