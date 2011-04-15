@@ -31,8 +31,8 @@ div#account-info
   border: 2px solid #111
   margin: 50px auto 0
   height: 20px
-  padding: 5px $content-margin 2px
-  width: 950px
+  padding: 5px 10px 2px $content-margin
+  width: 955px
 
   span.options
     float: right
@@ -94,7 +94,7 @@ div#logo
   top: 20px
   width: 270px
   -webkit-background-clip: padding-box // Fixes bleeding background in WebKit browsers
-  @include round-corners(0, 15px, 15px, 0)
+  @include round-corners(0, 12px, 12px, 0)
   @include enable-ie-css3
 
 
@@ -171,6 +171,17 @@ div#flash
     background: url("/stylesheets/themes/nebaum/images/flash/notice.png") no-repeat 0 50%
 
 
+ul.list li
+  margin: $content-margin 0
+
+
+ul.buttons
+  margin: $content-margin 0
+
+  a
+    margin: 0 10px 0 0
+
+
 div#archives
   float: right
   margin: 10px
@@ -217,9 +228,11 @@ div.announcement-tail
 div.announcements-bar
   background: url("/images/dark_transparency.png")
   cursor: default
-  padding: 12px
+  padding: 10px 10px 13px 13px
   position: absolute
   right: 0
+  @include round-corners(0, 0, 0, 12px)
+  @include enable-ie-css3
 
 
 div.announcement-block img
@@ -230,10 +243,12 @@ div.announcement-block img
 div.announcement-text
   background: url("/images/dark_transparency.png")
   bottom: 0
-  padding: 14px
+  padding: 12px
   position: absolute
   right: 0
   width: 300px
+  @include round-corners(12px, 0, 0, 0)
+  @include enable-ie-css3
 
   p.title
     padding: 0 0 15px

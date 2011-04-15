@@ -3,12 +3,12 @@ Syntax error: Undefined variable: "$path-to-icons".
         on line 2 of /home/golden/Desktop/Empresa/GroupBuddies/Projects/Regedor-Scaffold/site_files/app/themes/sass/partials/_pills/frontend-icons.sass
 
 1: .male
-2:   background: url($path-to-icons+"male.png") no-repeat
-3:   text-indent: 20px
+2:   background: url($path-to-icons+"male.png") 0 50% no-repeat
+3:   padding: 0 0 0 20px
 4: 
 5: 
 6: .female
-7:   background: url($path-to-icons+"female.png") no-repeat
+7:   background: url($path-to-icons+"female.png") 0 50% no-repeat
 
 Backtrace:
 /home/golden/Desktop/Empresa/GroupBuddies/Projects/Regedor-Scaffold/site_files/app/themes/sass/partials/_pills/frontend-icons.sass:2
@@ -19,6 +19,10 @@ Backtrace:
 /usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/script/funcall.rb:64:in `_perform'
 /usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/script/funcall.rb:64:in `map'
 /usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/script/funcall.rb:64:in `_perform'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/script/node.rb:61:in `perform'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/script/operation.rb:66:in `_perform'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/script/node.rb:61:in `perform'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/script/operation.rb:66:in `_perform'
 /usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/script/node.rb:61:in `perform'
 /usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/script/operation.rb:66:in `_perform'
 /usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/script/node.rb:61:in `perform'
@@ -86,4 +90,4 @@ script/server:3
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$path-to-icons\".\A         on line 2 of /home/golden/Desktop/Empresa/GroupBuddies/Projects/Regedor-Scaffold/site_files/app/themes/sass/partials/_pills/frontend-icons.sass\A \A 1: .male\A 2:   background: url($path-to-icons+\"male.png\") no-repeat\A 3:   text-indent: 20px\A 4: \A 5: \A 6: .female\A 7:   background: url($path-to-icons+\"female.png\") no-repeat"; }
+  content: "Syntax error: Undefined variable: \"$path-to-icons\".\A         on line 2 of /home/golden/Desktop/Empresa/GroupBuddies/Projects/Regedor-Scaffold/site_files/app/themes/sass/partials/_pills/frontend-icons.sass\A \A 1: .male\A 2:   background: url($path-to-icons+\"male.png\") 0 50% no-repeat\A 3:   padding: 0 0 0 20px\A 4: \A 5: \A 6: .female\A 7:   background: url($path-to-icons+\"female.png\") 0 50% no-repeat"; }
