@@ -670,14 +670,14 @@ button.negative:hover, a.negative:hover, input.negative:hover {
 
 /* line 1, ../../../../app/themes/sass/partials/_redsign/frontend-icons.sass */
 .male {
-  background: url("/images/icons/male.png") no-repeat;
-  text-indent: 20px;
+  background: url("/images/icons/male.png") 0 50% no-repeat;
+  padding: 0 0 0 20px;
 }
 
 /* line 6, ../../../../app/themes/sass/partials/_redsign/frontend-icons.sass */
 .female {
-  background: url("/images/icons/female.png") no-repeat;
-  text-indent: 20px;
+  background: url("/images/icons/female.png") 0 50% no-repeat;
+  padding: 0 0 0 20px;
 }
 
 /* line 11, ../../../../app/themes/sass/partials/_redsign/frontend-icons.sass */
@@ -688,10 +688,14 @@ div#tags a {
 
 /* line 16, ../../../../app/themes/sass/partials/_redsign/frontend-icons.sass */
 fieldset.buttons li a.google_ico {
-  background: #f5f5f5 url("/images/google.png") no-repeat 5px 5px !important;
+  background-image: #f5f5f5 url("/images/google.png");
+  background-repeat: no-repeat;
+  background-position: 5px 5px;
 }
 
-/* line 20, ../../../../app/themes/sass/partials/_redsign/frontend-icons.sass */
+/* line 22, ../../../../app/themes/sass/partials/_redsign/frontend-icons.sass */
 fieldset.buttons li a.yahoo_ico {
-  background: #f5f5f5 url("/images/yahoo.png") no-repeat 5px 5px !important;
+  background: #f5f5f5 url("/images/yahoo.png");
+  background-repeat: no-repeat;
+  background-position: 5px 5px;
 }
