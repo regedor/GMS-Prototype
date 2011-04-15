@@ -1,0 +1,34 @@
+<div class="content">
+  <h2><%= I18n::t('admin.announcements.index.title') + ' - ' + @record.title %></h2>
+  <div class="content">
+    <ul class="list">
+      <li><b><%= t("admin.announcements.columns.title") %>:</b> <%= @record.title %></li>
+
+      <% if @record.starts_at %>
+        <li><b><%= t("admin.announcements.columns.starts_at") %>:</b> <%= @record.starts_at %></li>
+      <% end %>
+
+      <% if @record.ends_at %>
+        <li><b><%= t("admin.announcements.columns.ends_at") %>:</b> <%= @record.ends_at %></li>
+      <% end %>
+
+      <% if @record.url %>
+        <li><b><%= t("admin.announcements.columns.url") %>:</b> <%= link_to(@record.url, @record.url) %></li>
+      <% end %>
+
+      <% unless @record.avatar.path.nil? %>
+        <li><b><%= t("admin.announcements.columns.avatar") %>:</b> <img src="<%= @record.avatar.url(:announcement) %>" alt="" /></li>
+      <% end %>
+
+      <% unless @record.message.blank? %>
+        <li><b><%= t("admin.announcements.columns.message") %>:</b> <%= @record.message %></li>
+      <% end %>
+    </ul>
+
+    <ul class="buttons">
+      <li class="commit">
+        <%= link_to t("admin.announcements.index.close_button"), admin_announcements_path, :class => 'button negative' %>
+      </li>
+    </ul>
+  </div>
+</div>
