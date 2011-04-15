@@ -29,7 +29,7 @@ class Admin::MessagesController < Admin::BaseController
 
   def show
     @message = Message.find(params[:id])
-    @comments = @messages.messages_comments
+    @comments = @message.messages_comments
     @creator = @message.user if @message.user
   end
 
