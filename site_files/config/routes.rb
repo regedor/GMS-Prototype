@@ -68,6 +68,7 @@ ActionController::Routing::Routes.draw do |map|
                                      :has_many        => :comments,
                                      :new             => { :preview => :post },
                                      :collection      => { :list_action => :post, :preview => :post }
+    #solinho hack
     admin.resources :comments,       :active_scaffold => true, :active_scaffold_sortable => true,
                                      :member          => { :mark_as_spam => :put, :mark_as_ham => :put }
     admin.resources :history_entries
