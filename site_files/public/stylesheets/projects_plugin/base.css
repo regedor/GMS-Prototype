@@ -59,7 +59,7 @@ div.todo_list                                               { padding: 0 10px 20
 div.todo_list div.description p                             { margin: 0 0 15px; }
 
 div.todo_list div.todos ul.not_done                         { min-height: 15px; }
-div.todo_list div.todos ul li.todo span.todo_info           { background: #EEE; padding: 2px; margin: 0 0 0 4px; }
+div.todo_list div.todos ul li.todo span.todo_info           { background: #EEE; padding: 2px 2px 2px 6px; margin: 0 0 0 4px; }
 div.todo_list div.todos ul li.todo span.todo_info           { -moz-border-radius: 6px; -webkit-border-radius: 6px; border-radius: 6px; }
 div.todo_list div.todos ul li.todo span.todo_edit           { margin: 0 0 0 15px; }
 div.todo_list div.todos ul li.todo span.todo_comments       { margin: 0 0 0 4px; }
