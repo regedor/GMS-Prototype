@@ -1,0 +1,139 @@
+<div class="content">
+  <% unless @record.name.blank? %>
+    <h2><%= @record.name %></h2>
+  <% end %>
+  <div class="content">
+    <dl class="list">
+      <div id="avatar"><%= image_tag avatar_url(@record) %></div>
+
+      <% unless @record.name.blank? %>
+        <dt><%= t("admin.users.view.name") %></dt>
+        <dd><%= @record.name %></dd> 
+      <% end %>
+
+      <% if @record.nickname %> 
+        <dt><%= t("admin.users.view.nickname") %></dt> 
+        <dd><%= @record.nickname %></dd> 
+      <% end %>
+
+      <% if @record.email %>
+        <dt><%= t("admin.users.view.email") %></dt>
+        <dd><%= @record.email %></dd>
+      <% end %>
+
+      <dt><%= t("admin.users.view.emails") %></dt>
+      <% if @record.emails? %>
+        <dd class="tick">
+      <% else %>
+        <dd class="cross">
+      <% end %>
+          <%= @record.emails? %>
+        </dd>
+
+      <dt><%= t("admin.users.view.gender") %></dt>
+      <% if @record.gender %>
+        <dd class="male">(<%= t("generic_sentence.male_value") %>)</dd>
+      <% else %>
+        <dd class="female">(<%= t("generic_sentence.female_value") %>)</dd>
+      <% end %>
+
+      <% if @record.profile %>
+        <dt><%= t("admin.users.view.profile") %></dt>
+        <dd><%= @record.profile %></dd>
+      <% end %>
+
+      <% if @record.website %>
+        <dt><%= t("admin.users.view.website") %></dt>
+        <dd><a href="<%= @record.website %>" target="_blank"><%= @record.website %></a></dd>
+      <% end %>
+
+      <% unless @record.country.blank? %>
+        <dt><%= t("admin.users.view.country") %></dt>
+        <dd><%= image_tag("flags/"+@record.country.downcase+".png", :alt => @record.country) %> <%= I18n::t("countries."+@record.country) %></dd>
+      <% end %>
+
+      <% if @record.phone %>
+        <dt><%= t("admin.users.view.phone") %></dt>
+        <dd><%= @record.phone %></dd>
+      <% end %>
+
+      <% if @record.language %>
+        <dt><%= t("admin.users.view.language") %></dt>
+        <dd><%= @record.language %></dd> 
+      <% end %>
+
+      <% if @record.groups.count > 0 %>
+        <dt><%= t("admin.users.view.groups") %></dt>
+        <dd><%= @record.list_groups %></dd>
+      <% end %>
+
+      <% if @record.role %>
+        <dt><%= t("admin.users.view.role") %></dt>
+        <dd><%= @record.role.label %></dd>
+      <% end %>
+
+      <% if @record.created_at %>
+        <dt><%= t("admin.users.view.created_at") %></dt>
+        <dd><%= t('generic_sentence.time_ago', :time_ago => render_date(@record.created_at)) %></dd>
+      <% end %>
+
+      <% if @record.last_login_at %>
+        <dt><%= t("admin.users.view.last_login_at") %></dt>
+        <dd><%= t('generic_sentence.time_ago', :time_ago => render_date(@record.last_login_at)) %></dd>
+      <% end %>
+
+      <% if @record.current_login_at %>
+        <dt><%= t("admin.users.view.current_login_at") %></dt>
+        <dd><%= t('generic_sentence.time_ago', :time_ago => render_date(@record.current_login_at)) %></dd>
+      <% end %>
+
+      <% if @record.login_count     %>
+        <dt><%= t("admin.users.view.login_count") %></dt>
+        <dd><%= @record.login_count  %></dd>
+      <% end %>
+
+      <% if @record.failed_login_count %>
+        <dt><%= t("admin.users.view.failed_login_count") %></dt>
+        <dd><%= @record.failed_login_count %></dd>
+      <% end %>
+
+      <% if @record.last_login_ip %>
+        <dt><%= t("admin.users.view.last_login_ip") %></dt>
+        <dd><%= @record.last_login_ip  %></dd>
+      <% end %>
+
+      <% if @record.current_login_ip %>
+        <dt><%= t("admin.users.view.current_login_ip") %></dt>
+        <dd><%= @record.current_login_ip %></dd>
+      <% end %>
+  
+      <% if @record.openid_identifier %>
+        <dt><%= t("admin.users.view.openid_identifier") %></dt>
+        <dd><%= @record.openid_identifier %></dd>
+      <% end %>
+
+      <dt><%= t("admin.users.view.active") %></dt>
+      <% if @record.active %>
+        <dd><p class="tick">
+      <% else %>
+        <dd><p class="cross">
+      <% end %>
+          <%= @record.active %>
+        </p></dd>
+
+      <% if @record.last_request_at %>
+        <dt><%= t("admin.users.view.last_request_at") %></dt>
+        <dd><%= @record.last_request_at %></dd>
+      <% end %>
+
+      <% if @record.current_login_at %>
+        <dt><%= t("admin.users.view.current_login_at") %></dt>
+        <dd><%= @record.current_login_at %></dd>
+      <% end %>
+    </dl>
+
+    <ul class="buttons">
+      <li><%= link_to t("admin.users.view.cancel"), admin_users_path, :class => 'button negative' %></li>
+    </ul>
+  </div>
+</div>
