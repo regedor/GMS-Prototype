@@ -47,20 +47,26 @@ div.textile-body cite, div.textile-body em {
   font-style: italic;
 }
 /* line 40, ../../../../app/themes/sass/partials/_textile.sass */
+div.textile-body blockquote {
+  margin: 30px;
+  color: #777777;
+  font-style: italic;
+}
+/* line 45, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body ul {
   list-style-type: disc;
   list-style-position: inside;
 }
-/* line 44, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 49, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body ol {
   list-style-type: decimal;
   list-style-position: inside;
 }
-/* line 48, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 53, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body li {
   margin: 10px 30px;
 }
-/* line 51, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 56, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body pre, div.textile-body code, div.textile-body tt {
   font-family: "lucida console", Monospace;
 }
@@ -399,11 +405,11 @@ div.new-comment {
 }
 
 /* line 297, ../../../../app/themes/sass/partials/_boxyframe/frontend-structure.sass */
-ol.comment-list {
+ol#comment-list {
   margin: 20px 0;
 }
 /* line 300, ../../../../app/themes/sass/partials/_boxyframe/frontend-structure.sass */
-ol.comment-list p {
+ol#comment-list p {
   padding: 15px 0 0 72px;
 }
 

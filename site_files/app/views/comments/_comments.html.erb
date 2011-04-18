@@ -1,5 +1,5 @@
 <div class="entrybody">
-  <ol class="comment-list">
+  <ol id="comment-list">
     <% commentable.approved_comments.each do |_comment| -%>
     <li<%=raw cycle(' class="alt"', '') %> id="comment-<%= _comment.id %>">
       <%= render :partial => 'comments/comment', :locals => {:comment => _comment} %>
@@ -17,12 +17,9 @@
       <div class="new-comment">
         <%= form.hidden_field 'type', :value => commentable.class %>
         <%= form.text_area 'body' %>
-        <fieldset class="buttons">
-          <ol>
-            <li class="commit">
-              <%= submit_tag I18n::t('comments.submit'), :class => 'button positive' %>
-            </li>
-          </ol>
+        <ul class="buttons">
+          <li><%= submit_tag I18n::t('comments.submit'), :class => 'button positive' %></li>
+        </ul>
       </div>
     <% end -%>
   </div>
