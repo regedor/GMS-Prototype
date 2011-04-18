@@ -1023,11 +1023,6 @@ en:
       new: "A To-Do with the description \"%{todo}\", on To-Do List %{list} has been assigned to you by %{user}"
       update: "There has been an update on the To-Do with the description \"%{todo}\", on To-Do List %{list}, made by %{user}"
       
-    invitation:
-      subject: "You have been invited"
-      body:
-        header: "The user '%{name}' wants you to join Regedor! Follow the link and create an account!"
-        footer: "If the above URL does not work try copying and pasting it into your browser. If you continue to have problem, please feel free to contact us."
     activation_instructions:
       subject: "Activation Instructions"
       body:
