@@ -282,31 +282,52 @@ ul.list li {
 }
 
 /* line 177, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
+dl.list {
+  display: inline-block;
+}
+/* line 180, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
+dl.list dd {
+  float: left;
+  padding: 1px 0;
+  margin: 5px;
+}
+/* line 185, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
+dl.list dt {
+  clear: left;
+  color: #555555;
+  float: left;
+  font-weight: bold;
+  padding: 0;
+  margin: 5px;
+  width: 150px;
+}
+
+/* line 195, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 div#archives {
   float: right;
   margin: 10px;
 }
-/* line 181, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
+/* line 199, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 div#archives a:hover {
   border-bottom: 3px solid #cc0000;
 }
 
-/* line 190, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
+/* line 208, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 div#social-buttons {
   margin: 0 10px 5px;
   clear: both;
 }
-/* line 194, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
+/* line 212, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 div#social-buttons iframe {
   vertical-align: bottom;
 }
-/* line 197, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
+/* line 215, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 div#social-buttons a span {
   border: 1px solid #5f78ab;
   border-bottom: 1px solid #29447e;
 }
 
-/* line 207, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
+/* line 225, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 div#announcements {
   overflow: hidden;
   position: relative;
@@ -314,17 +335,17 @@ div#announcements {
   top: 20px;
   width: 730px;
 }
-/* line 214, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
+/* line 232, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 div#announcements a:hover {
   border: none;
 }
 
-/* line 218, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
+/* line 236, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 div.announcement-tail {
   display: none;
 }
 
-/* line 222, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
+/* line 240, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 div.announcements-bar {
   background: url("/images/dark_transparency.png");
   cursor: default;
@@ -333,13 +354,13 @@ div.announcements-bar {
   right: 0;
 }
 
-/* line 230, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
+/* line 248, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 div.announcement-block img {
   height: 250px;
   width: 730px;
 }
 
-/* line 235, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
+/* line 253, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 div.announcement-text {
   background: url("/images/dark_transparency.png");
   bottom: 0;
@@ -348,23 +369,23 @@ div.announcement-text {
   right: 0;
   width: 300px;
 }
-/* line 243, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
+/* line 261, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 div.announcement-text p.title {
   padding: 0 0 15px;
 }
 
-/* line 252, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
+/* line 270, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 div.post {
   margin: 0 0 30px;
 }
 
-/* line 256, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
+/* line 274, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 div.post-image {
   float: left;
   margin: 0 15px 5px 0;
 }
 
-/* line 261, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
+/* line 279, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 div.meta {
   background-color: #eeeeee;
   margin: 0 10px;
@@ -374,42 +395,42 @@ div.meta {
   border-radius: 5px 5px 5px 5px;
   behavior: url("/stylesheets/pie.htc");
 }
-/* line 268, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
+/* line 286, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 div.meta a:hover {
   border-bottom: 2px solid #cc0000;
 }
 
-/* line 277, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
+/* line 295, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 div.avatar {
   float: left;
   margin-right: 20px;
 }
-/* line 281, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
+/* line 299, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 div.avatar img {
   border: 1px solid #999999;
 }
 
-/* line 285, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
+/* line 303, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 span.comment-meta {
   clear: both;
   display: block;
 }
 
-/* line 290, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
+/* line 308, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 div.new-comment {
   padding: 0 15px;
 }
 
-/* line 294, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
+/* line 312, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 ol#comment-list {
   margin: 20px 0;
 }
-/* line 297, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
+/* line 315, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 ol#comment-list p {
   padding: 15px 0 0 72px;
 }
 
-/* line 306, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
+/* line 324, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 button, a.button, input.button {
   background-color: #e9e9e9;
   border: 1px solid #aaaaaa;
@@ -425,7 +446,7 @@ button, a.button, input.button {
   behavior: url("/stylesheets/pie.htc");
 }
 
-/* line 316, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
+/* line 334, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 button:active, a.button:active, input.button:active {
   background: -webkit-gradient(linear, left top, left bottom, from(#e9e9e9), to(#f9f9f9));
   background: -moz-linear-gradient(top, #e9e9e9, #f9f9f9);
@@ -434,47 +455,47 @@ button:active, a.button:active, input.button:active {
   behavior: url("/stylesheets/pie.htc");
 }
 
-/* line 321, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
+/* line 339, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 a.button {
   padding: 6px 10px;
 }
 
-/* line 325, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
+/* line 343, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 input.button {
   padding: 5px 10px !important;
 }
 
-/* line 329, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
+/* line 347, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 button {
   padding: 5px 10px;
 }
 
-/* line 333, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
+/* line 351, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 ul.buttons {
   margin: 15px 0;
 }
-/* line 336, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
+/* line 354, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 ul.buttons a {
   margin: 0 10px 0 0;
 }
 
-/* line 340, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
+/* line 358, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 *:first-child + html input[type] {
   padding: 2px 10px 3px;
 }
 
-/* line 345, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
+/* line 363, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 a.google_ico, a.yahoo_ico {
   margin: 0 0 15px 0;
   width: 90%;
 }
 
-/* line 352, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
+/* line 370, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 .selfclear {
   display: inline-block;
   display: block;
 }
-/* line 353, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
+/* line 371, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 .selfclear:after {
   content: ".";
   display: block;
@@ -649,12 +670,12 @@ div#footer a {
 }
 
 /* line 143, ../../../../app/themes/sass/partials/_redsign/frontend-typography.sass */
-ol.comment-list a.author {
+ol#comment-list a.author {
   font-weight: bold;
 }
 
 /* line 146, ../../../../app/themes/sass/partials/_redsign/frontend-typography.sass */
-ol.comment-list span.comment-meta {
+ol#comment-list span.comment-meta {
   text-align: right;
 }
 

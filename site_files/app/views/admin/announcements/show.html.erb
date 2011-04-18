@@ -1,34 +1,39 @@
 <div class="content">
   <h2><%= I18n::t('admin.announcements.index.title') + ' - ' + @record.title %></h2>
+
   <div class="content">
-    <ul class="list">
-      <li><b><%= t("admin.announcements.columns.title") %>:</b> <%= @record.title %></li>
+    <dl class="list">
+      <dt><%= t("admin.announcements.columns.title") %>:</dt>
+      <dd><%= @record.title %></dd>
 
       <% if @record.starts_at %>
-        <li><b><%= t("admin.announcements.columns.starts_at") %>:</b> <%= @record.starts_at %></li>
+        <dt><%= t("admin.announcements.columns.starts_at") %>:</dt>
+        <dd><%= @record.starts_at %></dd>
       <% end %>
 
       <% if @record.ends_at %>
-        <li><b><%= t("admin.announcements.columns.ends_at") %>:</b> <%= @record.ends_at %></li>
+        <dt><%= t("admin.announcements.columns.ends_at") %>:</dt>
+        <dd><%= @record.ends_at %></dd>
       <% end %>
 
       <% if @record.url %>
-        <li><b><%= t("admin.announcements.columns.url") %>:</b> <%= link_to(@record.url, @record.url) %></li>
+        <dt><%= t("admin.announcements.columns.url") %>:</dt>
+        <dd><%= link_to(@record.url, @record.url) %></dd>
       <% end %>
 
       <% unless @record.avatar.path.nil? %>
-        <li><b><%= t("admin.announcements.columns.avatar") %>:</b> <img src="<%= @record.avatar.url(:announcement) %>" alt="" /></li>
+        <dt><%= t("admin.announcements.columns.avatar") %>:</dt>
+        <dd><img src="<%= @record.avatar.url(:announcement) %>" alt="" /></dd>
       <% end %>
 
       <% unless @record.message.blank? %>
-        <li><b><%= t("admin.announcements.columns.message") %>:</b> <%= @record.message %></li>
+        <dt><%= t("admin.announcements.columns.message") %>:</dt>
+        <dd><%= @record.message %></dd>
       <% end %>
-    </ul>
+    </dl>
 
     <ul class="buttons">
-      <li class="commit">
-        <%= link_to t("admin.announcements.index.close_button"), admin_announcements_path, :class => 'button negative' %>
-      </li>
+      <li><%= link_to t("admin.announcements.index.close_button"), admin_announcements_path, :class => 'button negative' %></li>
     </ul>
   </div>
 </div>

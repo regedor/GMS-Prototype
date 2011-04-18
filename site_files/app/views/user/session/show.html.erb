@@ -1,14 +1,29 @@
 <h2><%= I18n::t('users.show.session.title') %></h2>
 
 <div class="entrybody">
-  <ul class="list">
-    <li><b>Name:</b> <%=h @user.name %></li>
-    <li><b>Email:</b> <%=h @user.email %></li>
-    <li><b>Login count:</b> <%=h @user.login_count %></li>
-    <li><b>Last request at:</b> <%=h @user.last_request_at %></li>
-    <li><b>Last login at:</b> <%=h @user.last_login_at %></li>
-    <li><b>Current login at:</b> <%=h @user.current_login_at %></li>
-    <li><b>Last login IP:</b> <%=h @user.last_login_ip %></li>
-    <li><b>Current login IP:</b> <%=h @user.current_login_ip %></li>
-  </ul>
+  <dl class="list">
+    <dt>Name:</dt>
+    <dd><%= h @user.name %></dd>
+
+    <dt>Email:</dt>
+    <dd><%= h @user.email %></dd>
+
+    <dt>Login count:</dt>
+    <dd><%= h @user.login_count %></dd>
+
+    <dt>Last request at:</dt>
+    <dd><%= h @user.last_request_at %></dd>
+
+    <dt>Last login at:</dt>
+    <dd><%= h @user.last_login_at %></dd>
+
+    <dt>Current login at:</dt>
+    <dd><%= h @user.current_login_at %></dd>
+
+    <dt>Last login IP:</dt>
+    <dd><%= h @user.last_login_ip %></dd>
+
+    <dt>Current login IP:</dt>
+    <dd><%= h @user.current_login_ip %></dd>
+  </dl>
 </div>

@@ -1,107 +1,77 @@
 <h2><%= I18n::t('users.show.title') %></h2>
+
 <div class="entrybody">
-  <ul class="list">
+  <dl class="list">
     <% if @user.email %>
-      <li>
-        <b><%= t("activerecord.attributes.user.email", :default => t("activerecord.labels.email", :default => "Email")) %>:</b>
-        <%= @user.email %>
-      </li>
+      <dt><%= t("activerecord.attributes.user.email", :default => t("activerecord.labels.email", :default => "Email")) %>:</dt>
+      <dd><%= @user.email %></dd>
     <% end %>
 
     <% unless @user.nickname.blank? %>
-      <li>
-        <b><%= t("activerecord.attributes.user.nickname", :default => t("activerecord.labels.nickname", :default => "Nickname")) %>:</b>
-        <%= @user.nickname %>
-      </li>
+      <dt><%= t("activerecord.attributes.user.nickname", :default => t("activerecord.labels.nickname", :default => "Nickname")) %>:</dt>
+      <dd><%= @user.nickname %></dd>
     <% end %>
 
     <% unless @user.name.blank? %>
-      <li>
-        <b><%= t("activerecord.attributes.user.name", :default => t("activerecord.labels.name", :default => "Name")) %>:</b>
-        <%= @user.name %>
-      </li>
+      <dt><%= t("activerecord.attributes.user.name", :default => t("activerecord.labels.name", :default => "Name")) %>:</dt>
+      <dd><%= @user.name %></dd>
     <% end %>
 
     <% unless @user.profile.blank? %>
-      <li>
-        <b><%= t("activerecord.attributes.user.profile", :default => t("activerecord.labels.profile", :default => "Profile")) %>:</b>
-        <%= @user.profile %>
-      </li>
+      <dt><%= t("activerecord.attributes.user.profile", :default => t("activerecord.labels.profile", :default => "Profile")) %>:</dt>
+      <dd><%= @user.profile %></dd>
     <% end %>
 
     <% if @user.language %>
-      <li>
-        <b><%= t("activerecord.attributes.user.language", :default => t("activerecord.labels.language", :default => "Language")) %>:</b>
-        <%= @user.language %>
-      </li>
+      <dt><%= t("activerecord.attributes.user.language", :default => t("activerecord.labels.language", :default => "Language")) %>:</dt>
+      <dd><%= @user.language %></dd>
     <% end %>
 
     <% if @user.emails %>
-      <li>
-        <b><%= t("activerecord.attributes.user.emails", :default => t("activerecord.labels.emails", :default => "Receive emails")) %>:</b>
-        <%= @user.emails %>
-      </li>
+      <dt><%= t("activerecord.attributes.user.emails", :default => t("activerecord.labels.emails", :default => "Receive emails")) %>:</dt>
+      <dd><%= @user.emails %></dd>
     <% end %>
 
     <% if false #@user.country %>
-      <li>
-        <b><%= t("activerecord.attributes.user.country", :default => t("activerecord.labels.country", :default => "Country")) %>:</b>
-        <%= image_tag("flags/"+@user.country.downcase+".png", :alt => @user.country) %> <%= I18n::t("countries."+@user.country) %>
-      </li>
+      <dt><%= t("activerecord.attributes.user.country", :default => t("activerecord.labels.country", :default => "Country")) %>:</dt>
+      <dd><%= image_tag("flags/"+@user.country.downcase+".png", :alt => @user.country) %> <%= I18n::t("countries."+@user.country) %></dd>
     <% end %>
 
     <% if @user.role %>
-      <li>
-        <b><%= t("activerecord.attributes.user.role", :default => t("activerecord.labels.role", :default => "Role")) %>:</b>
-        <%= @user.role.label %>
-      </li>
+      <dt><%= t("activerecord.attributes.user.role", :default => t("activerecord.labels.role", :default => "Role")) %>:</dt>
+      <dd><%= @user.role.label %></dd>
     <% end %>
 
-    <li>
-      <b><%= t("activerecord.attributes.user.gender", :default => t("activerecord.labels.gender", :default => "Female")) %>:</b>
-      <% if @user.gender %>
-        <span class="male">   <%= t("generic_sentence.male_value")   %> </span>
-      <% else %>
-        <span class="female">   <%= t("generic_sentence.female_value")   %> </span>
-      <% end %>
-    </li>
+    <dt><%= t("activerecord.attributes.user.gender", :default => t("activerecord.labels.gender", :default => "Female")) %>:</dt>
+    <% if @user.gender %>
+      <dd><span class="male"><%= t("generic_sentence.male_value") %></span></dd>
+    <% else %>
+      <dd><span class="female"><%= t("generic_sentence.female_value") %></span></dd>
+    <% end %>
 
     <% if @user.phone %>
-      <li>
-        <b><%= t("activerecord.attributes.user.phone", :default => t("activerecord.labels.phone", :default => "Phone")) %>:</b>
-        <%= @user.phone %>
-      </li>
+      <dt><%= t("activerecord.attributes.user.phone", :default => t("activerecord.labels.phone", :default => "Phone")) %>:</dt>
+      <dd><%= @user.phone %></dd>
     <% end %>
 
     <% if @user.last_login_at %>
-      <li>
-        <b><%= t("activerecord.attributes.user.last_login_at", :default => t("activerecord.labels.last_login_at", :default => "Last login at")) %>:</b>
-        <%= render_date(@user.last_login_at) %>
-      </li>
+      <dt><%= t("activerecord.attributes.user.last_login_at", :default => t("activerecord.labels.last_login_at", :default => "Last login at")) %>:</dt>
+      <dd><%= render_date(@user.last_login_at) %></dd>
     <% end %>
 
     <% if @user.current_login_ip %>
-      <li>
-        <b><%= t("activerecord.attributes.user.current_login_ip", :default => t("activerecord.labels.current_login_ip", :default => "Current login ip")) %>:</b>
-        <%= @user.current_login_ip %>
-      </li>
+      <dt><%= t("activerecord.attributes.user.current_login_ip", :default => t("activerecord.labels.current_login_ip", :default => "Current login ip")) %>:</dt>
+      <dd><%= @user.current_login_ip %></dd>
     <% end %>
-
 
     <% if @user.last_login_ip %>
-      <li>
-        <b><%= t("activerecord.attributes.user.last_login_ip", :default => t("activerecord.labels.last_login_ip", :default => "Last login ip")) %>:</b>
-        <%= @user.last_login_ip %>
-      </li>
+      <dt><%= t("activerecord.attributes.user.last_login_ip", :default => t("activerecord.labels.last_login_ip", :default => "Last login ip")) %>:</dt>
+      <dd><%= @user.last_login_ip %></dd>
     <% end %>
-  </ul>
+  </dl>
 
   <ul class="buttons">
-    <li class="commit">
-      <%= link_to "#{t("users.show.edit_link")}", edit_user_account_path, :class => "button positive create" %>
-    </li>
-    <li class="commit">
-      <%= link_to "#{t("users.show.session_link")}", user_session_path, :class => "button positive create" %>
-    </li>
+    <li><%= link_to "#{t("users.show.edit_link")}", edit_user_account_path, :class => "button positive create" %></li>
+    <li><%= link_to "#{t("users.show.session_link")}", user_session_path, :class => "button positive create" %></li>
   </ul>
 </div>
