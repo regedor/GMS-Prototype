@@ -46,7 +46,7 @@
     <h5><%= t "admin.posts.sidebar.history.title", :name => @record.title %></h5>
     <div class="content">
       <p><%= t("admin.posts.sidebar.history.paragraph") %></p>
-      <ul class="options">
+      <ul class="bullet-list">
         <% history_rows = ( @actual_record || @record ).history_entries_list -%>
         <% if (first_entry = history_rows.shift) -%>
           <li class="<%= 'selected' unless params[:history_entry_id] %>">
