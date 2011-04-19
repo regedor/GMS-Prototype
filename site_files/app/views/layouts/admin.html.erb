@@ -68,8 +68,7 @@
                               admin_posts_path %>
 
           <%= navigation_menu 'admin.navigation.main.system',
-                              [ 'admin/settings',
-                                'admin/action_entries',
+                              [ 'admin/action_entries',
                                 'admin/users',
                                 'admin/deleted_users',
                                 'admin/groups',
@@ -125,15 +124,11 @@
                                               :i18n_path => 'admin.navigation.secondary.users',
                                               :link_to_path => admin_users_path },
 
-                                              { :controller_paths => [ 'admin/groups',
-                                                                       'admin/user_optional_group_picks' ],
+                                            { :controller_paths => [ 'admin/groups',
+                                                                     'admin/user_optional_group_picks' ],
                                               :i18n_path => 'admin.navigation.secondary.groups',
-                                              :link_to_path => admin_groups_path },
+                                              :link_to_path => admin_groups_path }],
                                               
-                                            { :controller_paths => 'admin/settings',
-                                              :i18n_path => 'admin.navigation.secondary.settings',
-                                              :link_to_path => admin_settings_path }],
-
                                           :specify_first => true %>
 
             <%= secondary_navigation_menu [ { :controller_paths => [ 'admin/events',
