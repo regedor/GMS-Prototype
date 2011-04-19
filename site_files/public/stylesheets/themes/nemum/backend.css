@@ -573,13 +573,13 @@ button.negative:hover, a.negative:hover, input.negative:hover {
 
 /* line 11, ../../../../app/themes/sass/partials/_backend-icons.sass */
 .tick {
-  background: url("/images/icons/tick.png") no-repeat;
+  background: url("/images/icons/tick.png") 0 50% no-repeat;
   text-indent: -6000px;
 }
 
 /* line 16, ../../../../app/themes/sass/partials/_backend-icons.sass */
 .cross {
-  background: url("/images/icons/cross.png") no-repeat;
+  background: url("/images/icons/cross.png") 0 50% no-repeat;
   text-indent: -6000px;
 }
 
