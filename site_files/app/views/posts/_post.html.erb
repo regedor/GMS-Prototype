@@ -1,4 +1,4 @@
-<h2><%= link_to(post.title, post_path(post)) %></h2>
+<h2 class="post-title"><%= link_to(post.title, post_path(post)) %></h2>
 <div class="entrybody">
   <div class="textile-body">
     <%= content_tag :div, image_tag(post.image.url(:image)), :class => 'post-image' if post.image? %>
