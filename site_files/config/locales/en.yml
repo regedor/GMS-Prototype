@@ -886,6 +886,8 @@ en:
         excert: "Excerpt"
         post: "Post"
         body: "Body"
+      form:
+        edit: "Edit Comment"
       list:
         noentries: "No Comments Found"
         found:

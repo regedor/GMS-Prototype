@@ -1,0 +1,16 @@
+<div class="content">
+  <div class="inner">
+    <h2><%= I18n::t('admin.comments.form.edit') +' - '+ @record.author %></h2>
+    <% semantic_form_for :record, @record, 
+                         :url => admin_post_comment_path(params[:post_id],@record), 
+                         :html => { :method => :put, :id => "edit_comment_#{@record.id}" } do |form| -%>
+      <%= render :partial => 'form', :locals => { :form => form } %>
+      <% form.buttons do -%>
+        <%= form.commit_button I18n::t('admin.posts.form.update_button'),
+                               :button_html => { :class => 'button positive' } %>
+        <%= form.button_link   I18n::t('admin.posts.form.cancel_button'), admin_post_comments_path(params[:post_id]),
+                               :button_html => { :class => 'button negative' } %>
+      <% end -%>
+    <% end -%>
+  </div>
+</div>
