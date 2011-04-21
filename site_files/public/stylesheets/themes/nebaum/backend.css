@@ -306,13 +306,13 @@ div#header {
 }
 /* line 152, ../../../../app/themes/sass/partials/_backend-structure.sass */
 div#header h1 {
-  padding: 30px 15px;
+  padding: 25px 15px;
 }
 /* line 155, ../../../../app/themes/sass/partials/_backend-structure.sass */
 div#header h1 a {
   display: block;
   text-indent: -6000px;
-  height: 100px;
+  height: 120px;
   width: 350px;
   background: url("/stylesheets/themes/nemum/images/bg_logo_admin.png") no-repeat;
 }
