@@ -328,21 +328,16 @@ ul.archives-month li a:hover {
 }
 
 /* line 191, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
-div#social-buttons {
+div.social-buttons {
+  float: right;
   margin: 0 10px 5px;
-  clear: both;
 }
 /* line 195, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
-div#social-buttons iframe {
-  vertical-align: bottom;
-}
-/* line 198, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
-div#social-buttons a span {
-  border: 1px solid #5f78ab;
-  border-bottom: 1px solid #29447e;
+div.social-buttons div.addthis_toolbox {
+  display: inline;
 }
 
-/* line 208, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 204, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 div#announcements {
   border-left: 2px solid #444444;
   border-right: 2px solid #444444;
@@ -350,17 +345,17 @@ div#announcements {
   overflow: hidden;
   position: relative;
 }
-/* line 215, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 211, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 div#announcements a:hover {
   border: none;
 }
 
-/* line 219, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 215, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 div.announcement-tail {
   display: none;
 }
 
-/* line 223, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 219, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 div.announcements-bar {
   background: url("/images/dark_transparency.png");
   cursor: default;
@@ -372,13 +367,13 @@ div.announcements-bar {
   behavior: url("/stylesheets/pie.htc");
 }
 
-/* line 232, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 228, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 div.announcement-block img {
   height: 250px;
   width: 730px;
 }
 
-/* line 237, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 233, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 div.announcement-text {
   background: url("/images/dark_transparency.png");
   bottom: 0;
@@ -391,78 +386,79 @@ div.announcement-text {
   border-radius: 12px 0 0 0;
   behavior: url("/stylesheets/pie.htc");
 }
-/* line 247, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 243, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 div.announcement-text p.title {
   padding: 0 0 15px;
 }
 
-/* line 257, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 253, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 body#pages_show div#main ul li, body#pages_show div#main ol li {
   list-style-position: inside;
   margin: 15px 30px;
 }
-/* line 260, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 256, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 body#pages_show div#main ul li {
   list-style-type: disc;
 }
-/* line 262, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 258, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 body#pages_show div#main ol li {
   list-style-type: decimal;
 }
 
-/* line 271, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 267, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 div.post {
   margin: 0 0 30px;
 }
 
-/* line 275, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 271, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 div.post-image {
   float: left;
   margin: 0 15px 5px 0;
 }
 
-/* line 280, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 276, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 div.meta {
+  clear: both;
   background-color: #eeeeee;
   margin: 0 10px;
   padding: 10px;
 }
-/* line 285, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 282, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 div.meta a:hover {
   border-bottom: 2px solid #f8da00;
 }
 
-/* line 294, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 291, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 div.avatar {
   float: left;
   margin-right: 20px;
 }
-/* line 298, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 295, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 div.avatar img {
   border: 1px solid #999999;
 }
 
-/* line 302, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 299, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 span.comment-meta {
   clear: both;
   display: block;
 }
 
-/* line 307, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 304, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 div.new-comment {
   padding: 0 15px;
 }
 
-/* line 311, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 308, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 ol#comment-list {
   margin: 15px;
 }
-/* line 314, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 311, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 ol#comment-list p {
   padding: 15px 0 0 72px;
 }
 
-/* line 323, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 320, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 button, a.button, input.button {
   background-color: #e9e9e9;
   border: 1px solid #aaaaaa;
@@ -481,7 +477,7 @@ button, a.button, input.button {
   behavior: url("/stylesheets/pie.htc");
 }
 
-/* line 333, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 330, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 button:active, a.button:active, input.button:active {
   background: -webkit-gradient(linear, left top, left bottom, from(#e9e9e9), to(#f9f9f9));
   background: -webkit-linear-gradient(#e9e9e9, #f9f9f9);
@@ -493,47 +489,47 @@ button:active, a.button:active, input.button:active {
   behavior: url("/stylesheets/pie.htc");
 }
 
-/* line 338, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 335, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 a.button {
   padding: 6px 10px;
 }
 
-/* line 342, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 339, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 input.button {
   padding: 5px 10px !important;
 }
 
-/* line 346, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 343, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 button {
   padding: 5px 10px;
 }
 
-/* line 350, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 347, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 ul.buttons {
   margin: 15px 0;
 }
-/* line 353, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 350, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 ul.buttons a {
   margin: 0 10px 0 0;
 }
 
-/* line 357, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 354, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 *:first-child + html input[type] {
   padding: 2px 10px 3px;
 }
 
-/* line 362, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 359, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 a.google_ico, a.yahoo_ico {
   margin: 0 0 15px 0;
   width: 90%;
 }
 
-/* line 369, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 366, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 .selfclear {
   display: inline-block;
   display: block;
 }
-/* line 370, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
+/* line 367, ../../../../app/themes/sass/partials/_pills/frontend-structure.sass */
 .selfclear:after {
   content: ".";
   display: block;
