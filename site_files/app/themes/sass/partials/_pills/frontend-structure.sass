@@ -188,16 +188,12 @@ ul.archives-month
 // ==============
 
 
-div#social-buttons
+div.social-buttons
+  float: right
   margin: 0 10px 5px
-  clear: both
 
-  iframe
-    vertical-align: bottom
-
-  a span
-    border: 1px solid #5F78AB
-    border-bottom: 1px solid #29447E
+  div.addthis_toolbox
+    display: inline
 
 
 // =============
@@ -274,10 +270,11 @@ div.post
 
 div.post-image
   float: left
-  margin: 0 15px 5px 0
+  margin: 0 $content-margin 5px 0
 
 
 div.meta
+  clear: both
   background-color: #EEE
   margin: 0 10px
   padding: 10px

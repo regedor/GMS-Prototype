@@ -11,10 +11,14 @@
   </div>
 </div>
 
-<div id="social-buttons">
-  <%= tweet_button(:via => configatron.site_name, :text => post.title, :count => "none", :url => (configatron.site_url+post_path(post))) %>
-  <a name="fb_share" type="button" share_url="<%= (configatron.site_url+post_path(post)) %>"> <%= I18n::t("posts.share_on_facebook")%></a>
-  <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
+<div class="social-buttons">
+  <div class="addthis_toolbox addthis_default_style ">
+    <a class="addthis_button_preferred_1"></a>
+    <a class="addthis_button_preferred_11"></a>
+    <a class="addthis_button_compact"></a>
+    <a class="addthis_counter addthis_bubble_style"></a>
+  </div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4db083ef4d0e29f3"></script>
 </div>
 
 <div class="meta">
