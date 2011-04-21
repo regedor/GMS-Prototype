@@ -239,7 +239,7 @@ div#sidebar div.block div.content ul.bullet-list li {
 }
 /* line 103, ../../../../app/themes/sass/partials/_backend-structure.sass */
 div#sidebar div.block div.content ul.bullet-list li a {
-  margin: 15px 0 0 15px;
+  margin: 15px 0 0 20px;
 }
 /* line 106, ../../../../app/themes/sass/partials/_backend-structure.sass */
 div#sidebar ul.navigation {
