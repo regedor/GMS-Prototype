@@ -32,22 +32,22 @@ jQuery(document).ready(function($){
                  :required => false,
                  :label    => I18n::t('admin.posts.columns.tag_list'),
                  :hint     => I18n::t('admin.posts.form.hints.tag_list') %>
-  <% if @record.image.content_type %>
-    <span class="file_icon"><%= image_tag @record.image.url(:image) %></span>
-  <% end %>
   <%= form.input :image,
                  :required => false,
 				 :as => :file,
                  :hint     => I18n::t('admin.posts.form.hints.image'),
                  :label    => I18n::t('admin.posts.columns.image') %>
-  <% if @record.generic.content_type %>
-    <span class="file_icon"><%= image_tag file_icon_displayer(@record.generic) %></span>
+  <% if @record.image.content_type %>
+    <span class="file_icon"><%=  file_icon_displayer(@record.image) %></span>
   <% end %>
   <%= form.input :generic,
                  :required => false,
 				 :as => :file,
                  :hint     => I18n::t('admin.posts.form.hints.generic_file'),
                  :label    => I18n::t('admin.posts.columns.generic_file') %>
+  <% if @record.generic.content_type %>
+    <span class="file_icon"><%=  file_icon_displayer(@record.generic) %></span>
+  <% end %>
   <%= form.input :published_at,
                  :as       => 'string',
                  :input_html => {:class => "datepicker", :value => l(@record.published_at || Time.now, :format => "%d/%m/%Y")},
