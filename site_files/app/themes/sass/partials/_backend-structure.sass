@@ -165,6 +165,7 @@ div#wrapper
 
 
 div.meta
+  clear: both
   background-color: #EEE
   margin: 0 0 10px
   padding: 10px
@@ -197,6 +198,15 @@ div#avatar img
   margin: 0 $content-margin
 
 
+div.post-image
+  float: left
+  margin: 0 $content-margin 5px 0
+
+
+div.file_icon
+  margin: 0 0 20px 165px
+
+
 .wat-cf
   &:after
     content: "."
@@ -212,15 +222,12 @@ div#avatar img
 // ==============
 
 
-div#social-buttons
+div.social-buttons
+  float: right
   margin: 0 0 5px
 
-  iframe
-    vertical-align: bottom
-
-  a span
-    border: 1px solid #5F78AB
-    border-bottom: 1px solid #29447E
+  div.addthis_toolbox
+    display: inline
 
 
 // =======
