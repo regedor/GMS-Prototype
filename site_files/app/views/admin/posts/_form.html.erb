@@ -33,7 +33,7 @@ jQuery(document).ready(function($){
                  :label    => I18n::t('admin.posts.columns.tag_list'),
                  :hint     => I18n::t('admin.posts.form.hints.tag_list') %>
   <% if @record.image.content_type %>
-    <span class="file_icon"><%= image_tag file_icon_displayer(@record.image) %></span>
+    <span class="file_icon"><%= image_tag @record.image.url(:image) %></span>
   <% end %>
   <%= form.input :image,
                  :required => false,
