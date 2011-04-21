@@ -106,11 +106,11 @@ body {
 }
 
 /* line 11, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
-h2.post-title, h2.page-title, h2#tag-cloud-title, h2#archives-title, h3.archives-month-title {
+h2.title, h3.archives-month-title {
   margin: 0 0 15px;
 }
 /* line 14, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
-h2.post-title a:hover, h2.page-title a:hover, h2#tag-cloud-title a:hover, h2#archives-title a:hover, h3.archives-month-title a:hover {
+h2.title a:hover, h3.archives-month-title a:hover {
   border-bottom: 3px solid #cc0000;
 }
 
@@ -564,7 +564,7 @@ a:hover {
 }
 
 /* line 20, ../../../../app/themes/sass/partials/_redsign/frontend-typography.sass */
-h2.post-title, h2.page-title, h2#tag-cloud-title, h2#archives-title {
+h2.title {
   font-size: 24px;
 }
 

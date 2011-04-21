@@ -8,7 +8,7 @@
 
 <% content_for :side_bar do %>
   <div id="tag-cloud">
-    <h2 id="tag-cloud-title"><%= I18n::t('posts.tags.title') %></h2>
+    <h2 class="title"><%= I18n::t('posts.tags.title') %></h2>
     <% tag_cloud @tags_for_cloud, ['nube1', 'nube2', 'nube3', 'nube4', 'nube5', 'nube6'] do |name, css_class| %>
       <% classes = (@tags && (@tags.include? name)) ? (css_class + ' selected') : css_class %>
       <%= link_to name, posts_path(:tags => @tags, :this_tag => name), :class => classes %>
