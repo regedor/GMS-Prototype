@@ -168,9 +168,12 @@ div#main-navigation ul li a {
 div#main-navigation ul li.active {
   background-color: white;
   background: -webkit-gradient(linear, left top, left bottom, from(white), to(#e5e5e5));
+  background: -webkit-linear-gradient(white, #e5e5e5);
   background: -moz-linear-gradient(top, white, #e5e5e5);
+  background: -o-linear-gradient(white, #e5e5e5);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$start-color, endColorstr=$end-color);
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=white, endColorstr=#e5e5e5)";
+  background: linear-gradient(white, #e5e5e5);
   behavior: url("/stylesheets/pie.htc");
 }
 
@@ -293,9 +296,12 @@ div#header {
   background-color: #2e2e2e;
   padding: 0 15px;
   background: -webkit-gradient(linear, left top, left bottom, from(#2e2e2e), to(#423d3e));
+  background: -webkit-linear-gradient(#2e2e2e, #423d3e);
   background: -moz-linear-gradient(top, #2e2e2e, #423d3e);
+  background: -o-linear-gradient(#2e2e2e, #423d3e);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$start-color, endColorstr=$end-color);
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#2e2e2e, endColorstr=#423d3e)";
+  background: linear-gradient(#2e2e2e, #423d3e);
   behavior: url("/stylesheets/pie.htc");
 }
 /* line 152, ../../../../app/themes/sass/partials/_backend-structure.sass */
@@ -389,9 +395,12 @@ button, a.button, input.button {
   cursor: pointer;
   float: left;
   background: -webkit-gradient(linear, left top, left bottom, from(#f9f9f9), to(#e9e9e9));
+  background: -webkit-linear-gradient(#f9f9f9, #e9e9e9);
   background: -moz-linear-gradient(top, #f9f9f9, #e9e9e9);
+  background: -o-linear-gradient(#f9f9f9, #e9e9e9);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$start-color, endColorstr=$end-color);
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#f9f9f9, endColorstr=#e9e9e9)";
+  background: linear-gradient(#f9f9f9, #e9e9e9);
   -moz-border-radius: 4px 4px 4px 4px;
   -webkit-border-radius: 4px 4px 4px 4px;
   border-radius: 4px 4px 4px 4px;
@@ -401,9 +410,12 @@ button, a.button, input.button {
 /* line 241, ../../../../app/themes/sass/partials/_backend-structure.sass */
 button:active, a.button:active, input.button:active {
   background: -webkit-gradient(linear, left top, left bottom, from(#e9e9e9), to(#f9f9f9));
+  background: -webkit-linear-gradient(#e9e9e9, #f9f9f9);
   background: -moz-linear-gradient(top, #e9e9e9, #f9f9f9);
+  background: -o-linear-gradient(#e9e9e9, #f9f9f9);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$start-color, endColorstr=$end-color);
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#e9e9e9, endColorstr=#f9f9f9)";
+  background: linear-gradient(#e9e9e9, #f9f9f9);
   behavior: url("/stylesheets/pie.htc");
 }
 

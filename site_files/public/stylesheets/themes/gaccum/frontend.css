@@ -473,9 +473,12 @@ button, a.button, input.button {
   cursor: pointer;
   float: left;
   background: -webkit-gradient(linear, left top, left bottom, from(#f9f9f9), to(#e9e9e9));
+  background: -webkit-linear-gradient(#f9f9f9, #e9e9e9);
   background: -moz-linear-gradient(top, #f9f9f9, #e9e9e9);
+  background: -o-linear-gradient(#f9f9f9, #e9e9e9);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$start-color, endColorstr=$end-color);
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#f9f9f9, endColorstr=#e9e9e9)";
+  background: linear-gradient(#f9f9f9, #e9e9e9);
   -moz-border-radius: 4px 4px 4px 4px;
   -webkit-border-radius: 4px 4px 4px 4px;
   border-radius: 4px 4px 4px 4px;
@@ -485,9 +488,12 @@ button, a.button, input.button {
 /* line 340, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 button:active, a.button:active, input.button:active {
   background: -webkit-gradient(linear, left top, left bottom, from(#e9e9e9), to(#f9f9f9));
+  background: -webkit-linear-gradient(#e9e9e9, #f9f9f9);
   background: -moz-linear-gradient(top, #e9e9e9, #f9f9f9);
+  background: -o-linear-gradient(#e9e9e9, #f9f9f9);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$start-color, endColorstr=$end-color);
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#e9e9e9, endColorstr=#f9f9f9)";
+  background: linear-gradient(#e9e9e9, #f9f9f9);
   behavior: url("/stylesheets/pie.htc");
 }
 
