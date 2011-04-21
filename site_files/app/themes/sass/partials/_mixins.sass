@@ -1,8 +1,11 @@
 @mixin linear-gradient($start-color, $end-color)
-  background: -webkit-gradient(linear, left top, left bottom, from($start-color), to($end-color))
-  background: -moz-linear-gradient(top, $start-color, $end-color)
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$start-color, endColorstr=$end-color)
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr="+$start-color+", endColorstr="+$end-color+")"
+  background: -webkit-gradient(linear, left top, left bottom, from($start-color), to($end-color)) // Safari 4+, Chrome 2+
+  background: -webkit-linear-gradient($start-color, $end-color) // Safari 5.1+, Chrome 10+
+  background: -moz-linear-gradient(top, $start-color, $end-color) // FF 3.6+
+  background: -o-linear-gradient($start-color, $end-color) // Opera 11.10
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$start-color, endColorstr=$end-color) // IE6 & IE7
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr="+$start-color+", endColorstr="+$end-color+")" // IE8+
+  background: linear-gradient($start-color, $end-color) // Standard
 
 
 @mixin round-corners($top-left, $top-right, $bottom-right, $bottom-left)
