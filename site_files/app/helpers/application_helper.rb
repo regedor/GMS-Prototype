@@ -41,9 +41,9 @@ module ApplicationHelper
 
   def file_icon_displayer(file)
     if file.content_type =~ /^image\//
-      return file.url(:original)
+      return image_tag file.url(:image)
     else
-      return "#{root_url}images/icons/door.png"
+      return image_tag("#{root_url}images/icons/door.png") + file.path.split("/").last
     end    
   end  
 
