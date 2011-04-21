@@ -1,5 +1,5 @@
 <% content_for(:page_title) do %><%=h archives_title %><% end -%>
-<h2 id="archives-title"><%= I18n::t('posts.archives.title') %></h2>
+<h2 class="title"><%= I18n::t('posts.archives.title') %></h2>
 <div class="entrybody">
   <% if @months.empty? -%>
     <p><%= I18n::t('posts.archives.none') %></p>
