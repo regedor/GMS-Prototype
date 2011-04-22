@@ -595,225 +595,229 @@ button.negative:hover, a.negative:hover, input.negative:hover {
 .tick {
   background: url("/images/icons/tick.png") 0 50% no-repeat;
   text-indent: -6000px;
+  height: 16px;
+  width: 16px;
 }
 
-/* line 16, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 18, ../../../../app/themes/sass/partials/_backend-icons.sass */
 .cross {
   background: url("/images/icons/cross.png") 0 50% no-repeat;
   text-indent: -6000px;
+  height: 16px;
+  width: 16px;
 }
 
-/* line 23, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 27, ../../../../app/themes/sass/partials/_backend-icons.sass */
 div.active-scaffold-header div.actions a.new {
   background: url("/images/icons/add.png") 0 50% no-repeat;
 }
-/* line 26, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 30, ../../../../app/themes/sass/partials/_backend-icons.sass */
 div.active-scaffold-header div.actions input[type=text] {
   background: url("/images/icons/magnifier.png") 4px 50% no-repeat;
   text-indent: 20px;
 }
 
-/* line 31, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 35, ../../../../app/themes/sass/partials/_backend-icons.sass */
 div#sidebar div.block ul.navigation li {
   background: url("/images/icons/arrow.png") 0 2px no-repeat;
 }
 
-/* line 35, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 39, ../../../../app/themes/sass/partials/_backend-icons.sass */
 div#sidebar div.block ul.bullet-list li {
   background: url("/images/icons/bullet_black.png") no-repeat;
 }
 
-/* line 39, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 43, ../../../../app/themes/sass/partials/_backend-icons.sass */
 div#sidebar ul.inner li {
   background: url("/images/icons/tree_node.png") no-repeat;
   text-indent: 14px;
   line-height: 18px;
 }
 
-/* line 45, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 49, ../../../../app/themes/sass/partials/_backend-icons.sass */
 div#sidebar ul.inner ul {
   background: url("/images/icons/tree_vline.png") repeat-y;
   text-indent: 14px;
   line-height: 18px;
 }
 
-/* line 58, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 62, ../../../../app/themes/sass/partials/_backend-icons.sass */
 #as_admin__users-content a.show {
   background: url("/images/icons/user.png") no-repeat;
   padding-left: 18px;
 }
-/* line 62, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 66, ../../../../app/themes/sass/partials/_backend-icons.sass */
 #as_admin__users-content a.edit {
   background: url("/images/icons/user_edit.png") no-repeat;
   padding-left: 18px;
 }
-/* line 66, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 70, ../../../../app/themes/sass/partials/_backend-icons.sass */
 #as_admin__users-content a.delete {
   background: url("/images/icons/user_delete.png") no-repeat;
   padding-left: 18px;
 }
 
-/* line 78, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 82, ../../../../app/themes/sass/partials/_backend-icons.sass */
 #as_admin__deleted_users-content a.show {
   background: url("/images/icons/user.png") no-repeat;
   padding-left: 18px;
 }
-/* line 82, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 86, ../../../../app/themes/sass/partials/_backend-icons.sass */
 #as_admin__deleted_users-content a.delete {
   background: url("/images/icons/user_delete.png") no-repeat;
   padding-left: 18px;
 }
-/* line 86, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 90, ../../../../app/themes/sass/partials/_backend-icons.sass */
 #as_admin__deleted_users-content a.undelete {
   background: url("/images/icons/user_add.png") no-repeat;
   padding-left: 18px;
 }
 
-/* line 98, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 102, ../../../../app/themes/sass/partials/_backend-icons.sass */
 #as_admin__groups-content a.show {
   background: url("/images/icons/group.png") no-repeat;
   padding-left: 18px;
 }
-/* line 102, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 106, ../../../../app/themes/sass/partials/_backend-icons.sass */
 #as_admin__groups-content a.edit {
   background: url("/images/icons/group_edit.png") no-repeat;
   padding-left: 18px;
 }
-/* line 106, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 110, ../../../../app/themes/sass/partials/_backend-icons.sass */
 #as_admin__groups-content a.delete {
   background: url("/images/icons/group_delete.png") no-repeat;
   padding-left: 18px;
 }
 
-/* line 118, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 122, ../../../../app/themes/sass/partials/_backend-icons.sass */
 #as_admin__posts-content a.comments {
   background: url("/images/icons/comments.png") no-repeat;
   padding-left: 18px;
 }
-/* line 122, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 126, ../../../../app/themes/sass/partials/_backend-icons.sass */
 #as_admin__posts-content a.show {
   background: url("/images/icons/pencil.png") no-repeat;
   padding-left: 18px;
 }
-/* line 126, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 130, ../../../../app/themes/sass/partials/_backend-icons.sass */
 #as_admin__posts-content a.delete {
   background: url("/images/icons/pencil_delete.png") no-repeat;
   padding-left: 18px;
 }
-/* line 130, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 134, ../../../../app/themes/sass/partials/_backend-icons.sass */
 #as_admin__posts-content a.edit {
   background: url("/images/icons/pencil.png") no-repeat;
   padding-left: 18px;
 }
 
-/* line 142, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 146, ../../../../app/themes/sass/partials/_backend-icons.sass */
 #as_admin__comments-content a.delete {
   background: url("/images/icons/comment_delete.png") no-repeat;
   padding-left: 18px;
 }
-/* line 146, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 150, ../../../../app/themes/sass/partials/_backend-icons.sass */
 #as_admin__comments-content a.edit {
   background: url("/images/icons/comment_edit.png") no-repeat;
   padding-left: 18px;
 }
 
-/* line 158, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 162, ../../../../app/themes/sass/partials/_backend-icons.sass */
 #as_admin__pages-content a.show {
   background: url("/images/icons/page.png") no-repeat;
   padding-left: 18px;
 }
-/* line 162, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 166, ../../../../app/themes/sass/partials/_backend-icons.sass */
 #as_admin__pages-content a.delete {
   background: url("/images/icons/page_delete.png") no-repeat;
   padding-left: 18px;
 }
-/* line 166, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 170, ../../../../app/themes/sass/partials/_backend-icons.sass */
 #as_admin__pages-content a.edit {
   background: url("/images/icons/page_edit.png") no-repeat;
   padding-left: 18px;
 }
 
-/* line 178, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 182, ../../../../app/themes/sass/partials/_backend-icons.sass */
 #as_admin__projects-content a.show {
   background: url("/images/icons/table.png") no-repeat;
   padding-left: 18px;
 }
-/* line 182, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 186, ../../../../app/themes/sass/partials/_backend-icons.sass */
 #as_admin__projects-content a.delete {
   background: url("/images/icons/table_delete.png") no-repeat;
   padding-left: 18px;
 }
-/* line 186, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 190, ../../../../app/themes/sass/partials/_backend-icons.sass */
 #as_admin__projects-content a.edit {
   background: url("/images/icons/table_edit.png") no-repeat;
   padding-left: 18px;
 }
 
-/* line 198, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 202, ../../../../app/themes/sass/partials/_backend-icons.sass */
 #as_admin__events-content a.show {
   background: url("/images/icons/calendar.png") no-repeat;
   padding-left: 18px;
 }
-/* line 202, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 206, ../../../../app/themes/sass/partials/_backend-icons.sass */
 #as_admin__events-content a.delete {
   background: url("/images/icons/calendar_delete.png") no-repeat;
   padding-left: 18px;
 }
-/* line 206, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 210, ../../../../app/themes/sass/partials/_backend-icons.sass */
 #as_admin__events-content a.edit {
   background: url("/images/icons/calendar_edit.png") no-repeat;
   padding-left: 18px;
 }
 
-/* line 218, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 222, ../../../../app/themes/sass/partials/_backend-icons.sass */
 div.active-scaffold th.desc a {
   background: url("/images/icons/arrow_down.gif") no-repeat 0px 4px;
   padding-left: 18px;
 }
-/* line 222, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 226, ../../../../app/themes/sass/partials/_backend-icons.sass */
 div.active-scaffold th.desc a:hover {
   background: url("/images/icons/arrow_down.gif") no-repeat 0px 4px;
   padding-left: 18px;
 }
-/* line 226, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 230, ../../../../app/themes/sass/partials/_backend-icons.sass */
 div.active-scaffold th.asc a {
   background: url("/images/icons/arrow_up.gif") no-repeat 0px 4px;
   padding-left: 18px;
 }
-/* line 230, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 234, ../../../../app/themes/sass/partials/_backend-icons.sass */
 div.active-scaffold th.asc a:hover {
   background: url("/images/icons/arrow_up.gif") no-repeat 0px 4px;
   padding-left: 18px;
 }
 
-/* line 242, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 246, ../../../../app/themes/sass/partials/_backend-icons.sass */
 #as_admin__announcements-content a.show {
   background: url("/images/icons/date.png") no-repeat;
   padding-left: 18px;
 }
-/* line 246, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 250, ../../../../app/themes/sass/partials/_backend-icons.sass */
 #as_admin__announcements-content a.edit {
   background: url("/images/icons/date_edit.png") no-repeat;
   padding-left: 18px;
 }
-/* line 250, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 254, ../../../../app/themes/sass/partials/_backend-icons.sass */
 #as_admin__announcements-content a.delete {
   background: url("/images/icons/date_delete.png") no-repeat;
   padding-left: 18px;
 }
 
-/* line 260, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 264, ../../../../app/themes/sass/partials/_backend-icons.sass */
 .logout_ico {
   background: url("/images/icons/door_out.png") no-repeat;
   padding-left: 18px;
 }
 
-/* line 272, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 276, ../../../../app/themes/sass/partials/_backend-icons.sass */
 #as_admin__mails-content a.show {
   background: url("/images/icons/email.png") no-repeat;
   padding-left: 18px;
 }
-/* line 276, ../../../../app/themes/sass/partials/_backend-icons.sass */
+/* line 280, ../../../../app/themes/sass/partials/_backend-icons.sass */
 #as_admin__mails-content a.delete {
   background: url("/images/icons/email_delete.png") no-repeat;
   padding-left: 18px;
