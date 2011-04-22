@@ -2,6 +2,7 @@
   <% unless @record.name.blank? %>
     <h2><%= @record.name %></h2>
   <% end %>
+
   <div class="content">
     <dl class="list">
       <div id="avatar"><%= image_tag avatar_url(@record) %></div>
@@ -131,9 +132,9 @@
         <dd><%= @record.current_login_at %></dd>
       <% end %>
     </dl>
-
-    <ul class="buttons">
-      <li><%= link_to t("admin.users.view.cancel"), admin_users_path, :class => 'button negative' %></li>
-    </ul>
   </div>
+
+  <ul class="buttons">
+    <li><%= link_to t("admin.users.view.cancel"), admin_users_path, :class => 'button negative' %></li>
+  </ul>
 </div>

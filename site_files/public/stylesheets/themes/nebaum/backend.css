@@ -444,35 +444,36 @@ button {
 
 /* line 265, ../../../../app/themes/sass/partials/_backend-structure.sass */
 ul.buttons {
+  display: inline-block;
   margin: 15px 0;
 }
-/* line 268, ../../../../app/themes/sass/partials/_backend-structure.sass */
+/* line 269, ../../../../app/themes/sass/partials/_backend-structure.sass */
 ul.buttons a {
   margin: 0 10px 0 0;
 }
 
-/* line 272, ../../../../app/themes/sass/partials/_backend-structure.sass */
+/* line 273, ../../../../app/themes/sass/partials/_backend-structure.sass */
 *:first-child + html input[type] {
   padding: 2px 10px 3px;
 }
 
-/* line 276, ../../../../app/themes/sass/partials/_backend-structure.sass */
+/* line 277, ../../../../app/themes/sass/partials/_backend-structure.sass */
 a.google_ico, a.yahoo_ico {
   margin: 0 0 15px 0;
   width: 90%;
 }
 
-/* line 283, ../../../../app/themes/sass/partials/_backend-structure.sass */
+/* line 284, ../../../../app/themes/sass/partials/_backend-structure.sass */
 div.active-scaffold tr.record {
   background-color: white;
 }
 
-/* line 289, ../../../../app/themes/sass/partials/_backend-structure.sass */
+/* line 290, ../../../../app/themes/sass/partials/_backend-structure.sass */
 * html .wat-cf {
   height: 1%;
 }
 
-/* line 292, ../../../../app/themes/sass/partials/_backend-structure.sass */
+/* line 293, ../../../../app/themes/sass/partials/_backend-structure.sass */
 .wat-cf {
   display: block;
 }
