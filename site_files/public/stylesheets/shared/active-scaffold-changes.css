@@ -1,71 +1,31 @@
-/*
-  Simon ActiveScaffold theme
-  (Colors go from lighter to darker)
-  grey:
-    #FCFCFC #eee  #e8e8e8  #DDD  #CFCFCF  #CACACA  #ccc  #aaa  #999  #888  #666  #555  #444  #333  #111
-  red:
-    #CC1111
-  green:
-    #1F7F00
-  blue:
-    #378CDF  #66f  #06c  #005CB8
-  pink:
-    #fbb  #f00
-  white
-    #fff
-  simon official:
-    #676766 - grey  
-    #FF6631 - Orange
-*/
+div.active-scaffold p,
+div.active-scaffold a,
+div.active-scaffold a:link,
+div.active-scaffold a:active,
+div.active-scaffold a:visited      { color: #333; font-size: 12px; line-height: 1.2em; }
+div.active-scaffold a:hover        { text-decoration: underline; }
 
-/*
-============================================================================
-= Typography
-============================================================================
-*/
+div.active-scaffold input.text-input,
+div.active-scaffold textarea       { -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; padding: 2px !important; width: 250px; }
+div.active-scaffold input.text-input:focus,
+div.active-scaffold textarea:focus { -webkit-box-shadow: rgba(0,0,0,0.3) 0 0 3px; -moz-box-shadow: rgba(0,0,0,0.3) 0 0 3px; box-shadow: 0 0 3px rgba(0,0,0,0.3); border: 1px solid #CCC; }
 
-#main #as_admin__posts-content th p,
-.active-scaffold a,
-.active-scaffold a:link,
-.active-scaffold a:active,
-.active-scaffold a:visited   { color: #333; font-size: 1em; line-height: 1.2em; }
-.active-scaffold a:hover { text-decoration: underline; }
-.active-scaffold table thead p { color: #333; font-size: 1em !important; line-height: 1.2em; }
-.active-scaffold table thead tr  { height: 25px; }
-.active-scaffold input.text-input,
-.active-scaffold textarea  { font-weight: normal !important; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; max-width: 74%; padding: 4px !important; width: 250px; font-family: Verdana, HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 1.2em !important; }
-
-.active-scaffold textarea {width: 100% !important;}
-
-.active-scaffold input.text-input:focus,
-.active-scaffold textarea:focus { -webkit-box-shadow: rgba(0,0,0,0.3) 0 0 3px; -moz-box-shadow: rgba(0,0,0,0.3) 0 0 3px; box-shadow: 0 0 3px rgba(0,0,0,0.3); border: 1px solid #CCC; }
-
-.active-scaffold input[name="search"] { max-width: 100%; padding: 2px !important; }
-
-div.active-scaffold th a,
-div.active-scaffold th a:visited { padding: 0; }
-div.active-scaffold th                    { padding: 0 5px; white-space: nowrap; }
-div.active-scaffold td.total_approved_comments-column { white-space: nowrap; }
-
-.active-scaffold a.disabled                        { color: #999;}
-noscript.active-scaffold                           { border-left: solid 0.5em #f66;background-color: #fbb;font-size: 1em;}
-noscript.active-scaffold                           { font-weight: bold;padding: 0.5em 2em 0.5em 0.5em;color: #333;}
 .active-scaffold-header h2                         { padding-top: 0.2em;margin: 0;padding-left: 0em; padding-bottom: 0.7em;}
 .active-scaffold-header h2                         { color: #333;font: bold 160% Verdana,arial, sans-serif; font-size: 1.8em; }
 .active-scaffold-header div.actions a              { float: right;font: bold 14px Verdana,arial;text-decoration: none;}
 .active-scaffold-header div.actions a              { padding: 1px 2px;white-space: nowrap;margin-left: 5px;background-position: 1px 50%;}
-.active-scaffold-header div.actions a.disabled     { color: #666;opacity: 0.5;}
 .active-scaffold-header div.actions                { position: relative;float: right;padding-left: 10px;}
-.active-scaffold th                                { background-color: white;text-align: left;} 
-.active-scaffold th                                { color: #676766;padding-left: 15px;}
+
+.active-scaffold th             { padding: 0 5px; white-space: nowrap; }
+.active-scaffold td.total_approved_comments-column { white-space: nowrap; }
+.active-scaffold table thead tr { height: 25px; }
+.active-scaffold th                                { text-align: left; color: #676766;}
 .active-scaffold th a,
-.active-scaffold th p                              { display: block;background-color: #EAEAEA;/*font-size: 14px;*/ color: #676766;}
+.active-scaffold th p                              { display: block;background-color: #EAEAEA;}
 .active-scaffold th a, 
-.active-scaffold th a:visited                      { color: #676766;padding: 2px 15px 2px 5px;}
-.active-scaffold th p                              { color: #111;padding: 2px 5px;}
+.active-scaffold th a:visited                      { color: #676766;padding: 0;}
 .active-scaffold th a:hover                        { background-color: #EAEAEA;color: black;}
-.active-scaffold tr.record                         { background-color: #fff;color: #111;}
-.active-scaffold tr.record td                      { padding: 0.5em 0.5em;padding-left: 8px;color: #333;font-family: Verdana, sans-serif;}
+.active-scaffold tr.record td                      { padding: 0.5em 0.5em;padding-left: 8px;color: #333;}
 .active-scaffold tr.record td                      { font-size: 11px;border:0;height: 50px;}
 .active-scaffold tbody.records td.empty            { color: #999;text-align: center;}
 .active-scaffold td.numeric,
@@ -73,72 +33,28 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold tr.record td.actions table td     { border: none;text-align: right;padding: 0 2px;}
 .active-scaffold tr.record td.actions a            { font: bold 11px verdana, sans-serif;}
 .active-scaffold tr.record td.actions a            { padding: 2px;margin: 0 2px;line-height: 16px;white-space: nowrap;}
-.active-scaffold .active-scaffold .active-scaffold-header h2 {font-size: 1em;font-weight: bold;}
-.active-scaffold .active-scaffold .active-scaffold-footer                  { color: #444;}
-.active-scaffold .active-scaffold .active-scaffold-header div.actions a    { font: bold 11px verdana, sans-serif;padding: 0 2px 1px 17px;}
-.active-scaffold .active-scaffold .active-scaffold-footer                  { font-size: 1.1em;}
-.active-scaffold-calculations td                    { background-color: #eee;border-top: 2px solid #005CB8;font: bold 12px verdana,arial, sans-serif;}
-.active-scaffold .active-scaffold-footer            { padding: 3px 0px 2px 0px;border-bottom: none;font: bold 12px verdana,arial, sans-serif;}
+.active-scaffold-calculations td                   { background-color: #eee;border-top: 2px solid #005CB8;font: bold 12px verdana,arial, sans-serif;}
+
+/* Footer */
+
+.active-scaffold-footer .next                      { margin-left: 0;padding-left: 5px;border-left: solid 1px #ccc;}
+.active-scaffold-footer .previous                  { margin-right: 0;padding-right: 5px;border-right: solid 1px #ccc;}
+.active-scaffold .active-scaffold-footer           { padding: 3px 0px 2px 0px;border-bottom: none;font: bold 12px verdana,arial, sans-serif;}
 .active-scaffold-footer .active-scaffold-pagination { float: right;white-space: nowrap;padding-right: 15px;}
 .active-scaffold-footer a                           { text-decoration: none;letter-spacing: 0;padding: 0 2px;}
 .active-scaffold-footer a                           { margin: 0 -2px;font: bold 12px verdana,arial, sans-serif;}
-.active-scaffold .filtered-message       { background-color: #e8e8e8;padding: 4px;text-align: center;color: #666;}
-.active-scaffold .message                { font-size: 11px;font-weight: bold;padding: 5px 20px 5px 5px;}
-.active-scaffold .message                { color: #333;position: relative;margin: 2px 7px;line-height: 12px;}
-.active-scaffold .message a              { font: bold 11px verdana, sans-serif;}
-.active-scaffold .errorExplanation h2    { padding: 2px 5px;color: #333;font-size: 11px;margin: 0;}
-.active-scaffold .errorExplanation h2    { letter-spacing: 0;font-family: Verdana;background-color: #f66;}
-.active-scaffold .errorExplanation p     { font-size: 11px;padding: 2px 5px;font-family: Verdana;margin: 0;}
-.active-scaffold .errorExplanation ul li { font: bold 11px verdana;margin: 0;padding: 0;}
-.active-scaffold .submit                 { font-weight: bold;font-size: 14px;font-family: Verdana,Arial, sans-serif;letter-spacing: 0;}
-.active-scaffold h5                      { padding: 2px;margin: 0;text-transform: none;color: black;}
-.active-scaffold h5                      { font: bold 16px verdana,arial; padding: 0;margin: 5px 0 2px 0;font-size: 14px;letter-spacing: 0;}
-.active-scaffold a.cancel,
-.active-scaffold label                   { font: normal 11px verdana, sans-serif;color: #555;}
-.active-scaffold .description            { color: #999;font-size: 10px;margin-left: 5px;}
-.active-scaffold .required label         { font-weight: bold;}
-.active-scaffold label.example           { font-size: 11px;font-family: verdana,arial;color: #888;}
+
 .active-scaffold input.text-input,
 .active-scaffold select                  { font: inherit; border: solid 1px #9E9E9E; font-size: 1.1em; }
-.active-scaffold textarea                { font-family: Verdana,Arial, sans-serif;font-size: 12px;padding: 1px;border: solid 1px #9E9E9E;}
-.active-scaffold .sub-form table th                      { font: normal 10px verdana, sans-serif;color: #555;padding: 0 5px 0 1px;background: none;}
-.active-scaffold .sub-form .association-record a.destroy { font-weight: bold;display: block;height: 16px;}
-.active-scaffold .sub-form .association-record a.destroy { padding: 0;width: 16px;text-indent: -4000px;}
-.active-scaffold .sub-form .association-record a         { font: bold 12px verdana,arial;}
-.active-scaffold .sub-form select                        { font: bold 12px verdana,arial;}
-.active-scaffold .sub-form .footer                       { color: #999;padding: 3px 5px;}
-.active-scaffold .sub-form .footer select,
-.active-scaffold .sub-form .footer input                 { font-weight: bold;font-size: 12px;padding: 0;}
-.active-scaffold a.visibility-toggle                     { font-size: 100%;}
-.active-scaffold a.inline-adapter-close                  { float: right;text-indent: -4000px;width: 16px;}
-.active-scaffold h4, .active-scaffold h5                 { color: #333;}
-
-
-
-/*
-============================================================================
-= General Structure
-============================================================================
-*/
 
 .view .active-scaffold-header div.actions a { float: left;}
-.active-scaffold tr.record td.actions table { float: right;width: auto;margin-right: 0px;}
 .active-scaffold .message a                 { position: absolute;right: 10px;top: 4px;padding: 0;}
 .active-scaffold .loading-indicator         { vertical-align: text-bottom;width: 16px; right: 2px;padding-top: 1px; position: absolute; top: 1px; }
 .active-scaffold li.form-element dt         { float: left;width: 12em;padding: 6px 0;}
 .active-scaffold li.form-element dd         { float: none;}
-.active-scaffold .sub-form                  { float: left;clear: left;padding: 5px 0;padding-left: 5px;}
-.active-scaffold .draggable-list            { float: left;width: 300px;margin-right: 15px;min-height: 30px;max-height: 100px;}
 .active-scaffold-found                      { float:left;}
 .list_actions                               { display: none; }
 
-/*
-============================================================================
-= Specific Sections Structure
-============================================================================
-*/
-.active-scaffold table      { width: 100%;}
-.active-scaffold a:hover    { background-color: whiteSmoke;}
 .active-scaffold .clear-fix { clear: both;}
 
 /* Header */
@@ -152,17 +68,9 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold-header div.actions a.show_search       { background-image: url(../../../images/active_scaffold/default/magnifier.png);}
 .active-scaffold-header div.actions a.disabled:hover    { background-color: transparent;cursor: default;}
 
-.active-scaffold-header div.actions                     { right: 0px; top: 0;}
+#main .block .content .inner                            { padding: 0; padding-bottom: 20px; }
 
-#as_admin__posts-active-scaffold                        { padding: 0; margin: 0px;}
-#main .block .content .inner                            { padding: 0; padding-bottom: 20px;}
-
-#main .block .content .inner h2                         { margin-bottom: 15px;}
-
-#main .block .content .inner .active-scaffold-header h2 { padding: 0;}
-#main .block .content .inner .active-scaffold-header    { padding-bottom: 15px;}
-#main .block .content .inner .active-scaffold-found     { padding-left: 9px; }
-
+.active-scaffold-header div.actions {right: 0px;top: 0;}
 
 /* Table :: Column Headers */
 .active-scaffold th.sorted          { background-color: #EAEAEA;}
@@ -173,21 +81,18 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold th.loading a,
 .active-scaffold th.loading a:hover { background: #EAEAEA url(../../../images/active_scaffold/default/indicator-small.gif) right 50% no-repeat;}
 .active-scaffold th                 { background-color: #EAEAEA;}
-.active-scaffold th p               { padding: 2px 4px; padding-left: 0;}
-
-/* Table :: Record Rows */
-.active-scaffold tr.record:hover                { background-color: #F5F5F5; }
-.active-scaffold tr.even-record                 { background-color: #F8F8F8; }
-.active-scaffold tr.even-record:hover           { background-color: #F5F5F5; }
-.active-scaffold tr.record td.sorted            { background-color: #FFF; }
+.active-scaffold th p               { padding: 0;}
+.active-scaffold tr.even-record td,
+.active-scaffold tr.even-record td.sorted,
+.active-scaffold tr.record td,
+.active-scaffold tr.record td.sorted {background-color: #FFF;}
+.active-scaffold tr.even-record:hover td,
+.active-scaffold tr.even-record:hover td.sorted,
+.active-scaffold tr.record:hover td,
 .active-scaffold tr.record:hover td.sorted      { background-color: #F5F5F5; }
-.active-scaffold tr.even-record:hover td.sorted { background-color: #F5F5F5; }
 .active-scaffold tr.even-record td              { border-top: 1px solid #EAEAEA; height: 50px; }
 .active-scaffold tr.record td                   { border-top: 1px solid #EAEAEA; margin-left: 0px; }
-
-/* Table :: Actions (Edit, Delete) */
 .active-scaffold tr.record td.actions { border-right: 0;padding: 0;min-width: 1%; padding-right: 15px;}
-
 
 /* Table :: Inline Adapter */
 .active-scaffold .view                                       { background-color: #FCFCFC;padding: 0px;border:0px;}
@@ -195,93 +100,5 @@ noscript.active-scaffold                           { font-weight: bold;padding: 
 .active-scaffold .before-header td.inline-adapter-cell .view { border-bottom: none;}
 .active-scaffold a.inline-adapter-close { height: 17px;background: url(../../../images/active_scaffold/default/close.gif) 0 0 no-repeat;}
 
-/* Nested */
-.active-scaffold .active-scaffold .active-scaffold-header                {margin-right: 15px;}
-.active-scaffold .active-scaffold .active-scaffold-header div.actions    {top: 0px;right: 0px;}
-.active-scaffold .active-scaffold  td                                    { background-color: #DDD;border-bottom: solid 1px #FFF;}
-.active-scaffold .active-scaffold  td                                    { border-left: solid 1px #FFF;}
-.active-scaffold .active-scaffold .record td                             { background-color: #EEE;}
-.active-scaffold .active-scaffold .even-record td                        { background-color: #fff;}
-.active-scaffold .active-scaffold td.inline-adapter-cell                 { background-color: #DDD;padding: 4px;}
-
-/* Footer */
-.active-scaffold-footer .next                                { margin-left: 0;padding-left: 5px;border-left: solid 1px #ccc;}
-.active-scaffold-footer .previous                            { margin-right: 0;padding-right: 5px;border-right: solid 1px #ccc;}
-
-/* Messages */
-.active-scaffold .messages-container,
-.active-scaffold .active-scaffold .messages-container { padding: 0;margin: 0 7px;border: none;}
-.active-scaffold .empty-message, 
-.active-scaffold .messages-container .message         { margin: 0;}
-.active-scaffold .error-message                       { border-left: solid 5px #f66;background-color: #fbb;}
-.active-scaffold .warning-message                     { border-left: solid 5px #ccc;background-color: #ffb;}
-.active-scaffold .info-message                        { border-left: solid 5px #66f;background-color: #bbf;}
-
-/* Error Styling */
-.active-scaffold .errorExplanation       { background-color: #fcc;margin: 2px 0;border: solid 1px #f66;}
-.active-scaffold fieldset                { clear: both;}
-.active-scaffold .errorExplanation ul    { margin: 0;padding: 0 2px 4px 25px;list-style: disc;}
-.active-scaffold .errorExplanation ul li { background-color: transparent;}
-
 /* Loading Indicators */
 .active-scaffold .active-scaffold-header .loading-indicator { margin-bottom: 3px;}
-
-/* Form */
-.active-scaffold .submit                                 { margin: 0; margin-top: 5px; }
-.active-scaffold form p                                  { clear: both; }
-.active-scaffold fieldset                                { border: none; }
-.active-scaffold h4,
-.active-scaffold ol                                      { clear: both; float: none;padding: 2px;margin-left: 14px;list-style: none;}
-.active-scaffold p.form-footer                           { clear: both;}
-
-/* Form :: Fields */
-.active-scaffold li.form-element                         { clear: both;padding-top: 2px;}
-.active-scaffold .form dd                                { margin: 0; margin-bottom: 15px;}
-.active-scaffold input.text-input                        { padding: 2px;}
-.active-scaffold .fieldWithErrors input,
-.active-scaffold .fieldWithErrors textarea,
-.active-scaffold .fieldWithErrors select                 { border: solid 1px #f00;}
-.active-scaffold select                                  { padding: 1px;}
-.active-scaffold input.example                           { color: #aaa;}
-.active-scaffold input.text-input:focus                  { background-color: #FFF;}
-.active-scaffold .checkbox-list                          { padding-left: 0px;}
-.active-scaffold .checkbox-list li                       { padding-right: 5px;display: inline;}
-.active-scaffold .checkbox-list li label                 { padding: 0 0 0 2px;}
-.active-scaffold .draggable-list                         { overflow: auto;background-color: #FFFF88;}
-.active-scaffold .draggable-list.hover                   { opacity: 0.5;}
-.active-scaffold .draggable-list.selected                { background-color: #7FCF00;}
-.active-scaffold .draggable-list li                      { display: block;}
-.active-scaffold .draggable-list input                   { display: none;}
-.active-scaffold select:focus, .active-scaffold input.text-input:focus {background-color: transparent;}
-
-/********************************************************************************************************************************/
-
-.active-scaffold input[type=file]                        { width: 270px;}
-
-/* Form :: Sub-Sections */
-.active-scaffold li.sub-section                          { clear: left;padding: 5px 0;}
-
-/* Form :: Association Sub-Forms */
-.active-scaffold .sub-form h5                            { margin-left: -5px;}
-.active-scaffold .sub-form table,
-.active-scaffold .sub-form table td                      { width: auto;background: none;}
-.active-scaffold .horizontal-sub-form td label           { display: none;}
-.active-scaffold .sub-form .checkbox-list                { padding: 0 2px 2px 2px;background-color: #fff;border: solid 1px #1F7F00;}
-.active-scaffold .sub-form .checkbox-list label          { display: block;}
-.active-scaffold .sub-form table td                      { border: none;background-color: transparent;padding: 1px;}
-.active-scaffold .sub-form table td                      { vertical-align: top;color: #999;}
-.active-scaffold .sub-form .actions                      { vertical-align: middle;background-color: transparent;clear: left;}
-.active-scaffold .sub-form .association-record a.destroy { background: url(../../../images/active_scaffold/default/cross.png) 0 0 no-repeat;}
-.active-scaffold .sub-form .locked a.destroy             { display: none;}
-.active-scaffold .sub-form input.text-input,
-.active-scaffold .sub-form .footer-wrapper               { margin-top: 3px;margin-right: 10px;}
-
-/* Fix for top right content */
-
-.actions .search .dropdownmenu                           { height: 20px; vertical-align: top; margin-right: 10px; }
-
-/* Buttons */
-
-.content a.disabled                                      { display: none; }
-
-.active-scaffold .button                              { margin: 10px 10px 0; text-decoration: none; font-weight: bold; }
