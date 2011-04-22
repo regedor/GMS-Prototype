@@ -24,8 +24,6 @@ class Post < ActiveRecord::Base
   # Makes this model historicable
   include HistoryEntry::Historicable
 
-
-
   before_save do |instance|
     instance.image.clear if instance.image_delete == "1"
   end
@@ -36,6 +34,18 @@ class Post < ActiveRecord::Base
 
   def image_delete=(value)
     @image_delete = value
+  end
+
+  before_save do |instance|
+    instance.generic.clear if instance.generic_delete == "1"
+  end
+
+  def generic_delete
+    @generic_delete ||= "0"
+  end
+
+  def generic_delete=(value)
+    @generic_delete = value
   end
 
   # Authorization for post

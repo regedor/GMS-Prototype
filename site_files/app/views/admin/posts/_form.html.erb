@@ -23,18 +23,21 @@ jQuery(document).ready(function($){
 <% form.input_field_set do -%>
   <%= form.input :title,
                  :label    => I18n::t('admin.posts.columns.title') %>
+
   <%= form.input :body,
                  :label    => I18n::t('admin.posts.columns.body'),
                  :input_html => { :class    => "textile" },
                  :hint     => I18n::t('admin.posts.form.hints.body').html_safe %>
+
   <%= form.input :tag_list,
                  :as       => 'string',
                  :required => false,
                  :label    => I18n::t('admin.posts.columns.tag_list'),
                  :hint     => I18n::t('admin.posts.form.hints.tag_list') %>
+
   <%= form.input :image,
                  :required => false,
-				 :as => :file,
+                 :as       => :file,
                  :hint     => I18n::t('admin.posts.form.hints.image'),
                  :label    => I18n::t('admin.posts.columns.image') %>
   <% if @record.image.content_type -%>
@@ -47,6 +50,7 @@ jQuery(document).ready(function($){
                    :hint     => t('admin.posts.form.hints.delete_image'),
                    :label    => t('admin.posts.form.delete_image') %>
   <% end -%>
+
   <%= form.input :generic,
                  :required => false,
 				 :as => :file,
@@ -55,6 +59,14 @@ jQuery(document).ready(function($){
   <% if @record.generic.content_type %>
     <div class="file_icon"><%=  file_icon_displayer(@record.generic) %></div>
   <% end %>
+  <% unless @record.new_record? || !@record.generic? -%>
+    <%= form.input :generic_delete,
+                   :as       => 'boolean',
+                   :required => false,
+                   :hint     => t('admin.posts.form.hints.delete_generic'),
+                   :label    => t('admin.posts.form.delete_generic') %>
+  <% end -%>
+
   <%= form.input :published_at,
                  :as       => 'string',
                  :input_html => {:class => "datepicker", :value => l(@record.published_at || Time.now, :format => "%d/%m/%Y")},
