@@ -20,33 +20,16 @@ class Post < ActiveRecord::Base
 
   has_attached_file :image, :styles => { :image => "250x250" }
   has_attached_file :generic
+  before_save do |instance|
+    instance.image.clear   if instance.image_delete == "1"
+    instance.generic.clear if instance.generic_delete == "1"
+  end
+  attr_writer :image_delete, :generic_delete
+  def image_delete ; @image_delete ||= "0" ; end
+  def generic_delete ; @generic_delete ||= "0" ; end
 
   # Makes this model historicable
   include HistoryEntry::Historicable
-
-  before_save do |instance|
-    instance.image.clear if instance.image_delete == "1"
-  end
-
-  def image_delete
-    @image_delete ||= "0"
-  end
-
-  def image_delete=(value)
-    @image_delete = value
-  end
-
-  before_save do |instance|
-    instance.generic.clear if instance.generic_delete == "1"
-  end
-
-  def generic_delete
-    @generic_delete ||= "0"
-  end
-
-  def generic_delete=(value)
-    @generic_delete = value
-  end
 
   # Authorization for post
   def authorized_for?(*args)

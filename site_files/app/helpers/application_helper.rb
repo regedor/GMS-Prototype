@@ -43,7 +43,7 @@ module ApplicationHelper
     if file.content_type =~ /^image\//
       return image_tag file.url(:image)
     else
-      return image_tag("#{root_url}images/icons/door.png") + file.path.split("/").last
+      return image_tag("#{root_url}images/icons/attach.png") + file.path.split("/").last
     end    
   end  
 
