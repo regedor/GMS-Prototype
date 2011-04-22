@@ -24,6 +24,20 @@ class Post < ActiveRecord::Base
   # Makes this model historicable
   include HistoryEntry::Historicable
 
+
+
+  before_save do |instance|
+    instance.image.clear if instance.image_delete == "1"
+  end
+
+  def image_delete
+    @image_delete ||= "0"
+  end
+
+  def image_delete=(value)
+    @image_delete = value
+  end
+
   # Authorization for post
   def authorized_for?(*args)
     true

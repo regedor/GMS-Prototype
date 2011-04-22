@@ -10,8 +10,8 @@ class Admin::PostsController < Admin::BaseController
     Scaffoldapp::active_scaffold config, "admin.posts",
       :list   => [ :title, :excert, :published_at, :total_approved_comments ],
       :show   => [ ],
-      :create => [ :title, :body, :tag_list, :published_at, :slug, :image ],
-      :edit   => [ :title, :body, :tag_list, :published_at, :slug, :minor_edit, :image, :generic ]
+      :create => [ :title, :body, :tag_list, :published_at, :slug, :image, :image_delete ],
+      :edit   => [ :title, :body, :tag_list, :published_at, :slug, :minor_edit, :image, :generic, :image_delete ]
   end
 
   def custom_finder_options

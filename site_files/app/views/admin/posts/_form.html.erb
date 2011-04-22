@@ -37,9 +37,16 @@ jQuery(document).ready(function($){
 				 :as => :file,
                  :hint     => I18n::t('admin.posts.form.hints.image'),
                  :label    => I18n::t('admin.posts.columns.image') %>
-  <% if @record.image.content_type %>
+  <% if @record.image.content_type -%>
     <div class="file_icon"><%=  file_icon_displayer(@record.image) %></div>
-  <% end %>
+  <% end -%>
+  <% unless @record.new_record? || !@record.image? -%>
+    <%= form.input :image_delete,
+                   :as       => 'boolean',
+                   :required => false,
+                   :hint     => t('admin.posts.form.hints.delete_image'),
+                   :label    => t('admin.posts.form.delete_image') %>
+  <% end -%>
   <%= form.input :generic,
                  :required => false,
 				 :as => :file,
