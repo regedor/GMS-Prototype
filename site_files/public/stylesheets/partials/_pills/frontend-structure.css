@@ -10,7 +10,7 @@ Syntax error: Undefined variable: "$frontend-background-color".
 7:   background-color: $frontend-background-color
 8: 
 9: 
-10: h2#tag-cloud-title
+10: div#tag-cloud h2.title
 11:   padding: 10px 0 0
 12: 
 
@@ -82,4 +82,4 @@ script/server:3
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$frontend-background-color\".\A         on line 7 of /home/golden/Desktop/Empresa/GroupBuddies/Projects/Regedor-Scaffold/site_files/app/themes/sass/partials/_pills/frontend-structure.sass\A \A 2: // Rules\A 3: // ============================================================================\A 4: \A 5: \A 6: body\A 7:   background-color: $frontend-background-color\A 8: \A 9: \A 10: h2#tag-cloud-title\A 11:   padding: 10px 0 0\A 12: "; }
+  content: "Syntax error: Undefined variable: \"$frontend-background-color\".\A         on line 7 of /home/golden/Desktop/Empresa/GroupBuddies/Projects/Regedor-Scaffold/site_files/app/themes/sass/partials/_pills/frontend-structure.sass\A \A 2: // Rules\A 3: // ============================================================================\A 4: \A 5: \A 6: body\A 7:   background-color: $frontend-background-color\A 8: \A 9: \A 10: div#tag-cloud h2.title\A 11:   padding: 10px 0 0\A 12: "; }
