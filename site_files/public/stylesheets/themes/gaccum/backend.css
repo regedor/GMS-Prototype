@@ -206,7 +206,7 @@ div.secondary-navigation ul li a {
 /* line 74, ../../../../app/themes/sass/partials/_backend-structure.sass */
 div#user-navigation {
   float: right;
-  margin: 5px 0;
+  margin: 15px 0;
 }
 
 /* line 79, ../../../../app/themes/sass/partials/_backend-structure.sass */
@@ -343,7 +343,7 @@ dl.list {
 dl.list dd {
   float: left;
   padding: 1px 0;
-  margin: 5px;
+  margin: 5px 0;
 }
 /* line 185, ../../../../app/themes/sass/partials/_backend-structure.sass */
 dl.list dt {
@@ -352,7 +352,7 @@ dl.list dt {
   float: left;
   font-weight: bold;
   padding: 0;
-  margin: 5px;
+  margin: 5px 0;
   width: 150px;
 }
 
@@ -522,47 +522,42 @@ div#sidebar {
 }
 /* line 36, ../../../../app/themes/sass/partials/_backend-typography.sass */
 div#sidebar h5 {
+  font-size: 13px;
   color: #444444;
   border-bottom: 1px solid #aaaaaa;
 }
 
-/* line 41, ../../../../app/themes/sass/partials/_backend-typography.sass */
+/* line 42, ../../../../app/themes/sass/partials/_backend-typography.sass */
 div.meta li {
   line-height: 18px;
 }
 
-/* line 45, ../../../../app/themes/sass/partials/_backend-typography.sass */
+/* line 46, ../../../../app/themes/sass/partials/_backend-typography.sass */
 div.secondary-navigation ul li.active {
   background: white;
 }
 
-/* line 51, ../../../../app/themes/sass/partials/_backend-typography.sass */
-div#preview table {
-  font-size: 13px;
-  line-height: 25px;
-}
-
-/* line 56, ../../../../app/themes/sass/partials/_backend-typography.sass */
-div#footer div.block p, div#flash div.message p {
+/* line 50, ../../../../app/themes/sass/partials/_backend-typography.sass */
+div#footer p, div#flash div.message p {
   text-align: center;
 }
 
-/* line 60, ../../../../app/themes/sass/partials/_backend-typography.sass */
+/* line 54, ../../../../app/themes/sass/partials/_backend-typography.sass */
 div#social-buttons {
   text-align: right;
 }
 
-/* line 69, ../../../../app/themes/sass/partials/_backend-typography.sass */
+/* line 63, ../../../../app/themes/sass/partials/_backend-typography.sass */
 button, a.button {
   text-decoration: none;
 }
 
-/* line 73, ../../../../app/themes/sass/partials/_backend-typography.sass */
+/* line 67, ../../../../app/themes/sass/partials/_backend-typography.sass */
 button, input.button {
   line-height: 16px;
 }
 
-/* line 77, ../../../../app/themes/sass/partials/_backend-typography.sass */
+/* line 71, ../../../../app/themes/sass/partials/_backend-typography.sass */
 button, a.button, input.button {
   color: #2e2e2e;
   font-size: 12px !important;
@@ -570,12 +565,12 @@ button, a.button, input.button {
   text-align: center;
 }
 
-/* line 84, ../../../../app/themes/sass/partials/_backend-typography.sass */
+/* line 78, ../../../../app/themes/sass/partials/_backend-typography.sass */
 button.positive:hover, a.positive:hover, input.positive:hover {
   color: #559911;
 }
 
-/* line 88, ../../../../app/themes/sass/partials/_backend-typography.sass */
+/* line 82, ../../../../app/themes/sass/partials/_backend-typography.sass */
 button.negative:hover, a.negative:hover, input.negative:hover {
   color: #dd3322;
 }
