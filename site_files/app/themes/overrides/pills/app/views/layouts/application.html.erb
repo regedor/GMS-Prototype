@@ -22,26 +22,17 @@
   <%= yield :head %>
 </head>
 
-<body id="<%= @controller.controller_name + "_" + @controller.action_name  %>" >
+<body>
   <div id="container">
-
-    <div id="header">
-      <div id="logo">
-        <% if false -%>
-          <h1><a href="<%= root_path %>"><%= configatron.site_name %></a></h1>  
-        <% end -%>
-        <%= render :partial => 'shared/flash_logo' %>
-      </div>
-      <div id="navigation">
-        <div id="menu" >
-          <%= frontend_navigation_content %>
-        </div>
-        <%= yield :side_bar %>
-      </div>
+    <div id="logo"><%= render :partial => 'shared/flash_logo' %></div>
+    <div id="navigation">
+      <div id="menu" ><%= frontend_navigation_content %></div>
+      <%= yield :tag_cloud %>
     </div>
 
     <div id="wrapper">
-      <div id="account-info">
+      <div id="header">
+        <span class="site-title"><%= configatron.site_header %></span>
         <span class="options">
           <% if logged_in? %>
             <% if @current_user.small_name %>
@@ -49,26 +40,21 @@
             <% else %>
               <%= link_to @current_user.email, user_account_path                                                 %> |
             <% end %>
-            <%= link_to t('navigation.administration'), admin_root_path if permitted_to? :read, :admin_dashboard %> |
+            <% if permitted_to? :read, :admin_dashboard %>
+              <%= link_to t('navigation.administration'), admin_root_path %> |
+            <% end %>
             <%= link_to t('user_session.bar.logout'), user_logout_path                                           %>
           <% else %>
             <%= link_to t("user_session.bar.signin"), new_user_session_path                                      %> |
             <%= link_to t("user_session.bar.signup"), new_user_account_path                                      %>
           <% end %>
         </span>
-        <span class="title"><%= configatron.site_header %></span>
       </div>
-
-      <% if @show_admin_menu %>
-      <div id="admin-navigation">
-        <%= link_to t('admin.navigation.users'), admin_users_path %>
-      </div>
-      <% end %>
 
       <% announcements = Announcement.prioritize.active %>
       <div id="announcements">
         <% if(announcements.size > 0) %>
-          <div class="announcements-bar">
+          <div id="announcement-numbers">
             <% announcements.each_with_index do |announcement, i| -%>
               <% if announcement.url -%>
                 <a href="<%= announcement.url %>" onmouseover="changeAnnouncement(<%= i %>)"><%= i+1 %></a>
@@ -89,7 +75,7 @@
         <%= '<div id="flash"><div class="message error"><p>'+ flash[:error] +'</p></div></div>' unless flash[:error].blank? %>
         <%= '<script>jQuery("#flash").hide().toggle("fade", {}, 2500).delay(4000).toggle("slide", { direction: "down" }, 1500);</script>' unless flash[:notice].blank? and flash[:error].blank? %>
 
-        <div id="content" class="<%# yield(:side_bar) ? 'double' : 'single' %>">
+        <div id="content">
           <%= yield %>
         </div>
       </div>
