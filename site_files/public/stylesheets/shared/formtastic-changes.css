@@ -43,7 +43,7 @@ form.formtastic fieldset.inputs ol li textarea       { width: 600px; }
 form.formtastic fieldset.inputs ol li input[type=password],
 form.formtastic fieldset.inputs ol li input[type=text] { width: 250px; }
 
-form.formtastic fieldset.inputs ol li select         { margin-top: 5px; }
+form.formtastic fieldset.inputs ol li select         { margin-top: 5px; padding: 2px; }
 form.formtastic fieldset.inputs ol li p.inline-errors { margin: 0 0 0 165px !important; }
 
 textarea,

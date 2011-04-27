@@ -1,6 +1,6 @@
-<h2><%= I18n::t('users.show.title') %></h2>
+<h2 class="title"><%= I18n::t('users.show.title') %></h2>
 
-<div class="entrybody">
+<div class="content-body">
   <dl class="list">
     <% if @user.email %>
       <dt><%= t("activerecord.attributes.user.email", :default => t("activerecord.labels.email", :default => "Email")) %>:</dt>
@@ -32,7 +32,7 @@
       <dd><%= @user.emails %></dd>
     <% end %>
 
-    <% if false #@user.country %>
+    <% unless @user.country.blank? %>
       <dt><%= t("activerecord.attributes.user.country", :default => t("activerecord.labels.country", :default => "Country")) %>:</dt>
       <dd><%= image_tag("flags/"+@user.country.downcase+".png", :alt => @user.country) %> <%= I18n::t("countries."+@user.country) %></dd>
     <% end %>
@@ -49,7 +49,7 @@
       <dd><span class="female"><%= t("generic_sentence.female_value") %></span></dd>
     <% end %>
 
-    <% if @user.phone %>
+    <% unless @user.phone.blank? %>
       <dt><%= t("activerecord.attributes.user.phone", :default => t("activerecord.labels.phone", :default => "Phone")) %>:</dt>
       <dd><%= @user.phone %></dd>
     <% end %>
@@ -71,7 +71,7 @@
   </dl>
 
   <ul class="buttons">
-    <li><%= link_to "#{t("users.show.edit_link")}", edit_user_account_path, :class => "button positive create" %></li>
-    <li><%= link_to "#{t("users.show.session_link")}", user_session_path, :class => "button positive create" %></li>
+    <li><%= link_to "#{t("users.show.edit_link")}", edit_user_account_path, :class => "button positive" %></li>
+    <li><%= link_to "#{t("users.show.session_link")}", user_session_path, :class => "button positive" %></li>
   </ul>
 </div>

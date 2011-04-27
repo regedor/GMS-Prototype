@@ -1,14 +1,12 @@
 <h2 class="title"><%= link_to(post.title, post_path(post)) %></h2>
-<div class="entrybody">
-  <div class="textile-body">
-    <%= content_tag :div, image_tag(post.image.url(:image)), :class => 'post-image' if post.image? %>
-    <% if controller.action_name == "index" -%>
-      <%= raw post.excerpt_html %>
-      <%= post.splitted ? "<p class='more'>#{link_to I18n::t('posts.read_more'), post_path(post)}</p>" : "" %>
-    <% else -%>
-      <%= raw post.body_html %>
-    <% end -%>
-  </div>
+<div class="textile-body">
+  <%= content_tag :div, image_tag(post.image.url(:image)), :class => 'post-image' if post.image? %>
+  <% if controller.action_name == "index" -%>
+    <%= raw post.excerpt_html %>
+    <%= post.splitted ? "<p class='more'>#{link_to I18n::t('posts.read_more'), post_path(post)}</p>" : "" %>
+  <% else -%>
+    <%= raw post.body_html %>
+  <% end -%>
 </div>
 
 <div class="social-buttons">

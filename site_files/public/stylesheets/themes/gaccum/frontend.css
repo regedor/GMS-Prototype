@@ -1,58 +1,59 @@
 /* line 1, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body {
   font-size: 13px;
+  margin: 0 10px;
 }
-/* line 4, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 5, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body a {
   border-bottom: 2px solid #cc0000;
 }
-/* line 7, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 8, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body h1 {
   font-size: 28px;
 }
-/* line 10, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 11, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body h2 {
   font-size: 24px;
 }
-/* line 13, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 14, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body h3 {
   font-size: 20px;
 }
-/* line 16, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 17, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body h4 {
   font-size: 16px;
 }
-/* line 19, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 20, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body h5 {
   font-size: 14px;
 }
-/* line 22, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 23, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body h1, div.textile-body h2, div.textile-body h3, div.textile-body h4, div.textile-body h5 {
   margin: 0 0 15px;
 }
-/* line 25, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 26, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body h1 a:hover, div.textile-body h2 a:hover, div.textile-body h3 a:hover, div.textile-body h4 a:hover, div.textile-body h5 a:hover {
   border-bottom: 3px solid #cc0000;
 }
-/* line 28, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 29, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body p {
   margin: 0 0 15px;
   text-align: justify;
 }
-/* line 32, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 33, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body table {
   font-size: 13px;
   line-height: 25px;
   border-collapse: collapse;
   width: 100%;
 }
-/* line 38, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 39, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body table td {
   border-bottom: 1px solid #dddddd;
   padding: 5px 10px;
   margin: 0 10px;
 }
-/* line 43, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 44, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body table th {
   background-color: #cc0000;
   border-bottom: solid 1px #dddddd;
@@ -62,39 +63,39 @@ div.textile-body table th {
   color: white;
   text-shadow: 0 1px 0 black;
 }
-/* line 52, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 53, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body table tr:first-child {
   border-top: 1px solid #dddddd;
 }
-/* line 55, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 56, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body strong {
   font-weight: bold;
 }
-/* line 58, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 59, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body cite, div.textile-body em {
   font-style: italic;
 }
-/* line 61, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 62, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body blockquote {
   margin: 30px;
   color: #777777;
   font-style: italic;
 }
-/* line 66, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 67, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body ul {
   list-style-type: disc;
   list-style-position: inside;
 }
-/* line 70, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 71, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body ol {
   list-style-type: decimal;
   list-style-position: inside;
 }
-/* line 74, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 75, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body li {
   margin: 10px 30px;
 }
-/* line 77, ../../../../app/themes/sass/partials/_textile.sass */
+/* line 78, ../../../../app/themes/sass/partials/_textile.sass */
 div.textile-body pre, div.textile-body code, div.textile-body tt {
   font-family: "lucida console", Monospace;
 }
@@ -225,25 +226,20 @@ div#tag-search-bar div#tags {
 }
 
 /* line 107, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
-div.entrybody {
-  margin: 0 10px;
-}
-
-/* line 111, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 div#content.single {
   float: left;
   width: 96%;
   margin: 20px 20px 30px;
 }
 
-/* line 117, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
+/* line 113, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 div#content.double {
   float: left;
   width: 745px;
   margin: 20px 20px 30px;
 }
 
-/* line 123, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
+/* line 119, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 div#main {
   background-color: white;
   border-left: 3px solid #111111;
@@ -251,6 +247,11 @@ div#main {
   border-bottom: 3px solid #111111;
   margin: auto;
   width: 1000px;
+}
+
+/* line 128, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
+div.content-body {
+  margin: 0 10px;
 }
 
 /* line 132, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
@@ -312,7 +313,7 @@ dl.list {
 dl.list dd {
   float: left;
   padding: 1px 0;
-  margin: 5px;
+  margin: 5px 0;
 }
 /* line 181, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 dl.list dt {
@@ -321,7 +322,7 @@ dl.list dt {
   float: left;
   font-weight: bold;
   padding: 0;
-  margin: 5px;
+  margin: 5px 0;
   width: 150px;
 }
 
@@ -337,7 +338,7 @@ div#archives a:hover {
 
 /* line 199, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 ul.archives-month {
-  margin: 0 0 0 15px;
+  margin: 0 0 0 10px;
 }
 /* line 202, ../../../../app/themes/sass/partials/_redsign/frontend-structure.sass */
 ul.archives-month li {

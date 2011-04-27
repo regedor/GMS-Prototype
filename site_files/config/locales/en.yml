@@ -102,6 +102,8 @@ en:
       forgot_pass: "I forgot my password"
       new_account: "Create account"
       commit_button: "Sign In"
+    show:
+      close_button: "Close"
 
   user_password_resets:
     new:

@@ -1,6 +1,6 @@
-<h2><%= I18n::t('users.show.session.title') %></h2>
+<h2 class="title"><%= I18n::t('users.show.session.title') %></h2>
 
-<div class="entrybody">
+<div class="content-body">
   <dl class="list">
     <dt>Name:</dt>
     <dd><%= h @user.name %></dd>
@@ -26,4 +26,8 @@
     <dt>Current login IP:</dt>
     <dd><%= h @user.current_login_ip %></dd>
   </dl>
+
+  <ul class="buttons">
+    <li><%= link_to "#{t("user_session.show.close_button")}", user_account_path, :class => "button negative create" %></li>
+  </ul>
 </div>

@@ -1,12 +1,14 @@
-<% content_for(:page_title) do %>
+<% content_for :page_title do %>
   <%= posts_title(@tags) %>
 <% end -%>
+
 
 <% content_for :head do %>
   <%= auto_discovery_link_tag(:atom, @tags.nil? ? posts_path(:format => 'atom') : posts_path(:tags => @tags, :format => 'atom')) %>
 <% end %>
 
-<% content_for :side_bar do %>
+
+<% content_for :tag_cloud do %>
   <div id="tag-cloud">
     <h2 class="title"><%= I18n::t('posts.tags.title') %></h2>
     <% tag_cloud @tags_for_cloud, ['nube1', 'nube2', 'nube3', 'nube4', 'nube5', 'nube6'] do |name, css_class| %>
@@ -15,6 +17,7 @@
     <% end %>
   </div>
 <% end %>
+
 
 <div id="posts">
   <% if @tags %>

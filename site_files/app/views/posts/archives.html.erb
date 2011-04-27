@@ -1,21 +1,19 @@
 <% content_for(:page_title) do %><%=h archives_title %><% end -%>
 <h2 class="title"><%= I18n::t('posts.archives.title') %></h2>
-<div class="entrybody">
-  <% if @months.empty? -%>
-    <p><%= I18n::t('posts.archives.none') %></p>
-  <% else -%>
-    <% @months.each do |month| -%>
-      <h3 class="archives-month-title"><%= format_month(month.date) %></h3>
-      <ul class="archives-month">
-        <% month.posts.each do |post| -%>
-          <li>
-            <%= link_to(post.title, post_path(post)) %>
-            <% unless post.tags.empty? %>
-              <span class="tags">(<%= linked_tag_list(post.tags) %>)</span>
-            <% end -%>
-          </li>
-        <% end -%>
-      </ul>
-    <% end -%>
+<% if @months.empty? -%>
+  <p><%= I18n::t('posts.archives.none') %></p>
+<% else -%>
+  <% @months.each do |month| -%>
+    <h3 class="archives-month-title"><%= format_month(month.date) %></h3>
+    <ul class="archives-month">
+      <% month.posts.each do |post| -%>
+        <li>
+          <%= link_to(post.title, post_path(post)) %>
+          <% unless post.tags.empty? %>
+            <span class="tags">(<%= linked_tag_list(post.tags) %>)</span>
+          <% end -%>
+        </li>
+      <% end -%>
+    </ul>
   <% end -%>
-</div>
+<% end -%>
