@@ -2,7 +2,7 @@
 <% if @records and (controller.action_name != "show") -%>
   <div class="block">
     <div id="sidebar_head">
-      <h3><%= t("admin.users.sidebar.title") %></h3>
+      <h5><%= t("admin.users.sidebar.title") %></h5>
     </div>
     <div class="content">
       <p><%= t("admin.users.sidebar.text") %></p>
@@ -14,10 +14,10 @@
   </div>
 
   <div class="block">
-    <h3><%= t("admin.users.sidebar.groups.title") %></h3>
+    <h5><%= t("admin.users.sidebar.groups.title") %></h5>
     <div class="content">
       <p><%= t("admin.users.sidebar.groups.paragraph") %></p>
-      <ul class="list">
+      <ul class="bullet-list">
         <% if params[:group] -%>
           <p><%= link_to I18n::t('admin.users.sidebar.groups.reset'), admin_users_path %></p>
         <% end -%>
@@ -35,14 +35,14 @@
 <%# History list %>
 <% if (controller.action_name == "show") and (@history_entry or @record && !@record.new_record?) -%>
   <div class="block">
-    <h3><%= t "admin.users.sidebar.history.title", :name => @record.small_name %></h3>
+    <h5><%= t "admin.users.sidebar.history.title", :name => @record.small_name %></h5>
     <div class="content">
       <% if @record.id %>
         <p><%= t("admin.users.sidebar.history.paragraph", :url => "#{@record.id}/edit") %></p>
       <% else %>
         <p><%= t("admin.users.sidebar.history.paragraph_no_link", :url => "") %></p>
       <% end %>
-      <ul class="options">
+      <ul class="bullet-list">
         <% history_rows = ( @actual_record || @record ).history_entries_list -%>
         <% if (first_entry = history_rows.shift) -%>
           <li class="<%= 'selected' unless params[:history_entry_id] %>">
@@ -88,10 +88,9 @@
 <%# History show preview page %>
 <% if  @history_entry -%>
   <div class="block notice">
-    <h4><%= t "admin.users.sidebar.reversion.subtitle"%></h4>
+    <h5><%= t "admin.users.sidebar.reversion.subtitle"%></h5>
     <p><%= t "admin.users.sidebar.reversion.message"%></p>
-    <%= link_to t("admin.users.sidebar.reversion.link"), admin_history_entries_path({:id => @history_entry.id, :redirect_url => admin_user_url(@actual_record.id)}),
-                 :method => :post %>
+    <%= link_to t("admin.users.sidebar.reversion.link"), admin_history_entries_path({:id => @history_entry.id, :redirect_url => admin_user_url(@actual_record.id)}), :method => :post %>
   </div>
 <% end -%>
 
@@ -99,7 +98,7 @@
 <%# Edit page %>
 <% if controller.action_name == "edit" and @record -%>
   <div class="block">
-    <h3><%= t("admin.users.sidebar.edit.title") %></h3>
+    <h5><%= t("admin.users.sidebar.edit.title") %></h5>
     <div class="content">
       <p><%= t("admin.users.sidebar.edit.text") %></p>
     </div>

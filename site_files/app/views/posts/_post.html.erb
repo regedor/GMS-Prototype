@@ -1,36 +1,40 @@
-<div id="content" class="single">
-  <h2><%= link_to(post.title, post_path(post)) %></h2>
-  <div class="entrybody">
-    <%= content_tag :div, image_tag(post.image.url(:image)), :class => 'post-image' if post.image? %>
-    <% if controller.action_name == "index" -%>
-      <%= raw post.excerpt_html %>
-      <%= post.splitted ? "<p class='more'>#{link_to I18n::t('posts.read_more'), post_path(post)}</p>" : "" %>
-    <% else -%>
-      <%= raw post.body_html %>
-    <% end -%>
- 
+<h2 class="title"><%= link_to(post.title, post_path(post)) %></h2>
+<div class="textile-body">
+  <%= content_tag :div, image_tag(post.image.url(:image)), :class => 'post-image' if post.image? %>
+  <% if controller.action_name == "index" -%>
+    <%= raw post.excerpt_html %>
+    <%= post.splitted ? "<p class='more'>#{link_to I18n::t('posts.read_more'), post_path(post)}</p>" : "" %>
+  <% else -%>
+    <%= raw post.body_html %>
+  <% end -%>
+</div>
+<div class="event-body">
 	<% if event %>
 	  <% if current_user %>
-	    <h2><%= event.name %></h2>
+	    <h2 class="title"><%= event.name %></h2>
 	    <%= render :partial => 'eventSubscription', :locals => {:event => event, :total_price => total_price, :subscribed_events  => subscribed_events} %>	    
-	  <% else %>
-		<h2><%= link_to t('posts.not_logged_in'), new_user_account_path %></h2>
-	  <% end %>	
-	<% end %>
+      <% else %>
+        <h2 class="title"><%= link_to t('posts.not_logged_in'), new_user_account_path %></h2>
+      <% end %>	
+    <% end %>
+</div>
+
+<div class="social-buttons">
+  <div class="addthis_toolbox addthis_default_style " addthis:url="<%= configatron.site_url + post_path(post) %>">
+    <a class="addthis_button_preferred_1"></a>
+    <a class="addthis_button_preferred_2"></a>
+    <a class="addthis_button_compact"></a>
+    <a class="addthis_counter addthis_bubble_style"></a>
   </div>
-  <div id="social-buttons">
-    <%= tweet_button(:via => configatron.site_name, :text => post.title, :count => "none", :url => (configatron.site_url+post_path(post))) %>
-    <a name="fb_share" type="button" share_url="<%= (configatron.site_url+post_path(post)) %>"> <%= I18n::t("posts.share_on_facebook")%></a>
-    <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
-  </div>
-  <div class="meta">
-    <ul>
-      <li class="date"><%= I18n::t('posts.meta.date') + ' ' + format_post_date(post.published_at) %></li>
-      <li class="comments"><%= count = post.approved_comments.size
-        link_to(I18n::t('posts.meta.comments.' + (count == 1 ? 'one' : 'many'), :count => count), post_path(post, :anchor => 'comments')) %></li>
-      <% unless post.tags.empty? -%>
-        <li class="tags"><%= I18n::t('posts.meta.tags') + ' ' + linked_tag_list(post.tags) %></li>
-      <% end -%>
-    </ul>
-  </div>
+</div>
+
+<div class="meta">
+  <ul>
+    <li class="date"><%= I18n::t('posts.meta.date') + ' ' + format_post_date(post.published_at) %></li>
+    <li class="comments"><%= count = post.approved_comments.size
+      link_to(I18n::t('posts.meta.comments.' + (count == 1 ? 'one' : 'many'), :count => count), post_path(post, :anchor => 'comment-list')) %></li>
+    <% unless post.tags.empty? -%>
+      <li class="tags"><%= I18n::t('posts.meta.tags') + ' ' + linked_tag_list(post.tags) %></li>
+    <% end -%>
+  </ul>
 </div>

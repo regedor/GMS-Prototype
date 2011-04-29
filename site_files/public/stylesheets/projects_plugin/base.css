@@ -55,16 +55,16 @@ div.title:hover span.todo_list_edit                         { display: inline; }
 
 div.title h2                                                { display: inline; }
 
-div.todo_list                                               { padding: 20px; }
+div.todo_list                                               { padding: 0 10px 20px; }
 div.todo_list div.description p                             { margin: 0 0 15px; }
 
 div.todo_list div.todos ul.not_done                         { min-height: 15px; }
-div.todo_list div.todos ul li.todo span.todo_info           { background: #EEE; padding: 2px; margin: 0 0 0 4px; }
+div.todo_list div.todos ul li.todo span.todo_info           { background: #EEE; padding: 2px 2px 2px 6px; margin: 0 0 0 4px; }
 div.todo_list div.todos ul li.todo span.todo_info           { -moz-border-radius: 6px; -webkit-border-radius: 6px; border-radius: 6px; }
 div.todo_list div.todos ul li.todo span.todo_edit           { margin: 0 0 0 15px; }
 div.todo_list div.todos ul li.todo span.todo_comments       { margin: 0 0 0 4px; }
 div.todo_list div.todos span.todo_comments img              { position: relative; top: 4px; }
-div.todo_list div.todos ul li.todo                          { margin: 0 0 15px; }
+div.todo_list div.todos ul li.todo                          { margin: 0 0 10px; }
 div.todo_list div.todos form.todo                           { background: #E5E5E5; padding: 15px 15px 0; margin: 0; }
 div.todo_list div.todos ul li.todo input                    { float: left; }
 div.todo_list div.todos ul li.todo.highlight span.todo_desc { background: #FFC; }

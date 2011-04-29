@@ -227,6 +227,10 @@ class User < ActiveRecord::Base
   def nickname_or_first_and_last_name
     self.nickname || first_and_last_name
   end
+  
+  def name
+    super || self.email
+  end   
 
   def list_groups
     r = []
@@ -321,7 +325,7 @@ class User < ActiveRecord::Base
   end
 
  private
-  def  map_openid_registration(registration)
+  def map_openid_registration(registration)
     self.email     = registration['email']    unless registration['email'].blank?
     self.name      = registration['fullname'] unless registration['fullname'].blank?
     self.nickname  = registration['nickname'] unless registration['nickname'].blank?
@@ -329,7 +333,7 @@ class User < ActiveRecord::Base
     self.country   = registration['country']  unless registration['country'].blank?
     if registration['http://axschema.org/contact/email']
       self.email    = registration['http://axschema.org/contact/email'].to_s
-      self.name     = registration['http://axschema.org/namePerson/first'].to_s + 
+      self.name     = registration['http://axschema.org/namePerson/first'].to_s + ' ' + 
                       registration['http://axschema.org/namePerson/last'].to_s
       self.language = registration['http://axschema.org/pref/language'].to_s if UserSession::LANGUAGES.map(&:last).include? registration['language']
       self.country  = registration['http://axschema.org/contact/country/home'].to_s

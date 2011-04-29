@@ -1,0 +1,30 @@
+<h2 class="title"><%= I18n::t('user_session.new.title') %></h2>
+
+<%= render :partial => 'shared/form_side_notes' %>
+
+<div class="form_with_notes">
+  <% semantic_form_for @user_session, :url => user_session_path do |f| %>
+      <% if @user_session.openid_identifier.blank? -%>
+        <% f.inputs :name => I18n::t('user_session.new.form_inputs_name') do %>
+          <%= f.input :email, :label => I18n::t('user_session.new.email'),
+                      :required => false %>
+          <%= f.input :password, :label => I18n::t('user_session.new.password'),
+                      :required => false %>
+        <% end %>
+      <% end %>
+      <% f.inputs :name => (@user_session.openid_identifier.blank? ? I18n::t('user_session.new.form_openid_inputs_name'): "") do %>
+        <%= f.input :openid_identifier, :label => I18n::t('user_session.new.openid'),
+                    :required => false %>
+        <%= f.input :remember_me, :label => I18n::t('user_session.new.remember_me'),
+                    :as => :boolean, :required => false %>
+      <% end %>
+      <% f.buttons do %>
+        <%= f.commit_button I18n::t('user_session.new.commit_button'),
+                            :button_html => { :class => 'button positive' } %>
+        <%= f.button_link   I18n::t('user_session.new.forgot_pass'), new_user_password_reset_path,
+                            :button_html => { :class => 'button negative' } %>
+        <%= f.button_link   I18n::t('user_session.new.new_account'), new_user_account_path,
+                            :button_html => { :class => 'button positive' } %>
+      <% end %>
+  <% end %>
+</div>

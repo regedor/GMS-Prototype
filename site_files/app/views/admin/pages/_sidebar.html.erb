@@ -1,10 +1,8 @@
 <% if (controller.action_name == "index") %>
  <div class="block">
-    <h3><%=h t("admin.pages.sidebar.title") %></h3>
+    <h5><%=h t("admin.pages.sidebar.title") %></h5>
     <div class="content">
-      <p>
-        <%= t("admin.pages.sidebar.paragraph") %>
-      </p>
+      <p><%= t("admin.pages.sidebar.paragraph") %></p>
     </div>
   </div>
 <% end %>
@@ -13,10 +11,10 @@
 <%# History list %>
 <% if (controller.action_name != "edit") and (@history_entry or @record && !@record.new_record?) -%> 
   <div class="block">
-    <h3><%= t "admin.pages.sidebar.history.title", :name => @record.title %></h3>
+    <h5><%= t "admin.pages.sidebar.history.title", :name => @record.title %></h5>
     <div class="content">
       <p><%= t("admin.pages.sidebar.history.paragraph") %></p>
-      <ul class="options">
+      <ul class="bullet-list">
         <% history_rows = ( @actual_record || @record ).history_entries_list -%> 
         <% if (first_entry = history_rows.shift) -%> 
           <li class="<%= 'selected' unless params[:history_entry_id] %>">
@@ -39,7 +37,7 @@
 
 <% if (controller.action_name == "edit") %>
  <div class="block">
-    <h3><%=h t("admin.pages.sidebar.edit.title") %></h3>
+    <h5><%=h t("admin.pages.sidebar.edit.title") %></h5>
     <div class="content">
       <p><%= t("admin.pages.sidebar.edit.paragraph") %></p>
     </div>
@@ -49,11 +47,10 @@
 <%# History edit preview page %>
 <% if @history_entry -%> 
   <div class="block">
-    <h3><%= t "admin.pages.sidebar.reversion.title" %></h3>
+    <h5><%= t "admin.pages.sidebar.reversion.title" %></h5>
     <div class="content">
       <p><%= t "admin.pages.sidebar.reversion.message" %></p>
-
-    <%= link_to t("admin.pages.sidebar.reversion.link"), admin_history_entries_path({:id => @history_entry.id,
+      <%= link_to t("admin.pages.sidebar.reversion.link"), admin_history_entries_path({:id => @history_entry.id,
                                                            :redirect_url => admin_page_url(@actual_record.id)}),
                                                            :method => :post %>
     </div>

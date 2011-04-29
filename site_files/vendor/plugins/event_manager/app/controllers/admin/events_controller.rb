@@ -3,7 +3,7 @@ class Admin::EventsController < Admin::BaseController
   before_filter :date_localization, :only => [ :create, :update ]
 
   active_scaffold :event do |config|
-
+  
     config.action_links.add 'list_activities', :type => :member, :page => true, :method => :get,
                                      :label => I18n::t("admin.events.index.list_activities")    
 

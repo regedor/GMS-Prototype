@@ -11,7 +11,7 @@ class Post < ActiveRecord::Base
   before_validation       :set_dates
   before_save             :apply_filter
 
-  validates_presence_of   :title, :slug, :body
+  validates_presence_of   :title, :slug, :body, :published_at
   validates_uniqueness_of :slug
   validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/jpg', 'image/png']
 
@@ -21,6 +21,13 @@ class Post < ActiveRecord::Base
   belongs_to :event
   has_attached_file :image, :styles => { :image => "250x250", :thumb => "50x50" }
   has_attached_file :generic
+  before_save do |instance|
+    instance.image.clear   if instance.image_delete == "1"
+    instance.generic.clear if instance.generic_delete == "1"
+  end
+  attr_writer :image_delete, :generic_delete
+  def image_delete ; @image_delete ||= "0" ; end
+  def generic_delete ; @generic_delete ||= "0" ; end
 
   # Makes this model historicable
   include HistoryEntry::Historicable
@@ -129,6 +136,14 @@ class Post < ActiveRecord::Base
       month = Struct.new(:date, :posts)
       posts.group_by(&:month).inject([]) {|a, v| a << month.new(v[0], v[1])}
     end
+    
+    def all(*params)
+      unless params.member? :order
+        self.find :all, :order => 'posts.published_at DESC', *params     
+      else
+        self.find :all, *params
+      end    
+    end  
 
     # Paginate by publication date
     def paginate_by_published_date(page)

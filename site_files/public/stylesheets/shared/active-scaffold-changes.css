@@ -1,0 +1,104 @@
+div.active-scaffold p,
+div.active-scaffold a,
+div.active-scaffold a:link,
+div.active-scaffold a:active,
+div.active-scaffold a:visited      { color: #333; font-size: 12px; line-height: 1.2em; }
+div.active-scaffold a:hover        { text-decoration: underline; }
+
+div.active-scaffold input.text-input,
+div.active-scaffold textarea       { -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; padding: 2px !important; width: 250px; }
+div.active-scaffold input.text-input:focus,
+div.active-scaffold textarea:focus { -webkit-box-shadow: rgba(0,0,0,0.3) 0 0 3px; -moz-box-shadow: rgba(0,0,0,0.3) 0 0 3px; box-shadow: 0 0 3px rgba(0,0,0,0.3); border: 1px solid #CCC; }
+
+.active-scaffold-header h2                         { padding-top: 0.2em;margin: 0;padding-left: 0em; padding-bottom: 0.7em;}
+.active-scaffold-header h2                         { color: #333;font: bold 160% Verdana,arial, sans-serif; font-size: 1.8em; }
+.active-scaffold-header div.actions a              { float: right;font: bold 14px Verdana,arial;text-decoration: none;}
+.active-scaffold-header div.actions a              { padding: 1px 2px;white-space: nowrap;margin-left: 5px;background-position: 1px 50%;}
+.active-scaffold-header div.actions                { position: relative;float: right;padding-left: 10px;}
+
+.active-scaffold th             { padding: 0 5px; white-space: nowrap; }
+.active-scaffold td.total_approved_comments-column { white-space: nowrap; }
+.active-scaffold table thead tr { height: 25px; }
+.active-scaffold th                                { text-align: left; color: #676766;}
+.active-scaffold th a,
+.active-scaffold th p                              { display: block;background-color: #EAEAEA;}
+.active-scaffold th a, 
+.active-scaffold th a:visited                      { color: #676766;padding: 0;}
+.active-scaffold th a:hover                        { background-color: #EAEAEA;color: black;}
+.active-scaffold tr.record td                      { padding: 0.5em 0.5em;padding-left: 8px;color: #333;}
+.active-scaffold tr.record td                      { font-size: 11px;border:0;height: 50px;}
+.active-scaffold tbody.records td.empty            { color: #999;text-align: center;}
+.active-scaffold td.numeric,
+.active-scaffold-calculations td                   { text-align: right;}
+.active-scaffold tr.record td.actions table td     { border: none;text-align: right;padding: 0 2px;}
+.active-scaffold tr.record td.actions a            { font: bold 11px verdana, sans-serif;}
+.active-scaffold tr.record td.actions a            { padding: 2px;margin: 0 2px;line-height: 16px;white-space: nowrap;}
+.active-scaffold-calculations td                   { background-color: #eee;border-top: 2px solid #005CB8;font: bold 12px verdana,arial, sans-serif;}
+
+/* Footer */
+
+.active-scaffold-footer .next                      { margin-left: 0;padding-left: 5px;border-left: solid 1px #ccc;}
+.active-scaffold-footer .previous                  { margin-right: 0;padding-right: 5px;border-right: solid 1px #ccc;}
+.active-scaffold .active-scaffold-footer           { padding: 3px 0px 2px 0px;border-bottom: none;font: bold 12px verdana,arial, sans-serif;}
+.active-scaffold-footer .active-scaffold-pagination { float: right;white-space: nowrap;padding-right: 15px;}
+.active-scaffold-footer a                           { text-decoration: none;letter-spacing: 0;padding: 0 2px;}
+.active-scaffold-footer a                           { margin: 0 -2px;font: bold 12px verdana,arial, sans-serif;}
+
+.active-scaffold input.text-input,
+.active-scaffold select                  { font: inherit; border: solid 1px #9E9E9E; font-size: 1.1em; }
+
+.view .active-scaffold-header div.actions a { float: left;}
+.active-scaffold .message a                 { position: absolute;right: 10px;top: 4px;padding: 0;}
+.active-scaffold .loading-indicator         { vertical-align: text-bottom;width: 16px; right: 2px;padding-top: 1px; position: absolute; top: 1px; }
+.active-scaffold li.form-element dt         { float: left;width: 12em;padding: 6px 0;}
+.active-scaffold li.form-element dd         { float: none;}
+.active-scaffold-found                      { float:left;}
+.list_actions                               { display: none; }
+
+.active-scaffold .clear-fix { clear: both;}
+
+/* Header */
+
+.active-scaffold-header div.actions a                   { background-repeat: no-repeat;}
+.active-scaffold-header div.actions a.new,
+.active-scaffold-header div.actions a.new_existing,
+.active-scaffold-header div.actions a.show_search       { padding-left: 1.4em; line-height: 1.7em; background-position: 1px 50%;background-repeat: no-repeat;}
+.active-scaffold-header div.actions a.new,
+.active-scaffold-header div.actions a.new_existing      { background-image: url(../../../images/active_scaffold/default/add.gif);}
+.active-scaffold-header div.actions a.show_search       { background-image: url(../../../images/active_scaffold/default/magnifier.png);}
+.active-scaffold-header div.actions a.disabled:hover    { background-color: transparent;cursor: default;}
+
+#main .block .content .inner                            { padding: 0; padding-bottom: 20px; }
+
+.active-scaffold-header div.actions {right: 0px;top: 0;}
+
+/* Table :: Column Headers */
+.active-scaffold th.sorted          { background-color: #EAEAEA;}
+.active-scaffold th.asc a,
+.active-scaffold th.asc a:hover     { background: #EAEAEA url(../../../images/active_scaffold/default/arrow_up.gif) right 50% no-repeat;}
+.active-scaffold th.desc a,
+.active-scaffold th.desc a:hover    { background: #EAEAEA url(../../../images/active_scaffold/default/arrow_down.gif) right 50% no-repeat;}
+.active-scaffold th.loading a,
+.active-scaffold th.loading a:hover { background: #EAEAEA url(../../../images/active_scaffold/default/indicator-small.gif) right 50% no-repeat;}
+.active-scaffold th                 { background-color: #EAEAEA;}
+.active-scaffold th p               { padding: 0;}
+.active-scaffold tr.even-record td,
+.active-scaffold tr.even-record td.sorted,
+.active-scaffold tr.record td,
+.active-scaffold tr.record td.sorted {background-color: #FFF;}
+.active-scaffold tr.even-record:hover td,
+.active-scaffold tr.even-record:hover td.sorted,
+.active-scaffold tr.record:hover td,
+.active-scaffold tr.record:hover td.sorted      { background-color: #F5F5F5; }
+.active-scaffold tr.even-record td              { border-top: 1px solid #EAEAEA; height: 50px; }
+.active-scaffold tr.record td                   { border-top: 1px solid #EAEAEA; margin-left: 0px; }
+.active-scaffold tr.record td.actions { border-right: 0;padding: 0;min-width: 1%; padding-right: 15px;}
+
+/* Table :: Inline Adapter */
+.active-scaffold .view                                       { background-color: #FCFCFC;padding: 0px;border:0px;}
+.active-scaffold tbody.records td.inline-adapter-cell .view  { border-top: none;}
+.active-scaffold .before-header td.inline-adapter-cell .view { border-bottom: none;}
+.active-scaffold a.inline-adapter-close { height: 17px;background: url(../../../images/active_scaffold/default/close.gif) 0 0 no-repeat;}
+
+/* Loading Indicators */
+.active-scaffold .active-scaffold-header .loading-indicator { margin-bottom: 3px;}

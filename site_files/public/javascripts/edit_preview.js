@@ -33,7 +33,7 @@ $(document).ready(function() {
 
         jQuery.ajax({
           type: 'POST',
-          data: form.serialize().replace(/&*_method=\w+&*/, ''),
+          data: form.serialize().replace(/&*_method=\w+&*/, '')+'&id='+window.location.pathname.split('/')[3],
           url: dest,
           error: function() {
             title = t('admin.posts.preview.title');

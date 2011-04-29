@@ -11,8 +11,8 @@ class Admin::PostsController < Admin::BaseController
     Scaffoldapp::active_scaffold config, "admin.posts",
       :list   => [ :title, :excert, :published_at, :total_approved_comments ],
       :show   => [ ],
-      :create => [ :title, :body, :tag_list, :published_at, :slug, :image ],
-      :edit   => [ :title, :body, :tag_list, :published_at, :slug, :minor_edit, :image, :generic ]
+      :create => [ :title, :body, :tag_list, :published_at, :slug, :image, :image_delete, :generic_delete ],
+      :edit   => [ :title, :body, :tag_list, :published_at, :slug, :minor_edit, :image, :generic, :image_delete, :generic_delete ]
   end
 
   def custom_finder_options
@@ -91,7 +91,7 @@ class Admin::PostsController < Admin::BaseController
   
     def date_localization  
       begin 
-        params[:record][:published_at] = DateTime.strptime(params[:record][:published_at],"%d/%m/%Y").to_time
+        params[:record][:published_at] = DateTime.strptime(params[:record][:published_at],"%d/%m/%Y %H:%M").to_time
       rescue ArgumentError
         flash[:error] = t("flash.invalid_date")
         redirect_to :action => params[:action] == 'create' ? 'new' : 'edit'

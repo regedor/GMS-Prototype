@@ -1,0 +1,381 @@
+// ============================================================================
+// Rules
+// ============================================================================
+
+
+body
+  background-color: $frontend-background-color
+  overflow-x: hidden // Firefox needs this
+
+
+h2.title, h3.archives-month-title 
+  margin: 0 0 $content-margin
+
+  a:hover
+    border-bottom: 3px solid $default-color
+
+
+hr
+  background-color: #DDD
+  border: none
+  clear: left
+  height: 1px
+  margin: $content-margin 0
+
+
+div#panel
+  background-image: url("/stylesheets/themes/gaccum/images/metal-frame.png")
+  background-repeat: no-repeat
+  height: 290px
+  margin: 25px auto
+  width: 770px
+
+
+div#header
+  background-color: #FFF
+  position: absolute
+  top: 10px
+  width: 100%
+  z-index: 1
+  @include box-shadow(0, 0, 10px, #222)
+  @include enable-ie-css3
+
+  span.site-title
+    float: left
+    margin: 6px $content-margin 8px
+
+  span.options
+    float: right
+    margin: 6px $content-margin 8px
+
+    a:hover
+      border-bottom: 2px solid $default-color
+
+
+div#top-gradient
+  background-color: $menu-default-color
+  background-image: url("/stylesheets/themes/gaccum/images/topbar.png")
+  background-repeat: repeat-x
+  height: 100px
+  width: 100%
+
+
+div#navigation-nojs
+  background-color: $menu-default-color
+  background-image: url("/stylesheets/themes/gaccum/images/menu.png")
+  background-repeat: repeat-x
+  padding: 12px 0
+  position: relative
+  width: 100%
+  @include box-shadow(0, 0, 10px, #222)
+  @include enable-ie-css3
+
+  ul
+    position: relative
+    left: 130px
+
+    li
+      display: inline
+
+      a
+        border: none
+        color: #FFF
+        padding: 12px 25px
+
+      a:hover
+        background-color: $menu-hover-color
+
+
+div#tag-cloud
+  background-color: $tag-cloud-color
+  margin: 0 25px 20px 780px
+  min-height: 100px
+  padding: 10px 20px
+  position: relative
+  top: $content-margin
+  @include round-corners(5px, 5px, 5px, 5px)
+  @include enable-ie-css3
+
+
+div#tag-search-bar
+  margin: 0 0 $content-margin
+
+  div#tags
+    margin: 10px
+
+
+div#content.single
+  float: left
+  width: 960px
+  margin: 20px 20px 30px
+
+
+div#content.double
+  float: left
+  width: 745px
+  margin: 20px 20px 30px
+
+
+div#main
+  background-color: #FFF
+  border-left: 3px solid #111
+  border-right: 3px solid #111
+  border-bottom: 3px solid #111
+  margin: auto
+  width: 1000px
+
+
+div.content-body
+  margin: 0 10px
+
+
+div#user-info, div#user-invite
+  margin: $content-margin 10px
+
+
+div#footer
+  margin: 25px
+
+  a:hover
+    border-bottom: 2px solid $default-color
+
+
+div#flash
+  background-image: url("/images/dark_transparency.png")
+  border-top: 1px solid #000
+  bottom: 0
+  left: 0
+  padding: 15px 0
+  position: fixed
+  width: 100%
+
+  div.message
+    margin: 0 0 0 30px
+
+    p
+      margin: 0 70px
+      padding: 20px
+
+  div.message.error
+    background: url("/stylesheets/themes/gaccum/images/flash/error.png") no-repeat 0 50%
+
+  div.message.warning
+    background: url("/stylesheets/themes/gaccum/images/flash/warning.png") no-repeat 0 50%
+
+  div.message.info, div.message.notice
+    background: url("/stylesheets/themes/gaccum/images/flash/notice.png") no-repeat 0 50%
+
+
+ul.list li
+  margin: $content-margin 0
+
+
+dl.list
+  display: inline-block
+
+  dd
+    float: left
+    padding: 1px 0
+    margin: 5px 0
+
+  dt
+    clear: left
+    color: #555
+    float: left
+    font-weight: bold
+    padding: 0
+    margin: 5px 0
+    width: 150px
+
+
+div#archives
+  float: right
+  margin: 10px
+
+  a:hover
+    border-bottom: 3px solid $default-color
+
+
+ul.archives-month
+  margin: 0 0 0 10px
+
+  li
+    margin: 0 0 5px
+
+    a:hover
+      border-bottom: 2px solid $default-color
+
+
+// ==============
+// Social buttons
+// ==============
+
+
+div.social-buttons
+  float: right
+  margin: 0 10px 10px
+
+  div.addthis_toolbox
+    display: inline
+
+
+// =============
+// Announcements
+// =============
+
+
+div#announcements
+  overflow: hidden
+  position: relative
+  left: 20px
+  top: 20px
+  width: 730px
+
+  a:hover
+    border: none
+
+
+div.announcement-tail
+  display: none
+
+
+div#announcement-numbers
+  background: url("/images/dark_transparency.png")
+  cursor: default
+  padding: 12px
+  position: absolute
+  right: 0
+
+
+div.announcement img
+  height: 250px
+  width: 730px
+
+
+div.announcement-text
+  background: url("/images/dark_transparency.png")
+  bottom: 0
+  padding: 14px 12px 12px 14px
+  position: absolute
+  right: 0
+  width: 300px
+
+  p.title
+    padding: 0 0 15px
+
+
+// =====
+// Posts
+// =====
+
+
+div.post
+  margin: 0 0 30px
+
+
+div.post-image
+  float: left
+  margin: 0 $content-margin 5px 0
+
+
+div.meta
+  clear: both
+  background-color: #EEE
+  margin: 0 10px
+  padding: 10px
+  @include round-corners(5px, 5px, 5px, 5px)
+  @include enable-ie-css3
+
+  a:hover
+    border-bottom: 2px solid $default-color
+
+
+// ========
+// Comments
+// ========
+
+
+div.avatar
+  float: left
+  margin-right: 20px
+
+  img
+    border: 1px solid #999
+
+
+span.comment-meta
+  clear: both
+  display: block
+
+
+div.new-comment
+  padding: 0 $content-margin
+
+
+ol#comment-list
+  margin: 20px 0
+
+  p
+    padding: $content-margin 0 0 72px
+
+
+// =======
+// Buttons
+// =======
+
+
+button, a.button, input.button
+  background-color: $button-gradient-end-color // graceful degrade for Opera
+  border: 1px solid #AAA
+  cursor: pointer
+  float: left
+  @include linear-gradient($button-gradient-start-color, $button-gradient-end-color)
+  @include round-corners(4px, 4px, 4px, 4px)
+  @include enable-ie-css3
+
+
+button:active, a.button:active, input.button:active
+  @include linear-gradient($button-gradient-end-color, $button-gradient-start-color)
+  @include enable-ie-css3
+
+
+a.button
+  padding: 6px 10px
+
+
+input.button
+  padding: 5px 10px !important
+
+
+button
+  padding: 5px 10px
+
+
+ul.buttons
+  margin: $content-margin 0
+
+  a
+    margin: 0 10px 0 0
+
+
+*:first-child + html input[type]
+  padding: 2px 10px 3px
+  // IE7
+
+
+a.google_ico, a.yahoo_ico
+  margin: 0 0 $content-margin 0
+  width: 90%
+
+
+// Self-clearing floats and IE hacks
+
+.selfclear
+  &:after
+    content: "."
+    display: block
+    height: 0
+    clear: both
+    visibility: hidden
+  display: inline-block // IE 7
+  display: block

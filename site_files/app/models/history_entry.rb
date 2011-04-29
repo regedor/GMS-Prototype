@@ -110,7 +110,7 @@ class HistoryEntry < ActiveRecord::Base
       elsif User.find_by_id(id)
         return {:name => User.find_by_id(id).nickname_or_first_and_last_name,        :type => "user"           }
       else
-        return {:name => I18n::t("admin.deleted_users.deleted_user"),                :type => "destroyed_user" }
+        return {:name => I18n::t("admin.deleted_users.index.deleted_user"),          :type => "destroyed_user" }
       end
     end
     

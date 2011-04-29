@@ -1,5 +1,4 @@
 module ApplicationHelper
- 	include TweetButton
 
   def icon_tag(icon)
     "<img src='/images/icons/#{icon}.png' alt=''/>"
@@ -41,9 +40,9 @@ module ApplicationHelper
 
   def file_icon_displayer(file)
     if file.content_type =~ /^image\//
-      return file.url(:thumb)
+      return image_tag file.url(:thumb)
     else
-      return "#{root_url}images/icons/door.png"
+      return image_tag("#{root_url}images/icons/attach.png") + file.path.split("/").last
     end    
   end  
 

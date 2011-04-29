@@ -1,0 +1,153 @@
+/*
+============================================================================
+= General Structure
+============================================================================
+*/
+
+body                          { background-color: #1C1B1B; }
+
+h2                            { margin: 0 0 15px; }
+h3                            { margin: 0 0 1em; }
+h4                            { margin: 0 0 1em; }
+
+hr                            { clear: left; background-color: #DDD; height: 1px; border: none; margin: 15px 0; }
+
+div#account-info              { background-color: #F5F5F5; float: right; width: 980px; height: 80px; border-left: 3px solid #444; }
+div#account-info span.options { float: right; padding: 0.7em; }
+
+div#color-bar                 { height: 80px; background-color: #8EF13C; width: 100%; }
+
+div#transparent-bar           { background-color: #76C734; width: 25px; height: 250px; position: absolute; top: 80px; right: 225px; }
+
+div#site-title a:hover        { border: none; }
+div#site-title                { margin: 100px 0 80px; }
+div#site-title h1 a           { display: block; height: 120px; max-width: 200px; text-indent: -6000px }
+div#site-title h1 a           { background: url("/stylesheets/themes/redsign/images/bg_logo.png") no-repeat; }
+
+div#navigate ul               { position: absolute; right: 590px; top: 50px; }
+div#navigate li               { display: inline; padding: 0 1em 0; }
+div#navigate li a             { border: none; }
+
+div#tag-search-bar            { margin: 0 0 1em; font-size: 1.1em; }
+div#tag-search-bar div#tags   { margin: 10px 0 10px 10px; }
+div#tag-search-bar div#tags a { border: none; background: url("/stylesheets/themes/nemum/icons/tag_delete.png") no-repeat; padding: 0     5px 0 18px; }
+
+div#content                   { margin: 0 220px 0 0; }
+div#content.single            { margin: 35px; }
+div#content p                 { margin: 0 0 1em; }
+div#content table             { margin: 0 0 1em; }
+div#sidebar                   { background-color: #FFE9E9; float: right; width: 190px; padding: 20px; margin: 20px; }
+div#sidebar                   { -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }
+div#main                      { background-color: #F5F5F5; width: 980px; padding: 1px 0; float: right; border-left: 3px solid #444; border-bottom: 3px solid #444; }
+div#main p                    { margin: 0 0 1.2em; }
+
+div#main table                { border-collapse: collapse; width: 100%; } /* border-collapse ta a broquear padding */
+div#main td,
+div#main th                   { border-bottom: solid 1px #DDD; padding: 0.4em 0; margin: 0 10px; }
+
+div#main div#user-info        { margin: 15px 10px; }
+div#main div#user-invite      { margin: 15px 10px; }
+
+div.meta                      { background-color: #EEE; margin: 0 10px; padding: 0.8em; }
+div.meta                      { -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }
+div#footer                    { padding: 1.5em; clear: right; }
+
+div#archives                  { float: right; margin: 0 45px 15px 0; }
+
+div#flash                     { background-image: url("/images/dark_transparency.png"); padding: 1em 0; position: fixed; }
+div#flash                     { width: 100%; left: 0; bottom: 0; border-top: 1px solid #000; }
+div#flash div.message         { height: 64px; }
+div#flash div.message p       { margin: 0 100px; padding: 20px; }
+div#flash div.message.error   { background: url("/stylesheets/themes/redsign/images/flash/error.png") no-repeat 0 50%; }
+div#flash div.message.warning { background: url("/stylesheets/themes/redsign/images/flash/warning.png") no-repeat 0 50%; }
+div#flash div.message.info,
+div#flash div.message.notice  { background: url("/stylesheets/themes/redsign/images/flash/notice.png") no-repeat 2% 50%; }
+
+.pagination a:hover,
+.meta a:hover,
+.options a:hover,
+div#archives a:hover,
+div#footer a:hover            { border-bottom: 2px solid #8EF13C; }
+
+/* Social buttons */
+
+div#social-buttons            { margin: 0 10px 5px; clear: both; }
+div#social-buttons iframe     { vertical-align: bottom; }
+div#social-buttons a span     { border: 1px solid #5F78AB; border-bottom: 1px solid #29447E; }
+
+/* Announcements */
+
+div#panel                     { float: right; background-color: #8EF13C; width: 980px; border-left: 3px solid #444; }
+div#announcements             { overflow: hidden; position: relative; width: 730px; }
+div#announcements a:hover     { border: none; }
+div.announcement-tail         { display: none; }
+div.announcements-bar         { padding: 0.8em; position: absolute; cursor: default; }
+div.announcements-bar         { background: url("/images/dark_transparency.png"); }
+div.announcement-block img    { height: 250px; width: 730px; }
+div.announcement-text         { bottom: 0; position: absolute; right: 0; }
+div.announcement-text         { background: url("/images/dark_transparency.png"); padding: 1.2em; width: 300px; }
+div.announcement-text p.title { padding: 0 0 1em; }
+
+/* Pages */
+
+body#pages_show div#main ul li,
+body#pages_show div#main ol li { list-style-position: inside; margin: 1.5em 30px; }
+body#pages_show div#main ul li { list-style-type: disc; }
+body#pages_show div#main ol li { list-style-type: decimal; }
+body#pages_show div#main p     { margin: 1.2em 10px; }
+
+/* Posts */
+
+div.post                      { margin: 0 0 2.5em; }
+div.entrybody ul              { padding-left: 5px; list-style: circle; }
+div.entrybody                 { margin: 0 10px; }
+div.post-image                { float: left; margin: 0 15px 5px 0; }
+.related                      { padding-bottom: 15px; } /* Ver depois */
+
+/* Comments */
+
+div.avatar                    { margin-right: 20px; float: left; }
+div.avatar img                { border: 1px solid #999; }
+span.comment-meta             { display: block; clear: both; }
+div.new-comment               { padding: 0 0.8em; }
+ol.comment-list               { padding: 0.8em; }
+ol.comment-list p             { padding: 1.1em 0 0; }
+
+/* Buttons */
+
+button,
+a.button,
+input.button                  { cursor: pointer; float: left; background-color: #F5F5F5; }
+button,
+a.button,
+a.button:hover,
+input.button                  { border: 1px solid #AAA; }
+
+a.button                      { padding: 6px 10px; }
+input.button                  { padding: 5px 10px !important; }
+button                        { padding: 5px 10px; }
+
+button,
+a.button,
+input.button                  { background: -webkit-gradient(linear,0% 30%,0% 90%,from(#F9F9F9),to(#E9E9E9)); background: -moz-linear-gradient(top, #FFF, #E9E9E9); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F9F9F9, endColorstr=#E9E9E9); -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#F9F9F9, endColorstr=#E9E9E9"; }
+button:active,
+a.button:active,
+input.button:active           { background: -webkit-gradient(linear,0% 30%,0% 90%,from(#E9E9E9),to(#F9F9F9)); background: -moz-linear-gradient(top, #E9E9E9, #FFF); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#E9E9E9, endColorstr=#F9F9F9); -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#E9E9E9, endColorstr=#F9F9F9"; }
+
+button,
+a.button,
+input.button                  { -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; }
+
+*:first-child+html input[type] { padding: 2px 10px 3px; /* IE7 */ }
+
+a.google_ico,
+a.yahoo_ico                   { margin: 0 0 15px 0; width: 90% }
+
+/* Self-clearing floats and IE hacks */
+
+.hidden                       { display: none; }
+.selfclear:after              { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+.selfclear                    { display: inline-block; /* IE 7 */ }
+.selfclear                    { display: block; }
+* html .selfclear             { height: 1px; /* IE < 7 */ }
+* html .resource-list tr.table-header { background: #000; /* IE < 7 */}

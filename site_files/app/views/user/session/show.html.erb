@@ -1,23 +1,33 @@
-<h2><%= I18n::t('users.show.session.title') %></h2>
+<h2 class="title"><%= I18n::t('users.show.session.title') %></h2>
 
-<div id="user-info">
-  <table>
-    <tr><td><b>Name:</b></td><td><%=h @user.name %></td></tr>
-    <tr><td><b>Email:</b></td><td><%=h @user.email %></td></tr>
-    <tr><td><b>Login count:</b><td><%=h @user.login_count %></td></tr>
-    <tr><td><b>Last request at:</b></td><td><%=h @user.last_request_at %></td></tr>
-    <tr><td><b>Last login at:</b></td><td><%=h @user.last_login_at %></td></tr>
-    <tr><td><b>Current login at:</b></td><td><%=h @user.current_login_at %></td></tr>
-    <tr><td><b>Last login IP:</b></td><td><%=h @user.last_login_ip %></td></tr>
-    <tr><td><b>Current login IP:</b></td><td><%=h @user.current_login_ip %></td></tr>
-  </table>
-</div>
+<div class="content-body">
+  <dl class="list">
+    <dt>Name:</dt>
+    <dd><%= h @user.name %></dd>
 
-<h2><%= t('users.show.invite.title') %></h2>
-<div id="user-invite">
-  <p>Enter the emails, separated by comma:</p>
-  <% form_tag :controller => :session, :action => :send_invitations do  %>
-    <%= text_area 'invitation', 'emails', :rows => 12 %>
-    <p><%= submit_tag 'Send invitations' %></p>
-  <% end %>
+    <dt>Email:</dt>
+    <dd><%= h @user.email %></dd>
+
+    <dt>Login count:</dt>
+    <dd><%= h @user.login_count %></dd>
+
+    <dt>Last request at:</dt>
+    <dd><%= h @user.last_request_at %></dd>
+
+    <dt>Last login at:</dt>
+    <dd><%= h @user.last_login_at %></dd>
+
+    <dt>Current login at:</dt>
+    <dd><%= h @user.current_login_at %></dd>
+
+    <dt>Last login IP:</dt>
+    <dd><%= h @user.last_login_ip %></dd>
+
+    <dt>Current login IP:</dt>
+    <dd><%= h @user.current_login_ip %></dd>
+  </dl>
+
+  <ul class="buttons">
+    <li><%= link_to "#{t("user_session.show.close_button")}", user_account_path, :class => "button negative create" %></li>
+  </ul>
 </div>

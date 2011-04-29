@@ -2,7 +2,7 @@ class Announcement < ActiveRecord::Base
   cattr_reader :per_page
   @@per_page = 10
 
-  has_attached_file :avatar, :styles => { :announcement => "730x250#" }, :default_url => '/system/:attachment/:style/missing.png'
+  has_attached_file :avatar, :styles => { :announcement => configatron.announcement_size }, :default_url => '/system/:attachment/:style/missing.png'
 
   validates_presence_of :title
   validates_uniqueness_of :title

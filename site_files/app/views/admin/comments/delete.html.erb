@@ -1,0 +1,17 @@
+<!-- If a sidebar file exists in the views/controller folder it is rendered, otherwise it does not -->
+
+<div class="content">
+  <div class="inner">
+    <h2>Are you sure you want to delete?</h2>
+    <% semantic_form_for :record, @record,
+                         :url => admin_post_comment_path(params[:post_id], @record),
+                         :html => { :method => :delete } do |form| -%>
+      <% form.buttons do -%>
+        <%= form.commit_button I18n::t('admin.users.form.delete_button'),
+                               :button_html => { :class => 'button positive' } %>
+        <%= form.button_link I18n::t('admin.users.form.cancel_button'), admin_post_comments_path(params[:post_id]),
+                             :button_html => { :class => 'button negative' } %>
+      <% end -%>
+    <% end -%>
+  </div>
+</div>

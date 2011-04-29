@@ -1,22 +1,33 @@
-<% content_for(:page_title) do %>
+<% content_for :page_title do %>
   <%= posts_title(@tags) %>
 <% end -%>
+
 
 <% content_for :head do %>
   <%= auto_discovery_link_tag(:atom, @tags.nil? ? posts_path(:format => 'atom') : posts_path(:tags => @tags, :format => 'atom')) %>
 <% end %>
 
-<% content_for :side_bar do %>
+
+<% content_for :tag_cloud do %>
   <div id="tag-cloud">
-    <h2><%= I18n::t('posts.tags.title') %></h2>
-    <% tag_cloud @tags_for_cloud, ['nube1', 'nube2', 'nube3', 'nube4', 'nube5', 'nube6'] do |name, css_class| %>
+    <h2 class="title"><%= I18n::t('posts.tags.title') %></h2>
+    <% tag_cloud @tags_for_cloud, ['nube1', 'nube2', 'nube3', 'nube4', 'nube5'] do |name, css_class| %>
       <% classes = (@tags && (@tags.include? name)) ? (css_class + ' selected') : css_class %>
       <%= link_to name, posts_path(:tags => @tags, :this_tag => name), :class => classes %>
     <% end %>
   </div>
 <% end %>
 
+
 <div id="posts">
+  <% if @tags %>
+    <div id="tag-search-bar">
+      <span id="tagged-with"><%= t('posts.tags.tagged_with') %></span>
+      <span id="clear-link">(<%= link_to t('posts.tags.clear_selection'), posts_path %>)</span>
+      <div id="tags"><%= (@tags.map do |tag| link_to tag, posts_path(:tags => @tags, :this_tag => tag) end).join %></div>
+    </div>
+  <% end -%>
+    
   <% if @posts.empty? -%>
     <p><%= I18n::t('posts.none') %></p>
   <% else -%>
@@ -31,5 +42,5 @@
 </div>
 
 <div id="archives">
-  <p><%= link_to(I18n::t('posts.archive'), archives_path) %></p>
+  <%= link_to(I18n::t('posts.archive'), archives_path) %>
 </div>

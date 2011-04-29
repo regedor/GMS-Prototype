@@ -1,7 +1,7 @@
 <% if (controller.action_name == "index") %>
   <div class="block">
     <div id="sidebar_head">
-      <h3><%= t("admin.deleted_users.sidebar.title") %></h3>
+      <h5><%= t("admin.deleted_users.sidebar.title") %></h5>
     </div>
     <div class="content">
       <p><%= t("admin.deleted_users.sidebar.text") %></p>
@@ -15,7 +15,7 @@
 <% if (controller.action_name == "show") %>
   <div class="block">
     <div id="sidebar_head">
-      <h3><%= I18n::t("admin.deleted_users.sidebar.show.title") %></h3>
+      <h5><%= I18n::t("admin.deleted_users.sidebar.show.title") %></h5>
     </div>
     <div class="content">
       <p><%= I18n::t("admin.deleted_users.sidebar.show.text") %></p>
@@ -26,7 +26,7 @@
 <% if (controller.action_name == "delete") %>
   <div class="block">
     <div id="sidebar_head">
-      <h3><%= t("admin.deleted_users.sidebar.delete.title") %></h3>
+      <h5><%= t("admin.deleted_users.sidebar.delete.title") %></h5>
     </div>
     <div class="content">
       <p><%= t("admin.deleted_users.sidebar.delete.text") %></p>

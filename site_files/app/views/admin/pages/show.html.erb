@@ -1,15 +1,13 @@
 <div class="content">
-  <div class="inner">
-    <h2><%= I18n::t('admin.pages.form.show') %></h2>
-    <div id="preview">
-      <div class="content">
-        <%= render :partial => 'pages/page', :locals => { :page => @record } %>
-      </div>
+  <h2><%= I18n::t('admin.pages.form.show') %></h2>
+  <div id="textile-body">
+    <div class="content">
+      <%= render :partial => 'pages/page', :locals => { :page => @record } %>
     </div>
-    <fieldset class="buttons">
-      <li class="commit">
-        <%= link_to t('admin.pages.form.close_button'), admin_pages_path, :class => 'button negative' %>
-      </li>
-    </fieldset>
   </div>
+  <ul class="buttons">
+    <li class="commit">
+      <%= link_to t('admin.pages.form.close_button'), admin_pages_path, :class => 'button negative' %>
+    </li>
+  </ul>
 </div>
