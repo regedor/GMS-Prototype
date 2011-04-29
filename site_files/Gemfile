@@ -20,7 +20,6 @@ gem 'lesstile'                   , '1.0.0'
 gem 'coderay'
 gem 'sparklines'
 gem 'chronic'                    , '0.3.0'
-gem 'tweet-button'
 gem 'clickatell'
 
 gem 'compass'                    , '0.10.6'

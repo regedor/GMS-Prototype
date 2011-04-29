@@ -1,5 +1,4 @@
 module ApplicationHelper
- 	include TweetButton
 
   def icon_tag(icon)
     "<img src='/images/icons/#{icon}.png' alt=''/>"
