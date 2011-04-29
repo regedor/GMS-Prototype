@@ -56,7 +56,7 @@ jQuery(document).ready(function($) {
 <div class="content">
 <div class="inner">
 <div class="show">
-  <h2><span class="description" id="<%= @record.id %>"><%= @record.title %></span></h2>
+  <h2><span class="description" id="<%= @record.id %>"><%= @record.name %></span></h2>
   <input type=button value="<%= t('admin.event.activities.manage.button.search') %>" class="search-button">
   <input type=text class="search" id="search">
   <% @user_lists.each do |user_event| %>

@@ -7,6 +7,7 @@ class Admin::PostsController < Admin::BaseController
   include ActionView::Helpers::TextHelper
 
   active_scaffold :post do |config|
+    config.list.sorting = {:published_at => :desc}
     Scaffoldapp::active_scaffold config, "admin.posts",
       :list   => [ :title, :excert, :published_at, :total_approved_comments ],
       :show   => [ ],
@@ -17,6 +18,10 @@ class Admin::PostsController < Admin::BaseController
   def custom_finder_options
     return Post.tags_filter @tag_ids
   end
+
+  def conditions_for_collection
+    "event_id is NULL"
+  end  
 
   # Overrided this action to show revertion previews and revert option
   def show

@@ -41,7 +41,7 @@ module ApplicationHelper
 
   def file_icon_displayer(file)
     if file.content_type =~ /^image\//
-      return file.url(:original)
+      return file.url(:thumb)
     else
       return "#{root_url}images/icons/door.png"
     end    

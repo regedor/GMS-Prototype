@@ -5,8 +5,10 @@ class Event < ActiveRecord::Base
   has_many   :events_users
   has_many   :users, :through => :events_users
   has_many   :event_activities
-  belongs_to :post
+  belongs_to :post, :dependent => :destroy
   belongs_to :announcement
+  
+  accepts_nested_attributes_for :post, :allow_destroy => true
 
   # ==========================================================================
   # Validations
@@ -24,37 +26,22 @@ class Event < ActiveRecord::Base
 
   attr_accessor :starts_at_natural
   attr_accessor :ends_at_natural
-  attributes_to_add = Post.new.attributes.keys - ["generic_updated_at","image_file_name","created_at","image_file_size",
-                                                  "updated_at","image_content_type","generic_file_name","id","generic_content_type",
-                                                  "image_updated_at","generic_file_size"]                                                                                                  
-  attributes_to_add.each do |attribute| 
-    attr_accessor attribute.to_sym
-    define_method((attribute+"_authorized?").to_sym) do
-      return false
-    end  
-  end  
-  attr_accessor :tag_list
-  has_attached_file :image, :styles => { :image => "250x250" }
-  has_attached_file :generic
+  attr_accessor :post_elem
   
-  def image_authorized?;    return false; end 
-  def tag_list_authorized?; return false; end 
-  def generic_authorized?;  return false; end  
-
-  def save_virtual_data
-    unless self.title.blank?
-      p = Post.new
-      p.title = self.title
-      p.body = self.body
-      p.tag_list = self.tag_list
-      p.published_at = Date.strptime self.published_at, "%d/%m/%Y"
-      p.slug = self.slug
+  def save_virtual_data      
+    unless (self.post_elem[:title] && self.post_elem[:title].blank?)
+      if self.post
+        p = self.post
+        p.update_attributes self.post_elem
+      else  
+        p = Post.new self.post_elem 
+      end  
+      p.published_at = (Date.strptime self.post_elem[:published_at], "%d/%m/%Y").to_datetime
    
       if p.valid?
         p.save
         self.post = p
       else
-        self.errors[:errors] << p.errors[:errors] if p.errors[:errors]
         return false 
       end   
     end
@@ -76,12 +63,7 @@ class Event < ActiveRecord::Base
     end  
   end  
 
-  def initialize(*args)
-    super(*args)
-    if self.title.blank?
-      self.published_at = nil
-    end    
-  end  
+ 
 
   def format_description
     self.description_html = TextFormatter.format_as_xhtml(self.description)

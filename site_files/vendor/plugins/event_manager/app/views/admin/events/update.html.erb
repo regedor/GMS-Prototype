@@ -1,6 +1,6 @@
 <div class="content">
   <div class="inner">
-    <h2><%= I18n::t('admin.events.form.edit') + ' - ' + link_to(h(@record.title), admin_event_path(@record)) %></h2>
+    <h2><%= I18n::t('admin.events.form.edit') + ' - ' + link_to(h(@record.name), admin_event_path(@record)) %></h2>
     <% semantic_form_for :record, @record, 
                          :url => admin_event_path(@record), 
                          :html => { :method => :put, :id => "edit_event_#{@record.id}" } do |form| -%>

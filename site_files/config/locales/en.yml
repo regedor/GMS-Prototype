@@ -403,10 +403,10 @@ en:
       create:
         title: "Event"
       view:
-        addPost: "Add a post"
-        hidePost: "Hide the post"  
+        showPost: "Show post"
+        hidePost: "Hide post"  
         activities: "Activities"
-        title: "Title"
+        name: "Name"
         description: "Description"
         price: "Price"
         totalprice: "Total Event Price"

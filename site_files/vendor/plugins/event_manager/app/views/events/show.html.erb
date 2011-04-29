@@ -88,7 +88,7 @@ jQuery(document).ready(function($) {
 <% if @record.event_activities.empty? %>
   <% if @record.user_ids.include?(current_user.id) %>
     <% if @record.status(current_user.id).id == 1 %>
-      <h2><input type="checkbox" id="<%= @record.id %>" value="<%= @record.id %>" class="event-checked" CHECKED /><%= @record.title %> - (<%= @record.status(current_user.id).name %>)</h2>
+      <h2><input type="checkbox" id="<%= @record.id %>" value="<%= @record.id %>" class="event-checked" CHECKED /><%= @record.name %> - (<%= @record.status(current_user.id).name %>)</h2>
     <% else %>
       <h2><input type="checkbox" id="<%= @record.id %>" value="<%= @record.id %>" class="event-confirmed" CHECKED DISABLED /><%= @record.title %> - (<%= @record.status(current_user.id).name %>)</h2>
     <% end %>

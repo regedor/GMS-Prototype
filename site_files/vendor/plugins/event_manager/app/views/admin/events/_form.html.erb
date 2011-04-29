@@ -24,13 +24,13 @@ jQuery(document).ready(function($){
 
   $("#hidePost").click(function(){
 	$("#PostInputs").hide();
-	$("#addPost").show();
+	$("#showPost").show();
 	$("#hidePost").hide();
   });
 
-  $("#addPost").click(function(){
+  $("#showPost").click(function(){
 	$("#PostInputs").show();
-	$("#addPost").hide();
+	$("#showPost").hide();
 	$("#hidePost").show();
   });
 
@@ -38,7 +38,7 @@ jQuery(document).ready(function($){
 </script>
 
   <% form.inputs do %>
-    <%= form.input :name, :label => t('admin.events.view.title') %>
+    <%= form.input :name, :label => t('admin.events.view.name') %>
     <%= form.input :description, :as => :text,  :label => t('admin.events.view.description') %>
     <%= form.input :starts_at,  :as => :string,
                    :input_html => { :class => "datetimepicker", :value => @record.starts_at ? l(@record.starts_at, :format => "%d/%m/%Y %H:%M") : '' }, :label => t('admin.events.view.starts_at') %>
@@ -48,44 +48,48 @@ jQuery(document).ready(function($){
      <%= form.input :participation_message, :as => :text, :label => t('admin.events.view.participation_message'), :required => false %>
   <% end %>
   
-  <div id="addPost" class="addPost"><%= link_to t('admin.events.view.addPost'), "#addPost" %></div>
+  <div id="showPost" class="showPost"><%= link_to t('admin.events.view.showPost'), "#showPost" %></div>
   <div id="hidePost" class="hidePost"><%= link_to t('admin.events.view.hidePost'), "#hidePost" %></div>
 
   <% form.inputs :name => "Post", :id  => "PostInputs" do %>
-    <%= form.input :title,
-	               :label    => I18n::t('admin.posts.columns.title') %>
-	<%= form.input :body,
-	               :label    => I18n::t('admin.posts.columns.body'),
-	               :hint     => I18n::t('admin.posts.form.hints.body').html_safe %>
-	<%= form.input :tag_list,
+
+  <% form.semantic_fields_for :post_elem, @record.post do |post| %>
+      <%= post.input :title,
+	                 :label    => I18n::t('admin.posts.columns.title') %>
+	  <%= post.input :body,
+	                 :label    => I18n::t('admin.posts.columns.body'),
+	                 :hint     => I18n::t('admin.posts.form.hints.body').html_safe %>
+	  <%= post.input :tag_list,
 	               :as       => 'string',
 	               :required => false,
 	               :label    => I18n::t('admin.posts.columns.tag_list'),
 	               :hint     => I18n::t('admin.posts.form.hints.tag_list') %>
-	<% if @record.image.content_type %>
-	  <span class="file_icon"><%= image_tag file_icon_displayer(@record.image) %></span>
-	<% end %>
-	<%= form.input :image,
-	               :required => false,
-	  			   :as => :file,
-	               :hint     => I18n::t('admin.posts.form.hints.image'),
-	               :label    => I18n::t('admin.posts.columns.image') %>
-	<% if @record.generic.content_type %>
-	  <span class="file_icon"><%= image_tag file_icon_displayer(@record.generic) %></span>
-	<% end %>
-	<%= form.input :generic,
-	               :required => false,
-	  			   :as => :file,
-	               :hint     => I18n::t('admin.posts.form.hints.generic_file'),
-	               :label    => I18n::t('admin.posts.columns.generic_file') %>
-	<%= form.input :published_at,
-	               :as       => :string,
-	               :input_html => {:class => "datepicker", :value => l(@record.published_at || Time.now, :format => "%d/%m/%Y")},
-	               :label    => I18n::t('admin.posts.columns.published_at'),
-	               :hint     => I18n::t('admin.posts.form.hints.published_at').html_safe %>  
-	<%= form.input :slug,
-	               :required => false,
-	               :label    => I18n::t('admin.posts.columns.slug'),
-	               :hint     => I18n::t('admin.posts.form.hints.slug') %>
+	  <% if @record.post && @record.post.image.content_type %>
+	    <span class="file_icon"><%= image_tag file_icon_displayer(@record.post.image) %></span>
+	  <% end %>
+	  <%= post.input :image,
+	                 :required => false,
+	  	   		     :as => :file,
+	                 :hint     => I18n::t('admin.posts.form.hints.image'),
+	                 :label    => I18n::t('admin.posts.columns.image') %>
+	  <% if @record.post && @record.post.generic.content_type %>
+	    <span class="file_icon"><%= image_tag file_icon_displayer(@record.post.generic) %></span>
+	  <% end %>
+	  <%= post.input :generic,
+	                 :required => false,
+	    			 :as => :file,
+	                 :hint     => I18n::t('admin.posts.form.hints.generic_file'),
+	                 :label    => I18n::t('admin.posts.columns.generic_file') %>
+	  <%= post.input :published_at,
+	                 :as       => :string,
+	                 :input_html => {:class => "datepicker", :value => l((@record.post && @record.post.published_at) ? @record.post.published_at : Time.now, :format => "%d/%m/%Y")},
+	                 :label    => I18n::t('admin.posts.columns.published_at'),
+	                 :hint     => I18n::t('admin.posts.form.hints.published_at').html_safe %>  
+	  <%= post.input :slug,
+	                 :required => false,
+	                 :label    => I18n::t('admin.posts.columns.slug'),
+	                 :hint     => I18n::t('admin.posts.form.hints.slug') %>
+<% end %>
+	
   <% end %>
      

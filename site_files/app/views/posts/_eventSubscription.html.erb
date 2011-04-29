@@ -33,8 +33,6 @@ jQuery(document).ready(function($){
   <% form.buttons do -%>
     <%= form.commit_button I18n::t('posts.form.subscribe_button'),
                            :button_html => { :class => 'button positive' } %>
-    <%= form.button_link   I18n::t('posts.form.cancel_button'), admin_events_path,
-                           :button_html => { :class => 'button negative' } %>
   <% end -%>
 <% end -%>
 <div hidden id="hidden_events_ids"><%= subscribed_events.map(&:event_activity_id).join(",") %></div>

@@ -8,16 +8,40 @@ class Admin::EventsController < Admin::BaseController
                                      :label => I18n::t("admin.events.index.list_activities")    
 
     Scaffoldapp::active_scaffold config, "admin.events",
-      :create => [ :name, :description, :starts_at, :ends_at, :price, :participation_message, :tag_list, :body, :title, :slug, :published_at ],
+      :create => [ :name, :description, :starts_at, :ends_at, :price, :participation_message ],
       :edit   => [ :name, :description, :starts_at, :ends_at, :price, :participation_message ],
       :list   => [ :name, :starts_at, :ends_at, :price ],
       :show   => [ ]
   end
 
+  def new
+    @record = Event.new
+    @record.build_post
+    
+    render :create
+  end  
+
   def create
     @record = Event.new params[:record]
+        
+    if @record.save
+      flash[:notice]  = t("flash.eventCreated.successfully")
+      redirect_to admin_events_path 
+    else
+      flash[:error] = t("flash.eventCreated.error") unless @record.errors.size > 0
+    end
+  end  
+  
+  def update
+    @record = Event.find params[:id]
+    @record.update_attributes params[:record]
     
-    redirect_to admin_events_path if @record.save
+    if @record.save
+      flash[:notice]  = t("flash.eventUpdated.successfully")
+      redirect_to admin_events_path 
+    else
+      flash[:error] = t("flash.eventUpdated.error") unless @record.errors.size > 0
+    end    
   end  
   
   def subscribe

@@ -19,7 +19,7 @@ class Post < ActiveRecord::Base
   named_scope :not_deleted, :conditions => {:deleted => false}
 
   belongs_to :event
-  has_attached_file :image, :styles => { :image => "250x250" }
+  has_attached_file :image, :styles => { :image => "250x250", :thumb => "50x50" }
   has_attached_file :generic
 
   # Makes this model historicable
@@ -128,18 +128,6 @@ class Post < ActiveRecord::Base
         :conditions => ['published_at < ?', Time.now]
       month = Struct.new(:date, :posts)
       posts.group_by(&:month).inject([]) {|a, v| a << month.new(v[0], v[1])}
-    end
-
-    def all(*params)
-      if params && params[0] && (params[0].member? :conditions) && params[0][:conditions][0]
-        params[0][:conditions][0] =  params[0][:conditions][0] + " AND event_id is NULL"
-      else
-        params[0].merge!({:conditions => ['event_id is ?',nil]})
-      end 
-      
-      params[0].merge!({:order => 'posts.published_at DESC'}) if params && params[0] && (params[0].member? :order)       
-      
-      self.find :all, *params     
     end
 
     # Paginate by publication date
