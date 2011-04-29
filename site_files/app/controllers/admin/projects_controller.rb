@@ -4,6 +4,7 @@ class Admin::ProjectsController < Admin::BaseController
 
   active_scaffold :project do |config|
 
+    
     config.columns[:groups].form_ui = :select
     config.columns[:groups].options = {:draggabledd_lists => true}
 
@@ -14,16 +15,24 @@ class Admin::ProjectsController < Admin::BaseController
       :edit     => [ :name, :description, :users ]        
   end                                                     
 
-  def do_list
-    require 'ostruct'
-    #If root, show all
-    if current_user.role.id == 7
-      @records = Project.all
-    else  
-      @records = Project.find_all_for_user current_user
-    end  
-    @page = OpenStruct.new :items => @records, :number => @records.size, :pager => OpenStruct.new({ :infinite? => false, :count => @records.size, :number_of_pages => @records.size/15})
-  end
+  #def do_list
+  #  require 'ostruct'
+  #  #If root, show all
+  #  if current_user.role.id == 7
+  #    @records = Project.all
+  #  else  
+  #    @records = Project.find_all_for_user current_user
+  #  end  
+  #  @page = OpenStruct.new :items => @records, :number => @records.size, :pager => OpenStruct.new({ :infinite? => false, :count => @records.size, :number_of_pages => @records.size/15})
+  #end
+  
+  def conditions_for_collection
+    unless current_user.role.id == 7
+      project_ids = (Project.find_all_for_user current_user).map(&:id)
+      ['projects.id IN (?)', project_ids]
+    end
+  end  
+
 
   def show
     @project = Project.find(params[:id])
