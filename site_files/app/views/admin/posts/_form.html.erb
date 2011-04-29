@@ -1,4 +1,5 @@
 <%= include_i18n_calendar_javascript %>
+
 <script>
 jQuery.noConflict();
   
@@ -6,13 +7,17 @@ jQuery(document).ready(function($){
  
   var counter = 0;
   var locale = ""
-	for(i in $.datepicker.regional){
-		if(counter == 1)
-		{ locale=i; break; }
-		counter++;
-	}
+  for (i in $.datepicker.regional) {
+    if (counter == 1) {
+      locale = i;
+      break;
+    }
+    counter++;
+  }
+
   $.datepicker.setDefaults( $.datepicker.regional[ '' ] );	
-  $( ".datepicker" ).datepicker($.datepicker.regional[locale]);
+  $( ".datepicker" ).datetimepicker($.datepicker.regional[locale]);
+
 });
 </script>
 
@@ -69,7 +74,7 @@ jQuery(document).ready(function($){
 
   <%= form.input :published_at,
                  :as       => 'string',
-                 :input_html => {:class => "datepicker", :value => l(@record.published_at || Time.now, :format => "%d/%m/%Y")},
+                 :input_html => {:class => "datepicker", :value => l(@record.published_at || Time.now, :format => "%d/%m/%Y %H:%M")},
                  :label    => I18n::t('admin.posts.columns.published_at'),
                  :hint     => I18n::t('admin.posts.form.hints.published_at').html_safe %>  
   <%= form.input :slug,

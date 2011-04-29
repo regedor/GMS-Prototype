@@ -11,7 +11,7 @@ class Post < ActiveRecord::Base
   before_validation       :set_dates
   before_save             :apply_filter
 
-  validates_presence_of   :title, :slug, :body
+  validates_presence_of   :title, :slug, :body, :published_at
   validates_uniqueness_of :slug
   validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/jpg', 'image/png']
 
