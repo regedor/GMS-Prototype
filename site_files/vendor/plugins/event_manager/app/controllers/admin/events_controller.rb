@@ -17,6 +17,7 @@ class Admin::EventsController < Admin::BaseController
   def new
     @record = Event.new
     @record.build_post
+    @record.build_announcement
     
     render :create
   end  

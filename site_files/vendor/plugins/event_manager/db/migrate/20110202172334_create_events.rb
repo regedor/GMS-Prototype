@@ -3,10 +3,9 @@ class CreateEvents < ActiveRecord::Migration
     create_table :events do |t|
       t.string   :title
       t.string   :description
-      t.boolean  :event
-      t.datetime :event_starts_at
-      t.datetime :event_ends_at
-      t.float    :event_price,        :default => 0
+      t.datetime :starts_at
+      t.datetime :ends_at
+      t.float    :price,        :default => 0
       t.string   :participation_message
 
       t.timestamps

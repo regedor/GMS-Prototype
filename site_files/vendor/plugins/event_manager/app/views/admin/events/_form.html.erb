@@ -21,6 +21,8 @@ jQuery(document).ready(function($){
 
   $("#PostInputs").hide();
   $("#hidePost").hide();
+  $("#AnnouncementInputs").hide();
+  $("#hideAnnouncement").hide();
 
   $("#hidePost").click(function(){
 	$("#PostInputs").hide();
@@ -32,6 +34,18 @@ jQuery(document).ready(function($){
 	$("#PostInputs").show();
 	$("#showPost").hide();
 	$("#hidePost").show();
+  });
+
+  $("#hideAnnouncement").click(function(){
+	$("#AnnouncementInputs").hide();
+	$("#showAnnouncement").show();
+	$("#hideAnnouncement").hide();
+  });
+
+  $("#showAnnouncement").click(function(){
+	$("#AnnouncementInputs").show();
+	$("#showAnnouncement").hide();
+	$("#hideAnnouncement").show();
   });
 
 });
@@ -89,7 +103,48 @@ jQuery(document).ready(function($){
 	                 :required => false,
 	                 :label    => I18n::t('admin.posts.columns.slug'),
 	                 :hint     => I18n::t('admin.posts.form.hints.slug') %>
-<% end %>
-	
   <% end %>
+ 
+  <% end %>
+	
+	<div id="showAnnouncement" class="showAnnouncement"><%= link_to t('admin.events.view.showAnnouncement'), "#showAnnouncement" %></div>
+	<div id="hideAnnouncement" class="hideAnnouncement"><%= link_to t('admin.events.view.hideAnnouncement'), "#hideAnnouncement" %></div>
+	
+	<% form.inputs :name => "Announcement", :id  => "AnnouncementInputs" do %>
+	
+	<% form.semantic_fields_for :announcement_elem, @record.announcement do |announcement| %>
+	  <%= announcement.input :title,
+	                         :label    => I18n::t('admin.announcements.columns.title') %>
+	  <%= announcement.input :starts_at,
+	                         :as => :string,
+	                         :input_html => { :class => "datepicker", :value => (@record.announcement && @record.announcement.starts_at) ? l(@record.announcement.starts_at, :format => "%d/%m/%Y %H:%M") : '' },
+	                         :label    => I18n::t('admin.announcements.columns.starts_at') %>
+	  <%= announcement.input :ends_at,
+	                         :as => :string,
+	                         :input_html => { :class => "datepicker", :value => (@record.announcement && @record.announcement.ends_at) ? l(@record.announcement.ends_at, :format => "%d/%m/%Y %H:%M") : '' },
+	                         :label    => I18n::t('admin.announcements.columns.ends_at') %>
+	  <%= announcement.input :url,
+	                         :required => false,
+	                         :hint     => I18n::t('admin.announcements.form.hints.url'),
+	                         :label    => I18n::t('admin.announcements.columns.url') %>
+	  <%= announcement.input :avatar,
+	                         :required => false,
+	                         :hint     => I18n::t('admin.announcements.form.hints.avatar'),
+	                         :label    => I18n::t('admin.announcements.columns.avatar') %>
+	  <%= announcement.input :priority,
+	                         :as         => 'select',
+	                         :required   => false,
+	                         :collection => (1..99),
+	                         :selected   => (@record.announcement && @record.announcement.priority) ? @record.announcement.priority : '',
+	                         :label      => I18n::t('admin.pages.columns.priority'),
+	                         :hint       => I18n::t('admin.pages.form.hints.priority') %>
+	  <%= announcement.input :message,
+	                         :required => false,
+	                         :hint     => I18n::t('admin.announcements.form.hints.message'),
+	                         :label    => I18n::t('admin.announcements.columns.message') %>
+	<% end %>
+	
+	<% end %>
+	
+
      

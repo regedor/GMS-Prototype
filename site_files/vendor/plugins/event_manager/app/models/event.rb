@@ -6,9 +6,11 @@ class Event < ActiveRecord::Base
   has_many   :users, :through => :events_users
   has_many   :event_activities
   belongs_to :post, :dependent => :destroy
-  belongs_to :announcement
+  belongs_to :announcement, :dependent => :destroy
   
-  accepts_nested_attributes_for :post, :allow_destroy => true
+  accepts_nested_attributes_for :post,         :allow_destroy => true
+  accepts_nested_attributes_for :announcement, :allow_destroy => true
+  
 
   # ==========================================================================
   # Validations
@@ -27,6 +29,7 @@ class Event < ActiveRecord::Base
   attr_accessor :starts_at_natural
   attr_accessor :ends_at_natural
   attr_accessor :post_elem
+  attr_accessor :announcement_elem
   
   def save_virtual_data      
     unless (self.post_elem[:title] && self.post_elem[:title].blank?)
@@ -45,6 +48,25 @@ class Event < ActiveRecord::Base
         return false 
       end   
     end
+    
+    unless (self.announcement_elem[:title] && self.announcement_elem[:title].blank?)
+      if self.announcement
+        a = self.announcement
+        a.update_attributes self.announcement_elem
+      else  
+        a = Announcement.new self.announcement_elem 
+      end  
+      a.starts_at = (Date.strptime self.announcement_elem[:starts_at], "%d/%m/%Y").to_datetime
+      a.ends_at = (Date.strptime self.announcement_elem[:ends_at], "%d/%m/%Y").to_datetime
+   
+      if a.valid?
+        a.save
+        self.announcement = a
+      else
+        return false 
+      end   
+    end
+    
   end  
   
   def total_price(eventActivityUsers=[])
