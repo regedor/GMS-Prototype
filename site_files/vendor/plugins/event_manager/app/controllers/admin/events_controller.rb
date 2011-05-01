@@ -45,9 +45,7 @@ class Admin::EventsController < Admin::BaseController
     end    
   end  
   
-  def subscribe
-    @event = Event.find(params[:id])
-  end  
+  
 
   def list_activities
     redirect_to :action => 'index', :controller => 'admin/event_activities', :event_id => params[:id]

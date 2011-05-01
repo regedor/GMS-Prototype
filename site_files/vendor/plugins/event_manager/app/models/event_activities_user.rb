@@ -10,9 +10,9 @@ class EventActivitiesUser < ActiveRecord::Base
   attr_accessible :confirmed
   attr_accessible :status_id
 
-  before_save :before_save_event
+  #before_save :before_save_event
 
-  after_save :after_save_event
+  #after_save :after_save_event
 
   def before_save_event
     self.event_id = self.event_activity.event_id

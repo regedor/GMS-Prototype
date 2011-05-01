@@ -2,9 +2,9 @@ class Event < ActiveRecord::Base
   # ==========================================================================
   # Relationships
   # ==========================================================================
-  has_many   :events_users
+  has_many   :events_users, :dependent => :destroy
   has_many   :users, :through => :events_users
-  has_many   :event_activities
+  has_many   :event_activities, :dependent => :destroy
   belongs_to :post, :dependent => :destroy
   belongs_to :announcement, :dependent => :destroy
   
@@ -31,8 +31,12 @@ class Event < ActiveRecord::Base
   attr_accessor :post_elem
   attr_accessor :announcement_elem
   
-  def save_virtual_data      
-    unless (self.post_elem[:title] && self.post_elem[:title].blank?)
+  def save_virtual_data   
+    if self.post_elem.nil? && self.announcement_elem.nil?
+      return true
+    end  
+
+    unless (self.post_elem.nil? && self.post_elem[:title] && self.post_elem[:title].blank?)
       if self.post
         p = self.post
         p.update_attributes self.post_elem
@@ -49,7 +53,7 @@ class Event < ActiveRecord::Base
       end   
     end
     
-    unless (self.announcement_elem[:title] && self.announcement_elem[:title].blank?)
+    unless (self.announcement_elem && self.announcement_elem[:title] && self.announcement_elem[:title].blank?)
       if self.announcement
         a = self.announcement
         a.update_attributes self.announcement_elem

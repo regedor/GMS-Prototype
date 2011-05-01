@@ -93,10 +93,10 @@ jQuery(document).ready(function($) {
       <h2><input type="checkbox" id="<%= @record.id %>" value="<%= @record.id %>" class="event-confirmed" CHECKED DISABLED /><%= @record.title %> - (<%= @record.status(current_user.id).name %>)</h2>
     <% end %>
   <% else %>
-    <h2><input type="checkbox" id="<%= @record.id %>" value="<%= @record.id %>" class="event-unchecked" /><%= @record.title %></h2>
+    <h2><input type="checkbox" id="<%= @record.id %>" value="<%= @record.id %>" class="event-unchecked" /><%= @record.name %></h2>
   <% end %>
 <% else %>
-  <h2><%= @record.title %></h2>
+  <h2><%= @record.name %></h2>
 <% end %>
     <% if @record.description_html    %><br><span class="description"><%= @record.description_html       %></span><% end %> <br><br>
     <% if @record.price %> <%= t("admin.events.view.price") %> <br><span class="price"><%= @record.price %></span><% end %> <br><br>

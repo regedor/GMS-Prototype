@@ -9,12 +9,6 @@ class EventsUser < ActiveRecord::Base
   attr_accessible :status_id
   attr_accessible :total_price
 
-  before_create :set_total_price
-
-  def set_total_price
-    self.total_price = Event.find(self.event_id).price
-  end
-
   def status
     Status.find(self.status_id)
   end

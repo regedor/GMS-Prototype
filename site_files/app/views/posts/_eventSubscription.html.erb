@@ -20,7 +20,7 @@ jQuery(document).ready(function($){
 </script>
 
 <% semantic_form_for :event, event,
-                     :url => subscribe_admin_event_path(event),
+                     :url => subscribe_event_path(event),
                      :html => { :class => 'create', :id => 'new_event_subscription' } do |form| -%>
   <% form.inputs do %>
     <%= form.input :event_activities, 

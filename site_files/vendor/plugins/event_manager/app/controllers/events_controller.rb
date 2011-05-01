@@ -1,5 +1,39 @@
 class EventsController < ApplicationController
 
+  def subscribe
+    @event = Event.find(params[:id])
+    subscribed_activities = []
+    activities_price = 0
+    params[:event][:event_activity_ids].reject(&:blank?).map do |id|
+      activity = EventActivity.find id
+      subscribed_activities << activity
+      activities_price += activity.price
+    end  
+    total_price = @event.price + activities_price
+    eventsUser = EventsUser.find_by_event_id_and_user_id(@event.id,current_user.id)
+    unless eventsUser
+      eventsUser = EventsUser.create :event_id => @event.id, :user_id => current_user.id, :status_id => 2, :total_price => total_price
+      @event.events_users << eventsUser 
+      @event.save
+    else
+      eventsUser.status_id = 2
+      eventsUser.total_price = total_price
+      eventsUser.save
+    end             
+
+    subscribed_activities.each do |activity|      
+      activitiesUser = EventActivitiesUser.find_by_event_id_and_user_id(@event.id,current_user.id)
+      unless activitiesUser
+        EventActivitiesUser.create :event_activity_id => activity.id, :event_id => @event.id, :user_id => current_user.id, :status_id => 2
+      else
+        activitiesUser.status_id = 2
+        activitiesUser.save
+      end    
+      activity.event_activities_users << activitiesUser   
+      activity.save                                                              
+    end  
+  end
+
   def show
     refreshContent
   end
