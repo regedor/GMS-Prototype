@@ -1,1 +1,20 @@
-<h2 class="title">subscribed!!!</h2>
+<div class="textile-body">
+  <h2 class="title"><%= t 'events.subscribe.eventSubscription' %><%= @event.name %></h2>
+  <div class="text">
+    <%= @event.participation_message %>	
+  </div>	
+  
+  <div class="activities">
+  <h3><%= t 'events.subscribe.activities' %></h3>	
+    <ul>
+      <% @subscribed_activities.each do |activity| %>
+  	  <li><%= activity.title %></li>
+      <% end %>
+    </ul>	
+  </div>
+
+  <div class="total_price">
+    <h4><%= t 'events.subscribe.price' %></h4><%= @total_price %>
+  </div>		
+</div>
+	

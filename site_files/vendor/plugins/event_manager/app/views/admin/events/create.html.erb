@@ -1,7 +1,7 @@
 <div class="content">
   <div class="inner">
     <h2><%= I18n::t('admin.events.form.new') %></h2>
-    <% semantic_form_for (:record, @record,
+    <% semantic_form_for(:record, @record,
                          :url => admin_events_path,
                          :html => { :class => 'create', :id => 'new_event', :multipart => true }) do |form| -%>
       <%= render :partial => 'form', :locals => {:form => form} %>

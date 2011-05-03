@@ -26,7 +26,7 @@ class Admin::EventsController < Admin::BaseController
     @record = Event.new params[:record]
         
     if @record.save
-      flash[:notice]  = t("flash.eventCreated.successfully")
+      flash[:notice]  = t("flash.eventCreated.successfully",:name => @record.name)
       redirect_to admin_events_path 
     else
       flash[:error] = t("flash.eventCreated.error") unless @record.errors.size > 0
@@ -38,7 +38,7 @@ class Admin::EventsController < Admin::BaseController
     @record.update_attributes params[:record]
     
     if @record.save
-      flash[:notice]  = t("flash.eventUpdated.successfully")
+      flash[:notice]  = t("flash.eventUpdated.successfully",:name => @record.name)
       redirect_to admin_events_path 
     else
       flash[:error] = t("flash.eventUpdated.error") unless @record.errors.size > 0

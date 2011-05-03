@@ -171,6 +171,17 @@ en:
       no_body: "Content cannot be blank."
       no_login: "You must be logged in to comment."
 
+  events:
+    view:
+      cancel: "Cancel"
+      price: "Price"
+      button:
+        update: "Update"
+    subscribe: 
+      eventSubscription: "Subscribed to the event " 
+      activities: "Subscribed to this activities:"
+      price: "Total Price: "
+      
   admin:
     navigation:
       main:
@@ -366,6 +377,8 @@ en:
 
     event:
       activities:
+        form:
+          edit: "Edit Activity"      
         index:
           title: "Activities"
           create: "New Activity"
@@ -376,7 +389,7 @@ en:
           button:
             search: "Search"
         columns:
-          name: "Name"
+          title: "Name"
           description: "Description"
           starts_at: "Starting date"
           ends_at: "Ending date"
@@ -407,9 +420,11 @@ en:
         price: "Price"
       create:
         title: "Event"
-      view:
-        showPost: "Show post"
-        hidePost: "Hide post"  
+      view:  
+        showAnnouncement: "Show Announcement"
+        hideAnnouncement: "Hide Announcement"  
+        showPost: "Show Post"
+        hidePost: "Hide Post"  
         activities: "Activities"
         name: "Name"
         description: "Description"
@@ -961,7 +976,7 @@ en:
       title: "Settings"
       theme: "Theme"
       site_title: "Site title"
-      save: "Save"
+      save: "Save"                
 
   authlogic:
     error_messages:
@@ -1030,6 +1045,13 @@ en:
     project_not_deleted: "Could not delete %{project}"
     to_do_list_created: "To-Do list %{name} created"
     to_do_list_not_created: "Could not create to-do list"
+    eventCreated:
+      successfully: "Event %{name} created successfully"
+      error: "There was an error while creating the event"
+    eventUpdated:
+      successfully: "Event %{name} updated successfully"
+      error: "There was an error while updating the event"
+    activity_deleted: "Activity succesfully deleted"            
   
   notifier: 
     to_do_notification: 
@@ -1299,12 +1321,7 @@ en:
     full_messages:
       format: "%{attribute}%{message}"
 
-  events:
-    view:
-      cancel: "Cancel"
-      price: "Price"
-      button:
-        update: "Update"
+ 
 
   support:
     select:

@@ -17,8 +17,10 @@ class Admin::EventActivitiesController < Admin::BaseController
 #  end
 
   def create
+    
+    
     @activity = EventActivity.new
-    @activity.attributes = params[:record]
+    @activity.attributes = params[:record]        
     @activity.event_id = params[:event_id]
     @activity.save!
     redirect_to admin_event_event_activities_path(params[:event_id])
