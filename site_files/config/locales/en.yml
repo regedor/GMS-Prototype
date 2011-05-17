@@ -405,6 +405,7 @@ en:
             update: "Apply"           
 
     events:
+      add_activity: "Add Activity"    
       index:
         title: "Events"
         create: "New Event"
