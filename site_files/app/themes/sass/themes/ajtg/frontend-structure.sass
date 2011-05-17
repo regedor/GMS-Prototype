@@ -63,7 +63,7 @@ div#stars
 
 div#wrapper
   background-color: #FFF
-  border: 1px solid #222
+  border: 1px solid #444
   margin: auto
   width: 980px
 
@@ -109,11 +109,14 @@ div#menu
 
 div#tag-cloud
   background-color: $tag-cloud-color
+  border: 1px solid #FCD254
   margin: 0 20px 20px 780px
   min-height: 100px
   padding: 10px 25px
   position: relative
   top: $content-margin
+  @include round-corners(2px, 2px, 2px, 2px)
+  @include enable-ie-css3
 
 
 div#tag-search-bar
@@ -235,11 +238,13 @@ div.social-buttons
 
 
 div#announcements
-  border: 1px solid #222
+  border: 1px solid #444
   overflow: hidden
   margin: 20px auto
   position: relative
   width: 940px
+  @include round-corners(2px, 2px, 2px, 2px)
+  @include enable-ie-css3
 
   a:hover
     border: none
@@ -255,6 +260,8 @@ div#announcement-numbers
   padding: 10px 10px 13px 13px
   position: absolute
   left: 0
+  @include round-corners(0, 0, 2px, 0)
+  @include enable-ie-css3
 
 
 div.announcement img
@@ -269,6 +276,8 @@ div.announcement-text
   position: absolute
   right: 0
   width: 300px
+  @include round-corners(2px, 0, 0, 0)
+  @include enable-ie-css3
 
   p.title
     padding: 0 0 15px
