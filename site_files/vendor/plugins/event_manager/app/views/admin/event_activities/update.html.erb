@@ -12,7 +12,7 @@
   <div class="inner">
     <h2><%= I18n::t('admin.event.activities.form.edit') + ' - ' + link_to(h(@record.title), admin_event_path(@record)) %></h2>
     <% semantic_form_for :record, @record, 
-                         :url => admin_event_path(@record), 
+                         :url => admin_event_event_activity_path(@record.event,@record), 
                          :html => { :method => :put, :id => "edit_event_#{@record.id}" } do |form| -%>
       <%= render :partial => 'form', :locals => { :form => form } %>
       <% form.buttons do -%>

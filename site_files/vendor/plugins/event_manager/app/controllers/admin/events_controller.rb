@@ -23,9 +23,16 @@ class Admin::EventsController < Admin::BaseController
   end  
 
   def create
+    activities = params[:record][:event_activities_attributes]
+    params[:record].delete(:event_activities_attributes)
     @record = Event.new params[:record]
-        
+      
     if @record.save
+      activities.each do |k,value|
+        ea = EventActivity.new value
+        ea.event = @record
+        ea.save
+      end
       flash[:notice]  = t("flash.eventCreated.successfully",:name => @record.name)
       redirect_to admin_events_path 
     else

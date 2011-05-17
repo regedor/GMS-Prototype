@@ -12,9 +12,13 @@
 	<% if event %>
 	  <% if current_user %>
 	    <h2 class="title"><%= event.name %></h2>
-	    <%= render :partial => 'eventSubscription', :locals => {:event => event, :total_price => total_price, :subscribed_events  => subscribed_events} %>	    
+	    <% if !event.users.member? current_user %>
+	      <%= render :partial => 'eventSubscription', :locals => {:event => event, :total_price => total_price, :subscribed_events  => subscribed_events} %>
+	    <% else %>
+	      <h2 class="title">You have subscribed this event</h2>
+	    <% end %>	    
       <% else %>
-        <h2 class="title"><%= link_to t('posts.not_logged_in'), new_user_account_path %></h2>
+        <h2 class="title"><%= link_to t('posts.not_logged_in'), new_user_session_path %></h2>
       <% end %>	
     <% end %>
 </div>

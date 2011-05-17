@@ -27,7 +27,7 @@ jQuery(document).ready(function($){
                    :as => :check_boxes, 
                    :collection => event.event_activities, 
                    :label => t('posts.form.activities'),
- 				   :label_method => :label,
+ 				   :label_method => :html_representation,
  				   :input_html => {:class => "activity_checkbox", :checked => ""}%>
   <% end %>
   <% form.buttons do -%>

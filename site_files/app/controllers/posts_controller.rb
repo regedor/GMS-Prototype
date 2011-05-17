@@ -13,8 +13,8 @@ class PostsController < ApplicationController
     @post = Post.find_by_permalink(*([:year, :month, :day, :slug].collect {|x| params[x] } << {:include => [:approved_comments, :tags]}))
     @comment = Comment.new
     @event = @post.event
-    @subscribed_events = EventActivitiesUser.find_all_by_user_id_and_event_id_and_status_id(current_user.id,@event.id,2)
-    @total_price = @event.total_price(@subscribed_events)
+    @subscribed_events = (current_user) ? EventActivitiesUser.find_all_by_user_id_and_event_id_and_status_id(current_user.id,@event.id,2) : nil
+    @total_price = (current_user) ? @event.total_price(@subscribed_events) : nil
   end
 
   def archives

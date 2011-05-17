@@ -19,7 +19,7 @@ class EventActivity < ActiveRecord::Base
 
   before_save :format_description
 
-  def label
+  def html_representation
     "<span class='title'>"+self.title+"</span><span class='price'>"+self.price.to_s+"</span>"
   end  
 

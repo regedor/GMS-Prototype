@@ -7,9 +7,10 @@ class Event < ActiveRecord::Base
   has_many   :event_activities, :dependent => :destroy
   belongs_to :post, :dependent => :destroy
   belongs_to :announcement, :dependent => :destroy
-  
-  accepts_nested_attributes_for :post,         :allow_destroy => true
+                                                                       
+  accepts_nested_attributes_for :post,         :allow_destroy => true 
   accepts_nested_attributes_for :announcement, :allow_destroy => true
+  accepts_nested_attributes_for :event_activities, :allow_destroy => true 
   
 
   # ==========================================================================
@@ -31,12 +32,12 @@ class Event < ActiveRecord::Base
   attr_accessor :post_elem
   attr_accessor :announcement_elem
   
-  def save_virtual_data   
+  def save_virtual_data  
     if self.post_elem.nil? && self.announcement_elem.nil?
       return true
-    end  
+    end 
 
-    unless (self.post_elem.nil? && self.post_elem[:title] && self.post_elem[:title].blank?)
+    if (self.post_elem && self.post_elem[:title] && !self.post_elem[:title].blank?)
       if self.post
         p = self.post
         p.update_attributes self.post_elem
@@ -53,7 +54,7 @@ class Event < ActiveRecord::Base
       end   
     end
     
-    unless (self.announcement_elem && self.announcement_elem[:title] && self.announcement_elem[:title].blank?)
+    if (self.announcement_elem && self.announcement_elem[:title] && !self.announcement_elem[:title].blank?)
       if self.announcement
         a = self.announcement
         a.update_attributes self.announcement_elem
@@ -70,7 +71,7 @@ class Event < ActiveRecord::Base
         return false 
       end   
     end
-    
+        
   end  
   
   def total_price(eventActivityUsers=[])

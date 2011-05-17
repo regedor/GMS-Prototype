@@ -60,7 +60,13 @@ jQuery(document).ready(function($){
                    :input_html => { :class => "datetimepicker", :value => @record.ends_at ? l(@record.ends_at, :format => "%d/%m/%Y %H:%M") : '' }, :label => t('admin.events.view.ends_at') %>
      <%= form.input :price, :as => :numeric, :label => t('admin.events.view.price') %>
      <%= form.input :participation_message, :as => :text, :label => t('admin.events.view.participation_message'), :required => false %>
+	 
   <% end %>
+	
+  <div class="fields">	
+    <%= link_to_add_fields "Add Activity", form, :event_activities %>	
+  </div>	
+  
 
   <div id="showPost" class="showPost"><%= link_to t('admin.events.view.showPost'), "#showPost" %></div>
   <div id="hidePost" class="hidePost"><%= link_to t('admin.events.view.hidePost'), "#hidePost" %></div>
