@@ -15,37 +15,28 @@ jQuery(document).ready(function($){
     counter++;
   }
 
+  if($("#postCheckbox").attr("checked") == false)
+    $("#PostInputs").hide();
+
+  if($("#announcementCheckbox").attr("checked") == false)
+    $("#AnnouncementInputs").hide();
+
   $.datepicker.setDefaults( $.datepicker.regional[ '' ] );      
   $( ".datetimepicker" ).datetimepicker($.datepicker.regional[locale]);
   $( ".datepicker" ).datepicker($.datepicker.regional[locale]);
 
-  $("#PostInputs").hide();
-  $("#hidePost").hide();
-  $("#AnnouncementInputs").hide();
-  $("#hideAnnouncement").hide();
-
-  $("#hidePost").click(function(){
-	$("#PostInputs").hide();
-	$("#showPost").show();
-	$("#hidePost").hide();
+  $("#postCheckbox").click(function(){
+	if($("#postCheckbox").attr("checked"))
+      $("#PostInputs").show();
+    else
+      $("#PostInputs").hide();
   });
 
-  $("#showPost").click(function(){
-	$("#PostInputs").show();
-	$("#showPost").hide();
-	$("#hidePost").show();
-  });
-
-  $("#hideAnnouncement").click(function(){
-	$("#AnnouncementInputs").hide();
-	$("#showAnnouncement").show();
-	$("#hideAnnouncement").hide();
-  });
-
-  $("#showAnnouncement").click(function(){
-	$("#AnnouncementInputs").show();
-	$("#showAnnouncement").hide();
-	$("#hideAnnouncement").show();
+  $("#announcementCheckbox").click(function(){
+	if($("#announcementCheckbox").attr("checked"))
+      $("#AnnouncementInputs").show();
+    else
+      $("#AnnouncementInputs").hide();
   });
 
 });
@@ -59,17 +50,18 @@ jQuery(document).ready(function($){
     <%= form.input :ends_at, :as => :string,
                    :input_html => { :class => "datetimepicker", :value => @record.ends_at ? l(@record.ends_at, :format => "%d/%m/%Y %H:%M") : '' }, :label => t('admin.events.view.ends_at') %>
      <%= form.input :price, :as => :numeric, :label => t('admin.events.view.price') %>
-     <%= form.input :participation_message, :as => :text, :label => t('admin.events.view.participation_message'), :required => false %>
-	 
+     <%= form.input :participation_message, :as => :text, :label => t('admin.events.view.participation_message'), :required => false %>	 
   <% end %>
 	
   <div class="fields">	
     <%= link_to_add_fields t("admin.events.add_activity"), form, :event_activities %>	
   </div>	
   
-
-  <div id="showPost" class="showPost"><%= link_to t('admin.events.view.showPost'), "#showPost" %></div>
-  <div id="hidePost" class="hidePost"><%= link_to t('admin.events.view.hidePost'), "#hidePost" %></div>
+  <% if !@record.post || (@record.post && @record.post.title.blank?) %>
+    <input id="postCheckbox" type="checkbox" /> <%= t('admin.events.view.hasPost') %>
+  <% else %>
+    <input id="postCheckbox" type="checkbox" checked /> <%= t('admin.events.view.hasPost') %>
+  <% end %>
 
   <% form.inputs :name => "Post", :id  => "PostInputs" do %>
 
@@ -113,9 +105,12 @@ jQuery(document).ready(function($){
  
   <% end %>
 	
-	<div id="showAnnouncement" class="showAnnouncement"><%= link_to t('admin.events.view.showAnnouncement'), "#showAnnouncement" %></div>
-	<div id="hideAnnouncement" class="hideAnnouncement"><%= link_to t('admin.events.view.hideAnnouncement'), "#hideAnnouncement" %></div>
-	
+	<% if !@record.announcement || (@record.announcement && @record.announcement.title.blank?) %>
+	  <input id="announcementCheckbox" type="checkbox" /> <%= t('admin.events.view.hasAnnouncement') %>
+	<% else %>
+	  <input id="announcementCheckbox" type="checkbox" checked /> <%= t('admin.events.view.hasAnnouncement') %>
+	<% end %>
+			
 	<% form.inputs :name => "Announcement", :id  => "AnnouncementInputs" do %>
 	
 	<% form.semantic_fields_for :announcement_elem, @record.announcement do |announcement| %>
