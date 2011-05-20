@@ -25,30 +25,75 @@ class Admin::EventsController < Admin::BaseController
   def create
     activities = params[:record][:event_activities_attributes]
     params[:record].delete(:event_activities_attributes)
-    @record = Event.new params[:record]
+    params[:record].delete(:announcement_attributes) if params[:record][:has_announcement].size == 1  
+    @record = Event.new params[:record]   
+    
+    if params[:record][:has_announcement].size == 1
+      @record.has_announcement = false
+    else
+      @record.has_announcement = true
+    end
+    
+    @record.post.title = @record.name 
+    @record.post.published_at = (Date.strptime params[:record][:post_attributes][:published_at], "%d/%m/%Y").to_datetime 
+    
+    @record.announcement.starts_at = (Date.strptime params[:record][:announcement_attributes][:starts_at], "%d/%m/%Y").to_datetime
+    @record.announcement.ends_at = (Date.strptime params[:record][:announcement_attributes][:ends_at], "%d/%m/%Y").to_datetime  
       
     if @record.save
-      activities.each do |k,value|
-        ea = EventActivity.new value
-        ea.event = @record
-        ea.save
+      if activities
+        activities.each do |k,value|
+          ea = EventActivity.new value
+          ea.event = @record
+          ea.save
+        end
       end
       flash[:notice]  = t("flash.eventCreated.successfully",:name => @record.name)
       redirect_to admin_events_path 
     else
-      flash[:error] = t("flash.eventCreated.error") unless @record.errors.size > 0
+      flash[:error] = t("flash.eventCreated.error")
     end
   end  
   
+  def edit
+    @record = Event.find params[:id]
+    @record.build_post unless @record.post
+    @record.build_announcement unless @record.announcement
+    
+    render "admin/events/update"
+  end
+  
   def update
+    activities = params[:record][:event_activities_attributes]
+    params[:record].delete(:event_activities_attributes)
+    params[:record].delete(:announcement_attributes) if params[:record][:has_announcement].size == 1  
     @record = Event.find params[:id]
     @record.update_attributes params[:record]
     
+    if params[:record][:has_announcement].size == 1
+      @record.has_announcement = false
+    else
+      @record.has_announcement = true
+    end    
+    
+    @record.post.title = @record.name 
+    @record.post.published_at = (Date.strptime params[:record][:post_attributes][:published_at], "%d/%m/%Y").to_datetime
+    
+    @record.announcement.starts_at = (Date.strptime params[:record][:announcement_attributes][:starts_at], "%d/%m/%Y").to_datetime
+    @record.announcement.ends_at = (Date.strptime params[:record][:announcement_attributes][:ends_at], "%d/%m/%Y").to_datetime
+               
     if @record.save
+      if activities
+        activities.each do |k,value|
+          ea = EventActivity.new value
+          ea.event = @record
+          ea.save
+        end
+      end
       flash[:notice]  = t("flash.eventUpdated.successfully",:name => @record.name)
       redirect_to admin_events_path 
     else
-      flash[:error] = t("flash.eventUpdated.error") unless @record.errors.size > 0
+      flash[:error] = t("flash.eventUpdated.error")
     end    
   end  
   
@@ -60,7 +105,6 @@ class Admin::EventsController < Admin::BaseController
 
   def show
     redirect_to :action => 'index', :controller => 'admin/event_manage', :event_id => params[:id]
-    #refreshContent
   end
 
   def refreshContent

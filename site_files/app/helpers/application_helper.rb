@@ -76,7 +76,7 @@ module ApplicationHelper
     fields = f.semantic_fields_for(association, new_object, :child_index => "new_#{association}") do |builder|
       render(association.to_s.singularize + "_fields", :form => builder)
     end
-    link_to_function(name, h("add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")"), :href => "#add_activity")
+    link_to_function(name, h("add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\");"), :href => "#add_activity")
   end
 
 end

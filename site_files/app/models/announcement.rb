@@ -6,7 +6,7 @@ class Announcement < ActiveRecord::Base
 
   has_attached_file :avatar, :styles => { :announcement => configatron.announcement_size }, :default_url => '/system/:attachment/:style/missing.png'
 
-  validates_presence_of :title
+  validates_presence_of :title, :starts_at, :ends_at, :message
   validates_uniqueness_of :title
  
   named_scope :active, lambda { { :conditions => ['starts_at <= ? AND ends_at >= ?', Time.now.utc, Time.now.utc] } }

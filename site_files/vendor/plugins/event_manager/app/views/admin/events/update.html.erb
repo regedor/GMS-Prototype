@@ -3,7 +3,7 @@
     <h2><%= I18n::t('admin.events.form.edit') + ' - ' + link_to(h(@record.name), admin_event_path(@record)) %></h2>
     <% semantic_form_for :record, @record, 
                          :url => admin_event_path(@record), 
-                         :html => { :method => :put, :id => "edit_event_#{@record.id}" } do |form| -%>
+                         :html => { :method => :put, :id => "edit_event_#{@record.id}", :multipart => true } do |form| -%>
       <%= render :partial => 'form', :locals => { :form => form } %>
       <% form.buttons do -%>
         <%= form.commit_button I18n::t('admin.events.form.update_button'),
