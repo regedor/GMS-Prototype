@@ -1,6 +1,7 @@
 class Admin::EventsController < Admin::BaseController
 
   before_filter :date_localization, :only => [ :create, :update ]
+  before_filter :validate_data, :only => [ :create, :update ]
 
   active_scaffold :event do |config|
   
@@ -25,26 +26,15 @@ class Admin::EventsController < Admin::BaseController
   def create
     activities = params[:record][:event_activities_attributes]
     params[:record].delete(:event_activities_attributes)
-    params[:record].delete(:announcement_attributes) if params[:record][:has_announcement].size == 1  
-    @record = Event.new params[:record]   
-    
-    if params[:record][:has_announcement].size == 1
-      @record.has_announcement = false
-    else
-      @record.has_announcement = true
-    end
-    
-    @record.post.title = @record.name 
-    @record.post.published_at = (Date.strptime params[:record][:post_attributes][:published_at], "%d/%m/%Y").to_datetime 
-    
-    @record.announcement.starts_at = (Date.strptime params[:record][:announcement_attributes][:starts_at], "%d/%m/%Y").to_datetime
-    @record.announcement.ends_at = (Date.strptime params[:record][:announcement_attributes][:ends_at], "%d/%m/%Y").to_datetime  
+    @record = Event.new params[:record]      
       
     if @record.save
       if activities
         activities.each do |k,value|
           ea = EventActivity.new value
           ea.event = @record
+          ea.starts_at = (DateTime.strptime value[:starts_at], "%d/%m/%Y %H:%M").to_datetime
+          ea.ends_at = (DateTime.strptime value[:ends_at], "%d/%m/%Y %H:%M").to_datetime        
           ea.save
         end
       end
@@ -66,27 +56,16 @@ class Admin::EventsController < Admin::BaseController
   def update
     activities = params[:record][:event_activities_attributes]
     params[:record].delete(:event_activities_attributes)
-    params[:record].delete(:announcement_attributes) if params[:record][:has_announcement].size == 1  
     @record = Event.find params[:id]
-    @record.update_attributes params[:record]
-    
-    if params[:record][:has_announcement].size == 1
-      @record.has_announcement = false
-    else
-      @record.has_announcement = true
-    end    
-    
-    @record.post.title = @record.name 
-    @record.post.published_at = (Date.strptime params[:record][:post_attributes][:published_at], "%d/%m/%Y").to_datetime
-    
-    @record.announcement.starts_at = (Date.strptime params[:record][:announcement_attributes][:starts_at], "%d/%m/%Y").to_datetime
-    @record.announcement.ends_at = (Date.strptime params[:record][:announcement_attributes][:ends_at], "%d/%m/%Y").to_datetime
+    @record.update_attributes params[:record]   
                
     if @record.save
       if activities
         activities.each do |k,value|
           ea = EventActivity.new value
           ea.event = @record
+          ea.starts_at = (DateTime.strptime value[:starts_at], "%d/%m/%Y %H:%M").to_datetime
+          ea.ends_at = (DateTime.strptime value[:ends_at], "%d/%m/%Y %H:%M").to_datetime
           ea.save
         end
       end
@@ -165,15 +144,25 @@ class Admin::EventsController < Admin::BaseController
 
   protected
 
+    def validate_data
+      params[:record].delete(:announcement_attributes) if params[:record][:has_announcement].size == 1
+      if params[:record][:has_announcement].size == 1
+        params[:record][:has_announcement] = false
+      else
+        params[:record][:has_announcement] = true
+      end
+      params[:record][:post_attributes][:title] = params[:record][:name]
+    end  
+
     def date_localization
-      begin
+      params[:record][:post_attributes][:published_at] = (Date.strptime params[:record][:post_attributes][:published_at], "%d/%m/%Y").to_datetime
+      [:starts_at, :ends_at].each do |attribute|
+        params[:record][attribute] = DateTime.strptime(params[:record][attribute], "%d/%m/%Y %H:%M").to_datetime
+      end
+      if params[:record][:announcement_attributes]
         [:starts_at, :ends_at].each do |attribute|
-          params[:record][attribute] = DateTime.strptime(params[:record][attribute], "%d/%m/%Y %H:%M").to_time
+          params[:record][:announcement_attributes][attribute] = DateTime.strptime(params[:record][:announcement_attributes][attribute], "%d/%m/%Y %H:%M").to_datetime unless params[:record][:announcement_attributes][attribute].blank?
         end
-      rescue ArgumentError
-        flash[:error] = t("flash.invalid_date")
-        redirect_to :action => params[:action] == 'create' ? 'new' : 'edit'
-        return
       end
     end
 

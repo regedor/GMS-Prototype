@@ -365,7 +365,7 @@ en:
 
     activities:
       form:
-        new: "New Activity"
+        title: "Activity"
         create_button: "Create"
         cancel_button: "Cancel"
       view:
