@@ -124,13 +124,12 @@ jQuery(document).ready(function($){
   <% end %>
 		
 		
-  <%# if @record.event_activities %>
-    <%# @record.event_activities.each do |activity| %>
-      <%# form.semantic_fields_for :event_activity, activity do |builder| %>
-        <%#= render :partial => "event_activity_fields", :locals => {:form => builder, :activity => activity} %>
-      <%# end %>
-    <%# end %>
-  <%# end %>		
+  <% if @record.event_activities %>
+      <% form.semantic_fields_for :event_activities do |builder| %>
+        <%= render :partial => "event_activity_fields", :locals => {:form => builder, :activity => nil } %>
+      <% end %>
+  <% end %>	
+	
   <div class="fields">	
     <%= link_to_add_fields t("admin.events.add_activity"), form, :event_activities %>	
   </div>	

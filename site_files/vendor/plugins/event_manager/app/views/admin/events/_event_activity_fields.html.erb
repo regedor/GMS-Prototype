@@ -2,8 +2,8 @@
   <%= form.input :title, :label => t('admin.activities.view.title') %>
   <%= form.input :description, :label => t('admin.activities.view.description') %>
   <%= form.input :starts_at,  :as => :string,
-           :input_html => { :class => "datepicker", :value => (activity && activity.starts_at) ? l(activity.starts_at, :format => "%d/%m/%Y %H:%M") : '' }, :label => t('admin.activities.view.starts_at') %>
+           :input_html => { :class => "datepicker", :value => (form.object.starts_at) ? l(form.object.starts_at, :format => "%d/%m/%Y %H:%M") : '' }, :label => t('admin.activities.view.starts_at') %>
   <%= form.input :ends_at, :as => :string,
-           :input_html => { :class => "datepicker", :value => (activity && activity.ends_at) ? l(activity.ends_at, :format => "%d/%m/%Y %H:%M") : '' }, :label => t('admin.activities.view.ends_at') %>
+           :input_html => { :class => "datepicker", :value => (form.object.ends_at) ? l(form.object.ends_at, :format => "%d/%m/%Y %H:%M") : '' }, :label => t('admin.activities.view.ends_at') %>
   <%= form.input :price, :as => :numeric, :label => t('admin.activities.view.price') %>
 <% end %>	

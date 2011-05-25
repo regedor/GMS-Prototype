@@ -24,6 +24,8 @@ gem 'clickatell'
 
 gem 'compass'                    , '0.10.6'
 
+gem 'ri_cal'                     , '0.8.8'
+
 group :development do
   gem 'sqlite3-ruby'
 end

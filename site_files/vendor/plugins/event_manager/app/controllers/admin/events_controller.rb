@@ -62,7 +62,11 @@ class Admin::EventsController < Admin::BaseController
     if @record.save
       if activities
         activities.each do |k,value|
-          ea = EventActivity.new value
+          if value.member? :id
+            ea = EventActivity.find value[:id]
+          else  
+            ea = EventActivity.new value
+          end  
           ea.event = @record
           ea.starts_at = (DateTime.strptime value[:starts_at], "%d/%m/%Y %H:%M").to_datetime
           ea.ends_at = (DateTime.strptime value[:ends_at], "%d/%m/%Y %H:%M").to_datetime
