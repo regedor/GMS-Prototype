@@ -9,8 +9,24 @@ function add_fields(link, association, content) {
   var new_id = new Date().getTime();
   var regexp = new RegExp("new_" + association, "g");
   $(link).parent().before(content.replace(regexp, new_id));
-  $.datepicker.setDefaults( $.datepicker.regional[ '' ] );      
-  $( ".datepicker" ).datetimepicker($.datepicker.regional[locale]);
+  setDatepickerWithTime(true);
+}
+
+function setDatepickerWithTime(time){
+  var counter = 0;
+  var locale = ""
+  for (i in $.datepicker.regional) {
+    if (counter == 1) {
+      locale = i;
+      break;
+    }
+    counter++;
+  }
+  $.datepicker.setDefaults( $.datepicker.regional[ '' ] );
+  if(time)
+    $(".datepicker" ).datetimepicker($.datepicker.regional[locale]);
+  else
+    $(".datepicker" ).datepicker($.datepicker.regional[locale]);
 }
 
 function t(path,pairs){

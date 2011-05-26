@@ -15,37 +15,21 @@ jQuery(document).ready(function($){
     counter++;
   }
 
+  if($("#record_has_announcement_").attr("checked") == false && $("#flash").text() == "")
+    $("#AnnouncementInputs").hide();
+  else
+    $("#AnnouncementInputs").show();
+
   $.datepicker.setDefaults( $.datepicker.regional[ '' ] );      
   $( ".datetimepicker" ).datetimepicker($.datepicker.regional[locale]);
   $( ".datepicker" ).datepicker($.datepicker.regional[locale]);
 
-  $("#PostInputs").hide();
-  $("#hidePost").hide();
-  $("#AnnouncementInputs").hide();
-  $("#hideAnnouncement").hide();
 
-  $("#hidePost").click(function(){
-	$("#PostInputs").hide();
-	$("#showPost").show();
-	$("#hidePost").hide();
-  });
-
-  $("#showPost").click(function(){
-	$("#PostInputs").show();
-	$("#showPost").hide();
-	$("#hidePost").show();
-  });
-
-  $("#hideAnnouncement").click(function(){
-	$("#AnnouncementInputs").hide();
-	$("#showAnnouncement").show();
-	$("#hideAnnouncement").hide();
-  });
-
-  $("#showAnnouncement").click(function(){
-	$("#AnnouncementInputs").show();
-	$("#showAnnouncement").hide();
-	$("#hideAnnouncement").show();
+  $("#record_has_announcement_").click(function(){
+	if($("#record_has_announcement_").attr("checked"))
+      $("#AnnouncementInputs").fadeIn('slow');
+    else
+      $("#AnnouncementInputs").fadeOut('slow');
   });
 
 });
@@ -53,39 +37,27 @@ jQuery(document).ready(function($){
 
   <% form.inputs do %>
     <%= form.input :name, :label => t('admin.events.view.name') %>
-    <%= form.input :description, :as => :text,  :label => t('admin.events.view.description') %>
+	<% form.inputs do %>
+	  <% form.semantic_fields_for :post, @record.post do |post| %>
+	    <%= post.input :body, :as => :text,  :label => t('admin.events.view.description') %>
+	  <% end %>
+	<% end %>
     <%= form.input :starts_at,  :as => :string,
                    :input_html => { :class => "datetimepicker", :value => @record.starts_at ? l(@record.starts_at, :format => "%d/%m/%Y %H:%M") : '' }, :label => t('admin.events.view.starts_at') %>
     <%= form.input :ends_at, :as => :string,
                    :input_html => { :class => "datetimepicker", :value => @record.ends_at ? l(@record.ends_at, :format => "%d/%m/%Y %H:%M") : '' }, :label => t('admin.events.view.ends_at') %>
      <%= form.input :price, :as => :numeric, :label => t('admin.events.view.price') %>
-     <%= form.input :participation_message, :as => :text, :label => t('admin.events.view.participation_message'), :required => false %>
-	 
-  <% end %>
-	
-  <div class="fields">	
-    <%= link_to_add_fields t("admin.events.add_activity"), form, :event_activities %>	
-  </div>	
-  
+     <%= form.input :participation_message, :as => :text, :label => t('admin.events.view.participation_message'), :required => false %>	 
 
-  <div id="showPost" class="showPost"><%= link_to t('admin.events.view.showPost'), "#showPost" %></div>
-  <div id="hidePost" class="hidePost"><%= link_to t('admin.events.view.hidePost'), "#hidePost" %></div>
-
-  <% form.inputs :name => "Post", :id  => "PostInputs" do %>
-
-  <% form.semantic_fields_for :post_elem, @record.post do |post| %>
-      <%= post.input :title,
-	                 :label    => t('admin.posts.columns.title') %>
-	  <%= post.input :body,
-	                 :label    => t('admin.posts.columns.body'),
-	                 :hint     => t('admin.posts.form.hints.body').html_safe %>
+  <% form.inputs do %>
+    <% form.semantic_fields_for :post, @record.post do |post| %>
 	  <%= post.input :tag_list,
 	               :as       => 'string',
 	               :required => false,
 	               :label    => t('admin.posts.columns.tag_list'),
 	               :hint     => t('admin.posts.form.hints.tag_list') %>
 	  <% if @record.post && @record.post.image.content_type %>
-	    <span class="file_icon"><%= image_tag file_icon_displayer(@record.post.image) %></span>
+	    <span class="file_icon"><%= file_icon_displayer(@record.post.image) %></span>
 	  <% end %>
 	  <%= post.input :image,
 	                 :required => false,
@@ -93,7 +65,7 @@ jQuery(document).ready(function($){
 	                 :hint     => t('admin.posts.form.hints.image'),
 	                 :label    => t('admin.posts.columns.image') %>
 	  <% if @record.post && @record.post.generic.content_type %>
-	    <span class="file_icon"><%= image_tag file_icon_displayer(@record.post.generic) %></span>
+	    <span class="file_icon"><%= file_icon_displayer(@record.post.generic) %></span>
 	  <% end %>
 	  <%= post.input :generic,
 	                 :required => false,
@@ -109,18 +81,22 @@ jQuery(document).ready(function($){
 	                 :required => false,
 	                 :label    => t('admin.posts.columns.slug'),
 	                 :hint     => t('admin.posts.form.hints.slug') %>
+    <% end %>
   <% end %>
- 
-  <% end %>
 	
-	<div id="showAnnouncement" class="showAnnouncement"><%= link_to t('admin.events.view.showAnnouncement'), "#showAnnouncement" %></div>
-	<div id="hideAnnouncement" class="hideAnnouncement"><%= link_to t('admin.events.view.hideAnnouncement'), "#hideAnnouncement" %></div>
-	
-	<% form.inputs :name => "Announcement", :id  => "AnnouncementInputs" do %>
-	
-	<% form.semantic_fields_for :announcement_elem, @record.announcement do |announcement| %>
+  <%= form.input :has_announcement,
+                 :as => :check_boxes, 
+                 :required => false, 
+                 :collection => [""], 
+ 				 :label => t('admin.events.view.hasAnnouncement') %>	
+			
+  <% form.inputs :id  => "AnnouncementInputs" do %>
+	<% form.semantic_fields_for :announcement, @record.announcement do |announcement| %>
 	  <%= announcement.input :title,
 	                         :label    => I18n::t('admin.announcements.columns.title') %>
+	  <%= announcement.input :message,
+	                         :hint     => I18n::t('admin.announcements.form.hints.message'),
+	                         :label    => I18n::t('admin.announcements.columns.message') %>
 	  <%= announcement.input :starts_at,
 	                         :as => :string,
 	                         :input_html => { :class => "datepicker", :value => (@record.announcement && @record.announcement.starts_at) ? l(@record.announcement.starts_at, :format => "%d/%m/%Y %H:%M") : '' },
@@ -144,13 +120,20 @@ jQuery(document).ready(function($){
 	                         :selected   => (@record.announcement && @record.announcement.priority) ? @record.announcement.priority : '',
 	                         :label      => I18n::t('admin.pages.columns.priority'),
 	                         :hint       => I18n::t('admin.pages.form.hints.priority') %>
-	  <%= announcement.input :message,
-	                         :required => false,
-	                         :hint     => I18n::t('admin.announcements.form.hints.message'),
-	                         :label    => I18n::t('admin.announcements.columns.message') %>
 	<% end %>
+  <% end %>
+		
+		
+  <% if @record.event_activities %>
+      <% form.semantic_fields_for :event_activities do |builder| %>
+        <%= render :partial => "event_activity_fields", :locals => {:form => builder, :activity => nil } %>
+      <% end %>
+  <% end %>	
 	
-	<% end %>
-	
+  <div class="fields">	
+    <%= link_to_add_fields t("admin.events.add_activity"), form, :event_activities %>	
+  </div>	
+
+<% end %>
 
      

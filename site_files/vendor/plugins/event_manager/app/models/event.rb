@@ -17,62 +17,18 @@ class Event < ActiveRecord::Base
   # Validations
   # ==========================================================================
 
-  validates_presence_of :description, :name, :starts_at, :ends_at, :price
+  validates_presence_of :name, :starts_at, :ends_at, :price
   
   # ==========================================================================
   # Instance Methods
   # ==========================================================================
 
-  before_save :format_description
-  before_save :save_virtual_data
-  after_save  :link_to_post
+  #before_save :format_description
+  #before_save :save_virtual_data
+  after_save  :link_to_post_and_announcement
 
   attr_accessor :starts_at_natural
   attr_accessor :ends_at_natural
-  attr_accessor :post_elem
-  attr_accessor :announcement_elem
-  
-  def save_virtual_data  
-    if self.post_elem.nil? && self.announcement_elem.nil?
-      return true
-    end 
-
-    if (self.post_elem && self.post_elem[:title] && !self.post_elem[:title].blank?)
-      if self.post
-        p = self.post
-        p.update_attributes self.post_elem
-      else  
-        p = Post.new self.post_elem 
-      end  
-      p.published_at = (Date.strptime self.post_elem[:published_at], "%d/%m/%Y").to_datetime
-   
-      if p.valid?
-        p.save
-        self.post = p
-      else
-        return false 
-      end   
-    end
-    
-    if (self.announcement_elem && self.announcement_elem[:title] && !self.announcement_elem[:title].blank?)
-      if self.announcement
-        a = self.announcement
-        a.update_attributes self.announcement_elem
-      else  
-        a = Announcement.new self.announcement_elem 
-      end  
-      a.starts_at = (Date.strptime self.announcement_elem[:starts_at], "%d/%m/%Y").to_datetime
-      a.ends_at = (Date.strptime self.announcement_elem[:ends_at], "%d/%m/%Y").to_datetime
-   
-      if a.valid?
-        a.save
-        self.announcement = a
-      else
-        return false 
-      end   
-    end
-        
-  end  
   
   def total_price(eventActivityUsers=[])
     sum = self.price
@@ -82,12 +38,17 @@ class Event < ActiveRecord::Base
     return sum
   end  
   
-  def link_to_post
+  def link_to_post_and_announcement
     if self.post
       new_post = self.post
       new_post.event = self
       new_post.save
     end  
+    if self.announcement
+      new_announcement = self.announcement
+      new_announcement.event = self
+      new_announcement.save
+    end
   end  
 
  

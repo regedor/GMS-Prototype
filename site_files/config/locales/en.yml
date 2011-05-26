@@ -365,7 +365,7 @@ en:
 
     activities:
       form:
-        new: "New Activity"
+        title: "Activity"
         create_button: "Create"
         cancel_button: "Cancel"
       view:
@@ -422,10 +422,8 @@ en:
       create:
         title: "Event"
       view:  
-        showAnnouncement: "Show Announcement"
-        hideAnnouncement: "Hide Announcement"  
-        showPost: "Show Post"
-        hidePost: "Hide Post"  
+        hasAnnouncement: "Has Announcement"
+        hasPost: "Has Post"
         activities: "Activities"
         name: "Name"
         description: "Description"
@@ -581,6 +579,8 @@ en:
         active: "Active"
 
       form:
+        yes_button: "Yes"
+        no_button: "No"  
         delete_button: "Delete"  
         update_button: "Update"
         cancel_button: "Cancel"
