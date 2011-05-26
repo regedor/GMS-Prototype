@@ -70,11 +70,11 @@ function float_bar(element,top) {
   $(window).scroll(function(e){ 
     $el = $(element); 
 
-    if ($(this).scrollTop() > 240 && $el.css('position') != 'fixed'){ 
+    if ($(this).scrollTop() > 170 && $el.css('position') != 'fixed'){ 
       $(element).css({'position': 'fixed', 'top': top}); 
     }
-    if ($(this).scrollTop() < 240){ 
-      $(element).css({'position': 'relative', 'top': '0px'}); 
+    if ($(this).scrollTop() < 170){ 
+      $(element).css({'position': 'relative', 'top': '198px'}); 
     }
     
   });
