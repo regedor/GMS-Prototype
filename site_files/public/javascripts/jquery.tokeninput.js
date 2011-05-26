@@ -23,7 +23,7 @@ var DEFAULT_SETTINGS = {
     contentType: "json",
     queryParam: "q",
     tokenDelimiter: ",",
-    preventDuplicates: false,
+    preventDuplicates: true,
     prePopulate: null,
     animateDropdown: true,
     onResult: null,
