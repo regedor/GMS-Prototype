@@ -1,0 +1,385 @@
+// ============================================================================
+// Rules
+// ============================================================================
+
+
+body
+  background-color: $frontend-background-color
+
+
+div#tag-cloud h2.title
+  padding: 10px 0 0
+
+
+h2.title, h3.archives-month-title 
+  margin: 0 0 $content-margin
+
+  a:hover
+    border-bottom: 3px solid $default-color
+
+
+hr
+  background-color: #DDD
+  border: none
+  clear: left
+  height: 1px
+  margin: $content-margin 0
+
+
+div#container
+  margin: auto
+  width: 960px
+
+
+div#wrapper
+  margin: 0 0 0 200px
+  position: relative
+
+
+div#tag-cloud
+  background-color: $default-color
+  clear: left
+  float: left
+  padding: 12px 13px 12px
+  position: relative
+  top: 198px
+  width: 175px
+  @include round-corners(30px, 0, 0, 30px)
+  @include enable-ie-css3
+
+  li
+    margin: 5px
+
+  a:hover
+    border: none
+
+
+div#tag-search-bar
+  margin: 0 0 $content-margin
+
+  div#tags
+    margin: 10px
+
+
+div#logo
+  background-image: url("/stylesheets/themes/nemum/images/logo_nemum.png")
+  background-position: 5% 50%
+  background-repeat: no-repeat
+  padding: 0 0 40px
+  min-height: 60px
+  position: relative
+  top: 60px
+
+
+div#header
+  background-color: $default-color
+  padding: 10px 20px $content-margin
+  position: absolute
+  right: 0
+  text-align: center
+  width: 110px
+  @include round-corners(0, 0, 30px, 30px)
+  @include enable-ie-css3
+
+  span.options a:hover
+    border-bottom: 2px solid $default-color
+
+
+div#menu
+  font-size: 13px
+  float: right
+  top: 25px
+  position: relative
+
+  li
+    display: inline
+    padding: 0 8px 0
+
+
+div#main
+  background-color: #FFF
+  border: 3px solid $default-color
+  margin: 60px 0 0
+  padding: 20px
+  position: relative
+  z-index: 1
+  @include round-corners(12px, 12px, 12px, 12px)
+  @include enable-ie-css3
+
+
+div.content-body
+  margin: 0 10px
+
+
+div#user-info, div#user-invite
+  margin: 15px 10px
+
+
+div#footer
+  margin: 25px
+
+  a:hover
+    border-bottom: 2px solid $default-color
+
+
+div#flash
+  background-image: url("/images/dark_transparency.png")
+  border-top: 1px solid #000
+  bottom: 0
+  left: 0
+  padding: 15px 0
+  position: fixed
+  width: 100%
+
+  div.message
+    margin: 0 0 0 30px
+
+    p
+      margin: 0 70px
+      padding: 20px
+
+  div.message.error
+    background: url("/stylesheets/themes/nemum/images/flash/error.png") no-repeat 0 50%
+
+  div.message.warning
+    background: url("/stylesheets/themes/nemum/images/flash/warning.png") no-repeat 0 50%
+
+  div.message.info, div.message.notice
+    background: url("/stylesheets/themes/nemum/images/flash/notice.png") no-repeat 0 50%
+
+
+ul.list li
+  margin: $content-margin 0
+
+
+dl.list
+  display: inline-block
+
+  dd
+    float: left
+    padding: 1px 0
+    margin: 5px 0
+
+  dt
+    clear: left
+    color: #555
+    float: left
+    font-weight: bold
+    padding: 0
+    margin: 5px 0
+    width: 150px
+
+
+div#archives
+  float: right
+  margin: 10px
+
+  a:hover
+    border-bottom: 3px solid $default-color
+
+
+ul.archives-month
+  margin: 0 0 0 10px
+
+  li
+    margin: 0 0 5px
+
+    a:hover
+      border-bottom: 2px solid $default-color
+
+
+// ==============
+// Social buttons
+// ==============
+
+
+div.social-buttons
+  float: right
+  margin: 0 10px 10px
+
+  div.addthis_toolbox
+    display: inline
+
+
+// =============
+// Announcements
+// =============
+
+
+div#announcements
+  border: 2px solid #444
+  margin: $content-margin $content-margin 35px
+  overflow: hidden
+  position: relative
+  background-clip: padding-box
+  @include round-corners(12px, 12px, 12px, 12px)
+  @include enable-ie-css3
+
+  a:hover
+    border: none
+
+
+div.announcement-tail
+  display: none
+
+
+div#announcement-numbers
+  background: url("/images/dark_transparency.png")
+  cursor: default
+  padding: 12px
+  position: absolute
+  background-clip: padding-box
+  @include round-corners(12px, 0, 12px, 0)
+  @include enable-ie-css3
+
+
+div#announcements img
+  height: 250px
+  width: 730px
+  background-clip: padding-box
+  @include round-corners(12px, 12px, 12px, 12px)
+  @include enable-ie-css3
+
+
+div.announcement-text
+  background: url("/images/dark_transparency.png")
+  bottom: 0
+  padding: 14px 12px 12px 14px
+  position: absolute
+  right: 0
+  width: 300px
+  @include round-corners(12px, 0, 12px, 0)
+  @include enable-ie-css3
+
+  p.title
+    padding: 0 0 15px
+
+
+// =====
+// Pages
+// =====
+
+
+body#pages_show div#main
+  ul li, ol li
+    list-style-position: inside
+    margin: $content-margin 30px
+  ul li
+    list-style-type: disc
+  ol li
+    list-style-type: decimal
+
+
+// =====
+// Posts
+// =====
+
+
+div.post
+  margin: 0 0 30px
+
+
+div.post-image
+  float: left
+  margin: 0 $content-margin 5px 0
+
+
+div.meta
+  clear: both
+  background-color: #EEE
+  margin: 0 10px
+  padding: 10px
+
+  a:hover
+    border-bottom: 2px solid $default-color
+
+
+// ========
+// Comments
+// ========
+
+
+div.avatar
+  float: left
+  margin-right: 20px
+
+  img
+    border: 1px solid #999
+
+
+span.comment-meta
+  clear: both
+  display: block
+
+
+div.new-comment
+  padding: 0 $content-margin
+
+
+ol#comment-list
+  margin: $content-margin
+
+  p
+    padding: $content-margin 0 0 72px
+
+
+// =======
+// Buttons
+// =======
+
+
+button, a.button, input.button
+  background-color: $button-gradient-end-color // graceful degrade for Opera
+  border: 1px solid #AAA
+  cursor: pointer
+  float: left
+  @include linear-gradient($button-gradient-start-color, $button-gradient-end-color)
+  @include round-corners(4px, 4px, 4px, 4px)
+  @include enable-ie-css3
+
+
+button:active, a.button:active, input.button:active
+  @include linear-gradient($button-gradient-end-color, $button-gradient-start-color)
+  @include enable-ie-css3
+
+
+a.button
+  padding: 6px 10px
+
+
+input.button
+  padding: 5px 10px !important
+
+
+button
+  padding: 5px 10px
+
+
+ul.buttons
+  margin: $content-margin 0
+
+  a
+    margin: 0 10px 0 0
+
+
+*:first-child + html input[type]
+  padding: 2px 10px 3px
+  // IE7
+
+
+a.google_ico, a.yahoo_ico
+  margin: 0 0 15px 0
+  width: 90%
+
+
+// Self-clearing floats and IE hacks
+
+.selfclear
+  &:after
+    content: "."
+    display: block
+    height: 0
+    clear: both
+    visibility: hidden
+  display: inline-block // IE 7
+  display: block

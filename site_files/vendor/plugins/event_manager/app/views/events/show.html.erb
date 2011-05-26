@@ -80,10 +80,10 @@ jQuery(document).ready(function($) {
     });
   });
 });
-
 </script>
-<div id="event_<%= @record.id %>" class="event_<%= @record.id %>">
-</div>
+
+<div id="event_<%= @record.id %>" class="event_<%= @record.id %>"></div>
+
 <div id="show" class="show">
 <% if @record.event_activities.empty? %>
   <% if @record.user_ids.include?(current_user.id) %>
@@ -117,8 +117,13 @@ jQuery(document).ready(function($) {
   <% @unchecked_activities.each do |activity| %>
     <li><input type="checkbox" id="<%= activity.id %>" value="<%= activity.id %>" class="activity-unchecked" /><span><a href="<%= event_event_activity_path(activity.event_id,activity.id) %>"><%= activity.title %></a>( <%= t("events.view.price") %> <%= activity.price %>)</span></li>
   <% end %>
-  <p class="form-footer">
-    <input type=button value="<%= t('events.view.button.update') %>" class="update-button">
-    <%= link_to t("events.view.cancel"), root_path, :class => "cancel" %>  
-  </p>
+
+  <ul class="buttons">
+    <li>
+      <input type="button" value="<%= t('events.view.button.update') %>" class="button positive create">
+    </li>
+    <li>
+      <%= link_to t("events.view.cancel"), root_path, :class => "button negative cancel" %>
+    </li>
+  </ul>
 </div>
