@@ -2,6 +2,8 @@ class Event < ActiveRecord::Base
   # ==========================================================================
   # Relationships
   # ==========================================================================
+  has_event_calendar :start_at_field  => 'starts_at', :end_at_field => 'ends_at'
+  
   has_many   :events_users, :dependent => :destroy
   has_many   :users, :through => :events_users
   has_many   :event_activities, :dependent => :destroy

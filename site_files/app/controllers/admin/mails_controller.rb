@@ -13,10 +13,10 @@ class Admin::MailsController < Admin::BaseController
   def values
     vals = []
     User.all.each do |user|
-       vals << {:label => user.name, :category => t("admin.mails.vals.users"), :value => "#{user.email}"}
+       vals << {:id => user.id, :name => "#{@template.image_tag @template.avatar_url(user,:size => :small)} #{user.name}" }
     end  
     Group.all.each do |group|
-      vals << {:label => group.name, :category => t("admin.mails.vals.groups"), :value => "group:#{group.name}"}
+      vals << {:id => group.id, :name => group.name }
     end  
     
     respond_to do |format|

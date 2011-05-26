@@ -57,108 +57,48 @@ jQuery(document).ready(function($) {
 			}
     
 
-	 $( "#mail_recipients_text" ).catcomplete({
-				source: function( request, response ) {				
-					jQuery.ajax({
-				      type: 'GET',
-					  dataType: "json",
-				      url: window.location.href.replace(/\#.*/,"").replace("new","values"),
-				      error: function() {
-				        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"values"});
-						return false;
-				      },
-				      success: function(r) {
-					  	  response( $.ui.autocomplete.filter(
-												r, extractLast( request.term ) ) );
-						
-				      }
-				    });
-				},
-				minLength: 0,
-				delay: 0,
-				focus: function() 
-				{
-					// prevent value inserted on focus
-					return false;
-				},
-				select: function( event, ui ) {
-					var terms = split( this.value );
-					// remove the current input
-					terms.pop();
-					// add the selected item
-					terms.push( ui.item.value );
-					// add placeholder to get the comma-and-space at the end
-					terms.push( "" );
-					this.value = terms.join( ", " );
-					
-					
-					return false;
-				}
-				
-			});	
-				
-
-   // var values = $("#mail_mailable").val().split(',')
-   
-   // function extractLast( term ) 
-   // {
-   // 	var idx = term.indexOf($("span .last").text());
-   // 	if(idx>0){return term.splice(idx,1);}
-   //  	return term
-   // }
-   // 
-   // window.onload = reset_hidden; 
-   // function reset_hidden() { 
-   // 	jQuery("#mail_to").val("");
-   // }	
-   // 
-   // $( "#mail_recipients" ).autocomplete(
-   //  	{
-   //  		minLength: 0,
-   //  		source: function( request, response ) 
-   //  		{
-   //  			// delegate back to autocomplete, but extract the last term
-   // 			
-   //  			response( $.ui.autocomplete.filter(values, extractLast(request.term)));
-   //  		},
-   //  		focus: function() 
-   //  		{
-   //  			// prevent value inserted on focus
-   //  			return false;
-   //  		},
-   //  		select: function( event, ui ) 
-   //  		{	
-   // 			newSpan = $("<span>").text($("span .last").text());
-   // 			$("span .last").replaceWith(newSpan);
-   //
-   // 			masterspan = $("<span>").addClass("master").insertBefore("#recipients_holder")
-   // 			$("<span id=\"rec\">").addClass("last").text(ui.item.value).appendTo(masterspan);
-   // 			$("<a>").addClass("remove").text("x").attr({onclick: "newValue = jQuery(\"#mail_to\").val().split(\",\");newValue.pop();newValue.pop();jQuery(\"#mail_to\").val(newValue.join(\",\")+\",\"); this.parentNode.remove(true);jQuery(\"#outer_holder span span\").last().addClass(\"last\");return false;"}).appendTo(masterspan);	
-
-   // 			$("#mail_to").val($("#mail_to").val()+ui.item.value+",")
-   // 			
-   //  			return false;
-   //  		}
-   //  	}).keydown( function( event ) 
-   // 		{
-   // 			var code = (event.keyCode ? event.keyCode : event.which);
-   //
-   // 			if( code == 13 )
-   // 				alert($("#mail_to").val());
-   //
-   // 			if ( code == 8 )
-   // 			{
-   // 				if($("#mail_to").val() != "")
-   // 				{
-   // 					newValue = $("#mail_to").val().split(",");
-   // 					newValue.pop();
-   // 					newValue.pop();
-   // 					$("#mail_to").val(newValue.join(",")+",");
-   // 					$("#outer_holder span .last").parent().remove();
-   // 					$("#outer_holder span span").last().addClass("last");
-   // 				}
-   // 			}
-   // 		 });
+	 //$( "#mail_recipients_text" ).catcomplete({
+	 //   		source: function( request, response ) {				
+	 //   			jQuery.ajax({
+	 //   		      type: 'GET',
+	 //   			  dataType: "json",
+	 //   		      url: window.location.href.replace(/\#.*/,"").replace("new","values"),
+	 //   		      error: function() {
+	 //   		        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"values"});
+	 //   				return false;
+	 //   		      },
+	 //   		      success: function(r) {
+	 //   			  	  response( $.ui.autocomplete.filter(
+	 //   										r, extractLast( request.term ) ) );
+	 //   				
+	 //   		      }
+	 //   		    });
+	 //   		},
+	 //   		minLength: 0,
+	 //   		delay: 0,
+	 //   		focus: function() 
+	 //   		{
+	 //   			// prevent value inserted on focus
+	 //   			return false;
+	 //   		},
+	 //   		select: function( event, ui ) {
+	 //   			var terms = split( this.value );
+	 //   			// remove the current input
+	 //   			terms.pop();
+	 //   			// add the selected item
+	 //   			terms.push( ui.item.value );
+	 //   			// add placeholder to get the comma-and-space at the end
+	 //   			terms.push( "" );
+	 //   			this.value = terms.join( ", " );
+	 //   			
+	 //   			
+	 //   			return false;
+	 //   		}
+	 //   		
+	 //   	});
+	
+	$( "#mail_recipients_text" ).tokenInput(window.location.href.replace(/\#.*/,"").replace("new","values"));
+		
 	});
 </script>
 

@@ -22,7 +22,6 @@ ActionController::Routing::Routes.draw do |map|
 
   map.archives '/archives', :controller => 'posts', :action => 'archives'
 
-
   # ==========================================================================
   # User Resources
   # ==========================================================================
