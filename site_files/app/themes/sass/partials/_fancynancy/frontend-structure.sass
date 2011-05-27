@@ -7,10 +7,6 @@ body
   background-color: $frontend-background-color
 
 
-div#tag-cloud h2.title
-  padding: 10px 0 0
-
-
 h2.title, h3.archives-month-title 
   margin: 0 0 $content-margin
 
@@ -31,18 +27,23 @@ div#container
   width: 960px
 
 
+div#content
+  width: 755px
+
+
 div#wrapper
-  margin: 0 0 0 200px
+  margin: 0 auto 0
   position: relative
+  width: 1000px
 
 
 div#tag-cloud
   background-color: $default-color
-  clear: left
-  float: left
-  padding: 12px 13px 12px
-  position: relative
-  top: 198px
+  float: right
+  padding: 22px 13px 22px
+  position: fixed
+  left: 950px
+  top: 490px
   width: 175px
   @include round-corners(30px, 0, 0, 30px)
   @include enable-ie-css3
@@ -93,7 +94,16 @@ div#menu
 
   li
     display: inline
-    padding: 0 8px 0
+
+  a
+    padding: 8px
+
+  a:hover
+    background-color: $default-color
+    color: #FFF
+    padding: 8px
+    @include round-corners(12px, 12px, 12px, 12px)
+    @include enable-ie-css3
 
 
 div#main
@@ -207,13 +217,10 @@ div.social-buttons
 
 
 div#announcements
-  border: 2px solid #444
+  border: 2px solid #333
   margin: $content-margin $content-margin 35px
-  overflow: hidden
   position: relative
-  background-clip: padding-box
-  @include round-corners(12px, 12px, 12px, 12px)
-  @include enable-ie-css3
+  overflow: hidden
 
   a:hover
     border: none
@@ -229,16 +236,13 @@ div#announcement-numbers
   padding: 12px
   position: absolute
   background-clip: padding-box
-  @include round-corners(12px, 0, 12px, 0)
+  @include round-corners(0, 0, 12px, 0)
   @include enable-ie-css3
 
 
 div#announcements img
   height: 250px
-  width: 730px
-  background-clip: padding-box
-  @include round-corners(12px, 12px, 12px, 12px)
-  @include enable-ie-css3
+  width: 926px
 
 
 div.announcement-text
@@ -248,7 +252,7 @@ div.announcement-text
   position: absolute
   right: 0
   width: 300px
-  @include round-corners(12px, 0, 12px, 0)
+  @include round-corners(12px, 0, 0, 0)
   @include enable-ie-css3
 
   p.title

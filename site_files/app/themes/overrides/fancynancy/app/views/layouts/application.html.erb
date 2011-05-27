@@ -23,8 +23,7 @@
 </head>
 
 <body>
-  <div id="container">
-    <%= yield :tag_cloud %>
+    <div id="container">
 
     <div id="wrapper">
       <div id="header">
@@ -54,8 +53,8 @@
         <%= '<div id="flash"><div class="message notice"><p>'+ flash[:notice] +'</p></div></div>' unless flash[:notice].blank? %>
         <%= '<div id="flash"><div class="message error"><p>'+ flash[:error] +'</p></div></div>' unless flash[:error].blank? %>
         <%= '<script>jQuery("#flash").hide().toggle("fade", {}, 2500).delay(4000).toggle("slide", { direction: "down" }, 1500);</script>' unless flash[:notice].blank? and flash[:error].blank? %>
-  
-        <% announcements = Announcement.prioritize.active %>
+
+       <% announcements = Announcement.prioritize.active %>
         <div id="announcements">
           <% if(announcements.size > 0) %>
             <div id="announcement-numbers">
@@ -74,13 +73,16 @@
           <% end %>
         </div>
 
+        <%= yield :tag_cloud %>
+
         <div id="content">
           <%= yield %>
         </div>
       </div>
 
-      <%= render :partial => 'shared/footer' %>
     </div>
+
+    <%= render :partial => 'shared/footer' %>
   </div>
 
   <% javascript_tag do %>
