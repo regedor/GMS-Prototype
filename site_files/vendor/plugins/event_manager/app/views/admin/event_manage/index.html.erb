@@ -77,7 +77,7 @@ jQuery(document).ready(function($) {
       <li><span><%= user_event[:user].to_label %></span></li>
     <% end %>
     <% @user_activities[user_event[:user].id][:default].each do |activity| %>
-      <li>--
+      <li>
         <span><%= activity.event_activity.title %></span>
         <select name="dropdown-activity" class="dropdown-activity" id="<%= activity[:id] %>" default="1">
           <% @statuses.each do |status| %>
@@ -88,7 +88,7 @@ jQuery(document).ready(function($) {
     <% end %>
     <% @user_activities[user_event[:user].id][:with_status].each do |activity| %>
       <% puts activity.inspect %>
-      <li>--
+      <li>
         <span><%= activity.event_activity.title %></span>
           <select name="dropdown-activity" class="dropdown-activity" id="<%= activity.id %>" default="<%= activity.status_id %>">
           <% @statuses.each do |status| %>
