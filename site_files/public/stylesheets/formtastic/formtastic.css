@@ -136,3 +136,7 @@ form.formtastic fieldset ol li.datetime fieldset ol li label { display:none; }
 form.formtastic fieldset ol li.date fieldset ol li label input, 
 form.formtastic fieldset ol li.time fieldset ol li label input, 
 form.formtastic fieldset ol li.datetime fieldset ol li label input { display:inline; margin:0; padding:0;  }
+
+/* TOKEN INPUT OVERRIDES
+--------------------------------------------------------------------------------------------------*/
+form.formtastic ul.token-input-list-facebook { display:inline-block; width:400px; }
