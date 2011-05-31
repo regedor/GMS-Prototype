@@ -1,3 +1,10 @@
+@font-face
+  font-family: 'PTSansRegular'
+  src: url('/stylesheets/themes/adege/fonts/PTS55F-webfont.eot'), url('/stylesheets/themes/adege/fonts/PTS55F-webfont.eot?#iefix') format('embedded-opentype'), url('/stylesheets/themes/adege/fonts/PTS55F-webfont.woff') format('woff'), url('/stylesheets/themes/adege/fonts/PTS55F-webfont.ttf') format('truetype'), url('/stylesheets/themes/adege/fonts/PTS55F-webfont.svg#PTSansRegular') format('svg')
+  font-weight: normal
+  font-style: normal
+
+
 // ============================================================================
 // Rules
 // ============================================================================
@@ -24,10 +31,16 @@ hr
 
 div#container
   margin: auto
-  width: 960px
+  width: 1000px
 
 
-div#content
+div#content.single
+  position: relative
+  width: 955px
+
+
+div#content.double
+  position: relative
   width: 755px
 
 
@@ -39,11 +52,10 @@ div#wrapper
 
 div#tag-cloud
   background-color: $default-color
-  float: right
   padding: 22px 13px 22px
-  position: fixed
-  left: 950px
-  top: 490px
+  position: absolute
+  right: 0
+  top: 320px
   width: 175px
   @include round-corners(30px, 0, 0, 30px)
   @include enable-ie-css3
@@ -63,62 +75,56 @@ div#tag-search-bar
 
 
 div#logo
-  background-image: url("/stylesheets/themes/nemum/images/logo_nemum.png")
+  background-image: url("/stylesheets/themes/adege/images/logo_adege.png")
   background-position: 5% 50%
   background-repeat: no-repeat
-  padding: 0 0 40px
-  min-height: 60px
+  min-height: 200px
   position: relative
-  top: 60px
 
 
 div#header
   background-color: $default-color
+  float: right
   padding: 10px 20px $content-margin
-  position: absolute
-  right: 0
+  position: relative
   text-align: center
-  width: 110px
+  z-index: 1
   @include round-corners(0, 0, 30px, 30px)
   @include enable-ie-css3
 
   span.options a:hover
-    border-bottom: 2px solid $default-color
+    border-bottom: 2px solid #FFF
 
 
 div#menu
-  font-size: 13px
-  float: right
-  top: 25px
-  position: relative
+  font-size: 14px
+  position: absolute
+  right: 0
+  top: 160px
 
   li
     display: inline
+    margin: 0 0 0 6px
 
   a
-    padding: 8px
+    padding: 8px 10px
 
   a:hover
     background-color: $default-color
     color: #FFF
-    padding: 8px
+    padding: 8px 10px
     @include round-corners(12px, 12px, 12px, 12px)
     @include enable-ie-css3
 
 
 div#main
-  background-color: #FFF
+  background-color: #FEFEFE
   border: 3px solid $default-color
-  margin: 60px 0 0
   padding: 20px
   position: relative
   z-index: 1
   @include round-corners(12px, 12px, 12px, 12px)
   @include enable-ie-css3
-
-
-div.content-body
-  margin: 0 10px
 
 
 div#user-info, div#user-invite
@@ -140,6 +146,7 @@ div#flash
   padding: 15px 0
   position: fixed
   width: 100%
+  z-index: 1
 
   div.message
     margin: 0 0 0 30px
