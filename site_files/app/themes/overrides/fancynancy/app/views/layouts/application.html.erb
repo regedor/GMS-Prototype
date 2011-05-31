@@ -75,7 +75,7 @@
 
         <%= yield :tag_cloud %>
 
-        <div id="content">
+        <div id="content" class="<%= yield(:tag_cloud) ? 'double' : 'single' %>">
           <%= yield %>
         </div>
       </div>
