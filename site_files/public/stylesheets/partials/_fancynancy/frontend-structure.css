@@ -1,21 +1,21 @@
 /*
 Syntax error: Undefined variable: "$frontend-background-color".
-        on line 7 of /home/golden/Desktop/Empresa/GroupBuddies/Projects/GMS-Prototype/site_files/app/themes/sass/partials/_fancynancy/frontend-structure.sass
+        on line 14 of /home/golden/Desktop/Empresa/GroupBuddies/Projects/GMS-Prototype/site_files/app/themes/sass/partials/_fancynancy/frontend-structure.sass
 
-2: // Rules
-3: // ============================================================================
-4: 
-5: 
-6: body
-7:   background-color: $frontend-background-color
-8: 
-9: 
-10: h2.title, h3.archives-month-title 
-11:   margin: 0 0 $content-margin
+9: // Rules
+10: // ============================================================================
+11: 
 12: 
+13: body
+14:   background-color: $frontend-background-color
+15: 
+16: 
+17: h2.title, h3.archives-month-title 
+18:   margin: 0 0 $content-margin
+19: 
 
 Backtrace:
-/home/golden/Desktop/Empresa/GroupBuddies/Projects/GMS-Prototype/site_files/app/themes/sass/partials/_fancynancy/frontend-structure.sass:7
+/home/golden/Desktop/Empresa/GroupBuddies/Projects/GMS-Prototype/site_files/app/themes/sass/partials/_fancynancy/frontend-structure.sass:14
 /usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/script/variable.rb:39:in `_perform'
 /usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/script/node.rb:61:in `perform'
 /usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/tree/prop_node.rb:132:in `perform!'
@@ -82,4 +82,4 @@ script/server:3
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$frontend-background-color\".\A         on line 7 of /home/golden/Desktop/Empresa/GroupBuddies/Projects/GMS-Prototype/site_files/app/themes/sass/partials/_fancynancy/frontend-structure.sass\A \A 2: // Rules\A 3: // ============================================================================\A 4: \A 5: \A 6: body\A 7:   background-color: $frontend-background-color\A 8: \A 9: \A 10: h2.title, h3.archives-month-title \A 11:   margin: 0 0 $content-margin\A 12: "; }
+  content: "Syntax error: Undefined variable: \"$frontend-background-color\".\A         on line 14 of /home/golden/Desktop/Empresa/GroupBuddies/Projects/GMS-Prototype/site_files/app/themes/sass/partials/_fancynancy/frontend-structure.sass\A \A 9: // Rules\A 10: // ============================================================================\A 11: \A 12: \A 13: body\A 14:   background-color: $frontend-background-color\A 15: \A 16: \A 17: h2.title, h3.archives-month-title \A 18:   margin: 0 0 $content-margin\A 19: "; }
