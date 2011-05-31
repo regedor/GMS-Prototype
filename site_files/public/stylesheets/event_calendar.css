@@ -43,8 +43,15 @@ th {
 }
 
 .ec-month-name {
-	width: 100px;
+	width: 70px;
 }
+
+.ec-month-nav {
+	width: 35px;
+	font-size: 7px;
+}
+
+div#navigation div#calendar  th.ec-month-nav a { color: #444; }
 
 /*.ec-event-cell {
 	visibility: hidden;

@@ -34,8 +34,8 @@ li.token-input-token-facebook {
     overflow: hidden; 
     height: auto !important; 
     height: 15px;
-    margin: 3px;
-    padding: 1px 3px;
+    margin: 2px;
+    padding: 2px 3px;
     background-color: #eff2f7;
     color: #000;
     cursor: default;
@@ -49,9 +49,8 @@ li.token-input-token-facebook {
 }
 
 li.token-input-token-facebook p {
-    display: inline;
-    padding: 0;
-    margin: 0;
+    display: inline-block;
+	padding: 1px 0px 1px 3px;
 }
 
 li.token-input-token-facebook span {

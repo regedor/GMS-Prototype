@@ -1,5 +1,22 @@
 jQuery(document).ready(function($) {
-	$('.ec-day-header').each(function () {
+
+	$("#calendar a").click(function changeCal(){
+		val=$(this).attr("href");
+		$(this).removeAttr("href");
+		jQuery.ajax({
+          type: 'GET',
+          url: window.location.href+"calendar"+val.replace("calendar",""),
+          success: function(r) {
+             $("#calendar").html(r);
+			 $("#calendar a").bind('click',changeCal);
+			 $('.ec-day-header').each(eventsAnimation);
+          }
+        });
+	});
+
+	$('.ec-day-header').each(eventsAnimation);
+		
+	function eventsAnimation() {
 		// options
 		var distance = 10;
 		var time = 250;
@@ -63,5 +80,7 @@ jQuery(document).ready(function($) {
 			}, hideDelay);
 		});
 		}
-	});
+	}
+	
+	
 });
