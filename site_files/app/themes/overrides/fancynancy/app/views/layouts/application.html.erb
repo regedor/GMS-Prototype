@@ -45,7 +45,7 @@
         </span>
       </div>
 
-      <div id="logo"><%# render :partial => 'shared/flash_logo' %></div>
+      <div id="logo"><%= render :partial => 'shared/flash_logo', :locals => {:width => "330", :height => "115", :bgcolor => "#DCDCDC" } %></div>
 
       <div id="menu" ><%= frontend_navigation_content %></div>
 
