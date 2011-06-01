@@ -64,7 +64,8 @@ div#tag-cloud
     margin: 5px
 
   a:hover
-    border: none
+    border-bottom: 2px solid #FFF
+    color: #FFF
 
 
 div#tag-search-bar
@@ -76,19 +77,21 @@ div#tag-search-bar
 
 div#logo
   background-image: url("/stylesheets/themes/adege/images/logo_adege.png")
-  background-position: 5% 50%
   background-repeat: no-repeat
-  min-height: 200px
-  position: relative
+  background-position: 35px 35px
+  height: 185px
+  width: 330px
+
+
+div#flash-content
+  padding: 35px 20px
 
 
 div#header
   background-color: $default-color
   float: right
   padding: 10px 20px $content-margin
-  position: relative
   text-align: center
-  z-index: 1
   @include round-corners(0, 0, 30px, 30px)
   @include enable-ie-css3
 
@@ -98,9 +101,10 @@ div#header
 
 div#menu
   font-size: 14px
+  margin: 0 35px 0 0
   position: absolute
   right: 0
-  top: 160px
+  top: 132px
 
   li
     display: inline
