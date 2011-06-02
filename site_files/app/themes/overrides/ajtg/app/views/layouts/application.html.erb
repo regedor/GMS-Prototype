@@ -13,6 +13,7 @@
 
   <%= javascript_include_tag 'jquery',
                              'jquery-ui-1.8.7.custom.min',
+                             'jquery.url',
                              'announcements', 
                              'utils',                                          :cache => 'cache/frontend' %>
 
@@ -27,9 +28,9 @@
     <div id="header">
       <a href="/"><div id="logo"></div></a>
       <div id="stars">
-        <div id="left"></div>
-        <div id="center"></div>
-        <div id="right"></div>
+        <a href="/pages/josé-fernandes"><div id="left"></div></a>
+        <a href="/pages/rui-bragança"><div id="center"></div></a>
+        <a href="/pages/nuno-costa"><div id="right"></div></a>
       </div>
     </div>
     <div id="wrapper">
@@ -90,35 +91,46 @@
   <% javascript_tag do %>
     window.onload = setTimeout(function() {
       announcementsRoutine(<%= announcements.size %>);
-
-      // this is an image preloader
-      function preloader() 
-      {
-        var i;
-
-        images    = new Array();
-        images[0] = "/stylesheets/themes/ajtg/images/stars.png";
-        images[1] = "/stylesheets/themes/ajtg/images/jose.png";
-        images[2] = "/stylesheets/themes/ajtg/images/rui.png";
-        images[3] = "/stylesheets/themes/ajtg/images/nuno.png";
-
-        // start preloading
-        for(i=0; i<=3; i++)
-        {
-          var image_object = new Image();
-          image_object.src=images[i];
-        }
-      }
-
-      preloader();
     }, 0);
 
-    jQuery("#left").hover(function(){ jQuery("#stars").css("background-image", "url(/stylesheets/themes/ajtg/images/jose.png)") },
-                          function(){ jQuery("#stars").css("background-image", "url(/stylesheets/themes/ajtg/images/stars.png)") });
-    jQuery("#center").hover(function(){ jQuery("#stars").css("background-image", "url(/stylesheets/themes/ajtg/images/rui.png)") },
-                            function(){ jQuery("#stars").css("background-image", "url(/stylesheets/themes/ajtg/images/stars.png)") });
-    jQuery("#right").hover(function(){ jQuery("#stars").css("background-image", "url(/stylesheets/themes/ajtg/images/nuno.png)") },
-                           function(){ jQuery("#stars").css("background-image", "url(/stylesheets/themes/ajtg/images/stars.png)") });
+    // this is an image preloader
+    function preloader() 
+    {
+      var i;
+
+      images    = new Array();
+      images[0] = "/stylesheets/themes/ajtg/images/stars.png";
+      images[1] = "/stylesheets/themes/ajtg/images/jose.png";
+      images[2] = "/stylesheets/themes/ajtg/images/rui.png";
+      images[3] = "/stylesheets/themes/ajtg/images/nuno.png";
+
+      // start preloading
+      for(i=0; i<=3; i++)
+      {
+        var image_object = new Image();
+        image_object.src=images[i];
+      }
+    }
+
+    preloader();
+
+    var url = jQuery.url(window.location);
+    switch( url.segment(2) )
+    {
+      case 'josé-fernandes': jQuery("#stars").removeClass("rui nuno").addClass("jose"); break;
+      case 'rui-bragança': jQuery("#stars").removeClass("jose nuno").addClass("rui"); break;
+      case 'nuno-costa': jQuery("#stars").removeClass("jose rui").addClass("nuno"); break;
+      default: jQuery("#stars").removeClass("jose rui nuno");
+    }
+
+    jQuery("#left").hover(function(){ jQuery("#stars").addClass("jose") },
+                          function(){ jQuery("#stars").removeClass("jose") });
+
+    jQuery("#center").hover(function(){ jQuery("#stars").addClass("rui") },
+                            function(){ jQuery("#stars").removeClass("rui") });
+ 
+    jQuery("#right").hover(function(){ jQuery("#stars").addClass("nuno") },
+                           function(){ jQuery("#stars").removeClass("nuno") });
   <% end %>
 
 </body>
