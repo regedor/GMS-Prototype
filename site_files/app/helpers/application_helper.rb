@@ -21,6 +21,12 @@ module ApplicationHelper
   end
   
   def avatar_url(record, options={})
+    if record.class == Group
+      options[:size]   = 100 if options[:size] == :medium
+      options[:size]   = 50  if options[:size] == :small
+      return "#{root_url}images/guest-#{options[:size]}.png"
+    end  
+    
     options[:size] ||= :medium
     raise "Invalid arguments" unless [:small,:medium].member? options[:size]
     if record.nil?

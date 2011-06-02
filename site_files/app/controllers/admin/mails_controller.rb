@@ -16,7 +16,7 @@ class Admin::MailsController < Admin::BaseController
        vals << {:id => "u#{user.id}", :name => "#{@template.image_tag @template.avatar_url(user,:size => :small)} #{user.name}" }
     end  
     Group.relevant(params[:q]).each do |group|
-      vals << {:id => "g#{group.id}", :name => group.name }
+      vals << {:id => "g#{group.id}", :name => "#{@template.image_tag @template.avatar_url(group,:size => :small)} #{group.name}" }
     end  
     
     respond_to do |format|
