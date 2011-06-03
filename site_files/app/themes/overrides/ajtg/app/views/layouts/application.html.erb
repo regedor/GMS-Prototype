@@ -114,23 +114,25 @@
 
     preloader();
 
+
+    var on_flag;
     var url = jQuery.url(window.location);
     switch( url.segment(2) )
     {
-      case 'josé-fernandes': jQuery("#stars").removeClass("rui nuno").addClass("jose"); break;
-      case 'rui-bragança': jQuery("#stars").removeClass("jose nuno").addClass("rui"); break;
-      case 'nuno-costa': jQuery("#stars").removeClass("jose rui").addClass("nuno"); break;
-      default: jQuery("#stars").removeClass("jose rui nuno");
+      case 'josé-fernandes': on_flag = 'jose'; jQuery("#stars").addClass("jose"); break;
+      case 'rui-bragança': on_flag = 'rui'; jQuery("#stars").addClass("rui"); break;
+      case 'nuno-costa': on_flag = 'nuno'; jQuery("#stars").addClass("nuno"); break;
+      default: on_flag = null;
     }
 
     jQuery("#left").hover(function(){ jQuery("#stars").addClass("jose") },
-                          function(){ jQuery("#stars").removeClass("jose") });
+                          function(){ if( on_flag != 'jose' ) { jQuery("#stars").removeClass("jose"); } });
 
     jQuery("#center").hover(function(){ jQuery("#stars").addClass("rui") },
-                            function(){ jQuery("#stars").removeClass("rui") });
+                            function(){ if( on_flag != 'rui' ) { jQuery("#stars").removeClass("rui"); } });
  
     jQuery("#right").hover(function(){ jQuery("#stars").addClass("nuno") },
-                           function(){ jQuery("#stars").removeClass("nuno") });
+                           function(){ if( on_flag != 'nuno' ) { jQuery("#stars").removeClass("nuno"); } });
   <% end %>
 
 </body>
