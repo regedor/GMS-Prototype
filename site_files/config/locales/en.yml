@@ -785,6 +785,7 @@ en:
         show_in_navigation: "Show in the Menu"
         has_comments: "Has Comments"
         priority: "Priority"
+        showAnnouncements: "Show announcements"
       form:
         new: "New Page"
         edit: "Edit Page"
@@ -801,6 +802,7 @@ en:
           show_in_navigation: "Select to display on the Front-end navigation bar."
           priority: "Select how high (in priority) should the link be on the Front-end navigation bar."
           has_comments: "Select to allow comments on this page."
+          showAnnouncements: "Show announcements while showing the page"
       preview:
         title: "Your entry will be formatted like this:"
         return: "Use Ctrl+Alt+E to return to edit mode."
@@ -935,6 +937,7 @@ en:
         search: "Search Announcements"
         create: "New Announcement"
       columns:
+        hasMessage: "Has message"  
         title: "Title"
         headline: "Headline"
         message: "Message"

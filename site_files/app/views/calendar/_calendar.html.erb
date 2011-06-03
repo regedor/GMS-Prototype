@@ -1,0 +1,6 @@
+<div id="calendar">
+  <% month = Time.zone.now.month.to_i %>
+  <% year  = Time.zone.now.year.to_i %>
+  <%= render :partial => 'events/calendar', :locals => { :month => month, 
+	 										             :year  => year} %>
+</div>

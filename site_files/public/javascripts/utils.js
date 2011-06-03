@@ -14,7 +14,7 @@ function add_fields(link, association, content) {
 
 function setDatepickerWithTime(time){
   var counter = 0;
-  var locale = ""
+  var locale = "";
   for (i in $.datepicker.regional) {
     if (counter == 1) {
       locale = i;
@@ -27,6 +27,21 @@ function setDatepickerWithTime(time){
     $(".datepicker" ).datetimepicker($.datepicker.regional[locale]);
   else
     $(".datepicker" ).datepicker($.datepicker.regional[locale]);
+}
+
+function setDatepickerAndTime(){
+  var counter = 0;
+  var locale = "";
+  for (i in $.datepicker.regional) {
+    if (counter == 1) {
+      locale = i;
+      break;
+    }
+    counter++;
+  }
+  $.datepicker.setDefaults( $.datepicker.regional[ '' ] );
+  $(".datetimepicker" ).datetimepicker($.datepicker.regional[locale]);
+  $(".datepicker" ).datepicker($.datepicker.regional[locale]);
 }
 
 function t(path,pairs){
@@ -60,11 +75,6 @@ function asyncTranslate(path,cb,pairs){
 		return jQuery.get("/api/i18n",{"path":path,"pairs":pairs},cb,"text");
 }
 
-jQuery.fn.renderFlash = function(path,status,pairs){
-	var renderedObject = this;
-	asyncTranslate(path,function(data){renderedObject.html("<div class=\"message "+status+"\"><p>"+data+"</p></div>");},pairs)
-}
-
 function float_bar(element,top) {
   $=jQuery;
   $(window).scroll(function(e){ 
@@ -79,3 +89,8 @@ function float_bar(element,top) {
     
   });
 }
+
+jQuery.fn.renderFlash = function(path,status,pairs){
+	var renderedObject = this;
+	asyncTranslate(path,function(data){renderedObject.html("<div class=\"message "+status+"\"><p>"+data+"</p></div>");},pairs);
+}; 
