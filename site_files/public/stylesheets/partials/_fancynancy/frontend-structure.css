@@ -8,11 +8,11 @@ Syntax error: Undefined variable: "$frontend-background-color".
 12: 
 13: body
 14:   background-color: $frontend-background-color
-15: 
+15:   background-image: url("/stylesheets/themes/adege/images/pattern.png")
 16: 
-17: h2.title, h3.archives-month-title 
-18:   margin: 0 0 $content-margin
-19: 
+17: 
+18: h2.title, h3.archives-month-title 
+19:   margin: 0 0 $content-margin
 
 Backtrace:
 /home/golden/Desktop/Empresa/GroupBuddies/Projects/GMS-Prototype/site_files/app/themes/sass/partials/_fancynancy/frontend-structure.sass:14
@@ -82,4 +82,4 @@ script/server:3
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$frontend-background-color\".\A         on line 14 of /home/golden/Desktop/Empresa/GroupBuddies/Projects/GMS-Prototype/site_files/app/themes/sass/partials/_fancynancy/frontend-structure.sass\A \A 9: // Rules\A 10: // ============================================================================\A 11: \A 12: \A 13: body\A 14:   background-color: $frontend-background-color\A 15: \A 16: \A 17: h2.title, h3.archives-month-title \A 18:   margin: 0 0 $content-margin\A 19: "; }
+  content: "Syntax error: Undefined variable: \"$frontend-background-color\".\A         on line 14 of /home/golden/Desktop/Empresa/GroupBuddies/Projects/GMS-Prototype/site_files/app/themes/sass/partials/_fancynancy/frontend-structure.sass\A \A 9: // Rules\A 10: // ============================================================================\A 11: \A 12: \A 13: body\A 14:   background-color: $frontend-background-color\A 15:   background-image: url(\"/stylesheets/themes/adege/images/pattern.png\")\A 16: \A 17: \A 18: h2.title, h3.archives-month-title \A 19:   margin: 0 0 $content-margin"; }

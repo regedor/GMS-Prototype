@@ -12,6 +12,7 @@
 
 body
   background-color: $frontend-background-color
+  background-image: url("/stylesheets/themes/adege/images/pattern.png")
 
 
 h2.title, h3.archives-month-title 
@@ -58,6 +59,7 @@ div#tag-cloud
   top: 320px
   width: 175px
   @include round-corners(30px, 0, 0, 30px)
+  @include text-shadow(1px, 1px, 0, #444)
   @include enable-ie-css3
 
   li
@@ -92,6 +94,7 @@ div#header
   padding: 10px 20px $content-margin
   text-align: center
   @include round-corners(0, 0, 30px, 30px)
+  @include text-shadow(1px, 1px, 0, #444)
   @include enable-ie-css3
 
   span.options a:hover
@@ -115,12 +118,16 @@ div#menu
 
   a
     padding: 8px 10px
+    @include text-shadow(1px, 1px, 0, #FFF)
+    @include enable-ie-css3
 
   a:hover
     background-color: $default-color
+    -webkit-box-shadow: inset 0px 2px 7px #9b1e1e
     color: #FFF
     padding: 8px 10px
     @include round-corners(12px, 12px, 12px, 12px)
+    @include text-shadow(1px, 1px, 0, #444)
     @include enable-ie-css3
 
 
