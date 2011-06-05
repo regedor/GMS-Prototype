@@ -22,6 +22,7 @@ rerun.txt
 /site_files/db/*.sqlite3
 /site_files/db/schema.rb
 /site_files/vendor/bundle
+/site_files/public/favicon.ico
 /site_files/public/spec.html
 /site_files/public/stylesheets/themes/*
 /site_files/public/system/*
