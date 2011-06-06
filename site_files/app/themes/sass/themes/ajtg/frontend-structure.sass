@@ -33,8 +33,8 @@ div#header
 div#logo
   background: url("/stylesheets/themes/ajtg/images/ajtg_logo.png") no-repeat
   float: left
-  height: 116px
-  margin: 90px 0 0
+  height: 155px
+  margin: 55px 0 0
   width: 348px
 
 
@@ -43,7 +43,7 @@ div#stars
   background-repeat: no-repeat
   float: right
   height: 246px
-  width: 381px
+  width: 386px
 
   div#left
     float: left
@@ -59,6 +59,18 @@ div#stars
     float: left
     height: 246px
     width: 141px
+
+
+div#stars.jose
+  background-image: url("/stylesheets/themes/ajtg/images/jose.png")
+
+
+div#stars.rui
+  background-image: url("/stylesheets/themes/ajtg/images/rui.png")
+
+
+div#stars.nuno
+  background-image: url("/stylesheets/themes/ajtg/images/nuno.png")
 
 
 div#wrapper
@@ -161,6 +173,7 @@ div#flash
   padding: 15px 0
   position: fixed
   width: 100%
+  z-index: 1
 
   div.message
     margin: 0 0 0 30px
@@ -170,13 +183,13 @@ div#flash
       padding: 20px
 
   div.message.error
-    background: url("/stylesheets/themes/nebaum/images/flash/error.png") no-repeat 0 50%
+    background: url("/stylesheets/themes/ajtg/images/flash/error.png") no-repeat 0 50%
 
   div.message.warning
-    background: url("/stylesheets/themes/nebaum/images/flash/warning.png") no-repeat 0 50%
+    background: url("/stylesheets/themes/ajtg/images/flash/warning.png") no-repeat 0 50%
 
   div.message.info, div.message.notice
-    background: url("/stylesheets/themes/nebaum/images/flash/notice.png") no-repeat 0 50%
+    background: url("/stylesheets/themes/ajtg/images/flash/notice.png") no-repeat 0 50%
 
 
 ul.list li
@@ -240,7 +253,7 @@ div.social-buttons
 div#announcements
   border: 1px solid #444
   overflow: hidden
-  margin: 20px auto
+  margin: 10px auto
   position: relative
   width: 940px
   @include round-corners(2px, 2px, 2px, 2px)
@@ -302,6 +315,8 @@ div.meta
   background-color: #EEE
   margin: 0 10px
   padding: 10px
+  @include round-corners(2px, 2px, 2px, 2px)
+  @include enable-ie-css3
 
   a:hover
     border-bottom: 2px solid $default-color

@@ -24,7 +24,7 @@
 
 <body>
   <div id="container">
-    <div id="logo"><%= render :partial => 'shared/flash_logo' %></div>
+    <div id="logo"><%= render :partial => 'shared/flash_logo', :locals => {:width => "200", :height => "120" } %></div>
     <div id="navigation">
       <div id="menu" ><%= frontend_navigation_content %></div>
       <%= yield :tag_cloud %>

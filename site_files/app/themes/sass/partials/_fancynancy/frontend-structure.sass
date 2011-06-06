@@ -1,3 +1,9 @@
+@font-face
+  font-family: 'PTSansNarrowBold'
+  src: url('/stylesheets/themes/adege/fonts/PTN77F-webfont.eot'), url('/stylesheets/themes/adege/fonts/PTN77F-webfont.eot?#iefix') format('embedded-opentype'), url('/stylesheets/themes/adege/fonts/PTN77F-webfont.woff') format('woff'), url('/stylesheets/themes/adege/fonts/PTN77F-webfont.ttf') format('truetype'), url('/stylesheets/themes/adege/fonts/PTN77F-webfont.svg#PTSansNarrowBold') format('svg')
+  font-weight: normal
+  font-style: normal
+
 // ============================================================================
 // Rules
 // ============================================================================
@@ -5,10 +11,7 @@
 
 body
   background-color: $frontend-background-color
-
-
-div#tag-cloud h2.title
-  padding: 10px 0 0
+  background-image: url("/stylesheets/themes/adege/images/pattern.png")
 
 
 h2.title, h3.archives-month-title 
@@ -28,30 +31,41 @@ hr
 
 div#container
   margin: auto
-  width: 960px
+  width: 1000px
+
+
+div#content.single
+  position: relative
+  width: 955px
+
+
+div#content.double
+  position: relative
+  width: 755px
 
 
 div#wrapper
-  margin: 0 0 0 200px
+  margin: 0 auto 0
   position: relative
+  width: 1000px
 
 
 div#tag-cloud
   background-color: $default-color
-  clear: left
-  float: left
-  padding: 12px 13px 12px
-  position: relative
-  top: 198px
+  padding: 22px 13px 22px
+  position: absolute
+  right: 0
+  top: 320px
   width: 175px
   @include round-corners(30px, 0, 0, 30px)
+  @include text-shadow(1px, 1px, 0, #444)
   @include enable-ie-css3
 
   li
     margin: 5px
 
   a:hover
-    border: none
+    border-bottom: 2px solid #FFF
 
 
 div#tag-search-bar
@@ -62,53 +76,68 @@ div#tag-search-bar
 
 
 div#logo
-  background-image: url("/stylesheets/themes/nemum/images/logo_nemum.png")
-  background-position: 5% 50%
+  background-image: url("/stylesheets/themes/adege/images/logo_adege.png")
   background-repeat: no-repeat
-  padding: 0 0 40px
-  min-height: 60px
-  position: relative
-  top: 60px
+  background-position: 35px 35px
+  height: 155px
+  width: 330px
+
+
+div#flash-content
+  padding: 35px 20px 0
 
 
 div#header
   background-color: $default-color
+  float: right
   padding: 10px 20px $content-margin
-  position: absolute
-  right: 0
   text-align: center
-  width: 110px
   @include round-corners(0, 0, 30px, 30px)
+  @include text-shadow(1px, 1px, 0, #444)
   @include enable-ie-css3
 
   span.options a:hover
-    border-bottom: 2px solid $default-color
+    border-bottom: 2px solid #FFF
+
+
+span.site-title
+  display: block
+  margin: 0 35px 35px
 
 
 div#menu
-  font-size: 13px
-  float: right
-  top: 25px
-  position: relative
+  margin: 0 35px 0 0
+  position: absolute
+  right: 0
+  top: 152px
 
   li
     display: inline
-    padding: 0 8px 0
+    margin: 0 0 0 6px
+
+  a
+    padding: 8px 10px
+    @include text-shadow(1px, 1px, 0, #FFF)
+    @include enable-ie-css3
+
+  a:hover
+    background-color: $default-color
+    -webkit-box-shadow: inset 0px 2px 7px #9b1e1e
+    color: #FFF
+    padding: 8px 10px
+    @include round-corners(12px, 12px, 12px, 12px)
+    @include text-shadow(1px, 1px, 0, #444)
+    @include enable-ie-css3
 
 
 div#main
-  background-color: #FFF
+  background-color: #FEFEFE
   border: 3px solid $default-color
-  margin: 60px 0 0
   padding: 20px
   position: relative
   z-index: 1
   @include round-corners(12px, 12px, 12px, 12px)
   @include enable-ie-css3
-
-
-div.content-body
-  margin: 0 10px
 
 
 div#user-info, div#user-invite
@@ -130,6 +159,7 @@ div#flash
   padding: 15px 0
   position: fixed
   width: 100%
+  z-index: 1
 
   div.message
     margin: 0 0 0 30px
@@ -207,13 +237,10 @@ div.social-buttons
 
 
 div#announcements
-  border: 2px solid #444
+  border: 2px solid #333
   margin: $content-margin $content-margin 35px
-  overflow: hidden
   position: relative
-  background-clip: padding-box
-  @include round-corners(12px, 12px, 12px, 12px)
-  @include enable-ie-css3
+  overflow: hidden
 
   a:hover
     border: none
@@ -229,16 +256,13 @@ div#announcement-numbers
   padding: 12px
   position: absolute
   background-clip: padding-box
-  @include round-corners(12px, 0, 12px, 0)
+  @include round-corners(0, 0, 12px, 0)
   @include enable-ie-css3
 
 
 div#announcements img
   height: 250px
-  width: 730px
-  background-clip: padding-box
-  @include round-corners(12px, 12px, 12px, 12px)
-  @include enable-ie-css3
+  width: 926px
 
 
 div.announcement-text
@@ -248,7 +272,7 @@ div.announcement-text
   position: absolute
   right: 0
   width: 300px
-  @include round-corners(12px, 0, 12px, 0)
+  @include round-corners(12px, 0, 0, 0)
   @include enable-ie-css3
 
   p.title
@@ -289,6 +313,8 @@ div.meta
   background-color: #EEE
   margin: 0 10px
   padding: 10px
+  @include round-corners(4px, 4px, 4px, 4px)
+  @include enable-ie-css3
 
   a:hover
     border-bottom: 2px solid $default-color

@@ -46,18 +46,16 @@
 
     <div id="wrapper">
       <div id="panel">
-        <% announcements = Announcement.prioritize.active %>
-        <div id="announcements">
-          <div id="logo"><%= render :partial => 'shared/flash_logo_nebaum' %></div>
-          <% if(announcements.size > 0) %>
-            <div id="announcement-numbers">
-              <% announcements.each_with_index do |announcement, i| -%>
-                <% if announcement.url -%>
-                  <a href="<%= announcement.url %>" onmouseover="changeAnnouncement(<%= i %>)"><%= i+1 %></a>
-                <% else -%>
-                  <span onmouseover="changeAnnouncement(<%= i %>)"><%= i+1 %></span>
-                <% end -%>
-                <%= "|" unless i+1 == announcements.size %>
+      <% announcements = Announcement.prioritize.active %>
+      <div id="announcements">
+        <div id="logo"><%= render :partial => 'shared/flash_logo', :locals => {:width => "260", :height => "120" } %></div>
+        <% if(announcements.size > 0) %>
+          <div id="announcement-numbers">
+            <% announcements.each_with_index do |announcement, i| -%>
+              <% if announcement.url -%>
+                <a href="<%= announcement.url %>" onmouseover="changeAnnouncement(<%= i %>)"><%= i+1 %></a>
+              <% else -%>
+                <span onmouseover="changeAnnouncement(<%= i %>)"><%= i+1 %></span>
               <% end -%>
             </div>
             <%= render :partial => 'announcements/announcement', :collection => announcements %>

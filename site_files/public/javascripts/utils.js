@@ -77,14 +77,18 @@ function asyncTranslate(path,cb,pairs){
 
 function float_bar(element,top) {
   $=jQuery;
-  $(window).scroll(function(e){ 
-    $el = $(element); 
 
-    if ($(this).scrollTop() > 170 && $el.css('position') != 'fixed'){ 
-      $(element).css({'position': 'fixed', 'top': top}); 
+  var tag_cloud_offset = $("div#tag-cloud").offset();
+
+  $(window).scroll(function(e){ 
+
+    var main_offset = $("div#main").offset();
+
+    if ($(this).scrollTop() > 450){ 
+      $(element).css({'position': 'fixed', 'top': $(element).scrollTop() + 30, 'left': tag_cloud_offset.left});
     }
-    if ($(this).scrollTop() < 170){ 
-      $(element).css({'position': 'relative', 'top': '198px'}); 
+    if ($(this).scrollTop() < 450){ 
+      $(element).css({'position': 'absolute', 'top': '320px', 'left': (tag_cloud_offset.left - main_offset.left)});
     }
     
   });
