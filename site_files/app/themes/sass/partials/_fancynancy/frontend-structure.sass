@@ -76,12 +76,9 @@ div#tag-search-bar
     margin: 10px
 
 
-div#logo
-  background-image: url("/stylesheets/themes/adege/images/logo_adege.png")
-  background-repeat: no-repeat
-  background-position: 35px 35px
-  height: 155px
-  width: 330px
+img#logo
+  position: relative
+  left: 15px
 
 
 div#flash-content
@@ -123,9 +120,10 @@ div#menu
 
   a:hover
     background-color: $default-color
-    -webkit-box-shadow: inset 0px 2px 7px #9b1e1e
+
     color: #FFF
     padding: 8px 10px
+    @include inset-box-shadow(0, 2px, 7px, #9B1E1E)
     @include round-corners(12px, 12px, 12px, 12px)
     @include text-shadow(1px, 1px, 0, #444)
     @include enable-ie-css3
