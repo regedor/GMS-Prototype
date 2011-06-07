@@ -20,6 +20,12 @@
   box-shadow: $right $bottom $blur $color
 
 
+@mixin inset-box-shadow($right, $bottom, $blur, $color)
+  -moz-box-shadow: inset $right $bottom $blur $color
+  -webkit-box-shadow: inset $right $bottom $blur $color
+  box-shadow: inset $right $bottom $blur $color
+
+
 @mixin text-shadow($right, $bottom, $blur, $color)
   -moz-text-shadow: $right $bottom $blur $color
   -webkit-text-shadow: $right $bottom $blur $color
