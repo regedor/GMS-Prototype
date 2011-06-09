@@ -1,12 +1,14 @@
 class CreateEvents < ActiveRecord::Migration
   def self.up
     create_table :events do |t|
-      t.string   :title
-      t.string   :description
+      t.string   :name
       t.datetime :starts_at
       t.datetime :ends_at
       t.float    :price,        :default => 0
       t.string   :participation_message
+      t.boolean  :has_announcement, :default => false
+      t.integer  :post_id
+      t.integer  :announcement_id
 
       t.timestamps
     end

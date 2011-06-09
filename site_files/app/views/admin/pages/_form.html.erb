@@ -21,6 +21,13 @@
                  :as       => 'boolean',
                  :label    => I18n::t('admin.pages.columns.show_in_navigation'),
                  :hint     => I18n::t('admin.pages.form.hints.show_in_navigation') %>
+  <% if configatron.showAnnouncementsOption %>
+    <%= form.input :showAnnouncements,
+                   :required => false,
+                   :as       => 'boolean',
+                   :label    => t('admin.pages.columns.showAnnouncements'),
+                   :hint     => t('admin.pages.form.hints.showAnnouncements') %>
+  <% end %>
   <%= form.input :priority,
                  :as         => 'select',
                  :required   => false,

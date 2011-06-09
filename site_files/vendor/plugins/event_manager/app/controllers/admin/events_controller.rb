@@ -1,6 +1,7 @@
 class Admin::EventsController < Admin::BaseController
 
   before_filter :date_localization, :only => [ :create, :update ]
+  before_filter :validate_data, :only => [ :create, :update ]
 
   active_scaffold :event do |config|
   
@@ -23,25 +24,59 @@ class Admin::EventsController < Admin::BaseController
   end  
 
   def create
-    @record = Event.new params[:record]
-        
+    activities = params[:record][:event_activities_attributes]
+    params[:record].delete(:event_activities_attributes)
+    @record = Event.new params[:record]      
+      
     if @record.save
+      if activities
+        activities.each do |k,value|
+          ea = EventActivity.new value
+          ea.event = @record
+          ea.starts_at = (DateTime.strptime value[:starts_at], "%d/%m/%Y %H:%M").to_datetime
+          ea.ends_at = (DateTime.strptime value[:ends_at], "%d/%m/%Y %H:%M").to_datetime        
+          ea.save
+        end
+      end
       flash[:notice]  = t("flash.eventCreated.successfully",:name => @record.name)
       redirect_to admin_events_path 
     else
-      flash[:error] = t("flash.eventCreated.error") unless @record.errors.size > 0
+      flash[:error] = t("flash.eventCreated.error")
     end
   end  
   
-  def update
+  def edit
     @record = Event.find params[:id]
-    @record.update_attributes params[:record]
+    @record.build_post unless @record.post
+    @record.build_announcement unless @record.announcement
     
+    render "admin/events/update"
+  end
+  
+  def update
+    activities = params[:record][:event_activities_attributes]
+    params[:record].delete(:event_activities_attributes)
+    @record = Event.find params[:id]
+    @record.update_attributes params[:record]   
+               
     if @record.save
+      if activities
+        activities.each do |k,value|
+          if value.member? :id
+            ea = EventActivity.find value[:id]
+          else  
+            ea = EventActivity.new value
+          end  
+          ea.event = @record
+          ea.starts_at = (DateTime.strptime value[:starts_at], "%d/%m/%Y %H:%M").to_datetime
+          ea.ends_at = (DateTime.strptime value[:ends_at], "%d/%m/%Y %H:%M").to_datetime
+          ea.save
+        end
+      end
       flash[:notice]  = t("flash.eventUpdated.successfully",:name => @record.name)
       redirect_to admin_events_path 
     else
-      flash[:error] = t("flash.eventUpdated.error") unless @record.errors.size > 0
+      flash[:error] = t("flash.eventUpdated.error")
     end    
   end  
   
@@ -53,7 +88,6 @@ class Admin::EventsController < Admin::BaseController
 
   def show
     redirect_to :action => 'index', :controller => 'admin/event_manage', :event_id => params[:id]
-    #refreshContent
   end
 
   def refreshContent
@@ -114,15 +148,25 @@ class Admin::EventsController < Admin::BaseController
 
   protected
 
+    def validate_data
+      params[:record].delete(:announcement_attributes) if params[:record][:has_announcement].size == 1
+      if params[:record][:has_announcement].size == 1
+        params[:record][:has_announcement] = false
+      else
+        params[:record][:has_announcement] = true
+      end
+      params[:record][:post_attributes][:title] = params[:record][:name]
+    end  
+
     def date_localization
-      begin
+      params[:record][:post_attributes][:published_at] = (Date.strptime params[:record][:post_attributes][:published_at], "%d/%m/%Y").to_datetime
+      [:starts_at, :ends_at].each do |attribute|
+        params[:record][attribute] = DateTime.strptime(params[:record][attribute], "%d/%m/%Y %H:%M").to_datetime
+      end
+      if params[:record][:announcement_attributes]
         [:starts_at, :ends_at].each do |attribute|
-          params[:record][attribute] = DateTime.strptime(params[:record][attribute], "%d/%m/%Y %H:%M").to_time
+          params[:record][:announcement_attributes][attribute] = DateTime.strptime(params[:record][:announcement_attributes][attribute], "%d/%m/%Y %H:%M").to_datetime unless params[:record][:announcement_attributes][attribute].blank?
         end
-      rescue ArgumentError
-        flash[:error] = t("flash.invalid_date")
-        redirect_to :action => params[:action] == 'create' ? 'new' : 'edit'
-        return
       end
     end
 

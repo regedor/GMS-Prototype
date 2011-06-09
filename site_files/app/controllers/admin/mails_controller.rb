@@ -12,11 +12,11 @@ class Admin::MailsController < Admin::BaseController
   
   def values
     vals = []
-    User.all.each do |user|
-       vals << {:label => user.name, :category => t("admin.mails.vals.users"), :value => "#{user.email}"}
+    User.relevant(params[:q]).each do |user|
+       vals << {:id => "u#{user.id}", :name => "#{@template.image_tag @template.avatar_url(user,:size => :small)} #{user.name}" }
     end  
-    Group.all.each do |group|
-      vals << {:label => group.name, :category => t("admin.mails.vals.groups"), :value => "group:#{group.name}"}
+    Group.relevant(params[:q]).each do |group|
+      vals << {:id => "g#{group.id}", :name => "#{@template.image_tag @template.avatar_url(group,:size => :small)} #{group.name}" }
     end  
     
     respond_to do |format|
@@ -29,21 +29,21 @@ class Admin::MailsController < Admin::BaseController
   end   
  
   def create
-    recipients_array = params[:mail][:recipients_text].split(", ")
+    recipients_array = params[:mail][:recipients_text].split(",")
     users_to_send = []
     @result = []
     users_and_groups = [] 
     mail = Mail.new
     recipients_array.reject!(&:blank?)
     recipients_array.each do |entity|
-       if entity.match(/group:(\S*)/)
-         group = Group.find_by_name(entity.match(/group:(\S*)/)[1])
+       if entity.match(/g(\S*)/)
+         group = Group.find(entity.match(/g(\S*)/)[1])
          users_and_groups << group
          group.direct_users.each do |user|
            users_to_send << user
          end     
        else   
-         user = User.find_by_email(entity)
+         user = User.find(entity.match(/u(\S*)/)[1])
          users_to_send << user
          users_and_groups << user
        end   

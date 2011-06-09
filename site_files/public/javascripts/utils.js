@@ -1,5 +1,49 @@
 jQuery.noConflict();
 
+function remove_fields(link) {
+  $(link).prev("input[type=hidden]").val("1");
+  $(link).closest(".fields").hide();
+}
+
+function add_fields(link, association, content) {
+  var new_id = new Date().getTime();
+  var regexp = new RegExp("new_" + association, "g");
+  $(link).parent().before(content.replace(regexp, new_id));
+  setDatepickerWithTime(true);
+}
+
+function setDatepickerWithTime(time){
+  var counter = 0;
+  var locale = "";
+  for (i in $.datepicker.regional) {
+    if (counter == 1) {
+      locale = i;
+      break;
+    }
+    counter++;
+  }
+  $.datepicker.setDefaults( $.datepicker.regional[ '' ] );
+  if(time)
+    $(".datepicker" ).datetimepicker($.datepicker.regional[locale]);
+  else
+    $(".datepicker" ).datepicker($.datepicker.regional[locale]);
+}
+
+function setDatepickerAndTime(){
+  var counter = 0;
+  var locale = "";
+  for (i in $.datepicker.regional) {
+    if (counter == 1) {
+      locale = i;
+      break;
+    }
+    counter++;
+  }
+  $.datepicker.setDefaults( $.datepicker.regional[ '' ] );
+  $(".datetimepicker" ).datetimepicker($.datepicker.regional[locale]);
+  $(".datepicker" ).datepicker($.datepicker.regional[locale]);
+}
+
 function t(path,pairs){
 	return translate(path,pairs);
 }
@@ -31,11 +75,6 @@ function asyncTranslate(path,cb,pairs){
 		return jQuery.get("/api/i18n",{"path":path,"pairs":pairs},cb,"text");
 }
 
-jQuery.fn.renderFlash = function(path,status,pairs){
-	var renderedObject = this;
-	asyncTranslate(path,function(data){renderedObject.html("<div class=\"message "+status+"\"><p>"+data+"</p></div>");},pairs)
-}
-
 function float_bar(element,top) {
   $=jQuery;
 
@@ -54,3 +93,8 @@ function float_bar(element,top) {
     
   });
 }
+
+jQuery.fn.renderFlash = function(path,status,pairs){
+	var renderedObject = this;
+	asyncTranslate(path,function(data){renderedObject.html("<div class=\"message "+status+"\"><p>"+data+"</p></div>");},pairs);
+}; 

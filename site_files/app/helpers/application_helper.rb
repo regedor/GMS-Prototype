@@ -21,6 +21,12 @@ module ApplicationHelper
   end
   
   def avatar_url(record, options={})
+    if record.class == Group
+      options[:size]   = 100 if options[:size] == :medium
+      options[:size]   = 50  if options[:size] == :small
+      return "#{root_url}images/guest-#{options[:size]}.png"
+    end  
+    
     options[:size] ||= :medium
     raise "Invalid arguments" unless [:small,:medium].member? options[:size]
     if record.nil?
@@ -65,6 +71,18 @@ module ApplicationHelper
     else
       record.starts_at.strftime('%d %b, %Y')
     end
+  end
+  
+  def link_to_remove_fields(name, f)
+    f.hidden_field(:_destroy) + link_to_function(name, "remove_fields(this)")
+  end
+  
+  def link_to_add_fields(name, f, association)
+    new_object = f.object.class.reflect_on_association(association).klass.new
+    fields = f.semantic_fields_for(association, new_object, :child_index => "new_#{association}") do |builder|
+      render :partial => association.to_s.singularize + "_fields", :locals => {:form => builder, :activity => nil}
+    end
+    link_to_function(name, h("add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\");"), :href => "#add_activity")
   end
 
 end
