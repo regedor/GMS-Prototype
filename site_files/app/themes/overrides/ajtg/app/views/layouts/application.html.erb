@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="application/xhtml+xml;charset=UTF-8" />
-  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="shortcut icon" href="/favicon.ico" />
   <title><%= yield(:page_title) || h(configatron.title)%></title>
 
   <%= stylesheet_link_tag    'shared/reset', :media => 'screen'                                           %>
@@ -125,14 +125,14 @@
       default: on_flag = null;
     }
 
-    jQuery("#left").hover(function(){ jQuery("#stars").addClass("jose") },
-                          function(){ if( on_flag != 'jose' ) { jQuery("#stars").removeClass("jose"); } });
+    jQuery("#left").hover(function(){ jQuery("#stars").removeClass("rui nuno").addClass("jose"); },
+                          function(){ jQuery("#stars").removeClass("jose rui nuno").addClass(on_flag); } );
 
-    jQuery("#center").hover(function(){ jQuery("#stars").addClass("rui") },
-                            function(){ if( on_flag != 'rui' ) { jQuery("#stars").removeClass("rui"); } });
+    jQuery("#center").hover(function(){ jQuery("#stars").removeClass("jose nuno").addClass("rui"); },
+                            function(){ jQuery("#stars").removeClass("jose rui nuno").addClass(on_flag); } );
  
-    jQuery("#right").hover(function(){ jQuery("#stars").addClass("nuno") },
-                           function(){ if( on_flag != 'nuno' ) { jQuery("#stars").removeClass("nuno"); } });
+    jQuery("#right").hover(function(){ jQuery("#stars").removeClass("jose rui").addClass("nuno"); },
+                           function(){ jQuery("#stars").removeClass("jose rui nuno").addClass(on_flag); } );
   <% end %>
 
 </body>
