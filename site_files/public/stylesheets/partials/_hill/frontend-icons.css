@@ -1,10 +1,24 @@
 /*
-Syntax error: Undefined variable: "$frontend-background-color".
-        on line 7 of /home/golden/Desktop/Empresa/GroupBuddies/Projects/GMS-Prototype/site_files/app/themes/sass/partials/_redsign/frontend-structure.sass
+Syntax error: Undefined variable: "$path-to-icons".
+        on line 2 of /home/golden/Desktop/Empresa/GroupBuddies/Projects/GMS-Prototype/site_files/app/themes/sass/partials/_hill/frontend-icons.sass
+
+1: /home/golden/Desktop/Empresa/GroupBuddies/Projects/GMS-Prototype/site_files/app/themes/sass/partials/_hill/frontend-icons.sass
 
 Backtrace:
-/home/golden/Desktop/Empresa/GroupBuddies/Projects/GMS-Prototype/site_files/app/themes/sass/partials/_redsign/frontend-structure.sass:7
+/home/golden/Desktop/Empresa/GroupBuddies/Projects/GMS-Prototype/site_files/app/themes/sass/partials/_hill/frontend-icons.sass:2
 /usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/script/variable.rb:39:in `_perform'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/script/node.rb:61:in `perform'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/script/operation.rb:66:in `_perform'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/script/node.rb:61:in `perform'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/script/funcall.rb:64:in `_perform'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/script/funcall.rb:64:in `map'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/script/funcall.rb:64:in `_perform'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/script/node.rb:61:in `perform'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/script/operation.rb:66:in `_perform'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/script/node.rb:61:in `perform'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/script/operation.rb:66:in `_perform'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/script/node.rb:61:in `perform'
+/usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/script/operation.rb:66:in `_perform'
 /usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/script/node.rb:61:in `perform'
 /usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/tree/prop_node.rb:132:in `perform!'
 /usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/tree/node.rb:305:in `_perform'
@@ -49,4 +63,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$frontend-background-color\".\A         on line 7 of /home/golden/Desktop/Empresa/GroupBuddies/Projects/GMS-Prototype/site_files/app/themes/sass/partials/_redsign/frontend-structure.sass"; }
+  content: "Syntax error: Undefined variable: \"$path-to-icons\".\A         on line 2 of /home/golden/Desktop/Empresa/GroupBuddies/Projects/GMS-Prototype/site_files/app/themes/sass/partials/_hill/frontend-icons.sass\A \A 1: /home/golden/Desktop/Empresa/GroupBuddies/Projects/GMS-Prototype/site_files/app/themes/sass/partials/_hill/frontend-icons.sass"; }
