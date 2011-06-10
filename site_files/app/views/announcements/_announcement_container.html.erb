@@ -1,0 +1,27 @@
+<% announcements = Announcement.prioritize.active %>
+<div id="announcements">
+  <% if(announcements.size > 0) %>
+    <% if(announcements.size > 1) %>
+      <div id="announcement-numbers">
+        <% announcements.each_with_index do |announcement, i| -%>
+          <% if announcement.url -%>
+            <a href="<%= announcement.url %>" onmouseover="changeAnnouncement(<%= i %>)"><%= i+1 %></a>
+          <% else -%>
+            <span onmouseover="changeAnnouncement(<%= i %>)"><%= i+1 %></span>
+          <% end -%>
+          <%= "|" unless i+1 == announcements.size %>
+        <% end -%>
+      </div>
+    <% end %>
+    <%= render :partial => 'announcements/announcement', :collection => announcements %>
+  <% else %>
+    <p><%= I18n::t('announcements.none') %></p>
+  <% end %>
+</div>
+
+<% javascript_tag do %>
+  window.onload = setTimeout(function() {
+    announcementsRoutine(<%= announcements.size %>);
+    float_bar("#navigation","60px");
+  }, 0);
+<% end %>

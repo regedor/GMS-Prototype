@@ -57,13 +57,11 @@
               <% else -%>
                 <span onmouseover="changeAnnouncement(<%= i %>)"><%= i+1 %></span>
               <% end -%>
-              <%= "|" unless i+1 == announcements.size %>
-            <% end -%>
-          </div>
-          <%= render :partial => 'announcements/announcement', :collection => announcements %>
-        <% else %>
-          <p><%= I18n::t('announcements.none') %></p>
-        <% end %>
+            </div>
+            <%= render :partial => 'announcements/announcement', :collection => announcements %>
+          <% else %>
+            <p><%= I18n::t('announcements.none') %></p>
+          <% end %>
         </div>
       </div>
 

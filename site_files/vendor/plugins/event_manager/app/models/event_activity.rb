@@ -17,9 +17,9 @@ class EventActivity < ActiveRecord::Base
   # Instance Methods
   # ==========================================================================
 
-  before_save :format_description
+  #before_save :format_description
 
-  def label
+  def html_representation
     "<span class='title'>"+self.title+"</span><span class='price'>"+self.price.to_s+"</span>"
   end  
 

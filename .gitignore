@@ -31,6 +31,8 @@ rerun.txt
 /site_files/config/*.yml
 /site_files/config/database.yml
 /site_files/config/mailer.yml
+/site_files/app/themes/*
+/site_files/public/themes/*
 
 /site_files/app/views/layouts/application.html.erb
 /site_files/rails_best_practices_output.html

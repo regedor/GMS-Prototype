@@ -68,6 +68,8 @@ class User < ActiveRecord::Base
   # Extra definitions
   # ==========================================================================
 
+  named_scope :relevant, lambda { |query_string| { :conditions => "name LIKE '%%%#{query_string}%%'", :limit => 10} } 
+
   after_save :update_behaviour_delayed_jobs
 
   has_attached_file :avatar, :styles => { :medium => "100x100#", :small => "50x50#" }

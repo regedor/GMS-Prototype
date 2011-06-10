@@ -1,10 +1,14 @@
 <div class="content">
-  <h2><%= I18n::t('admin.announcements.index.title') + ' - ' + @record.title %></h2>
+ <% if @record.title %>	
+  <h2><%= t('admin.announcements.index.title') + ' - ' + @record.title %></h2>
+ <% end %>
 
   <div class="content">
     <dl class="list">
-      <dt><%= t("admin.announcements.columns.title") %>:</dt>
-      <dd><%= @record.title %></dd>
+	  <% if @record.title %>	
+        <dt><%= t("admin.announcements.columns.title") %>:</dt>
+        <dd><%= @record.title %></dd>
+      <% end %>
 
       <% if @record.starts_at %>
         <dt><%= t("admin.announcements.columns.starts_at") %>:</dt>

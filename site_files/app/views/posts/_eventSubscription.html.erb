@@ -27,7 +27,7 @@ jQuery(document).ready(function($){
                    :as => :check_boxes, 
                    :collection => event.event_activities, 
                    :label => t('posts.form.activities'),
- 				   :label_method => :label,
+ 				   :label_method => :html_representation,
  				   :input_html => {:class => "activity_checkbox", :checked => ""}%>
   <% end %>
   <% form.buttons do -%>
@@ -35,7 +35,7 @@ jQuery(document).ready(function($){
                            :button_html => { :class => 'button positive' } %>
   <% end -%>
 <% end -%>
-<div hidden id="hidden_events_ids"><%= subscribed_events.map(&:event_activity_id).join(",") %></div>
+<div hidden id="hidden_events_ids"><%= subscribed_activities.map(&:event_activity_id).join(",") %></div>
 <div class="total">
   <span id="label" class="label"><%= t('posts.form.total') %></span> 
   <span id="total_price" class="total_price"><%= total_price %></span>

@@ -8,16 +8,21 @@
     <%= raw post.body_html %>
   <% end -%>
 </div>
-<div class="event-body">
-	<% if event %>
-	  <% if current_user %>
-	    <h2 class="title"><%= event.name %></h2>
-	    <%= render :partial => 'eventSubscription', :locals => {:event => event, :total_price => total_price, :subscribed_events  => subscribed_events} %>	    
-      <% else %>
-        <h2 class="title"><%= link_to t('posts.not_logged_in'), new_user_account_path %></h2>
-      <% end %>	
-    <% end %>
-</div>
+  
+<% if event %>
+  <div class="event-body">
+    <% if current_user %>
+      <h2 class="title"><%= event.name %></h2>
+      <% if !event.users.member? current_user %>
+        <%= render :partial => 'eventSubscription', :locals => {:event => event, :total_price => total_price, :subscribed_activities  => subscribed_activities} %>
+	  <% else %>
+	    <%= render :partial => 'events/subscribe', :locals => {:event => event, :total_price => total_price, :subscribed_activities  => subscribed_activities} %>
+	  <% end %>	    
+    <% else %>
+      <h2 class="title"><%= link_to t('posts.not_logged_in'), new_user_session_path %></h2>
+    <% end %>	
+  </div>
+<% end %>
 
 <div class="social-buttons">
   <div class="addthis_toolbox addthis_default_style " addthis:url="<%= configatron.site_url + post_path(post) %>">

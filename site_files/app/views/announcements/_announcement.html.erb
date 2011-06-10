@@ -1,10 +1,18 @@
-<div id="announcement<%= announcement_counter+1 %>" class="announcement<%= ' announcement-tail' if announcement_counter > 0 %>">
-  <%= "<a href='#{announcement.url}'>" if announcement.url %>
-  <img src="<%= announcement.avatar.url(:announcement) %>" alt="" />
-  <%= "</a>" if announcement.url %>
-  <%= "<a href='#{announcement.url}'>" if announcement.url %>
-  <div class="announcement-text">
-    <p class="title"><%= announcement.title %></p><p><%= announcement.message %></p>
+<% show = true %>
+<% if params[:controller] == "pages" %>
+  <% show = announcement.show? params[:slug] %>
+<% end %>
+<% if show %>
+  <div id="announcement<%= announcement_counter+1 %>" class="announcement<%= ' announcement-tail' if announcement_counter > 0 %>">
+    <%= "<a href='#{announcement.url}'>" if announcement.url %>
+    <img src="<%= announcement.avatar.url(:announcement) %>" alt="" />
+    <%= "</a>" if announcement.url %>
+    <%= "<a href='#{announcement.url}'>" if announcement.url %>
+    <% if announcement.title && announcement.message %>
+      <div class="announcement-text">
+        <p class="title"><%= announcement.title %></p><p><%= announcement.message %></p>
+      </div>
+    <% end %>
+    <%= "</a>" if announcement.url %>
   </div>
-  <%= "</a>" if announcement.url %>
-</div>
+<% end %>

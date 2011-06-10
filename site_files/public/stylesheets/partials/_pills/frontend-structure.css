@@ -1,6 +1,6 @@
 /*
 Syntax error: Undefined variable: "$frontend-background-color".
-        on line 7 of /home/golden/Desktop/Empresa/GroupBuddies/Projects/GMS-Prototype/site_files/app/themes/sass/partials/_pills/frontend-structure.sass
+        on line 7 of /home/golden/Desktop/Empresa/GroupBuddies/Projects/Regedor-Scaffold/site_files/app/themes/sass/partials/_pills/frontend-structure.sass
 
 2: // Rules
 3: // ============================================================================
@@ -15,7 +15,7 @@ Syntax error: Undefined variable: "$frontend-background-color".
 12: 
 
 Backtrace:
-/home/golden/Desktop/Empresa/GroupBuddies/Projects/GMS-Prototype/site_files/app/themes/sass/partials/_pills/frontend-structure.sass:7
+/home/golden/Desktop/Empresa/GroupBuddies/Projects/Regedor-Scaffold/site_files/app/themes/sass/partials/_pills/frontend-structure.sass:7
 /usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/script/variable.rb:39:in `_perform'
 /usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/script/node.rb:61:in `perform'
 /usr/lib/ruby/gems/1.8/gems/haml-3.0.25/lib/sass/tree/prop_node.rb:132:in `perform!'
@@ -82,4 +82,4 @@ script/server:3
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$frontend-background-color\".\A         on line 7 of /home/golden/Desktop/Empresa/GroupBuddies/Projects/GMS-Prototype/site_files/app/themes/sass/partials/_pills/frontend-structure.sass\A \A 2: // Rules\A 3: // ============================================================================\A 4: \A 5: \A 6: body\A 7:   background-color: $frontend-background-color\A 8: \A 9: \A 10: div#tag-cloud h2.title\A 11:   padding: 10px 0 0\A 12: "; }
+  content: "Syntax error: Undefined variable: \"$frontend-background-color\".\A         on line 7 of /home/golden/Desktop/Empresa/GroupBuddies/Projects/Regedor-Scaffold/site_files/app/themes/sass/partials/_pills/frontend-structure.sass\A \A 2: // Rules\A 3: // ============================================================================\A 4: \A 5: \A 6: body\A 7:   background-color: $frontend-background-color\A 8: \A 9: \A 10: div#tag-cloud h2.title\A 11:   padding: 10px 0 0\A 12: "; }

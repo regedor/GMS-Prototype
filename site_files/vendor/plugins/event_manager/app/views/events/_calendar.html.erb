@@ -1,0 +1,3 @@
+<% shown_month = Date.civil(year, month) %>
+<% event_strips = Event.event_strips_for_month(shown_month) %>
+<%= event_calendar(year, month, event_strips, shown_month) %>

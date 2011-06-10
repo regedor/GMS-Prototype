@@ -17,7 +17,7 @@ class ToDoList < ActiveRecord::Base
   # Extra defnitions
   # ==========================================================================
 
-  named_scope :ordered_position, lambda{ |id| {:conditions => { :project_id => id}, :order => "position asc"}}
+  named_scope :ordered_position, lambda{ |id| {:conditions => {:project_id => id}, :order => "position asc"}}
 
   # ==========================================================================
   # Instance Methods

@@ -8,7 +8,11 @@ Syntax error: Undefined variable: "$text-color".
 5: 
 6: body
 7:   color: $text-color
+<<<<<<< HEAD
+8:   font: 12px Verdana, HelveticaNeue, Helvetica, Arial, Sans-Serif
+=======
 8:   font: 12px Verdana, Arial, Sans-Serif
+>>>>>>> master
 9: 
 10: 
 11: a, a:active, a:link, a:visited

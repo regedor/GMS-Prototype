@@ -365,7 +365,7 @@ en:
 
     activities:
       form:
-        new: "New Activity"
+        title: "Activity"
         create_button: "Create"
         cancel_button: "Cancel"
       view:
@@ -405,6 +405,7 @@ en:
             update: "Apply"           
 
     events:
+      add_activity: "Add Activity"    
       index:
         title: "Events"
         create: "New Event"
@@ -421,10 +422,8 @@ en:
       create:
         title: "Event"
       view:  
-        showAnnouncement: "Show Announcement"
-        hideAnnouncement: "Hide Announcement"  
-        showPost: "Show Post"
-        hidePost: "Hide Post"  
+        hasAnnouncement: "Has Announcement"
+        hasPost: "Has Post"
         activities: "Activities"
         name: "Name"
         description: "Description"
@@ -580,6 +579,8 @@ en:
         active: "Active"
 
       form:
+        yes_button: "Yes"
+        no_button: "No"  
         delete_button: "Delete"  
         update_button: "Update"
         cancel_button: "Cancel"
@@ -784,6 +785,7 @@ en:
         show_in_navigation: "Show in the Menu"
         has_comments: "Has Comments"
         priority: "Priority"
+        showAnnouncements: "Show announcements"
       form:
         new: "New Page"
         edit: "Edit Page"
@@ -800,6 +802,7 @@ en:
           show_in_navigation: "Select to display on the Front-end navigation bar."
           priority: "Select how high (in priority) should the link be on the Front-end navigation bar."
           has_comments: "Select to allow comments on this page."
+          showAnnouncements: "Show announcements while showing the page"
       preview:
         title: "Your entry will be formatted like this:"
         return: "Use Ctrl+Alt+E to return to edit mode."
@@ -934,6 +937,7 @@ en:
         search: "Search Announcements"
         create: "New Announcement"
       columns:
+        hasMessage: "Has message"  
         title: "Title"
         headline: "Headline"
         message: "Message"

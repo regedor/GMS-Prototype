@@ -32,6 +32,7 @@ class Group < ActiveRecord::Base
   # ==========================================================================
 
   after_save :update_behaviour_delayed_jobs
+  named_scope :relevant, lambda { |query_string| { :conditions => "name LIKE '%%%#{query_string}%%'", :limit => 10} } 
   
 
   # ==========================================================================

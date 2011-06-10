@@ -8,8 +8,12 @@
     <% if @record.ends_at   %> <%= t("events.view.ends_at")    %> <br><span class="ends_at"><%= @record.ends_at   %></span>
 <% end %> 
   </dl>
-  <p class="form-footer">
-    <input type=button value="<%= t('events.view.button.update') %>" class="update-button">
-    <%= link_to t("events.view.cancel"), event_path, :class => "cancel" %>  
-  </p>
+  <ul class="buttons">
+    <li>
+      <input type=button value="<%= t('events.view.button.update') %>" class="button positive create">
+    </li>
+    <li>
+      <%= link_to t("events.view.cancel"), event_path, :class => "button negative cancel" %>
+    </li>
+  </ul>
 </div>

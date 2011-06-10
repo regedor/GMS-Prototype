@@ -17,8 +17,6 @@ class Admin::EventActivitiesController < Admin::BaseController
 #  end
 
   def create
-    
-    
     @activity = EventActivity.new
     @activity.attributes = params[:record]        
     @activity.event_id = params[:event_id]
