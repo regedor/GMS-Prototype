@@ -26,6 +26,7 @@ rerun.txt
 /site_files/public/favicon.ico
 /site_files/public/spec.html
 /site_files/public/stylesheets/themes/*
+/site_files/public/stylesheets/partials/*
 /site_files/public/system/*
 /site_files/coverage/
 /site_files/spec/tmp/*
