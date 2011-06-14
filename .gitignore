@@ -1,12 +1,3 @@
-# Project specific ignores
-/site_files/doc/implementation_guidelines/simon_wfreport.aux
-/site_files/doc/implementation_guidelines/simon_wfreport.log
-/site_files/doc/implementation_guidelines/simon_wfreport.nav
-/site_files/doc/implementation_guidelines/simon_wfreport.out
-/site_files/doc/implementation_guidelines/simon_wfreport.snm
-/site_files/doc/implementation_guidelines/simon_wfreport.toc
-/site_files/doc/implementation_guidelines/simon_wfreport.vrb
-
 # Rails ignores
 *.rbc
 *.sassc
@@ -23,6 +14,7 @@ rerun.txt
 /site_files/db/schema.rb
 /site_files/vendor/bundle
 /site_files/public/logo.png
+/site_files/public/logo.swf
 /site_files/public/favicon.ico
 /site_files/public/spec.html
 /site_files/public/stylesheets/themes/*
@@ -31,10 +23,6 @@ rerun.txt
 /site_files/coverage/
 /site_files/spec/tmp/*
 /site_files/config/*.yml
-/site_files/config/database.yml
-/site_files/config/mailer.yml
-/site_files/app/themes/*
-/site_files/public/themes/*
 
 /site_files/app/views/layouts/application.html.erb
 /site_files/rails_best_practices_output.html
