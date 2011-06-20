@@ -46,6 +46,8 @@
       <div id="menu"><%= frontend_navigation_content %></div>
     </div>
 
+    <div id="site-title"><span><%= configatron.site_header %></span></div>
+
     <div id="wrapper">
       <div id="main" class="selfclear">
         <% announcements = Announcement.prioritize.active %>
@@ -79,16 +81,19 @@
       </div>
 
       <div id="footer">
-        <p>Copyright © <%= Time.now.year %> <%= link_to configatron.site_name, configatron.site_url %>. All rights reserved. Powered by <%= link_to 'Group Buddies', 'http://www.groupbuddies.com' %>.</p>
+        <div id="left">
+          <p>Copyright © <%= Time.now.year %> <%= link_to configatron.site_name, configatron.site_url %>. All rights reserved. Powered by <%= link_to 'Group Buddies', 'http://www.groupbuddies.com' %>.</p>
 
-        <% if current_user -%>
-          <p><%=h t 'footer.last_session_paragraph', :time_ago => time_ago_in_words(current_user.last_login_at || Time.now),
-                                                     :ip       => current_user.last_login_ip %></p>
-        <% end -%>
+          <% if current_user -%>
+            <p><%=h t 'footer.last_session_paragraph', :time_ago => time_ago_in_words(current_user.last_login_at || Time.now),
+                                                       :ip       => current_user.last_login_ip %></p>
+          <% end -%>
 
-        <!--[if lt IE 7]>
-          <p><%= t('footer.browser_warning') %></p>
-        <![endif]-->
+          <!--[if lt IE 7]>
+            <p><%= t('footer.browser_warning') %></p>
+          <![endif]-->
+        </div>
+        <div id="right"></div>
       </div>
     </div>
   </div>

@@ -24,9 +24,9 @@ hr
 
 
 div#header
-  background-image: url("/stylesheets/themes/necc/images/header_background.png")
+  background-image: url("/stylesheets/themes/necc/images/header.png")
   background-repeat: repeat-x
-  height: 154px
+  height: 127px
 
   span.options
     color: #FFF
@@ -42,12 +42,26 @@ div#header
       border-bottom: 2px solid #FFF
 
 
+div#site-title
+  background-image: url("/stylesheets/themes/necc/images/site_title.png")
+  background-repeat: repeat-x
+  height: 27px
+  padding: 6px
+  position: relative
+  z-index: 1
+
+  span
+    color: #888
+    margin: 0 7%
+    text-align: left
+
+
 div#logo
   background-image: url("/stylesheets/themes/necc/images/logo_necc.png")
   background-repeat: no-repeat
   height: 113px
   float: left
-  margin: 15px 6% 0
+  margin: 15px 5% 0
   width: 305px
 
 
@@ -72,11 +86,14 @@ div#menu
 
 
 div#tag-cloud
+  background-image: url("/stylesheets/themes/necc/images/tag_cloud_gradient.png")
+  background-repeat: repeat-x
+  background-position: 0% 100%
   border: 1px solid #DDD
   float: right
   min-height: 100px
   padding: 10px 20px
-  width: 284px
+  width: 286px
   @include round-corners(5px, 5px, 5px, 5px)
   @include enable-ie-css3
 
@@ -113,11 +130,22 @@ div#user-info, div#user-invite
 
 
 div#footer
-  background-color: #8b8b8b
-  padding: 100px
+  background-color: #8B8B8B
+  height: 200px
 
   a:hover
     border-bottom: 2px solid $default-color
+
+  div#left
+    float: left
+    height: 100%
+    width: 67.5%
+    @include linear-gradient(#B5B5B5, #909090)
+    @include enable-ie-css3
+
+  div#right
+    float: right
+    width: 33.5%
 
 
 div#flash
@@ -205,7 +233,7 @@ div.social-buttons
 
 
 div#announcements
-  border: 2px solid #024873
+  border: 1px solid #024873
   position: relative
   margin: 20px 0
 
