@@ -24,7 +24,7 @@ class Announcement < ActiveRecord::Base
   
   def show? page_slug
     page = Page.find_by_slug page_slug
-    return page.showAnnouncements
+    return page.show_announcements
   end  
   
 end

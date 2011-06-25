@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="application/xhtml+xml;charset=UTF-8" />
-  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="shortcut icon" href="/favicon.ico" />
   <title><%= yield(:page_title) || h(configatron.title)%></title>
 
   <%= stylesheet_link_tag    'shared/reset', :media => 'screen'                                           %>
@@ -24,7 +24,7 @@
 
 <body>
   <div id="container">
-    <div id="logo"><%= render :partial => 'shared/flash_logo', :locals => {:width => "200", :height => "120" } %></div>
+      <div id="logo"><%= render :partial => 'shared/flash_logo', :locals => { :width => "190", :height => "120" } %></div>
     <div id="navigation">
       <div id="menu" ><%= frontend_navigation_content %></div>
       <%= yield :tag_cloud %>

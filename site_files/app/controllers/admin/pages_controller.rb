@@ -6,7 +6,7 @@ class Admin::PagesController < Admin::BaseController
     Scaffoldapp::active_scaffold config, "admin.pages",
       :list   => [ :title, :excert, :created_at, :total_approved_comments ],
       :show   => [  ],
-      :create => [ :title, :body, :slug, :show_in_navigation, :has_comments, :priority ],
+      :create => [ :title, :body, :slug, :show_in_navigation, :has_comments, :priority, :show_announcements ],
       :edit   => [  ]
   end
 

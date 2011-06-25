@@ -1,0 +1,391 @@
+// ============================================================================
+// Rules
+// ============================================================================
+
+
+body
+  background-color: $frontend-background-color
+  overflow-x: hidden // Firefox needs this
+
+
+h2.title, h3.archives-month-title 
+  margin: 0 0 $content-margin
+
+  a:hover
+    border-bottom: 3px solid $default-color
+
+
+hr
+  background-color: #DDD
+  border: none
+  clear: left
+  height: 1px
+  margin: $content-margin 0
+
+
+div#header
+  background-image: url("/stylesheets/themes/necc/images/header.png")
+  background-repeat: repeat-x
+  height: 127px
+  position: relative
+
+  span.options
+    color: #FFF
+    float: right
+    margin: 15px 7.5% 0
+    @include text-shadow(1px, 1px, 0, #333)
+    @include enable-ie-css3
+
+    a
+      color: #FFF
+
+    a:hover
+      border-bottom: 2px solid #FFF
+
+
+div#site-title
+  background-image: url("/stylesheets/themes/necc/images/site_title.png")
+  background-repeat: repeat-x
+  height: 27px
+  padding: 6px
+  position: relative
+  z-index: 1
+
+  span
+    color: #888
+    margin: 0 7%
+    text-align: left
+
+
+div#logo
+  background-image: url("/stylesheets/themes/necc/images/logo_necc.png")
+  background-repeat: no-repeat
+  height: 113px
+  float: left
+  margin: 15px 5% 0
+  width: 305px
+
+
+div#menu
+  bottom: 15px
+  margin-right: 7.5%
+  position: absolute
+  right: 0
+
+  li
+    background-color: #527a93
+    display: inline
+    margin: 0 0 0 5px
+    padding: 15px 25px
+    @include round-corners(8px, 8px, 0, 0)
+    @include enable-ie-css3
+
+    a
+      color: #FFF
+      font-weight: bold
+      @include text-shadow(1px, 1px, 0, #444)
+      @include enable-ie-css3
+
+
+div#tag-cloud
+  background-image: url("/stylesheets/themes/necc/images/tag_cloud_gradient.png")
+  background-repeat: repeat-x
+  background-position: 0% 100%
+  border: 1px solid #DDD
+  float: right
+  min-height: 100px
+  padding: 10px 20px
+  width: 286px
+  @include round-corners(5px, 5px, 5px, 5px)
+  @include enable-ie-css3
+
+
+div#tag-search-bar
+  margin: 0 0 $content-margin
+
+  div#tags
+    margin: 10px
+
+
+div#content.single
+  float: left
+  width: 100%
+
+
+div#content.double
+  float: left
+  width: 69%
+
+
+div#main
+  background-color: #FFF
+  margin: 0 auto 40px
+  width: 85%
+
+
+div.content-body
+  margin: 0 10px
+
+
+div#user-info, div#user-invite
+  margin: $content-margin 10px
+
+
+div#footer
+  background-color: #8B8B8B
+  height: 200px
+
+  a:hover
+    border-bottom: 2px solid $default-color
+
+  div#left
+    float: left
+    height: 100%
+    width: 67.5%
+    @include linear-gradient(#B5B5B5, #909090)
+    @include enable-ie-css3
+
+  div#right
+    float: right
+    width: 33.5%
+
+
+div#flash
+  background-image: url("/images/dark_transparency.png")
+  border-top: 1px solid #000
+  bottom: 0
+  left: 0
+  padding: 15px 0
+  position: fixed
+  width: 100%
+
+  div.message
+    margin: 0 0 0 30px
+
+    p
+      margin: 0 70px
+      padding: 20px
+
+  div.message.error
+    background: url("/stylesheets/themes/necc/images/flash/error.png") no-repeat 0 50%
+
+  div.message.warning
+    background: url("/stylesheets/themes/necc/images/flash/warning.png") no-repeat 0 50%
+
+  div.message.info, div.message.notice
+    background: url("/stylesheets/themes/necc/images/flash/notice.png") no-repeat 0 50%
+
+
+ul.list li
+  margin: $content-margin 0
+
+
+dl.list
+  display: inline-block
+
+  dd
+    float: left
+    padding: 1px 0
+    margin: 5px 0
+
+  dt
+    clear: left
+    color: #555
+    float: left
+    font-weight: bold
+    padding: 0
+    margin: 5px 0
+    width: 150px
+
+
+div#archives
+  float: right
+  margin: 10px
+
+  a:hover
+    border-bottom: 3px solid $default-color
+
+
+ul.archives-month
+  margin: 0 0 0 10px
+
+  li
+    margin: 0 0 5px
+
+    a:hover
+      border-bottom: 2px solid $default-color
+
+
+// ==============
+// Social buttons
+// ==============
+
+
+div.social-buttons
+  float: right
+  margin: 0 10px 10px
+
+  div.addthis_toolbox
+    display: inline
+
+
+// =============
+// Announcements
+// =============
+
+
+div#announcements
+  border: 1px solid #024873
+  position: relative
+  margin: 20px 0
+
+  a:hover
+    border: none
+
+
+div.announcement-tail
+  display: none
+
+
+div#announcement-numbers
+  background: url("/images/dark_transparency.png")
+  cursor: default
+  padding: 12px
+  position: absolute
+  right: 0
+  @include round-corners(0, 0, 0, 5px)
+  @include enable-ie-css3
+
+
+div.announcement img
+  height: 250px
+  width: 100%
+
+
+div.announcement-text
+  background: url("/images/dark_transparency.png")
+  bottom: 0
+  padding: 14px 12px 12px 14px
+  position: absolute
+  right: 0
+  width: 300px
+  @include round-corners(5px, 0, 0, 0)
+  @include enable-ie-css3
+
+  p.title
+    padding: 0 0 15px
+
+
+// =====
+// Posts
+// =====
+
+
+div.post
+  margin: 0 0 30px
+
+
+div.post-image
+  float: left
+  margin: 0 $content-margin 5px 0
+
+
+div.meta
+  clear: both
+  background-color: #EEE
+  margin: 0 10px
+  padding: 10px
+
+  a:hover
+    border-bottom: 2px solid $default-color
+
+
+// ========
+// Comments
+// ========
+
+
+div.avatar
+  float: left
+  margin-right: 20px
+
+  img
+    border: 1px solid #999
+
+
+span.comment-meta
+  clear: both
+  display: block
+
+
+div.new-comment
+  padding: 0 $content-margin
+
+
+ol#comment-list
+  margin: 20px 0
+
+  p
+    padding: $content-margin 0 0 72px
+
+
+// =======
+// Buttons
+// =======
+
+
+button, a.button, input.button
+  background-color: $button-gradient-end-color // graceful degrade for Opera
+  border: 1px solid #AAA
+  cursor: pointer
+  float: left
+  @include linear-gradient($button-gradient-start-color, $button-gradient-end-color)
+  @include round-corners(4px, 4px, 4px, 4px)
+  @include enable-ie-css3
+
+
+button:active, a.button:active, input.button:active
+  @include linear-gradient($button-gradient-end-color, $button-gradient-start-color)
+  @include enable-ie-css3
+
+
+a.button
+  padding: 6px 10px
+
+
+input.button
+  padding: 5px 10px !important
+
+
+button
+  padding: 5px 10px
+
+
+ul.buttons
+  margin: $content-margin 0
+
+  a
+    margin: 0 10px 0 0
+
+
+*:first-child + html input[type]
+  padding: 2px 10px 3px
+  // IE7
+
+
+a.google_ico, a.yahoo_ico
+  margin: 0 0 $content-margin 0
+  width: 90%
+
+
+// Self-clearing floats and IE hacks
+
+.selfclear
+  &:after
+    content: "."
+    display: block
+    height: 0
+    clear: both
+    visibility: hidden
+  display: inline-block // IE 7
+  display: block
