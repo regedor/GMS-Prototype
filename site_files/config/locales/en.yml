@@ -1055,7 +1055,9 @@ en:
     eventUpdated:
       successfully: "Event %{name} updated successfully"
       error: "There was an error while updating the event"
-    activity_deleted: "Activity succesfully deleted"            
+    activity_deleted: "Activity succesfully deleted"      
+    page_updated: "Updated %{name}"
+    page_not_updated: "Failed to update %{name}"      
   
   notifier: 
     to_do_notification: 

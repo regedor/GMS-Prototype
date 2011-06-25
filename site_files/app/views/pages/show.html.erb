@@ -1,7 +1,11 @@
 <% content_for(:page_title) do -%>
-<%= page_title(@page) -%>
+  <%= page_title(@page) -%>
 <% end -%>
 <%= render :partial => 'pages/page', :locals => {:page => @page} %>
 <% if @page.has_comments -%>
   <%= render :partial => 'comments/comments', :locals => { :commentable => @page, :comment => @comment } %>
 <% end -%>
+
+<% content_for(:calendar) do %>
+  <%= render :partial => 'calendar/calendar' %>
+<% end %>

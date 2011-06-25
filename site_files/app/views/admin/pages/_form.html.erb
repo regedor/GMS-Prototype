@@ -24,7 +24,7 @@
   <% if configatron.showAnnouncementsOption %>
     <%= form.input :showAnnouncements,
                    :required => false,
-                   :as       => 'boolean',
+                   :as       => :boolean,
                    :label    => t('admin.pages.columns.showAnnouncements'),
                    :hint     => t('admin.pages.form.hints.showAnnouncements') %>
   <% end %>
