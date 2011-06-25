@@ -42,6 +42,8 @@ authorization do
   role :website_manager do
     includes :blogger
     has_permission_on [:admin_posts],               :to =>  [ :as_manage ]
+    has_permission_on [:admin_events],              :to =>  [ :as_manage ]
+    has_permission_on [:admin_event_activities],    :to =>  [ :as_manage ]
     has_permission_on [:admin_comments],            :to =>  [ :as_manage ]
     has_permission_on [:admin_announcements],       :to =>  [ :as_manage ]
     has_permission_on [:admin_pages],               :to =>  [ :as_manage ]

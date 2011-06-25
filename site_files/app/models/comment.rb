@@ -34,11 +34,11 @@ class Comment < ActiveRecord::Base
   end
 
   def denormalize
-    self.commentable.update_attribute :approved_comments_count,
+    self.commentable.update_attribute_without_history :approved_comments_count,
                                       Comment.all( :select     =>   'COUNT(*) as count',
                                                    :conditions => { :commentable_type => self.commentable_type,
                                                                     :commentable_id   => self.commentable_id  }
-                                                 ).first.count
+                                                 ).first.count 
   end
 
   def to_s

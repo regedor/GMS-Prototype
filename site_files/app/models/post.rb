@@ -32,6 +32,13 @@ class Post < ActiveRecord::Base
   # Makes this model historicable
   include HistoryEntry::Historicable
 
+  attr_accessor :do_history  
+  
+  def update_attribute_without_history(attr_name,attr_value)
+    @do_history = false
+    self.update_attribute attr_name, attr_value
+  end
+
   # Authorization for post
   def authorized_for?(*args)
     true

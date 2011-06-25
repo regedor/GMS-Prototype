@@ -9,7 +9,7 @@
   <% end -%>
 </div>
   
-<% if event %>
+<% if (defined? event) && event %>
   <div class="event-body">
     <% if current_user %>
       <h2 class="title"><%= event.name %></h2>
