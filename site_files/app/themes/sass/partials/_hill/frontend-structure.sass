@@ -47,6 +47,7 @@ div#site-title
   background-image: url("/stylesheets/themes/necc/images/site_title.png")
   background-repeat: repeat-x
   height: 27px
+  margin: 0 0 20px
   padding: 6px
   position: relative
   z-index: 1
@@ -73,18 +74,22 @@ div#menu
   right: 0
 
   li
-    background-color: #527a93
+    background-color: #527A93
     display: inline
     margin: 0 0 0 5px
-    padding: 15px 25px
+    padding: 15px 5px
     @include round-corners(8px, 8px, 0, 0)
     @include enable-ie-css3
 
     a
       color: #FFF
       font-weight: bold
+      padding: 15px 25px
       @include text-shadow(1px, 1px, 0, #444)
       @include enable-ie-css3
+
+  li:hover
+    background-color: #8CABBF
 
 
 div#tag-cloud
@@ -144,6 +149,12 @@ div#footer
     width: 67.5%
     @include linear-gradient(#B5B5B5, #909090)
     @include enable-ie-css3
+
+    p
+      margin: 30px
+
+    div.textile-body
+      margin: 0
 
   div#right
     float: right
