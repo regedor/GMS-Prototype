@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="application/xhtml+xml;charset=UTF-8" />
-  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="shortcut icon" href="/favicon.ico" />
   <title><%= yield(:page_title) || h(configatron.title)%></title>
 
   <%= stylesheet_link_tag    'shared/reset', :media => 'screen'                                           %>
@@ -51,23 +51,7 @@
     <div id="wrapper">
       <div id="main" class="selfclear">
         <% announcements = Announcement.prioritize.active %>
-        <div id="announcements">
-          <% if(announcements.size > 0) %>
-            <div id="announcement-numbers">
-              <% announcements.each_with_index do |announcement, i| -%>
-                <% if announcement.url -%>
-                  <a href="<%= announcement.url %>" onmouseover="changeAnnouncement(<%= i %>)"><%= i+1 %></a>
-                <% else -%>
-                  <span onmouseover="changeAnnouncement(<%= i %>)"><%= i+1 %></span>
-                <% end -%>
-                <%= "|" unless i+1 == announcements.size %>
-              <% end -%>
-            </div>
-            <%= render :partial => 'announcements/announcement', :collection => announcements %>
-          <% else %>
-            <p><%= I18n::t('announcements.none') %></p>
-          <% end %>
-        </div>
+        <%= render :partial => 'announcements/announcement', :collection => announcements, :locals => { :announcements => announcements } %>
 
         <%= '<div id="flash"><div class="message notice"><p>'+ flash[:notice] +'</p></div></div>' unless flash[:notice].blank? %>
         <%= '<div id="flash"><div class="message error"><p>'+ flash[:error] +'</p></div></div>' unless flash[:error].blank? %>
@@ -82,18 +66,12 @@
 
       <div id="footer">
         <div id="left">
+          <div class="textile-body"><%= Page.find_by_title('footer_left').body_html %></div>
           <p>Copyright © <%= Time.now.year %> <%= link_to configatron.site_name, configatron.site_url %>. All rights reserved. Powered by <%= link_to 'Group Buddies', 'http://www.groupbuddies.com' %>.</p>
-
-          <% if current_user -%>
-            <p><%=h t 'footer.last_session_paragraph', :time_ago => time_ago_in_words(current_user.last_login_at || Time.now),
-                                                       :ip       => current_user.last_login_ip %></p>
-          <% end -%>
-
-          <!--[if lt IE 7]>
-            <p><%= t('footer.browser_warning') %></p>
-          <![endif]-->
         </div>
-        <div id="right"></div>
+        <div id="right">
+          <div class="textile-body"><%# Page.find_by_title('footer_right').body_html %></div>
+        </div>
       </div>
     </div>
   </div>
