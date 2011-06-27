@@ -1,19 +1,20 @@
 <% form.input_field_set do -%>
   <%= form.input :name,
                  :label    => I18n::t('admin.user_optional_group_picks.columns.name') %>
-  <%= form.input :description,
+  <%#= form.input :description,
                  :required => false,
                  :label    => I18n::t('admin.user_optional_group_picks.columns.description') %>
   <%= form.input :role,
                  :required => false,
                  :hint     => I18n::t('admin.user_optional_group_picks.form.hints.role'),
                  :label    => I18n::t('admin.user_optional_group_picks.columns.role') %>
-  <%= form.input :group,
+  <%#= form.input :group,
                  :required => false,
                  :hint     => I18n::t('admin.user_optional_group_picks.form.hints.group'),
                  :label    => I18n::t('admin.user_optional_group_picks.columns.group') %>
   <%= form.input :groups,
                  :as       => :check_boxes,
+				 :collection => Group.find_all_by_user_choosable(false),
                  :hint     => I18n::t('admin.user_optional_group_picks.form.hints.groups'),
                  :label    => I18n::t('admin.user_optional_group_picks.columns.groups') %>
 <% end -%>

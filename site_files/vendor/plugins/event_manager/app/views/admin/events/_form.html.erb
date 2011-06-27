@@ -108,6 +108,7 @@ jQuery(document).ready(function($){
 	 			             :label => t('admin.announcements.columns.hasMessage') %>
 	  <div id="description">
 	    <%= announcement.input :message,
+							   :as => :text,
 	                           :hint     => I18n::t('admin.announcements.form.hints.message'),
 	       			           :label    => I18n::t('admin.announcements.columns.message') %>
 	  </div>

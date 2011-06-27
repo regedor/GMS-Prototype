@@ -21,19 +21,19 @@
   <% f.inputs :name => t('users.edit.form_group_inputs_name') do %>
     <%= f.input :choosable_groups, :label => t('users.form.choosable_groups'), :as => :check_boxes,
                 :required => false unless Group.find_all_by_user_choosable(true).empty? %>
+    
+	<% @picks.each do |pick| %>			
+    	<% f.semantic_fields_for pick do |sf| -%>
+    	  <%= sf.input :selected_group_id, :label => pick.name, :as => :radio, :required => true, :collection => pick.groups,
+    	               :name => "user[user_optional_group_picks][#{pick.id}]",
+    	               :input_html => { :id => "user_user_optional_group_picks_group_ids_#{pick.id}" },
+    	               :wrapper_html => { :id => "user_user_optional_group_picks_groups_input_#{pick.id}" } %>
+    	<% end %>
+    <% end if @picks %> 
+  <% end unless Group.find_all_by_user_choosable(true).empty? && @picks.nil? %>
 
-    <% @picks.each do |pick| -%>
-      <% f.semantic_fields_for pick do |sf| -%>
-        <%= sf.input :selected_group_id, :label => pick.name, :as => :radio, :required => true, :collection => pick.groups,
-                     :name => "user[user_optional_group_picks][#{pick.id}]",
-                     :input_html => { :id => "user_user_optional_group_picks_group_ids_#{pick.id}" },
-                     :wrapper_html => { :id => "user_user_optional_group_picks_groups_input_#{pick.id}" } %>
-      <% end -%>
-    <% end -%>
-
-    <% f.inputs :name => t('users.edit.form_profile_inputs_name') do %>
-      <%= f.input :profile, :required => false, :label => t('users.form.profile') %>
-    <% end %>
+  <% f.inputs :name => t('users.edit.form_profile_inputs_name') do %>
+    <%= f.input :profile, :required => false, :label => t('users.form.profile') %>
   <% end %>
 
   <% f.buttons do %>

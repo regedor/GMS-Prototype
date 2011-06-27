@@ -4,8 +4,7 @@ class UserOptionalGroupPick < ActiveRecord::Base
   # ==========================================================================
   
   belongs_to              :role
-  belongs_to              :group
-  has_and_belongs_to_many :groups
+  has_many :groups
 
 
   # ==========================================================================
@@ -13,6 +12,7 @@ class UserOptionalGroupPick < ActiveRecord::Base
   # ==========================================================================
 
   validates_uniqueness_of :name
+  validates_uniqueness_of :role_id
 
 
   # ==========================================================================
@@ -29,15 +29,20 @@ class UserOptionalGroupPick < ActiveRecord::Base
 
   class << self
 
+    def for_role(role_id)
+      conditions = "role_id <= #{role_id}"
+      UserOptionalGroupPick.all(:conditions => conditions)
+    end
+
     # Returns all optional group picks for a user
     def for_user(user)
-      conditions = "(group_id IN (#{user.group_ids.join(",")}) OR group_id IS NULL) AND (role_id = #{user.role_id} OR role_id IS NULL)"
+      conditions = "(group_id IN (#{user.group_ids.join(",")}) OR group_id IS NULL) AND (role_id <= #{user.role_id} OR role_id IS NULL)"
       UserOptionalGroupPick.all(:conditions => conditions)
     end
 
     # Returns all optional group picks for a user with the selected option for each group pick
     def for_user_with_selected(user)
-      conditions = "(group_id IN (#{user.group_ids.join(",")}) OR group_id IS NULL) AND (role_id = #{user.role_id} OR role_id IS NULL)"
+      conditions = "(group_id IN (#{user.group_ids.join(",")}) OR group_id IS NULL) AND (role_id <= #{user.role_id} OR role_id IS NULL)"
       picks = UserOptionalGroupPick.all(:conditions => conditions)
       picks.each do |pick|
         unless (intersection = (user.groups & pick.groups)).empty?

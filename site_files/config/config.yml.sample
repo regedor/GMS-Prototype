@@ -7,6 +7,7 @@ production: &local
   default_locale: en
   force_locale: "true"
   title: NEBAUM
+  show_announcements_option: true
   site_name: NEBAUM
   site_header: Núcleo de Estudantes de Biologia Aplicada da Universidade do Minho
   site_domain: localhost

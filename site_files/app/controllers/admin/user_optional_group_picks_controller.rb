@@ -3,9 +3,9 @@ class Admin::UserOptionalGroupPicksController < Admin::BaseController
 
   active_scaffold :user_optional_group_pick do |config|
     Scaffoldapp::active_scaffold config, "admin.user_optional_group_picks",
-      :list     => [ :name, :description, :groups ],
-      :show     => [ :name, :description, :role, :group, :groups ],
-      :create   => [ :name, :description, :role_id, :group_id, :group_ids ],
+      :list     => [ :name, :role, :groups ],
+      :show     => [ :name, :role, :groups ],
+      :create   => [ :name, :role_id, :group_ids ],
       :edit     => [ ]
   end
 

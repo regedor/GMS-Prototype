@@ -61,7 +61,11 @@
                               [ 'admin/posts',
                                 'admin/comments',
                                 'admin/announcements',
-                                'admin/pages' ],
+                                'admin/pages',
+ 								'admin/events',
+								'admin/event_manage',
+                                'admin/event_activities',
+                                'admin/event_activity_manage'],
                               admin_posts_path %>
 
           <%= navigation_menu 'admin.navigation.main.system',
@@ -83,7 +87,7 @@
                                 'admin/messages',
 								'admin/categories'],
                               admin_projects_path %>
-          <%= navigation_menu 'admin.navigation.main.events',
+          <%#= navigation_menu 'admin.navigation.main.events',
                               [ 'admin/events',
                                 'admin/event_manage',
                                 'admin/event_activities',
@@ -114,7 +118,14 @@
 
                                             { :controller_paths => 'admin/pages',
                                               :i18n_path => 'admin.navigation.secondary.pages',
-                                              :link_to_path => admin_pages_path } ],
+                                              :link_to_path => admin_pages_path },
+
+ 											{ :controller_paths => [ 'admin/events',
+								                                     'admin/event_manage',
+								                                     'admin/event_activities',
+								                                     'admin/event_activity_manage' ],
+								              :i18n_path => 'admin.navigation.secondary.events',
+								              :link_to_path => admin_events_path }],
 
                                           :specify_first => true %>
 
@@ -127,15 +138,6 @@
                                                                      'admin/user_optional_group_picks' ],
                                               :i18n_path => 'admin.navigation.secondary.groups',
                                               :link_to_path => admin_groups_path } ],
-
-                                          :specify_first => true %>
-
-            <%= secondary_navigation_menu [ { :controller_paths => [ 'admin/events',
-                                                                     'admin/event_manage',
-                                                                     'admin/event_activities',
-                                                                     'admin/event_activity_manage' ],
-                                              :i18n_path => 'admin.navigation.secondary.events',
-                                              :link_to_path => admin_events_path } ],
 
                                           :specify_first => true %>
 

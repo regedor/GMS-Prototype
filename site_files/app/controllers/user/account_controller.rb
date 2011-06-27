@@ -39,6 +39,8 @@ class User::AccountController < ApplicationController
     session[:language] = @user.language
     if @user.activate!
       @user.deliver_activation_confirmation!
+      @user.group_id = 1
+      @user.save
       flash[:notice] = t('flash.account_activated') 
       redirect_to new_user_session_path
     else
@@ -52,7 +54,7 @@ class User::AccountController < ApplicationController
  
   def edit
     @user = current_user
-    @picks = UserOptionalGroupPick.for_user_with_selected(@user)
+    @picks = UserOptionalGroupPick.for_role(@user.role_id)
   end
   
   def update
@@ -72,8 +74,8 @@ class User::AccountController < ApplicationController
     # VALIDATION: Is the selected option for each pick actually a selectable option?
     if params[:user][:user_optional_group_picks]
       user_picks_hash = { }
-      user_picks = UserOptionalGroupPick.for_user(@user).each { |pick| user_picks_hash[pick.id.to_s] = pick }
-      user_picks.each { |pick| user_picks_hash[pick.id.to_s] = pick }
+      user_picks = UserOptionalGroupPick.for_role(@user.role_id).each { |pick| user_picks_hash[pick.id.to_s] = pick }
+      #user_picks.each { |pick| user_picks_hash[pick.id.to_s] = pick }
       params[:user][:user_optional_group_picks].each do |pick_id, group_id|
         pick = user_picks_hash[pick_id]
         next if !pick.nil? && (pick.group_ids.member? group_id.to_i)
