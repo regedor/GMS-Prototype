@@ -58,23 +58,7 @@
         <%= '<script>jQuery("#flash").hide().toggle("fade", {}, 2500).delay(4000).toggle("slide", { direction: "down" }, 1500);</script>' unless flash[:notice].blank? and flash[:error].blank? %>
 
        <% announcements = Announcement.prioritize.active %>
-        <div id="announcements">
-          <% if(announcements.size > 0) %>
-            <div id="announcement-numbers">
-              <% announcements.each_with_index do |announcement, i| -%>
-                <% if announcement.url -%>
-                  <a href="<%= announcement.url %>" onmouseover="changeAnnouncement(<%= i %>)"><%= i+1 %></a>
-                <% else -%>
-                  <span onmouseover="changeAnnouncement(<%= i %>)"><%= i+1 %></span>
-                <% end -%>
-                <%= "|" unless i+1 == announcements.size %>
-              <% end -%>
-            </div>
-            <%= render :partial => 'announcements/announcement', :collection => announcements %>
-          <% else %>
-            <p><%= I18n::t('announcements.none') %></p>
-          <% end %>
-        </div>
+       <%= render :partial => 'announcements/announcement', :collection => announcements, :locals => { :announcements => announcements } %>
 
         <%= yield :tag_cloud %>
 

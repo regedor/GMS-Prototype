@@ -24,8 +24,7 @@
 
 <body>
   <div id="container">
-    <div id="header">
-      <span class="site-title"><%= configatron.site_header %></span>
+    <div id="panel">
       <span class="options">
         <% if logged_in? %>
           <% if @current_user.small_name %>
@@ -44,44 +43,24 @@
       </span>
     </div>
 
-    <div id="wrapper">
-      <div id="panel">
+    <div id="menu"><%= frontend_navigation_content %></div>
+
+    <div id="main" class="selfclear">
+      <%= '<div id="flash"><div class="message notice"><p>'+ flash[:notice] +'</p></div></div>' unless flash[:notice].blank? %>
+      <%= '<div id="flash"><div class="message error"><p>'+ flash[:error] +'</p></div></div>' unless flash[:error].blank? %>
+      <%= '<script>jQuery("#flash").hide().toggle("fade", {}, 2500).delay(4000).toggle("slide", { direction: "down" }, 1500);</script>' unless flash[:notice].blank? and flash[:error].blank? %>
+
       <% announcements = Announcement.prioritize.active %>
-      <div id="announcements">
-        <div id="logo"><%= render :partial => 'shared/flash_logo', :locals => { :width => "260", :height => "120" } %></div>
-        <% if(announcements.size > 0) %>
-          <div id="announcement-numbers">
-            <% announcements.each_with_index do |announcement, i| -%>
-              <% if announcement.url -%>
-                <a href="<%= announcement.url %>" onmouseover="changeAnnouncement(<%= i %>)"><%= i+1 %></a>
-              <% else -%>
-                <span onmouseover="changeAnnouncement(<%= i %>)"><%= i+1 %></span>
-              <% end -%>
-            <% end -%>
-          </div>
-          <%= render :partial => 'announcements/announcement', :collection => announcements %>
-        <% else %>
-          <p><%= I18n::t('announcements.none') %></p>
-        <% end %>
-        </div>
+      <%= render :partial => 'announcements/announcement', :collection => announcements, :locals => { :announcements => announcements } %>
+
+      <div id="content" class="<%= yield(:tag_cloud) ? 'double' : 'single' %>">
+        <%= yield %>
       </div>
-
-      <div id="menu"><%= frontend_navigation_content %></div>
-
-      <div id="main" class="selfclear">
-        <%= '<div id="flash"><div class="message notice"><p>'+ flash[:notice] +'</p></div></div>' unless flash[:notice].blank? %>
-        <%= '<div id="flash"><div class="message error"><p>'+ flash[:error] +'</p></div></div>' unless flash[:error].blank? %>
-        <%= '<script>jQuery("#flash").hide().toggle("fade", {}, 2500).delay(4000).toggle("slide", { direction: "down" }, 1500);</script>' unless flash[:notice].blank? and flash[:error].blank? %>
-
-        <div id="content" class="<%= yield(:tag_cloud) ? 'double' : 'single' %>">
-          <%= yield %>
-        </div>
-        <%= yield :tag_cloud %>
-      </div>
-
-      <%= render :partial => 'shared/footer' %>
+      <%= yield :tag_cloud %>
     </div>
   </div>
+
+  <%= render :partial => 'shared/footer' %>
 
   <% javascript_tag do %>
     window.onload = setTimeout(function() {

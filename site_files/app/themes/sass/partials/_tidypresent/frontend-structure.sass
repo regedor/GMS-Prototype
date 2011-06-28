@@ -5,10 +5,10 @@
 
 body
   background-color: $frontend-background-color
-  overflow-x: hidden // Firefox needs this
+  background-image: url("/stylesheets/themes/gaeb/images/hex.png")
 
 
-h2.title, h3.archives-month-title 
+h2.title, h3.archives-month-title
   margin: 0 0 $content-margin
 
   a:hover
@@ -23,82 +23,49 @@ hr
   margin: $content-margin 0
 
 
-div#header
-  background-image: url("/stylesheets/themes/necc/images/header.png")
-  background-repeat: repeat-x
-  height: 127px
-  position: relative
+div#container
+  border: 1px solid #252525
+  margin: 40px auto
+  width: 980px
+  @include box-shadow(0, 0, 10px, #222)
+  @include enable-ie-css3
+
+
+div#panel
+  height: 200px
 
   span.options
-    color: #FFF
     float: right
-    margin: 15px 7.5% 0
-    @include text-shadow(1px, 1px, 0, #333)
-    @include enable-ie-css3
-
-    a
-      color: #FFF
 
     a:hover
-      border-bottom: 2px solid #FFF
-
-
-div#site-title
-  background-image: url("/stylesheets/themes/necc/images/site_title.png")
-  background-repeat: repeat-x
-  height: 27px
-  padding: 6px
-  position: relative
-  z-index: 1
-
-  span
-    color: #888
-    margin: 0 7%
-    text-align: left
-
-
-div#logo
-  background-image: url("/stylesheets/themes/necc/images/logo_necc.png")
-  background-repeat: no-repeat
-  height: 113px
-  float: left
-  margin: 15px 5% 0
-  width: 305px
+      border-bottom: 2px solid $default-color
 
 
 div#menu
-  bottom: 15px
-  margin-right: 7.5%
-  position: absolute
-  right: 0
+  background-color: $default-color
+  background-image: url("/stylesheets/themes/nebaum/images/menu.png")
+  background-repeat: repeat-x
+  padding: 12px 0
 
-  li
-    background-color: #527A93
+  ul li
     display: inline
-    margin: 0 0 0 5px
-    padding: 15px 25px
-    @include round-corners(8px, 8px, 0, 0)
-    @include enable-ie-css3
 
     a
+      border: none
       color: #FFF
-      font-weight: bold
-      @include text-shadow(1px, 1px, 0, #444)
-      @include enable-ie-css3
+      padding: 12px 20px
 
-  li:hover
-    background-color: #8CABBF
+    a:hover
+      background-color: $menu-hover-color
 
 
 div#tag-cloud
-  background-image: url("/stylesheets/themes/necc/images/tag_cloud_gradient.png")
-  background-repeat: repeat-x
-  background-position: 0% 100%
-  border: 1px solid #DDD
-  float: right
+  background-color: $tag-cloud-color
+  margin: 0 20px 20px 780px
   min-height: 100px
   padding: 10px 20px
-  width: 286px
+  position: relative
+  top: $content-margin
   @include round-corners(5px, 5px, 5px, 5px)
   @include enable-ie-css3
 
@@ -110,20 +77,24 @@ div#tag-search-bar
     margin: 10px
 
 
+div#flash-content
+  margin: 5px 0
+
+
 div#content.single
   float: left
-  width: 100%
+  width: 940px
+  margin: 20px 20px 30px
 
 
 div#content.double
   float: left
-  width: 69%
+  width: 745px
+  margin: 20px 20px 30px
 
 
 div#main
   background-color: #FFF
-  margin: 0 auto 40px
-  width: 85%
 
 
 div.content-body
@@ -135,28 +106,10 @@ div#user-info, div#user-invite
 
 
 div#footer
-  background-color: #8B8B8B
-  height: 200px
+  margin: 25px
 
   a:hover
     border-bottom: 2px solid $default-color
-
-  div#left
-    float: left
-    height: 100%
-    width: 67.5%
-    @include linear-gradient(#B5B5B5, #909090)
-    @include enable-ie-css3
-
-    p
-      margin: 30px
-
-    div.textile-body
-      margin: 0
-
-  div#right
-    float: right
-    width: 33.5%
 
 
 div#flash
@@ -176,13 +129,13 @@ div#flash
       padding: 20px
 
   div.message.error
-    background: url("/stylesheets/themes/necc/images/flash/error.png") no-repeat 0 50%
+    background: url("/stylesheets/themes/nebaum/images/flash/error.png") no-repeat 0 50%
 
   div.message.warning
-    background: url("/stylesheets/themes/necc/images/flash/warning.png") no-repeat 0 50%
+    background: url("/stylesheets/themes/nebaum/images/flash/warning.png") no-repeat 0 50%
 
   div.message.info, div.message.notice
-    background: url("/stylesheets/themes/necc/images/flash/notice.png") no-repeat 0 50%
+    background: url("/stylesheets/themes/nebaum/images/flash/notice.png") no-repeat 0 50%
 
 
 ul.list li
@@ -244,9 +197,11 @@ div.social-buttons
 
 
 div#announcements
-  border: 1px solid #024873
+  border: 1px solid #AAA
+  margin: auto
+  overflow: hidden
   position: relative
-  margin: 20px 0
+  width: 940px
 
   a:hover
     border: none
@@ -259,16 +214,16 @@ div.announcement-tail
 div#announcement-numbers
   background: url("/images/dark_transparency.png")
   cursor: default
-  padding: 12px
+  padding: 10px 10px 13px 13px
   position: absolute
   right: 0
-  @include round-corners(0, 0, 0, 5px)
+  @include round-corners(0, 0, 0, 12px)
   @include enable-ie-css3
 
 
 div.announcement img
   height: 250px
-  width: 100%
+  width: 980px
 
 
 div.announcement-text
@@ -278,7 +233,7 @@ div.announcement-text
   position: absolute
   right: 0
   width: 300px
-  @include round-corners(5px, 0, 0, 0)
+  @include round-corners(12px, 0, 0, 0)
   @include enable-ie-css3
 
   p.title

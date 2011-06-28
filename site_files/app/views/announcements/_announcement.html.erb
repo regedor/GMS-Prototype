@@ -3,16 +3,33 @@
   <% show = announcement.show? params[:slug] %>
 <% end %>
 <% if show %>
-  <div id="announcement<%= announcement_counter+1 %>" class="announcement<%= ' announcement-tail' if announcement_counter > 0 %>">
-    <%= "<a href='#{announcement.url}'>" if announcement.url %>
-    <img src="<%= announcement.avatar.url(:announcement) %>" alt="" />
-    <%= "</a>" if announcement.url %>
-    <%= "<a href='#{announcement.url}'>" if announcement.url %>
-    <% if announcement.title && announcement.message %>
-      <div class="announcement-text">
-        <p class="title"><%= announcement.title %></p><p><%= announcement.message %></p>
+  <div id="announcements">
+    <% if(announcements.size > 0) %>
+      <div id="announcement-numbers">
+        <% announcements.each_with_index do |announcement, i| -%>
+          <% if announcement.url -%>
+            <a href="<%= announcement.url %>" onmouseover="changeAnnouncement(<%= i %>)"><%= i+1 %></a>
+          <% else -%>
+            <span onmouseover="changeAnnouncement(<%= i %>)"><%= i+1 %></span>
+          <% end -%>
+          <%= "|" unless i+1 == announcements.size %>
+        <% end -%>
       </div>
+
+      <div id="announcement<%= announcement_counter+1 %>" class="announcement<%= ' announcement-tail' if announcement_counter > 0 %>">
+        <%= "<a href='#{announcement.url}'>" if announcement.url %>
+        <img src="<%= announcement.avatar.url(:announcement) %>" alt="" />
+        <%= "</a>" if announcement.url %>
+        <%= "<a href='#{announcement.url}'>" if announcement.url %>
+        <% if announcement.title && announcement.message %>
+          <div class="announcement-text">
+            <p class="title"><%= announcement.title %></p><p><%= announcement.message %></p>
+          </div>
+        <% end %>
+        <%= "</a>" if announcement.url %>
+      </div>
+    <% else %>
+      <p><%= I18n::t('announcements.none') %></p>
     <% end %>
-    <%= "</a>" if announcement.url %>
   </div>
 <% end %>
