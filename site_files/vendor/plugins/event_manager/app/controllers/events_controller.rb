@@ -1,12 +1,25 @@
 class EventsController < ApplicationController
 
+  def unsubscribe
+    @event = Event.find(params[:id])
+    eventUser = EventsUser.find_by_event_id_and_user_id(@event.id,current_user.id)
+    eventUser.status_id = 4 #unsubscribed
+    EventActivitiesUser.find_by_event_id_and_user_id(@event.id,current_user.id).to_a.map(&:destroy)
+    if eventUser.save
+      flash[:notice] = t('flash.unsubscribe', :name => @event.name)
+      redirect_to root_path
+    else
+      flash[:error] = t('flash.unsubscribe_error')
+    end
+  end  
+
   def subscribe
     @event = Event.find(params[:id])
-    @subscribed_activities = []
+    activities = []
     activities_price = 0
     params[:event][:event_activity_ids].reject(&:blank?).map do |id|
       activity = EventActivity.find id
-      @subscribed_activities << activity
+      activities << activity
       activities_price += activity.price
     end  
     @total_price = @event.price + activities_price
@@ -21,17 +34,19 @@ class EventsController < ApplicationController
       eventsUser.save
     end             
 
-    @subscribed_activities.each do |activity|      
-      activitiesUser = EventActivitiesUser.find_by_event_id_and_user_id(@event.id,current_user.id)
-      unless activitiesUser
-        EventActivitiesUser.create :event_activity_id => activity.id, :event_id => @event.id, :user_id => current_user.id, :status_id => 2
+    @subscribed_activities = []
+    activities.each do |activity|      
+      activitiesUser = EventActivitiesUser.find_by_event_id_and_user_id_and_event_activity_id(@event.id,current_user.id,activity.id)
+      if activitiesUser.nil?
+        activitiesUser = EventActivitiesUser.create :event_activity_id => activity.id, :event_id => @event.id, :user_id => current_user.id, :status_id => 2
       else
         activitiesUser.status_id = 2
         activitiesUser.save
       end    
+      @subscribed_activities << activitiesUser
       activity.event_activities_users << activitiesUser   
       activity.save                                                              
-    end  
+    end 
   end
 
   def show

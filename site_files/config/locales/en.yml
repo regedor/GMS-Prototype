@@ -181,6 +181,9 @@ en:
       eventSubscription: "Subscribed to the event " 
       activities: "Subscribed to this activities:"
       price: "Total Price: "
+      unsubscribe_button: "Unsubscribe"
+      ok_button: "OK"
+      
       
   admin:
     navigation:
@@ -722,14 +725,15 @@ en:
 
     user_optional_group_picks:
       index:
-        title: "User Optional Group Picks List"
+        title: "Group Picks List"
         show_link: "Details"
         update_link: "Edit"
         destroy_link: "Delete"      
         search: "Find picks"
         create: "New Pick"
       sidebar:
-        title: "User Optional Group Picks"
+        title: "Group Picks"
+        paragraph: "You can manage users optional group pick."
         link: "Go back to groups"
       columns:
         name: "Name"
@@ -746,7 +750,7 @@ en:
         cancel_button: "Cancel"
         close_button: "Close"
         hints:
-          role: "Select user role"
+          role: "Select affected role"
           group: "Select group"
           groups: "Select group(s)"
       list:
@@ -1058,7 +1062,9 @@ en:
       error: "There was an error while updating the event"
     activity_deleted: "Activity succesfully deleted"      
     page_updated: "Updated %{name}"
-    page_not_updated: "Failed to update %{name}"      
+    page_not_updated: "Failed to update %{name}" 
+    unsubscribe: "Succefully unsubscribed event %{name}"
+    unsubscribe_error: "Could not unsubscribe"     
   
   notifier: 
     to_do_notification: 

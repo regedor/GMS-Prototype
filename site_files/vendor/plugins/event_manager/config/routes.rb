@@ -4,7 +4,7 @@ ActionController::Routing::Routes.draw do |map|
   # Admin Resources
   # ==========================================================================
 
-  map.resources :events, :member => { :userUpdate => :post, :subscribe => :post }
+  map.resources :events, :member => { :userUpdate => :post, :subscribe => :post, :unsubscribe => :get }
   map.resources :events do |events|
     events.resources :event_activities
   end

@@ -1,1 +1,1 @@
-<%= render :partial => 'events/subscribe', :locals => {:event => event, :total_price => total_price, :subscribed_activities  => subscribed_activities, :just_subscribed => true} %>
+<%= render :partial => 'events/subscribe', :locals => {:event => (defined? event) ? event : @event, :total_price => (defined? total_price) ? total_price : @total_price, :subscribed_activities  => (defined? subscribed_activities) ? subscribed_activities : @subscribed_activities, :just_subscribed => true} %>

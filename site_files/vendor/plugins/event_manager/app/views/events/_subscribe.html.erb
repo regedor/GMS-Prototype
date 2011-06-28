@@ -19,3 +19,9 @@
 <div class="total_price">
   <h3><%= t 'events.subscribe.price' %></h3><%= total_price %>
 </div>		
+
+<% if just_subscribed %>
+	<%= link_to t('events.subscribe.ok_button'), root_path, :class => "button" %>
+<% else %>	
+	<%= link_to t('events.subscribe.unsubscribe_button'), unsubscribe_event_path(event.id) , :class => "button" %>
+<% end %>	
