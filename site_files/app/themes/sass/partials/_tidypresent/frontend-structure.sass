@@ -5,7 +5,7 @@
 
 body
   background-color: $frontend-background-color
-  background-image: url("/stylesheets/themes/gaeb/images/hex2.png")
+  background-image: url("/stylesheets/themes/gaeb/images/hex.png")
 
 
 h2.title, h3.archives-month-title
@@ -24,9 +24,10 @@ hr
 
 
 div#container
+  border: 1px solid #252525
   margin: 40px auto
   width: 980px
-  @include box-shadow(0, 0, 10px, #444)
+  @include box-shadow(0, 0, 10px, #222)
   @include enable-ie-css3
 
 
@@ -41,10 +42,9 @@ div#panel
 
 
 div#menu
-  background-color: $menu-default-color
+  background-color: $default-color
   background-image: url("/stylesheets/themes/nebaum/images/menu.png")
   background-repeat: repeat-x
-  margin: 20px 0
   padding: 12px 0
 
   ul li
