@@ -70,7 +70,7 @@
           <p>Copyright © <%= Time.now.year %> <%= link_to configatron.site_name, configatron.site_url %>. All rights reserved. Powered by <%= link_to 'Group Buddies', 'http://www.groupbuddies.com' %>.</p>
         </div>
         <div id="right">
-          <div class="textile-body"><% Page.find_by_title('footer_right').body_html %></div>
+          <div class="textile-body"><%= Page.find_by_title('footer_right').body_html %></div>
         </div>
       </div>
     </div>
