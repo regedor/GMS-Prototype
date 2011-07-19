@@ -25,14 +25,19 @@ hr
 
 div#container
   border: 1px solid #252525
-  margin: 40px auto
+  margin: 40px auto 0
   width: 980px
   @include box-shadow(0, 0, 10px, #222)
   @include enable-ie-css3
 
 
 div#panel
-  height: 200px
+  background-color: #FFF
+  background-image: url("/stylesheets/themes/gaeb/images/wheel.png")
+  background-position: 100% 70%
+  background-repeat: no-repeat
+  height: 267px
+  position: relative
 
   span.options
     float: right
@@ -40,32 +45,39 @@ div#panel
     a:hover
       border-bottom: 2px solid $default-color
 
+  div#logo
+    background-image: url("/logo.png")
+    background-repeat: no-repeat
+    float: left
+    height: 200px
+    margin: 10px 15px
+    width: 300px
 
-div#menu
-  background-color: $default-color
-  background-image: url("/stylesheets/themes/nebaum/images/menu.png")
-  background-repeat: repeat-x
-  padding: 12px 0
-
-  ul li
-    display: inline
-
-    a
-      border: none
-      color: #FFF
-      padding: 12px 20px
-
-    a:hover
-      background-color: $menu-hover-color
+  div#menu
+    background-image: url("/stylesheets/themes/gaeb/images/menu.png")
+    height: 67px
+    left: -10px
+    position: absolute
+    top: 200px
+    width: 1000px
+ 
+    ul
+      padding: 13px 10px
+    
+      li
+        display: inline
+ 
+        a
+          border: none
+          color: #FFF
+          padding: 12px 20px
 
 
 div#tag-cloud
   background-color: $tag-cloud-color
-  margin: 0 20px 20px 780px
+  margin: 20px 20px 40px 780px
   min-height: 100px
   padding: 10px 20px
-  position: relative
-  top: $content-margin
   @include round-corners(5px, 5px, 5px, 5px)
   @include enable-ie-css3
 
@@ -83,14 +95,14 @@ div#flash-content
 
 div#content.single
   float: left
-  width: 940px
   margin: 20px 20px 30px
+  width: 940px
 
 
 div#content.double
   float: left
-  width: 745px
   margin: 20px 20px 30px
+  width: 745px
 
 
 div#main
@@ -129,13 +141,13 @@ div#flash
       padding: 20px
 
   div.message.error
-    background: url("/stylesheets/themes/nebaum/images/flash/error.png") no-repeat 0 50%
+    background: url("/stylesheets/themes/gaeb/images/flash/error.png") no-repeat 0 50%
 
   div.message.warning
-    background: url("/stylesheets/themes/nebaum/images/flash/warning.png") no-repeat 0 50%
+    background: url("/stylesheets/themes/gaeb/images/flash/warning.png") no-repeat 0 50%
 
   div.message.info, div.message.notice
-    background: url("/stylesheets/themes/nebaum/images/flash/notice.png") no-repeat 0 50%
+    background: url("/stylesheets/themes/gaeb/images/flash/notice.png") no-repeat 0 50%
 
 
 ul.list li
@@ -197,7 +209,6 @@ div.social-buttons
 
 
 div#announcements
-  border: 1px solid #AAA
   margin: auto
   overflow: hidden
   position: relative
@@ -223,7 +234,7 @@ div#announcement-numbers
 
 div.announcement img
   height: 250px
-  width: 980px
+  width: 940px
 
 
 div.announcement-text
@@ -272,9 +283,6 @@ div.meta
 div.avatar
   float: left
   margin-right: 20px
-
-  img
-    border: 1px solid #999
 
 
 span.comment-meta

@@ -25,6 +25,8 @@
 <body>
   <div id="container">
     <div id="panel">
+      <div id="logo"></div>
+
       <span class="options">
         <% if logged_in? %>
           <% if @current_user.small_name %>
@@ -41,9 +43,9 @@
           <%= link_to t("user_session.bar.signup"), new_user_account_path                                      %>
         <% end %>
       </span>
-    </div>
 
-    <div id="menu"><%= frontend_navigation_content %></div>
+      <div id="menu"><%= frontend_navigation_content %></div>
+    </div>
 
     <div id="main" class="selfclear">
       <%= '<div id="flash"><div class="message notice"><p>'+ flash[:notice] +'</p></div></div>' unless flash[:notice].blank? %>
