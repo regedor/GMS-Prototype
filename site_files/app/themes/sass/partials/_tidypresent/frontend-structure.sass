@@ -31,6 +31,16 @@ div#container
   @include enable-ie-css3
 
 
+span.options
+  display: block
+  margin: 15px auto 0
+  width: 980px
+  text-align: right
+
+  a:hover
+    border-bottom: 2px solid $default-color
+
+
 div#panel
   background-color: #FFF
   background-image: url("/stylesheets/themes/gaeb/images/wheel.png")
@@ -39,19 +49,8 @@ div#panel
   height: 267px
   position: relative
 
-  span.options
-    float: right
-
-    a:hover
-      border-bottom: 2px solid $default-color
-
-  div#logo
-    background-image: url("/logo.png")
-    background-repeat: no-repeat
-    float: left
-    height: 200px
-    margin: 10px 15px
-    width: 300px
+  div#flash-content
+    padding: 10px 15px
 
   div#menu
     background-image: url("/stylesheets/themes/gaeb/images/menu.png")
@@ -62,7 +61,7 @@ div#panel
     width: 1000px
  
     ul
-      padding: 13px 10px
+      padding: 13px 0
     
       li
         display: inline
@@ -70,7 +69,11 @@ div#panel
         a
           border: none
           color: #FFF
-          padding: 12px 20px
+          margin: 0 0 0 30px
+
+        a:hover
+          @include text-shadow(0, 0, 15px, #000)
+          @include enable-ie-css3
 
 
 div#tag-cloud
@@ -87,10 +90,6 @@ div#tag-search-bar
 
   div#tags
     margin: 10px
-
-
-div#flash-content
-  margin: 5px 0
 
 
 div#content.single
