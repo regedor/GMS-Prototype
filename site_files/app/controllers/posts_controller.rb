@@ -2,6 +2,9 @@ class PostsController < ApplicationController
   def index
     @tags = params[:tags].split(",") if params[:tags]
     @posts = Post.paginate_with_tag_names(@tags, params[:page])
+    @posts.reject! do |post|
+      !post.viewableBy?(current_user)
+    end  
 
     respond_to do |format|
       format.html { @tags_for_cloud = Tag.tags_for_cloud(@tags) }

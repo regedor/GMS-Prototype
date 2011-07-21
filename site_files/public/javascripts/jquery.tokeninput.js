@@ -339,9 +339,14 @@ $.TokenList = function (input, url_or_data, settings) {
 
     // Inner function to a token to the list
     function insert_token(id, value) {
-        var this_token = $("<li><p>"+ value.split('>')[1] +"</p> </li>")
-          .addClass(settings.classes.token)
-          .insertBefore(input_token);
+		if(value.split('>')[1] != undefined)
+          var this_token = $("<li><p>"+ value.split('>')[1] +"</p> </li>")
+            .addClass(settings.classes.token)
+            .insertBefore(input_token);
+		else
+		   var this_token = $("<li><p>"+ value +"</p> </li>")
+            .addClass(settings.classes.token)
+            .insertBefore(input_token);	
 
         // The 'delete token' button
         $("<span>" + settings.deleteText + "</span>")

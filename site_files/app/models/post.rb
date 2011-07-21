@@ -5,6 +5,8 @@ class Post < ActiveRecord::Base
 
   ##FIXME: Need review!!!
   has_many                :approved_comments, :as => 'commentable', :dependent => :destroy, :class_name => 'Comment'
+  has_and_belongs_to_many :groups
+  belongs_to :event
   #has_many                :approved_comments, :class_name => 'Comment'
 
   before_validation       :generate_slug
@@ -18,7 +20,6 @@ class Post < ActiveRecord::Base
 
   named_scope :not_deleted, :conditions => {:deleted => false}
 
-  belongs_to :event
   has_attached_file :image, :styles => { :image => "250x250", :thumb => "50x50" }
   has_attached_file :generic
   before_save do |instance|
@@ -100,6 +101,10 @@ class Post < ActiveRecord::Base
     end
   end
 
+  def viewableBy? user
+    return true if self.group_ids.empty? || (!user.nil? && user.group_ids & self.group_ids != [])
+    return false
+  end  
 
   class << self
 

@@ -3,6 +3,7 @@ class Admin::PostsController < Admin::BaseController
   before_filter :tags_in_instance_variable, :only => [ :list, :index ]
   before_filter :list_tags,                 :only =>   :index
   before_filter :date_localization,         :only => [ :create, :update, :preview ]
+  before_filter :normalize_groups,          :only => [ :create, :update ]
 
   include ActionView::Helpers::TextHelper
 
@@ -11,9 +12,36 @@ class Admin::PostsController < Admin::BaseController
     Scaffoldapp::active_scaffold config, "admin.posts",
       :list   => [ :title, :excert, :published_at, :total_approved_comments ],
       :show   => [ ],
-      :create => [ :title, :body, :tag_list, :published_at, :slug, :image, :image_delete, :generic_delete ],
-      :edit   => [ :title, :body, :tag_list, :published_at, :slug, :minor_edit, :image, :generic, :image_delete, :generic_delete ]
+      :create => [ :title, :body, :tag_list, :published_at, :slug, :image, :image_delete, :generic_delete, :groups ],
+      :edit   => [ :title, :body, :tag_list, :published_at, :slug, :minor_edit, :image, :generic, :image_delete, :generic_delete, :groups ]
   end
+
+  def values
+    vals = []
+    Group.relevant(params[:q]).each do |group|
+      vals << {:id => "#{group.id}", :name => "#{@template.image_tag @template.avatar_url(group,:size => :small)} #{group.name}" }
+    end  
+    
+    respond_to do |format|
+      format.json { render :json => vals.to_json }
+    end
+  end
+
+  def pre_populate
+    vals = []
+    Post.find(params[:id]).groups.each do |group|
+      vals << {:id => "#{group.id}", :name => "#{group.name}" }
+    end  
+    
+    respond_to do |format|
+      format.json { render :json => vals.to_json }
+    end
+  end  
+
+  def normalize_groups
+    normalized_groups = params[:record][:groups].split(',').reject(&:blank?)
+    params[:record][:groups] = normalized_groups
+  end  
 
   def custom_finder_options
     return Post.tags_filter @tag_ids

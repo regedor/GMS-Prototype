@@ -1,4 +1,5 @@
 class Admin::EventActivityManageController < Admin::BaseController
+  filter_access_to :all, :require => any_as_privilege
 
   def show
     if params[:search]
