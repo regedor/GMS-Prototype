@@ -840,6 +840,7 @@ en:
         generic_file: "Attachment"
         tag_list: "Tag List"
         minor_edit: "Minor Edit"
+        groups: "Viewable by"
       preview:
         title: "Your entry will be formatted like this:"
         return: "Use Ctrl+Alt+E to return to edit mode."
@@ -872,6 +873,7 @@ en:
           published_at: "Click on the field to open the calendar."
           slug: "Leave blank for an auto-generated slug based on the title."
           minor_edit: "Minor edits will not show up as refreshed in feed readers. Use this to fix spelling mistakes and the like."
+          groups: "Add the groups that can see this post."
       tags:
         title: "Tags"
         pagination:
@@ -1065,6 +1067,9 @@ en:
     page_not_updated: "Failed to update %{name}" 
     unsubscribe: "Succefully unsubscribed event %{name}"
     unsubscribe_error: "Could not unsubscribe"     
+    postUpdated:
+      successfully: "Updated %{name} successfully"
+      error: "There was an error while updating the post"
   
   notifier: 
     to_do_notification: 
