@@ -1,4 +1,4 @@
-<% if params[:controller] == "pages" && @page.show_announcements? %>
+<% if params[:controller] != "pages" || @page.show_announcements? %>
   <div id="announcements">
     <% if(announcements.size > 0) %>
       <div id="announcement-numbers">
