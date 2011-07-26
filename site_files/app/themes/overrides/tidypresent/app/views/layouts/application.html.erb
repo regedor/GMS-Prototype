@@ -53,7 +53,7 @@
       <%= '<script>jQuery("#flash").hide().toggle("fade", {}, 2500).delay(4000).toggle("slide", { direction: "down" }, 1500);</script>' unless flash[:notice].blank? and flash[:error].blank? %>
 
       <% announcements = Announcement.prioritize.active %>
-      <%= render :partial => 'announcements/announcement', :collection => announcements, :locals => { :announcements => announcements } %>
+      <%= render :partial => 'announcements/announcement', :locals => { :announcements => announcements } %>
 
       <div id="content" class="<%= yield(:tag_cloud) ? 'double' : 'single' %>">
         <%= yield %>
