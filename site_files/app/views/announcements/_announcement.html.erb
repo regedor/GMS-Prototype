@@ -1,8 +1,4 @@
-<% show = true %>
-<% if params[:controller] == "pages" %>
-  <% show = announcement.show? params[:slug] %>
-<% end %>
-<% if show %>
+<% if params[:controller] != "pages" || @page.show_announcements? %>
   <div id="announcements">
     <% if(announcements.size > 0) %>
       <div id="announcement-numbers">
@@ -16,7 +12,8 @@
         <% end -%>
       </div>
 
-      <div id="announcement<%= announcement_counter+1 %>" class="announcement<%= ' announcement-tail' if announcement_counter > 0 %>">
+      <% announcements.each_with_index do |announcement, i| -%>
+      <div id="announcement<%= i+1 %>" class="announcement<%= ' announcement-tail' if i > 0 %>">
         <%= "<a href='#{announcement.url}'>" if announcement.url %>
         <img src="<%= announcement.avatar.url(:announcement) %>" alt="" />
         <%= "</a>" if announcement.url %>
@@ -28,6 +25,8 @@
         <% end %>
         <%= "</a>" if announcement.url %>
       </div>
+      <% end -%>
+
     <% else %>
       <p><%= I18n::t('announcements.none') %></p>
     <% end %>
