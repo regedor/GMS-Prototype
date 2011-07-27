@@ -29,7 +29,7 @@ jQuery(document).ready(function($){
                    :label => t('posts.form.activities'),
  				   :label_method => :html_representation,
  				   :input_html => {:class => "activity_checkbox", :checked => ""}%>
-  <% end %>
+  <% end unless event.event_activities.empty? %>
   <% form.buttons do -%>
     <%= form.commit_button I18n::t('posts.form.subscribe_button'),
                            :button_html => { :class => 'button positive' } %>
