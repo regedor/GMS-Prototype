@@ -79,13 +79,14 @@ div#header
       background-color: #527A93
       display: inline
       margin: 0 0 0 5px
-      padding: 15px 25px
+      padding: 15px 5px
       @include round-corners(8px, 8px, 0, 0)
       @include enable-ie-css3
 
       a
         color: #FFF
         font-weight: bold
+        padding: 10px 20px
         @include text-shadow(1px, 1px, 0, #444)
         @include enable-ie-css3
 
@@ -125,7 +126,8 @@ div#content.double
 
 div#main
   background-color: #FFF
-  margin: 0 auto 40px
+  min-height: 300px
+  margin: 20px auto 40px
   width: 1000px
 
 
