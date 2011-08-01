@@ -255,11 +255,10 @@ div#announcements
   width: 1000px
 
   a
-    display: inline-block
+    display: block
   
   a:hover
     border: none
-    display: inline-block
 
 
 div.announcement-tail
@@ -274,6 +273,9 @@ div#announcement-numbers
   right: 0
   @include round-corners(0, 0, 0, 5px)
   @include enable-ie-css3
+
+  a
+    display: inline-block
 
 
 div.announcement img

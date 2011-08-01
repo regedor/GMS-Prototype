@@ -203,11 +203,10 @@ div#announcements
   position: relative
 
   a
-    display: inline-block
+    display: block
   
   a:hover
     border: none
-    display: inline-block
 
 
 div.announcement-tail
@@ -221,6 +220,9 @@ div#announcement-numbers
   position: absolute
   @include round-corners(0, 0, 12px, 0)
   @include enable-ie-css3
+
+  a
+    display: inline-block
 
 
 div.announcement-block img
