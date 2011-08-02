@@ -1,4 +1,5 @@
 class Admin::EventManageController < Admin::BaseController
+  filter_access_to :all, :require => any_as_privilege
 
   def index
     if params[:search]

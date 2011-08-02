@@ -7,6 +7,27 @@ jQuery(document).ready(function($){
  
   setDatepickerWithTime(true);
 
+  prePopulationData = [];
+  
+  if(window.location.pathname.indexOf("new")!=-1)
+  	$( "#record_groups" ).tokenInput(window.location.href.replace(/\#.*/,"").replace("new","values"),{
+		prePopulate: prePopulationData
+	});	
+  else if(window.location.pathname.indexOf("edit")!=-1)
+  {
+	jQuery.ajax({
+	  	url: window.location.href.replace(/\#.*/,"").replace("edit","pre_populate"),
+	  	dataType:'json',
+	    type: 'GET',
+	  	success: function(data) { 
+			$( "#record_groups" ).tokenInput(window.location.href.replace(/\#.*/,"").replace("edit","values"),{
+				prePopulate: data
+			});
+		}
+	  });
+		
+  }	
+
 });
 </script>
 
@@ -76,4 +97,9 @@ jQuery(document).ready(function($){
                  :label    => I18n::t('admin.posts.columns.minor_edit'),
                  :hint     => I18n::t('admin.posts.form.hints.minor_edit')
                  ) unless @record.new_record? %>
+  <%= form.input :groups,
+				 :required => false,
+                 :as    => :string,
+ 				 :label => t('admin.posts.columns.groups'),
+ 				 :hint  => t('admin.posts.form.hints.groups') %>
 <% end -%>

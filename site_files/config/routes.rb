@@ -62,8 +62,8 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :posts,          :active_scaffold => true, :active_scaffold_sortable => true,
                                      :has_many        => :comments,
                                      :new             => { :preview => :post },
-                                     :member          => { :check_delete => [:get, :post], :edit_tag => :get, :update_tag => :put },
-                                     :collection      => { :list_action => :post, :preview => :post }
+                                     :member          => { :check_delete => [:get, :post], :edit_tag => :get, :update_tag => :put, :values => :get, :pre_populate => :get },
+                                     :collection      => { :list_action => :post, :preview => :post, :values => :get }
     admin.resources :pages,          :active_scaffold => true, :active_scaffold_sortable => true,
                                      :has_many        => :comments,
                                      :new             => { :preview => :post },
