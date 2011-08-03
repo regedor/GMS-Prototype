@@ -48,7 +48,7 @@
     <div id="wrapper">
       <div id="panel">
         <% announcements = Announcement.prioritize.active %>
-        <%= render :partial => 'announcements/announcement', :collection => announcements, :locals => { :announcements => announcements } %>
+        <%= render :partial => 'announcements/announcement', :locals => { :announcements => announcements } %>
       </div>
 
       <div id="navigation"><%= frontend_navigation_content %></div>

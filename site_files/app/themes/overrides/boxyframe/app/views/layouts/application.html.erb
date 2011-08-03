@@ -59,7 +59,7 @@
               <% end -%>
             <% end -%>
           </div>
-          <%= render :partial => 'announcements/announcement', :collection => announcements %>
+          <%= render :partial => 'announcements/announcement', :locals => { :announcements => announcements } %>
         <% else %>
           <p><%= I18n::t('announcements.none') %></p>
         <% end %>

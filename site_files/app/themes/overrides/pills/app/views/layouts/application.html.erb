@@ -52,7 +52,7 @@
       </div>
 
       <% announcements = Announcement.prioritize.active %>
-      <%= render :partial => 'announcements/announcement', :collection => announcements, :locals => { :announcements => announcements } %>
+      <%= render :partial => 'announcements/announcement', :locals => { :announcements => announcements } %>
 
       <div id="main" class="selfclear">
         <%= '<div id="flash"><div class="message notice"><p>'+ flash[:notice] +'</p></div></div>' unless flash[:notice].blank? %>
