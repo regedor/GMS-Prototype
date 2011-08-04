@@ -1,0 +1,390 @@
+// ============================================================================
+// Rules
+// ============================================================================
+
+
+body
+  background-color: $frontend-background-color
+  background-image: url("/stylesheets/themes/atrevete/images/bg_down.png")
+  background-repeat: repeat
+
+
+h2.title, h3.archives-month-title
+  margin: 0 0 $content-margin
+
+  a:hover
+    border-bottom: 3px solid $default-color
+
+
+hr
+  background-color: #DDD
+  border: none
+  clear: left
+  height: 1px
+  margin: $content-margin 0
+
+
+div#bg-top-back
+  background-image: url("/stylesheets/themes/atrevete/images/bg_top_back.png")
+  background-repeat: repeat-x
+  position: absolute
+  height: 475px
+  width: 100%
+  @include box-shadow(0, 0, 10px, #222)
+  @include enable-ie-css3
+
+
+div#bg-top-front
+  background-image: url("/stylesheets/themes/atrevete/images/bg_top_front.png")
+  background-repeat: repeat-x
+  height: 240px
+  overflow: hidden
+  position: relative
+  top: 130px
+  z-index: 1
+  @include box-shadow(0, 0, 10px, #222)
+  @include enable-ie-css3
+
+
+div#man-and-arrows
+  background-image: url("/stylesheets/themes/atrevete/images/man_and_arrows.png")
+  float: left
+  height: 208px
+  margin: 15px 50px
+  width: 444px
+
+
+div.secondary-wrapper
+  margin: auto
+  position: relative
+  width: 980px
+
+
+span.site-title
+  display: block
+  padding: 30px 0 30px 550px
+  width: 250px
+
+  span
+    border-bottom: 3px solid #FFF
+    line-height: 1.5em
+
+
+span.options
+  float: right
+  margin: 15px 0 0
+
+
+div#logo
+  background: url("/logo.png") no-repeat
+  float: left
+  height: 85px
+  margin: 20px 0 0
+  width: 198px
+
+
+div#primary-wrapper
+  background-image: url("/stylesheets/themes/atrevete/images/bg_content.png")
+  background-repeat: repeat
+  margin: 130px auto 0
+  // HACK????????
+  padding-top: 1px
+  position: relative
+  width: 980px
+
+
+div#menu
+  position: absolute
+  right: 0
+  top: 100px
+
+  ul li
+    display: inline
+    margin: 0 1px 0
+
+    a
+      background: url("/stylesheets/themes/atrevete/images/button_idle.png")
+      padding: 15px 25px
+      // fazer mixin em modos!
+      text-shadow: -1px 0 #444, 0 1px #444, 1px 0 #444, 0 -1px #444
+      @include round-corners(8px, 8px, 0, 0)
+      @include enable-ie-css3
+
+    a:hover
+      background: url("/stylesheets/themes/atrevete/images/button_hover.png")
+      // fazer mixin em modos!
+      text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000
+
+
+div#content.single
+  float: left
+  margin: 0 40px 30px
+
+
+div.content-body
+  margin: 0 10px
+
+
+div#user-info, div#user-invite
+  margin: $content-margin 10px
+
+
+div#footer
+  margin: 25px
+
+  a:hover
+    border-bottom: 2px solid $default-color
+
+
+div#flash
+  background-image: url("/images/dark_transparency.png")
+  border-top: 1px solid #222
+  bottom: 0
+  left: 0
+  padding: 15px 0
+  position: fixed
+  width: 100%
+  z-index: 1
+
+  div.message
+    margin: 0 0 0 30px
+
+    p
+      margin: 0 70px
+      padding: 20px
+
+  div.message.error
+    background: url("/stylesheets/themes/ajtg/images/flash/error.png") no-repeat 0 50%
+
+  div.message.warning
+    background: url("/stylesheets/themes/ajtg/images/flash/warning.png") no-repeat 0 50%
+
+  div.message.info, div.message.notice
+    background: url("/stylesheets/themes/ajtg/images/flash/notice.png") no-repeat 0 50%
+
+
+ul.list li
+  margin: $content-margin 0
+
+
+dl.list
+  display: inline-block
+
+  dd
+    float: left
+    padding: 1px 0
+    margin: 5px 0
+
+  dt
+    clear: left
+    color: #555
+    float: left
+    font-weight: bold
+    padding: 0
+    margin: 5px 0
+    width: 150px
+
+
+div#archives
+  float: right
+  margin: 10px
+
+  a:hover
+    border-bottom: 3px solid $default-color
+
+
+ul.archives-month
+  margin: 0 0 0 10px
+
+  li
+    margin: 0 0 5px
+
+    a:hover
+      border-bottom: 2px solid $default-color
+
+
+// ==============
+// Social buttons
+// ==============
+
+
+div.social-buttons
+  float: right
+  margin: 0 10px 10px
+
+  div.addthis_toolbox
+    display: inline
+
+
+// =============
+// Announcements
+// =============
+
+
+div#announcements
+  border: 1px solid #444
+  overflow: hidden
+  margin: 40px auto
+  position: relative
+  width: 890px
+  @include round-corners(2px, 2px, 2px, 2px)
+  @include enable-ie-css3
+
+  a
+    display: block
+
+  a:hover
+    border: none
+
+
+div.announcement-tail
+  display: none
+
+
+div#announcement-numbers
+  background: url("/images/dark_transparency.png")
+  cursor: default
+  padding: 10px 10px 13px 13px
+  position: absolute
+  left: 0
+  @include round-corners(0, 0, 2px, 0)
+  @include enable-ie-css3
+
+  a
+    display: inline-block
+
+
+div.announcement img
+  height: 250px
+  width: 940px
+
+
+div.announcement-text
+  background: url("/images/dark_transparency.png")
+  bottom: 0
+  padding: 14px 12px 12px 14px
+  position: absolute
+  right: 0
+  width: 300px
+  @include round-corners(2px, 0, 0, 0)
+  @include enable-ie-css3
+
+  p.title
+    padding: 0 0 15px
+
+
+// =====
+// Posts
+// =====
+
+
+div.post
+  margin: 0 0 30px
+
+
+div.post-image
+  float: left
+  margin: 0 $content-margin 5px 0
+
+
+div.meta
+  border: 1px solid #1282A0
+  clear: both
+  margin: 0 10px
+  padding: 10px
+  @include round-corners(3px, 3px, 3px, 3px)
+  @include enable-ie-css3
+
+  a:hover
+    border-bottom: 2px solid $default-color
+
+
+// ========
+// Comments
+// ========
+
+
+div.avatar
+  float: left
+  margin-right: 20px
+
+  img
+    border: 1px solid #999
+
+
+span.comment-meta
+  clear: both
+  display: block
+
+
+div.new-comment
+  padding: 0 $content-margin
+
+
+ol#comment-list
+  margin: 20px 0
+
+  p
+    padding: $content-margin 0 0 72px
+
+
+// =======
+// Buttons
+// =======
+
+
+button, a.button, input.button
+  background-color: $button-gradient-end-color // graceful degrade for Opera
+  border: 1px solid #AAA
+  cursor: pointer
+  float: left
+  @include linear-gradient($button-gradient-start-color, $button-gradient-end-color)
+  @include round-corners(4px, 4px, 4px, 4px)
+  @include enable-ie-css3
+
+
+button:active, a.button:active, input.button:active
+  @include linear-gradient($button-gradient-end-color, $button-gradient-start-color)
+  @include enable-ie-css3
+
+
+a.button
+  padding: 6px 10px
+
+
+input.button
+  padding: 5px 10px !important
+
+
+button
+  padding: 5px 10px
+
+
+ul.buttons
+  margin: $content-margin 0
+
+  a
+    margin: 0 10px 0 0
+
+
+*:first-child + html input[type]
+  padding: 2px 10px 3px
+  // IE7
+
+
+a.google_ico, a.yahoo_ico
+  margin: 0 0 $content-margin 0
+  width: 90%
+
+
+// Self-clearing floats and IE hacks
+
+.selfclear
+  &:after
+    content: "."
+    display: block
+    height: 0
+    clear: both
+    visibility: hidden
+  display: inline-block // IE 7
+  display: block
