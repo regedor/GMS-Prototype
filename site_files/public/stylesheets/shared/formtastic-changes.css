@@ -51,6 +51,9 @@ form.formtastic fieldset.inputs ol li textarea,
 form.formtastic fieldset.inputs ol li input[type=password],
 form.formtastic fieldset.inputs ol li input[type=text] { padding: 4px; border: 1px solid #9E9E9E; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; }
 
+form.formtastic fieldset.inputs ol li.token-input-input-token-facebook input { border: none; }
+form.formtastic fieldset.inputs ol li.token-input-input-token-facebook input:focus { border: none; box-shadow: none; }
+
 form.formtastic fieldset.inputs ol li label          { width: 165px; padding: 0.7em 0 0; }
 form.formtastic fieldset.inputs ol li.boolean label  { float: left; padding: 0 0 0 165px; }
 form.formtastic fieldset.inputs ol li.boolean p.inline-hints { clear: left; }
