@@ -7,6 +7,7 @@ body
   background-color: $frontend-background-color
   background-image: url("/stylesheets/themes/atrevete/images/bg_down.png")
   background-repeat: repeat
+  overflow-x: hidden
 
 
 h2.title, h3.archives-month-title
@@ -32,6 +33,16 @@ div#bg-top-back
   width: 100%
   @include box-shadow(0, 0, 10px, #222)
   @include enable-ie-css3
+
+
+div#target
+  background-image: url("/stylesheets/themes/atrevete/images/target.png")
+  background-repeat: no-repeat
+  height: 614px
+  left: 200px
+  position: absolute
+  top: -300px
+  width: 614px
 
 
 div#bg-top-front
