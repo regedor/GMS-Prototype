@@ -311,7 +311,6 @@ div.social-buttons
 div#announcements
   overflow: hidden
   margin: 0 auto 20px
-  position: relative
   width: 622px
   @include round-corners(2px, 2px, 2px, 2px)
   @include enable-ie-css3
@@ -329,7 +328,7 @@ div.announcement-tail
 
 div#announcement-numbers
   background: url("/images/dark_transparency.png")
-  bottom: 0
+  bottom: -129px
   cursor: default
   padding: 10px 10px 13px 13px
   position: absolute
@@ -347,11 +346,10 @@ div.announcement img
 
 
 div.announcement-text
-  background: url("/images/dark_transparency.png")
-  bottom: 0
-  padding: 14px 12px 12px 14px
+  bottom: -130px
+  min-height: 100px
   position: absolute
-  right: 0
+  right: 20px
   width: 300px
   @include round-corners(2px, 0, 0, 0)
   @include enable-ie-css3
