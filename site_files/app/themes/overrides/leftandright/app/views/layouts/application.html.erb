@@ -62,6 +62,8 @@
       <div class="secondary-wrapper">
         <div id="building-bottom-left"></div>
         <div id="building-bottom-right">
+          <div id="right-cream-fade-bar"></div>
+
           <% announcements = Announcement.prioritize.active %>
           <%= render :partial => 'announcements/announcement', :locals => { :announcements => announcements } %>
         </div>
