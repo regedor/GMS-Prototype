@@ -65,7 +65,8 @@ jQuery(document).ready(function($){
   <%= form.input :group,
    				 :required => false,
                  :as    => :radio,
-   				 :collection => Announcement.all + [Announcement.new :id => 0, :name => "All"],
+   				 :collection => Group.all + [Group.new :id => 0, :name => "All"],
     			 :label => t('admin.posts.columns.groups'),
     			 :hint  => t('admin.posts.form.hints.groups') %>
+
 <% end -%>

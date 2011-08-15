@@ -2,6 +2,99 @@
   <%= javascript_include_tag 'edit_preview' %>
 <% end -%>
 
+<style>
+.jqifade{
+	position: absolute; 
+	background-color: #aaaaaa; 
+}
+div.jqi{ 
+	width: 400px; 
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; 
+	position: absolute; 
+	background-color: #ffffff; 
+	font-size: 11px; 
+	text-align: left; 
+	border: solid 1px #eeeeee;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	padding: 7px;
+}
+div.jqi .jqicontainer{ 
+	font-weight: bold; 
+}
+div.jqi .jqiclose{ 
+	position: absolute;
+	top: 4px; right: -2px; 
+	width: 18px; 
+	cursor: default; 
+	color: #bbbbbb; 
+	font-weight: bold; 
+}
+div.jqi .jqimessage{ 
+	padding: 10px; 
+	line-height: 20px; 
+	color: #444444; 
+}
+div.jqi .jqibuttons{ 
+	text-align: right; 
+	padding: 5px 0 5px 0; 
+	border: solid 1px #eeeeee; 
+	background-color: #f4f4f4;
+}
+div.jqi button.popbutton{ 
+	padding: 3px 10px; 
+	margin: 0 10px; 
+	background-color: #2F6073;
+	background: #2F6073; 
+	border: solid 1px #f4f4f4; 
+	font-weight: bold; 
+	font-size: 12px; 
+	color: #ffffff;
+	float: none;
+}
+div.jqi button.popbutton:hover{ 
+	background-color: #728A8C;
+}
+
+div.jqi button.jqidefaultbutton{ 
+	/*background-color: #8DC05B;*/
+	background-color: #BF5E26;
+}
+
+div.jqi button.jqidefaultbutton:hover{ 
+	background-color: #BF5E26;
+}
+
+.jqiwarning .jqi .jqibuttons{ 
+	background-color: #BF5E26;
+}
+
+</style>
+
+<script>
+
+jQuery.noConflict();
+  
+jQuery(document).ready(function($){
+ 
+  $("#record_group_id").change(function(){
+    if($("#record_group_id option:selected").text() === "Create New...")
+    {
+	  $.prompt('Example 2',{ 
+		buttons: { Ok: true, Cancel: false } 
+	  });
+    }
+  });
+
+  $.fn.groupCreater = function() {
+    	
+  }
+
+});
+
+</script>
+
 <% form.input_field_set do -%>
   <%= form.input :title,
                  :label    => I18n::t('admin.pages.columns.title') %>
@@ -42,8 +135,9 @@
                  :hint     => I18n::t('admin.pages.form.hints.has_comments') %>
   <%= form.input :group,
      		     :required => false,
-                 :as    => :radio,
-     		     :collection => Page.all + [Page.new :id => 0, :name => "All"],
+                 :as    => :select,
+     		     :collection => Group.all + [Group.new(:id => 0, :name => "Create New...")],
       			 :label => t('admin.posts.columns.groups'),
       			 :hint  => t('admin.posts.form.hints.groups') %>
+
 <% end -%>
