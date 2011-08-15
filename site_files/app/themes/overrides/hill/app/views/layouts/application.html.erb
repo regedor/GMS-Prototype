@@ -25,7 +25,7 @@
   <div id="container">
     <div id="header">
       <div class="wrapper">
-        <div id="logo"></div>
+        <a href="/"><div id="logo"></div></a>
  
         <span class="options">
           <% if logged_in? %>
@@ -52,7 +52,7 @@
 
     <div id="main" class="selfclear">
       <% announcements = Announcement.prioritize.active %>
-      <%= render :partial => 'announcements/announcement', :collection => announcements, :locals => { :announcements => announcements } %>
+      <%= render :partial => 'announcements/announcement', :locals => { :announcements => announcements } %>
 
       <%= '<div id="flash"><div class="message notice"><p>'+ flash[:notice] +'</p></div></div>' unless flash[:notice].blank? %>
       <%= '<div id="flash"><div class="message error"><p>'+ flash[:error] +'</p></div></div>' unless flash[:error].blank? %>

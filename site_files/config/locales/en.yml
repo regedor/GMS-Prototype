@@ -14,7 +14,7 @@ en:
       admin: "Administrator"
       member: "Member"
       general_manager: "General Manager"
-      projects_manager: "Projects Manager"
+      project_manager: "Projects Manager"
       website_manager: "Website Manager"
       blogger: "Blogger" 
     form:

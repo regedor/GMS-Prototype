@@ -31,7 +31,7 @@ div#header
 
 
 div#logo
-  background: url("/stylesheets/themes/ajtg/images/ajtg_logo.png") no-repeat
+  background: url("/logo.png") no-repeat
   float: left
   height: 155px
   margin: 55px 0 0
@@ -98,9 +98,10 @@ div#menu
       a
         color: #FFF
         font-weight: bold
-        text-shadow: 1px 2px 0 #000
         border: none
         padding: 12px 20px
+        @include text-shadow(1px, 2px, 0, #000)
+        @include enable-ie-css3
 
       a:hover
         color: #FFD700
@@ -259,8 +260,12 @@ div#announcements
   @include round-corners(2px, 2px, 2px, 2px)
   @include enable-ie-css3
 
+  a
+    display: inline-block
+
   a:hover
     border: none
+    display: inline-block
 
 
 div.announcement-tail

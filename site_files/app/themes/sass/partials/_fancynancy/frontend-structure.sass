@@ -167,13 +167,13 @@ div#flash
       padding: 20px
 
   div.message.error
-    background: url("/stylesheets/themes/nemum/images/flash/error.png") no-repeat 0 50%
+    background: url("/stylesheets/themes/adege/images/flash/error.png") no-repeat 0 50%
 
   div.message.warning
-    background: url("/stylesheets/themes/nemum/images/flash/warning.png") no-repeat 0 50%
+    background: url("/stylesheets/themes/adege/images/flash/warning.png") no-repeat 0 50%
 
   div.message.info, div.message.notice
-    background: url("/stylesheets/themes/nemum/images/flash/notice.png") no-repeat 0 50%
+    background: url("/stylesheets/themes/adege/images/flash/notice.png") no-repeat 0 50%
 
 
 ul.list li
@@ -240,6 +240,9 @@ div#announcements
   position: relative
   overflow: hidden
 
+  a
+    display: block
+    
   a:hover
     border: none
 
@@ -256,6 +259,9 @@ div#announcement-numbers
   background-clip: padding-box
   @include round-corners(0, 0, 12px, 0)
   @include enable-ie-css3
+
+  a
+    display: inline-block
 
 
 div#announcements img
