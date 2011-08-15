@@ -21,7 +21,7 @@ class EventsController < ApplicationController
       activity = EventActivity.find id
       activities << activity
       activities_price += activity.price
-    end  
+    end if params[:event]
     @total_price = @event.price + activities_price
     eventsUser = EventsUser.find_by_event_id_and_user_id(@event.id,current_user.id)
     unless eventsUser
@@ -46,7 +46,7 @@ class EventsController < ApplicationController
       @subscribed_activities << activitiesUser
       activity.event_activities_users << activitiesUser   
       activity.save                                                              
-    end 
+    end unless activities.empty?
   end
 
   def show

@@ -5,7 +5,7 @@ class Post < ActiveRecord::Base
 
   ##FIXME: Need review!!!
   has_many                :approved_comments, :as => 'commentable', :dependent => :destroy, :class_name => 'Comment'
-  has_and_belongs_to_many :groups
+  belongs_to :group
   belongs_to :event
   #has_many                :approved_comments, :class_name => 'Comment'
 
@@ -19,6 +19,10 @@ class Post < ActiveRecord::Base
 
 
   named_scope :not_deleted, :conditions => {:deleted => false}
+  named_scope :viewable_only, lambda { |user| { 
+      :conditions => {"posts.group_id",user.group_ids+[0]}
+    }
+  }
 
   has_attached_file :image, :styles => { :image => "250x250", :thumb => "50x50" }
   has_attached_file :generic
@@ -101,11 +105,6 @@ class Post < ActiveRecord::Base
     end
   end
 
-  def viewableBy? user
-    return true if self.group_ids.empty? || (!user.nil? && user.group_ids & self.group_ids != [])
-    return false
-  end  
-
   class << self
 
     # Builds preview from params
@@ -164,20 +163,21 @@ class Post < ActiveRecord::Base
     end
 
     # Paginates posts that contain the argument tag names
-    def paginate_with_tag_names(tags, page = 1)
+    def paginate_with_tag_names(user,tags, page = 1)
       tag_ids = Tag.all :select => "id",
         :conditions => { :name => tags }
-      paginate_with_tag_ids(tag_ids, page)
+      paginate_with_tag_ids(user,tag_ids, page)
     end
 
     # Paginates posts that contain the argument tag ids
-    def paginate_with_tag_ids(tags, page = 1)
+    def paginate_with_tag_ids(user,tags, page = 1)
       options =  { :page       => page,
                    :per_page   => DEFAULT_LIMIT,
                    :order      => 'posts.published_at DESC',
                    :conditions => ['published_at < ?', Time.zone.now] }
       options.merge! tags_filter(tags)
-      Post.paginate options
+        
+      Post.viewable_only(user).paginate options
     end
 
     # Generates an option hash that only retrieves posts with the argument tags

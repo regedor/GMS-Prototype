@@ -1,7 +1,7 @@
 class Admin::PagesController < Admin::BaseController
   filter_access_to :all, :require => any_as_privilege
+  before_filter :group_hack, :only => [:update, :create]
   
-
   active_scaffold :page do |config|
     Scaffoldapp::active_scaffold config, "admin.pages",
       :list   => [ :title, :excert, :created_at, :total_approved_comments ],
@@ -28,6 +28,10 @@ class Admin::PagesController < Admin::BaseController
       format.js   { render :partial => 'preview' }
     end
   end
+  
+  def group_hack
+    params[:record][:group_id] = 0 if params[:record][:group_id].blank?
+  end  
   
   def update
     @page = Page.find(params[:id])

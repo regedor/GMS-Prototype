@@ -32,7 +32,7 @@
   <% end -%>
     
   <% if @posts.empty? -%>
-    <p><%= I18n::t('posts.none') %></p>
+    <p><%= t('posts.none') %></p>
   <% else -%>
     <% @posts.each do |post| -%>
       <div id="post-<%= post.id %>" class="post">
@@ -40,8 +40,8 @@
       </div>
     <% end -%>
   <% end -%>
-  <%= will_paginate(@posts, :previous_label => I18n::t('posts.pagination.previous'),
-                            :next_label     => I18n::t('posts.pagination.next')) %>
+  <%= will_paginate(@posts, :previous_label => t('posts.pagination.previous'),
+                            :next_label     => t('posts.pagination.next')) %>
 </div>
 
 <div id="archives">

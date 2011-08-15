@@ -62,5 +62,11 @@ jQuery(document).ready(function($){
                  :selected   => @record.priority,
                  :label      => I18n::t('admin.pages.columns.priority'),
                  :hint       => I18n::t('admin.pages.form.hints.priority') %>
-  
+  <%= form.input :group,
+   				 :required => false,
+                 :as    => :radio,
+   				 :collection => Group.all + [Group.new :id => 0, :name => "All"],
+    			 :label => t('admin.posts.columns.groups'),
+    			 :hint  => t('admin.posts.form.hints.groups') %>
+
 <% end -%>

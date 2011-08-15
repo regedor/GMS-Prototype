@@ -1,4 +1,4 @@
-<% announcements = Announcement.prioritize.active %>
+<% announcements = Announcement.prioritize.viewable_only(current_user).active %>
 <div id="announcements">
   <% if(announcements.size > 0) %>
     <% if(announcements.size > 1) %>
