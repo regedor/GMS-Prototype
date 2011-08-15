@@ -46,10 +46,10 @@
       </div>
 
       <div id="panel">
-        <a href="/"><div id="logo"></div></a>
-
         <% announcements = Announcement.prioritize.active %>
         <%= render :partial => 'announcements/announcement', :locals => { :announcements => announcements } %>
+
+        <a href="/"><div id="logo"></div></a>
       </div>
 
       <div id="menu"><%= frontend_navigation_content %></div>

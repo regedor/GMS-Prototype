@@ -4,7 +4,7 @@
 
 
 body
-  background-image: url("/stylesheets/themes/nebioq/images/bg.jpg")
+  background-image: url("/stylesheets/themes/nebioq/images/bg.png")
 
 
 h2.title, h3.archives-month-title
@@ -24,23 +24,36 @@ hr
 
 div#header
   background-color: $frontend-background-color
-  margin: 20px 25px
+  margin: 0 20px 15px
+
+  span.site-title
+    display: inline-block
+    margin: 15px 0 0
 
   span.options
+    color: #FFF
+    background-color: $default-color
     float: right
+    padding: 10px 20px 15px
+    @include round-corners(0, 0, 8px, 8px)
+    @include enable-ie-css3
+
+    a
+      color: #FFF
 
     a:hover
-      border-bottom: 2px solid $default-color
+      border-bottom: 2px solid #FFF
 
 
 div#menu
-  background-image: url("/stylesheets/themes/nebioq/images/menu.png")
-  height: 51px
+  background-color: $default-color
+  height: 45px
   margin: 20px auto 0
   width: 980px
 
   ul li
-    display: inline
+    display: inline-block
+    margin: 15px 0
 
     a
       border: none
@@ -49,17 +62,21 @@ div#menu
 
     a:hover
       color: #FFF
+      @include inset-box-shadow(0, 2px, 7px, #5e7ed5)
+      @include round-corners(12px, 12px, 12px, 12px)
+      @include enable-ie-css3
 
 
 div#tag-cloud
   background-color: $tag-cloud-color
-  border: 1px solid #FFF
-  outline: 1px solid #B0C7DE
+  border: 1px solid #B0C7DE
   margin: 0 25px 20px 780px
   min-height: 100px
   padding: 10px 20px
   position: relative
   top: 20px
+  @include round-corners(8px, 8px, 8px, 8px)
+  @include enable-ie-css3
 
 
 div#tag-search-bar
@@ -70,12 +87,12 @@ div#tag-search-bar
 
 
 div#logo
-  background-color: #FFF
-  height: 130px
-  margin: 38px 0
+  background-image: url("/logo.png")
+  height: 197px
+  margin: 20px 40px
   position: absolute
-  top: 20px
-  width: 270px
+  right: 0
+  width: 190px
 
 
 div#flash-content
@@ -102,10 +119,11 @@ div#content.double
 
 div#main
   background-color: $frontend-background-color
-  border: 2px solid #444
+  border: 3px solid $default-color
   margin: 65px auto 0
-  outline: 1px solid #F1F0F0
   width: 980px
+  @include round-corners(8px, 8px, 8px, 8px)
+  @include enable-ie-css3
 
 
 div.content-body
@@ -205,13 +223,13 @@ div.social-buttons
 
 
 div#announcements
-  border: 1px solid #444
-  float: right
-  margin: 0 25px
+  border: 2px solid $default-color
+  float: left
+  margin: 0 20px
   overflow: hidden
   position: relative
   width: 680px
-  @include box-shadow(0, 0, 2px, #222)
+  @include round-corners(3px, 3px, 3px, 3px)
   @include enable-ie-css3
 
   a
