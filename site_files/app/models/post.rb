@@ -5,7 +5,7 @@ class Post < ActiveRecord::Base
 
   ##FIXME: Need review!!!
   has_many                :approved_comments, :as => 'commentable', :dependent => :destroy, :class_name => 'Comment'
-  has_and_belongs_to_many :groups
+  belongs_to :group
   belongs_to :event
   #has_many                :approved_comments, :class_name => 'Comment'
 
@@ -20,7 +20,7 @@ class Post < ActiveRecord::Base
 
   named_scope :not_deleted, :conditions => {:deleted => false}
   named_scope :viewable_only, lambda { |user| { 
-     :joins => :groups, :conditions => {"groups.id",user.group_ids}
+      :conditions => {"posts.group_id",user.group_ids+[0]}
     }
   }
 
@@ -105,11 +105,6 @@ class Post < ActiveRecord::Base
     end
   end
 
-  def viewableBy? user
-    return true if self.group_ids.empty? || (!user.nil? && user.group_ids & self.group_ids != [])
-    return false
-  end  
-
   class << self
 
     # Builds preview from params
@@ -182,11 +177,7 @@ class Post < ActiveRecord::Base
                    :conditions => ['published_at < ?', Time.zone.now] }
       options.merge! tags_filter(tags)
         
-      Post.paginate options
-    end
-
-    def viewable user
-      Post.viewable_only(user).uniq
+      Post.viewable_only(user).paginate options
     end
 
     # Generates an option hash that only retrieves posts with the argument tags

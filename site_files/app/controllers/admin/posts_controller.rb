@@ -3,7 +3,6 @@ class Admin::PostsController < Admin::BaseController
   before_filter :tags_in_instance_variable, :only => [ :list, :index ]
   before_filter :list_tags,                 :only =>   :index
   before_filter :date_localization,         :only => [ :create, :update, :preview ]
-  before_filter :normalize_groups,          :only => [ :create, :update ]
 
   include ActionView::Helpers::TextHelper
 
@@ -14,37 +13,6 @@ class Admin::PostsController < Admin::BaseController
       :show   => [ ],
       :create => [ :title, :body, :tag_list, :published_at, :slug, :image, :image_delete, :generic_delete, :groups ],
       :edit   => [  ]
-  end
-
-  def values
-    vals = []
-    Group.relevant(params[:q]).each do |group|
-      vals << {:id => "#{group.id}", :name => "#{@template.image_tag @template.avatar_url(group,:size => :small)} #{group.name}" }
-    end
-    
-    respond_to do |format|
-      format.json { render :json => vals.to_json }
-    end
-  end
-
-  def pre_populate
-    vals = []
-    Post.find(params[:id]).groups.each do |group|
-      vals << {:id => "#{group.id}", :name => "#{group.name}" }
-    end
-
-    respond_to do |format|
-      format.json { render :json => vals.to_json }
-    end
-  end
-
-  def normalize_groups
-    unless params[:record][:groups].empty?
-      normalized_groups = params[:record][:groups].split(',').reject(&:blank?)
-      params[:record][:groups] = normalized_groups
-    else
-      params[:record][:groups] = []
-    end
   end
 
   def custom_finder_options

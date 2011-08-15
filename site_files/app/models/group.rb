@@ -7,7 +7,6 @@ class Group < ActiveRecord::Base
   has_many                :groups_users
   has_many                :direct_users,            :through => :groups_users, :source => :user
   has_and_belongs_to_many :groups,                  :association_foreign_key => "include_group_id"
-  has_and_belongs_to_many :posts
   belongs_to              :behavior_group_to_jump,  :foreign_key => "behavior_group_to_jump_id", :class_name => 'Group'
   belongs_to              :behavior_delayed_job, :foreign_key => "behavior_delayed_job_id", :class_name => 'Delayed::Job'
   belongs_to              :user_optional_group_pick

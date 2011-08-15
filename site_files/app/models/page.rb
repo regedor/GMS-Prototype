@@ -14,6 +14,7 @@ class Page < ActiveRecord::Base
   validates_presence_of   :title, :slug, :body
   validates_uniqueness_of :slug
   before_validation       :generate_slug
+  belongs_to              :group
 
 
   # ==========================================================================
@@ -25,6 +26,10 @@ class Page < ActiveRecord::Base
 
   before_save           :apply_filter
   named_scope :navigation_pages, :conditions => {:show_in_navigation => true}, :order => "priority desc"
+  named_scope :viewable_only, lambda { |user| { 
+      :conditions => {"pages.group_id",user.group_ids+[0]}
+    }
+  }
 
   # ==========================================================================
   # Instance Methods

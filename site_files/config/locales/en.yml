@@ -873,7 +873,7 @@ en:
           published_at: "Click on the field to open the calendar."
           slug: "Leave blank for an auto-generated slug based on the title."
           minor_edit: "Minor edits will not show up as refreshed in feed readers. Use this to fix spelling mistakes and the like."
-          groups: "Add the groups that can see this post."
+          groups: "Choose the group that can see this post. Leave blank if you want everyone to see."
       tags:
         title: "Tags"
         pagination:

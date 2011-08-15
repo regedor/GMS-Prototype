@@ -3,6 +3,7 @@ class Announcement < ActiveRecord::Base
   @@per_page = 10
 
   belongs_to :event
+  belongs_to :group
 
   has_attached_file :avatar, :styles => { :announcement => configatron.announcement_size }, :default_url => '/system/:attachment/:style/missing.png'
 
@@ -13,9 +14,13 @@ class Announcement < ActiveRecord::Base
  
   attr_accessor :has_message
  
-  named_scope :active, lambda { { :conditions => ['starts_at <= ? AND ends_at >= ?', Time.now.utc, Time.now.utc] } }
+  named_scope :active, :conditions => ['starts_at <= ? AND ends_at >= ?', Time.now.utc, Time.now.utc]
   named_scope :since, lambda { |hide_time| { :conditions => (hide_time ? ['updated_at > ? OR starts_at > ?', hide_time.utc, hide_time.utc] : nil) } }
   named_scope :prioritize, :order => "priority desc"
+  named_scope :viewable_only, lambda { |user| { 
+      :conditions => {"announcements.group_id",user.group_ids+[0]}
+    }
+  }
   
   # Displays active announcements
   def self.display(hide_time)
