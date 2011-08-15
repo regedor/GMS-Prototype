@@ -48,8 +48,10 @@ jQuery(document).ready(function($) {
 <div class="inner">
 <div class="show">
   <h2><span class="description" id="<%= @record.id %>"><%= @record.title %></h2>
-  <input type=button value="<%= t('admin.event.activities.manage.button.search') %>" class="search-button">
-  <input type=text class="search" id="search">
+  <input type="button" value="<%= t('admin.event.activities.manage.button.search') %>" class="button positive search">
+  <input type="text" class="search" id="search">
+
+  <ul id="participants">
   <% @user_lists[:with_status].each do |user_activity| %>
     <li>
       <span><%= user_activity[:user].to_label %>
@@ -65,6 +67,7 @@ jQuery(document).ready(function($) {
       </span>
     </li>
   <% end %>
+
   <% @user_lists[:default].each do |user_activity| %>
     <li>
       <span><%= user_activity[:user].to_label %>
@@ -76,10 +79,12 @@ jQuery(document).ready(function($) {
       </span>
     </li>
   <% end %>
-  <p class="form-footer">
-    <input type=button value="<%= t("admin.event.activities.view.button.update") %>" class="update-button">
-    <%= link_to t("admin.event.activities.view.cancel"), admin_event_event_activities_path(@record.event_id), :class => "button negative cancel" %>  
-  </p>
+  </ul>
+
+  <ul class="buttons">
+    <li><input type=button value="<%= t("admin.event.activities.view.button.update") %>" class="button positive"></li>
+    <li><%= link_to t("admin.event.activities.view.cancel"), admin_event_event_activities_path(@record.event_id), :class => "button negative cancel" %></li>
+  </ul>
 </div>
 </div>
 </div>
