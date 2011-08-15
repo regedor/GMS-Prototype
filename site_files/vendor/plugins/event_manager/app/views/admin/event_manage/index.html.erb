@@ -57,7 +57,7 @@ jQuery(document).ready(function($) {
 <div class="show">
   <h2><span class="description" id="<%= @record.id %>"><%= @record.name %></span></h2>
   <input type="button" value="<%= t('admin.event.activities.manage.button.search') %>" class="button positive search">
-  <input type=text class="search" id="search">
+  <input type="text" class="search" id="search">
   <% @user_lists.each do |user_event| %>
     <% if @record.event_activities.empty? %>
       <li>
