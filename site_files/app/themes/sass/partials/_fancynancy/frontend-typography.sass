@@ -32,16 +32,26 @@ p.inline-errors
 div#menu
   font: 15px Helvetica, Sans-Serif
 
+  a
+    @include text-shadow(1px, 1px, 0, #FFF)
+    @include enable-ie-css3
+
+  a:hover
+    @include text-shadow(1px, 1px, 0, #444)
+    @include enable-ie-css3
+
+
 div#header
   color: #FFF
+  @include text-shadow(1px, 1px, 0, #444)
+  @include enable-ie-css3
 
   span.options a
     color: #FFF
 
 
 span.site-title
-  font: 13px PTSansNarrowBold, Helvetica, Sans-Serif
-
+  font-size: 13px Helvetica, Sans-Serif
 
 
 div.announcement-text
@@ -69,6 +79,8 @@ div#tag-cloud
   color: #FFF
   font-size: 13px
   text-align: right
+  @include text-shadow(1px, 1px, 0, #444)
+  @include enable-ie-css3
 
   h2.title
     font-size: 13px
