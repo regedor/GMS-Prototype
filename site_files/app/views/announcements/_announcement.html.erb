@@ -1,3 +1,4 @@
+<% announcements = Announcement.prioritize.viewable_only(current_user).active %>
 <% if params[:controller] != "pages" || @page.show_announcements? %>
   <div id="announcements">
     <% if(announcements.size > 0) %>
@@ -28,7 +29,14 @@
       <% end -%>
 
     <% else %>
-      <p><%= I18n::t('announcements.none') %></p>
+      <p><%= t('announcements.none') %></p>
     <% end %>
   </div>
+<% end %>
+
+<% javascript_tag do %>
+  window.onload = setTimeout(function() {
+    announcementsRoutine(<%= announcements.size %>);
+    float_bar("#navigation","60px");
+  }, 0);
 <% end %>
