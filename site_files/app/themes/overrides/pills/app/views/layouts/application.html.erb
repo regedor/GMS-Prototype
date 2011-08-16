@@ -51,8 +51,7 @@
         </span>
       </div>
 
-      <% announcements = Announcement.prioritize.active %>
-      <%= render :partial => 'announcements/announcement', :locals => { :announcements => announcements } %>
+      <%= render :partial => 'announcements/announcement' %>
 
       <div id="main" class="selfclear">
         <%= '<div id="flash"><div class="message notice"><p>'+ flash[:notice] +'</p></div></div>' unless flash[:notice].blank? %>
@@ -70,7 +69,6 @@
 
   <% javascript_tag do %>
     window.onload = setTimeout(function() {
-      announcementsRoutine(<%= announcements.size %>);
       float_bar("#navigation","60px");
     }, 0);
   <% end %>
