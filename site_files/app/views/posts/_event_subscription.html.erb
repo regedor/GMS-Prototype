@@ -14,7 +14,7 @@ jQuery(document).ready(function($){
     if(sum<0)sum=0;
     $("#total_price").html(sum.toFixed(2));
   });	
-	
+
 });
 
 </script>
@@ -27,16 +27,18 @@ jQuery(document).ready(function($){
                    :as => :check_boxes, 
                    :collection => event.event_activities, 
                    :label => t('posts.form.activities'),
- 				   :label_method => :html_representation,
- 				   :input_html => {:class => "activity_checkbox", :checked => ""}%>
+ 		   :label_method => :html_representation,
+ 		   :input_html => {:class => "activity_checkbox", :checked => ""}%>
   <% end unless event.event_activities.empty? %>
+
+  <div id="total-price">
+    <span><%= t('posts.form.total') %></span> 
+    <span><%= total_price %></span>
+  </div>
+
   <% form.buttons do -%>
-    <%= form.commit_button I18n::t('posts.form.subscribe_button'),
-                           :button_html => { :class => 'button positive' } %>
+    <%= form.commit_button I18n::t('posts.form.subscribe_button'), :button_html => { :class => 'button positive' } %>
   <% end -%>
 <% end -%>
+
 <div hidden id="hidden_events_ids"><%= subscribed_activities.map(&:event_activity_id).join(",") %></div>
-<div class="total">
-  <span id="label" class="label"><%= t('posts.form.total') %></span> 
-  <span id="total_price" class="total_price"><%= total_price %></span>
-</div>

@@ -14,7 +14,7 @@
     <% if current_user %>
       <h2 class="title"><%= event.name %></h2>
       <% if !event.users.member? current_user %>
-        <%= render :partial => 'eventSubscription', :locals => {:event => event, :total_price => total_price, :subscribed_activities  => subscribed_activities} %>
+        <%= render :partial => 'event_subscription', :locals => {:event => event, :total_price => total_price, :subscribed_activities  => subscribed_activities} %>
 	  <% else %>
 	    <%= render :partial => 'events/subscribe', :locals => {:event => event, :total_price => total_price, :subscribed_activities  => subscribed_activities, :just_subscribed => false} %>
 	  <% end %>	    
