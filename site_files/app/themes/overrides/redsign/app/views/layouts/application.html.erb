@@ -47,8 +47,7 @@
 
     <div id="wrapper">
       <div id="panel">
-        <% announcements = Announcement.prioritize.active %>
-        <%= render :partial => 'announcements/announcement', :locals => { :announcements => announcements } %>
+        <%= render :partial => 'announcements/announcement' %>
       </div>
 
       <div id="navigation"><%= frontend_navigation_content %></div>
@@ -68,12 +67,5 @@
       <%= render :partial => 'shared/footer' %>
     </div>
   </div>
-
-  <% javascript_tag do %>
-    window.onload = setTimeout(function() {
-      announcementsRoutine(<%= announcements.size %>);
-    }, 0);
-  <% end %>
-
 </body>
 </html>

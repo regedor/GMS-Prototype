@@ -57,8 +57,7 @@
         <%= '<div id="flash"><div class="message error"><p>'+ flash[:error] +'</p></div></div>' unless flash[:error].blank? %>
         <%= '<script>jQuery("#flash").hide().toggle("fade", {}, 2500).delay(4000).toggle("slide", { direction: "down" }, 1500);</script>' unless flash[:notice].blank? and flash[:error].blank? %>
 
-       <% announcements = Announcement.prioritize.active %>
-       <%= render :partial => 'announcements/announcement', :locals => { :announcements => announcements } %>
+        <%= render :partial => 'announcements/announcement' %>
 
         <%= yield :tag_cloud %>
 
@@ -74,7 +73,6 @@
 
   <% javascript_tag do %>
     window.onload = setTimeout(function() {
-      announcementsRoutine(<%= announcements.size %>);
       float_bar("#tag-cloud","30px");
     }, 0);
   <% end %>

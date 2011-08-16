@@ -52,7 +52,7 @@
       <%= '<div id="flash"><div class="message error"><p>'+ flash[:error] +'</p></div></div>' unless flash[:error].blank? %>
       <%= '<script>jQuery("#flash").hide().toggle("fade", {}, 2500).delay(4000).toggle("slide", { direction: "down" }, 1500);</script>' unless flash[:notice].blank? and flash[:error].blank? %>
 
-      <%= render :partial => 'announcements/announcement', :locals => { :announcements => announcements } %>
+      <%= render :partial => 'announcements/announcement' %>
 
       <div id="content" class="<%= yield(:tag_cloud) ? 'double' : 'single' %>">
         <%= yield %>
@@ -62,6 +62,5 @@
   </div>
 
   <%= render :partial => 'shared/footer' %>
-
 </body>
 </html>
