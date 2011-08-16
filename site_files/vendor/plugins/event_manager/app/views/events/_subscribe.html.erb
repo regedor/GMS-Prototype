@@ -6,7 +6,7 @@
   </div>
 <% end %>
 
-<% if subscribed_activities %>
+<% if subscribed_activities && !subscribed_activities.empty? %>
   <div class="activities">
     <h3><%= t 'events.subscribe.activities' %></h3>
     <ul>
