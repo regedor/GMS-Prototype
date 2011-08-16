@@ -20,11 +20,7 @@ class Post < ActiveRecord::Base
 
   named_scope :not_deleted, :conditions => {:deleted => false}
   named_scope :viewable_only, lambda { |user| {
-    if user.nil?
-      :conditions => {"posts.group_id",[0]}
-    else  
-      :conditions => {"posts.group_id",user.group_ids+[0]}
-    end 
+      :conditions => (user.nil?) ? {"posts.group_id",[0]} : {"posts.group_id",user.group_ids+[0]}
     }
   }
 
