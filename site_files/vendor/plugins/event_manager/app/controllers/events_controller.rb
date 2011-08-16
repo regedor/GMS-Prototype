@@ -2,10 +2,10 @@ class EventsController < ApplicationController
 
   def unsubscribe
     @event = Event.find(params[:id])
-    EventsUser.find_by_event_id_and_user_id(@event.id,current_user.id).destroy
+    eventUser = EventsUser.find_by_event_id_and_user_id(@event.id,current_user.id)
         
     EventActivitiesUser.find_by_event_id_and_user_id(@event.id,current_user.id).to_a.map(&:destroy)
-    if eventUser.save
+    if eventUser && !eventUser.destroy.nil?
       flash[:notice] = t('flash.unsubscribe', :name => @event.name)
       redirect_to root_path
     else
