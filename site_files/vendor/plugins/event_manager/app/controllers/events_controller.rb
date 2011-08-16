@@ -4,6 +4,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     eventUser = EventsUser.find_by_event_id_and_user_id(@event.id,current_user.id)
     eventUser.status_id = 4 #unsubscribed
+    
     EventActivitiesUser.find_by_event_id_and_user_id(@event.id,current_user.id).to_a.map(&:destroy)
     if eventUser.save
       flash[:notice] = t('flash.unsubscribe', :name => @event.name)

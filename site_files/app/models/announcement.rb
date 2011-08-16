@@ -18,7 +18,11 @@ class Announcement < ActiveRecord::Base
   named_scope :since, lambda { |hide_time| { :conditions => (hide_time ? ['updated_at > ? OR starts_at > ?', hide_time.utc, hide_time.utc] : nil) } }
   named_scope :prioritize, :order => "priority desc"
   named_scope :viewable_only, lambda { |user| { 
+    if user.nil?
+      :conditions => {"announcements.group_id",[0]}
+    else  
       :conditions => {"announcements.group_id",user.group_ids+[0]}
+    end
     }
   }
   

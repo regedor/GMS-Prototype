@@ -139,9 +139,9 @@ puts "Creating events... (DEBUG)"
 
   a2 = EventActivity.new :title => "segunda actividade!", :description => "ainda mais super", :starts_at => Time.now + 1.day, :ends_at => Time.now + 2.days, :price => 100
 
-  Status.new(:name => "not confirmed").save
-  Status.new(:name => "confirmed").save
-  Status.new(:name => "rejected").save
+  Status.create(:name => "not confirmed")
+  Status.create(:name => "confirmed")
+  Status.create(:name => "rejected")
 
   e2.users << User.find(2)
   a1.users << User.find(1)
