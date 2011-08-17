@@ -1,0 +1,1328 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+pt:
+  navigation:
+    home: "Início"
+    about: "Sobre"
+    administration: "Administração"
+
+  users:
+    roles:
+      user: "Utilizador"
+      root: "Root"
+      admin: "Administrador"
+      member: "Membro"
+      general_manager: "Director Geral"
+      project_manager: "Director de Projectos"
+      website_manager: "Director da Página Web"
+      blogger: "Blogger" 
+    form:
+      name: "Nome"
+      email: "Email"
+      phone: "Telefone"
+      gender: "Sexo"
+      password: "Password"
+      change_password: "Mudar password" 
+      password_confirmation: "Confirmação da password"
+      openid: "URL OpenID"
+      language: "Idioma"
+      choosable_groups: "Grupos Disponíveis"
+      country: "País"
+      emails: "Receber emails"
+      profile: "Perfil"
+    edit:
+      title: "Editar conta"
+      commit_button: "Actualizar conta"
+      form_inputs_name: "Informação do Utilizador"
+      form_auth_inputs_name: "Autenticação"
+      form_group_inputs_name: "Grupos"
+      form_profile_inputs_name: "Perfil"
+      form_side_notes: "Aqui pode editar os detalhes da sua conta."
+    comment:
+      cancel: "Cancelar"
+    new:
+      title: "Criar uma nova conta"
+      openid: "OpenID"
+      form_inputs_name: "Por favor introduza o seu email e escolha uma password:"
+      form_openid_inputs_name: "Tenha em atenção que o email na página do formulário de OpenID irá ignorar isto."
+      form_side_notes:
+        first: "Porque ninguém quer ter que memorizar milhares de passords diferentes, recomendamos
+                que use um sistema de autenticação externo!"
+        second: "Utilizamos técnicas de ponta para assegurar que niguém (incluindo nós mesmos) possa ter acesso à sua password ou dados pessoais."
+        google_signup: "Google Sign Up"
+        yahoo_signup: "Yahoo Sign Up"
+      commit_button: "Registar conta"
+    errors:
+      invalid_fields: "Alguns campos estão inválidos"
+      user_optional_group_picks:
+        generic: "Os grupos que escolheu são incompativéis"
+        zero: "Nenhum grupo disponível para '%{name}'"
+        multiple: "Multiplos gupos disponíveis para escolher '%{name}': %{groups}"
+    show:
+      title: "Detalhes da conta"
+      list_link: "Lista de utilizadores"
+      session_link: "Mostrar detalhes da sessão"
+      edit_link: "Editar conta"
+      session:
+        title: "Detalhes da sessão"
+      invite:
+        title: "Convites"
+    update:
+      commit_button: "Actualizar"
+      cancel_button: "Cancelar"
+  
+  user_session:
+    errors:
+      invalid_open_id: "Autenticação OpenID falhou. Verifique os seus dados e tente de novo."
+    bar:
+      last_session_paragraph: "O seu último login foi há %{time_ago}, o seu IP foi %{ip}"
+      account_link: "Detalhes da conta"
+      logout: "Sair"
+      signin: "Entrar"
+      signup: "Registar"
+      google_signin: "Google Sign In"
+      change_language: "Mudar idioma:"
+    new:
+      title: "Login"
+      form_inputs_name: "Por favor introduza o seu email e password:"
+      form_openid_inputs_name: "Também pode entrar usando OpenID:"
+      form_side_notes: 
+        first: "Porque ninguém quer ter que memorizar milhares de passords diferentes, recomendamos que use um sistema de autenticação externo!"
+        second: "Utilizamos técnicas de ponta para assegurar que niguém (incluindo nós mesmos) possa ter acesso à sua password ou dados pessoais."
+        google_signin: "Google Sign In"
+        yahoo_signin: "Yahoo Sign In"
+      email: "Email"
+      password: "Password"
+      openid: "OpenID"
+      remember_me: "Lembrar-me"
+      forgot_pass: "Esqueci-me da minha password"
+      new_account: "Criar uma conta"
+      commit_button: "Entrar"
+    show:
+      close_button: "Fechar"
+
+  user_password_resets:
+    new:
+      title: "Esqueci-me da password"
+      form_inputs_name: "Preencha este formulário e enviaremos instruções para o seu email sobre como repor a sua password:"
+      form_side_notes: "Utilizamos técnicas de ponta para assegurar que ninguém (incluindo nós mesmos) possa
+                       aceder à sua password ou dados pessoais."
+      email: "Email"
+      commit_button: "Repor a minha password"
+    edit:
+      title: "Mudar a minha Password"
+      form_inputs_name: "Preencha o formulário abaixo com o seu endereço de email e uma nova password:"
+      form_side_notes: "Utilizamos técnicas de ponta para assegurar que ninguém (incluindo nós mesmos) possa
+                       aceder à sua password ou dados pessoais."
+      email: "Email"
+      change_password: "Nova password"
+      password_confirmation: "Confirmação da Password"
+      commit_button: "Actualizar password e entrar"
+
+  pages:
+    about:
+      title: "Sobre Este Projecto"
+
+  announcements:
+    none: "Actualmente não há anúncios."
+
+  posts:
+    none: "Ainda não há posts."
+    archive: "Arquivo de Posts"
+    read_more: "Ler mais"
+    share_on_facebook: "Partilhar"
+    meta:
+      date: "Publicado em"
+      tags: "Etiquetas"
+      comments:
+        one: "%{count} comentário"
+        many: "%{count} comentários"
+    tags:
+      title: "Nuvem de Etiquetas"
+      tagged_with: "Posts etiquetados com:"
+      clear_selection: "Limpar tudo"
+    archives:
+      title: "Arquivos"
+      none: "Ainda não há posts."
+    pagination:
+      previous: "««"
+      next: "»»"
+    not_logged_in: "Deve fazer login para inscrever-se num evento"  
+    form:
+      subscribe_button: "Inscrever"
+      cancel_button: "Cancelar"
+      activities: "Actividades"   
+      total_default: "0.00"
+      total: "Total:"   
+
+  comments:
+    title: "Deixar um comentário"
+    hint: "(<a href='http://lesstile.rubyforge.org'>lesstile enabled</a> - surround code blocks with ---)"
+    submit: "Deixar um comentário"
+    says: "diz:"
+    log_in_to: "Faça login se pretende deixar um comentário."
+    success: "Comentário guardado."
+    error:
+      generic: "Comentário não guardado."
+      no_body: "O conteúdo não pode estar em branco."
+      no_login: "Deve iniciar sessão para comentar."
+
+  events:
+    view:
+      cancel: "Cancelar"
+      price: "Preço"
+      button:
+        update: "Actualizar"
+    subscribe: 
+      eventSubscription: "Inscrito no evento " 
+      activities: "Inscrito nas seguintes actividades:"
+      price: "Preço Total: "
+      
+  admin:
+    navigation:
+      main:
+        dashboard: "Painel de Controlo"
+        users: "Gestão de Utilizadores"
+        website: "Website"
+        system: "Utilizadores"
+        communication: "Comunicação"
+        projects: "Projectos"
+        events: "Eventos"
+      secondary:
+        dashboard: "Painel de Controlo"
+        users: "Contas"
+        groups: "Grupos"
+        posts: "Posts"
+        comments: "Comentários"
+        announcements: "Anúncios"
+        pages: "Páginas"
+        settings: "Definições"
+        undo_items: "Acções"
+        mails: "Enviar Mensagem"
+        projects: "Projects"
+        to_do_lists: "Listas de Tarefas"
+        messages: "Mensagens"
+        to_do_comments: "Comentários"
+        events: "Eventos"
+    
+    to_do_list:
+      sidebar:
+        title: "Listas de Tarefas"
+        paragraph: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."          
+        select_title: "Mudar projecto:"
+        back: "Voltar à lista de projectos"
+        reorderLists: "Reorganizar Listas de Tarefas"
+      done: "Terminado"
+      new:
+        link: "Nova Lista de Tarefas"
+        name: "Nome"
+        description: "Descrição"
+        description_hint: "Esta descrição é opcional, utilize-a para explicar a finalidade da lista, caso necessário"
+        create_button: "Criar"  
+        cancel_button: "Cancelar"
+      delete:
+        link: "<img src='/images/icons/bin_closed.png' alt='Remove' />"
+      edit:
+        link: "<img src='/images/icons/pencil.png' alt='Edit' />"
+      empty: "Não existem listas de tarefas"    
+    
+    to_do:
+      add_new:
+        title: "Introduza uma nova tarefa"
+        done_adding: "Terminado"
+        add_button: "Acrescentar tarefa"
+        responsible: "Responsável pela tarefa"
+        link: "Acrescentar uma nova tarefa"
+        hint: "Será enviado um email para o responsável"
+      edit:
+        link: "Editar"
+        title: "Editar tarefa"
+        cancel: "Cancelar"
+        update_button: "Actualizar"
+        responsible: "Responsável pela tarefa"  
+        hint: "Será enviado um email para o responsável" 
+      delete:
+        link: "Apagar"  
+      comment:
+        link: "<img src='/images/icons/comment.png' alt='Comments' />"
+        title: "Comentar tarefa de %{list}"     
+        hint: "Deixar um comentário..."     
+      done:
+        show: "Mostrar todas as %{count} tarefas completadas"
+        collapse: "Esconder tarefas completadas"                        
+        
+    to_do_comment:
+      deleted_user: "Apagar Utilizador"    
+      new:
+        users: "Utilizadores a quem enviar email"
+        body: "Comentário"
+        create_button: "Comentar"
+        preview_button: "Visualizar"
+        cancel: "Cancelar"
+        edit_button: "Editar"
+        file: "Anexo"
+      sidebar:
+        back: "Voltar às Listas de Tarefas"                       
+        
+    messages:
+      index:
+        title: "Lista de Mensagens"
+        update_link: "Editar"
+        destroy_link: "Apagar"
+        show_link: "Apagar"
+        search: "Procurar Mensagens"
+        create: "Nova Mensagem"
+        author_on_date: "em"
+        by_category: "Mensagem sobre"
+        all: "Todas as Mensagens"
+        empty: "Não há Mensagens"
+      columns:
+        title: "Título da Mensagem"
+        body: "Corpo"
+        category: "Categoria" 
+      form:
+        new: "Nova mensagem"
+        edit: "Editar mensagem"
+        from: "De"
+        date: "Data"
+        create_button: "Criar"
+        update_button: "Actualizar"
+        cancel_button: "Cancelar"
+        hints:
+          body: "<a href='http://textile.thresholdstate.com/'>Textile enabled</a>. Use Ctrl+Alt+E para mudar entre modo de visualização e modo de edição."
+      comments:
+        comment: "Novo Comentário"
+        ghost: "Utilizador inexistente"
+      sidebar:
+        title: "Mensagens"
+        paragraph: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."          
+        categories: "Procurar por categoria:"
+        
+    
+    categories:
+        list:
+         title: "Categorias de"
+         empty: "Não há categorias"
+        form:
+          new: "Nova Categoria"
+          edit: "Editar Categoria"
+          name: "Nome"
+          create_button: "Criar"
+          edit_button: "Editar"
+          cancel_button: "Cancelar"
+                
+    
+    project:
+      index:
+        title: "Projectos" 
+        create: "Novo Projecto"
+        update_link: "Editar"
+        destroy_link: "Apagar"
+        show_link: "Ir a Projecto"
+      new:
+        name: "Nome"
+        description: "Descrição"
+        users: "Utilizadores Associados"
+        create_button: "Criar"
+        edit_button: "Actualizar"
+        cancel: "Cancelar"
+      create:
+        title: "Novo Projecto"      
+      columns:
+        name: "Nome"
+        description: "Descrição"
+        groups: "Grupos Designados"
+        user_id: "Criado por"
+        user: "Proprietário"
+      form:
+        new: "Novo Projecto"
+      list:
+        noentries: "Nenhum Projecto Encontrado"
+        found:
+          more: "%{count} Projectos Encontrados"
+          one: "%{count} Projecto Encontrado"                              
+   
+    dashboard:
+      text: "Neste momento está a visualizar o painel de controlo de Administrador. Aqui, pode gerir utilizadores, grupos, comunicação e o conteúdo da parte pública. A barra da direita também contém alguma informação útil e links relevantes."
+      sidebar:
+        title: "Painel de Controlo"
+        paragraph:  "Esta barra dispõe de atalhos para as funções mais comuns que ocorrem no painel do administrador. Passar o cursor do rato sobre uma palavra em <b title=\"Isto é uma palavra em bold.\">bold</b> dar-lhe-á mais dicas ."
+        go_to_frontend: "Ir para Parte Pública"
+        website_management:
+          title: "Gestão do Website"
+          manage_announcements: "Gerir Anúncios"
+          manage_posts: "Gerir Posts"
+          manage_pages: "Gerir Páginas"
+        system_management:
+          title: "Gestão do Sistema"
+          manage_user_accounts: "Gerir Contas de Utilizador"
+          manage_groups: "Gerir Gupos de Utilizador"
+          configure_settings: "Configurar Definições"
+
+    activities:
+      form:
+        new: "Nova Actividade"
+        create_button: "Criar"
+        cancel_button: "Cancelar"
+      view:
+        title: "Título"
+        description: "Descrição"
+        starts_at: "Começa em"
+        ends_at: "Acaba em"
+        price: "Preço"
+
+    event:
+      activities:
+        form:
+          edit: "Editar Actividade"      
+        index:
+          title: "Actividades"
+          create: "Nova Actividade"
+          show_link: "Detalhes"
+          update_link: "Editar"
+          destroy_link: "Apagar"
+        manage:
+          button:
+            search: "Procurar"
+        columns:
+          title: "Nome"
+          description: "Descrição"
+          starts_at: "Data de início"
+          ends_at: "Data de final"
+          price: "Preço"
+        list:
+          found:
+            more: "%{count} Actividades Encontradas"
+            one: "%{count} Actividade Encontrada"            
+          noentries: "Nenhuma Actividade Encontrada"   
+        view:
+          cancel: "Cancelar"
+          button:
+            update: "Aplicar"           
+
+    events:
+      index:
+        title: "Eventos"
+        create: "Novo Evento"
+        list_activities: "Mostrar Actividades"
+        show_link: "Detalhes"
+        update_link: "Editar"
+        destroy_link: "Apagar"
+      columns:
+        name: "Nome"
+        description: "Descrição"
+        starts_at: "Data de início"
+        ends_at: "Data de final"
+        price: "Preço"
+      create:
+        title: "Evento"
+      view:  
+        showAnnouncement: "Mostrar Anúncio"
+        hideAnnouncement: "Ocultar Anúncio"  
+        showPost: "Mostrar Post"
+        hidePost: "Ocultar Post"  
+        activities: "Actividades"
+        name: "Nome"
+        description: "Descrição"
+        price: "Preço"
+        totalprice: "Preço Total do Evento"
+        starts_at: "Data de início"
+        ends_at: "Data de final"
+        cancel: "Voltar"
+        participation_message: "Mensagem de Participação"
+        button:
+          update: "Actualizar"
+      form:
+        new: "Novo Evento"
+        edit: "Editar Evento"
+        create_button: "Criar"
+        update_button: "Actualizar"
+        cancel_button: "Cancelar"
+      list:
+        found:
+          more: "%{count} Eventos Encontrados"
+          one: "%{count} Evento Encontrado"            
+        noentries: "Nenhum Evento Encontrado"              
+
+    mails:
+      vals:    
+        users: "Utilizadores"
+        groups: "Grupos"    
+      title: "Destinatários"
+      to: "Para:"
+      subject: "Assunto:"
+      message: "Texto:"
+      send: "Enviar mensagem"
+      group: " (Group)"
+      send_ok: "A mensagem será enviada"
+      send_fail: "A mensagem não pôde ser enviada. Por favor, tente de novo!"
+      list:
+        found:
+          more: "%{count} Mensagens Encontradas"
+          one: "%{count} Mensagem Encontrada"            
+        noentries: "Nenhuma Mensagem Encontrada"              
+      index:
+        destroy_link: "Apagar"
+        show_link: "Detalhes" 
+        title: "Enviar Mensagens" 
+      columns:    
+        sent_on: "Enviado em"
+        subject: "Assunto"
+        message: "Texto"
+        xml_groups_and_users: "Para"
+        user_id: "De"      
+        message_type: "Tipo"
+      create:
+        title: "Email"
+      new:
+        sidebar:
+          title: "Gestão de Emails"
+          content: "Aqui pode gerir e enviar emails."
+          sent_mails: "Caixa de Saída"
+          go_to_sent_mails: "Mensagens Enviadas"
+      form:
+        type:
+          sms: "SMS"
+          mail: "Email"
+                            
+    users:
+      index:
+        title: "Utilizadores"
+        update_link: "Editar"
+        destroy_link: "Apagar"
+        show_link: "Detalhes"
+        search: "Procurar utilizadores"
+        create: "Criar utilizador"
+      columns:
+        created_at: "Criado em"
+        email: "Email"
+        active: "Activo"
+        language: "Idioma"
+        name: "Nome"
+        role: "Papel do Utilizador"
+        nickname: "Nickname"
+        profile: "Perfil"
+        website: "Website"
+        country: "País"
+        gender: "Sexo"
+        groups: "Grupos"
+        phone: "Telefone"
+        avatar: "Avatar"
+      sidebar:
+        history:
+          title: "Reverter informações"
+          paragraph: "Aqui pode reverter informações. Clique nas datas em baixo para ver como estava a respectiva informação nessa data. Clique em <b title=\"O link para reverter aparecerá quando clicar numa data anterior.\">\"Reverter\"</b> para completar o processo de reversão. <br/>A informação de grupo não será revertida. Para editar este utilizador por favor vá à <a href=\"%{url}\">página de edição</a>."
+          paragraph_no_link: "Aqui pode reverter informações. Clique nas datas em baixo para ver como estava a respectiva informação nessa data. Clique em <b title=\"O link para reverter aparecerá quando clicar numa data anterior.\">\"Reverter\"</b> para completar o processo de reversão. <br/>A informação de grupo não será revertida. Para editar este utilizador por favor vá à página de edição."
+        reversion:
+          title: "A reverter"
+          subtitle: "Está a reverter informação"
+          message: "Se clicar em <b title=\"O link para reverter está em baixo.\">\"Reverter\"</b> em baixo, as modificações serão permanentes!"
+          link: "Reverter"
+        title: "Utilizadores"
+        text: "Pode <b title=\"Use o botão 'Apagar'.\">apagar</b>, <b title=\"Use o botão 'Detalhes'.\">ver</b> e <b title=\"Use o botão 'Editar'.\">editar</b> utilizadores.<br/><br/>É possível ordenar a lista de utilizadores por <b title=\"Clique em 'Criado em'.\">data de criação</b>, <b title=\"Clique em 'Email'.\">email</b>, <b title=\"Clique em 'Active'.\">activação</b>, <b title=\"Clique em 'Nome'.\">nome</b> ou <b title=\"Clique em 'Cargo'.\">cargo</b> e também <b title=\"A caixa de Filtro é ao lado do botão de Adicionar.\">filtrar</b> os conteúdos.<br/><br/>Pode fazer <b title=\"Apagar, Activar or Desactivar.\">acções em massa</b>, escolhidas no <b title=\"Clique em 'Mais Acções'.\">menu drop-down</b> e serão aplicadas aos utilizadores <b title=\"A check box encontra-se à esquerda do nome.\">escolhidos</b>."
+        edit:
+          title: "Editar utilizador"
+          text: "Pode editar os detalhes do utilizador aqui, mudando toda a informação.<br/> O campo de <b title=\"Ver campo à esquerda.\">email</b> especifica o email pessoal do utilizador.<br/>A opção <b title=\"Ver campo à esquerda.\">activar</b> especifica se o utilizador esta activo ou não.<br/>Também pode alterar o número de <b title=\"Ver campo à esquerda.\">telefone</b>.<br/>O <b>avatar</b title=\"Ver campo de actualização à esquerda.\"> specifica a imagem de apresentação do utilizador. Pode fazer upload a qualquer ficheiro de image que será automáticamente formatado para o tamanho de 100x100 px.<br/>No campo de <b title=\"Ver campo à esquerda.\">perfil</b> há uma breve descrição do utilizador.<br/>Pode especificar um <b title=\"Ver campo à esquerda.\">website</b>, também como o <b title=\"Ver campo à esquerda.\">país</b>.<br/>O <b title=\"Ver campo à esquerda.\">sexo</b> do utilizador também é definido aqui.<br/>Pode adicionar o utilizador a <b title=\"Ver campo à esquerda.\">grupos</b> escolhendo os grupos que pretende.<br/>A informação de <b title=\"Ver as check boxes.\">grupos</b> não será guardada para reversão, uma vez feita uma alteração não é possivel recuperá-la.<br/>Quando guarda, será criada uma entrada de histórico. Isto quer dizer que pode reverter a um estado anterior (excepto para informação de grupos).<br/>Os campos com um asterisco (*) são obrigatórios."
+        delete_by_ids!: "Apagar"
+        activate!: "Activar"
+        deactivate!: "Desactivar"
+        groups:
+          title: "Grupos"
+          reset: "Lista de todos os utilizadores"
+          paragraph: "Pode também filtrar utilizadores por grupos na lista abaixo. Quando clicar num grupo, serão mostrados todos os utilizadores que pertencem ao grupo que seleccionou."
+        deleted_users:
+          paragraph: "Clique no link abaixo para desfazer apagar utilizadores:"
+          link: "Ir a utilizadores apagados"
+      list_actions:
+        destroy_by_ids: "Apagar"
+        delete_by_ids!: "Apagar"
+        activate!: "Activar"
+        deactivate!: "Desactivar"
+        add_to_group: "Adicionar ao grupo '%{name}'"
+        remove_from_group: "Remover do grupo '%{name}'"
+      list:
+        found:
+          more: "%{count} Utilizadores Encontrados"
+          one: "%{count} Utilizador Encontrado"            
+        noentries: "Nenhum Utilizador Encontrado"
+      view:
+        email:    "Email"
+        name:     "Nome"
+        nickname: "Nickname"
+        gender:   "Sexo"
+        profile:  "Perfil"
+        website:  "Website"
+        country:  "País"
+        phone:    "Telefone"
+        emails:   "Receber emails"
+        language: "Idioma"
+        groups:   "Grupos"
+        role:     "Cargo"
+        cancel:   "Fechar"
+        last_login_at: "Último login em"
+        created_at: "Criado em"
+        login_count: "Login conta"
+        failed_login_count: "Logins Errados"
+        current_login_at: "Actualmente conectado em"
+        last_login_ip: "IP do Último Login"
+        last_request_at: "Último Pedido"
+        current_login_ip: "IP do Login Actual"
+        password_salt: "Password salt"
+        crypted_password: "Password encriptada"
+        persistence_token: "Persistence token"
+        openid_identifier: "OpenID Identifier"
+        single_access_token: "Single access token"
+        perishable_token: "Perishable token"
+        active: "Activo"
+
+      form:
+        delete_button: "Apagar"  
+        update_button: "Actualizar"
+        cancel_button: "Cancelar"
+        edit: "Actualizar Utilizador"
+        hints:
+          avatar: "Se fizer o upload de uma imagem mostrar-se-à isto. Caso não faça upload de nenhuma imagem e o utilizador tiver um gravatar, este será utilizado. Em outro caso, será mostrada uma imagem padrão."
+          active: "Um utilizador deve estar activo para poder realizar o login."
+          phone: "Por favor, introduza também o prefixo do seu país."
+          groups: "Seleccione os grupos aos que o utilizador pertencerá."
+
+    deleted_users:
+      index:
+        deleted_user: "Utilizador Apagado"
+        title: "Lista de Utilizadores Apagada"
+        search: "Procurar Utilizadores"
+        create: "Criar utilizador"
+        show_link: "Detalhes"
+        destroy_link: "Destruir"
+        undelete_link: "Recuperar"
+      columns:
+        created_at: "Criado em"
+        email: "Email"
+        active: "Activo"
+        language: "Idioma"
+        name: "Nome"
+        role: "Cargo do Utilizador"
+        destroy_link: "Apagar"
+        show_link: "Detalhes"
+        undelete_link: "Desfazer apagar"
+      list_actions:
+        destroy_by_ids!: "Destruir"
+        activate!: "Activar"
+        undelete_by_ids: "Recuperar"
+        deleted_user: "Utilizador Apagado"
+      list:
+        found:
+          more: "%{count} Utilizadores Encontrados"
+          one: "%{count} Utilizador Encontrado"            
+        noentries: "Nenhum Utilizador Encontrado"
+      sidebar:
+        title: "Utilizadores Apagados"
+        text: "Aqui pode ver os utilizadores apagados. Pode <b title=\"O link está no fim da linha.\">\"Recuperar\"</b> um utilizador, ver os seus <b title=\"O link está no fim da linha.\">\"Detalhes\"</b> remver um utilizador permanentemente escolhendo <b title=\"O link está no fim da linha.\">destruir</b>. Esta acção é <b title=\"Tenha cuidado.\">irreversível</b>. Pode aplicar estas acções a um grupo de utilizadores escolhendo as mesmas da <b title=\"Ver a combo box no topo da tabela.\">combo box</b>.<br/>Para saír desta página clique em \"Voltar a Utilizadores\" em baixo."
+        show:
+          title: "Detalhes do utilizador apagado"
+          text: "Está a visualizar os detalhes de um utilizador apagado. Não pode mudar esta informação. Se deseja fazer alterações, por favor <b title=\"A acção de recuperar está disponível na listagem.\">recupere</b> este utilizador."
+        delete:
+          title: "Destruir um utilizador!"
+          text: "<b \"Esta acção é permanente.\">Está a remover este utilizador de forma permanente. Toda a informação perder-se-à e não poderá ser recuperada caso confirme esta acção. Por favor, pondere esta acção e verifique sempre o utilizador que está a apagar.</b>"
+      undelete:
+        title: "Desfazer apagar utilizador?"
+        submit: "Desfazer apagar"
+        cancel_link: "Cancelar"
+        link: "Voltar a Utilizadores"
+
+    groups:
+      index:
+        title: "Grupos"
+        show_link: "Detalhes"
+        update_link: "Editar"
+        destroy_link: "Apagar"
+        search: "Procurar grupos"
+        create: "Novo grupo"
+        sidebar:
+          users:
+            go_to_deleted_users: "Ir a utilizadores apagados"
+            go_to_users: "Ir a utilizadores"
+            deleted_users: "Apagar utilizadores"
+            undo_deleted_users: "Recuperar utilizadores"
+      sidebar:
+        edit:
+          title: "Editar grupo"
+          paragraph: "Ao editar um grupo, pode mudar o seu <b title=\"Ver o campo à esquerda.\">nome</b>. <br/> Pode adicionar uma <b title=\"Ver o campo à esquerda.\">descrição</b>. <br/> Pode decidir se um grupo poderá receber <b title=\"Ver o campo à esquerda.\">emails</b> or não, isto é, se é permitido enviar um email para todos os membros do grupo de uma só vez.<br/> Para permitir que o utilizador escolha pertencer a um grupo, escolha verdadeiro em <b title=\"Ver o campo à esquerda.\">User elegível</b>.<br/> Pode criar hierarquias de<b title=\"Ver o campo à esquerda.\">gupos</b> ao arrastar desde o campo amarelo ao campo verde, o que criará subgrupos. <br/> Os <b title=\"Ver o campo à esquerda.\">utilizadores</b> do grupo são geridos da mesma forma que os subgrupos."
+        hierarchy:
+          name: "Hierarquia"
+          subname: "Todos os grupos"
+          index:
+            title: "Grupos"
+            paragraph: "Pode <b title=\"Use o botão 'Novo Grupo'.\">criar</b> grupos novos e <b title=\"Use o botão 'Apagar'.\">apagar</b> os existentes. Também pode <b title=\"Use o botão 'Detalhes'.\">ver</b> e <b title=\"Use o botão 'Editar'.\">editar</b> grupos actuais.<br/><br/>É possível ordenar a lista de utilizadores por <b title=\"Clique em 'Nome'.\">nome</b>, <b title=\"Clique em 'Mailable'.\">email</b> ou <b title=\"Clique em 'Descrição'.\">descrição</b> também como <b title=\"A caixa de filtros encontra-se ao lado do botãod e adicionar.\">filtrar</b> os seus conteúdos.<br/><br/>Pode fazer <b title=\"Apagar.\">acções em massa</b>, escolhidas no <b title=\"Clique em 'Mais Acções.\">menu drop-down</b> que serão aplicadas aos utilizadores <b title=\"A check box encontra-se à esquerda do nome\">escolhidos</b>."
+          empty:
+            subname: "Todos os grupos"
+            paragraph: "Quando visualiza os detalhes de um grupo que contém subgrupos, pode ver aqui a hierarquia."
+          info:
+            subname: "Todos os grupos"
+            paragraph: "Abaixo pode ver a relação hierárquica entre grupo e subgrupo. "
+        user_optional_group_picks:
+          title: "Escolhas de Grupo do Utilizador"
+          paragraph: "Pode gerir as escolhas de grupo do utilizador."
+          link: "Ir a escolhas do grupo de utilizador"
+        users: 
+          deleted_users: "Utilizadores apagados"
+          go_to_users: "Ir a utilizadores"
+      columns:
+        parent_name: "Filiação"
+        name: "Nome"
+        mailable: "Mailable"
+        description: "Descrição"
+        groups: "Grupos"
+        direct_users: "Utilizadores"
+        user_choosable: "Utilizador elegível"
+        behavior_type: "Tipo de Comportamento"
+        behavior_at_time: "Executar Comportamento em"
+        behavior_after_time: "Executar comportamento depois de"
+        behavior_file_name: "Comportamento"
+        behavior_group_to_jump: "Saltar para"
+      create:
+        title: "Grupo"
+      form:
+        show: "Detalhes do Grupo"
+        new: "Novo Grupo"
+        edit: "Editar Grupo"
+        create_button: "Criar"
+        update_button: "Actualizar"
+        cancel_button: "Cancelar"
+        close_button: "Fechar"
+        behavior:
+          at_time: "Por data"
+          after_time: "Por tempo decorrido"
+          errors:
+            negative_time: "Tempo até que a execução do comportamento tenha que ser maior que zero segundos"
+            file_trick: "Ficheiro inválido"
+        hints:
+          mailable: "Se é possível enviar emails em massa para os membros deste grupo"
+          user_choosable: "Permite a um utilizador escolher se quer ou não pertencer a este grupo"
+          behavior_type: "Seleccionar o tipo de comportamento"
+          groups: "Subgrupo (s) seleccionado"
+          direct_users: "Seleccionar utilizador(es) pertencentes por defeito"
+          behavior_at_time: "O tempo a que se aplica o comportamento"
+          behavior_group_to_jump: "Seleccionar o grupo desejado"
+          behavior_file_name: "Seleccionar o comportamento desejado"
+          behavior_after_time: "Número de dias decorridos até à aplicação do comportamento"
+      list_actions:
+        delete_by_ids!: "Apagar"
+      list:
+        noentries: "Nenhum Grupo Encontrado"
+        found:
+          more: "%{count} Grupos Encontrados"
+          one: "%{count} Grupo Encontrado"
+
+    user_optional_group_picks:
+      index:
+        title: "Lista de Grupos Opcionais Escolhidos pelo Utilizador"
+        show_link: "Detalhes"
+        update_link: "Editar"
+        destroy_link: "Apagar"      
+        search: "Procurar Escolhas"
+        create: "Novas Escolhas"
+      sidebar:
+        title: "Escolhas de Grupos Opcionais do Utilizador"
+        link: "Voltar a Grupos"
+      columns:
+        name: "Nome"
+        description: "Descrição"
+        group: "Grupo"
+        role: "Cargo"
+        groups: "Grupos Opcionais"
+      form:
+        show: "Detalhes da Escolha de Grupo"
+        new: "Nova Escolha de Grupo"
+        edit: "Editar Escolha de Grupo"
+        create_button: "Criar"
+        update_button: "Actualizar"
+        cancel_button: "Cancelar"
+        close_button: "Fechar"
+        hints:
+          role: "Seleccionar cargo do utilizador"
+          group: "Seleccionar grupo"
+          groups: "Seleccionar grupo (s)"
+      list:
+        noentries: "Nenhuma Escolha Encontrada"
+        found:
+          more: "%{count} Escolhas Encontradas"
+          one: "%{count} Escolha Encontrada"
+
+    pages:
+      index:
+        title: "Páginas"
+        destroy_link: "Apagar"
+        update_link: "Editar"
+        show_link: "Detalhes"
+        search: "Procurar Páginas"
+        create: "Nova Página"
+      sidebar:
+        title: "Páginas"
+        paragraph: "Pode <b title=\"Use o botão 'Nova Página'.\">criar</b> páginas novas e <b title=\"Use o botão 'Apagar'.\">apagar</b> as existentes. Também pode <b title=\"Use o botão 'Detalhes'.\">ver</b> e <b title=\"Use o botão 'Editar'.\">editar</b> as páginas actuais.<br/><br/>É possível ordenar a lista de páginas por <b title=\"Clique em 'Título'.\">título</b> ou <b title=\"Clique em 'Data'.\">data</b> também como <b title=\"A caixa de filtros é ao lado do botão de adicionar.\">filtrar</b> os seus conteúdos.<br/><br/>Ao clicar no título da página, será redireccionado para a página pública correspondente."
+        edit:
+          title: "Editar Página"
+          paragraph: "Está a editar a informação da página. Além do <b title=\"O título é a identificação da página.\">título</b> e do <b title=\"O corpo correspsonde ao conteúdo da página.\">corpo</b>, pode alterar o <b title=\"O slug é a identificação da página, útil para links.\">slug</b> e <b title=\"A ordem em que a página aparecerá no menu de navegação.\">prioridade</b>. Também há checkboxes para <b title=\"Activar para mostrar a página no menu.\">mostrar no menu</b> e <b title=\"Activar se pretende permitir que os utilizadores comentem na página.\">ter comentários</b>.<br/><br/>Pode visualizar os conteúdos da página antes de <b title=\"O botão Guardar guarda a página.\">Guardar</b> ao clicar em <b title=\"O botão Visualização button permite you visualizar a página.\">Visualização</b>. Para descartar alterações, clique em <b title=\"O botão Cancelar descarta qualquer modificação.\">Cancelar</b>."
+        history:
+          title: "Detalhes da Página"
+          paragraph: "Pode reverter as informações de páginas. Clique nas datas em baixo para reverter para estados anteriores. Clique em <b title=\"O link para reverter aparece quando clicar numa data anterior.\">Reverter</b> para completar o processo de reversão."
+        reversion:
+          title: "Reverter Página"
+          message: "Está a reverter informação. se clicar em <b title=\"O botão para reverter encontra-se em baixo.\">Reverter</b> em baixo, as suas acções serão permanentes!"
+          link: "Reverter"
+      columns:
+        title: "Título"
+        excert: "Excerto"
+        total_approved_comments: "Comentários"
+        created_at: "Data"
+        body: "Corpo"
+        slug: "Slug"
+        show_in_navigation: "Mostrar no Menu"
+        has_comments: "Tem comentários"
+        priority: "Prioridade"
+      form:
+        new: "Nova Página"
+        edit: "Editar Página"
+        show: "Detalhes da Página"
+        preview_button: "Visualizar"
+        edit_button: "Editar"
+        create_button: "Criar"
+        update_button: "Actualizat"
+        cancel_button: "Cancelar"
+        close_button: "Fechar"
+        hints:
+          body: "<a href='http://textile.thresholdstate.com/'>Textile enabled</a>. Use Ctrl+Alt+E para mudar entre modo de visualização e de edição."
+          slug: "Deixar vazio para utilizar um slug baseado no título, gerado automáticamente."
+          show_in_navigation: "Seleccionar para mostrar na barra de navegação da parte pública."
+          priority: "Seleccionar quão alto (em prioridade) deve estar o link na barra de navegação da parte pública."
+          has_comments: "Seleccione para permitir comentários nesta página."
+      preview:
+        title: "A sua entrada será formatada da seguinte forma:"
+        return: "Use Ctrl+Alt+E para voltar ao modo de edição."
+      list:
+        noentries: "Nenhuma Página Encontrada"
+        found:
+          more: "%{count} Páginas Encontradas"
+          one: "%{count} Página Encontrada"
+
+    posts:
+      index:
+        title: "Posts"
+        show_link: "Detalhes"
+        destroy_link: "Apagar"
+        update_link: "Editar"
+        comments_link:
+          image: ""
+          more: "%{count} Comentários"
+          one: "%{count} Comentário"
+        search: "Procurar Posts"
+        create: "Novo Post"
+      columns:
+        published_at: "Data Publicação"
+        title: "Título"
+        excert: "Excerto"
+        total_approved_comments: "Comentários"
+        body: "Corpo"
+        slug: "Slug"
+        image: "Imagem"
+        generic_file: "Anexo"
+        tag_list: "Lista de etiquetas"
+        minor_edit: "Edição Mínima"
+        groups: "Visível para"
+      preview:
+        title: "A sua entrada será formatada da seguinte forma:"
+        return: "Use Ctrl+Alt+E para voltar ao modo de edição."
+        error: "Erro ao gerar visualização. Volte ao modo de edição e verifique que todos os campos requeridos estão preenchidos e válidos."
+      list:
+        noentries: "Nenhum Post Encontrado"
+        found:
+          more: "%{count} Posts Encontrados"
+          one: "%{count} Post Encontrado"
+      form:
+        show: "Detalhes do Post"
+        new: "Novo Post"
+        edit: "Editar Post"
+        edit_tag: "Editar Etiqueta - %{name}"
+        preview_button: "Visualização"
+        edit_button: "Editar"
+        delete_generic: "Apagar anexo"
+        delete_image: "Apagar imagem"
+        create_button: "Criar"
+        update_button: "Actualizar"
+        cancel_button: "Cancelar"
+        close_button: "Fechar"
+        hints:
+          body: "<a href='http://textile.thresholdstate.com/'>Textile enabled</a>. Use Ctrl+Alt+E para mudar entre modo de visualização e de edição."
+          image: "Seleccione uma imagem do post."
+          generic_file: "Anexar um ficheiro"
+          delete_generic: "Verificar para apagar o anexo actual"
+          delete_image: "Verificar para apagar a imagem actual"
+          tag_list: "Separado por vírgula: ruby, rails&hellip;"
+          published_at: "Clique no campo para abrir o calendário."
+          slug: "Deixar vazio para criar um slug baseado no título, gerado automaticamente."
+          minor_edit: "Edições mínimas não aparecerão nos leitores de feeds. Utilize para corrigir pequenos erros."
+          groups: "Escolha os grupos que podem ver este post. Deixe vazio se desejar que seja visível para todos os visitantes."
+      tags:
+        title: "Etiquetas"
+        pagination:
+          previous: "««"
+          next: "»»"
+        list:
+          edit: "Editar"
+          posts:
+            more: "%{count} posts"
+            one: "%{count} post"
+        edit:
+          prompt: "Mudar o nome da etiqueta"
+          error:
+            generic: "Não foi possível mudar o nome da etiqueta."
+            tag_exists: "Já existe uma etiqueta com o nome especificado."
+            no_server: "Não foi possível conectar ao servidor."
+      sidebar:
+        index:
+          title: "Posts"
+          paragraph: "Pode <b title=\"Use o botão 'Novo Post'.\">criar</b> posts novos e <b title=\"Use o botão 'Apagar'.\">remover</b> existentes. Também pode <b title=\"Use o botão 'Detalhes'.\">ver</b> e <b title=\"Use o botão 'Editar'.\">editar</b> os existentes.<br/><br/>É possível ordenar a listagem de posts por <b title=\"Clique em 'Título'.\">título</b> ou <b title=\"Clique em 'Data Publicação'.\">data de publicação</b> também como <b title=\"A caixa de filtros encontra-se ao lado do botão Adicionar.\">filtrar</b> os seus conteúdos.<br/><br/>Ao clicar no título do post, será redireccionado para o post correspondente na parte pública."
+        history:
+          title: "Detalhes do Post"
+          paragraph: "Pode reverter a informação do post. Clique nas datas em baixo para reverter para estados anteriores. Clique em <b title=\"O link para reveter aparecerá quando seleccionar uma data anterior.\">Reverter</b> para completar o processo de reversão."
+        reversion:
+          title: "Reverter Post"
+          message: "Está a reverter informação. Se clicar em <b title=\"O link para reverter encontra-se em baixo.\">Reverter</b> em baixo, as suas acções serão permanentes!"
+          link: "Reverter"
+        edit:
+          title: "Editar Post"
+          paragraph: "Está a editar informação do post. Além do <b title=\"O título é a identificação do post.\">título</b> e do <b title=\"O corpo corresponde ao conteúdo do post.\">corpo</b>, pode alterar <b title=\"Etiquetas são uma série de palavras-chave para categorizar o post.\">lista de etiquetas</b>, a <b title=\"\">data de publicação</b> e o <b title=\"O slug é a identificação única do posto, util para links.\">slug</b>. Também existe uma checkbox para fazer <b title=\"Activar se não quiser que os utilizadores sejam notificados da mudança.\">edição mínima</b>.<br/><br/>Pode visualizar os conteúdos do post antes de <b title=\"O botão Guardar guarda o post.\">Guardar</b> ao clicar em <b title=\"O botão Visualização button permite visualizar o post.\">Visualização</b>. Para descartar alterações, clique em <b title=\"O botão Cancelar descarta qualquer modificação.\">Cancelar</b>."
+        tags:
+          paragraph: "Também pode filtrar posts pelas <b title=\"Etiquetas são uma série de palavras-chave para categorizar o post.\">etiquetas</b> na lista abaixo. Quando clica numa etiqueta, os posts que <b title=\"Se clicar a etiqueta 'a' e 'b', só os posts contendo ambas as palavras-chave serão mostrados.\">contêm</b> todas as etiquetas seleccionadas serão mostrados."
+
+    comments:
+      index:
+        title: "Todos os comentários de %{title}"
+        destroy_link: "Apagar"
+        update_link: "Editar"
+        search: "Procurar Comentários"
+        create: "Novo Comentário"
+        sidebar:
+          title: "Comentários"
+          paragraph: "Está a visualizar os comentários escritos por outros utilizadores aos seus posts. Pode <b title=\"O link para editar encontra-se no fim da linha.\">Editar</b> ou <b title=\"O link para apagar encontra-se no fim da linha.\">Apagar</b> um comentário."
+          edit:
+            title: "Comentário"
+            paragraph: "Está a editar um comentário. Pode alterar o <b title=\"O corpo é o conteúdo do comentário.\">corpo</b> do commntário."
+      columns:
+        created_at: "Data"
+        commenter: "Comentador"
+        excert: "Excerto"
+        post: "Post"
+        body: "Corpo"
+      form:
+        edit: "Editar Comentário"
+      list:
+        noentries: "Nenhum comentário Encontrado"
+        found:
+          more: "%{count} Comentários Encontrados"
+          one: "%{count} Comentário Encontrado"
+
+    announcements:
+      index:
+        title: "Anúncios"
+        update_link: "Editar"
+        destroy_link: "Apagar"
+        show_link: "Detalhes"
+        close_button: "Fechar"
+        search: "Procurar Anúncios"
+        create: "Novo Anúncio"
+      columns:
+        title: "Título"
+        headline: "Headline"
+        message: "Mensagem"
+        starts_at: "Data de início"
+        ends_at: "Data de fim"
+        url: "URL"
+        avatar: "Imagem"
+      create:
+        title: "Anúncio"
+      form:
+        show: "Detalhes de Anúncio"
+        new: "Novo Anúncio"
+        edit: "Editar Anúncio"
+        preview_button: "Visualização"
+        edit_button: "Editar"
+        create_button: "Criar"
+        update_button: "Actualizar"
+        cancel_button: "Cancelar"
+        close_button: "Fechar"
+        hints:
+          url: "Este é o link alvo quando clica numa imagem de Anúncio na parte pública."
+          avatar: "Esta é a imagem do anúncio."
+          message: "Esta é a mensagem do anúncio, que aparecerá à frente da imagem."
+      list:
+        noentries: "Nenhum Anúncio Encontrado"
+        found:
+          more: "%{count} Anúncios Encontrados"
+          one: "%{count} Anúncio Encontrado"
+      sidebar:
+        title: "Anúncios"
+        paragraph: "Pode <b title=\"Use o botão 'Novo Anúncio'.\">criar</b> novos anúncios e <b title=\"Use o botão 'Apagar'.\">remover</b> os existentes. Também pode <b title=\"Use o botão 'Detalhes'.\">ver</b> e <b title=\"Use o botão 'Editar'.\">editar</b> anúncios actuais.<br/><br/>É possível ordenar a lista de anúncios por <b title=\"Clique em 'Título'.\">título</b>, <b title=\"Clique em 'Mensagem'.\">mensagem</b>, <b title=\"Clique em 'Data de início'.\">data de início</b>, <b title=\"Clique em 'Data de fim'.\">data de fim</b> ou <b title=\"Clique em 'URL'.\">URL</b> também como <b title=\"A caixa de filtros encontra-se ao lado do botão adicionar.\">filtrar</b> os seus conteúdos.<br/><br/>Ao clicar no título do anúncio, será redireccionado para o anúncio correspondente na parte pública."
+        show:
+          title: "Detalhes do Anúncio"
+          paragraph: "Está a visualizr os detalhes de um anúncio. Para editar este anúncio, vá ao separador de anúncios e clique em editar."
+        edit:
+          title: "Editar Anúncio"
+          paragraph: "Está a editar informação de anúncios. Além do <b title=\"O título é a identificação do anúncio.\">título</b> e <b title=\"A mensagem corresponde ao conteúdo do anúncio.\">mensagem</b>, pode definir o <b title=\"O anúncio será visivel entre a date de início e de fim.\">periodo de tempo</b> no qual o anúncio será mostrado, escolher uma <b title=\"A imagem preencherá a área de anúncios.\">imagem de fundo</b> e ligar o anúncio a um  <b title=\"Quando a imagem é clicada, será redireccionado para o URL especificado.\">URL</b>.<br/><br/>Pode visualizar os conteúdos do anúncio antes de <b title=\"O botão Guardar guarda o anúncio.\">Guardar</b> ao clicar no botão<b title=\"O botão visualizar permite ver o anúncio.\">Visualizar</b>. Para descartar alterações, clique em <b title=\"O botão cancelar descarta as alterações feitas.\">Cancelar</b>."
+
+    settings:
+      title: "Definições"
+      theme: "Tema"
+      site_title: "Título do site"
+      save: "Guardar"                
+
+  authlogic:
+    error_messages:
+      login_blank: "não pode estar em branco"
+      login_not_found: "não é válido"
+      login_invalid: "deve utilizar apenas letras, números, espaços e .-_@."
+      consecutive_failed_logins_limit_exceeded: "Limite de erros consecutivos no login excedido, a conta foi desactivada."
+      email_invalid: "deve parecer um endereço de email."
+      password_blank: "não pode estar em branco"
+      password_invalid: "não é válido"
+      not_active: "A sua conta não está activa"
+      not_confirmed: "A sua conta não está confirmada"
+      not_approved: "A sua conta não está aprovada"
+      no_authentication_details: "Não forneceu qualquer detalhe para a autenticação."
+    models:
+      user_session: "SessãoUtilizador"
+    attributes:
+      user_session:
+        login: "login"
+        email: "email"
+        password: "password"
+        remember_me: "memorizar"
+
+  flash:
+    login: "Login bem sucedido."
+    logout: "Logout bem sucedido."
+    require_login: "Deve entrar para aceder a esta página."
+    require_logout: "Deve sair para aceder a esta página."
+    account_activated: "A sua conta foi activada. Por favor efectue o login."
+    account_created: "A sua conta foi criada. Por favor verifique o seu email para instruções sobre a activação da sua conta."
+    account_updated: "Conta actualizada!"
+    user_successfully_undeleted: "O Utilizador foi recuperado!"
+    user_deleted: "O Utilizador foi apagado!"
+    invalid_user_invitations: "O endereço de email que introduziu não é válido! Corrija-o e volte a tentar."
+    single_user_invitation: "Envio de convite bem sucedido a %{mail}."
+    multiple_user_invitations: "Enviou com sucesso %{number} convites."
+    password_resets_intruction_sent: "Foram-lhe enviadas instruções para restablecer a sua password.
+                                      Por favor verifique o seu email."  
+    no_user_found_with_that_email: "Não foi encontrado nenhum utilizador com esse endereço de email."
+    password_updated: "Password actualizada com sucesso."
+    invalid_email_address: "Endereço de email inválido!"
+    user_resets_load_user_error: "Pedimos desculpa, mas não foi possível localizar a sua conta.
+                                  Se está a ter problemas, tente copiar a URL do seu email
+                                  e colá-la no seu browser ou recomeçar o processo
+                                  de restauração da password."
+    rare_error: "Ocorreu um erro raro! Deve contactar o administrador e referir o seguinte código: %{ref}."
+    you_are_being_redirected: "Está a ser redireccionado."
+    login_failed: "Erro no login. Talvez não tenha activado a sua conta, ou introduziu elementos errados."
+    group_created: "Criou um grupo com sucesso."
+    tag_changed: "Etiqueta actualizada com sucesso de %{old} para %{new}."
+    invalid_tag_change: "Não foi possível mudar o nome da etiqueta %{old} para %{new} porque a etiqueta %{new} já existe."
+    changes_saved_successful_with_delay: "As alterações foram guardadas com sucesso e eventualmente surtirão efeito."
+    reverted_with_sucess: "Revertido com sucesso."
+    description_required: "O campo de descrição é obrigatório."
+    invalid_date: "Formato de data inválido."
+    project_created: "Projecto criado com sucesso."
+    to_do_created: "Lista de tarefas criada com sucesso."
+    project_creation_fail: "Ocorreu um erro enquanto se criava o projecto."
+    to_do_comment_creation_fail: "Ocorreu um erro enquanto se criava o comentário."
+    to_do_comment_created: "O comentário foi criado com sucesso em %{todo}."
+    mail_not_sent: "O email para %{mail} não pôde ser enviado"
+    mail_not_sent_multiple: "Alguns emails não puderam ser enviados"
+    categories_error: "Não foi possível guardar a categoria"
+    category_deleted: "Categoria eliminada com sucesso"
+    project_deleted: "Apagado %{project}"
+    project_not_deleted: "Não foi possível apagar %{project}"
+    to_do_list_created: "Lista de tarefas %{name} criada"
+    to_do_list_not_created: "Não foi possível criar lista de tarefas"
+    eventCreated:
+      successfully: "Evento %{name} criado com sucesso"
+      error: "Ocorreu um erro enquanto se criava o evento"
+    eventUpdated:
+      successfully: "Evento %{name} actualizado com sucesso"
+      error: "Ocorreu um erro enquanto se actualizava o evento"
+    activity_deleted: "Actividade apagada com sucesso"            
+  
+  notifier: 
+    to_do_notification: 
+      new_todo_subject: "Nova tarefa"
+      update_todo_subject: "Actualizar tarefa"
+      comment_subject: "Novo comentário a uma tarefa"
+      messageInit: "Existe um novo comentário à tarefa %{todo}, de %{user}"
+      new: "Uma tarefa com a descrição \"%{todo}\", na Lista de Tarefas %{list} foi-lhe atribuída por %{user}"
+      update: "Foi actualizada a tarefa com a descrição \"%{todo}\", na lista de tarefas %{list}, feita por %{user}"
+      
+    activation_instructions:
+      subject: "Instruções de Activação"
+      body:
+        header: "Obrigado por criar uma conta! Clique na url abaixo para activar a sua conta!"
+        footer: "Se a URL acima não funciona tente copiá-la e colá-la no seu browser. Se continuar a ter problemas, não hesite em contactar-nos."
+    activation_confirmation:
+      subject: "Activação Completa!"
+      body:
+        header: "A sua conta foi activada."
+        footer: "Se a URL acima não funciona tente copiá-la e colá-la no seu browser. Se continuar a ter problemas, não hesite em contactar-nos."
+    password_reset_instructions:
+      subject: "Instruções para restaurar Password"
+      body:
+        header: "Foi feito um pedido para restaurar a sua password.\n  
+                 Se não efectuou este pedido, por favor ignore este email.\n  
+                 Se fez este pedido, clique no link abaixo:"  
+        footer: "Se a URL acima não funciona tente copiá-la e colá-la no seu browser.\n  
+                 Se continuar a ter problemas, não hesite em contactar-nos."
+    actions:
+      confirm: "Tem a certeza que pretende efectuar a acção \"%{action}\"?"
+      success: "Acção \"%{action}\" efectuada com sucesso."
+      failure: "Ocorreu um erro enquanto se realizava a acção \"%{action}\"."
+      no_selection: "Deve seleccionar pelo menos um item da tabela para executar uma acção."
+
+  footer:
+    last_session_paragraph: "O seu último login foi há %{time_ago}, o seu IP era %{ip}."
+    browser_warning: "Este website não está a ser mostrado correctamente porque está a utilizar uma versão antiga do <span style='color:red;'>Microsoft Internet Explorer</span>.<br />Para uma experiência de navegação mais rápida e segura, faça update ao seu browser ou descarregue o <a href='http://www.mozilla.com/firefox/'>Mozilla Firefox</a>."
+
+  generic_sentence:
+    required_field: "<abbr>*</abbr> Campo obrigatório."
+    language: "idioma"
+    administration: "administração"
+    go_back: "Voltar"
+    are_you_sure: "Tem a certeza?"
+    default_list_action: "Mais acções"
+    time_ago: "há %{time_ago}"
+    time_after: "daqui a %{time_after}"
+    true_value: "Verdadeiro"
+    false_value: "Falso"
+    male_value: "Masculino"
+    female_value: "Feminino"
+
+  active_scaffold:
+    are_you_sure_to_undelete: "Tem a certeza que quer recuperar?"
+    are_you_sure: "Tem a certeza?"
+    cancel: "Cancelar"
+    delete: "Apagar"
+
+# US English translations for Ruby on Rails
+#
+# Use this as the base for the locale file of your language.
+
+  number:
+    format:
+      separator: "."
+      delimiter: ","
+      precision: 3
+      significant: falso
+      strip_insignificant_zeros: falso
+
+    currency:
+      format:
+        format: "%u%n"
+        unit: "$"
+        separator: "."
+        delimiter: ","
+        precision: 2
+        significant: falso
+        strip_insignificant_zeros: falso
+
+    percentage:
+      format:
+        delimiter: ""
+
+    precision:
+      format:
+        delimiter: ""
+
+    human:
+      format:
+        delimiter: ""
+        precision: 3
+        significant: verdadeiro
+        strip_insignificant_zeros: verdadeiro
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one:   "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+      decimal_units:
+        format: "%n %u"
+        units:
+          unit: ""
+          thousand: Milhar
+          million: Milhão
+          billion: Bilião
+          trillion: Trilião
+          quadrillion: Quadrilião
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "meio minuto"
+      less_than_x_seconds:
+        one:   "menos de 1 segundo"
+        other: "menos de %{count} segundos"
+      x_seconds:
+        one:   "1 segundo"
+        other: "%{count} segundos"
+      less_than_x_minutes:
+        one:   "menos de um minuto"
+        other: "menos de %{count} minutos"
+      x_minutes:
+        one:   "1 minuto"
+        other: "%{count} minutos"
+      about_x_hours:
+        one:   "cerca de 1 hora"
+        other: "cerca de %{count} horas"
+      x_days:
+        one:   "1 dia"
+        other: "%{count} dias"
+      about_x_months:
+        one:   "cerca de 1 mês"
+        other: "cerca de %{count} meses"
+      x_months:
+        one:   "1 mês"
+        other: "%{count} meses"
+      about_x_years:
+        one:   "cerca de 1 ano"
+        other: "cerca de %{count} anos"
+      over_x_years:
+        one:   "mais de 1 ano"
+        other: "mais de %{count} anos"
+      almost_x_years:
+        one:   "quase 1 ano"
+        other: "quase %{count} anos"
+    prompts:
+      year:   "Ano"
+      month:  "Mês"
+      day:    "Dia"
+      hour:   "Hora"
+      minute: "Minuto"
+      second: "Segundo"
+
+  date:
+    formats:
+      # Use the strftime parameters for formats.
+      # When no format has been given, it uses default.
+      # You can provide other formats here if you like!
+      default: "%Y-%m-%d"
+      short: "%b %d"
+      long: "%B %d, %Y"
+  
+    day_names: [Domingo, Segunda, Terça, Quarta, Quinta, Sexta, Sábado]
+    abbr_day_names: [Dom, Seg, Ter, Qua, Qui, Sex, Sab]
+  
+    # Don't forget the nil at the beginning; there's no such thing as a 0th month
+    month_names: [~, Janeiro, Fevereiro, Março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro]
+    abbr_month_names: [~, Jan, Fev, Mar, Abr, Mai, Jun, Jul, Ago, Set, Out, Nov, Dez]
+    # Used in date_select and datetime_select.
+    order:
+      - :year
+      - :month
+      - :day
+  
+  time:
+    formats:
+      default: "%a, %d %b %Y às %H:%M"
+      short: "%d %b"
+      medium: "%d %b %Y"
+      showdate: "%D"
+      long: "%B %d, %Y %H:%M"
+    am: "am"
+    pm: "pm"
+  
+  #Used in array.to_sentence.
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " e "
+      last_word_connector: ", e "
+
+  helpers:
+    select:
+      prompt: "Por favor seleccione"
+
+    submit:
+      create: 'Criar %{model}'
+      update: 'Actualizar %{model}'
+      submit: 'Guardar %{model}'
+
+  errors:
+    format: "%{attribute} %{message}"
+
+    messages: &errors_messages
+      inclusion: "não está incluido na lista"
+      exclusion: "é reservado"
+      invalid: "é inválido"
+      confirmation: "não corresponde à confirmação"
+      accepted: "deve ser aceitado"
+      empty: "não pode estar vazio"
+      blank: "não pode estar em branco"
+      too_long: "demasiado longo (máximo %{count} characteres)"
+      too_short: "demasiado curto (mínimo %{count} characteres)"
+      wrong_length: "tem a extensão errada(deveriam ser %{count} characteres)"
+      not_a_number: "não é um número"
+      not_an_integer: "deve ser um número inteiro"
+      greater_than: "deve ser maior que %{count}"
+      greater_than_or_equal_to: "deve ser maior ou igual que %{count}"
+      equal_to: "deve ser igual a %{count}"
+      less_than: "deve ser menos que %{count}"
+      less_than_or_equal_to: "deve ser menos ou igual que %{count}"
+      odd: "deve ser impar"
+      even: "deve ser par"
+
+  activerecord:
+    errors:
+      template:
+        header:
+          one:    "1 erro impediu que este %{model} fosse guardado"
+          other:  "%{count} erros impediram que este %{model} fosse guardado"
+        # The variable :count is also available
+        body: "Houve problemas com os seguintes campos:"
+    messages:
+      inclusion: "não está incluido na lista"
+      exclusion: "é reservado"
+      invalid: "é inválido"
+      confirmation: "não corresponde à confirmação"
+      accepted: "deve ser aceitado"
+      empty: "não pode estar vazio"
+      blank: "não pode estar em branco"
+      too_long: "demasiado longo (máximo %{count} characteres)"
+      too_short: "demasiado curto (mínimo %{count} characteres)"
+      wrong_length: "tem a extensão errada(deveriam ser %{count} characteres)"
+      not_a_number: "não é um número"
+      not_an_integer: "deve ser um número inteiro"
+      greater_than: "deve ser maior que %{count}"
+      greater_than_or_equal_to: "deve ser maior ou igual que %{count}"
+      equal_to: "deve ser igual a %{count}"
+      less_than: "deve ser menos que %{count}"
+      less_than_or_equal_to: "deve ser menos ou igual que %{count}"
+      odd: "deve ser impar"
+      even: "deve ser par"
+    attributes:
+      user:
+        gender: "Sexo"
+        mails: "Receber emails"
+#    models:
+#      user:
+#        attributes:
+#          phone:
+#            invalid: "must be a valid telephone number."
+    full_messages:
+      format: "%{attribute}%{message}"
+
+ 
+
+  support:
+    select:
+      # default value for :prompt => true in FormOptionsHelper
+      prompt: "Por favor seleccione"
