@@ -31,10 +31,7 @@ jQuery(document).ready(function($){
  		   :input_html => {:class => "activity_checkbox", :checked => ""}%>
   <% end unless event.event_activities.empty? %>
 
-  <div id="total-price">
-    <span><%= t('posts.form.total') %></span> 
-    <span><%= total_price %></span>
-  </div>
+  <p id="total-price"><span><%= t('posts.form.total') %></span> <span><%= total_price %></span></p>
 
   <% form.buttons do -%>
     <%= form.commit_button I18n::t('posts.form.subscribe_button'), :button_html => { :class => 'button positive' } %>
