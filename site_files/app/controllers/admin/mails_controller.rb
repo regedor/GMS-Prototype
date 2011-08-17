@@ -13,10 +13,10 @@ class Admin::MailsController < Admin::BaseController
   def values
     vals = []
     User.relevant(params[:q]).each do |user|
-       vals << {:id => "u#{user.id}", :name => "#{@template.image_tag @template.avatar_url(user,:size => :small)} #{user.name}" }
+       vals << {:id => "u#{user.id}", :image => "#{@template.image_tag @template.avatar_url(user,:size => :small)}", :name => "#{user.name}" }
     end  
     Group.relevant(params[:q]).each do |group|
-      vals << {:id => "g#{group.id}", :name => "#{@template.image_tag @template.avatar_url(group,:size => :small)} #{group.name}" }
+      vals << {:id => "g#{group.id}", :image => "#{@template.image_tag @template.avatar_url(group,:size => :small)}", :name => "#{group.name}" }
     end  
     
     respond_to do |format|

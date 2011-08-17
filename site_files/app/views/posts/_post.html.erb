@@ -24,6 +24,20 @@
   </div>
 <% end %>
 
+<% if !post.generic.nil? %>
+  <div class="attachment">
+    <span class="attachment_icon">
+	  <% if post.generic.content_type =~ /^image\// %>
+	    <%=  file_icon_displayer(post.generic) %>
+     <% else %>
+        <%= image_tag "#{root_url}images/icons/page_attach.png" %>
+     <% end %>
+    </span>
+    <span class="attachment_name"><%= post.generic_file_name %></span>
+    <span class="attachment_download"><%= button_to t("admin.posts.attachment_download"), :controller => "admin/posts", :action => "download", :id => post.id %></span>
+  </div>
+<% end %>
+
 <div class="social-buttons">
   <div class="addthis_toolbox addthis_default_style " addthis:url="<%= configatron.site_url + post_path(post) %>">
     <a class="addthis_button_preferred_1"></a>

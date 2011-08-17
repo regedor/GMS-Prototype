@@ -11,6 +11,8 @@ class ToDoComment < ActiveRecord::Base
   # Validations
   # ==========================================================================
   before_save :apply_filter  
+  
+  validates_attachment_size :generic, :less_than => 5.megabytes, :message => 'File size must be less than 5 MegaBytes'
 
   # ==========================================================================
   # Attributes Accessors
@@ -22,8 +24,11 @@ class ToDoComment < ActiveRecord::Base
   # Extra defnitions
   # ==========================================================================
 
-  has_attached_file :generic
-  
+  has_attached_file :generic, { 
+    :path => ":rails_root/public/system/:attachment/"+self.to_s+"/:id/:style/:filename",
+    :url =>  "/system/:attachment/"+self.to_s+"/:id/:style/:filename",
+    :styles => lambda {|attachment| (attachment.instance_read(:content_type) =~ /^image\//) ? {:thumb => "50x50"} : {}}
+  }  
 
   def apply_filter
     self.body_html = TextFormatter.format_as_xhtml(self.body)

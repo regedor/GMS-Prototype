@@ -1,0 +1,30 @@
+<div class="cg_header"><%= t("api.create_group.header") %></div>
+
+<% groups = Group.all.collect {|group| [ group.name, group.id ] } %>
+
+<div class="cg_select_all_block">
+  <%= t("api.create_group.select_all") %><%= select("cg", "select_all", groups, {:include_blank => true}) %>
+</div>
+
+<div class="cg_deselect_all_block">
+  <%= t("api.create_group.deselect_all") %><%= select("cg", "deselect_all", groups, {:include_blank => true}) %>
+</div>
+
+<div class="cg_group_name">
+  <%= text_field_tag 'group_name', nil, { :placeholder => 'Type the group name here...', :class => "cg_group_name_textfield" } %>	
+</div>	
+
+<div class="cg_search">
+  <%= text_field_tag 'member_search', nil, { :class => "cg_member_search" } %>	
+  <input class="button positive cg_search_button" type="button" value="Add" />
+</div>
+
+
+<div class="cg_users">
+  <% User.all.each do |user| %>	
+    <div id="cg_user_<%= user.id %>" class="cg_user not_selected">
+	  <span class="cg_user_image"><%= image_tag(avatar_url(user,:size => :small)) %></span>
+	  <span class="cg_user_name"><%= user.name %></span>
+	</div> 
+  <% end %>
+</div>	 

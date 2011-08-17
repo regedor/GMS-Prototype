@@ -62,7 +62,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :posts,          :active_scaffold => true, :active_scaffold_sortable => true,
                                      :has_many        => :comments,
                                      :new             => { :preview => :post },
-                                     :member          => { :check_delete => [:get, :post], :edit_tag => :get, :update_tag => :put, :values => :get, :pre_populate => :get },
+                                     :member          => { :check_delete => [:get, :post], :edit_tag => :get, :update_tag => :put, :values => :get, :download => :get},
                                      :collection      => { :list_action => :post, :preview => :post, :values => :get }
     admin.resources :pages,          :active_scaffold => true, :active_scaffold_sortable => true,
                                      :has_many        => :comments,
@@ -91,7 +91,7 @@ ActionController::Routing::Routes.draw do |map|
       project.resources :to_dos,        :collection => { :create => :post }
       
       project.resources :to_dos do |todo|
-        todo.resources  :comments,      :controller  => "to_do_comments", :collection => { :preview => :post }
+        todo.resources  :comments,      :controller  => "to_do_comments", :member => { :download => :post}, :collection => { :preview => :post}
       end  
       project.resources :categories,    :collection => {:create => :post}
       project.resources :messages,      :active_scaffold => true, :active_scaffold_sortable => true, :has_many => :messages_comments
@@ -105,6 +105,7 @@ ActionController::Routing::Routes.draw do |map|
   # ==========================================================================
 
   map.namespace :api do |api|
-   api.resource :i18n
+   api.resource  :i18n
+   api.resources :create_groups,  :collection => {:values => :get}
   end
 end

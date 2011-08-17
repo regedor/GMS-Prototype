@@ -16,6 +16,9 @@ class Post < ActiveRecord::Base
   validates_presence_of   :title, :slug, :body, :published_at
   validates_uniqueness_of :slug
   validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/jpg', 'image/png']
+  validates_attachment_size :image, :less_than => 1.megabytes
+  validates_attachment_size :generic, :less_than => 5.megabytes
+  
 
 
   named_scope :not_deleted, :conditions => {:deleted => false}
