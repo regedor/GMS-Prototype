@@ -5,8 +5,8 @@ pt:
   api:
     create_group:
       header: "Criar Novo Grupo"
-      select_all: "Escolher todos os membros deste grupo:"  
-      deselect_all : "Descartar todos os membros deste grupo:"
+      select_all: "Escolher todos os membros deste grupo: "
+      deselect_all : "Descartar todos os membros deste grupo: "
 
   navigation:
     home: "Início"
@@ -606,7 +606,7 @@ pt:
     deleted_users:
       index:
         deleted_user: "Utilizador Apagado"
-        title: "Lista de Utilizadores Apagada"
+        title: "Lista de Utilizadores Apagados"
         search: "Procurar Utilizadores"
         create: "Criar utilizador"
         show_link: "Detalhes"
