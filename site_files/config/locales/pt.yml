@@ -178,6 +178,8 @@ en:
       eventSubscription: "Inscrito no evento " 
       activities: "Inscrito nas seguintes actividades:"
       price: "Preço Total: "
+      unsubscribe_button: "Cancelar Subscrição"
+      ok_button: "OK"
       
   admin:
     navigation:
@@ -363,6 +365,7 @@ en:
     activities:
       form:
         new: "Nova Actividade"
+        title: "Actividade"
         create_button: "Criar"
         cancel_button: "Cancelar"
       view:
@@ -402,6 +405,7 @@ en:
             update: "Aplicar"           
 
     events:
+      add_activity: "Adicionar Actividade"
       index:
         title: "Eventos"
         create: "Novo Evento"
@@ -417,7 +421,9 @@ en:
         price: "Preço"
       create:
         title: "Evento"
-      view:  
+      view:
+        hasAnnouncement: "Tem anúncio"
+        hasPost: "Tem post"
         showAnnouncement: "Mostrar Anúncio"
         hideAnnouncement: "Ocultar Anúncio"  
         showPost: "Mostrar Post"
@@ -562,7 +568,7 @@ en:
         cancel:   "Fechar"
         last_login_at: "Último login em"
         created_at: "Criado em"
-        login_count: "Login conta"
+        login_count: "Contagem de Logins"
         failed_login_count: "Logins Errados"
         current_login_at: "Actualmente conectado em"
         last_login_ip: "IP do Último Login"
@@ -577,6 +583,8 @@ en:
         active: "Activo"
 
       form:
+        yes_button: "Sim"
+        no_button: "Não"  
         delete_button: "Apagar"  
         update_button: "Actualizar"
         cancel_button: "Cancelar"
@@ -717,14 +725,15 @@ en:
 
     user_optional_group_picks:
       index:
-        title: "Lista de Grupos Opcionais Escolhidos pelo Utilizador"
+        title: "Lista de Grupos Escolhidos pelo Utilizador"
         show_link: "Detalhes"
         update_link: "Editar"
         destroy_link: "Apagar"      
         search: "Procurar Escolhas"
         create: "Novas Escolhas"
       sidebar:
-        title: "Escolhas de Grupos Opcionais do Utilizador"
+        title: "Escolhas de Grupos do Utilizador"
+        paragraph: "Pode gerir os grupos que está admitido"
         link: "Voltar a Grupos"
       columns:
         name: "Nome"
@@ -781,6 +790,7 @@ en:
         show_in_navigation: "Mostrar no Menu"
         has_comments: "Tem comentários"
         priority: "Prioridade"
+        show_announcements: "Mostrar anúncios"
       form:
         new: "Nova Página"
         edit: "Editar Página"
@@ -797,6 +807,7 @@ en:
           show_in_navigation: "Seleccionar para mostrar na barra de navegação da parte pública."
           priority: "Seleccionar quão alto (em prioridade) deve estar o link na barra de navegação da parte pública."
           has_comments: "Seleccione para permitir comentários nesta página."
+          show_announcements: "Mostrar anúncios"
       preview:
         title: "A sua entrada será formatada da seguinte forma:"
         return: "Use Ctrl+Alt+E para voltar ao modo de edição."
@@ -933,6 +944,7 @@ en:
         search: "Procurar Anúncios"
         create: "Novo Anúncio"
       columns:
+        hasMessage: "Tem mensagem" 
         title: "Título"
         headline: "Headline"
         message: "Mensagem"
@@ -1050,7 +1062,14 @@ en:
     eventUpdated:
       successfully: "Evento %{name} actualizado com sucesso"
       error: "Ocorreu um erro enquanto se actualizava o evento"
-    activity_deleted: "Actividade apagada com sucesso"            
+    activity_deleted: "Actividade apagada com sucesso"
+    page_updated: "Actualizado %{name}"
+    page_not_updated: "Falha ao actualizar %{name}" 
+    unsubscribe: "Cancelada subscrição ao evento %{name}"
+    unsubscribe_error: "Não foi possível cancelar subscrição"     
+    postUpdated:
+      successfully: "Actualizado %{name}"
+      error: "Falha ao actualizar o post"            
   
   notifier: 
     to_do_notification: 
@@ -1299,6 +1318,7 @@ en:
       too_long: "demasiado longo (máximo %{count} characteres)"
       too_short: "demasiado curto (mínimo %{count} characteres)"
       wrong_length: "tem a extensão errada(deveriam ser %{count} characteres)"
+      taken: "já foi escolhido"
       not_a_number: "não é um número"
       not_an_integer: "deve ser um número inteiro"
       greater_than: "deve ser maior que %{count}"
