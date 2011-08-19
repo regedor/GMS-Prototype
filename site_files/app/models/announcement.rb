@@ -6,9 +6,8 @@ class Announcement < ActiveRecord::Base
   belongs_to :group
 
   has_attached_file :avatar, 
-    :styles => lambda {
-      { :announcement => [configatron.announcement_size] }
-    }.call, :default_url => '/system/:attachment/:style/missing.png' 
+    :styles => { :announcement => configatron.announcement_size},
+    :default_url => '/system/:attachment/:style/missing.png' 
 
 
   validates_presence_of :title, :starts_at, :ends_at

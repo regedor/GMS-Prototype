@@ -9,7 +9,6 @@ Rails::Initializer.run do |config|
   config.action_mailer.default_url_options = { :host => yaml_config['site_domain'] }
 end
 
-configatron.configure_from_yaml("config/config.yml", :hash => Rails.env)
 begin; Setting.load_settings_to_configatron; rescue Exception; end
 
 Clickatell::API.debug_mode                 = false
