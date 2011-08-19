@@ -5,7 +5,11 @@ class Announcement < ActiveRecord::Base
   belongs_to :event
   belongs_to :group
 
-  has_attached_file :avatar, :styles => lambda { |a| { :announcement => configatron.announcement_size }}, :default_url => '/system/:attachment/:style/missing.png'
+  has_attached_file :avatar, 
+    :styles => lambda {
+      { :announcement => [configatron.announcement_size] }
+    }.call, :default_url => '/system/:attachment/:style/missing.png' 
+
 
   validates_presence_of :title, :starts_at, :ends_at
   #validates_presence_of :message, :if  => :has_message 
