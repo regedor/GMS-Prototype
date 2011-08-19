@@ -2,6 +2,12 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  api:
+    create_group:
+      header: "Create New Group"
+      select_all: "Select all members of this group: "  
+      deselect_all : "Deselect all members of this group: "            
+    
   navigation:
     home: "Home"
     about: "About"
@@ -259,7 +265,8 @@ en:
         collapse: "Collapse completed to-do's"                        
         
     to_do_comment:
-      deleted_user: "Deleted User"    
+      deleted_user: "Deleted User"  
+      attachment_download: "Download"  
       new:
         users: "Users to mail"
         body: "Comment"
@@ -268,6 +275,7 @@ en:
         cancel: "Cancel"
         edit_button: "Edit"
         file: "Attachment"
+        file_hint: "(Max. 5Mb)"
       sidebar:
         back: "Back to To-Do Lists"                       
         
@@ -818,6 +826,7 @@ en:
           one: "%{count} Page Found"
 
     posts:
+      attachment_download: "Download"    
       index:
         title: "Posts"
         show_link: "Details"

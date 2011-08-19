@@ -95,6 +95,13 @@ class Admin::PostsController < Admin::BaseController
       }
     end
   end
+  
+  def download
+    post = Post.find(params[:id])
+    
+    send_file post.generic.path, :type=>post.generic_content_type#, :x_sendfile=>true
+    # check this before use http://www.therailsway.com/2009/2/22/file-downloads-done-right
+  end
 
   protected
 

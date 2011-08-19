@@ -1,9 +1,7 @@
 <h2 class="title"><%= t 'events.subscribe.eventSubscription' %><%= event.name %></h2>
 
 <% if event.participation_message && just_subscribed %>
-  <div class="text">
-    <%= event.participation_message %>
-  </div>
+  <p id="event-message"><%= event.participation_message %></p>
 <% end %>
 
 <% if subscribed_activities && !subscribed_activities.empty? %>
@@ -17,9 +15,7 @@
   </div>
 <% end %>
 
-<div class="total_price">
-  <h3><%= t 'events.subscribe.price' %></h3><%= total_price %>
-</div>
+<p id="event-total-price"><%= t 'events.subscribe.price' %> <%= total_price %></p>
 
 <% if just_subscribed %>
   <%= link_to t('events.subscribe.ok_button'), root_path, :class => "button positive" %>

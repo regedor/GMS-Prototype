@@ -8,9 +8,8 @@
 	background-color: #aaaaaa; 
 }
 div.jqi{ 
-	width: 400px; 
+	width: 750px; 
 	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; 
-	position: absolute; 
 	background-color: #ffffff; 
 	font-size: 11px; 
 	text-align: left; 
@@ -32,6 +31,7 @@ div.jqi .jqiclose{
 	font-weight: bold; 
 }
 div.jqi .jqimessage{ 
+	height: 300px;
 	padding: 10px; 
 	line-height: 20px; 
 	color: #444444; 
@@ -70,7 +70,43 @@ div.jqi button.jqidefaultbutton:hover{
 	background-color: #BF5E26;
 }
 
+input.cg_group_name_textfield {
+	width: 20em;
+}
+
+.cg_user{
+	width: 240px;
+	float:left;
+	display: inline;
+}
+
+.cg_user_name{
+	vertical-align: top;
+}
+
+.cg_users{
+	clear:left;
+}
+
+.cg_search{
+	
+}
+
+.token-input-list-facebook{
+}
+
+.cg_search_button{
+	position:relative;
+	margin-left:355px;
+}
+
+div.token-input-dropdown-facebook {
+	z-index: 1000;
+}
+
 </style>
+
+<%= the_markup %>
 
 <script>
 
@@ -78,23 +114,44 @@ jQuery.noConflict();
   
 jQuery(document).ready(function($){
  
+  function submitPopUp(){
+    $("body").css("overflow","scroll");	
+  }
+
+  function addUser(item){
+    $(".cg_users").append('<div id="cg_user_'+item.id+'" class="cg_user"><span class="cg_user_image">'+item.image+'</span><span class="cg_user_name">'+item.name+'</span>');	
+  }
+
+  function removeUser(item){
+    $("#cg_user_"+item.id).remove();
+  }
+
+  function loadTokenInput(){
+	$( "#member_search" ).tokenInput(USERS, {
+		resultsFormatter: function(item){return "<li>"+item.image+" "+item.name+"</li>"},
+		minChars: 2,
+		onAdd: addUser,
+		onDelete: removeUser
+	}); 
+  } 
 
   $("#record_group_id").change(function(){
     if($("#record_group_id option:selected").text() === "Create New...")
     {
-	  $.prompt('Example 2',{ 
-		buttons: { Ok: true, Cancel: false } 
+	  $("body").css("overflow","hidden");
+	  $.prompt(HTML,{ 
+		buttons: { Ok: true, Cancel: false },
+		loaded: loadTokenInput,
+		callback: submitPopUp
 	  });
+	
     }
   });
-
-  $.fn.groupCreater = function() {
-    	
-  }
 
 });
 
 </script>
+
 
 <% form.input_field_set do -%>
   <%= form.input :title,

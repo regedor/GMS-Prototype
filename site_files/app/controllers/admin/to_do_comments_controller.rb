@@ -52,6 +52,13 @@ class Admin::ToDoCommentsController < Admin::BaseController
         }
       end
       
-    end  
+    end
+    
+    def download
+      comment = ToDoComment.find(params[:id])
+      
+      send_file comment.generic.path, :type=>comment.generic_content_type#, :x_sendfile=>true
+      # check this before use http://www.therailsway.com/2009/2/22/file-downloads-done-right
+    end    
 
 end

@@ -1,105 +1,14 @@
-<style>
-	.ui-autocomplete {
-		max-height: 200px;
-		overflow-y: auto;
-		/* prevent horizontal scrollbar */
-		overflow-x: hidden;
-		/* add padding to account for vertical scrollbar */
-		padding-right: 20px;
-	}
-	/* IE 6 doesn't support max-height
-	 * we use height instead, but this forces the menu to always be this tall
-	 */
-	* html .ui-autocomplete {
-		height: 100px;
-	}
-	
-	#mail_actual_recipients_input{
-		display: none;
-	}
-	
-	.ui-autocomplete-category {
-			font-weight: bold;
-			padding: .2em .4em;
-			margin: .8em 0 .2em;
-			line-height: 1.5;
-		}
-	
-</style>
-
 <script>
 jQuery.noConflict();
 
 jQuery(document).ready(function($) {
-
-	jQuery.widget( "custom.catcomplete", $.ui.autocomplete, {
-			_renderMenu: function( ul, items ) {
-				var self = this,
-					currentCategory = "";
-				$.each( items, function( index, item ) {
-					if ( item.category != currentCategory ) {
-						ul.append( "<li class='ui-autocomplete-category'>" + item.category + "</li>" );
-						currentCategory = item.category;
-					}
-					self._renderItem( ul, item );
-				});
-			}
-		});
-
-  
-	function split( val ) 
-	{
-		return val.split( /,\s*/ );
-	}
-	
-	function extractLast( term ) {
-				return split( term ).pop();
-			}
-    
-
-	 //$( "#mail_recipients_text" ).catcomplete({
-	 //   		source: function( request, response ) {				
-	 //   			jQuery.ajax({
-	 //   		      type: 'GET',
-	 //   			  dataType: "json",
-	 //   		      url: window.location.href.replace(/\#.*/,"").replace("new","values"),
-	 //   		      error: function() {
-	 //   		        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"values"});
-	 //   				return false;
-	 //   		      },
-	 //   		      success: function(r) {
-	 //   			  	  response( $.ui.autocomplete.filter(
-	 //   										r, extractLast( request.term ) ) );
-	 //   				
-	 //   		      }
-	 //   		    });
-	 //   		},
-	 //   		minLength: 0,
-	 //   		delay: 0,
-	 //   		focus: function() 
-	 //   		{
-	 //   			// prevent value inserted on focus
-	 //   			return false;
-	 //   		},
-	 //   		select: function( event, ui ) {
-	 //   			var terms = split( this.value );
-	 //   			// remove the current input
-	 //   			terms.pop();
-	 //   			// add the selected item
-	 //   			terms.push( ui.item.value );
-	 //   			// add placeholder to get the comma-and-space at the end
-	 //   			terms.push( "" );
-	 //   			this.value = terms.join( ", " );
-	 //   			
-	 //   			
-	 //   			return false;
-	 //   		}
-	 //   		
-	 //   	});
-	
-	$( "#mail_recipients_text" ).tokenInput(window.location.href.replace(/\#.*/,"").replace("new","values"));
-		
+    	
+	$( "#mail_recipients_text" ).tokenInput(window.location.href.replace(/\#.*/,"").replace("new","values"), {
+		resultsFormatter: function(item){return "<li>"+item.image+" "+item.name+"</li>"},
+		minChars: 2
 	});
+		
+});
 </script>
 
 
