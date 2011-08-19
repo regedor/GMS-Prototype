@@ -2,6 +2,12 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 pt:
+  api:
+    create_group:
+      header: "Criar Novo Grupo"
+      select_all: "Escolher todos os membros deste grupo:"  
+      deselect_all : "Descartar todos os membros deste grupo:"
+
   navigation:
     home: "Início"
     about: "Sobre"
@@ -139,7 +145,7 @@ pt:
         one: "%{count} comentário"
         many: "%{count} comentários"
     tags:
-      title: "Nuvem de Etiquetas"
+      title: "Etiquetas"
       tagged_with: "Posts etiquetados com:"
       clear_selection: "Limpar tudo"
     archives:
@@ -255,7 +261,8 @@ pt:
         collapse: "Esconder tarefas completadas"                        
         
     to_do_comment:
-      deleted_user: "Apagar Utilizador"    
+      deleted_user: "Utilizador Apagado"
+      attachment_download: "Download"      
       new:
         users: "Utilizadores a quem enviar email"
         body: "Comentário"
@@ -264,6 +271,7 @@ pt:
         cancel: "Cancelar"
         edit_button: "Editar"
         file: "Anexo"
+        file_hint: "(Max. 5Mb)"
       sidebar:
         back: "Voltar às Listas de Tarefas"                       
         
@@ -818,6 +826,7 @@ pt:
           one: "%{count} Página Encontrada"
 
     posts:
+      attachment_download: "Download"   
       index:
         title: "Posts"
         show_link: "Detalhes"
