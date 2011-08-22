@@ -33,14 +33,26 @@ class Admin::PagesController < Admin::BaseController
     params[:record][:group_id] = 0 if params[:record][:group_id].blank?
   end  
   
+  def create
+    page = Page.new params[:record]
+    if page.save
+      flash[:notice] = t("flash.page_created", :name => page.title)
+      redirect_to admin_pages_path
+    else
+      @template.properly_show_errors(page)
+      flash.now[:error] = t("flash.page_not_updated", :name => page.title)
+    end
+  end  
+  
   def update
     @page = Page.find(params[:id])
     @page.update_attributes params[:record]
     if @page.save
       flash[:notice] = t("flash.page_updated", :name => @page.title)
       redirect_to admin_pages_path
-    else
-      flash[:error] = t("flash.page_not_updated", :name => @page.title)
+    else  
+      @template.properly_show_errors(page)
+      flash.now[:error] = t("flash.page_not_updated", :name => @page.title) 
     end      
   end  
 

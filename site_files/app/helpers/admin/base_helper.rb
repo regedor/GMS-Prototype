@@ -1,5 +1,20 @@
 module Admin::BaseHelper
 
+  def properly_show_errors(record)
+    @record=record
+    if @record.errors.any?
+      flash[:error] = []
+
+      @record.errors.each do |attribute,msg|
+        if attribute =~ /.+_content_type/ || attribute =~ /.+_content_file_size/
+          proper_attribute = attribute.split('_')[0]
+          @record.errors.delete_all_at proper_attribute
+          @record.errors.add proper_attribute,msg
+        end
+      end
+    end
+  end  
+
   def title_column(record)
     return case record.class.to_s
       when 'Post' then

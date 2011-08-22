@@ -2,7 +2,7 @@
 
 <div class="content">
   <div class="inner">
-    <h2>Are you sure you want to delete?</h2>
+    <h2><%= t('admin.delete.title') %></h2>
     <% semantic_form_for :record, @record,
                          :url => (@record.class.to_s.match("EventActivity")) ? send("admin_event_#{@record.class.to_s.underscore.downcase}_path",@record.event) : send("admin_#{@record.class.to_s.underscore.downcase}_path",@record),
                          :html => { :method => :delete } do |form| -%>

@@ -20,3 +20,5 @@ if ENV['I18N_MOCK']
   end
 end
 
+require 'rails_extensions'
+

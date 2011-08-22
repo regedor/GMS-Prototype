@@ -42,21 +42,25 @@ class Admin::PostsController < Admin::BaseController
   end
 
   def update
-    post = Post.find(params[:id])
-    post.update_attributes params[:record]
-    if post.save
-      flash[:notice] = t('flash.postUpdated.successfully', :name => post.title)
+    @record = Post.find(params[:id])
+    @record.update_attributes params[:record]
+    if @record.save
+      flash[:notice] = t('flash.postUpdated.successfully', :name => @record.title)
       redirect_to admin_posts_path
     else
-      if post.errors.any?
-        flash[:error] = []
-        post.errors.each do |attribute,msg|
-          flash[:error] << "#{msg}"
-        end
-      else
-        flash[:error] = t('flash.postUpdated.error')
-      end
-      redirect_to edit_admin_post_path(post)
+      @template.properly_show_errors @record
+      flash.now[:error] = t('flash.postUpdated.error')
+    end
+  end
+
+  def create
+    @record = Post.new params[:record]
+    if @record.save
+      flash[:notice] = t('flash.postCreated.successfully', :name => @record.title)
+      redirect_to admin_posts_path
+    else
+      @template.properly_show_errors @record
+      flash.now[:error] = t('flash.postCreated.error')
     end
   end
 

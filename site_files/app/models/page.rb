@@ -11,7 +11,7 @@ class Page < ActiveRecord::Base
   # Validations
   # ==========================================================================
 
-  validates_presence_of   :title, :slug, :body
+  validates_presence_of   :title, :body
   validates_uniqueness_of :slug
   before_validation       :generate_slug
   belongs_to              :group

@@ -183,7 +183,7 @@ jQuery(document).ready(function($){
                  :as         => 'select',
                  :required   => false,
                  :collection => (1..99),
-                 :selected   => @record.priority,
+                 :selected   => (@record) ? @record.priority : 0,
                  :label      => I18n::t('admin.pages.columns.priority'),
                  :hint       => I18n::t('admin.pages.form.hints.priority') %>
   <%= form.input :has_comments,

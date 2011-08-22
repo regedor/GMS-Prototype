@@ -192,6 +192,9 @@ en:
       
       
   admin:
+    delete: 
+      title: "Are you sure you want to delete?"  
+      
     navigation:
       main:
         dashboard: "Dashboard"
@@ -1071,7 +1074,9 @@ en:
     eventUpdated:
       successfully: "Event %{name} updated successfully"
       error: "There was an error while updating the event"
-    activity_deleted: "Activity succesfully deleted"      
+    activity_deleted: "Activity succesfully deleted"     
+    page_created: "Created %{name}" 
+    page_not_updated: "Failed to create %{name}" 
     page_updated: "Updated %{name}"
     page_not_updated: "Failed to update %{name}" 
     unsubscribe: "Succefully unsubscribed event %{name}"
@@ -1079,11 +1084,14 @@ en:
     postUpdated:
       successfully: "Updated %{name} successfully"
       error: "There was an error while updating the post"
+    postCreated:
+      successfully: "Created %{name} successfully"
+      error: "There was an error while creating the post"
     to_do_comment_body: "The comment body cannot be blank" 
     file_size_5mb: "File size must be less than 5 MegaBytes"
     image_size_1mb: "Image size must be less than 1 MegaByte"
     cant_be_blank: "can't be blank"
-    image_content_type: "Image must be of a jpeg or png"
+    image_content_type: "Image must be a jpeg or png"
   
   notifier: 
     to_do_notification: 
