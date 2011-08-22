@@ -1079,6 +1079,11 @@ en:
     postUpdated:
       successfully: "Updated %{name} successfully"
       error: "There was an error while updating the post"
+    to_do_comment_body: "The comment body cannot be blank" 
+    file_size_5mb: "File size must be less than 5 MegaBytes"
+    image_size_1mb: "Image size must be less than 1 MegaByte"
+    cant_be_blank: "can't be blank"
+    image_content_type: "Image must be of a jpeg or png"
   
   notifier: 
     to_do_notification: 

@@ -56,7 +56,7 @@ module ApplicationHelper
     content_for :head do
      javascript_include_tag case I18n.locale.to_s
         when 'en'    then "jquery.ui.datepicker-en-GB.js"
-        when 'pt-PT' then "jquery.ui.datepicker-pt-BR.js"
+        when 'pt' then "jquery.ui.datepicker-pt-BR.js"
         else raise ArgumentError, "Locale error"
       end
     end
