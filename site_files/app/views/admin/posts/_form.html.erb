@@ -35,7 +35,7 @@ jQuery(document).ready(function($){
                  :as       => :file,
                  :hint     => I18n::t('admin.posts.form.hints.image'),
                  :label    => I18n::t('admin.posts.columns.image') %>
-  <% if @record.image.content_type -%>
+  <% if @record.image_file_name -%>
     <div class="file_icon"><%=  file_icon_displayer(@record.image) %></div>
   <% end -%>
   <% unless @record.new_record? || !@record.image? -%>

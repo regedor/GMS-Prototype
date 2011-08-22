@@ -37,20 +37,28 @@ class Admin::PostsController < Admin::BaseController
 
   def edit
     @record = Post.find(params[:id])
-    
-    render :action => :update 
-  end  
+
+    render :action => :update
+  end
 
   def update
     post = Post.find(params[:id])
     post.update_attributes params[:record]
     if post.save
       flash[:notice] = t('flash.postUpdated.successfully', :name => post.title)
+      redirect_to admin_posts_path
     else
-      flash[:error] = t('flash.postUpdated.error')
+      if post.errors.any?
+        flash[:error] = []
+        post.errors.each do |attribute,msg|
+          flash[:error] << "#{msg}"
+        end
+      else
+        flash[:error] = t('flash.postUpdated.error')
+      end
+      redirect_to edit_admin_post_path(post)
     end
-    redirect_to admin_posts_path
-  end  
+  end
 
   # Hack for the post preview in the show action
   def do_show
@@ -95,10 +103,10 @@ class Admin::PostsController < Admin::BaseController
       }
     end
   end
-  
+
   def download
     post = Post.find(params[:id])
-    
+
     send_file post.generic.path, :type=>post.generic_content_type#, :x_sendfile=>true
     # check this before use http://www.therailsway.com/2009/2/22/file-downloads-done-right
   end

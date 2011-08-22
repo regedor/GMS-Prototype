@@ -2,6 +2,12 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 pt:
+  api:
+    create_group:
+      header: "Criar Novo Grupo"
+      select_all: "Escolher todos os membros deste grupo: "
+      deselect_all : "Descartar todos os membros deste grupo: "
+
   navigation:
     home: "Início"
     about: "Sobre"
@@ -139,7 +145,7 @@ pt:
         one: "%{count} comentário"
         many: "%{count} comentários"
     tags:
-      title: "Nuvem de Etiquetas"
+      title: "Etiquetas"
       tagged_with: "Posts etiquetados com:"
       clear_selection: "Limpar tudo"
     archives:
@@ -178,6 +184,8 @@ pt:
       eventSubscription: "Inscrito no evento " 
       activities: "Inscrito nas seguintes actividades:"
       price: "Preço Total: "
+      unsubscribe_button: "Cancelar Subscrição"
+      ok_button: "OK"
       
   admin:
     navigation:
@@ -253,7 +261,8 @@ pt:
         collapse: "Esconder tarefas completadas"                        
         
     to_do_comment:
-      deleted_user: "Apagar Utilizador"    
+      deleted_user: "Utilizador Apagado"
+      attachment_download: "Download"      
       new:
         users: "Utilizadores a quem enviar email"
         body: "Comentário"
@@ -262,6 +271,7 @@ pt:
         cancel: "Cancelar"
         edit_button: "Editar"
         file: "Anexo"
+        file_hint: "(Max. 5Mb)"
       sidebar:
         back: "Voltar às Listas de Tarefas"                       
         
@@ -363,6 +373,7 @@ pt:
     activities:
       form:
         new: "Nova Actividade"
+        title: "Actividade"
         create_button: "Criar"
         cancel_button: "Cancelar"
       view:
@@ -402,6 +413,7 @@ pt:
             update: "Aplicar"           
 
     events:
+      add_activity: "Adicionar Actividade"
       index:
         title: "Eventos"
         create: "Novo Evento"
@@ -417,7 +429,9 @@ pt:
         price: "Preço"
       create:
         title: "Evento"
-      view:  
+      view:
+        hasAnnouncement: "Tem anúncio"
+        hasPost: "Tem post"
         showAnnouncement: "Mostrar Anúncio"
         hideAnnouncement: "Ocultar Anúncio"  
         showPost: "Mostrar Post"
@@ -562,7 +576,7 @@ pt:
         cancel:   "Fechar"
         last_login_at: "Último login em"
         created_at: "Criado em"
-        login_count: "Login conta"
+        login_count: "Contagem de Logins"
         failed_login_count: "Logins Errados"
         current_login_at: "Actualmente conectado em"
         last_login_ip: "IP do Último Login"
@@ -577,6 +591,8 @@ pt:
         active: "Activo"
 
       form:
+        yes_button: "Sim"
+        no_button: "Não"  
         delete_button: "Apagar"  
         update_button: "Actualizar"
         cancel_button: "Cancelar"
@@ -590,7 +606,7 @@ pt:
     deleted_users:
       index:
         deleted_user: "Utilizador Apagado"
-        title: "Lista de Utilizadores Apagada"
+        title: "Lista de Utilizadores Apagados"
         search: "Procurar Utilizadores"
         create: "Criar utilizador"
         show_link: "Detalhes"
@@ -717,14 +733,15 @@ pt:
 
     user_optional_group_picks:
       index:
-        title: "Lista de Grupos Opcionais Escolhidos pelo Utilizador"
+        title: "Lista de Grupos Escolhidos pelo Utilizador"
         show_link: "Detalhes"
         update_link: "Editar"
         destroy_link: "Apagar"      
         search: "Procurar Escolhas"
         create: "Novas Escolhas"
       sidebar:
-        title: "Escolhas de Grupos Opcionais do Utilizador"
+        title: "Escolhas de Grupos do Utilizador"
+        paragraph: "Pode gerir os grupos que está admitido"
         link: "Voltar a Grupos"
       columns:
         name: "Nome"
@@ -781,6 +798,7 @@ pt:
         show_in_navigation: "Mostrar no Menu"
         has_comments: "Tem comentários"
         priority: "Prioridade"
+        show_announcements: "Mostrar anúncios"
       form:
         new: "Nova Página"
         edit: "Editar Página"
@@ -797,6 +815,7 @@ pt:
           show_in_navigation: "Seleccionar para mostrar na barra de navegação da parte pública."
           priority: "Seleccionar quão alto (em prioridade) deve estar o link na barra de navegação da parte pública."
           has_comments: "Seleccione para permitir comentários nesta página."
+          show_announcements: "Mostrar anúncios"
       preview:
         title: "A sua entrada será formatada da seguinte forma:"
         return: "Use Ctrl+Alt+E para voltar ao modo de edição."
@@ -807,6 +826,7 @@ pt:
           one: "%{count} Página Encontrada"
 
     posts:
+      attachment_download: "Download"   
       index:
         title: "Posts"
         show_link: "Detalhes"
@@ -933,6 +953,7 @@ pt:
         search: "Procurar Anúncios"
         create: "Novo Anúncio"
       columns:
+        hasMessage: "Tem mensagem" 
         title: "Título"
         headline: "Headline"
         message: "Mensagem"
@@ -1050,7 +1071,14 @@ pt:
     eventUpdated:
       successfully: "Evento %{name} actualizado com sucesso"
       error: "Ocorreu um erro enquanto se actualizava o evento"
-    activity_deleted: "Actividade apagada com sucesso"            
+    activity_deleted: "Actividade apagada com sucesso"
+    page_updated: "Actualizado %{name}"
+    page_not_updated: "Falha ao actualizar %{name}" 
+    unsubscribe: "Cancelada subscrição ao evento %{name}"
+    unsubscribe_error: "Não foi possível cancelar subscrição"     
+    postUpdated:
+      successfully: "Actualizado %{name}"
+      error: "Falha ao actualizar o post"            
   
   notifier: 
     to_do_notification: 
@@ -1299,6 +1327,7 @@ pt:
       too_long: "demasiado longo (máximo %{count} characteres)"
       too_short: "demasiado curto (mínimo %{count} characteres)"
       wrong_length: "tem a extensão errada(deveriam ser %{count} characteres)"
+      taken: "já foi escolhido"
       not_a_number: "não é um número"
       not_an_integer: "deve ser um número inteiro"
       greater_than: "deve ser maior que %{count}"
