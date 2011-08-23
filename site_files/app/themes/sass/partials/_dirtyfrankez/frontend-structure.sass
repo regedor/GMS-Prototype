@@ -4,7 +4,10 @@
 
 
 body
-  background-image: url("/stylesheets/themes/nebioq/images/bg.png")
+  background-image: url("/stylesheets/themes/nebioq/images/bg.jpg")
+  //@include linear-gradient(#A6A6A6, #F5F5F5)
+  //@include linear-gradient(#F5F5F5, #A6A6A6)
+  //@include enable-ie-css3
 
 
 h2.title, h3.archives-month-title
@@ -57,19 +60,12 @@ div#menu
 
     a
       border: none
-      color: #FFF
       padding: 12px 20px
-
-    a:hover
-      color: #FFF
-      @include inset-box-shadow(0, 2px, 7px, #5e7ed5)
-      @include round-corners(12px, 12px, 12px, 12px)
-      @include enable-ie-css3
 
 
 div#tag-cloud
-  background-color: $tag-cloud-color
-  border: 1px solid #B0C7DE
+  background-color: #F4F4F4
+  border: 1px solid $default-color
   margin: 0 25px 20px 780px
   min-height: 100px
   padding: 10px 20px
@@ -120,7 +116,7 @@ div#content.double
 div#main
   background-color: $frontend-background-color
   border: 3px solid $default-color
-  margin: 65px auto 0
+  margin: 50px auto 0
   width: 980px
   @include round-corners(8px, 8px, 8px, 8px)
   @include enable-ie-css3
@@ -196,7 +192,7 @@ div#announcement-numbers
   padding: 10px 10px 13px 13px
   position: absolute
   right: 0
-  @include round-corners(0, 0, 0, 3px)
+  @include round-corners(0, 0, 0, 6px)
   @include enable-ie-css3
 
   a
@@ -215,7 +211,7 @@ div.announcement-text
   position: absolute
   right: 0
   width: 300px
-  @include round-corners(3px, 0, 0, 0)
+  @include round-corners(6px, 0, 0, 0)
   @include enable-ie-css3
 
   p.title
