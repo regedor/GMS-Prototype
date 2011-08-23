@@ -35,7 +35,8 @@ jQuery(document).ready(function($){
                  :as       => :file,
                  :hint     => I18n::t('admin.posts.form.hints.image'),
                  :label    => I18n::t('admin.posts.columns.image') %>
-  <% if @record.image_file_name -%>
+
+  <% if !@record.new_record? && @record.image_file_name -%>
     <div class="file_icon"><%=  file_icon_displayer(@record.image) %></div>
   <% end -%>
   <% unless @record.new_record? || !@record.image? -%>
@@ -51,7 +52,7 @@ jQuery(document).ready(function($){
 				 :as => :file,
                  :hint     => I18n::t('admin.posts.form.hints.generic_file'),
                  :label    => I18n::t('admin.posts.columns.generic_file') %>
-  <% if @record.generic.content_type %>
+  <% if @record.generic_content_type %>
     <div class="file_icon"><%=  file_icon_displayer(@record.generic) %></div>
   <% end %>
   <% unless @record.new_record? || !@record.generic? -%>
