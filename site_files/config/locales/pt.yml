@@ -818,7 +818,7 @@ pt:
           show_in_navigation: "Seleccionar para mostrar na barra de navegação da parte pública."
           priority: "Seleccionar quão alto (em prioridade) deve estar o link na barra de navegação da parte pública."
           has_comments: "Seleccione para permitir comentários nesta página."
-          show_announcements: "Mostrar anúncios"
+          show_announcements: "Seleccione se desejar mostrar os anúncios nesta página."
       preview:
         title: "A sua entrada será formatada da seguinte forma:"
         return: "Use Ctrl+Alt+E para voltar ao modo de edição."
