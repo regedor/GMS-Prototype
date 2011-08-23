@@ -11,18 +11,20 @@
 </div>
 
 <div class="cg_group_name">
-  <%= text_field_tag 'group_name', nil, { :placeholder => 'Type the group name here...', :class => "cg_group_name_textfield" } %>	
+  <%= text_field_tag 'group_name', nil, { :placeholder => t("api.create_group.g_n_placeholder"), :class => "cg_group_name_textfield" } %>	
 </div>	
 
 <div class="cg_search">
   <%= text_field_tag 'member_search', nil, { :class => "cg_member_search" } %>	
-  <input class="button positive cg_search_button" type="button" value="Add" />
 </div>
 
-
-<div class="cg_users">
+<div id="selected" class="cg_users">
+	<span class="title"><%= t("api.create_group.selected")+" (0)" %></span>
+</div>	
+<div id="not_selected" class="cg_users">
+  <span class="title">	<%= t("api.create_group.not_selected")+" (#{User.all.size})" %></span>	
   <% User.all.each do |user| %>	
-    <div id="cg_user_<%= user.id %>" class="cg_user not_selected">
+    <div id="cg_user_<%= user.id %>" class="cg_user">
 	  <span class="cg_user_image"><%= image_tag(avatar_url(user,:size => :small)) %></span>
 	  <span class="cg_user_name"><%= user.name %></span>
 	</div> 
