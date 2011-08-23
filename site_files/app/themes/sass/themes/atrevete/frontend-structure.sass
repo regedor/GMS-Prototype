@@ -98,8 +98,7 @@ div#primary-wrapper
   background-image: url("/stylesheets/themes/atrevete/images/bg_content.png")
   background-repeat: repeat
   margin: 130px auto 0
-  // HACK????????
-  padding-top: 1px
+  padding-top: 40px
   position: relative
   width: 980px
 
@@ -131,11 +130,15 @@ div#content.single
 div#content.double
   float: left
   width: 745px
-  margin: 0 40px 30px
+  margin: 0 30px 30px 40px
 
 
 div.content-body
   margin: 0 10px
+
+
+div#tag-cloud
+  margin: 0 40px 0 0
 
 
 div#user-info, div#user-invite
@@ -184,7 +187,7 @@ div#flash
 div#announcements
   border: 1px solid #444
   overflow: hidden
-  margin: 40px auto
+  margin: 0 auto 30px
   position: relative
   width: 890px
   @include round-corners(2px, 2px, 2px, 2px)
@@ -239,5 +242,7 @@ div.announcement-text
 
 
 div.meta
+  background-color: transparent
+  border: 1px solid $default-color
   @include round-corners(3px, 3px, 3px, 3px)
   @include enable-ie-css3
