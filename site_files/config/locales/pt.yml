@@ -140,13 +140,13 @@ pt:
     share_on_facebook: "Partilhar"
     meta:
       date: "Publicado em"
-      tags: "Etiquetas"
+      tags: "Categorias"
       comments:
         one: "%{count} comentário"
         many: "%{count} comentários"
     tags:
-      title: "Etiquetas"
-      tagged_with: "Posts etiquetados com:"
+      title: "Categorias"
+      tagged_with: "Posts categorizados como:"
       clear_selection: "Limpar tudo"
     archives:
       title: "Arquivos"
@@ -188,6 +188,9 @@ pt:
       ok_button: "OK"
       
   admin:
+    delete:
+      title: "Tem a certeza que quer apagar?"
+
     navigation:
       main:
         dashboard: "Painel de Controlo"
@@ -847,7 +850,7 @@ pt:
         slug: "Slug"
         image: "Imagem"
         generic_file: "Anexo"
-        tag_list: "Lista de etiquetas"
+        tag_list: "Lista de categorias"
         minor_edit: "Edição Mínima"
         groups: "Visível para"
       preview:
@@ -863,7 +866,7 @@ pt:
         show: "Detalhes do Post"
         new: "Novo Post"
         edit: "Editar Post"
-        edit_tag: "Editar Etiqueta - %{name}"
+        edit_tag: "Editar Categoria - %{name}"
         preview_button: "Visualização"
         edit_button: "Editar"
         delete_generic: "Apagar anexo"
@@ -884,7 +887,7 @@ pt:
           minor_edit: "Edições mínimas não aparecerão nos leitores de feeds. Utilize para corrigir pequenos erros."
           groups: "Escolha os grupos que podem ver este post. Deixe vazio se desejar que seja visível para todos os visitantes."
       tags:
-        title: "Etiquetas"
+        title: "Categorias"
         pagination:
           previous: "««"
           next: "»»"
@@ -894,10 +897,10 @@ pt:
             more: "%{count} posts"
             one: "%{count} post"
         edit:
-          prompt: "Mudar o nome da etiqueta"
+          prompt: "Mudar o nome da categoria"
           error:
-            generic: "Não foi possível mudar o nome da etiqueta."
-            tag_exists: "Já existe uma etiqueta com o nome especificado."
+            generic: "Não foi possível mudar o nome da categoria."
+            tag_exists: "Já existe uma categoria com o nome especificado."
             no_server: "Não foi possível conectar ao servidor."
       sidebar:
         index:
@@ -912,9 +915,9 @@ pt:
           link: "Reverter"
         edit:
           title: "Editar Post"
-          paragraph: "Está a editar informação do post. Além do <b title=\"O título é a identificação do post.\">título</b> e do <b title=\"O corpo corresponde ao conteúdo do post.\">corpo</b>, pode alterar <b title=\"Etiquetas são uma série de palavras-chave para categorizar o post.\">lista de etiquetas</b>, a <b title=\"\">data de publicação</b> e o <b title=\"O slug é a identificação única do posto, util para links.\">slug</b>. Também existe uma checkbox para fazer <b title=\"Activar se não quiser que os utilizadores sejam notificados da mudança.\">edição mínima</b>.<br/><br/>Pode visualizar os conteúdos do post antes de <b title=\"O botão Guardar guarda o post.\">Guardar</b> ao clicar em <b title=\"O botão Visualização button permite visualizar o post.\">Visualização</b>. Para descartar alterações, clique em <b title=\"O botão Cancelar descarta qualquer modificação.\">Cancelar</b>."
+          paragraph: "Está a editar informação do post. Além do <b title=\"O título é a identificação do post.\">título</b> e do <b title=\"O corpo corresponde ao conteúdo do post.\">corpo</b>, pode alterar <b title=\"Categorias são uma série de palavras-chave para definir o que trata o post.\">lista de categorias</b>, a <b title=\"\">data de publicação</b> e o <b title=\"O slug é a identificação única do posto, util para links.\">slug</b>. Também existe uma checkbox para fazer <b title=\"Activar se não quiser que os utilizadores sejam notificados da mudança.\">edição mínima</b>.<br/><br/>Pode visualizar os conteúdos do post antes de <b title=\"O botão Guardar guarda o post.\">Guardar</b> ao clicar em <b title=\"O botão Visualização button permite visualizar o post.\">Visualização</b>. Para descartar alterações, clique em <b title=\"O botão Cancelar descarta qualquer modificação.\">Cancelar</b>."
         tags:
-          paragraph: "Também pode filtrar posts pelas <b title=\"Etiquetas são uma série de palavras-chave para categorizar o post.\">etiquetas</b> na lista abaixo. Quando clica numa etiqueta, os posts que <b title=\"Se clicar a etiqueta 'a' e 'b', só os posts contendo ambas as palavras-chave serão mostrados.\">contêm</b> todas as etiquetas seleccionadas serão mostrados."
+          paragraph: "Também pode filtrar posts pelas <b title=\"Categorias são uma série de palavras-chave para definir o que trata o post.\">categorias</b> na lista abaixo. Quando clica numa categoria, os posts que <b title=\"Se clicar a categoria 'a' e 'b', só os posts contendo ambas as palavras-chave serão mostrados.\">contêm</b> todas as categorias seleccionadas serão mostrados."
 
     comments:
       index:
@@ -1046,8 +1049,8 @@ pt:
     you_are_being_redirected: "Está a ser redireccionado."
     login_failed: "Erro no login. Talvez não tenha activado a sua conta, ou introduziu elementos errados."
     group_created: "Criou um grupo com sucesso."
-    tag_changed: "Etiqueta actualizada com sucesso de %{old} para %{new}."
-    invalid_tag_change: "Não foi possível mudar o nome da etiqueta %{old} para %{new} porque a etiqueta %{new} já existe."
+    tag_changed: "Categoria actualizada com sucesso de %{old} para %{new}."
+    invalid_tag_change: "Não foi possível mudar o nome da categoria %{old} para %{new} porque a categoria %{new} já existe."
     changes_saved_successful_with_delay: "As alterações foram guardadas com sucesso e eventualmente surtirão efeito."
     reverted_with_sucess: "Revertido com sucesso."
     description_required: "O campo de descrição é obrigatório."
@@ -1072,6 +1075,7 @@ pt:
       successfully: "Evento %{name} actualizado com sucesso"
       error: "Ocorreu um erro enquanto se actualizava o evento"
     activity_deleted: "Actividade apagada com sucesso"
+    page_created: "Criado %{name}"
     page_updated: "Actualizado %{name}"
     page_not_updated: "Falha ao actualizar %{name}" 
     unsubscribe: "Cancelada subscrição ao evento %{name}"
@@ -1079,7 +1083,15 @@ pt:
     postUpdated:
       successfully: "Actualizado %{name}"
       error: "Falha ao actualizar o post"            
-  
+    postCreated:
+      successfully: "Criado %{nome}"
+      error: "Falha ao criar o post"
+    to_do_comment_body: "O comentário não pode estar vazio" 
+    file_size_5mb: "O tamanho do ficheiro deve ser menor que 5 MegaBytes"
+    image_size_1mb: "O tamanho da imagem deve ser menor que 1 MegaByte"
+    cant_be_blank: "não pode ser vazio"
+    image_content_type: "Imagem deve ser em .jpg ou .png"
+
   notifier: 
     to_do_notification: 
       new_todo_subject: "Nova tarefa"
