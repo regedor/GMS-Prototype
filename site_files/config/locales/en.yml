@@ -151,6 +151,8 @@ en:
       title: "Tag Cloud"
       tagged_with: "Posts tagged with:"
       clear_selection: "clear all"
+    categories:
+      title: "Categories"
     archives:
       title: "Archives"
       none: "There are no posts so far."
