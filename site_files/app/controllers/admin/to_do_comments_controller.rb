@@ -37,14 +37,8 @@ class Admin::ToDoCommentsController < Admin::BaseController
         end
       end
     else
-      if comment.errors.any?
-        flash[:error] = []
-        comment.errors.each do |attribute,msg|
-          flash[:error] << "#{msg}"
-        end
-      else
-        flash[:error] = t("flash.to_do_comment_creation_fail")
-      end
+      @template.properly_show_errors(mail)
+      flash[:error] = t("flash.to_do_comment_creation_fail")
     end
 
     redirect_to new_admin_project_to_do_comment_path(params[:project_id],params[:to_do_id])

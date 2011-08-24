@@ -21,6 +21,7 @@ div.jqi{
 }
 div.jqi .jqicontainer{ 
 	font-weight: bold; 
+	overflow: auto;
 }
 div.jqi .jqiclose{ 
 	position: absolute;
@@ -41,6 +42,7 @@ div.jqi .jqibuttons{
 	padding: 5px 0 5px 0; 
 	border: solid 1px #eeeeee; 
 	background-color: #f4f4f4;
+	clear: left;
 }
 div.jqi button.popbutton{ 
 	padding: 3px 10px; 
@@ -75,13 +77,70 @@ input.cg_group_name_textfield {
 }
 
 .cg_user{
-	width: 240px;
+	width: 138px;
 	float:left;
 	display: inline;
+	border: inherit;
+	border-radius: 2px;
+	margin: 9px;
+	padding: 7px 0px 2px 7px;	
+	vertical-align: top;
+	cursor: pointer;
+	background: inherit;
+	color: inherit;
+}
+
+.cg_users .title{
+	float:left;
+}
+
+#selected {
+	margin-top: 20px;
+}
+
+#selected, #not_selected {
+	float:left;
+	min-height: 40px;
+}
+
+.title + .cg_user {
+	clear:left;
+}
+
+#selected > .cg_user{
+	background: -o-linear-gradient(top,#63ABF7,#5E99CD);
+	background: -webkit-gradient(linear,left top,left bottom,from(#63ABF7),to(#5E99CD));
+	background: -moz-linear-gradient(top,#63ABF7,#5E99CD);
+	background: -o-linear-gradient(top,#63ABF7,#5E99CD);
+	color: white;
+	border: 1px solid #779;
+}
+
+#not_selected > .cg_user {
+	background: -o-linear-gradient(top,white,#F4F4F4);
+	background: -webkit-gradient(linear,left top,left bottom,from(white),to(#F4F4F4));
+	background: -moz-linear-gradient(top,white,#F4F4F4);
+	background: -o-linear-gradient(top,white,#F4F4F4);
+	color: black;
+	border: 1px solid #DDD;
+	border-radius: 2px;
+}
+
+.cg_user:hover{
+	border: 1px solid #BBB;
+	-moz-box-shadow: 2px 2px 4px #999;
+	-webkit-box-shadow: 2px 2px 4px #999;
+	box-shadow: 2px 2px 4px #999;
+	opacity: 1;
+}
+
+.cg_user_image{
+	float:left;
+	margin-right: 4px;
 }
 
 .cg_user_name{
-	vertical-align: top;
+	width: 68px;
 }
 
 .cg_users{
@@ -95,10 +154,6 @@ input.cg_group_name_textfield {
 .token-input-list-facebook{
 }
 
-.cg_search_button{
-	position:relative;
-	margin-left:355px;
-}
 
 div.token-input-dropdown-facebook {
 	z-index: 1000;
@@ -114,39 +169,109 @@ jQuery.noConflict();
   
 jQuery(document).ready(function($){
  
+  var selected = new Array();
+
+
+   jQuery.fn.selectUser = function(){
+   	$(".cg_user").click(function () { 
+   	      var div_id = $(this).parent().attr("id");
+		  var no_users_selected = parseInt($("#selected").children(":nth-child(1)").text().match(/(\d+)/g));
+		  var no_users_not_selected = parseInt($("#not_selected").children(":nth-child(1)").text().match(/(\d+)/g));
+		  var selected_text = $("#selected").children(":nth-child(1)");
+		  var not_selected_text = $("#not_selected").children(":nth-child(1)");
+   		  if(div_id === "selected")
+   		  {			  
+   			  $("#selected").remove($(this).attr("id"));	
+   		      $(this).appendTo($("#not_selected"));
+			  selected_text.text(selected_text.text().replace(/(\d+)/g,no_users_selected-1));
+			  not_selected_text.text(not_selected_text.text().replace(/(\d+)/g,no_users_not_selected+1));
+			  
+   		  }
+   		  else
+   		  {		
+		  	  selected.push($(this).attr("id").split("_")[2]);
+   			  $("#not_selected").remove($(this).attr("id"));
+   		      $(this).appendTo($("#selected"));
+			  selected_text.text(selected_text.text().replace(/(\d+)/g,no_users_selected+1));
+			  not_selected_text.text(not_selected_text.text().replace(/(\d+)/g,no_users_not_selected-1));
+   		  }
+   	});
+   }
+   
+   jQuery.fn.selectUserWithId = function(item){
+   	  var user_id = "#cg_user_"+item.id;
+   	  var user = $(user_id);
+   	  if(user.parent().attr("id") === "not_selected")
+   	  {
+   	  	  $("#not_selected").remove(user_id);
+          user.appendTo($("#selected"));
+   	  }
+	  else
+	    asyncTranslate("api.create_group.already_selected",function(data){alert(data);}, {"user":item.name});
+   }  
+
   function submitPopUp(){
-    $("body").css("overflow","scroll");	
+    $("body").css("overflow","auto");
+    selected = new Array();	
+    if($("#record_group_id option:selected").val() === "")
+		$("#record_group_id option")[0]['selected'] = true;
   }
 
   function addUser(item){
-    $(".cg_users").append('<div id="cg_user_'+item.id+'" class="cg_user"><span class="cg_user_image">'+item.image+'</span><span class="cg_user_name">'+item.name+'</span>');	
+	selected.push(item.id);
+    $(this).selectUserWithId(item);
+	$(".token-input-token-facebook").remove();
   }
 
-  function removeUser(item){
-    $("#cg_user_"+item.id).remove();
+  function filterUsers(results){
+	 var filtered_results = results.filter(function(val){
+	    return selected.indexOf(val.id) == -1;	
+	 });
+	return filtered_results;		 
   }
+
+  	function x(results) {
+	    $.each(results, function (index, value) {
+		    alert(selected.indexOf(value.id) != -1);
+	        if(selected.indexOf(value.id) != -1)
+				results.splice(index,1);
+	    });
+  
+	    return results;
+	} 
 
   function loadTokenInput(){
 	$( "#member_search" ).tokenInput(USERS, {
 		resultsFormatter: function(item){return "<li>"+item.image+" "+item.name+"</li>"},
 		minChars: 2,
 		onAdd: addUser,
-		onDelete: removeUser
+		onResult: function (results) {
+		                    $.each(results, function (index, value) {
+								if(selected.indexOf(value.id) == -1)
+		                        	value.name = "OMG: " + value.name+selected.length;
+		                    });
+
+		                    return results;
+		                }
 	}); 
   } 
 
   $("#record_group_id").change(function(){
     if($("#record_group_id option:selected").text() === "Create New...")
     {
+	 
 	  $("body").css("overflow","hidden");
 	  $.prompt(HTML,{ 
 		buttons: { Ok: true, Cancel: false },
 		loaded: loadTokenInput,
 		callback: submitPopUp
 	  });
+	  $(this).selectUser();
 	
     }
   });
+
+  
 
 });
 
