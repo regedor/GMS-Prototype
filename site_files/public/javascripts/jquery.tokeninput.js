@@ -50,7 +50,10 @@ var DEFAULT_SETTINGS = {
     onResult: null,
     onAdd: null,
     onDelete: null,
-    onReady: null
+    onReady: null,
+
+    // Caching
+    disableCache: false
 };
 
 // Default classes to use when theming
@@ -178,7 +181,8 @@ $.TokenList = function (input, url_or_data, settings) {
     var token_count = 0;
 
     // Basic cache to save on db hits
-    var cache = new $.TokenList.Cache();
+    if(settings.disableCache == false)
+    	var cache = new $.TokenList.Cache();
 
     // Keep track of the timeout, old vals
     var timeout;
@@ -755,9 +759,12 @@ $.TokenList = function (input, url_or_data, settings) {
 
     // Do the actual search
     function run_search(query) {
-        var cache_key = query + computeURL();
-        var cached_results = cache.get(cache_key);
-        if(cached_results) {
+	    if(settings.disableCache == false)
+	    {
+          var cache_key = query + computeURL();
+          var cached_results = cache.get(cache_key);
+        }
+        if(cached_results && settings.disableCache == false) {
             populate_dropdown(query, cached_results);
         } else {
             // Are we doing an ajax search or local data search?
@@ -792,7 +799,8 @@ $.TokenList = function (input, url_or_data, settings) {
                   if($.isFunction(settings.onResult)) {
                       results = settings.onResult.call(hidden_input, results);
                   }
-                  cache.add(cache_key, settings.jsonContainer ? results[settings.jsonContainer] : results);
+				  if(settings.disableCache == false)
+                    cache.add(cache_key, settings.jsonContainer ? results[settings.jsonContainer] : results);
 
                   // only populate the dropdown if the results are associated with the active search query
                   if(input_box.val().toLowerCase() === query) {
@@ -811,7 +819,8 @@ $.TokenList = function (input, url_or_data, settings) {
                 if($.isFunction(settings.onResult)) {
                     results = settings.onResult.call(hidden_input, results);
                 }
-                cache.add(cache_key, results);
+				if(settings.disableCache == false)
+                	cache.add(cache_key, results);
                 populate_dropdown(query, results);
             }
         }

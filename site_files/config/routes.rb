@@ -106,6 +106,6 @@ ActionController::Routing::Routes.draw do |map|
 
   map.namespace :api do |api|
    api.resource  :i18n
-   api.resources :create_groups,  :collection => {:values => :get}
+   api.resources :create_groups,  :collection => {:create_group => :post}
   end
 end

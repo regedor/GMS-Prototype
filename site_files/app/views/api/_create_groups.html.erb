@@ -1,32 +1,43 @@
+
 <div class="cg_header"><%= t("api.create_group.header") %></div>
 
-<% groups = Group.all.collect {|group| [ group.name, group.id ] } %>
+<% groups = Group.all.collect{|group| [ group.name, group.id ] } %>
+<div class="cg_content">
 
-<div class="cg_select_all_block">
-  <%= t("api.create_group.select_all") %><%= select("cg", "select_all", groups, {:include_blank => true}) %>
+  <div class="cg_group_name">
+    <span class="cg_g_n_label">
+	  <%= t('api.create_group.group_name') %>
+	</span>	
+	  <%=  text_field_tag 'group_name', nil, { :placeholder => t("api.create_group.g_n_placeholder"), :class => "cg_group_name_textfield" } %>	
+  </div> 
+ 
+<div class="cg_search_block">
+  <span class="title">Search:</span>	
+  <div class="cg_search">
+    <%= text_field_tag 'member_search', nil, { :class => "cg_member_search" } %>	
+  </div>
+
+  <div class="cg_blocks">
+    <div class="cg_select_all_block">
+      <%= select("cg", "select_all", [t("api.create_group.select_all")]+groups) %>
+    </div>
+
+    <div class="cg_deselect_all_block">
+      <%= select("cg", "deselect_all", [t("api.create_group.deselect_all")]+groups) %>
+    </div>
+  </div>
 </div>
 
-<div class="cg_deselect_all_block">
-  <%= t("api.create_group.deselect_all") %><%= select("cg", "deselect_all", groups, {:include_blank => true}) %>
-</div>
-
-<div class="cg_group_name">
-  <%= text_field_tag 'group_name', nil, { :placeholder => t("api.create_group.g_n_placeholder"), :class => "cg_group_name_textfield" } %>	
-</div>	
-
-<div class="cg_search">
-  <%= text_field_tag 'member_search', nil, { :class => "cg_member_search" } %>	
-</div>
-
-<div id="selected" class="cg_users">
-	<span class="title"><%= t("api.create_group.selected")+" (0)" %></span>
-</div>	
-<div id="not_selected" class="cg_users">
-  <span class="title">	<%= t("api.create_group.not_selected")+" (#{User.all.size})" %></span>	
-  <% User.all.each do |user| %>	
-    <div id="cg_user_<%= user.id %>" class="cg_user">
-	  <span class="cg_user_image"><%= image_tag(avatar_url(user,:size => :small)) %></span>
-	  <span class="cg_user_name"><%= user.name %></span>
-	</div> 
-  <% end %>
-</div>	 
+  <div id="selected" class="cg_users">
+    <span class="title"><%= t("api.create_group.selected")+" (0)" %></span>
+  </div>
+  <div id="not_selected" class="cg_users">
+    <span class="title">	<%= t("api.create_group.not_selected")+" (#{User.all.size})" %></span>	
+    <% User.all.each do |user| %>	
+      <div id="cg_user_<%= user.id %>" class="cg_user">
+ 	   <span class="cg_user_image"><%= image_tag(avatar_url(user,:size => :small)) %></span>
+ 	   <span class="cg_user_name"><%= user.name %></span>
+ 	 </div> 
+    <% end %>
+  </div>	
+</div> 
