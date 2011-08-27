@@ -34,11 +34,6 @@ div#header span.site-title
   font-weight: bold
 
 
-div#header span.options
-  @include text-shadow(1px, 1px, 0, #444)
-  @include enable-ie-css3
-
-
 div.announcement-text
   color: #FFF
   text-align: justify
@@ -62,9 +57,7 @@ div#announcement-numbers
 
 div#menu
   color: #FFF
-  font: 14px Helvetica
-  @include text-shadow(1px, 1px, 0, #000)
-  @include enable-ie-css3
+  font: 16px Helvetica
 
   a
     color: #FFF
@@ -74,28 +67,14 @@ div#menu
     @include enable-ie-css3
 
 
-div#tag-cloud
+div#categories
+
+  h2
+    color: #FFF
+    font-size: 13px
 
   a:hover
     border-bottom: 2px solid $default-color
-
-  a.nube1
-    font-size: 10px
-
-  a.nube2
-    font-size: 12px
-
-  a.nube3
-    font-size: 14px
-
-  a.nube4
-    font-size: 16px
-
-  a.nube5
-    font-size: 18px
-
-  a.nube6
-    font-size: 20px
 
   a.selected
     font-weight: bold

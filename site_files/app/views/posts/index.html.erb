@@ -18,9 +18,22 @@
   </div>
 <% end %>
 
+
+<% content_for :categories do %>
+  <div id="categories">
+    <h2 class="title"><%= I18n::t('posts.categories.title') %></h2>
+    <% tag_cloud @tags_for_cloud, ['category'] do |name, css_class| %>
+      <% classes = (@tags && (@tags.include? name)) ? (css_class + ' selected') : css_class %>
+      <%= link_to name, posts_path(:tags => @tags, :this_tag => name), :class => classes %>
+    <% end %>
+  </div>
+<% end %>
+
+
 <% content_for(:calendar) do %>
   <%= render :partial => 'calendar/calendar' %>
 <% end %>
+
 
 <div id="posts">
   <% if @tags %>

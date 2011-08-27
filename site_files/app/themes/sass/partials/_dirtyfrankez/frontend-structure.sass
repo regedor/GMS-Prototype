@@ -63,16 +63,32 @@ div#menu
       padding: 12px 20px
 
 
-div#tag-cloud
+div#categories
   background-color: #F4F4F4
   border: 1px solid $default-color
-  margin: 0 25px 20px 780px
+  margin: 0 25px 20px 755px
   min-height: 100px
-  padding: 10px 20px
   position: relative
   top: 20px
+  width: 200px
   @include round-corners(8px, 8px, 8px, 8px)
   @include enable-ie-css3
+
+  h2
+    background-color: $default-color
+    margin: 0
+    padding: 10px 0 10px 20px
+    @include round-corners(6px, 6px, 0, 0)
+    @include enable-ie-css3
+
+  a
+    border-top: 1px solid $default-color
+    display: block
+    padding: 10px 0 10px 20px
+
+  a:hover
+    color: $default-color
+    border-bottom: none !important
 
 
 div#tag-search-bar
@@ -109,7 +125,7 @@ div#content.single
 
 div#content.double
   float: left
-  width: 745px
+  width: 720px
   margin: 20px 20px 30px
 
 
@@ -166,7 +182,7 @@ div#flash
 
 
 div#announcements
-  border: 2px solid $default-color
+  border: 1px solid #000
   float: left
   margin: 0 20px
   overflow: hidden
