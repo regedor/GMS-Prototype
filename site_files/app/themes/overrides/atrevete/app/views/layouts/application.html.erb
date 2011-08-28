@@ -67,10 +67,21 @@
         <%= '<div id="flash"><div class="message error"><p>'+ flash[:error] +'</p></div></div>' unless flash[:error].blank? %>
         <%= '<script>jQuery("#flash").hide().toggle("fade", {}, 2500).delay(4000).toggle("slide", { direction: "down" }, 1500);</script>' unless flash[:notice].blank? and flash[:error].blank? %>
 
-        <div id="content" class="<%= yield(:tag_cloud) ? 'double' : 'single' %>">
+        <div id="content" class="<%= yield(:categories) ? 'double' : 'single' %>">
           <%= yield %>
         </div>
-        <%= yield :tag_cloud %>
+        <%= yield :categories %>
+      </div>
+    </div>
+
+    <div id="sponsors">
+      <h2>Patrocinadores</h2>
+      <hr />
+      <div id="sponsor-logos">
+        <div class="sponsor-logo"></div>
+        <div class="sponsor-logo"></div>
+        <div class="sponsor-logo"></div>
+        <div class="sponsor-logo"></div>
       </div>
     </div>
 
