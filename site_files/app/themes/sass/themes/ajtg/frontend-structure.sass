@@ -88,7 +88,7 @@ div#menu
   top: -5px
   width: 1012px
 
-  div#navigation
+  div#nav
     float: left
     padding: 18px 14px
 
@@ -208,11 +208,10 @@ div#announcements
   @include enable-ie-css3
 
   a
-    display: inline-block
+    display: block
 
   a:hover
     border: none
-    display: inline-block
 
 
 div.announcement-tail
@@ -227,6 +226,9 @@ div#announcement-numbers
   left: 0
   @include round-corners(0, 0, 2px, 0)
   @include enable-ie-css3
+
+  a
+    display: inline-block
 
 
 div.announcement img
@@ -251,6 +253,10 @@ div.announcement-text
 // =====
 // Posts
 // =====
+
+
+div.post-image a
+  border: none
 
 
 div.meta
