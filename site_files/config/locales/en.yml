@@ -5,12 +5,13 @@ en:
   api:
     create_group:
       header: "Create New Group"
-      select_all: "Select all members of this group: "  
-      deselect_all : "Deselect all members of this group: "  
+      select_all: "Select all:"  
+      deselect_all : "Deselect all:"  
       selected: "Selected Users"
       not_selected: "Not Selected Users"         
       g_n_placeholder: "Type the group name here..." 
       already_selected: "User %{user} is already selected"
+      group_name: "Group Name:"
     
   navigation:
     home: "Home"

@@ -21,7 +21,8 @@ div.jqi{
 }
 div.jqi .jqicontainer{ 
 	font-weight: bold; 
-	overflow: auto;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 div.jqi .jqiclose{ 
 	position: absolute;
@@ -43,10 +44,11 @@ div.jqi .jqibuttons{
 	border: solid 1px #eeeeee; 
 	background-color: #f4f4f4;
 	clear: left;
+	margin: 0px 10px 10px 10px;
 }
 div.jqi button.popbutton{ 
 	padding: 3px 10px; 
-	margin: 0 10px; 
+	margin: 0 15px; 
 	background-color: #2F6073;
 	background: #2F6073; 
 	border: solid 1px #f4f4f4; 
@@ -57,6 +59,10 @@ div.jqi button.popbutton{
 }
 div.jqi button.popbutton:hover{ 
 	background-color: #728A8C;
+}
+
+#jqi_state0_buttonOk{
+	margin: 0 -5px;
 }
 
 div.jqi button.jqidefaultbutton{ 
@@ -147,16 +153,70 @@ input.cg_group_name_textfield {
 	clear:left;
 }
 
+.cg_search_block{
+	border: solid 1px #eeeeee; 
+	background-color: #f4f4f4;
+	display:table;
+	padding: 5px 30px 5px 15px;
+    width:700px;
+}
+
+.cg_search_block .title{
+	display:block;
+}
+
 .cg_search{
-	
+	width:250px;
 }
 
-.token-input-list-facebook{
+.cg_select_all_block, .cg_search{
+	float:left;
+	margin-right: 10px;
+}
+.cg_deselect_all_block, .cg_blocks{
+	float:left;
 }
 
+.cg_g_n_label{
+	margin-right:5px;
+}
+
+.cg_select_all_block,.cg_deselect_all_block,.cg_group_name{
+	margin-bottom:10px;
+}
+
+.cg_header{
+	text-align:center;
+	vertical-align:middle;
+	padding: 5px 0; 
+	border: solid 1px #eeeeee; 
+	background-color: #f4f4f4;
+	margin-bottom:10px;
+	margin-top:0px;
+}
+
+.cg_content{
+	padding:0px 15px;
+	position:relative;
+	width:100%;
+}
+
+body
+{
+ 	margin:0;
+	padding:0;
+}
+
+background-color:#b0e0e6;
+}
+
+ul.token-input-list-facebook{
+	width:inherit;
+}
 
 div.token-input-dropdown-facebook {
 	z-index: 1000;
+	width:248px;
 }
 
 </style>
@@ -169,90 +229,167 @@ jQuery.noConflict();
   
 jQuery(document).ready(function($){
  
-  var selected = new Array();
+    var SELECTION = {
+	    selected: new Array(),
+	    addItem: function (id) {
+			this.selected.push(id);
+		}, 
+		contains: function (id) {
+		    if(this.selected.indexOf(id+"") != -1 || this.selected.indexOf(id) != -1)
+				return true;
+			
+			return false;	
+		},
+		removeItem: function (id) {
+			var index = this.selected.indexOf(id+"");
+			this.selected.splice(index,1);
+		},
+	    getInfo: function () {
+	        return this.selected;
+	    },
+	    clear: function(){
+		    this.selected = new Array();
+	    }
+    };	
 
+    jQuery.fn.selectUser = function(){
+    	  $(".cg_user").click(function () { 
+    	      var div_id = $(this).parent().attr("id");
+     	      var no_users_selected = parseInt($("#selected").children(":nth-child(1)").text().match(/(\d+)/g));
+     	      var no_users_not_selected = parseInt($("#not_selected").children(":nth-child(1)").text().match(/(\d+)/g));
+     	      var selected_text = $("#selected").children(":nth-child(1)");
+     	      var not_selected_text = $("#not_selected").children(":nth-child(1)");
+    		  if(div_id === "selected")
+    		  {			  
+     		      SELECTION.removeItem($(this).attr("id").split("_")[2]);
+    			  $("#selected").remove($(this).attr("id"));	
+    		      $(this).appendTo($("#not_selected"));
+     		      selected_text.text(selected_text.text().replace(/(\d+)/g,no_users_selected-1));
+     		      not_selected_text.text(not_selected_text.text().replace(/(\d+)/g,no_users_not_selected+1));     		  
+    		  }
+    		  else
+    		  {		
+     	  	      SELECTION.addItem($(this).attr("id").split("_")[2]);
+    			  $("#not_selected").remove($(this).attr("id"));
+    		      $(this).appendTo($("#selected"));
+     		      selected_text.text(selected_text.text().replace(/(\d+)/g,no_users_selected+1));
+     		      not_selected_text.text(not_selected_text.text().replace(/(\d+)/g,no_users_not_selected-1));
+    		  }
+    	  });
+    }
 
-   jQuery.fn.selectUser = function(){
-   	$(".cg_user").click(function () { 
-   	      var div_id = $(this).parent().attr("id");
-		  var no_users_selected = parseInt($("#selected").children(":nth-child(1)").text().match(/(\d+)/g));
-		  var no_users_not_selected = parseInt($("#not_selected").children(":nth-child(1)").text().match(/(\d+)/g));
-		  var selected_text = $("#selected").children(":nth-child(1)");
-		  var not_selected_text = $("#not_selected").children(":nth-child(1)");
-   		  if(div_id === "selected")
-   		  {			  
-   			  $("#selected").remove($(this).attr("id"));	
-   		      $(this).appendTo($("#not_selected"));
+    jQuery.fn.selectByGroup = function(){
+		$("#cg_select_all").change(function(){
+		    var group_id = $("#cg_select_all option:selected").val();
+		    $("#cg_select_all option")[0]['selected'] = true;
+		    $.each(GROUPS[group_id],function(index,value){
+			    $(this).selectUserWithId(value);
+			    SELECTION.addItem(value);
+			});				
+		});
+    }
+
+    jQuery.fn.deselectByGroup = function(){
+		$("#cg_deselect_all").change(function(){
+		    var group_id = $("#cg_deselect_all option:selected").val();
+		    $("#cg_deselect_all option")[0]['selected'] = true;
+		    $.each(GROUPS[group_id],function(index,value){
+			    $(this).deselectUserWithId(value);
+			    SELECTION.removeItem(value);
+			});				
+		});
+    }
+   
+    jQuery.fn.selectUserWithId = function(id){
+   	    var user_id = "#cg_user_"+id;
+   	    var user = $(user_id);
+   	    if(user.parent().attr("id") === "not_selected")
+   	    {
+   	    	  $("#not_selected").remove(user_id);
+            user.appendTo($("#selected"));
+            var no_users_selected = parseInt($("#selected").children(":nth-child(1)").text().match(/(\d+)/g));
+	        var no_users_not_selected = parseInt($("#not_selected").children(":nth-child(1)").text().match(/(\d+)/g));
+	        var selected_text = $("#selected").children(":nth-child(1)");
+	        var not_selected_text = $("#not_selected").children(":nth-child(1)");
+	        selected_text.text(selected_text.text().replace(/(\d+)/g,no_users_selected+1));
+	        not_selected_text.text(not_selected_text.text().replace(/(\d+)/g,no_users_not_selected-1));
+   	    }
+    }  
+
+    jQuery.fn.deselectUserWithId = function(id){
+	   	  var user_id = "#cg_user_"+id;
+	   	  var user = $(user_id);
+	   	  if(user.parent().attr("id") === "selected")
+	   	  {
+	   	  	  $("#selected").remove(user_id);
+	          user.appendTo($("#not_selected"));
+	          var no_users_selected = parseInt($("#selected").children(":nth-child(1)").text().match(/(\d+)/g));
+			  var no_users_not_selected = parseInt($("#not_selected").children(":nth-child(1)").text().match(/(\d+)/g));
+			  var selected_text = $("#selected").children(":nth-child(1)");
+			  var not_selected_text = $("#not_selected").children(":nth-child(1)");
 			  selected_text.text(selected_text.text().replace(/(\d+)/g,no_users_selected-1));
 			  not_selected_text.text(not_selected_text.text().replace(/(\d+)/g,no_users_not_selected+1));
-			  
-   		  }
-   		  else
-   		  {		
-		  	  selected.push($(this).attr("id").split("_")[2]);
-   			  $("#not_selected").remove($(this).attr("id"));
-   		      $(this).appendTo($("#selected"));
-			  selected_text.text(selected_text.text().replace(/(\d+)/g,no_users_selected+1));
-			  not_selected_text.text(not_selected_text.text().replace(/(\d+)/g,no_users_not_selected-1));
-   		  }
-   	});
-   }
-   
-   jQuery.fn.selectUserWithId = function(item){
-   	  var user_id = "#cg_user_"+item.id;
-   	  var user = $(user_id);
-   	  if(user.parent().attr("id") === "not_selected")
-   	  {
-   	  	  $("#not_selected").remove(user_id);
-          user.appendTo($("#selected"));
-   	  }
-	  else
-	    asyncTranslate("api.create_group.already_selected",function(data){alert(data);}, {"user":item.name});
-   }  
+	   	  }
+	   }
 
-  function submitPopUp(){
-    $("body").css("overflow","auto");
-    selected = new Array();	
-    if($("#record_group_id option:selected").val() === "")
-		$("#record_group_id option")[0]['selected'] = true;
+  function submitPopUp(buttonValue,message,form){
+	if(buttonValue==true)
+	{
+		group_name=message.find('#group_name');
+		if(group_name.val() == "")
+		{
+		    group_name.css("border-color","#ff0000");
+		    return false;
+		}
+
+		// Ajax call with group_name.val() and SELECTION.getInfo()
+		jQuery.ajax({
+          type: 'POST',
+          data: {selected:SELECTION.getInfo(),name:group_name.val()},
+          url: "http://"+window.location.host+"/api/create_groups/create_group",
+		  dataType: 'json',
+          error: function() {
+            
+          },
+          success: function(r) {
+          }
+        });
+	}
+		
+	return true;	
+  }
+
+  function exit()
+  {
+      $("body").css("overflow","auto");
+      SELECTION.clear();
+      if($("#record_group_id option:selected").val() === "")
+        $("#record_group_id option")[0]['selected'] = true;	
   }
 
   function addUser(item){
-	selected.push(item.id);
-    $(this).selectUserWithId(item);
+    $(this).selectUserWithId(item.id);
 	$(".token-input-token-facebook").remove();
+	SELECTION.addItem(item.id);
   }
 
   function filterUsers(results){
 	 var filtered_results = results.filter(function(val){
-	    return selected.indexOf(val.id) == -1;	
+	    return !SELECTION.contains(val.id);	
 	 });
 	return filtered_results;		 
   }
 
-  	function x(results) {
-	    $.each(results, function (index, value) {
-		    alert(selected.indexOf(value.id) != -1);
-	        if(selected.indexOf(value.id) != -1)
-				results.splice(index,1);
-	    });
-  
-	    return results;
-	} 
 
   function loadTokenInput(){
 	$( "#member_search" ).tokenInput(USERS, {
 		resultsFormatter: function(item){return "<li>"+item.image+" "+item.name+"</li>"},
 		minChars: 2,
 		onAdd: addUser,
-		onResult: function (results) {
-		                    $.each(results, function (index, value) {
-								if(selected.indexOf(value.id) == -1)
-		                        	value.name = "OMG: " + value.name+selected.length;
-		                    });
-
-		                    return results;
-		                }
+		onResult: filterUsers,
+		disableCache: true,
+		noResultsText: "No unselected users found...",
+		hintText: "Type a user name to be selected..."
 	}); 
   } 
 
@@ -264,14 +401,14 @@ jQuery(document).ready(function($){
 	  $.prompt(HTML,{ 
 		buttons: { Ok: true, Cancel: false },
 		loaded: loadTokenInput,
-		callback: submitPopUp
+		callback: exit,
+		submit: submitPopUp
 	  });
 	  $(this).selectUser();
-	
+	  $(this).selectByGroup();
+	  $(this).deselectByGroup();
     }
   });
-
-  
 
 });
 
@@ -319,7 +456,8 @@ jQuery(document).ready(function($){
   <%= form.input :group,
      		     :required => false,
                  :as    => :select,
-     		     :collection => Group.all + [Group.new(:id => 0, :name => "Create New...")],
+                 :include_blank => false,
+     		     :collection => Group.all.inject([["All",0]]) { |result, element| result << [element.name,element.id];result}+[["Create New...",""]],
       			 :label => t('admin.posts.columns.groups'),
       			 :hint  => t('admin.posts.form.hints.groups') %>
 

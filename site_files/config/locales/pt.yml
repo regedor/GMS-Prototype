@@ -6,8 +6,11 @@ pt:
     create_group:
       header: "Criar Novo Grupo"
       select_all: "Escolher todos os membros deste grupo: "
-      deselect_all : "Descartar todos os membros deste grupo: "
-
+      deselect_all: "Descartar todos os membros deste grupo: "
+      selected: "Utilizadores seleccionados"
+      not_selected: "Utilizadores não seleccionados"         
+      g_n_placeholder: "Escreva o nome do grupo aqui" 
+      already_selected: "O utilizador %{user} já foi seleccionado"
   navigation:
     home: "Início"
     about: "Sobre"
@@ -62,7 +65,7 @@ pt:
     errors:
       invalid_fields: "Alguns campos estão inválidos"
       user_optional_group_picks:
-        generic: "Os grupos que escolheu são incompativéis"
+        generic: "Os grupos que escolheu são incompatíveis"
         zero: "Nenhum grupo disponível para '%{name}'"
         multiple: "Multiplos gupos disponíveis para escolher '%{name}': %{groups}"
     show:
@@ -148,6 +151,8 @@ pt:
       title: "Categorias"
       tagged_with: "Posts categorizados como:"
       clear_selection: "Limpar tudo"
+    categories:
+      title: "Categorias"
     archives:
       title: "Arquivos"
       none: "Ainda não há posts."
