@@ -129,7 +129,7 @@ div#content.single
 
 div#content.double
   float: left
-  width: 745px
+  width: 710px
   margin: 0 30px 30px 40px
 
 
@@ -137,12 +137,76 @@ div.content-body
   margin: 0 10px
 
 
-div#tag-cloud
-  margin: 0 40px 0 0
+div#categories
+  margin: 0 30px 20px 760px
+  min-height: 100px
+  position: relative
+  width: 175px
+
+  h2
+    margin: 0
+    padding: 0 0 10px 20px
+
+  li
+    color: $default-color
+    list-style: square
+    margin-left: 40px
+
+  a
+    display: block
+    padding: 5px 0
+
+  a:hover
+    color: $default-color
+    border-bottom: none !important
 
 
 div#user-info, div#user-invite
   margin: $content-margin 10px
+
+
+div#organization
+  margin: 0 30px 20px 760px
+  position: relative
+  width: 175px
+
+  div.organization-logo
+    background-color: #FFF
+    display: inline-block
+    height: 75px
+    width: 75px
+
+  div#aac-logo
+    background-image: url("/stylesheets/themes/atrevete/images/aac.png")
+
+  div#aauav-logo
+    background-image: url("/stylesheets/themes/atrevete/images/aauav.png")
+
+  div#aaum-logo
+    background-image: url("/stylesheets/themes/atrevete/images/aaum.png")
+
+  div#aautad-logo
+    background-image: url("/stylesheets/themes/atrevete/images/aautad.png")
+
+  div#aefcup-logo
+    background-image: url("/stylesheets/themes/atrevete/images/aefcup.png")
+
+
+div#sponsors
+  margin: 80px auto 60px
+  width: 980px
+
+  h2
+    color: #FFF
+    font-size: 20px
+    line-height: 0
+
+  div.sponsor-logo
+    background-color: #FFF
+    display: inline-block
+    height: 100px
+    margin: 20px
+    width: 100px
 
 
 div#footer
@@ -185,19 +249,24 @@ div#flash
 
 
 div#announcements
-  border: 1px solid #444
+  border: 2px dashed #3A6B79
+  height: 200px
   overflow: hidden
-  margin: 0 auto 30px
-  position: relative
-  width: 890px
-  @include round-corners(2px, 2px, 2px, 2px)
-  @include enable-ie-css3
+  position: absolute
+  right: 0
+  top: 20px
+  width: 690px
 
   a
     display: block
 
   a:hover
     border: none
+
+
+div.announcement
+  position: relative
+  z-index: -1
 
 
 div.announcement-tail
@@ -218,8 +287,8 @@ div#announcement-numbers
 
 
 div.announcement img
-  height: 250px
-  width: 940px
+  height: 200px
+  width: 690px
 
 
 div.announcement-text
@@ -239,6 +308,10 @@ div.announcement-text
 // =====
 // Posts
 // =====
+
+
+div.post-image a
+  border: none
 
 
 div.meta
