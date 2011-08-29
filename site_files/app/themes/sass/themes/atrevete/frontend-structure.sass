@@ -165,23 +165,48 @@ div#user-info, div#user-invite
   margin: $content-margin 10px
 
 
+div#organization
+  margin: 0 30px 20px 760px
+  position: relative
+  width: 175px
+
+  div.organization-logo
+    background-color: #FFF
+    display: inline-block
+    height: 75px
+    width: 75px
+
+  div#aac-logo
+    background-image: url("/stylesheets/themes/atrevete/images/aac.png")
+
+  div#aauav-logo
+    background-image: url("/stylesheets/themes/atrevete/images/aauav.png")
+
+  div#aaum-logo
+    background-image: url("/stylesheets/themes/atrevete/images/aaum.png")
+
+  div#aautad-logo
+    background-image: url("/stylesheets/themes/atrevete/images/aautad.png")
+
+  div#aefcup-logo
+    background-image: url("/stylesheets/themes/atrevete/images/aefcup.png")
+
+
 div#sponsors
   margin: 80px auto 60px
   width: 980px
 
   h2
     color: #FFF
-    font-family: Helvetica
     font-size: 20px
     line-height: 0
-    text-transform: uppercase
 
   div.sponsor-logo
     background-color: #FFF
     display: inline-block
-    height: 150px
+    height: 100px
     margin: 20px
-    width: 150px
+    width: 100px
 
 
 div#footer
@@ -224,19 +249,24 @@ div#flash
 
 
 div#announcements
-  border: 1px solid #444
+  border: 2px dashed #3A6B79
+  height: 200px
   overflow: hidden
-  margin: 0 auto 30px
-  position: relative
-  width: 890px
-  @include round-corners(2px, 2px, 2px, 2px)
-  @include enable-ie-css3
+  position: absolute
+  right: 0
+  top: 20px
+  width: 690px
 
   a
     display: block
 
   a:hover
     border: none
+
+
+div.announcement
+  position: relative
+  z-index: -1
 
 
 div.announcement-tail
@@ -257,8 +287,8 @@ div#announcement-numbers
 
 
 div.announcement img
-  height: 250px
-  width: 940px
+  height: 200px
+  width: 690px
 
 
 div.announcement-text

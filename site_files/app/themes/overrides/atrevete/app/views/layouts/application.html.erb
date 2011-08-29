@@ -33,13 +33,11 @@
       <div class="secondary-wrapper">
         <div id="man-and-arrows"></div>
 
-        <span class="site-title"><a href="/"><span>Atreve-te'11</span></a> Concurso de Ideias de Negócio</span>
+        <%= render :partial => 'announcements/announcement' %>
       </div>
     </div>
 
     <div id="primary-wrapper">
-      <%= render :partial => 'announcements/announcement' %>
-
       <div id="main" class="selfclear">
         <%= '<div id="flash"><div class="message notice"><p>'+ flash[:notice] +'</p></div></div>' unless flash[:notice].blank? %>
         <%= '<div id="flash"><div class="message error"><p>'+ flash[:error] +'</p></div></div>' unless flash[:error].blank? %>
@@ -49,17 +47,31 @@
           <%= yield %>
         </div>
         <%= yield :categories %>
+
+        <% if yield(:categories) %>
+          <div id="organization">
+            <h2 class="title">Organização</h2>
+            <div id="organization-logos">
+              <a href="http://aac.pt"><div id="aac-logo" class="organization-logo"></div></a>
+              <a href="http://aauav.pt"><div id="aauav-logo" class="organization-logo"></div></a>
+              <a href="http://aaum.pt"><div id="aaum-logo" class="organization-logo"></div></a>
+              <a href="http://aautad.utad.pt"><div id="aautad-logo" class="organization-logo"></div></a>
+              <a href="http://aefcup.pt"><div id="aefcup-logo" class="organization-logo"></div></a>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
 
     <div id="sponsors">
-      <h2>Patrocinadores</h2>
+      <h2 class="title">Apoios</h2>
       <hr />
-      <div id="sponsor-logos">
-        <div class="sponsor-logo"></div>
-        <div class="sponsor-logo"></div>
-        <div class="sponsor-logo"></div>
-        <div class="sponsor-logo"></div>
+      <div id="sponsors-logos">
+        <div id="" class="sponsor-logo"></div>
+        <div id="" class="sponsor-logo"></div>
+        <div id="" class="sponsor-logo"></div>
+        <div id="" class="sponsor-logo"></div>
+        <div id="" class="sponsor-logo"></div>
       </div>
     </div>
 
