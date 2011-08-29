@@ -5,12 +5,13 @@ pt:
   api:
     create_group:
       header: "Criar Novo Grupo"
-      select_all: "Escolher todos os membros deste grupo: "
-      deselect_all: "Descartar todos os membros deste grupo: "
+      select_all: "Escolher todos: "
+      deselect_all: "Descartar todos: "
       selected: "Utilizadores seleccionados"
       not_selected: "Utilizadores não seleccionados"         
       g_n_placeholder: "Escreva o nome do grupo aqui" 
       already_selected: "O utilizador %{user} já foi seleccionado"
+      group_name: "Nome do grupo:"
   navigation:
     home: "Início"
     about: "Sobre"
@@ -143,16 +144,16 @@ pt:
     share_on_facebook: "Partilhar"
     meta:
       date: "Publicado em"
-      tags: "Categorias"
+      tags: "Tags"
       comments:
         one: "%{count} comentário"
         many: "%{count} comentários"
     tags:
-      title: "Categorias"
-      tagged_with: "Posts categorizados como:"
+      title: "Tags"
+      tagged_with: "Posts taggados como:"
       clear_selection: "Limpar tudo"
     categories:
-      title: "Categorias"
+      title: "Tópicos"
     archives:
       title: "Arquivos"
       none: "Ainda não há posts."
@@ -298,7 +299,7 @@ pt:
       columns:
         title: "Título da Mensagem"
         body: "Corpo"
-        category: "Categoria" 
+        category: "Tópico" 
       form:
         new: "Nova mensagem"
         edit: "Editar mensagem"
@@ -315,16 +316,16 @@ pt:
       sidebar:
         title: "Mensagens"
         paragraph: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."          
-        categories: "Procurar por categoria:"
+        categories: "Procurar por tópico:"
         
     
     categories:
         list:
-         title: "Categorias de"
-         empty: "Não há categorias"
+         title: "Tópicos de"
+         empty: "Não há tópicos"
         form:
-          new: "Nova Categoria"
-          edit: "Editar Categoria"
+          new: "Novo Tópico"
+          edit: "Editar Tópico"
           name: "Nome"
           create_button: "Criar"
           edit_button: "Editar"
@@ -855,7 +856,7 @@ pt:
         slug: "Slug"
         image: "Imagem"
         generic_file: "Anexo"
-        tag_list: "Lista de categorias"
+        tag_list: "Lista de tags"
         minor_edit: "Edição Mínima"
         groups: "Visível para"
       preview:
@@ -871,7 +872,7 @@ pt:
         show: "Detalhes do Post"
         new: "Novo Post"
         edit: "Editar Post"
-        edit_tag: "Editar Categoria - %{name}"
+        edit_tag: "Editar Tag - %{name}"
         preview_button: "Visualização"
         edit_button: "Editar"
         delete_generic: "Apagar anexo"
@@ -892,7 +893,7 @@ pt:
           minor_edit: "Edições mínimas não aparecerão nos leitores de feeds. Utilize para corrigir pequenos erros."
           groups: "Escolha os grupos que podem ver este post. Deixe vazio se desejar que seja visível para todos os visitantes."
       tags:
-        title: "Categorias"
+        title: "Tags"
         pagination:
           previous: "««"
           next: "»»"
@@ -902,10 +903,10 @@ pt:
             more: "%{count} posts"
             one: "%{count} post"
         edit:
-          prompt: "Mudar o nome da categoria"
+          prompt: "Mudar o nome da tag"
           error:
-            generic: "Não foi possível mudar o nome da categoria."
-            tag_exists: "Já existe uma categoria com o nome especificado."
+            generic: "Não foi possível mudar o nome da tag."
+            tag_exists: "Já existe uma tag com o nome especificado."
             no_server: "Não foi possível conectar ao servidor."
       sidebar:
         index:
@@ -920,9 +921,9 @@ pt:
           link: "Reverter"
         edit:
           title: "Editar Post"
-          paragraph: "Está a editar informação do post. Além do <b title=\"O título é a identificação do post.\">título</b> e do <b title=\"O corpo corresponde ao conteúdo do post.\">corpo</b>, pode alterar <b title=\"Categorias são uma série de palavras-chave para definir o que trata o post.\">lista de categorias</b>, a <b title=\"\">data de publicação</b> e o <b title=\"O slug é a identificação única do posto, util para links.\">slug</b>. Também existe uma checkbox para fazer <b title=\"Activar se não quiser que os utilizadores sejam notificados da mudança.\">edição mínima</b>.<br/><br/>Pode visualizar os conteúdos do post antes de <b title=\"O botão Guardar guarda o post.\">Guardar</b> ao clicar em <b title=\"O botão Visualização button permite visualizar o post.\">Visualização</b>. Para descartar alterações, clique em <b title=\"O botão Cancelar descarta qualquer modificação.\">Cancelar</b>."
+          paragraph: "Está a editar informação do post. Além do <b title=\"O título é a identificação do post.\">título</b> e do <b title=\"O corpo corresponde ao conteúdo do post.\">corpo</b>, pode alterar <b title=\"Tags são uma série de palavras-chave para definir o que trata o post.\">lista de tags</b>, a <b title=\"\">data de publicação</b> e o <b title=\"O slug é a identificação única do posto, util para links.\">slug</b>. Também existe uma checkbox para fazer <b title=\"Activar se não quiser que os utilizadores sejam notificados da mudança.\">edição mínima</b>.<br/><br/>Pode visualizar os conteúdos do post antes de <b title=\"O botão Guardar guarda o post.\">Guardar</b> ao clicar em <b title=\"O botão Visualização button permite visualizar o post.\">Visualização</b>. Para descartar alterações, clique em <b title=\"O botão Cancelar descarta qualquer modificação.\">Cancelar</b>."
         tags:
-          paragraph: "Também pode filtrar posts pelas <b title=\"Categorias são uma série de palavras-chave para definir o que trata o post.\">categorias</b> na lista abaixo. Quando clica numa categoria, os posts que <b title=\"Se clicar a categoria 'a' e 'b', só os posts contendo ambas as palavras-chave serão mostrados.\">contêm</b> todas as categorias seleccionadas serão mostrados."
+          paragraph: "Também pode filtrar posts pelas <b title=\"Tags são uma série de palavras-chave para definir o que trata o post.\">tags</b> na lista abaixo. Quando clica numa tag, os posts que <b title=\"Se clicar a tag 'a' e 'b', só os posts contendo ambas as palavras-chave serão mostrados.\">contêm</b> todas as tags seleccionadas serão mostrados."
 
     comments:
       index:
@@ -1054,8 +1055,8 @@ pt:
     you_are_being_redirected: "Está a ser redireccionado."
     login_failed: "Erro no login. Talvez não tenha activado a sua conta, ou introduziu elementos errados."
     group_created: "Criou um grupo com sucesso."
-    tag_changed: "Categoria actualizada com sucesso de %{old} para %{new}."
-    invalid_tag_change: "Não foi possível mudar o nome da categoria %{old} para %{new} porque a categoria %{new} já existe."
+    tag_changed: "Tag actualizada com sucesso de %{old} para %{new}."
+    invalid_tag_change: "Não foi possível mudar o nome da tag %{old} para %{new} porque a tag %{new} já existe."
     changes_saved_successful_with_delay: "As alterações foram guardadas com sucesso e eventualmente surtirão efeito."
     reverted_with_sucess: "Revertido com sucesso."
     description_required: "O campo de descrição é obrigatório."
@@ -1067,8 +1068,8 @@ pt:
     to_do_comment_created: "O comentário foi criado com sucesso em %{todo}."
     mail_not_sent: "O email para %{mail} não pôde ser enviado"
     mail_not_sent_multiple: "Alguns emails não puderam ser enviados"
-    categories_error: "Não foi possível guardar a categoria"
-    category_deleted: "Categoria eliminada com sucesso"
+    categories_error: "Não foi possível guardar o tópico"
+    category_deleted: "Tópico eliminado com sucesso"
     project_deleted: "Apagado %{project}"
     project_not_deleted: "Não foi possível apagar %{project}"
     to_do_list_created: "Lista de tarefas %{name} criada"
