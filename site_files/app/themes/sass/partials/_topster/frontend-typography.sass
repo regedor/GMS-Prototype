@@ -66,17 +66,11 @@ div#menu
     @include enable-ie-css3
 
 
-div#categories
-
-  h2
-    color: #FFF
-    font-size: 13px
-
-  a:hover
-    border-bottom: 2px solid $default-color
-
-  a.selected
-    font-weight: bold
+div#tag-cloud h2.title
+  color: #FFF    
+  font-size: 14px
+  @include text-shadow(1px, 2px, 0, #000)
+  @include enable-ie-css3
 
 
 div#tag-search-bar

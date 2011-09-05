@@ -85,17 +85,21 @@ div#menu
 
 
 div#tag-cloud
-  background-color: $tag-cloud-color
-  border: 1px solid #E6696E
   margin: 25px 0 0 755px
   min-height: 120px
-  padding: 15px
-  width: 170px
+  width: 200px
   @include round-corners(3px, 3px, 3px, 3px)
   @include enable-ie-css3
 
   a:hover
     border-bottom: 2px solid $default-color
+
+  h2
+    border: 1px solid #333
+    padding: 5px 15px
+    @include linear-gradient($default-color, #7F1519)
+    @include round-corners(10px, 10px, 10px, 10px)
+    @include enable-ie-css3
 
 
 div#tag-search-bar
