@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="application/xhtml+xml;charset=UTF-8" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <title><%= yield(:page_title) || h(configatron.title)%></title>
+
+  <%= stylesheet_link_tag    'shared/reset', :media => 'screen'                                           %>
+  <%= stylesheet_link_tag    'smoothness/jquery-ui-1.8.7.custom',
+                             'formtastic/formtastic',
+                             'shared/formtastic-changes',
+                             "themes/#{configatron.theme}/frontend",           :cache => 'cache/frontend' %>
+
+  <%= javascript_include_tag 'jquery',
+                             'jquery-ui-1.8.7.custom.min',
+                             'announcements', 
+                             'utils',                                          :cache => 'cache/frontend' %>
+
+  <script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="<%= configatron.addthis_pubid %>"></script>
+
+  <%= yield :head %>
+</head>
+
+<body>
+  <div id="container">
+    <div id="top-bg"></div>
+
+    <div id="header">
+      <div id="header-top">
+        <span class="site-title"><%= configatron.site_header %></span>
+
+        <span class="options">
+          <% if logged_in? %>
+            <% if @current_user.small_name %>
+              <%= link_to @current_user.small_name, user_account_path                                            %> |
+            <% else %>
+              <%= link_to @current_user.email, user_account_path                                                 %> |
+            <% end %>
+            <% if permitted_to? :read, :admin_dashboard %>
+              <%= link_to t('navigation.administration'), admin_root_path %> |
+            <% end %>
+            <%= link_to t('user_session.bar.logout'), user_logout_path                                           %>
+          <% else %>
+            <%= link_to t("user_session.bar.signin"), new_user_session_path                                      %> |
+            <%= link_to t("user_session.bar.signup"), new_user_account_path                                      %>
+          <% end %>
+        </span>
+      </div>
+
+      <div id="header-bottom">
+        <a href="/"><div id="logo"></div></a>
+
+        <%= render :partial => 'announcements/announcement' %>
+      </div>
+    </div>
+
+    <div id="main" class="selfclear">
+      <div id="menu"><%= frontend_navigation_content %></div>
+
+      <%= '<div id="flash"><div class="message notice"><p>'+ flash[:notice] +'</p></div></div>' unless flash[:notice].blank? %>
+      <%= '<div id="flash"><div class="message error"><p>'+ flash[:error] +'</p></div></div>' unless flash[:error].blank? %>
+      <%= '<script>jQuery("#flash").hide().toggle("fade", {}, 2500).delay(4000).toggle("slide", { direction: "down" }, 1500);</script>' unless flash[:notice].blank? and flash[:error].blank? %>
+
+      <div id="content" class="<%= yield(:tag_cloud) ? 'double' : 'single' %>">
+        <%= yield %>
+      </div>
+      <%= yield :tag_cloud %>
+    </div>
+
+    <%= render :partial => 'shared/footer' %>
+  </div>
+</body>
+</html>
