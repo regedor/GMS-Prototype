@@ -1,11 +1,18 @@
 #!/bin/bash
 
-file=$0
+if [ "$1" == "-c" ]
+then	
+  rm -r thumbs/* 2>/dev/null	
+fi	
 
-for i in $(ls -1)
-do
-  if [ -f $i ] && [ "$i" != "${0##*/}" ]
+for album in $(ls -1)
+do	
+  if [ -d $album ] && [ "$album" != "thumbs" ]
   then	
-    convert $i -resize 192x142! thumbs/$i
+    for image in $(ls -1 $album)
+    do
+	  mkdir thumbs/$album 2>/dev/null
+      convert $album/$image -resize 192x142! thumbs/$album/$image
+    done  
   fi
 done
