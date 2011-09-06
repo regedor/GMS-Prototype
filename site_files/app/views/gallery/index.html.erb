@@ -1,7 +1,16 @@
+<style>
+div#gallery{width:860px; margin-right:auto;margin-left:auto;}
+div.album {display:inline-block; margin-right:20px;}
+p.name {text-align:center;}
+</style>
+
 <div id="gallery">
   <% @albums.each do |album| %>
-    <a href="<%= gallery_path(album.name) %>">
-	  <img  class="thumb" src="/assets/images/thumbs/<%= album.name %>/<%= album.cover %>"/>
-	</a>
+    <div class="album">
+      <a class="link" href="<%= gallery_path(album.name) %>">
+	    <img  class="thumb" src="/assets/images/thumbs/<%= album.name %>/<%= album.cover %>"/>
+	  </a>
+	  <p class="name"><%= album.name %></p>
+	</div>
   <% end %>
 </div>	

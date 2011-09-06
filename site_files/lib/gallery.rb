@@ -8,9 +8,9 @@ class Gallery
         albums_and_images << Album.new(:name => album, :images => Dir.new(basedir+"/"+album).entries.drop(2))
       end  
       albums_and_images
-      #Dir.new(basedir).entries.drop 2  # Remove . and ..
     end
     
+    # To be replaced with table and images to be replaced with table for paperclip
     def album_by_name(album_name,basedir="public/assets/images/thumbs")
       Album.new(:name => album_name, :images => Dir.new(basedir+"/"+album_name).entries.drop(2))
     end  
