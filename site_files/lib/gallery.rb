@@ -2,7 +2,7 @@ class Gallery
     
   class << self
     def get_albums(basedir="public/assets/images/thumbs")
-      album_names=%x[public/assets/images/get_images.sh #{basedir}].split("\n") #How to do in ruby?
+      album_names=Dir.new(basedir).entries.select{|e| File::directory?(basedir+"/"+e)}.drop 2
       albums_and_images = []
       album_names.each do |album|      
         albums_and_images << Album.new(:name => album, :images => Dir.new(basedir+"/"+album).entries.drop(2))
