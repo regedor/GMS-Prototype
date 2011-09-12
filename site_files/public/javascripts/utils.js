@@ -94,6 +94,23 @@ function float_bar(element,top) {
   });
 }
 
+jQuery.fn.float_bar_nemum = function(element,top){
+  $=jQuery;	
+  var tag_cloud_offset = $(this).offset();
+  
+  $(window).scroll(function(e){ 
+    var main_offset = $("div#main").offset();
+
+    if ($(window).scrollTop() > 450){ 
+      $(element).css({'position': 'fixed', 'top': $(element).scrollTop() + 30, 'left': tag_cloud_offset.left});
+    }
+    if ($(window).scrollTop() < 450){ 
+      $(element).css({'position': 'absolute', 'top': '320px', 'left': (tag_cloud_offset.left - main_offset.left)});
+    }
+
+  });  
+};
+
 jQuery.fn.renderFlash = function(path,status,pairs){
 	var renderedObject = this;
 	asyncTranslate(path,function(data){renderedObject.html("<div class=\"message "+status+"\"><p>"+data+"</p></div>");},pairs);
