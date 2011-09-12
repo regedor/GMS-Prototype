@@ -19,9 +19,9 @@
 <% end %>
 
 
-<% content_for :categories do %>
-  <div id="categories">
-    <h2 class="title"><%= I18n::t('posts.categories.title') %></h2>
+<% content_for :tag_menu do %>
+  <div id="tag-menu">
+    <h2 class="title"><%= I18n::t('posts.tag_menu.title') %></h2>
     <ul>
       <% tag_cloud @tags_for_cloud, ['category'] do |name, css_class| %>
         <% classes = (@tags && (@tags.include? name)) ? (css_class + ' selected') : css_class %>

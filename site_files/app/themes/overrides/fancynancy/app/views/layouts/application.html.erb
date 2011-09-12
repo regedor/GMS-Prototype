@@ -72,9 +72,9 @@
   </div>
 
   <% javascript_tag do %>
-    window.onload = setTimeout(function() {
-      float_bar("#tag-cloud","30px");
-    }, 0);
+     jQuery(window).load(function(){
+       jQuery("div#tag-cloud").float_bar("30px");
+     });
   <% end %>
 
 </body>
