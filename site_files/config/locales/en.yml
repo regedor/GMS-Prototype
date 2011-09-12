@@ -18,6 +18,12 @@ en:
     about: "About"
     administration: "Administration"
 
+  organization:
+    title: "Organization"
+
+  supporters:
+    title: "Supporters"
+
   users:
     roles:
       user: "User"
@@ -156,7 +162,7 @@ en:
       title: "Tag Cloud"
       tagged_with: "Posts tagged with:"
       clear_selection: "clear all"
-    categories:
+    tag_menu:
       title: "Topics"
     archives:
       title: "Archives"
