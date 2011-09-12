@@ -22,16 +22,6 @@ class Gallery
   
   class Album
     
-    attr_accessor :name, :images
-    
-    def initialize(*args)
-      @name = args[0][:name]
-      @images = args[0][:images]
-    end  
-    
-    def cover
-      @images.first
-    end  
     
   end  
   
