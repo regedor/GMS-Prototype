@@ -1,14 +1,11 @@
 class Album < ActiveRecord::Base
-  attr_accessor :name
+  attr_accessible :name
   has_many :images
   
-  def initialize(*args)
-    @name = args[0][:name]
-    @images = args[0][:images]
-  end  
-  
+  validates_uniqueness_of :name
+
   def cover
-    @images.first
+    self.images.first.path
   end  
   
 end  

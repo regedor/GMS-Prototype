@@ -3,9 +3,11 @@ class CreateAlbums < ActiveRecord::Migration
     create_table :albums do |t|
       t.string :name
     end
+    add_index :albums, :name, :unique => true
     
     create_table :images do |t|
-      t.string :path
+      t.string  :path
+      t.integer :album_id
     end  
   end
 

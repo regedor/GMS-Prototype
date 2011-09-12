@@ -5,8 +5,8 @@ class GalleryController < ApplicationController
   end  
   
   def show
-    @images = Gallery.album_by_name(params[:id]).images #Having the id as the name is cool, add index?
-    @album = params[:id]
+    @album = Album.find_by_name(params[:id])
+    @images = @album.images   
   end  
   
 end  

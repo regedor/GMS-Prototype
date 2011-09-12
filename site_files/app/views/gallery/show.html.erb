@@ -60,9 +60,9 @@ jQuery(document).ready(function($) {
   <% end %>
   <div class="gallery_entry">	
     <div class="item_image">	
-      <img class="thumb" src="/assets/images/thumbs/<%= @album %>/<%= image %>"/>
+      <img class="thumb" src="/assets/images/thumbs/<%= @album.name %>/<%= image.path %>"/>
       <span class="overlay"></span>
-      <a class="zoom-icon group_elements" title="xpto" href="/assets/images/<%= @album %>/<%= image %>" rel="<%= @album %>">Zoom in</a>
+      <a class="zoom-icon group_elements" title="xpto" href="/assets/images/<%= @album.name %>/<%= image.path %>" rel="<%= @album.name %>">Zoom in</a>
       <a class="more-icon" href="#">Read more</a>	
     </div>
   </div>

@@ -3,11 +3,14 @@ class Gallery
   class << self
     def get_albums(basedir="public/assets/images/thumbs")
       album_names=Dir.new(basedir).entries.select{|e| File::directory?(basedir+"/"+e)}.drop 2
-      albums_and_images = []
-      album_names.each do |album|      
-        albums_and_images << Album.new(:name => album, :images => Dir.new(basedir+"/"+album).entries.drop(2))
+      album_names.each do |album|
+        new_album = Album.new :name => album   
+        Dir.new(basedir+"/"+album).entries.drop(2).each do |image_path|
+          new_album.images << Image.create(:path => image_path)
+        end  
+        new_album.save
       end  
-      albums_and_images
+      Album.all
     end
     
     # To be replaced with table and images to be replaced with table for paperclip
@@ -19,10 +22,5 @@ class Gallery
       %x[identify -format %w,%h #{basedir}/#{image_name}].chomp!
     end    
   end
-  
-  class Album
-    
-    
-  end  
   
 end  
