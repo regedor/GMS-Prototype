@@ -317,7 +317,7 @@ pt:
         update_button: "Actualizar"
         cancel_button: "Cancelar"
         hints:
-          body: "<a href='http://textile.thresholdstate.com/'>Textile enabled</a>. Use Ctrl+Alt+E para mudar entre modo de visualização e modo de edição."
+          body: "Textile enabled. Precisa de ajuda?"
       comments:
         comment: "Novo Comentário"
         ghost: "Utilizador inexistente"
@@ -827,7 +827,7 @@ pt:
         cancel_button: "Cancelar"
         close_button: "Fechar"
         hints:
-          body: "<a href='http://textile.thresholdstate.com/'>Textile enabled</a>. Use Ctrl+Alt+E para mudar entre modo de visualização e de edição."
+          body: "Textile enabled. Precisa de ajuda?"
           slug: "Deixar vazio para utilizar um slug baseado no título, gerado automáticamente."
           show_in_navigation: "Seleccionar para mostrar na barra de navegação da parte pública."
           priority: "Seleccionar quão alto (em prioridade) deve estar o link na barra de navegação da parte pública."
@@ -890,7 +890,7 @@ pt:
         cancel_button: "Cancelar"
         close_button: "Fechar"
         hints:
-          body: "<a href='http://textile.thresholdstate.com/'>Textile enabled</a>. Use Ctrl+Alt+E para mudar entre modo de visualização e de edição."
+          body: "Textile enabled. Precisa de ajuda?"
           image: "Seleccione uma imagem do post."
           generic_file: "Anexar um ficheiro"
           delete_generic: "Verificar para apagar o anexo actual"

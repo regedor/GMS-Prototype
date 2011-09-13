@@ -320,7 +320,7 @@ en:
         update_button: "Update"
         cancel_button: "Cancel"
         hints:
-          body: "<a href='http://textile.thresholdstate.com/'>Textile enabled</a>. Use Ctrl+Alt+E to switch between preview and edit mode."
+          body: "Textile enabled. Need help?"
       comments:
         comment: "New comment"
         ghost: "Deleted user"
@@ -826,7 +826,7 @@ en:
         cancel_button: "Cancel"
         close_button: "Close"
         hints:
-          body: "<a href='http://textile.thresholdstate.com/'>Textile enabled</a>. Use Ctrl+Alt+E to switch between preview and edit mode."
+          body: "Textile enabled. Need help?"
           slug: "Leave blank for an auto-generated slug based on the title."
           show_in_navigation: "Select to display on the Front-end navigation bar."
           priority: "Select how high (in priority) should the link be on the Front-end navigation bar."
@@ -889,7 +889,7 @@ en:
         cancel_button: "Cancel"
         close_button: "Close"
         hints:
-          body: "<a href='http://textile.thresholdstate.com/'>Textile enabled</a>. Use Ctrl+Alt+E to switch between preview and edit mode."
+          body: "Textile enabled. Need help?"
           image: "Select a post image."
           generic_file: "Attach a file"
           delete_generic: "Check to delete the current attachement"
