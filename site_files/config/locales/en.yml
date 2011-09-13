@@ -141,6 +141,11 @@ en:
   announcements:
     none: "There are no current announcements."
 
+  gallery:
+    show:
+      zoom: "Zoom in"
+      read_more: "Read more"          
+
   posts:
     none: "There are no posts so far."
     archive: "Post archive"

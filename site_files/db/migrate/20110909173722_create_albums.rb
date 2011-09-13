@@ -7,6 +7,7 @@ class CreateAlbums < ActiveRecord::Migration
     
     create_table :images do |t|
       t.string  :path
+      t.string  :description
       t.integer :album_id
     end  
   end

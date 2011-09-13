@@ -49,6 +49,11 @@ jQuery(document).ready(function($) {
 	
 });	
 </script>
+
+<div id="buttons">
+  <%= link_to "Back", gallery_index_path, { :class => "button negative" } %>
+</div>
+
 <div id="gallery">
   <% counter = 0 %>
   <div class="gallery_row">
@@ -62,10 +67,13 @@ jQuery(document).ready(function($) {
     <div class="item_image">	
       <img class="thumb" src="/assets/images/thumbs/<%= @album.name %>/<%= image.path %>"/>
       <span class="overlay"></span>
-      <a class="zoom-icon group_elements" title="xpto" href="/assets/images/<%= @album.name %>/<%= image.path %>" rel="<%= @album.name %>">Zoom in</a>
-      <a class="more-icon" href="#">Read more</a>	
+      <a class="zoom-icon group_elements" title="<%= image.description %>" href="/assets/images/<%= @album.name %>/<%= image.path %>" rel="<%= @album.name %>"><%= t("gallery.show.zoom") %></a>
+      <a class="more-icon" href="#"><%= t("gallery.show.read_more") %></a>	
     </div>
   </div>
   <% counter+=1 %>
+  <% end %>
+  <% if counter < 4 %>
+    </div>
   <% end %>
 </div>	
