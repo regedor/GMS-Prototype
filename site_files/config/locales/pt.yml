@@ -152,6 +152,8 @@ pt:
       title: "Tags"
       tagged_with: "Posts taggados como:"
       clear_selection: "Limpar tudo"
+    tag_menu:
+      title: "Tags"
     categories:
       title: "Tópicos"
     archives:
