@@ -17,6 +17,12 @@ pt:
     about: "Sobre"
     administration: "Administração"
 
+  organization:
+    title: "Organização"
+
+  supporters:
+    title: "Apoios"
+
   users:
     roles:
       user: "Utilizador"
