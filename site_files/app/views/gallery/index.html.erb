@@ -1,13 +1,13 @@
 <style>
-div#gallery{width:95%; margin-right:auto;margin-left:auto;}
-div.album {display:inline-block; margin:0px 10px;}
+div#gallery{width:93%; margin-right:auto;margin-left:auto;}
+div.album {display:inline-block; margin:10px 10px 0px; position:relative;}
 span.name {
 	display:block;
 	text-align:center; 
 	border:3px solid #E5E5E5; 
 	margin-right:auto;
 	margin-left:auto;
-	padding: 5px;
+	padding: 2px;
 	background: #E5E5E5; 
 	border-top:none; 
 	-webkit-border-bottom-right-radius: 5px;
@@ -19,6 +19,7 @@ span.name {
 }
 img.thumb {  border:3px solid #E5E5E5; }
 #ruler { visibility: hidden; white-space: nowrap; }
+span.overlay { background:url("/images/item-overlay-new.png") no-repeat; width: 198px; height: 170px; position:absolute; top:0px;}
 </style>
 
 <script>
@@ -42,8 +43,9 @@ jQuery(document).ready(function($){
     <div class="album">
       <a class="link" href="<%= gallery_path(album.name) %>">
 	    <img  class="thumb" src="/assets/images/thumbs/<%= album.name %>/<%= album.cover %>"/>
-	  </a>
-	  <span class="name"><%= album.name %></span>
+		<span class="overlay"></span>
+		<span class="name"><%= album.name %></span>
+	  </a>	  	  
 	</div>
   <% end %>
 </div>	
