@@ -1,0 +1,250 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8 ">
+  <title>Ajuda Textile</title>
+  <link rel="stylesheet" type="text/css" href="stylesheets/textihelp.css" />
+</head>
+
+<body>
+
+
+<div id="second">
+<table> 
+    <tbody><tr><th colspan="3"><h1>Ajuda Textile</h1></th></tr> 
+    <tbody><tr><th colspan="3"><p>O Textile é uma maneira simples e intuitiva de formatar texto.  Utiliza-se simbolos simples para definir como aparecem as palavras. Pode-se facilmente definir blocos de texto como títulos, citações ou listas. Por exemplo para escrever uma palavra em <i>itálico</i> basta po-la entre underscores (por exemplo _palavra_ será formatada como <i>palavra</i>). Uma vez submetido o texto, o mesmo será automaticamente processado de forma a poder ser mostrado. </p></th></tr>
+    <tr><th colspan="3">Secções: <a href="#writing-in-textile">Escrever&nbsp;em&nbsp;Textile</a> | <a href="#quick-block-modifiers">Modificadores&nbsp;de&nbsp;Blocos&nbsp;de&nbsp;Texto</a> | <a href="#quick-phrase-modifiers">Modificadores&nbsp;de&nbsp;Frases</a> | <a href="#attributes">Atributos</a> | <a href="#lists">Listas</a> | <a href="#external-references">Referências&nbsp;Externas</a> | <a href="#tables">Tabelas</a></th></tr> 
+<tr><th colspan="5"><a name="writing-in-textile">Escrever em Textile</a></th></tr> 
+<tr><td class="example1"><pre><b>Texto em Textile</b></pre></td><td>&#8594;</td><td class="example2"><p><b>Texto que será mostrado</b></p></td></tr> 
+
+<tr><td class="example1"><pre>Um parágrafo.<br><br>Seguido por outro.</pre></td><td>&#8594;</td><td class="example2"><p>Um parágrafo.</p> 
+ 
+	<p>Seguido por outro.</p></td></tr> 
+<tr><th colspan="5"><pre>Escrever código HTML</pre></th></tr> 
+<tr><td class="example1"><pre>Isto é &lt;b&gt;muito&lt;/b&gt; sério.<br></td><td>&#8594;</td><td class="example2"><p>Isto é <b>muito</b> sério.</p> 
+</td></tr> 
+<tr><th colspan="5"><pre>Hífen Longo</pre></th></tr> 
+<tr><td class="example1"><pre>Observe -- muito bom!</pre></td><td>&#8594;</td><td class="example2"><p>Observe&#8212;muito bom!</p></td></tr> 
+<tr><th colspan="5"><pre>Símbolos Matemáticos e de Copyright</pre></th></tr> 
+<tr><td class="example1"><pre>Observe: 2 x 2.</pre></td><td>&#8594;</td><td class="example2"><p>Observe: 2&#215;2.</p></td></tr> 
+<tr><td class="example1"><pre>um(TM), dois(R), três(C).</pre></td><td>&#8594;</td><td class="example2"><p>um&#8482;, dois&#174;, três&#169;.</p></td></tr> 
+<tr><th colspan="5"><a name="quick-block-modifiers">Modificadores de Blocos de Texto</a></th></tr> 
+<tr><th colspan="5"><pre>Títulos</pre></th></tr> 
+<tr><td class="example1"><pre>h1. Título 1</pre></td><td>&#8594;</td><td class="example2"><h1>Título 1</h1></td></tr> 
+<tr><td class="example1"><pre>h2. Título 2</pre></td><td>&#8594;</td><td class="example2"><h2>Título 2</h2></td></tr> 
+<tr><td class="example1"><pre>h3. Título 3</pre></td><td>&#8594;</td><td class="example2"><h3>Título 3</h3></td></tr> 
+<tr><th colspan="5"><pre>Citação de bloco</pre></th></tr> 
+<tr><td class="example1"><p>Segundo definição da Wikipédia:<br><br>bq. Um bloco de citação (também conhecido como uma citação longa ou extrato) é uma citação de um documento escrito, que é definido fora do texto principal como um ponto distinto (ou bloco) (…) Bloco de citações são geralmente distinguidos visualmente utilizando o recuo , um diferente tipo de letra ou tamanho menor.<br></p></td><td>&#8594;</td><td class="example2"><p>Segundo definição da Wikipédia:</p>
+ 
+	<blockquote> 
+		<p>Um bloco de citação (também conhecido como uma citação longa ou extrato) é uma citação de um documento escrito, que é definido fora do texto principal como um ponto distinto (ou bloco) (…) Bloco de citações são geralmente distinguidos visualmente utilizando o recuo , um diferente tipo de letra ou tamanho menor.</p> 
+	</blockquote> 
+ 
+</td></tr> 
+<tr><th colspan="5"><pre>Referencias</pre></th></tr> 
+<tr><td class="example1"><p>Fernando Pessoa é considerado um dos maiores poetas da Língua Portuguesa, e da Literatura Universal, muitas vezes comparado com Luís de Camões. O crítico literário Harold Bloom considerou a sua obra um "legado da língua portuguesa ao mundo".[1].</p></td><td>&#8594;</td><td class="example2"><p>É considerado um dos maiores poetas da Língua Portuguesa, e da Literatura Universal, muitas vezes comparado com Luís de Camões. O crítico literário Harold Bloom considerou a sua obra um "legado da língua portuguesa ao mundo". <sup><a href="#fn1">1</a></sup>.</p></td></tr> 
+<tr><td class="example1"><p>fn1. Harold Bloom. Elas não são idiotas" entrevista de Harold Bloom a Luís António Giron, da "Época" (Edição 246 - 03/02/2003) no Jornal da Poesia a 15 de Outubro de 2009</p></td><td>&#8594;</td><td class="example2"><p id="fn1"><sup>1</sup> Harold Bloom. Elas não são idiotas" entrevista de Harold Bloom a Luís António Giron, da "Época" (Edição 246 - 03/02/2003) no Jornal da Poesia a 15 de Outubro de 2009</p></td></tr> 
+<tr><th colspan="5"><a name="quick-phrase-modifiers">Modificadores de Frases</a></th></tr> 
+<tr><th colspan="5"><pre>Itálico</pre></th></tr> 
+<tr><td class="example1"><pre>Pensa-se que a _Ilíada_ seja o primeiro poema grego.</pre></td><td>&#8594;</td><td class="example2"><p>Pensa-se que a <em>Ilídia</em> seja o primeiro poema grego.</p></td></tr> 
+<tr><th colspan="5"><pre>Bold</pre></th></tr> 
+<tr><td class="example1"><pre>E depois? Ela *caíu*!</pre></td><td>&#8594;</td><td class="example2"><p>E depois? Ela <strong>caíu</strong>!</p></td></tr> 
+<tr><th colspan="5"><pre>Código</pre></th></tr> 
+<tr><td class="example1"><pre>Abra uma consola e corra o comando @fglrx-info | grep rendering@</pre></td><td>&#8594;</td><td class="example2"><p>Abra uma consola e corra o comando <code>fglrx-info | grep rendering</code></p></td></tr> 
+<tr><th colspan="5"><pre>Rasurado</pre></th></tr> 
+<tr><td class="example1"><pre>Eu -não- tenho a certeza.</pre></td><td>&#8594;</td><td class="example2"><p>Eu <del>não</del> tenho a certeza.</p></td></tr> 
+<tr><th colspan="5"><pre>Sublinhado</pre></th></tr> 
+<tr><td class="example1"><pre>Eu +tenho+ a certeza.</pre></td><td>&#8594;</td><td class="example2"><p>Eu <ins>tenho</ins> a certeza.</p></td></tr> 
+<tr><th colspan="5"><pre>Caracteres Elevados</pre></th></tr> 
+<tr><td class="example1"><pre>a ^2^ + b ^2^ = c ^2^</pre></td><td>&#8594;</td><td class="example2"><p>a <sup>2</sup> + b <sup>2</sup> = c <sup>2</sup></p></td></tr> 
+<tr><th colspan="5"><pre>Caracteres Rebaixados</pre></th></tr> 
+<tr><td class="example1"><pre>log ~2~ x</pre></td><td>&#8594;</td><td class="example2"><p>log <sub>2</sub> x</p></td></tr> 
+<tr><th colspan="5"><pre>Texto Colorido</pre></th></tr> 
+<tr><td class="example1"><pre>A %{color:blue}Group Buddies%<br>lançou um novo projecto.</pre></td><td>&#8594;</td><td class="example2"><p>A <span style="color: blue;">Group Buddies</span> lançou um novo projecto.</p></td></tr> 
+<tr><th colspan="5"><a name="attributes">Atributos</a></th></tr> 
+<tr><th colspan="5"><pre>Alinhar Texto</pre></th></tr> 
+<tr><td class="example1"><pre>p&lt;. alinhar à esquerda</pre></td><td>&#8594;</td><td class="example2"><p style="text-align: left;">alinhar à esquerda</p></td></tr> 
+<tr><td class="example1"><pre>p&gt;. alinhar à direita</pre></td><td>&#8594;</td><td class="example2"><p style="text-align: right;">alinhar à direita</p></td></tr> 
+<tr><td class="example1"><pre>p=. centrado</pre></td><td>&#8594;</td><td class="example2"><p style="text-align: center;">centrado</p></td></tr> 
+<tr><td class="example1"><pre>p&lt;&gt;. justificado</pre></td><td>&#8594;</td><td class="example2"><p style="text-align: justify;">justificado</p></td></tr> 
+<tr><th colspan="5"><a name="lists">Listas</a></th></tr> 
+<tr><th colspan="5"><pre>Numeradas</pre></th></tr> 
+<tr><td class="example1"><pre># Primeiro item<br># Segundo item<br># Terceiro item</pre></td><td>&#8594;</td><td class="example2"><ol> 
+	<li>Primeiro item</li> 
+		<li>Segundo item</li> 
+		<li>Terceiro item</li> 
+	</ol></td></tr> 
+<tr><td class="example1"><pre># Fóssil:<br>## Carvão<br>## Gasolina<br># Renovável:<br>## Solar<br>## Eólica<br>## Geotérmica</pre></td><td>&#8594;</td><td class="example2"><ol> 
+	<li>Fóssil:
+	<ol> 
+	<li>Carvão</li> 
+	<li>Gasolina</li> 
+	</ol> 
+	</li> 
+	<li>Renovável:
+	<ol> 
+	<li>Solar</li> 
+	<li>Eólica</li> 
+        <li>Geotérmica</li> 
+	</ol></li> 
+	</ol></td></tr> 
+<tr><th colspan="5"><pre>Não Numeradas</pre></th></tr> 
+<tr><td class="example1"><pre>* Primeiro item<br>* Segundo item<br>* Terceiro item</pre></td><td>&#8594;</td><td class="example2"><ul> 
+	<li>Primeiro item</li> 
+		<li>Segundo item</li> 
+		<li>Terceiro item</li> 
+	</ul></td></tr> 
+<tr><td class="example1"><pre>* Fóssil:<br>** Carvão<br>** Gasolina<br>* Renovável:<br>** Solar<br>** Eólica<br>** Geotérmica</pre></td><td>&#8594;</td><td class="example2"><ul> 
+	<li>Fóssil:
+	<ul> 
+	<li>Carvão</li> 
+		<li>Gasolina</li> 
+	</ul> 
+	</li> 
+		<li>Renovável:
+	<ul> 
+	<li>Solar</li> 
+		<li>Eólica</li> 
+		<li>Geotérmica</li> 
+	</ul></li> 
+	</ul></td></tr> 
+<tr><th colspan="5"><a name="external-references">Referências Externas</a></th></tr> 
+<tr><th colspan="5"><pre>Links</pre></th></tr> 
+<tr><td class="example1"><pre>Eu pesquisei no "Google":http://google.com.</pre></td><td>&#8594;</td><td class="example2"><p>Eu pesquisei no <a href="http://google.com/">Google</a>.</p></td></tr> 
+<tr><th colspan="5"><pre>Imagens</pre></th></tr>
+<tr><td class="example1"><pre>!http://www.groupbuddies.com/images/gb_logo300.png!</pre></td><td>&#8594;</td><td class="example2"><p><img src="http://www.groupbuddies.com/images/gb_logo300.png" alt=""></p></td></tr>
+
+<tr><th colspan="5"><pre>Alt Text (ex. texto de ajuda, passar rato por cima de "CSS")</pre></th></tr> 
+<tr><td class="example1"><pre>We use CSS(Cascading Style Sheets).</pre></td><td>&#8594;</td><td class="example2"><p>We use <acronym title="Cascading Style Sheets">CSS</acronym>.</p></td></tr> 
+<tr><th colspan="5"><a name="tables">Tabelas</a></th></tr> 
+<tr><th colspan="5"><pre>Tabela simples</pre></th></tr> 
+<tr><td class="example1"><pre>| nome | idade | sexo |<br>| joan | 24 | f |<br>| archie | 29 | m |<br>| bella | 45 | f |</pre></td><td>&#8594;</td><td class="example2"><table> 
+		<tbody><tr> 
+			<td> nome </td> 
+			<td> idade </td> 
+			<td> sexo </td> 
+		</tr> 
+		<tr> 
+			<td> joan </td> 
+			<td> 24 </td> 
+			<td> f </td> 
+		</tr> 
+		<tr> 
+			<td> archie </td> 
+			<td> 29 </td> 
+			<td> m </td> 
+		</tr> 
+		<tr> 
+			<td> bella </td> 
+			<td> 45 </td> 
+			<td> f </td> 
+		</tr> 
+	</tbody></table></td></tr> 
+<tr><th colspan="5"><pre>Atribuir nomes/títulos às colunas</pre></th></tr> 
+<tr><td class="example1"><pre>|_. nome |_. idade |_. sexo |<br>| joan | 24 | f |<br>| archie | 29 | m |<br>| bella | 45 | f |</pre></td><td>&#8594;</td><td class="example2"><table> 
+		<tbody><tr> 
+			<th>nome </th> 
+			<th>idade </th> 
+			<th>sexo </th> 
+		</tr> 
+		<tr> 
+			<td> joan </td> 
+			<td> 24 </td> 
+			<td> f </td> 
+		</tr> 
+		<tr> 
+			<td> archie </td> 
+			<td> 29 </td> 
+			<td> m </td> 
+		</tr> 
+		<tr> 
+			<td> bella </td> 
+			<td> 45 </td> 
+			<td> f </td> 
+		</tr> 
+	</tbody></table></td></tr> 
+<tr><th colspan="5"><pre>Alinhar texto</pre></th></tr> 
+<tr><td class="example1"><pre>|_. Lista de Atributos |<br>|&lt;. alinhar esquerda |<br>|&gt;. alinhar direita|<br>|=. centrado |<br>|&lt;&gt;. justificado |<br>|^. alinhar topo |<br>|~. alinhar baixo |</pre></td><td>&#8594;</td><td class="example2"><table> 
+		<tbody><tr> 
+			<th>attribute list </th> 
+		</tr> 
+		<tr> 
+			<td style="text-align: left;">alinhar esquerda </td> 
+		</tr> 
+		<tr> 
+			<td style="text-align: right;">alinhar direita</td> 
+		</tr> 
+		<tr> 
+			<td style="text-align: center;">centrado </td> 
+		</tr> 
+		<tr> 
+			<td style="text-align: justify;">justificado </td> 
+		</tr> 
+		<tr> 
+			<td style="vertical-align: top;">alinhar topo </td> 
+		</tr> 
+		<tr> 
+			<td style="vertical-align: bottom;">alinhar baixo </td> 
+		</tr> 
+	</tbody></table></td></tr> 
+<tr><th colspan="5"><pre>Fundir colunas</pre></th></tr> 
+<tr><td class="example1"><pre>|\2. duas colunas |<br>| col 1 | col 2 |</pre></td><td>&#8594;</td><td class="example2"><table> 
+		<tbody><tr> 
+			<td colspan="2">duas colunas </td> 
+		</tr> 
+		<tr> 
+			<td> col 1 </td> 
+			<td> col 2 </td> 
+		</tr> 
+	</tbody></table></td></tr> 
+<tr><th colspan="5"><pre>Fundir linhas</pre></th></tr> 
+<tr><td class="example1"><pre>|/3. três linhas | a |<br>| b |<br>| c |</pre></td><td>&#8594;</td><td class="example2"><table> 
+		<tbody><tr> 
+			<td rowspan="3"> três linhas </td> 
+			<td> a </td> 
+		</tr> 
+		<tr> 
+			<td> b </td> 
+		</tr> 	
+		<tr> 
+			<td> c </td> 
+		</tr> 
+	</tbody></table></td></tr> 
+<tr><th colspan="5"><pre>Formatar tabela</pre></th></tr> 
+<tr><td class="example1"><pre>|{background:#ddd}. Célula cinzenta|</pre></td><td>&#8594;</td><td class="example2"><table> 
+		<tbody><tr> 
+			<td style="background: rgb(221, 221, 221) none repeat scroll 0% 0%; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous;">Célula cinzenta</td> 
+		</tr> 
+	</tbody></table></td></tr> 
+<tr><td class="example1"><pre>table{border:1px solid black}.<br>|Isto|é|uma|linha|<br>|Isto|é|uma|linha|</pre></td><td>&#8594;</td><td class="example2"><table style="border: 1px solid black;"> 
+		<tbody><tr> 
+			<td>Isto</td> 
+			<td>é</td> 
+			<td>uma</td> 
+			<td>linha</td> 
+		</tr> 
+		<tr> 
+			<td>Isto</td> 
+			<td>é</td> 
+			<td>uma</td> 
+			<td>linha</td> 
+		</tr> 
+	</tbody></table></td></tr> 
+<tr><td class="example1"><pre>|Isto|é|uma|linha|<br>{background:#ddd}. |Esta|linha|é|cinzenta|</pre></td><td>&#8594;</td><td class="example2"><table> 
+		<tbody><tr> 
+			<td>Isto</td> 
+			<td>é</td> 
+			<td>uma</td> 
+			<td>linha</td> 
+		</tr> 
+		<tr style="background: rgb(221, 221, 221) none repeat scroll 0% 0%; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous;"> 
+			<td>Esta</td> 
+			<td>linha</td> 
+			<td>é</td> 
+			<td>cinzenta</td> 
+		</tr> 
+	</tbody></table></td></tr> 
+</tbody></table>
+</div>
+</body>
+</html>

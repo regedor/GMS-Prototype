@@ -27,7 +27,7 @@
       <div id="logo"><%= render :partial => 'shared/flash_logo', :locals => { :width => "190", :height => "120" } %></div>
     <div id="navigation">
       <div id="menu" ><%= frontend_navigation_content %></div>
-      <%= yield :tag_cloud %>
+      <%= yield :tag_menu %>
     </div>
 
     <div id="wrapper">
@@ -67,9 +67,9 @@
   </div>
 
   <% javascript_tag do %>
-    window.onload = setTimeout(function() {
-      float_bar("#navigation","60px");
-    }, 0);
+    jQuery(window).load(function(){
+      jQuery("div#navigation").float_bar_nemum("50px");
+    });
   <% end %>
 
 </body>

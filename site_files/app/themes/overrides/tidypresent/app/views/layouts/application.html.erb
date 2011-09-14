@@ -54,10 +54,26 @@
 
       <%= render :partial => 'announcements/announcement' %>
 
-      <div id="content" class="<%= yield(:tag_cloud) ? 'double' : 'single' %>">
+      <div id="content" class="<%= yield(:tag_menu) ? 'double' : 'single' %>">
         <%= yield %>
       </div>
-      <%= yield :tag_cloud %>
+      <%= yield :tag_menu %>
+
+      <% if yield(:tag_menu) %>
+        <div id="support">
+          <h2 class="title"><%= t('supporters.title') %></h2>
+          <div id="support-logos">
+            <a href="http://www.uminho.pt"><div id="um-logo" class="support-logo"></div></a>
+            <a href="http://www.eeg.uminho.pt"><div id="eeg-um-logo" class="support-logo"></div></a>
+            <a href="http://www.aaum.pt/tv"><div id="aaum-tv-logo" class="support-logo"></div></a>
+            <a href="http://www.rum.pt/"><div id="rum-logo" class="support-logo"></div></a>
+            <a href="http://academico.rum.pt/"><div id="ja-logo" class="support-logo"></div></a>
+            <a href="http://juventude.gov.pt/IPJ/"><div id="ipj-logo" class="support-logo"></div></a>
+            <a href="http://www.fatech.com/"><div id="fatech-logo" class="support-logo"></div></a>
+            <a href="http://www.dieci.pt"><div id="dieci-logo" class="support-logo"></div></a>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 

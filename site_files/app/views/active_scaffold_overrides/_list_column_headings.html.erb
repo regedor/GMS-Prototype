@@ -7,7 +7,7 @@ default_sorting_stages = ['DESC', 'ASC']
 <% active_scaffold_config.list.columns.each do |column| -%>
   <%
   stages = default_sorting.sorts_on?(column) ? default_sorting_stages : sorting_stages
-  column_sort_direction = stages.after(sorting.direction_of(column)) || 'ASC'
+  column_sort_direction = 'DESC'
   sort_params = params_for(:action => :index, :page => 1,
                            :sort => column.name, :sort_direction => column_sort_direction)
   column_header_id = active_scaffold_column_header_id(column)
@@ -21,7 +21,8 @@ default_sorting_stages = ['DESC', 'ASC']
 <%# End override %>
   <% if column.sortable? -%>
     <% href = url_for(sort_params) -%>
-    <%= link_to_remote column.label,
+    <p><%= column.label %></p>
+    <%#= link_to_remote column.label,
       { :url => sort_params,
         :before => "addActiveScaffoldPageToHistory('#{href}', '#{controller_id}')",
         :loading => "Element.addClassName('#{column_header_id}','loading');",

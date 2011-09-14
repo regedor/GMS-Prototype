@@ -43,14 +43,14 @@
         <%= '<div id="flash"><div class="message error"><p>'+ flash[:error] +'</p></div></div>' unless flash[:error].blank? %>
         <%= '<script>jQuery("#flash").hide().toggle("fade", {}, 2500).delay(4000).toggle("slide", { direction: "down" }, 1500);</script>' unless flash[:notice].blank? and flash[:error].blank? %>
 
-        <div id="content" class="<%= yield(:categories) ? 'double' : 'single' %>">
+        <div id="content" class="<%= yield(:tag_menu) ? 'double' : 'single' %>">
           <%= yield %>
         </div>
-        <%= yield :categories %>
+        <%= yield :tag_menu %>
 
-        <% if yield(:categories) %>
+        <% if yield(:tag_menu) %>
           <div id="organization">
-            <h2 class="title">Organização</h2>
+            <h2 class="title"><%= t('organization.title') %></h2>
             <div id="organization-logos">
               <a href="http://aac.pt"><div id="aac-logo" class="organization-logo"></div></a>
               <a href="http://aauav.pt"><div id="aauav-logo" class="organization-logo"></div></a>

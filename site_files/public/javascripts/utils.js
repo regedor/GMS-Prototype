@@ -75,24 +75,43 @@ function asyncTranslate(path,cb,pairs){
 		return jQuery.get("/api/i18n",{"path":path,"pairs":pairs},cb,"text");
 }
 
-function float_bar(element,top) {
+jQuery.fn.float_bar = function(top){
   $=jQuery;
 
-  var tag_cloud_offset = $("div#tag-cloud").offset();
+  var element = $(this);
+  var tag_cloud_offset = $(this).offset();
 
   $(window).scroll(function(e){ 
 
     var main_offset = $("div#main").offset();
 
     if ($(this).scrollTop() > 450){ 
-      $(element).css({'position': 'fixed', 'top': $(element).scrollTop() + 30, 'left': tag_cloud_offset.left});
+      element.css({'position': 'fixed', 'top': element.scrollTop() + 30, 'left': tag_cloud_offset.left});
     }
-    if ($(this).scrollTop() < 450){ 
-      $(element).css({'position': 'absolute', 'top': '320px', 'left': (tag_cloud_offset.left - main_offset.left)});
+    else if ($(this).scrollTop() <= 450){ 
+      element.css({'position': 'absolute', 'top': '320px', 'left': (tag_cloud_offset.left - main_offset.left)});
     }
     
   });
 }
+
+jQuery.fn.float_bar_nemum = function(top){
+  $=jQuery;
+
+  var element = $(this);
+  var navigation_offset = $(this).offset();
+
+  $(window).scroll(function(){ 
+
+    if ($(this).scrollTop() > 240 && element.css('position') != 'fixed'){ 
+      element.css({'position': 'fixed', 'top': top}); 
+    }
+    else if ($(this).scrollTop() <= 240){ 
+      element.css({'position': 'relative', 'top': '0px'});
+    }
+
+  });  
+};
 
 jQuery.fn.renderFlash = function(path,status,pairs){
 	var renderedObject = this;
