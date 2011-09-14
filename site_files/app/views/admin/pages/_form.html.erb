@@ -419,6 +419,12 @@ jQuery(document).ready(function($){
 	        $(this).deselectByGroup();
 	    }
 	});
+	
+	//Apply markitup link
+	$(".markitup_hint_wrapper .inline-hints").html(function(){
+		return '<a href="#" class="markitup_hint">'+ $(this).text() + '</a>';
+	});
+	
 });
 
 </script>
@@ -430,9 +436,8 @@ jQuery(document).ready(function($){
   <%= form.input :body,
                  :as       => 'text',
                  :label    => I18n::t('admin.pages.columns.body'),
-                 :hint_class => 'markitup_help',
-                 :hint     => t('admin.pages.form.hints.body') 
-                  %>
+                 :wrapper_html => {:class => 'markitup_hint_wrapper'},
+                 :hint     => t('admin.pages.form.hints.body') %>
                  
 <% end -%>
 
