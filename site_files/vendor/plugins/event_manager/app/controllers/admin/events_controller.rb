@@ -42,7 +42,10 @@ class Admin::EventsController < Admin::BaseController
       flash[:notice]  = t("flash.eventCreated.successfully",:name => @record.name)
       redirect_to admin_events_path 
     else
-      flash[:error] = t("flash.eventCreated.error")
+      @template.properly_show_errors @record.post
+      @template.properly_show_errors @record.post if @record.post
+      @template.properly_show_errors @record.announcement if @record.announcement
+      flash.now[:error] = t("flash.eventCreated.error")
     end
   end  
   
@@ -77,7 +80,10 @@ class Admin::EventsController < Admin::BaseController
       flash[:notice]  = t("flash.eventUpdated.successfully",:name => @record.name)
       redirect_to admin_events_path 
     else
-      flash[:error] = t("flash.eventUpdated.error")
+      @template.properly_show_errors @record
+      @template.properly_show_errors @record.post if @record.post
+      @template.properly_show_errors @record.announcement if @record.announcement
+      flash.now[:error] = t("flash.eventUpdated.error")
     end    
   end  
   
