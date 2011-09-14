@@ -144,7 +144,8 @@ en:
   gallery:
     show:
       zoom: "Zoom in"
-      read_more: "Read more"          
+      read_more: "Read more"
+      back: "Back to gallery"          
 
   posts:
     none: "There are no posts so far."

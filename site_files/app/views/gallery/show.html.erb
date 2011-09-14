@@ -7,8 +7,9 @@
             .item_image a.zoom-icon { background:url("/images/zoom-icon.png") no-repeat; left:21px; }
             .item_image a.more-icon { background:url("/images/readmore-icon.png") no-repeat; left:116px; }
 
-.gallery_entry:first-child { margin-left:24.5px;}
+.gallery_entry:first-child { margin-left:24.5px; clear:left;}
 #gallery{margin-top:15px;}
+#buttons .back {display:block; margin-bottom:20px;}
 </style>
 
 <script>
@@ -51,7 +52,7 @@ jQuery(document).ready(function($) {
 </script>
 
 <div id="buttons">
-  <%= link_to "Back", gallery_index_path, { :class => "button negative" } %>
+  <%= link_to t('gallery.show.back'), gallery_index_path, { :class => "button negative back" } %>
 </div>
 
 <div id="gallery">
