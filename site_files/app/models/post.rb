@@ -15,7 +15,7 @@ class Post < ActiveRecord::Base
 
   validates_presence_of   :title, :body, :published_at, :message => I18n::t('flash.cant_be_blank')
   validates_uniqueness_of :slug
-  validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/jpg', 'image/png'], :message => I18n::t('flash.image_content_type')
+  validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'], :message => I18n::t('flash.image_content_type')
   validates_attachment_size :image, :less_than => 1.megabytes, :message => I18n::t('flash.image_size_1mb')
   validates_attachment_size :generic, :less_than => 5.megabytes, :message => I18n::t('flash.file_size_5mb')
   
