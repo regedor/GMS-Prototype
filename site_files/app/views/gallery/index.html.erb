@@ -1,0 +1,51 @@
+<style>
+div#gallery{width:95%; margin-right:auto;margin-left:auto;}
+div.album {display:inline-block; margin:0px 10px;}
+span.name {
+	display:block;
+	text-align:center; 
+	border:3px solid #E5E5E5; 
+	margin-right:auto;
+	margin-left:auto;
+	padding: 5px;
+	background: #E5E5E5; 
+	border-top:none; 
+	-webkit-border-bottom-right-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+img.thumb {  border:3px solid #E5E5E5; }
+#ruler { visibility: hidden; white-space: nowrap; }
+</style>
+
+<script>
+jQuery(document).ready(function($){
+  String.prototype.visualLength = function()
+  {
+      $("#ruler").html(this.toString());
+      var width = $("#ruler").width();
+      $("#ruler").text("");
+      return width;
+  };
+  
+  $("span.name").each(function(){
+  	  $(this).css("width",$(this).text().visualLength());
+  });
+});
+</script>
+
+<div id="gallery">
+  <% @albums.each do |album| %>
+    <div class="album">
+      <a class="link" href="<%= gallery_path(album.name) %>">
+	    <img  class="thumb" src="/assets/images/thumbs/<%= album.name %>/<%= album.cover %>"/>
+	  </a>
+	  <span class="name"><%= album.name %></span>
+	</div>
+  <% end %>
+</div>	
+
+<span id="ruler"></span>
