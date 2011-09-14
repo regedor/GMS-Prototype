@@ -84,15 +84,12 @@ div#menu
       padding: 12px 20px
 
 
-div#tag-cloud
+div#tag-menu
   margin: 25px 0 0 755px
   min-height: 120px
   width: 200px
   @include round-corners(3px, 3px, 3px, 3px)
   @include enable-ie-css3
-
-  a:hover
-    border-bottom: 2px solid $default-color
 
   h2
     border: 1px solid #333
@@ -100,6 +97,19 @@ div#tag-cloud
     @include linear-gradient($default-color, #7F1519)
     @include round-corners(10px, 10px, 10px, 10px)
     @include enable-ie-css3
+
+  li
+    color: $default-color
+    list-style: square
+    margin-left: 30px
+
+  a
+    display: block
+    padding: 5px 0
+
+  a:hover
+    color: $default-color
+    border-bottom: none !important
 
 
 div#tag-search-bar
@@ -164,13 +174,13 @@ div#flash
       padding: 20px
 
   div.message.error
-    background: url("/stylesheets/themes/nebaum/images/flash/error.png") no-repeat 0 50%
+    background: url("/stylesheets/themes/gaccum/images/flash/error.png") no-repeat 0 50%
 
   div.message.warning
-    background: url("/stylesheets/themes/nebaum/images/flash/warning.png") no-repeat 0 50%
+    background: url("/stylesheets/themes/gaccum/images/flash/warning.png") no-repeat 0 50%
 
   div.message.info, div.message.notice
-    background: url("/stylesheets/themes/nebaum/images/flash/notice.png") no-repeat 0 50%
+    background: url("/stylesheets/themes/gaccum/images/flash/notice.png") no-repeat 0 50%
 
 
 // =============
