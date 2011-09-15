@@ -1,4 +1,6 @@
 <div class="content">
-  <h2><%= I18n::t('admin.messages.index.all') %></h2>
-   <%= render :partial => 'admin/messages/list.html.erb', :locals => {:project_id => params[:project_id], :messages => @messages} %>  
+  <div class="inner">
+    <h2><%= I18n::t('admin.messages.index.all') %></h2>
+    <%= render :partial => 'admin/messages/list.html.erb', :locals => {:project_id => params[:project_id], :messages => @messages} %>  
+  </div>
 </div>
