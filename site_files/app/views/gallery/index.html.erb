@@ -42,7 +42,11 @@ jQuery(document).ready(function($){
   <% @albums.each do |album| %>
     <div class="album">
       <a class="link" href="<%= gallery_path(album.name) %>">
-	    <img  class="thumb" src="/assets/images/thumbs/<%= album.name %>/<%= album.cover %>"/>
+	    <% if album.images.empty? %>
+	      <img  class="thumb" src="/assets/images/thumbs/<%= album.cover %>"/>
+	    <% else %>
+	      <img  class="thumb" src="/assets/images/thumbs/<%= album.name %>/<%= album.cover %>"/>
+	    <% end %>
 		<span class="overlay"></span>
 		<span class="name"><%= album.name %></span>
 	  </a>	  	  
