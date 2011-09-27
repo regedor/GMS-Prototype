@@ -67,9 +67,9 @@ module ApplicationHelper
 
   def render_date(time)
     if (Time.now - time) < 30.days
-      I18n::t "generic_sentence.time_ago", :time_ago => time_ago_in_words(time)
+      t "generic_sentence.time_ago", :time_ago => time_ago_in_words(time)
     else
-      record.starts_at.strftime('%d %b, %Y')
+      time.strftime('%d %b, %Y')
     end
   end
   
