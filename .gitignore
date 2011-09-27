@@ -52,5 +52,7 @@ tmtags
 /site_files/config/config.local
 /site_files/public/stylesheets/backend.css
 /site_files/public/stylesheets/frontend.css
+/site_files/public/stylesheets/extra.css
+/site_files/public/javascripts/frontend.js
 /site_files/public/images/*
 
