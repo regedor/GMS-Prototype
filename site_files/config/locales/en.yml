@@ -433,6 +433,12 @@ en:
             update: "Apply"           
 
     events:
+      manage:
+        title: "Manage Event %{name}"
+        download: "Download Excel File"  
+        table:
+          name: "Name"
+          email: "E-mail"              
       add_activity: "Add Activity"    
       index:
         title: "Events"

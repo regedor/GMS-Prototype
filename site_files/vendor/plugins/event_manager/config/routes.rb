@@ -15,9 +15,9 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :events do |event|
       event.resources :event_activities,      :active_scaffold => true, :active_scaffold_sortable => true
       event.resources :event_activities,      :member => { :delete => :get }
-      event.resources :event_activity_manage, :collection => { :confirmUpdate => :post }
-      event.resources :event_manage,          :member => { :index => :get },
-                                              :collection => { :confirmUpdate => :post }
+      event.resources :event_activity_manage, :collection => {  }
+      event.resources :event_manage,          :member => { :index => :get  },
+                                              :collection => { :download => :get }
     end
     
   end
