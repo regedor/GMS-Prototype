@@ -1,4 +1,4 @@
-{ 'pt-PT' => {
+{ 'pt' => {
 
     :countries => {
 			:AD => "Andorra",

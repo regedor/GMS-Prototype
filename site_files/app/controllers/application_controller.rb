@@ -8,11 +8,6 @@ class ApplicationController < ActionController::Base
   before_filter { |c| Authorization.current_user = c.current_user }
   before_filter :set_user_language
 
-  rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
-  rescue_from ActionController::RoutingError, :with => :record_not_found
-  rescue_from ActionController::UnknownAction, :with => :record_not_found
-  alias_method :rescue_action_locally, :rescue_action_in_public
-
   # Returns the current user session.
   def current_user_session
     return @current_user_session if defined?(@current_user_session)
@@ -76,11 +71,4 @@ class ApplicationController < ActionController::Base
       I18n.locale = session[:language] if !session[:language].nil? && !configatron.force_locale
     end
 
-    def record_not_found
-      respond_to do |type|
-        type.html { render :partial => "errors/error404", :layout => 'app_errors' , :status => 404 }
-        type.all  { render :nothing => true, :status => 404 }
-      end
-      true
-    end
 end
