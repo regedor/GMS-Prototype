@@ -54,22 +54,19 @@ module ApplicationHelper
 
   def include_i18n_calendar_javascript
     content_for :head do
-     javascript_include_tag case I18n.locale.to_s
+      javascript_include_tag case I18n.locale.to_s
         when 'en'    then "jquery.ui.datepicker-en-GB.js"
-        when 'pt'    then "jquery.ui.datepicker-pt-BR.js"
+        when 'pt'   then "jquery.ui.datepicker-pt-BR.js"
         else raise ArgumentError, "Locale error"
-      end
-    end
-    content_for :head do
-      javascript_include_tag "jquery-ui-timepicker-addon.js"
+      end, "jquery-ui-timepicker-addon.js" 
     end
   end
 
   def render_date(time)
     if (Time.now - time) < 30.days
-      I18n::t "generic_sentence.time_ago", :time_ago => time_ago_in_words(time)
+      t "generic_sentence.time_ago", :time_ago => time_ago_in_words(time)
     else
-      record.starts_at.strftime('%d %b, %Y')
+      time.strftime('%d %b, %Y')
     end
   end
   

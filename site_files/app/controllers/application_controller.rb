@@ -2,12 +2,12 @@
 # Likewise, all the methods added will be available for all controllers.
 class ApplicationController < ActionController::Base
   helper :all
-  protect_from_forgery 
+  protect_from_forgery
   filter_parameter_logging :password, :password_confirmation
   helper_method :current_user_session, :current_user, :logged_in?
   before_filter { |c| Authorization.current_user = c.current_user }
   before_filter :set_user_language
-        
+
   # Returns the current user session.
   def current_user_session
     return @current_user_session if defined?(@current_user_session)
@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
     @current_user = current_user_session && current_user_session.user
   end
 
-  # TO DELETE 
+  # TO DELETE
   def logged_in?(role=nil)
     return !current_user.nil? unless role
     !current_user.nil? and current_user.is_role? role
@@ -53,12 +53,12 @@ class ApplicationController < ActionController::Base
     def require_user
       unless current_user
         store_location
-        flash[:notice] = t 'flash.require_login' 
+        flash[:notice] = t 'flash.require_login'
         redirect_to new_user_session_url
         return false
       end
     end
-    
+
     # Redirects to previous stored URI.
     # In case no of URI previous stored, redirects to given default.
     def redirect_back_or_default(default)
@@ -70,4 +70,5 @@ class ApplicationController < ActionController::Base
     def set_user_language
       I18n.locale = session[:language] if !session[:language].nil? && !configatron.force_locale
     end
+
 end

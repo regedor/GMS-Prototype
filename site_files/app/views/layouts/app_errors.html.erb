@@ -1,0 +1,17 @@
+<%= render :partial => 'shared/layout_head' %>
+<body>
+  <div id="container">
+      <div id="panel">
+        <div id="logo"><%= render :partial => 'shared/flash_logo', :locals => { :width => "400", :height => "200" } %></div>
+      </div>
+
+      <div id="main" class="selfclear">
+        <div id="content">
+          <%= yield %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
