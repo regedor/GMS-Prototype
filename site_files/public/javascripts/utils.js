@@ -85,11 +85,11 @@ jQuery.fn.float_bar = function(top){
 
     var main_offset = $("div#main").offset();
 
-    if ($(this).scrollTop() > 450){ 
+    if ($(this).scrollTop() > 470){
       element.css({'position': 'fixed', 'top': element.scrollTop() + 30, 'left': tag_cloud_offset.left});
     }
-    else if ($(this).scrollTop() <= 450){ 
-      element.css({'position': 'absolute', 'top': '320px', 'left': (tag_cloud_offset.left - main_offset.left)});
+    else if ($(this).scrollTop() <= 470){
+      element.css({'position': 'absolute', 'top': '300px', 'left': (tag_cloud_offset.left - main_offset.left - 3)});
     }
     
   });
