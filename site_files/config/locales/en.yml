@@ -353,7 +353,7 @@ en:
       new:
         name: "Name"
         description: "Description"
-        users: "Associated Users"
+        group: "Associated Group"
         create_button: "Create"
         edit_button: "Update"
         cancel: "Cancel"

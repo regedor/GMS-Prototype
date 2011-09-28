@@ -32,7 +32,7 @@
 		<% semantic_form_for(:todo, :url => admin_project_to_dos_path, :html => {:id => "form_#{list.id}"}) do |f| %>
 		  <% f.inputs do %>
 		    <%= f.input :description, :as => :text, :input_html => {:rows => 3, :cols => 40}, :label => t("admin.to_do.add_new.title") %>
-			<%= f.input :responsible, :as => :select, :collection => project.users.uniq, :required => false, :hint => t("admin.to_do.add_new.hint") %>
+			<%= f.input :responsible, :as => :select, :collection => project.group.direct_users.uniq, :required => false, :hint => t("admin.to_do.add_new.hint") %>
 			<%= f.input :due_date, :as => :string, :required => false, :input_html => {:class => "datepicker", :id => "todo_due_date_#{list.id}"} %>			
 			<%= f.input :to_do_list_id, :as => :hidden, :value => list.id %>
 		  <% end  %>

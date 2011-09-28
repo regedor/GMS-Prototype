@@ -350,7 +350,7 @@ pt:
       new:
         name: "Nome"
         description: "Descrição"
-        users: "Utilizadores Associados"
+        group: "Grupo Associado"
         create_button: "Criar"
         edit_button: "Actualizar"
         cancel: "Cancelar"

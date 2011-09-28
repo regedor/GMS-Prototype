@@ -58,7 +58,7 @@
 	<% semantic_form_for @comment, :url => admin_project_to_do_comments_path(params[:project_id],@todo.id), :html => {:method => :post, :multipart => true } do |f| %>
 	  <% f.inputs do %>
 	    <%= f.input :body, :as => :text, :label => t("admin.to_do_comment.new.body") %>
-	    <%= f.input :users, :as => :check_boxes, :collection => @project.users.uniq, :label => t("admin.to_do_comment.new.users"), :required => false %>	
+	    <%= f.input :users, :as => :check_boxes, :collection => @project.group.direct_users.uniq, :label => t("admin.to_do_comment.new.users"), :required => false %>	
 		<%= f.input :generic, 
 		            :as => :file, 
 		            :label => t("admin.to_do_comment.new.file"), 
