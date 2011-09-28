@@ -430,6 +430,12 @@ pt:
             update: "Aplicar"           
 
     events:
+      manage:
+        title: "Gerir Evento %{name}"
+        download: "Download em formato Excel"  
+        table:
+          name: "Nome"
+          email: "E-mail"    
       add_activity: "Adicionar Actividade"
       index:
         title: "Eventos"
