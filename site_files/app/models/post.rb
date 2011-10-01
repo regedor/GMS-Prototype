@@ -3,7 +3,6 @@ class Post < ActiveRecord::Base
 
   acts_as_taggable
 
-  ##FIXME: Need review!!!
   has_many                :approved_comments, :as => 'commentable', :dependent => :destroy, :class_name => 'Comment'
   belongs_to :group
   belongs_to :event

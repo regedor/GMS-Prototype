@@ -32,6 +32,16 @@
       <dd><%= @user.emails %></dd>
     <% end %>
 
+    <% if @user.id_number %>
+      <dt><%= t("activerecord.attributes.user.id_number", :default => t("activerecord.labels.id_number", :default => "Identification Number")) %>:</dt>
+      <dd><%= @user.id_number %></dd>
+    <% end %>
+
+    <% if @user.address %>
+      <dt><%= t("activerecord.attributes.user.address", :default => t("activerecord.labels.address", :default => "Address")) %>:</dt>
+      <dd><%= @user.address %></dd>
+    <% end %>
+
     <% unless @user.country.blank? %>
       <dt><%= t("activerecord.attributes.user.country", :default => t("activerecord.labels.country", :default => "Country")) %>:</dt>
       <dd><%= image_tag("flags/"+@user.country.downcase+".png", :alt => @user.country) %> <%= I18n::t("countries."+@user.country) %></dd>
