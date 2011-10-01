@@ -56,6 +56,12 @@ jQuery(document).ready(function($){
      <%= form.input :price, :as => :numeric, :label => t('admin.events.view.price') %>
      <%= form.input :participation_message, :as => :text, :label => t('admin.events.view.participation_message'), :required => false %>	 
 
+     <%= form.input :requires_name, :required => false, :label => t('admin.events.view.requires_name') %>
+     <%= form.input :requires_address, :required => false, :label => t('admin.events.view.requires_address') %>
+     <%= form.input :requires_id, :required => false, :label => t('admin.events.view.requires_id') %>
+     <%= form.input :requires_phone, :required => false, :label => t('admin.events.view.requires_phone') %>
+
+
   <% form.inputs do %>
     <% form.semantic_fields_for :post, @record.post do |post| %>
 	  <%= post.input :tag_list,

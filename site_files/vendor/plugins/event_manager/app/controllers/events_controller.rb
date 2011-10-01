@@ -15,13 +15,20 @@ class EventsController < ApplicationController
 
   def subscribe
     @event = Event.find(params[:id])
+    user = User.find(current_user.id)
+    if params[:event][:user].has_value?("") || !user.update_attributes(params[:event][:user])
+      flash.now[:error] = t('flash.subscribe_error')
+      render :partial => 'posts/event_subscription',:layout => true, :locals => {:event => @event, :total_price => @event.price, :subscribed_activities  => []}
+    end  
+    params[:event].delete :user
+    
     activities = []
     activities_price = 0
     params[:event][:event_activity_ids].reject(&:blank?).map do |id|
       activity = EventActivity.find id
       activities << activity
       activities_price += activity.price
-    end if params[:event]
+    end if params[:event] && params[:event][:event_activity_ids]
     @total_price = @event.price + activities_price
     eventsUser = EventsUser.find_by_event_id_and_user_id(@event.id,current_user.id)
     unless eventsUser
@@ -47,6 +54,8 @@ class EventsController < ApplicationController
       activity.event_activities_users << activitiesUser   
       activity.save                                                              
     end unless activities.empty?
+    
+    flash.now[:notice] = t('flash.subscribe', :name => @event.name)
   end
 
   protected

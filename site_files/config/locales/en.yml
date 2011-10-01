@@ -48,6 +48,8 @@ en:
       country: "Country"
       emails: "Receive emails"
       profile: "Profile"
+      id_number: "Identification Number"
+      address: "Address"
     edit:
       title: "Edit account"
       commit_button: "Update account"
@@ -176,7 +178,8 @@ en:
       cancel_button: "Cancel"
       activities: "Activities"   
       total_default: "0.00"
-      total: "Total:"   
+      total: "Total:"
+      missing_info: "Plese fill this information in order to subscribe to the event"   
 
   comments:
     title: "Post a comment"
@@ -467,6 +470,10 @@ en:
         ends_at: "Ending date"
         cancel: "Go back"
         participation_message: "Participation Message"
+        requires_id: "Requires id number"
+        requires_name: "Requires name"
+        requires_address: "Requires address"
+        requires_phone: "Requires phone number"
         button:
           update: "Update"
       form:
@@ -1099,7 +1106,9 @@ en:
     page_updated: "Updated %{name}"
     page_not_updated: "Failed to update %{name}" 
     unsubscribe: "Succefully unsubscribed event %{name}"
-    unsubscribe_error: "Could not unsubscribe"     
+    unsubscribe_error: "Could not unsubscribe" 
+    subscribe: "Succefully subscribed to event %{name}" 
+    subscribe_error: "Could not subscribe"    
     postUpdated:
       successfully: "Updated %{name} successfully"
       error: "There was an error while updating the post"
