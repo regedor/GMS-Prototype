@@ -26,7 +26,9 @@ gem 'clickatell'
 gem 'compass'                    , '0.10.6'
 
 gem 'spreadsheet'
+
 gem 'sass'
+
 
 group :development do
   gem 'sqlite3-ruby'
