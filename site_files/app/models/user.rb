@@ -61,6 +61,8 @@ class User < ActiveRecord::Base
   attr_accessible  :openid_identifier   
   attr_accessible  :groups
   attr_accessible  :row_mark #scaffold hack
+  attr_accessible  :address
+  attr_accessible  :id_number
 
   boolean_attr_accessor 'active', :trueifier => 'activate', :falsifier => 'deactivate'
 

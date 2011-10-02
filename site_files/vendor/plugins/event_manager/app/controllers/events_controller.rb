@@ -15,13 +15,20 @@ class EventsController < ApplicationController
 
   def subscribe
     @event = Event.find(params[:id])
+    user = User.find(current_user.id)
+    if params[:event][:user].has_value?("") || !user.update_attributes(params[:event][:user])
+      flash.now[:error] = t('flash.subscribe_error')
+      render :partial => 'posts/event_subscription',:layout => true, :locals => {:event => @event, :total_price => @event.price, :subscribed_activities  => []}
+    end  
+    params[:event].delete :user
+    
     activities = []
     activities_price = 0
     params[:event][:event_activity_ids].reject(&:blank?).map do |id|
       activity = EventActivity.find id
       activities << activity
       activities_price += activity.price
-    end if params[:event]
+    end if params[:event] && params[:event][:event_activity_ids]
     @total_price = @event.price + activities_price
     eventsUser = EventsUser.find_by_event_id_and_user_id(@event.id,current_user.id)
     unless eventsUser
@@ -47,66 +54,8 @@ class EventsController < ApplicationController
       activity.event_activities_users << activitiesUser   
       activity.save                                                              
     end unless activities.empty?
-  end
-
-  def show
-    refreshContent
-  end
-
-  def refreshContent
-    @record = Event.find(params[:id])
-    @checked_activities = @record.checked_activities(current_user.id)
-    @unchecked_activities = @record.unchecked_activities(current_user.id)
-  end 
- 
-  def userUpdate
-
-    eventid = params[:id]
-    to_delete = params[:idsu].split(',')
-    to_create = params[:idsc].split(',')
-
-    to_delete.each do |activity_id|
-      activity = EventActivitiesUser.find_by_event_activity_id_and_user_id(activity_id,current_user.id)
-      activity.destroy if activity
-    end
-
-    to_create.each do |activity_id|
-      activity = EventActivitiesUser.new(:event_activity_id => activity_id, :user_id => current_user.id)
-      activity.save!
-    end
-
-    if (params[:joinEvent] == 'true')
-      evento = Event.find(eventid)
-      evento.users << current_user
-      evento.save!
-    elsif (params[:joinEvent] == 'false')
-      evento = Event.find(eventid)
-      user_event = evento.events_users.find_by_user_id(current_user.id)
-      user_event.destroy if user_event
-    end
-
-    refreshContent
-
-    event_user = EventsUser.find_by_event_id_and_user_id(eventid,current_user.id)
-    if event_user
-      respond_to do |format|
-        format.json { render :json => {
-              'id'   => eventid,
-              'html' => '<h2>' +
-                  event_user.event.participation_message.to_s + 
-                  '</h2> <br> <br> ' + 
-                  t("admin.events.view.totalprice") + 
-                  ': ' + event_user.total_price.to_s + ' <br> <br> ' +
-                  '<a href="" onclick="windows.location.href=\"\"" class="cancel">' + t("events.view.cancel") + '</a>'
-          }
-        }
-       end
-    else   
-      respond_to do |format|
-        format.json { render :json => { 'id' => false } }
-      end
-    end
-
+    
+    flash.now[:notice] = t('flash.subscribe', :name => @event.name)
   end
 
   protected

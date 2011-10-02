@@ -53,7 +53,17 @@ class Event < ActiveRecord::Base
     end
   end  
 
- 
+  def create_excel_file(path)
+    Spreadsheet.client_encoding = 'UTF-8'
+    book = Spreadsheet::Workbook.new
+    sheet = book.create_worksheet :name => 'Subscribed Users'
+    sheet.row(0).concat ["Name", "E-Mail"]
+    self.users.each_index do |index|
+      user = self.users[index]
+      sheet.row(index+1).concat [user.name,user.email]
+    end  
+    book.write path
+  end  
 
   def format_description
     self.description_html = TextFormatter.format_as_xhtml(self.description)

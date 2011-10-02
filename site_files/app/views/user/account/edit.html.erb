@@ -8,6 +8,8 @@
     <%= f.input :email, :label => t('users.form.email') %>
     <%= f.input :emails, :required => false, :as => :radio, :label => t('users.form.emails') %>
     <%= f.input :phone, :required => false, :label => t('users.form.phone') %>
+    <%= f.input :id_number, :required => false, :label => t('users.form.id_number') %>
+    <%= f.input :address, :required => false, :label  => t('users.form.address') %>
     <%= f.input :country, :required => false, :label => t('users.form.country') %>
     <%= f.input :language, :as => :select, :label => t('users.form.language'), :collection => select_language_collection unless configatron.force_locale %>
   <% end %>
@@ -30,7 +32,7 @@
     	               :wrapper_html => { :id => "user_user_optional_group_picks_groups_input_#{pick.id}" } %>
     	<% end %>
     <% end if @picks %> 
-  <% end unless Group.find_all_by_user_choosable(true).empty? && @picks.nil? %>
+  <% end unless Group.find_all_by_user_choosable(true).empty? && (@picks.nil? || @picks.empty?) %>
 
   <% f.inputs :name => t('users.edit.form_profile_inputs_name') do %>
     <%= f.input :profile, :required => false, :label => t('users.form.profile') %>
