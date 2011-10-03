@@ -31,7 +31,7 @@ div.todo_content form.formtastic                     { margin: 0; }
 div#comments form.formtastic                         { margin: 25px 15px 0px 25px; }
 
 div.form_with_notes                                  { width: 65%; }
-div.form_side_notes                                  { width: 30%; float: right; padding: 0 10px 0 0; }
+div.form_side_notes                                  { width: 30%; float: right; }
 div.form_side_notes .note                            { margin: 0 0 15px; }
 div.required_field_note                              { margin: 0 0 1em 35%; }
 
