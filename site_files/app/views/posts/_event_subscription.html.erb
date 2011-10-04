@@ -27,8 +27,8 @@ jQuery(document).ready(function($){
                    :as => :check_boxes, 
                    :collection => event.event_activities, 
                    :label => t('posts.form.activities'),
- 		   :label_method => :html_representation,
- 		   :input_html => {:class => "activity_checkbox", :checked => ""}%>
+ 		           :label_method => :html_representation,
+ 		           :input_html => {:class => "activity_checkbox", :checked => ""}%>
   <% end unless event.event_activities.empty? %>
 
   <p id="total-price"><span><%= t('posts.form.total') %></span> <span><%= total_price %></span></p>

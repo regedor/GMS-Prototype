@@ -18,7 +18,8 @@ class EventsController < ApplicationController
     user = User.find(current_user.id)
     if params[:event][:user].has_value?("") || !user.update_attributes(params[:event][:user])
       flash.now[:error] = t('flash.subscribe_error')
-      render :partial => 'posts/event_subscription',:layout => true, :locals => {:event => @event, :total_price => @event.price, :subscribed_activities  => []}
+      render :partial => 'posts/show_event',:layout => true, :locals => {:event => @event, :total_price => @event.price, :subscribed_activities  => []}
+      return
     end  
     params[:event].delete :user
     

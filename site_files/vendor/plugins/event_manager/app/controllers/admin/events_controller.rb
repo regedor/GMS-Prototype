@@ -113,7 +113,7 @@ class Admin::EventsController < Admin::BaseController
     def date_localization
       params[:record][:post_attributes][:published_at] = (Date.strptime params[:record][:post_attributes][:published_at], "%d/%m/%Y").to_datetime
       [:starts_at, :ends_at].each do |attribute|
-        params[:record][attribute] = DateTime.strptime(params[:record][attribute], "%d/%m/%Y %H:%M").to_datetime
+        params[:record][attribute] = DateTime.strptime(params[:record][attribute], "%d/%m/%Y %H:%M").to_datetime unless params[:record][attribute].blank?
       end
       if params[:record][:announcement_attributes]
         [:starts_at, :ends_at].each do |attribute|

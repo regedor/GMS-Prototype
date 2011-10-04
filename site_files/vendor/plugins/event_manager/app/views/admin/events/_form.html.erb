@@ -145,10 +145,11 @@ jQuery(document).ready(function($){
   <% end %>
 		
 		
-  <% if @record.event_activities %>
-      <% form.semantic_fields_for :event_activities do |builder| %>
-        <%= render :partial => "event_activity_fields", :locals => {:form => builder, :activity => nil } %>
-      <% end %>
+  <% if @record.event_activities.size > 0 %>
+      <%# form.semantic_fields_for :event_activities do |builder| %>
+        <%#= render :partial => "event_activity_fields", :locals => {:form => builder, :activity => nil } %>
+      <%# end %>
+     <%= link_to t('admin.events.view.edit_activities'), list_admin_event_event_activities_path(@record) %>
   <% end %>	
 	
   <div class="fields">	
