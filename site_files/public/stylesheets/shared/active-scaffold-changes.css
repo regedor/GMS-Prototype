@@ -68,7 +68,7 @@ div.active-scaffold textarea:focus { -webkit-box-shadow: rgba(0,0,0,0.3) 0 0 3px
 .active-scaffold-header div.actions a.show_search       { background-image: url(../../../images/active_scaffold/default/magnifier.png);}
 .active-scaffold-header div.actions a.disabled:hover    { background-color: transparent;cursor: default;}
 
-#main .block .content .inner                            { padding: 0; padding-bottom: 20px; }
+#main .block .content .inner                            { padding: 0; }
 
 .active-scaffold-header div.actions {right: 0px;top: 0;}
 

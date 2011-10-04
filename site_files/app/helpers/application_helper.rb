@@ -61,6 +61,12 @@ module ApplicationHelper
       end, "jquery-ui-timepicker-addon.js" 
     end
   end
+  
+  def include_google_fonts(font_family)
+    content_for :head do
+      '<link href="http://fonts.googleapis.com/css?family='+ font_family +'" rel="stylesheet" type="text/css">'
+    end
+  end
 
   def render_date(time)
     if (Time.now - time) < 30.days
