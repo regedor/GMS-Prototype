@@ -19,7 +19,7 @@
 .markItUp .calculator            a { background-image:url(/markitup/sets/textile/images/calculator.png);  }
 .markItUp .underline             a { background-image:url(/markitup/sets/textile/images/underline.png);   }
 
-.markItUp .colors                a { background-image:url(/markitup/sets/textile/images/images/colors.png); }
+.markItUp .colors                a { background-image:url(/markitup/sets/textile/images/colors.png); }
 .markItUp .colors ul               { width:81px; padding:1px;	}
 .markItUp .colors li               { border:1px solid white;width:25px;height:25px;overflow:hidden;padding:0px; margin:0px;float:left;}
 .markItUp .colors ul a             { width:25px; height:25px;}
