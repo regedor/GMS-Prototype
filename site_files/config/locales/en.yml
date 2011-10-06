@@ -179,6 +179,7 @@ en:
       activities: "Activities"   
       total_default: "0.00"
       total: "Total:"
+      total_value: "%{total_price} €"
       missing_info: "Plese fill this information in order to subscribe to the event"   
 
   comments:
@@ -205,6 +206,7 @@ en:
       price: "Total Price: "
       unsubscribe_button: "Unsubscribe"
       ok_button: "OK"
+      total_value: "%{total_price} €"
       
       
   admin:

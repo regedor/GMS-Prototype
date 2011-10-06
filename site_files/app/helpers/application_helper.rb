@@ -1,5 +1,12 @@
 module ApplicationHelper
 
+  def autoscroll_to(css_selector)
+    content_for :head do
+      javascript_include_tag 'auto_scroll'
+    end
+    javascript_tag "jQuery(document).ready(function($){$('#{css_selector}').autoscroll();});"
+  end
+
   def icon_tag(icon)
     "<img src='/images/icons/#{icon}.png' alt=''/>"
   end

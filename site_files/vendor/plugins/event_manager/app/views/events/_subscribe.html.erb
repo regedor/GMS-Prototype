@@ -15,7 +15,7 @@
   </div>
 <% end %>
 
-<p id="event-total-price"><%= t 'events.subscribe.price' %> <%= total_price %></p>
+<p id="event-total-price"><%= t 'events.subscribe.price' %> <%= t('events.subscribe.total_value', :total_price => total_price) %></p>
 
 <% if just_subscribed %>
   <%= link_to t('events.subscribe.ok_button'), root_path, :class => "button positive" %>

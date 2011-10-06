@@ -31,7 +31,7 @@ jQuery(document).ready(function($){
  		           :input_html => {:class => "activity_checkbox", :checked => ""}%>
   <% end unless event.event_activities.empty? %>
 
-  <p id="total-price"><span><%= t('posts.form.total') %></span> <span><%= total_price %></span></p>
+  <p id="total-price"><span><%= t('posts.form.total') %></span> <span><%= t('posts.form.total_value', :total_price => total_price) %></span></p>
 
 
   <% form.inputs :name => t('posts.form.missing_info') do %>
