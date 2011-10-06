@@ -1,25 +1,25 @@
-.markItUp .heading1              a { background-image:url(images/h1.png);          }
-.markItUp .heading2              a { background-image:url(images/h2.png);          }
-.markItUp .heading3              a { background-image:url(images/h3.png);          }
-.markItUp .heading4              a { background-image:url(images/h4.png);          }
-.markItUp .heading5              a { background-image:url(images/h5.png);          }
-.markItUp .heading6              a { background-image:url(images/h6.png);          }
-.markItUp .paragraph             a { background-image:url(images/paragraph.png);   }
-.markItUp .bold                  a { background-image:url(images/bold.png);        }
-.markItUp .italic                a { background-image:url(images/italic.png)       }
-.markItUp .stroke                a { background-image:url(images/stroke.png);      }
-.markItUp .bulleted              a { background-image:url(images/list-bullet.png); }
-.markItUp .numeric               a { background-image:url(images/list-numeric.png) }
-.markItUp .picture               a { background-image:url(images/picture.png);     }
-.markItUp .link                  a { background-image:url(images/link.png);        }
-.markItUp .quotes                a { background-image:url(images/quotes.png);      }
-.markItUp .tablegenerator        a { background-image:url(images/table.png);       }
-.markItUp .sort                  a { background-image:url(images/sort.png);        }
-.markItUp .date                  a { background-image:url(images/date.png);        }
-.markItUp .calculator            a { background-image:url(images/calculator.png);  }
-.markItUp .underline             a { background-image:url(images/underline.png);   }
+.markItUp .heading1              a { background-image:url(/markitup/sets/textile/images/h1.png);          }
+.markItUp .heading2              a { background-image:url(/markitup/sets/textile/images/h2.png);          }
+.markItUp .heading3              a { background-image:url(/markitup/sets/textile/images/h3.png);          }
+.markItUp .heading4              a { background-image:url(/markitup/sets/textile/images/h4.png);          }
+.markItUp .heading5              a { background-image:url(/markitup/sets/textile/images/h5.png);          }
+.markItUp .heading6              a { background-image:url(/markitup/sets/textile/images/h6.png);          }
+.markItUp .paragraph             a { background-image:url(/markitup/sets/textile/images/paragraph.png);   }
+.markItUp .bold                  a { background-image:url(/markitup/sets/textile/images/bold.png);        }
+.markItUp .italic                a { background-image:url(/markitup/sets/textile/images/italic.png)       }
+.markItUp .stroke                a { background-image:url(/markitup/sets/textile/images/stroke.png);      }
+.markItUp .bulleted              a { background-image:url(/markitup/sets/textile/images/list-bullet.png); }
+.markItUp .numeric               a { background-image:url(/markitup/sets/textile/images/list-numeric.png) }
+.markItUp .picture               a { background-image:url(/markitup/sets/textile/images/picture.png);     }
+.markItUp .link                  a { background-image:url(/markitup/sets/textile/images/link.png);        }
+.markItUp .quotes                a { background-image:url(/markitup/sets/textile/images/quotes.png);      }
+.markItUp .tablegenerator        a { background-image:url(/markitup/sets/textile/images/table.png);       }
+.markItUp .sort                  a { background-image:url(/markitup/sets/textile/images/sort.png);        }
+.markItUp .date                  a { background-image:url(/markitup/sets/textile/images/date.png);        }
+.markItUp .calculator            a { background-image:url(/markitup/sets/textile/images/calculator.png);  }
+.markItUp .underline             a { background-image:url(/markitup/sets/textile/images/underline.png);   }
 
-.markItUp .colors                a { background-image:url(images/colors.png); }
+.markItUp .colors                a { background-image:url(/markitup/sets/textile/images/colors.png); }
 .markItUp .colors ul               { width:81px; padding:1px;	}
 .markItUp .colors li               { border:1px solid white;width:25px;height:25px;overflow:hidden;padding:0px; margin:0px;float:left;}
 .markItUp .colors ul a             { width:25px; height:25px;}
