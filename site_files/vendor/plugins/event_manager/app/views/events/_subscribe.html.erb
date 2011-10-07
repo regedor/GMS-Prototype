@@ -1,7 +1,7 @@
 <h2 class="title"><%= t 'events.subscribe.eventSubscription' %><%= event.name %></h2>
 
 <% if event.participation_message && just_subscribed %>
-  <p id="event-message"><%= event.participation_message %></p>
+  <p id="event-message"><%= nl2br(h event.participation_message) %></p>
 <% end %>
 
 <% if subscribed_activities && !subscribed_activities.empty? %>
