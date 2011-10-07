@@ -1,6 +1,6 @@
-<div id="calendar">	
-  <% month = params[:month].to_i || Time.zone.now.month.to_i %>
-  <% year  = params[:year].to_i || Time.zone.now.year.to_i %>
+<div id="calendar">
+  <% month = (params[:month]) ? params[:month].to_i : Time.zone.now.month.to_i %>
+  <% year  = (params[:year]) ? params[:year].to_i : Time.zone.now.year.to_i %>
   <%= render :partial => 'events/calendar', :locals => { :month => month, 
 	 										             :year  => year} %>
 </div>
