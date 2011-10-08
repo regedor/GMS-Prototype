@@ -6,9 +6,9 @@ class Project < ActiveRecord::Base
   belongs_to :user
   belongs_to :blackboard
   belongs_to :group
-  has_many   :to_do_lists
-  has_many   :messages
-  has_many   :categories
+  has_many   :to_do_lists, :dependent => :destroy
+  has_many   :messages, :dependent => :destroy
+  has_many   :categories, :dependent => :destroy
 
   # ==========================================================================
   # Validations
