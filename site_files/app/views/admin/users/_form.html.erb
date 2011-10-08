@@ -1,6 +1,9 @@
 <% form.input_field_set do -%>
   <%= form.input :email,
                  :label    => I18n::t('admin.users.columns.email') %>
+  <%= form.input :name,
+                 :required => false,
+                 :label    => I18n::t('admin.users.columns.name') %>
   <%= form.input :active,
                  :required => false,
                  :as       => :radio,
@@ -10,6 +13,12 @@
                  :required => false,
                  :hint     => I18n::t('admin.users.form.hints.phone'),
                  :label    => I18n::t('admin.users.columns.phone') %>
+  <%= form.input :address,
+                 :required => false,
+                 :label    => I18n::t('admin.users.columns.address') %>
+  <%= form.input :id_number, 
+                 :required => false,  
+                 :label    => I18n::t('admin.users.columns.id_number') %>
   <%= form.input :avatar,
                  :required => false,
                  :hint     => I18n::t('admin.users.form.hints.avatar'),

@@ -555,6 +555,8 @@ en:
         groups: "Groups"
         phone: "Phone"
         avatar: "Avatar"
+        address: "Address"
+        id_number: "Identification Number"
       sidebar:
         history:
           title: "Revert information"
