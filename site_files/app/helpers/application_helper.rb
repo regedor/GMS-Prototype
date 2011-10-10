@@ -31,7 +31,7 @@ module ApplicationHelper
     if record.class == Group
       options[:size]   = 100 if options[:size] == :medium
       options[:size]   = 50  if options[:size] == :small
-      return "#{root_url}images/guest-#{options[:size]}.png"
+      return "#{root_url}images/default-group-#{options[:size]}.png"
     end  
     
     options[:size] ||= :medium

@@ -12,7 +12,7 @@ class Admin::ProjectsController < Admin::BaseController
   end                                                     
   
   def conditions_for_collection
-    unless current_user.role.id == 7
+    unless current_user.role_id == 7 || current_user.role_id == 6
       ['projects.group_id IN (?)', current_user.group_ids]
     end
   end  

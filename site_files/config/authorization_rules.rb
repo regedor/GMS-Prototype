@@ -67,27 +67,33 @@ authorization do
     has_permission_on [:admin_dashboard],           :to => [:read]
     has_permission_on [:comments],                  :to => [:create]
     has_permission_on [:admin_projects],            :to => [:as_read]
+        
     has_permission_on [:admin_to_do_lists],         :to => [:manage] do
-      if_attribute :group => {:direct_users => contains { user } } 
+      if_attribute :group => {:direct_users => contains { user } } # If is in group 
+      if_attribute :user => is { user }                            # If is owner
     end
-    has_permission_on [:admin_to_dos],              :to =>  [:manage] do
-      if_attribute :group => {:direct_users => contains { user } } 
+   
+    has_permission_on [:admin_to_dos],         :to => [:manage] do
+      if_attribute :group => {:direct_users => contains { user } } # If is in group 
+      if_attribute :user => is { user }                            # If is owner
     end
 
     has_permission_on [:admin_messages],            :to =>  [:read, :create] do
-      if_attribute :project => { :group => {:direct_users => contains { user } } }
+      if_attribute :project => { :group => {:direct_users => contains { user } } } # If is in group
+      if_attribute :project => { :user => is { user } }                            # If is project owner
     end
-    has_permission_on [:admin_messages],            :to => [:manage] do
-      if_attribute :user => is { user }
-    end
+    
     has_permission_on [:admin_messages_comments],    :to =>  [:create] do
-      if_attribute :project => { :group => {:direct_users => contains { user } } }
+      if_attribute :project => { :group => {:direct_users => contains { user } } } # If is in group
+      if_attribute :project => { :user => is { user } }                            # If is project owner
     end
     has_permission_on [:admin_categories],          :to => [:read] do
-      if_attribute :project => { :group => {:direct_users => contains { user } } }
+      if_attribute :project => { :group => {:direct_users => contains { user } } } # If is in group
+      if_attribute :project => { :user => is { user } }                            # If is project owner
     end
     has_permission_on [:admin_categories],          :to => [:manage] do
-      if_attribute :project => { :group => {:direct_users => contains { user } } }
+      if_attribute :project => { :group => {:direct_users => contains { user } } } # If is in group
+      if_attribute :project => { :user => is { user } }                            # If is project owner
     end
   end
 
