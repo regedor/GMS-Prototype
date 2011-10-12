@@ -34,7 +34,7 @@
      <% end %>
     </span>
     <span class="attachment_name"><%= post.generic_file_name %></span>
-    <span class="attachment_download"><%= button_to t("admin.posts.attachment_download"), :controller => "admin/posts", :action => "download", :id => post.id %></span>
+    <span class="attachment_download"><%= button_to t("admin.posts.attachment_download"), {:controller => "admin/posts", :action => "download", :id => post.id }, :method => :get %></span>
   </div>
 <% end %>
 
