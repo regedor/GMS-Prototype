@@ -66,7 +66,7 @@ div.todo_list div.todos ul li.todo span.todo_comments       { margin: 0 0 0 4px;
 div.todo_list div.todos span.todo_comments img              { position: relative; top: 4px; }
 div.todo_list div.todos ul li.todo                          { margin: 0 0 10px; }
 div.todo_list div.todos form.todo                           { background: #E5E5E5; padding: 15px 15px 0; margin: 0; }
-div.todo_list div.todos ul li.todo input                    { float: left; }
+div.todo_list div.todos ul li.todo input                    { float: left; margin: 6px 5px 0 0; }
 div.todo_list div.todos ul li.todo.highlight span.todo_desc { background: #FFC; }
 div.todo_list div.todos div.add_button                      { background: #EFEFEF; margin: 10px 0 10px 20px; padding: 5px; }
 
