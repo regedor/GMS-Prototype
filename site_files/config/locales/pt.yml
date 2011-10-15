@@ -615,6 +615,7 @@ pt:
         active: "Activo"
 
       form:
+        show: "Detalhes do Utilizador"
         yes_button: "Sim"
         no_button: "Não"  
         delete_button: "Apagar"  
@@ -969,7 +970,7 @@ pt:
 
     announcements:
       index:
-        title: "Anúncios"
+        title: "Detalhes do Anúncio:"
         update_link: "Editar"
         destroy_link: "Apagar"
         show_link: "Detalhes"

@@ -441,7 +441,7 @@ en:
     events:
       manage:
         title: "Event Details: %{name}"
-        download: "Export to Excel"  
+        download: "Export to Excel"
         table:
           name: "Name"
           email: "E-mail"              
@@ -626,6 +626,7 @@ en:
         active: "Active"
 
       form:
+        show: "User Details"
         yes_button: "Yes"
         no_button: "No"  
         delete_button: "Delete"  
@@ -980,7 +981,7 @@ en:
 
     announcements:
       index:
-        title: "Announcements"
+        title: "Announcement Details"
         update_link: "Edit"
         destroy_link: "Delete"
         show_link: "Details"
