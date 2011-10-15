@@ -432,8 +432,8 @@ pt:
 
     events:
       manage:
-        title: "Gerir Evento %{name}"
-        download: "Download em formato Excel"  
+        title: "Detalhes do Evento: %{name}"
+        download: "Exportar para Excel"  
         table:
           name: "Nome"
           email: "E-mail"    

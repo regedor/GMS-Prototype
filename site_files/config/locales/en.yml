@@ -440,8 +440,8 @@ en:
 
     events:
       manage:
-        title: "Manage Event %{name}"
-        download: "Download Excel File"  
+        title: "Event Details: %{name}"
+        download: "Export to Excel"  
         table:
           name: "Name"
           email: "E-mail"              
