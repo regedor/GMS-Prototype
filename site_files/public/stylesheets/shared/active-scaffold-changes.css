@@ -3,7 +3,7 @@ div.active-scaffold a,
 div.active-scaffold a:link,
 div.active-scaffold a:active,
 div.active-scaffold a:visited      { color: #333; font-size: 12px; line-height: 1.2em; }
-div.active-scaffold a:hover        { text-decoration: underline; }
+div.active-scaffold a:hover        { background-color: transparent; text-decoration: underline; }
 
 div.active-scaffold input.text-input,
 div.active-scaffold textarea       { -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; padding: 2px !important; width: 250px; }
