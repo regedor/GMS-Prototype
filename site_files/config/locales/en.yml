@@ -296,7 +296,7 @@ en:
         cancel: "Cancel"
         edit_button: "Edit"
         file: "Attachment"
-        file_hint: "(Max. 5Mb)"
+        file_hint: "(Max. 10Mb)"
       sidebar:
         back: "Back to To-Do Lists"                       
         
@@ -1121,8 +1121,9 @@ en:
       successfully: "Created %{name} successfully"
       error: "There was an error while creating the post"
     to_do_comment_body: "The comment body cannot be blank" 
-    file_size_5mb: "File size must be less than 5 MegaBytes"
-    image_size_1mb: "Image size must be less than 1 MegaByte"
+    file_size_5mb: "File size must be less than 5 Megabytes"
+    file_size_10mb: "File size must be less than 10 Megabytes"
+    image_size_1mb: "Image size must be less than 1 Megabyte"
     cant_be_blank: "can't be blank"
     image_content_type: "Image must be a jpeg or png"
   

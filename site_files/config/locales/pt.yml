@@ -288,7 +288,7 @@ pt:
         cancel: "Cancelar"
         edit_button: "Editar"
         file: "Anexo"
-        file_hint: "(Max. 5Mb)"
+        file_hint: "(Max. 10Mb)"
       sidebar:
         back: "Voltar às Listas de Tarefas"                       
         
@@ -1107,8 +1107,9 @@ pt:
       successfully: "Criado %{nome}"
       error: "Falha ao criar o post"
     to_do_comment_body: "O comentário não pode estar vazio" 
-    file_size_5mb: "O tamanho do ficheiro deve ser menor que 5 MegaBytes"
-    image_size_1mb: "O tamanho da imagem deve ser menor que 1 MegaByte"
+    file_size_5mb: "O tamanho do ficheiro deve ser menor que 5 Megabytes"
+    file_size_10mb: "O tamanho do ficheiro deve ser menor que 10 Megabytes"
+    image_size_1mb: "O tamanho da imagem deve ser menor que 1 Megabyte"
     cant_be_blank: "não pode ser vazio"
     image_content_type: "Imagem deve ser em .jpg ou .png"
 
