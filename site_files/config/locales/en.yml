@@ -287,7 +287,8 @@ en:
         
     to_do_comment:
       deleted_user: "Deleted User"  
-      attachment_download: "Download"  
+      attachment_download: "Download"
+      date: "on "
       new:
         users: "Users to mail"
         body: "Comment"

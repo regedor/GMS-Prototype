@@ -32,7 +32,7 @@
 	    <% classStr = (comment.user && comment.user == current_user) ? "comments_meta highlight" : "comments_meta" %>
 	    <div class="<%= classStr %>">
 	      <span class="name"><%= (comment.user) ? comment.user.name : t("admin.to_do_comment.deleted_user") %></span>
-	      <span class="date"><%= l(comment.created_at, :format => :default) %></span>
+	      <span class="date"><%= t("admin.to_do_comment.date") + l(comment.created_at, :format => :default) %></span>
 	    </div>
 	    <span class="text">
           <%= comment.body_html %>

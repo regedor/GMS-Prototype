@@ -279,7 +279,8 @@ pt:
         
     to_do_comment:
       deleted_user: "Utilizador Apagado"
-      attachment_download: "Download"      
+      attachment_download: "Download"
+      date: "em "
       new:
         users: "Utilizadores a quem enviar email"
         body: "Comentário"
@@ -290,8 +291,8 @@ pt:
         file: "Anexo"
         file_hint: "(Max. 10Mb)"
       sidebar:
-        back: "Voltar às Listas de Tarefas"                       
-        
+        back: "Voltar às Listas de Tarefas"
+
     messages:
       index:
         title: "Lista de Mensagens"
