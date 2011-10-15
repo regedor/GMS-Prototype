@@ -49,13 +49,13 @@ jQuery(document).ready(function($) {
 
 <div class="content">
   <div class="inner">
-
     <h2><%= I18n::t('admin.categories.form.new')  %></h2>
 
     <div id="added_categories">
-    	<% @categories.each do |category| %>
-			<%= render :partial => "admin/categories/category.html.erb", :layout => false, :locals => {:category => category, :project => @project} %>
-		<% end %>
+      <% @categories.each do |category| %>
+        <%= render :partial => "admin/categories/category.html.erb", :layout => false,
+                   :locals => { :category => category, :project => @project } %>
+      <% end %>
     </div>
 
     <% semantic_form_for @record,
