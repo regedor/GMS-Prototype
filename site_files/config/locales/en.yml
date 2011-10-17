@@ -170,8 +170,8 @@ en:
       title: "Archives"
       none: "There are no posts so far."
     pagination:
-      previous: "««"
-      next: "»»"
+      previous: "«"
+      next: "»"
     not_logged_in: "You must be logged in to subscribe to an event"  
     form:
       subscribe_button: "Subscribe"

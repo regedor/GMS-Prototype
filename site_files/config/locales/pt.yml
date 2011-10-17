@@ -166,8 +166,8 @@ pt:
       title: "Arquivos"
       none: "Ainda não há posts."
     pagination:
-      previous: "««"
-      next: "»»"
+      previous: "«"
+      next: "»"
     not_logged_in: "Deve fazer login para inscrever-se num evento"  
     form:
       subscribe_button: "Inscrever"
