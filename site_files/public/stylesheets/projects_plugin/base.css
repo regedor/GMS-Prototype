@@ -95,10 +95,12 @@ div#messages table td.message                               { border-bottom: 1px
 div#messages table td.message span.title                    { display: block; }
 
 div#comments div.comment                                    { margin: 20px 0; }
-div#comments div.comment div.avatar                         { margin-right: 20px; float: left; }
+div#comments div.comment div.avatar                         { margin-bottom: 15px; margin-right: 20px; float: left; }
 div#comments div.comment div.avatar img                     { border: 1px solid #999; }
 div#comments div.comment div.entrybody                      { margin: 10px 0 0; }
 div#comments div.comment div.entrybody p                    { margin: 0 0 0 70px; }
+
+div#comments form.formtastic                                { margin: 20px 0 0; }
 
 div#comments span.text                                      { display: block; margin: 0 10px 30px 72px; }
 div#comments div.comment p                                  { margin: 10px 0 0; }

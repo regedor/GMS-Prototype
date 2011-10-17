@@ -28,7 +28,6 @@ ul.buttons li .button { margin-right: 10px; }
 */
 
 div.todo_content form.formtastic                     { margin: 0; }
-div#comments form.formtastic                         { margin: 25px 15px 0px 25px; }
 
 div.form_with_notes                                  { width: 65%; }
 div.form_side_notes                                  { width: 30%; float: right; }
