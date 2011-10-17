@@ -318,7 +318,7 @@ pt:
         update_button: "Actualizar"
         cancel_button: "Cancelar"
         hints:
-          body: "Textile enabled. Precisa de ajuda?"
+          body: "<a href='/textile_help.html'>Textile ativado. Precisa de ajuda?</a> Para pré-visualizar as suas alterações, pressione Ctrl+Alt+E."
       comments:
         comment: "Novo Comentário"
         ghost: "Utilizador inexistente"
@@ -835,7 +835,7 @@ pt:
         cancel_button: "Cancelar"
         close_button: "Fechar"
         hints:
-          body: "Textile enabled. Precisa de ajuda?"
+          body: "<a href='/textile_help.html'>Textile ativado. Precisa de ajuda?</a> Para pré-visualizar as suas alterações, pressione Ctrl+Alt+E."
           slug: "Deixar vazio para utilizar um slug baseado no título, gerado automáticamente."
           show_in_navigation: "Seleccionar para mostrar na barra de navegação da parte pública."
           priority: "Seleccionar quão alto (em prioridade) deve estar o link na barra de navegação da parte pública."
@@ -898,7 +898,7 @@ pt:
         cancel_button: "Cancelar"
         close_button: "Fechar"
         hints:
-          body: "Textile enabled. Precisa de ajuda?"
+          body: "<a href='/textile_help.html'>Textile ativado. Precisa de ajuda?</a> Para pré-visualizar as suas alterações, pressione Ctrl+Alt+E."
           image: "Seleccione uma imagem do post."
           generic_file: "Anexar um ficheiro"
           delete_generic: "Verificar para apagar o anexo actual"

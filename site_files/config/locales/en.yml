@@ -326,7 +326,7 @@ en:
         update_button: "Update"
         cancel_button: "Cancel"
         hints:
-          body: "Textile enabled. Need help?"
+          body: "<a href='/textile_help.html'>Textile enabled. Need help?</a> To preview your changes, press Ctrl+Alt+E."
       comments:
         comment: "New comment"
         ghost: "Deleted user"
@@ -846,7 +846,7 @@ en:
         cancel_button: "Cancel"
         close_button: "Close"
         hints:
-          body: "Textile enabled. Need help?"
+          body: "<a href='/textile_help.html'>Textile enabled. Need help?</a> To preview your changes, press Ctrl+Alt+E."
           slug: "Leave blank for an auto-generated slug based on the title."
           show_in_navigation: "Select to display on the Front-end navigation bar."
           priority: "Select how high (in priority) should the link be on the Front-end navigation bar."
@@ -909,7 +909,7 @@ en:
         cancel_button: "Cancel"
         close_button: "Close"
         hints:
-          body: "Textile enabled. Need help?"
+          body: "<a href='/textile_help.html'>Textile enabled. Need help?</a> To preview your changes, press Ctrl+Alt+E."
           image: "Select a post image."
           generic_file: "Attach a file"
           delete_generic: "Check to delete the current attachement"
