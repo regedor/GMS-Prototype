@@ -439,11 +439,21 @@ en:
 
     events:
       manage:
+        worksheet_title: 'Subscribed Users'  
         title: "Manage Event %{name}"
         download: "Download Excel File"  
         table:
           name: "Name"
-          email: "E-mail"              
+          email: "E-mail"   
+          nickname: "Nickname"
+          gender:
+            title: "Gender"
+            male: "Male"
+            female: "Female"
+          address: "Address"
+          id_number: "Identification No."
+          country: "Country"
+          phone: "Phone No."           
       add_activity: "Add Activity"    
       index:
         title: "Events"

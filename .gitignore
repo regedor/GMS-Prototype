@@ -57,3 +57,4 @@ tmtags
 /site_files/public/javascripts/frontend.js
 /site_files/public/javascripts/backend.js
 /site_files/public/images/*
+*.xls

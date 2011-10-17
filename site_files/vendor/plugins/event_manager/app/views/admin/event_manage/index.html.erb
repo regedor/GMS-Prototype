@@ -8,13 +8,25 @@
         <tr>
           <td><%= t 'admin.events.manage.table.name' %></td>
           <td><%= t 'admin.events.manage.table.email' %></td> 
+          <td><%= t 'admin.events.manage.table.nickname' %></td> 
+          <td><%= t 'admin.events.manage.table.gender.title' %></td> 
+          <td><%= t 'admin.events.manage.table.country' %></td> 
+          <td><%= t 'admin.events.manage.table.phone' %></td> 
+          <td><%= t 'admin.events.manage.table.address' %></td> 
+          <td><%= t 'admin.events.manage.table.id_number' %></td>         
         </tr>
       </thead>
       <tbody>
         <% @users.each do |user| %>
           <tr class="<%= cycle("even", "odd")%>">
-            <td><%= user.name %></td>
-            <td><%= user.email %></td>
+            <td><%= (user.name.blank?) ? "-" : user.name %></td>
+            <td><%= (user.email.blank?) ? "-" : user.email %></td>
+            <td><%= (user.nickname.blank?) ? "-" : user.nickname %></td>
+            <td><%= (user.gender) ? t('admin.events.manage.table.gender.male') : t('admin.events.manage.table.gender.female') %></td>
+            <td><%= (user.country.blank?) ? "-" : user.country %></td>
+            <td><%= (user.phone.blank?) ? "-" : user.phone %></td>
+            <td><%= (user.address.blank?) ? "-" : user.address %></td>
+            <td><%= (user.id_number.blank?) ? "-" : user.id_number %></td>
           </tr>
         <% end %>	
       </tbody>	
@@ -22,8 +34,7 @@
   
     <%= will_paginate @users %>
 
-    <form action="event_manage/download" class="download" method="get">
-      <input class="button positive" type="submit" value="<%= t 'admin.events.manage.download' %>" />
-   </form>
+    
+    <span class="download"><%= button_to t("admin.events.manage.download"), {:controller => "admin/event_manage", :action => "download" }, :method => :get, :class => "button positive" %></span>
   </div>
 </div>

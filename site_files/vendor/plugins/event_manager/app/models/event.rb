@@ -56,11 +56,17 @@ class Event < ActiveRecord::Base
   def create_excel_file(path)
     Spreadsheet.client_encoding = 'UTF-8'
     book = Spreadsheet::Workbook.new
-    sheet = book.create_worksheet :name => 'Subscribed Users'
-    sheet.row(0).concat ["Name", "E-Mail"]
+    sheet = book.create_worksheet :name => I18n::t('admin.events.manage.worksheet_title')
+    sheet.row(0).concat [I18n::t('admin.events.manage.table.name'), I18n::t('admin.events.manage.table.email'), 
+      I18n::t('admin.events.manage.table.nickname'),I18n::t('admin.events.manage.table.gender.title'), I18n::t('admin.events.manage.table.country'),
+      I18n::t('admin.events.manage.table.phone'),I18n::t('admin.events.manage.table.address'),I18n::t('admin.events.manage.table.id_number')]
+    
     self.users.each_index do |index|
       user = self.users[index]
-      sheet.row(index+1).concat [user.name,user.email]
+      
+      sheet.row(index+1).concat [user.name,user.email,user.nickname,
+      (user.gender) ? I18n::t('admin.events.manage.table.gender.male') : I18n::t('admin.events.manage.table.gender.female'),
+        user.country,user.phone,user.address,user.id_number]
     end  
     book.write path
   end  
