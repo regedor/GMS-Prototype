@@ -46,7 +46,7 @@ jQuery(document).ready(function($){
     <%= form.input :name, :label => t('admin.events.view.name') %>
 	<% form.inputs do %>
 	  <% form.semantic_fields_for :post, @record.post do |post| %>
-	    <%= post.input :body, :as => :text,  :label => t('admin.events.view.description') %>
+	    <%= post.input :body, :as => :text, :label => t('admin.events.view.description') %>
 	  <% end %>
 	<% end %>
     <%= form.input :starts_at,  :as => :string,
@@ -54,8 +54,7 @@ jQuery(document).ready(function($){
     <%= form.input :ends_at, :as => :string,
                    :input_html => { :class => "datetimepicker", :value => @record.ends_at ? l(@record.ends_at, :format => "%d/%m/%Y %H:%M") : '' }, :label => t('admin.events.view.ends_at') %>
      <%= form.input :price, :as => :numeric, :label => t('admin.events.view.price') %>
-     <%= form.input :participation_message, :as => :text, :label => t('admin.events.view.participation_message'), :required => false %>	 
-
+     <%= form.input :participation_message, :as => :text, :label => t('admin.events.view.participation_message'), :required => false %>
      <%= form.input :requires_name, :required => false, :label => t('admin.events.view.requires_name') %>
      <%= form.input :requires_address, :required => false, :label => t('admin.events.view.requires_address') %>
      <%= form.input :requires_id, :required => false, :label => t('admin.events.view.requires_id') %>
