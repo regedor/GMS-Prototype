@@ -170,8 +170,8 @@ en:
       title: "Archives"
       none: "There are no posts so far."
     pagination:
-      previous: "««"
-      next: "»»"
+      previous: "«"
+      next: "»"
     not_logged_in: "You must be logged in to subscribe to an event"  
     form:
       subscribe_button: "Subscribe"
@@ -287,7 +287,8 @@ en:
         
     to_do_comment:
       deleted_user: "Deleted User"  
-      attachment_download: "Download"  
+      attachment_download: "Download"
+      date: "on "
       new:
         users: "Users to mail"
         body: "Comment"
@@ -296,7 +297,7 @@ en:
         cancel: "Cancel"
         edit_button: "Edit"
         file: "Attachment"
-        file_hint: "(Max. 5Mb)"
+        file_hint: "(Max. 10Mb)"
       sidebar:
         back: "Back to To-Do Lists"                       
         
@@ -325,7 +326,7 @@ en:
         update_button: "Update"
         cancel_button: "Cancel"
         hints:
-          body: "Textile enabled. Need help?"
+          body: "<a href='/textile_help.html'>Textile enabled. Need help?</a> To preview your changes, press Ctrl+Alt+E."
       comments:
         comment: "New comment"
         ghost: "Deleted user"
@@ -440,8 +441,8 @@ en:
     events:
       manage:
         worksheet_title: 'Subscribed Users'  
-        title: "Manage Event %{name}"
-        download: "Download Excel File"  
+        title: "Event Details: %{name}"
+        download: "Export to Excel"
         table:
           name: "Name"
           email: "E-mail"   
@@ -635,6 +636,7 @@ en:
         active: "Active"
 
       form:
+        show: "User Details"
         yes_button: "Yes"
         no_button: "No"  
         delete_button: "Delete"  
@@ -854,7 +856,7 @@ en:
         cancel_button: "Cancel"
         close_button: "Close"
         hints:
-          body: "Textile enabled. Need help?"
+          body: "<a href='/textile_help.html'>Textile enabled. Need help?</a> To preview your changes, press Ctrl+Alt+E."
           slug: "Leave blank for an auto-generated slug based on the title."
           show_in_navigation: "Select to display on the Front-end navigation bar."
           priority: "Select how high (in priority) should the link be on the Front-end navigation bar."
@@ -917,7 +919,7 @@ en:
         cancel_button: "Cancel"
         close_button: "Close"
         hints:
-          body: "Textile enabled. Need help?"
+          body: "<a href='/textile_help.html'>Textile enabled. Need help?</a> To preview your changes, press Ctrl+Alt+E."
           image: "Select a post image."
           generic_file: "Attach a file"
           delete_generic: "Check to delete the current attachement"
@@ -989,7 +991,7 @@ en:
 
     announcements:
       index:
-        title: "Announcements"
+        title: "Announcement Details"
         update_link: "Edit"
         destroy_link: "Delete"
         show_link: "Details"
@@ -1131,8 +1133,9 @@ en:
       successfully: "Created %{name} successfully"
       error: "There was an error while creating the post"
     to_do_comment_body: "The comment body cannot be blank" 
-    file_size_5mb: "File size must be less than 5 MegaBytes"
-    image_size_1mb: "Image size must be less than 1 MegaByte"
+    file_size_5mb: "File size must be less than 5 Megabytes"
+    file_size_10mb: "File size must be less than 10 Megabytes"
+    image_size_1mb: "Image size must be less than 1 Megabyte"
     cant_be_blank: "can't be blank"
     image_content_type: "Image must be a jpeg or png"
   

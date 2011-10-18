@@ -1,0 +1,3 @@
+table.events-manage    { margin: 20px 15px; width: 97%; }
+table.events-manage td { border-top: 1px solid #DDD; border-collapse: collapse; height: 40px; }
+form.download          { display: inline-block; }

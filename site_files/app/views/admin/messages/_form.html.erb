@@ -1,12 +1,11 @@
 <% form.input_field_set do -%>
-  	<%= form.input :title,
-        	         :label    => I18n::t('admin.messages.columns.title') %>
-	<%= form.input :body,
-                         :label    => I18n::t('admin.messages.columns.body'),
-                         :hint     => I18n::t('admin.messages.form.hints.body').html_safe %>
-                         
-    <%= form.input :category,
-                   :label    => I18n::t('admin.messages.columns.category'),
-                   :include_blank => false %>
-
+  <%= form.input :title,
+                 :label         => I18n::t('admin.messages.columns.title') %>
+  <%= form.input :body,
+                 :label         => I18n::t('admin.messages.columns.body'),
+                 :input_html    => { :class => "textile" },
+                 :hint          => I18n::t('admin.messages.form.hints.body').html_safe %>      
+  <%= form.input :category,
+                 :label         => I18n::t('admin.messages.columns.category'),
+                 :include_blank => false %>
 <% end -%>

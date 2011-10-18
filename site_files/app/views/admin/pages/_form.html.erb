@@ -436,9 +436,8 @@ jQuery(document).ready(function($){
   <%= form.input :body,
                  :as       => 'text',
                  :label    => I18n::t('admin.pages.columns.body'),
-                 :wrapper_html => {:class => 'markitup_hint_wrapper'},
+                 :input_html => { :class => "textile" },
                  :hint     => t('admin.pages.form.hints.body') %>
-                 
 <% end -%>
 
 <% form.input_field_set do -%>

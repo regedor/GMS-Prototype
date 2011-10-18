@@ -42,25 +42,24 @@ jQuery(document).ready(function($){
 });
 </script>
 
-  <% form.inputs do %>
-    <%= form.input :name, :label => t('admin.events.view.name') %>
-	<% form.inputs do %>
-	  <% form.semantic_fields_for :post, @record.post do |post| %>
-	    <%= post.input :body, :as => :text,  :label => t('admin.events.view.description') %>
-	  <% end %>
-	<% end %>
-    <%= form.input :starts_at,  :as => :string,
+<% form.inputs do %>
+  <%= form.input :name, :label => t('admin.events.view.name') %>
+    <% form.inputs do %>
+      <% form.semantic_fields_for :post, @record.post do |post| %>
+        <%= post.input :body, :as => :text, :label => t('admin.events.view.description') %>
+      <% end %>
+    <% end %>
+
+  <%= form.input :starts_at,  :as => :string,
                    :input_html => { :class => "datetimepicker", :value => @record.starts_at ? l(@record.starts_at, :format => "%d/%m/%Y %H:%M") : '' }, :label => t('admin.events.view.starts_at') %>
-    <%= form.input :ends_at, :as => :string,
+  <%= form.input :ends_at, :as => :string,
                    :input_html => { :class => "datetimepicker", :value => @record.ends_at ? l(@record.ends_at, :format => "%d/%m/%Y %H:%M") : '' }, :label => t('admin.events.view.ends_at') %>
-     <%= form.input :price, :as => :numeric, :label => t('admin.events.view.price') %>
-     <%= form.input :participation_message, :as => :text, :label => t('admin.events.view.participation_message'), :required => false %>	 
-
-     <%= form.input :requires_name, :required => false, :label => t('admin.events.view.requires_name') %>
-     <%= form.input :requires_address, :required => false, :label => t('admin.events.view.requires_address') %>
-     <%= form.input :requires_id, :required => false, :label => t('admin.events.view.requires_id') %>
-     <%= form.input :requires_phone, :required => false, :label => t('admin.events.view.requires_phone') %>
-
+  <%= form.input :price, :as => :numeric, :label => t('admin.events.view.price') %>
+  <%= form.input :participation_message, :as => :text, :label => t('admin.events.view.participation_message'), :required => false %>
+  <%= form.input :requires_name, :required => false, :label => t('admin.events.view.requires_name') %>
+  <%= form.input :requires_address, :required => false, :label => t('admin.events.view.requires_address') %>
+  <%= form.input :requires_id, :required => false, :label => t('admin.events.view.requires_id') %>
+  <%= form.input :requires_phone, :required => false, :label => t('admin.events.view.requires_phone') %>
 
   <% form.inputs do %>
     <% form.semantic_fields_for :post, @record.post do |post| %>
@@ -96,7 +95,7 @@ jQuery(document).ready(function($){
 	                 :hint     => t('admin.posts.form.hints.slug') %>
     <% end %>
   <% end %>
-	
+
   <%= form.input :has_announcement,
                  :as => :check_boxes, 
                  :required => false, 
@@ -143,19 +142,15 @@ jQuery(document).ready(function($){
 	                         :hint       => I18n::t('admin.pages.form.hints.priority') %>
 	<% end %>
   <% end %>
-		
-		
+
   <% if @record.event_activities.size > 0 %>
       <%# form.semantic_fields_for :event_activities do |builder| %>
         <%#= render :partial => "event_activity_fields", :locals => {:form => builder, :activity => nil } %>
       <%# end %>
      <%= link_to t('admin.events.view.edit_activities'), list_admin_event_event_activities_path(@record) %>
-  <% end %>	
-	
+  <% end %>
+
   <div class="fields">	
     <%= link_to_add_fields t("admin.events.add_activity"), form, :event_activities %>	
-  </div>	
-
+  </div>
 <% end %>
-
-     

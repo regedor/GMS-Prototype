@@ -1,8 +1,7 @@
 <div class="content">
-  <div class="inner">	
-	
-	<h2><%= t 'admin.events.manage.title', :name => @event.name %></h2>
-	
+  <div class="inner">
+	<h2 class="top-title"><%= t 'admin.events.manage.title', :name => @event.name %></h2>
+
     <table class="events-manage">
 	  <thead>
         <tr>
@@ -30,8 +29,8 @@
           </tr>
         <% end %>	
       </tbody>	
-    </table>	
-  
+    </table>
+
     <%= will_paginate @users %>
 
     

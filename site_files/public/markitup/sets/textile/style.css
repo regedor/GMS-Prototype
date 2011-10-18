@@ -18,6 +18,8 @@
 .markItUp .date                  a { background-image:url(/markitup/sets/textile/images/date.png);        }
 .markItUp .calculator            a { background-image:url(/markitup/sets/textile/images/calculator.png);  }
 .markItUp .underline             a { background-image:url(/markitup/sets/textile/images/underline.png);   }
+.markItUp .help                  a { background-image:url(/markitup/sets/textile/images/help.png);        }
+
 
 .markItUp .colors                a { background-image:url(/markitup/sets/textile/images/colors.png); }
 .markItUp .colors ul               { width:81px; padding:1px;	}

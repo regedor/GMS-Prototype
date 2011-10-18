@@ -166,8 +166,8 @@ pt:
       title: "Arquivos"
       none: "Ainda não há posts."
     pagination:
-      previous: "««"
-      next: "»»"
+      previous: "«"
+      next: "»"
     not_logged_in: "Deve fazer login para inscrever-se num evento"  
     form:
       subscribe_button: "Inscrever"
@@ -279,7 +279,8 @@ pt:
         
     to_do_comment:
       deleted_user: "Utilizador Apagado"
-      attachment_download: "Download"      
+      attachment_download: "Download"
+      date: "em "
       new:
         users: "Utilizadores a quem enviar email"
         body: "Comentário"
@@ -288,10 +289,10 @@ pt:
         cancel: "Cancelar"
         edit_button: "Editar"
         file: "Anexo"
-        file_hint: "(Max. 5Mb)"
+        file_hint: "(Max. 10Mb)"
       sidebar:
-        back: "Voltar às Listas de Tarefas"                       
-        
+        back: "Voltar às Listas de Tarefas"
+
     messages:
       index:
         title: "Lista de Mensagens"
@@ -317,7 +318,7 @@ pt:
         update_button: "Actualizar"
         cancel_button: "Cancelar"
         hints:
-          body: "Textile enabled. Precisa de ajuda?"
+          body: "<a href='/textile_help.html'>Textile ativado. Precisa de ajuda?</a> Para pré-visualizar as suas alterações, pressione Ctrl+Alt+E."
       comments:
         comment: "Novo Comentário"
         ghost: "Utilizador inexistente"
@@ -431,8 +432,8 @@ pt:
 
     events:
       manage:
-        title: "Gerir Evento %{name}"
-        download: "Download em formato Excel"  
+        title: "Detalhes do Evento: %{name}"
+        download: "Exportar para Excel"  
         table:
           name: "Nome"
           email: "E-mail"    
@@ -614,6 +615,7 @@ pt:
         active: "Activo"
 
       form:
+        show: "Detalhes do Utilizador"
         yes_button: "Sim"
         no_button: "Não"  
         delete_button: "Apagar"  
@@ -833,7 +835,7 @@ pt:
         cancel_button: "Cancelar"
         close_button: "Fechar"
         hints:
-          body: "Textile enabled. Precisa de ajuda?"
+          body: "<a href='/textile_help.html'>Textile ativado. Precisa de ajuda?</a> Para pré-visualizar as suas alterações, pressione Ctrl+Alt+E."
           slug: "Deixar vazio para utilizar um slug baseado no título, gerado automáticamente."
           show_in_navigation: "Seleccionar para mostrar na barra de navegação da parte pública."
           priority: "Seleccionar quão alto (em prioridade) deve estar o link na barra de navegação da parte pública."
@@ -896,7 +898,7 @@ pt:
         cancel_button: "Cancelar"
         close_button: "Fechar"
         hints:
-          body: "Textile enabled. Precisa de ajuda?"
+          body: "<a href='/textile_help.html'>Textile ativado. Precisa de ajuda?</a> Para pré-visualizar as suas alterações, pressione Ctrl+Alt+E."
           image: "Seleccione uma imagem do post."
           generic_file: "Anexar um ficheiro"
           delete_generic: "Verificar para apagar o anexo actual"
@@ -968,7 +970,7 @@ pt:
 
     announcements:
       index:
-        title: "Anúncios"
+        title: "Detalhes do Anúncio:"
         update_link: "Editar"
         destroy_link: "Apagar"
         show_link: "Detalhes"
@@ -1107,8 +1109,9 @@ pt:
       successfully: "Criado %{nome}"
       error: "Falha ao criar o post"
     to_do_comment_body: "O comentário não pode estar vazio" 
-    file_size_5mb: "O tamanho do ficheiro deve ser menor que 5 MegaBytes"
-    image_size_1mb: "O tamanho da imagem deve ser menor que 1 MegaByte"
+    file_size_5mb: "O tamanho do ficheiro deve ser menor que 5 Megabytes"
+    file_size_10mb: "O tamanho do ficheiro deve ser menor que 10 Megabytes"
+    image_size_1mb: "O tamanho da imagem deve ser menor que 1 Megabyte"
     cant_be_blank: "não pode ser vazio"
     image_content_type: "Imagem deve ser em .jpg ou .png"
 

@@ -1,7 +1,9 @@
 <div class="content">
-  <h2><%= I18n::t('admin.posts.form.show') %></h2>
-  <div class="content">
+  <div class="inner">
+    <h2 class="top-title"><%= I18n::t('admin.posts.form.show') %></h2>
+
     <%= render :partial => 'posts/post', :locals => { :post => @record } %>
+
     <ul class="buttons">
       <li class="commit">
         <%= link_to t('admin.posts.form.close_button'), admin_posts_path, :class => 'button negative' %>
