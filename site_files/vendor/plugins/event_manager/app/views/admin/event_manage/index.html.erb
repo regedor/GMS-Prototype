@@ -1,6 +1,6 @@
 <div class="content">
   <div class="inner">
-	<h2 class="top-title"><%= t 'admin.events.manage.title', :name => @event.name %></h2>
+	<h2 class="title"><%= t 'admin.events.manage.title', :name => @event.name %></h2>
 
     <table class="events-manage">
 	  <thead>
@@ -33,7 +33,6 @@
 
     <%= will_paginate @users %>
 
-    
-    <span class="download"><%= button_to t("admin.events.manage.download"), {:controller => "admin/event_manage", :action => "download" }, :method => :get, :class => "button positive" %></span>
+    <ul class="buttons download"><%= button_to t("admin.events.manage.download"), { :controller => "admin/event_manage", :action => "download" }, :method => :get, :class => "button positive" %></ul>
   </div>
 </div>
