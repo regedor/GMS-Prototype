@@ -478,7 +478,7 @@ en:
         activities: "Activities"
         name: "Name"
         description: "Description"
-        price: "Price"
+        price: "Price (euros)"
         totalprice: "Total Event Price"
         starts_at: "Starting date"
         ends_at: "Ending date"

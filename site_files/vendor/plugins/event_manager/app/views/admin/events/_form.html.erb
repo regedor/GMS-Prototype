@@ -54,7 +54,7 @@ jQuery(document).ready(function($){
                    :input_html => { :class => "datetimepicker", :value => @record.starts_at ? l(@record.starts_at, :format => "%d/%m/%Y %H:%M") : '' }, :label => t('admin.events.view.starts_at') %>
   <%= form.input :ends_at, :as => :string,
                    :input_html => { :class => "datetimepicker", :value => @record.ends_at ? l(@record.ends_at, :format => "%d/%m/%Y %H:%M") : '' }, :label => t('admin.events.view.ends_at') %>
-  <%= form.input :price, :as => :numeric, :label => t('admin.events.view.price') %>
+  <%= form.input :price, :as => :numeric, :label => t('admin.events.view.price'), :hint => t('admin.events.view.price') %>
   <%= form.input :participation_message, :as => :text, :label => t('admin.events.view.participation_message'), :required => false %>
   <%= form.input :requires_name, :required => false, :label => t('admin.events.view.requires_name') %>
   <%= form.input :requires_address, :required => false, :label => t('admin.events.view.requires_address') %>
