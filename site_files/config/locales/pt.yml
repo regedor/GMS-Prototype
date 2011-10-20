@@ -318,7 +318,7 @@ pt:
         update_button: "Actualizar"
         cancel_button: "Cancelar"
         hints:
-          body: "<a href='/textile_help.html'>Textile ativado. Precisa de ajuda?</a> Para pré-visualizar as suas alterações, pressione Ctrl+Alt+E."
+          body: "<a href='/textile_help.html'>Textile ativado. Precisa de ajuda?</a>"
       comments:
         comment: "Novo Comentário"
         ghost: "Utilizador inexistente"

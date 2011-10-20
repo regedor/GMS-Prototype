@@ -326,7 +326,7 @@ en:
         update_button: "Update"
         cancel_button: "Cancel"
         hints:
-          body: "<a href='/textile_help.html'>Textile enabled. Need help?</a> To preview your changes, press Ctrl+Alt+E."
+          body: "<a href='/textile_help.html'>Textile enabled. Need help?</a>"
       comments:
         comment: "New comment"
         ghost: "Deleted user"
