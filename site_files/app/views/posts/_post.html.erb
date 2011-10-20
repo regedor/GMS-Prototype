@@ -11,6 +11,20 @@
   
 <% if (defined? event) && event %>
   <div class="event-body">
+	<% if post.generic_file_name && params[:action] == "show" %>
+	  <div class="attachment">
+	    <span class="attachment_icon">
+		  <% if post.generic.content_type =~ /^image\// %>
+		    <%=  file_icon_displayer(post.generic) %>
+	     <% else %>
+	        <%= image_tag "#{root_url}images/icons/page_attach.png" %>
+	     <% end %>
+	    </span>
+	    <span class="attachment_name"><%= post.generic_file_name %></span>
+	    <span class="attachment_download"><%= button_to t("admin.posts.attachment_download"), {:controller => "admin/posts", :action => "download", :id => post.id }, :method => :get %></span>
+	  </div>
+	<% end %>
+
     <% if current_user %>
       <% if !event.users.member? current_user %>
         <%= render :partial => 'posts/event_subscription', :locals => {:event => event, :total_price => total_price, :subscribed_activities  => subscribed_activities} %>
@@ -20,21 +34,6 @@
     <% else %>
       <h2 class="title"><%= link_to t('posts.not_logged_in'), new_user_session_path %></h2>
     <% end %>
-  </div>
-<% end %>
-
-
-<% if post.generic_file_name && params[:action] == "show" %>
-  <div class="attachment">
-    <span class="attachment_icon">
-	  <% if post.generic.content_type =~ /^image\// %>
-	    <%=  file_icon_displayer(post.generic) %>
-     <% else %>
-        <%= image_tag "#{root_url}images/icons/page_attach.png" %>
-     <% end %>
-    </span>
-    <span class="attachment_name"><%= post.generic_file_name %></span>
-    <span class="attachment_download"><%= button_to t("admin.posts.attachment_download"), {:controller => "admin/posts", :action => "download", :id => post.id }, :method => :get %></span>
   </div>
 <% end %>
 
