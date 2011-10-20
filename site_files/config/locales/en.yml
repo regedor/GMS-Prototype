@@ -98,9 +98,9 @@ en:
     bar:
       last_session_paragraph: "Your last login was %{time_ago} ago, your IP was %{ip}"
       account_link: "Account details"
-      logout: "Sign Out"
-      signin: "Sign In"
-      signup: "Sign Up"
+      logout: "Sign out"
+      signin: "Sign in"
+      signup: "Create account"
       google_signin: "Google Sign In"
       change_language: "Change language:"
     new:
