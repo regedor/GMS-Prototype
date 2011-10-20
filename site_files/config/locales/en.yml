@@ -440,11 +440,21 @@ en:
 
     events:
       manage:
+        worksheet_title: 'Subscribed Users'  
         title: "Event Details: %{name}"
         download: "Export to Excel"
         table:
           name: "Name"
-          email: "E-mail"              
+          email: "E-mail"   
+          nickname: "Nickname"
+          gender:
+            title: "Gender"
+            male: "Male"
+            female: "Female"
+          address: "Address"
+          id_number: "Identification No."
+          country: "Country"
+          phone: "Phone No."           
       add_activity: "Add Activity"    
       index:
         title: "Events"
@@ -468,7 +478,7 @@ en:
         activities: "Activities"
         name: "Name"
         description: "Description"
-        price: "Price"
+        price: "Price (euros)"
         totalprice: "Total Event Price"
         starts_at: "Starting date"
         ends_at: "Ending date"

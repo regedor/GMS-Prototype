@@ -463,7 +463,7 @@ pt:
         activities: "Actividades"
         name: "Nome"
         description: "Descrição"
-        price: "Preço"
+        price: "Preço (euros)"
         totalprice: "Preço Total do Evento"
         starts_at: "Data de início"
         ends_at: "Data de final"

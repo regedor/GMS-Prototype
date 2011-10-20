@@ -13,7 +13,7 @@
 }
 .markItUp  {
 	margin:5px 0 5px 165px;
-	width: 632px;
+	max-width: 76%;
 }
 .markItUpContainer  {
 	border:1px solid #9E9E9E;
@@ -29,10 +29,9 @@
 	padding:5px;
 	border:3px solid #3C769D;
 	height:320px;
-	clear:both;
 	line-height:18px;
-	overflow:auto;
-        width: 610px !important;
+	width: 98.3% !important;
+	max-width: none !important;
 }
 .markItUpFooter {
 	width:100%;
