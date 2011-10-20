@@ -202,7 +202,7 @@ en:
         update: "Update"
     subscribe: 
       eventSubscription: "Subscribed to the event " 
-      activities: "Subscribed to this activities:"
+      activities: "Subscribed to the following activities:"
       price: "Total Price: "
       unsubscribe_button: "Unsubscribe"
       ok_button: "OK"
