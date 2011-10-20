@@ -92,7 +92,8 @@ div#message div.entrybody p                                 { margin: 0 120px 0 
 
 div#messages table                                          { width: 100% }
 div#messages table td.message                               { border-bottom: 1px solid #DDD; padding: 10px 7px 10px 0px; }
-div#messages table td.message span.title                    { display: block; }
+div#messages table td.message span.title                    { display: block; margin-bottom: 5px; }
+div#messages table td.message span.title:hover              { text-decoration: underline; }
 
 div#comments div.comment                                    { margin: 20px 0; }
 div#comments div.comment div.avatar                         { margin-bottom: 15px; margin-right: 20px; float: left; }
