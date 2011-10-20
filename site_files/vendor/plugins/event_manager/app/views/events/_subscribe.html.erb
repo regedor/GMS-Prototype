@@ -1,5 +1,3 @@
-<h2 class="title"><%= t 'events.subscribe.eventSubscription' %><%= event.name %></h2>
-
 <% if event.participation_message && just_subscribed %>
   <p id="event-message"><%= nl2br(h event.participation_message) %></p>
 <% end %>
@@ -7,7 +5,7 @@
 <% if subscribed_activities && !subscribed_activities.empty? %>
   <div class="activities">
     <h3><%= t 'events.subscribe.activities' %></h3>
-    <ul>
+    <ul class="activity-list">
       <% subscribed_activities.map(&:event_activity).each do |activity| %>
         <li><%= activity.title %></li>
       <% end %>
@@ -15,10 +13,12 @@
   </div>
 <% end %>
 
-<p id="event-total-price"><%= t 'events.subscribe.price' %> <%= t('events.subscribe.total_value', :total_price => total_price) %></p>
+<p id="total-price"><%= t 'events.subscribe.price' %> <%= t('events.subscribe.total_value', :total_price => total_price) %></p>
 
-<% if just_subscribed %>
-  <%= link_to t('events.subscribe.ok_button'), root_path, :class => "button positive" %>
-<% else %>
-  <%= link_to t('events.subscribe.unsubscribe_button'), unsubscribe_event_path(event.id), :class => "button negative" %>
-<% end %>
+<ul class="buttons">
+  <% if just_subscribed %>
+    <li><%= link_to t('events.subscribe.ok_button'), root_path, :class => "button positive" %></li>
+  <% else %>
+    <li><%= link_to t('events.subscribe.unsubscribe_button'), unsubscribe_event_path(event.id), :class => "button negative" %></li>
+  <% end %>
+</ul>
