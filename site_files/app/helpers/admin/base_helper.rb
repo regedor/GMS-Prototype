@@ -1,7 +1,7 @@
 module Admin::BaseHelper
 
   def nl2br(s)
-    s.gsub(/\n/, '<br>')
+    s.gsub(/\n/, '<br />')
   end
 
   def properly_show_errors(record)
