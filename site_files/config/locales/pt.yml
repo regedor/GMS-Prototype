@@ -23,6 +23,9 @@ pt:
   supporters:
     title: "Apoios"
 
+  social_networks:
+    title: "Redes sociais"
+
   users:
     roles:
       user: "Utilizador"
