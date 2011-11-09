@@ -24,6 +24,9 @@ en:
   supporters:
     title: "Supporters"
 
+  social_networks:
+    title: "Social networks"
+
   users:
     roles:
       user: "User"

@@ -1,4 +1,7 @@
 <div id="social-networks">
-  <% if networks[:facebook_link] %><a href="<%= networks[:facebook_link] %>"><div id="facebook-link"></div></a><% end %>
-  <% if networks[:twitter_link] %><a href="<%= networks[:twitter_link] %>"><div id="twitter-link"></div></a><% end %>
+  <h2 class="title"><%= t('social_networks.title') %></h2>
+  <ul>
+    <% if networks[:facebook_link] %><li><a href="<%= networks[:facebook_link] %>">Facebook</a></li><% end %>
+    <% if networks[:twitter_link] %><li><a href="<%= neworks[:twitter_link] %>">Twitter</a></li><% end %>
+  </ul>
 </div>
