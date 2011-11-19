@@ -1,16 +1,32 @@
 <div class="content">
   <div class="inner">
-    <% semantic_form_for :project, @project, :url => admin_project_path(@project.id), :html => {:method => :put} do |f| %>
+    <% semantic_form_for :project, @project, 
+            :url => admin_project_path(@project.id), 
+            :html => {:method => :put} do |f| %>
+
       <% f.inputs do %>
-        <%= f.input :name, :as => :string, :label => t("admin.project.new.name") %>
-        <%= f.input :description, :as => :text, :label => t("admin.project.new.description"), :required => false %>
-        <%= f.input :group, :as => :radio, :label => t("admin.project.new.group"), :required => false %>
+        <%= f.input :name, 
+                    :as => :string,
+                    :label => t("admin.project.new.name") %>
+
+        <%= f.input :description, 
+                    :as => :text, 
+                    :label => t("admin.project.new.description"), 
+                    :required => false %>
+
+        <%= f.input :group, 
+                    :as => :radio, 
+                    :label => t("admin.project.new.group"), 
+                    :required => false %>
       <% end  %>
+
       <% f.buttons do %>
         <%= f.commit_button :label => t("admin.project.new.edit_button"),
                             :button_html => { :class => 'button positive' } %>
-        <%= f.button_link   t("admin.project.new.cancel"), admin_projects_path,
-                            :button_html => { :class => 'button negative' }  %>
+
+        <%= f.button_link t("admin.project.new.cancel"),
+                          admin_projects_path,
+                          :button_html => { :class => 'button negative' } %>
      <% end %>
     <% end %>
   </div>

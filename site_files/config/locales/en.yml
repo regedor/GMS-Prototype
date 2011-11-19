@@ -1325,7 +1325,7 @@ en:
       default: "%a, %d %b %Y at %H:%M"
       short: "%d %b"
       medium: "%d %b %Y"
-      showdate: "%D"
+      showdate: "%d/%m/%Y"
       long: "%B %d, %Y %H:%M"
     am: "am"
     pm: "pm"

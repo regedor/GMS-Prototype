@@ -29,7 +29,6 @@ gem 'spreadsheet'
 
 gem 'sass'
 
-
 group :development do
   gem 'sqlite3-ruby'
 end
@@ -46,8 +45,10 @@ group :test do
   gem 'shoulda'                  , '2.11.1'
 #  gem 'autotest-rails'           , '4.1.0'
   gem 'rcov'
-
+  gem 'turn'
   gem 'tweet-button'
+  gem 'i18n'                     , '0.3.3'
+  gem 'faker'
 end
 
 gem 'metric_fu'

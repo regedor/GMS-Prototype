@@ -117,3 +117,17 @@ jQuery.fn.renderFlash = function(path,status,pairs){
 	var renderedObject = this;
 	asyncTranslate(path,function(data){renderedObject.html("<div class=\"message "+status+"\"><p>"+data+"</p></div>");},pairs);
 }; 
+
+
+// Open external links in a new tab
+jQuery(document).ready(function($) {
+  $("a").click(function() {
+    link_host = this.href.split("/")[2];
+    document_host = document.location.href.split("/")[2];
+
+    if (link_host != document_host) {
+      window.open(this.href);
+      return false;
+    }
+  });
+});

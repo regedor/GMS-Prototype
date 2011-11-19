@@ -6,7 +6,9 @@ Rails::Initializer.run do |config|
 
   config.time_zone                         = 'UTC'
   config.i18n.default_locale               = yaml_config['default_locale']
-  config.action_mailer.default_url_options = { :host => yaml_config['site_domain'] }
+  config.action_mailer.default_url_options = { 
+    :host => yaml_config['site_domain'] 
+  }
 end
 
 begin; Setting.load_settings_to_configatron; rescue Exception; end
@@ -21,4 +23,5 @@ if ENV['I18N_MOCK']
 end
 
 require 'rails_extensions'
+
 

@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
     return @current_user_session if defined?(@current_user_session)
     @current_user_session = UserSession.find
   end
+  
 
   # Returns the current user, if there is a current user session.
   def current_user

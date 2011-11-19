@@ -4,7 +4,6 @@ class Admin::ToDosController < Admin::BaseController
     :attribute_check => true,
     :load_method     => lambda { Project.find(params[:project_id]) }
 
-
   def create
     unless params[:todo][:description].empty?
       @list = ToDoList.find(params[:todo][:to_do_list_id])

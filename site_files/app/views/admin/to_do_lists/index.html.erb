@@ -214,6 +214,8 @@ jQuery.fn.makeSortable = function(){
 	            $("#list_"+r.id).html(r.html);
 				$('#add_button-'+r.id).children(":nth-child(1)").addTodo();
 				$(this).makeSortable();
+				$.datepicker.setDefaults( $.datepicker.regional[ '' ] );
+				$( ".datepicker" ).datepicker($.datepicker.regional[locale]);
 	          }
 	        });	
 		}	

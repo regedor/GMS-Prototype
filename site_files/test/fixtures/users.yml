@@ -1,0 +1,8 @@
+zamith:
+  email: zamith@groupbuddies.com
+  crypted_password: 4ec7d4759d5a2d7c8b79c88503b303fcf3b5428577e74ac7b0ae82138f407539d6593a301867e8455ca1a616e0e2abbbaa3ab72cd7e6b852100a4c675d4b151b
+  password_salt: fRT3xGl3ZsHmCKVPW6E4
+  persistence_token: 477b237743df6dfb77eaa6ef041aa37333643fda2eadc7ae30064179d091ee5cd932e90b137a19b69662443b94df8f9528d0fb611a86b8150348218206ed9961
+  single_access_token: enGQt3atL1uXmMF8GLt8
+  perishable_token: PoYjHcqFKb21PPWeXb6X
+  language: en
