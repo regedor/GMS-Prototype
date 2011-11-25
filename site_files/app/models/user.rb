@@ -232,9 +232,9 @@ class User < ActiveRecord::Base
     self.nickname || first_and_last_name
   end
   
-  def name
-    super || self.email
-  end   
+  def name(just_name=false)
+    (just_name) ? super : (super.blank? || !super) ? self.email : super
+  end
 
   def list_groups
     r = []

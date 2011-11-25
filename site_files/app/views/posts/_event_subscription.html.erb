@@ -44,7 +44,7 @@ jQuery(document).ready(function($){
         <%= user.input :address, :required => false, :label => t('users.form.address') %>
       <% end %>
 
-      <% if event.requires_name && current_user.name.nil? %>
+      <% if event.requires_name && !current_user.name(true).present? %>
         <%= user.input :name, :required => false, :label => t('users.form.name') %>
       <% end %>
 
@@ -52,7 +52,7 @@ jQuery(document).ready(function($){
         <%= user.input :phone, :required => false, :label => t('users.form.phone') %>
       <% end %>
     <% end %>
-  <% end if (event.requires_phone && current_user.phone.nil?) || (event.requires_name && current_user.name.nil?) || (event.requires_address && current_user.address.nil?) || (event.requires_id && current_user.id_number.nil?) %>
+  <% end if (event.requires_phone && current_user.phone.nil?) || (event.requires_name && !current_user.name(true).present?) || (event.requires_address && current_user.address.nil?) || (event.requires_id && current_user.id_number.nil?) %>
 
   <% form.buttons do -%>
     <%= form.commit_button I18n::t('posts.form.subscribe_button'), :button_html => { :class => 'button positive' } %>

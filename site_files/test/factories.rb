@@ -18,6 +18,16 @@ Factory.define :valid_user, :class => User, :default_strategy => :create do |f|
   f.gender                true
 end
 
+Factory.define :nameless_user, :class => User, :default_strategy => :create do |f|
+  f.password              "foobar"
+  f.password_confirmation { |u| u.password                }
+  f.sequence(:email)      { |n| "johndoe#{n}@example.com" }
+  f.role                  Role.find_by_symbol(:member)
+  f.country               "PT"
+  f.phone                 "123456789"
+  f.gender                true
+end
+
 
 Factory.define :active_user, :parent => 'valid_user' do |f|
   f.active                true
