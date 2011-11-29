@@ -191,8 +191,6 @@ module EventCalendar
           cal << %(ec-weekend-day-header) if weekend?(day)
           cal << %(">)
           cal << %(#{day.day})
-          cal << %(<div class="events">)
-          cal << %(<ul>)
 
         # event rows for this day
         # for each event strip, create a new table row
@@ -202,7 +200,9 @@ module EventCalendar
           if strip[row_num*7+day_of_week]
           [*strip[row_num*7+day_of_week]].each_with_index do |event, index|      
 
-            if event     
+            if event
+              cal << %(<div class="events">)
+              cal << %(<ul>)
               cal << %(<li>)
               
               # get the dates of this event that fit into this week
@@ -223,6 +223,8 @@ module EventCalendar
                 end
 
                 cal << %(</li>)
+                cal << %(</ul>)
+                cal << %(</div>)
               #end
 
             else
@@ -239,8 +241,6 @@ module EventCalendar
           end
         end
 
-        cal << %(</ul>)
-        cal << %(</div>)
         cal << %(</td>)
         day_of_week += 1
         end
