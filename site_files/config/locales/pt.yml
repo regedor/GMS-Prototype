@@ -12,10 +12,14 @@ pt:
       g_n_placeholder: "Escreva o nome do grupo aqui" 
       already_selected: "O utilizador %{user} já foi seleccionado"
       group_name: "Nome do grupo:"
+
   navigation:
     home: "Início"
     about: "Sobre"
     administration: "Administração"
+
+  event_calendar:
+    title: "Calendário"
 
   organization:
     title: "Organização"

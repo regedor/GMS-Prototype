@@ -18,6 +18,9 @@ en:
     about: "About"
     administration: "Administration"
 
+  event_calendar:
+    title: "Calendar"
+
   organization:
     title: "Organization"
 
