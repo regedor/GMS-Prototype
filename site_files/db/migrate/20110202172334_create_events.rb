@@ -51,5 +51,8 @@ class CreateEvents < ActiveRecord::Migration
   def self.down
     drop_table :events
     drop_table :event_activities
+    drop_table :events_users
+    drop_table :event_activities_users
+    drop_table :statuses
   end
 end
