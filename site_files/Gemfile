@@ -15,19 +15,15 @@ gem 'paperclip'                  , '2.3.8'
 gem 'formtastic'                 , '0.9.10'  
 gem 'calendar_date_select'       , '1.16.1'  
 gem 'configatron'                , '2.6.4'
-
 gem 'RedCloth'                   , '4.2.3'
 gem 'lesstile'                   , '1.0.0'
 gem 'coderay'
 gem 'sparklines'
 gem 'chronic'                    , '0.3.0'
 gem 'clickatell'
-
-gem 'compass'                    , '0.10.6'
-
 gem 'spreadsheet'
-
 gem 'sass'
+gem 'nokogiri'
 
 group :development do
   gem 'sqlite3-ruby'
