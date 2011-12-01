@@ -499,6 +499,10 @@ en:
         create_button: "Create"
         update_button: "Update"
         cancel_button: "Cancel"
+        subscribable: "Subscribable"
+        hints:
+          subscribable: "Check if you want the user to be able to subscribe to event"
+            
       list:
         found:
           more: "%{count} Events Found"
