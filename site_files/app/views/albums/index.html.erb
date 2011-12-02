@@ -45,7 +45,7 @@ jQuery(document).ready(function($){
 	    <% if album.images.empty? %>
 	      <img  class="thumb" src="/assets/images/thumbs/<%= album.cover %>"/>
 	    <% else %>
-	      <img  class="thumb" src="/assets/images/thumbs/<%= album.name %>/<%= album.cover %>"/>
+	      <img  class="thumb" src="<%= album.images[0].multi_purpose_image.url(:small)%>"/>
 	    <% end %>
 		<span class="overlay"></span>
 		<span class="name"><%= album.name %></span>

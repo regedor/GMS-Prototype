@@ -1,10 +1,13 @@
 <% form.input_field_set do -%>
-	<%= form.input :name,
-	               :label    => t('gallery.form.name') %>
-	<%= form.input :image,
-	                 :required => false,
-	                 :as       => :file,
-	                 :hint     => I18n::t('gallery.form.hints.image'),
-	                 :label    => I18n::t('gallery.form.image'),
-                     :input_html => {:multiple => ""}%>
-<% end %>	
+    <%= form.input :name,
+                   :label    => t('gallery.form.name') %>
+    
+    <% form.semantic_fields_for :images do |image| %>
+      <%= image.input :multi_purpose_image, 
+                      :required => false,
+                      :as       => :file,
+                      :hint     => I18n::t('gallery.form.hints.image'),
+                      :label    => I18n::t('gallery.form.image'),
+                      :input_html => {:multiple => ""} %>
+    <% end %>
+<% end %>

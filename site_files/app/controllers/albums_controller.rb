@@ -2,6 +2,7 @@ class AlbumsController < ApplicationController
 
   def new
     @album = Album.new
+    1.times {@album.images.build}
   end  
 
   def create
