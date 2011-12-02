@@ -41,7 +41,7 @@ jQuery(document).ready(function($){
 <div id="gallery">
   <% @albums.each do |album| %>
     <div class="album">
-      <a class="link" href="<%= gallery_path(album.name) %>">
+      <a class="link" href="<%= album_path(album) %>">
 	    <% if album.images.empty? %>
 	      <img  class="thumb" src="/assets/images/thumbs/<%= album.cover %>"/>
 	    <% else %>

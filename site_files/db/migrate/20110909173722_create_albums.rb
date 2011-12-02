@@ -9,7 +9,7 @@ class CreateAlbums < ActiveRecord::Migration
       t.string  :path
       t.string  :description
       t.integer :album_id
-    end  
+    end
   end
 
   def self.down
