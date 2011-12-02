@@ -17,6 +17,7 @@ require 'database_cleaner'
 require File.expand_path(File.dirname(__FILE__) + '/../../test/factories.rb')
 
 Capybara.default_selector = :css
+Capybara.default_driver = :selenium
 ActionController::Base.allow_rescue = false
 
 Cucumber::Rails::World.use_transactional_fixtures = true

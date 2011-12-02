@@ -24,6 +24,9 @@ en:
   supporters:
     title: "Supporters"
 
+  social_networks:
+    title: "Social networks"
+
   users:
     roles:
       user: "User"
@@ -48,6 +51,8 @@ en:
       country: "Country"
       emails: "Receive emails"
       profile: "Profile"
+      id_number: "Identification Number"
+      address: "Address"
     edit:
       title: "Edit account"
       commit_button: "Update account"
@@ -96,9 +101,9 @@ en:
     bar:
       last_session_paragraph: "Your last login was %{time_ago} ago, your IP was %{ip}"
       account_link: "Account details"
-      logout: "Sign Out"
-      signin: "Sign In"
-      signup: "Sign Up"
+      logout: "Sign out"
+      signin: "Sign in"
+      signup: "Create account"
       google_signin: "Google Sign In"
       change_language: "Change language:"
     new:
@@ -182,15 +187,17 @@ en:
       title: "Archives"
       none: "There are no posts so far."
     pagination:
-      previous: "««"
-      next: "»»"
+      previous: "«"
+      next: "»"
     not_logged_in: "You must be logged in to subscribe to an event"  
     form:
       subscribe_button: "Subscribe"
       cancel_button: "Cancel"
       activities: "Activities"   
       total_default: "0.00"
-      total: "Total:"   
+      total: "Total:"
+      total_value: "%{total_price} €"
+      missing_info: "Plese fill this information in order to subscribe to the event"   
 
   comments:
     title: "Post a comment"
@@ -212,10 +219,11 @@ en:
         update: "Update"
     subscribe: 
       eventSubscription: "Subscribed to the event " 
-      activities: "Subscribed to this activities:"
+      activities: "Subscribed to the following activities:"
       price: "Total Price: "
       unsubscribe_button: "Unsubscribe"
       ok_button: "OK"
+      total_value: "%{total_price} €"
       
       
   admin:
@@ -296,7 +304,8 @@ en:
         
     to_do_comment:
       deleted_user: "Deleted User"  
-      attachment_download: "Download"  
+      attachment_download: "Download"
+      date: "on "
       new:
         users: "Users to mail"
         body: "Comment"
@@ -305,7 +314,7 @@ en:
         cancel: "Cancel"
         edit_button: "Edit"
         file: "Attachment"
-        file_hint: "(Max. 5Mb)"
+        file_hint: "(Max. 10Mb)"
       sidebar:
         back: "Back to To-Do Lists"                       
         
@@ -334,7 +343,7 @@ en:
         update_button: "Update"
         cancel_button: "Cancel"
         hints:
-          body: "Textile enabled. Need help?"
+          body: "<a href='/textile_help.html'>Textile enabled. Need help?</a>"
       comments:
         comment: "New comment"
         ghost: "Deleted user"
@@ -367,7 +376,7 @@ en:
       new:
         name: "Name"
         description: "Description"
-        users: "Associated Users"
+        group: "Associated Group"
         create_button: "Create"
         edit_button: "Update"
         cancel: "Cancel"
@@ -447,6 +456,22 @@ en:
             update: "Apply"           
 
     events:
+      manage:
+        worksheet_title: 'Subscribed Users'  
+        title: "Event Details: %{name}"
+        download: "Export to Excel"
+        table:
+          name: "Name"
+          email: "E-mail"   
+          nickname: "Nickname"
+          gender:
+            title: "Gender"
+            male: "Male"
+            female: "Female"
+          address: "Address"
+          id_number: "Identification No."
+          country: "Country"
+          phone: "Phone No."           
       add_activity: "Add Activity"    
       index:
         title: "Events"
@@ -464,17 +489,22 @@ en:
       create:
         title: "Event"
       view:  
+        edit_activities: "Edit Activities" 
         hasAnnouncement: "Has Announcement"
         hasPost: "Has Post"
         activities: "Activities"
         name: "Name"
         description: "Description"
-        price: "Price"
+        price: "Price (euros)"
         totalprice: "Total Event Price"
         starts_at: "Starting date"
         ends_at: "Ending date"
         cancel: "Go back"
         participation_message: "Participation Message"
+        requires_id: "Requires id number"
+        requires_name: "Requires name"
+        requires_address: "Requires address"
+        requires_phone: "Requires phone number"
         button:
           update: "Update"
       form:
@@ -483,6 +513,10 @@ en:
         create_button: "Create"
         update_button: "Update"
         cancel_button: "Cancel"
+        subscribable: "Subscribable"
+        hints:
+          subscribable: "Check if you want the user to be able to subscribe to event"
+            
       list:
         found:
           more: "%{count} Events Found"
@@ -553,6 +587,8 @@ en:
         groups: "Groups"
         phone: "Phone"
         avatar: "Avatar"
+        address: "Address"
+        id_number: "Identification Number"
       sidebar:
         history:
           title: "Revert information"
@@ -621,6 +657,7 @@ en:
         active: "Active"
 
       form:
+        show: "User Details"
         yes_button: "Yes"
         no_button: "No"  
         delete_button: "Delete"  
@@ -840,7 +877,7 @@ en:
         cancel_button: "Cancel"
         close_button: "Close"
         hints:
-          body: "Textile enabled. Need help?"
+          body: "<a href='/textile_help.html'>Textile enabled. Need help?</a> To preview your changes, press Ctrl+Alt+E."
           slug: "Leave blank for an auto-generated slug based on the title."
           show_in_navigation: "Select to display on the Front-end navigation bar."
           priority: "Select how high (in priority) should the link be on the Front-end navigation bar."
@@ -903,7 +940,7 @@ en:
         cancel_button: "Cancel"
         close_button: "Close"
         hints:
-          body: "Textile enabled. Need help?"
+          body: "<a href='/textile_help.html'>Textile enabled. Need help?</a> To preview your changes, press Ctrl+Alt+E."
           image: "Select a post image."
           generic_file: "Attach a file"
           delete_generic: "Check to delete the current attachement"
@@ -975,7 +1012,7 @@ en:
 
     announcements:
       index:
-        title: "Announcements"
+        title: "Announcement Details"
         update_link: "Edit"
         destroy_link: "Delete"
         show_link: "Details"
@@ -1107,7 +1144,9 @@ en:
     page_updated: "Updated %{name}"
     page_not_updated: "Failed to update %{name}" 
     unsubscribe: "Succefully unsubscribed event %{name}"
-    unsubscribe_error: "Could not unsubscribe"     
+    unsubscribe_error: "Could not unsubscribe" 
+    subscribe: "Succefully subscribed to event %{name}" 
+    subscribe_error: "Could not subscribe"    
     postUpdated:
       successfully: "Updated %{name} successfully"
       error: "There was an error while updating the post"
@@ -1115,8 +1154,9 @@ en:
       successfully: "Created %{name} successfully"
       error: "There was an error while creating the post"
     to_do_comment_body: "The comment body cannot be blank" 
-    file_size_5mb: "File size must be less than 5 MegaBytes"
-    image_size_1mb: "Image size must be less than 1 MegaByte"
+    file_size_5mb: "File size must be less than 5 Megabytes"
+    file_size_10mb: "File size must be less than 10 Megabytes"
+    image_size_1mb: "Image size must be less than 1 Megabyte"
     cant_be_blank: "can't be blank"
     image_content_type: "Image must be a jpeg or png"
     album_created: "Created %{name}"
@@ -1305,7 +1345,7 @@ en:
       default: "%a, %d %b %Y at %H:%M"
       short: "%d %b"
       medium: "%d %b %Y"
-      showdate: "%D"
+      showdate: "%d/%m/%Y"
       long: "%B %d, %Y %H:%M"
     am: "am"
     pm: "pm"

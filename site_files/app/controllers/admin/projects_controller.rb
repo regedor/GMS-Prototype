@@ -4,20 +4,16 @@ class Admin::ProjectsController < Admin::BaseController
 
   active_scaffold :project do |config|
 
-    config.columns[:groups].form_ui = :select
-    config.columns[:groups].options = {:draggabledd_lists => true}
-
     Scaffoldapp::active_scaffold config, "admin.project", 
       :list     => [ :name, :description, :user ],        
       :show     => [ ],                                   
-      :create   => [ :name, :description, :users ],       
-      :edit     => [ :name, :description, :users ]        
+      :create   => [ :name, :description, :group ],       
+      :edit     => [ :name, :description, :group ]        
   end                                                     
   
   def conditions_for_collection
-    unless current_user.role.id == 7
-      project_ids = (Project.find_all_for_user current_user).map(&:id)
-      ['projects.id IN (?)', project_ids]
+    unless current_user.role_id == 7 || current_user.role_id == 6
+      ['projects.group_id IN (?)', current_user.group_ids]
     end
   end  
 
@@ -29,9 +25,7 @@ class Admin::ProjectsController < Admin::BaseController
 
   def edit
     @project = Project.find(params[:id])
-    @users = User.all
-    
-    render :edit
+    @groups = Group.all
   end  
   
   def update
@@ -56,7 +50,6 @@ class Admin::ProjectsController < Admin::BaseController
   def create
     project = Project.new params[:project]
     project.user = current_user
-    #project.users << current_user
     if project.save
       flash[:notice] = t("flash.project_created")   
       redirect_to admin_projects_path 
@@ -68,10 +61,7 @@ class Admin::ProjectsController < Admin::BaseController
 
   def new
     @project = Project.new
-    @users = User.all
-    @project.users << current_user
-
-    render :new
+    @groups = Group.all
   end
 
 end

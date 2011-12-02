@@ -13,7 +13,8 @@ class Admin::UsersController < Admin::BaseController
     Scaffoldapp::active_scaffold config, "admin.users", 
       :list         => [ :created_at, :email, :active, :name, :role ], 
       :show         => [ :email, :active, :nickname, :profile, :website, :country, :gender ],
-      :edit         => [ :email, :active, :nickname, :profile, :website, :country, :gender, :group_ids, :role_id, :avatar, :phone, :role ],
+      :edit         => [ :email, :active, :nickname, :profile, :website, :country, :gender, :group_ids, :role_id, :avatar, 
+                         :phone, :role, :name, :address, :id_number ],
       :actions_list => [ :delete_by_ids!, :activate!, :deactivate! ].concat(group_actions)
   end
 

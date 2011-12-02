@@ -21,12 +21,12 @@ jQuery(document).ready(function($){
 });
 </script>
 
-      <% form.inputs do %>
-        <%= form.input :title, :label => t('admin.activities.view.title') %>
-        <%= form.input :description, :label => t('admin.activities.view.description') %>
-        <%= form.input :starts_at,  :as => :string,
+<% form.inputs do %>
+  <%= form.input :title, :label => t('admin.activities.view.title') %>
+  <%= form.input :description, :label => t('admin.activities.view.description') %>
+  <%= form.input :starts_at,  :as => :string,
                  :input_html => { :class => "datepicker", :value => @record.starts_at ? l(@record.starts_at, :format => "%d/%m/%Y %H:%M") : '' }, :label => t('admin.activities.view.starts_at') %>
-        <%= form.input :ends_at, :as => :string,
+  <%= form.input :ends_at, :as => :string,
                  :input_html => { :class => "datepicker", :value => @record.ends_at ? l(@record.ends_at, :format => "%d/%m/%Y %H:%M") : '' }, :label => t('admin.activities.view.ends_at') %>
-        <%= form.input :price, :as => :numeric, :label => t('admin.activities.view.price') %>
-      <% end %>
+  <%= form.input :price, :as => :numeric, :label => t('admin.activities.view.price') %>
+<% end %>

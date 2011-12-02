@@ -27,11 +27,32 @@ jQuery(document).ready(function($){
                    :as => :check_boxes, 
                    :collection => event.event_activities, 
                    :label => t('posts.form.activities'),
- 		   :label_method => :html_representation,
- 		   :input_html => {:class => "activity_checkbox", :checked => ""}%>
+ 		           :label_method => :html_representation,
+ 		           :input_html => {:class => "activity_checkbox", :checked => ""}%>
   <% end unless event.event_activities.empty? %>
 
-  <p id="total-price"><span><%= t('posts.form.total') %></span> <span><%= total_price %></span></p>
+  <p id="total-price"><span><%= t('posts.form.total') %></span> <span><%= t('posts.form.total_value', :total_price => total_price) %></span></p>
+
+
+  <% form.inputs :name => t('posts.form.missing_info') do %>
+    <% form.semantic_fields_for :user, current_user do |user| %>
+      <% if event.requires_id && current_user.id_number.nil? %>
+        <%= user.input :id_number, :required => false, :label => t('users.form.id_number') %>
+      <% end %>
+
+      <% if event.requires_address && current_user.address.nil? %>
+        <%= user.input :address, :required => false, :label => t('users.form.address') %>
+      <% end %>
+
+      <% if event.requires_name && !current_user.name(true).present? %>
+        <%= user.input :name, :required => false, :label => t('users.form.name') %>
+      <% end %>
+
+      <% if event.requires_phone && current_user.phone.nil? %>
+        <%= user.input :phone, :required => false, :label => t('users.form.phone') %>
+      <% end %>
+    <% end %>
+  <% end if (event.requires_phone && current_user.phone.nil?) || (event.requires_name && !current_user.name(true).present?) || (event.requires_address && current_user.address.nil?) || (event.requires_id && current_user.id_number.nil?) %>
 
   <% form.buttons do -%>
     <%= form.commit_button I18n::t('posts.form.subscribe_button'), :button_html => { :class => 'button positive' } %>

@@ -3,8 +3,11 @@ class Post < ActiveRecord::Base
 
   acts_as_taggable
 
-  ##FIXME: Need review!!!
-  has_many                :approved_comments, :as => 'commentable', :dependent => :destroy, :class_name => 'Comment'
+  has_many                :approved_comments, 
+                          :as => 'commentable', 
+                          :dependent => :destroy, 
+                          :class_name => 'Comment'
+
   belongs_to :group
   belongs_to :event
   #has_many                :approved_comments, :class_name => 'Comment'
@@ -15,11 +18,18 @@ class Post < ActiveRecord::Base
 
   validates_presence_of   :title, :body, :published_at, :message => I18n::t('flash.cant_be_blank')
   validates_uniqueness_of :slug
-  validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'], :message => I18n::t('flash.image_content_type')
-  validates_attachment_size :image, :less_than => 1.megabytes, :message => I18n::t('flash.image_size_1mb')
-  validates_attachment_size :generic, :less_than => 5.megabytes, :message => I18n::t('flash.file_size_5mb')
-  
 
+  validates_attachment_content_type :image, 
+      :content_type => ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'], 
+      :message => I18n::t('flash.image_content_type')
+
+  validates_attachment_size :image, 
+      :less_than => 1.megabytes, 
+      :message => I18n::t('flash.image_size_1mb')
+
+  validates_attachment_size :generic, 
+      :less_than => 5.megabytes, 
+      :message => I18n::t('flash.file_size_5mb')
 
   named_scope :not_deleted, :conditions => {:deleted => false}
   named_scope :viewable_only, lambda { |user| {
@@ -90,7 +100,10 @@ class Post < ActiveRecord::Base
   def generate_slug
     new_slug = self.title.dup.slugorize
     if self.slug.blank? || !self.slug.starts_with?(new_slug)
-      repeated = Post.all(:select => 'COUNT(*) as id', :conditions => { :slug => self.slug }).first.id
+      repeated = Post.all(:select => 'COUNT(*) as id', 
+                          :conditions => { 
+                            :slug => self.slug 
+                           }).first.id
       self.slug = (repeated > 0) ? "#{new_slug}-#{repeated + 1}" : new_slug
     end 
   end 
@@ -132,10 +145,10 @@ class Post < ActiveRecord::Base
       begin
         day = Time.parse([year, month, day].collect(&:to_i).join("-")).midnight
         post = find_all_by_slug(slug, options).detect do |post|
-          [:year, :month, :day].all? {|time|
+          [:year, :month, :day].all? { |time|
             post.published_at.send(time) == day.send(time)
-          }   
-        end 
+          }
+        end
       rescue ArgumentError # Invalid time
         post = nil 
       end 

@@ -5,7 +5,7 @@
       <% f.inputs do %>
         <%= f.input :name, :as => :string, :label => t("admin.project.new.name") %>
         <%= f.input :description, :as => :text, :label => t("admin.project.new.description"), :required => false %>
-        <%= f.input :users, :as => :check_boxes, :collection => @users, :label => t("admin.project.new.users"), :required => false %>
+        <%= f.input :group, :as => :radio, :label => t("admin.project.new.group"), :required => false %>
       <% end  %>
       <% f.buttons do %>
         <%= f.commit_button :label => t("admin.project.new.create_button"),

@@ -9,21 +9,19 @@
   <% end -%>
 </div>
   
-<% if (defined? event) && event %>
+<% if (defined? event) && event && event.subscribable? %>
   <div class="event-body">
-    <% if current_user %>
-      <h2 class="title"><%= event.name %></h2>
+	<% if current_user %>
       <% if !event.users.member? current_user %>
-        <%= render :partial => 'event_subscription', :locals => {:event => event, :total_price => total_price, :subscribed_activities  => subscribed_activities} %>
+        <%= render :partial => 'posts/event_subscription', :locals => {:event => event, :total_price => total_price, :subscribed_activities  => subscribed_activities} %>
 	  <% else %>
 	    <%= render :partial => 'events/subscribe', :locals => {:event => event, :total_price => total_price, :subscribed_activities  => subscribed_activities, :just_subscribed => false} %>
 	  <% end %>	    
     <% else %>
       <h2 class="title"><%= link_to t('posts.not_logged_in'), new_user_session_path %></h2>
-    <% end %>	
+    <% end %>
   </div>
 <% end %>
-
 
 <% if post.generic_file_name && params[:action] == "show" %>
   <div class="attachment">
@@ -35,7 +33,7 @@
      <% end %>
     </span>
     <span class="attachment_name"><%= post.generic_file_name %></span>
-    <span class="attachment_download"><%= button_to t("admin.posts.attachment_download"), :controller => "admin/posts", :action => "download", :id => post.id %></span>
+    <span class="attachment_download"><%= button_to t("admin.posts.attachment_download"), {:controller => "admin/posts", :action => "download", :id => post.id }, :method => :get %></span>
   </div>
 <% end %>
 

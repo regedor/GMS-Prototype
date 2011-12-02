@@ -1,15 +1,14 @@
 <div class="content">
- <% if @record.title %>	
-  <h2><%= t('admin.announcements.index.title') + ' - ' + @record.title %></h2>
- <% end %>
+  <div class="inner">
+    <% if @record.title %>	
+      <h2 class="title"><%= t('admin.announcements.index.title') %></h2>
+    <% end %>
 
-  <div class="content">
     <dl class="list">
-	  <% if @record.title %>	
+      <% if @record.title %>	
         <dt><%= t("admin.announcements.columns.title") %>:</dt>
         <dd><%= @record.title %></dd>
       <% end %>
-
       <% if @record.starts_at %>
         <dt><%= t("admin.announcements.columns.starts_at") %>:</dt>
         <dd><%= @record.starts_at %></dd>

@@ -1,6 +1,9 @@
 <% form.input_field_set do -%>
   <%= form.input :email,
                  :label    => I18n::t('admin.users.columns.email') %>
+  <%= form.input :name,
+                 :required => false,
+                 :label    => I18n::t('admin.users.columns.name') %>
   <%= form.input :active,
                  :required => false,
                  :as       => :radio,
@@ -10,6 +13,12 @@
                  :required => false,
                  :hint     => I18n::t('admin.users.form.hints.phone'),
                  :label    => I18n::t('admin.users.columns.phone') %>
+  <%= form.input :address,
+                 :required => false,
+                 :label    => I18n::t('admin.users.columns.address') %>
+  <%= form.input :id_number, 
+                 :required => false,  
+                 :label    => I18n::t('admin.users.columns.id_number') %>
   <%= form.input :avatar,
                  :required => false,
                  :hint     => I18n::t('admin.users.form.hints.avatar'),
@@ -22,7 +31,7 @@
                  :label    => I18n::t('admin.users.columns.website') %>
   <%= form.input :country,
                  :required => false,
-                 :label    => I18n::t('admin.users.columns.country') %>
+                 :label    => t('admin.users.columns.country') %>
   <%= form.input :gender,
                  :as       => :radio,
                  :collection => [[I18n::t('generic_sentence.male_value'),true],[I18n::t('generic_sentence.female_value'),false]],

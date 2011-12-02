@@ -1,5 +1,9 @@
 module Admin::BaseHelper
 
+  def nl2br(s)
+    s.gsub(/\n/, '<br />')
+  end
+
   def properly_show_errors(record)
     @record=record
     if @record.errors.any?

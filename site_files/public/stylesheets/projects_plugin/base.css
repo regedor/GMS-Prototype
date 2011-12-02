@@ -4,12 +4,12 @@
  ============================================================================
 */
 
-div.todo_list div.todos div.add_button a,
-div.todo_list div.todos span.todo_edit a,
-div.todo_list div.todos span.todo_delete a                          { color: red; font-size: 0.9em; }
-div.todo_list div.todos div.add_button a:hover,
-div.todo_list div.todos span.todo_edit a:hover,
-div.todo_list div.todos span.todo_delete a:hover                    { text-decoration: underline; }
+div.add_button a,
+span.edit a,
+span.delete a                                                       { color: red; font-size: 0.9em; }
+div.add_button a:hover,
+span.edit a:hover,
+span.delete a:hover                                                 { text-decoration: underline; }
 
 div.todo_list div.todos ul li.done_todo                             { color: #999; font-size: 0.9em; }
 div.todo_list div.todos ul li.done_todo strong.date_finished        { color: #555; }
@@ -26,7 +26,11 @@ div#messages table td.message                                       { line-heigh
 div#messages table td.message span.title                            { font-size: 1.5em; line-height: 1.3em; }
 div#messages table td.message span.meta                             { color: #999; }
 
+div#added_categories span.category-name                             { font-size: 1.1em; }
+
 div#comments div.comment div.entrybody p                            { text-align: justify; }
+
+div#comments span.text                                              { font-size: 1.1em; }
 
 div#comments div.comment span.author                                { font-weight: bold; }
 div#comments div.comment span.date                                  { font-size: 0.9em; }
@@ -45,6 +49,10 @@ div.header div#todo span.responsible                                { font-weigh
 */
 
 hr                                                          { clear: left; background-color: #DDD; height: 1px; border: none; margin: 0; }
+
+div.add_button a,
+span.edit a,
+span.delete a                                               { margin-left: 5px; }
 
 div.titles.sortable                                         { padding: 0 0 20px 0; }
 
@@ -65,10 +73,11 @@ div.todo_list div.todos ul li.todo span.todo_edit           { margin: 0 0 0 15px
 div.todo_list div.todos ul li.todo span.todo_comments       { margin: 0 0 0 4px; }
 div.todo_list div.todos span.todo_comments img              { position: relative; top: 4px; }
 div.todo_list div.todos ul li.todo                          { margin: 0 0 10px; }
-div.todo_list div.todos form.todo                           { background: #E5E5E5; padding: 15px 15px 0; margin: 0; }
+div.todo_list div.todos form.todo                           { background: #E9E9E9; padding: 15px; margin: 0; }
 div.todo_list div.todos ul li.todo input                    { float: left; }
-div.todo_list div.todos ul li.todo.highlight span.todo_desc { background: #FFC; }
-div.todo_list div.todos div.add_button                      { background: #EFEFEF; margin: 10px 0 10px 20px; padding: 5px; }
+div.todo_list div.todos ul li.todo input[type="checkbox"]   { margin: 5px; }
+div.todo_list div.todos ul li.todo.highlight span.todo_desc { background: #E7F1FF; }
+div.todo_list div.todos div.add_button                      { background: #EFEFEF; margin: 10px 0 10px; padding: 8px 0 8px 20px; }
 
 div#message-header ul                                       { clear: left; }
 div#message-header ul li                                    { margin: 5px 0; }
@@ -83,17 +92,28 @@ div#message div.entrybody p                                 { margin: 0 120px 0 
 
 div#messages table                                          { width: 100% }
 div#messages table td.message                               { border-bottom: 1px solid #DDD; padding: 10px 7px 10px 0px; }
-div#messages table td.message span.title                    { display: block; }
+div#messages table td.message span.title                    { display: block; margin-bottom: 5px; }
+div#messages table td.message span.title:hover              { text-decoration: underline; }
 
-div#comments div.comment                                    { margin: 10px 0; overflow: hidden; }
-div#comments div.comment div.avatar                         { margin-right: 20px; float: left; }
+div#comments div.comment                                    { margin: 20px 0; }
+div#comments div.comment div.avatar                         { margin-bottom: 15px; margin-right: 20px; float: left; }
 div#comments div.comment div.avatar img                     { border: 1px solid #999; }
 div#comments div.comment div.entrybody                      { margin: 10px 0 0; }
 div#comments div.comment div.entrybody p                    { margin: 0 0 0 70px; }
 
-div#comments span.text                                      { margin: 10px 0; }
+div#comments form.formtastic                                { margin: 20px 0 0; }
+
+div#comments span.text                                      { display: block; margin: 0 10px 30px 72px; }
 div#comments div.comment p                                  { margin: 10px 0 0; }
+
+div#comments div.attachment                                 { margin-left: 72px; }
+div#comments div.attachment span.attachment_download        { display: block; margin-top: 10px; }
 
 div.new-comment                                             { margin: 20px 0 0; }
 
+div#added_categories                                        { margin: 20px 10px 40px; }
+
 div.header div#todo                                         { margin: 20px 0; padding: 1.2em; border-top: 1px solid #CCC; border-left: 1px solid #CCC; border-right: 2px solid #CCC; border-bottom: 2px solid #CCC; }
+
+div.todos span.show_done_todos                              { display: block; margin: 5px 0 5px; text-decoration: underline; }
+div.todos span.show_done_todos a                            { color: #999; }

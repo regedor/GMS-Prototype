@@ -1,9 +1,9 @@
 <div class="content">
-  <% unless @record.name.blank? %>
-    <h2><%= @record.name %></h2>
-  <% end %>
+  <div class="inner">
+    <% unless @record.name.blank? %>
+      <h2 class="title"><%= t('admin.users.form.show') %></h2>
+    <% end %>
 
-  <div class="content">
     <dl class="list">
       <div id="avatar"><%= image_tag avatar_url(@record) %></div>
 
@@ -132,9 +132,9 @@
         <dd><%= @record.current_login_at %></dd>
       <% end %>
     </dl>
-  </div>
 
-  <ul class="buttons">
-    <li><%= link_to t("admin.users.view.cancel"), admin_users_path, :class => 'button negative' %></li>
-  </ul>
+    <ul class="buttons">
+      <li><%= link_to t("admin.users.view.cancel"), admin_users_path, :class => 'button negative' %></li>
+    </ul>
+  </div>
 </div>

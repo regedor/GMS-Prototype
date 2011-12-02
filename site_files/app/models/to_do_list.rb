@@ -5,7 +5,7 @@ class ToDoList < ActiveRecord::Base
   
   acts_as_list
   belongs_to :project
-  has_many :to_dos, :order => "finished_date desc"
+  has_many :to_dos, :order => "finished_date desc", :dependent => :destroy
 
   # ==========================================================================
   # Validations

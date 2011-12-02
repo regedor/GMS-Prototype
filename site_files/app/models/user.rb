@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many   :groups_users  
   has_many   :groups, :through => :groups_users
   has_many   :choosable_groups, :through => :groups_users, :source => :group, :conditions => { :user_choosable => true }  
-  belongs_to              :role
+  belongs_to :role
 
 
   # ==========================================================================
@@ -61,6 +61,8 @@ class User < ActiveRecord::Base
   attr_accessible  :openid_identifier   
   attr_accessible  :groups
   attr_accessible  :row_mark #scaffold hack
+  attr_accessible  :address
+  attr_accessible  :id_number
 
   boolean_attr_accessor 'active', :trueifier => 'activate', :falsifier => 'deactivate'
 
@@ -230,9 +232,9 @@ class User < ActiveRecord::Base
     self.nickname || first_and_last_name
   end
   
-  def name
-    super || self.email
-  end   
+  def name(just_name=false)
+    (just_name) ? super : (super.blank? || !super) ? self.email : super
+  end
 
   def list_groups
     r = []

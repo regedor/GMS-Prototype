@@ -85,11 +85,11 @@ jQuery.fn.float_bar = function(top){
 
     var main_offset = $("div#main").offset();
 
-    if ($(this).scrollTop() > 450){ 
-      element.css({'position': 'fixed', 'top': element.scrollTop() + 30, 'left': tag_cloud_offset.left});
+    if ($(this).scrollTop() > 455){
+      element.css({'position': 'fixed', 'top': element.scrollTop() + 30, 'left': (tag_cloud_offset.left - 20), 'width': '17.3%'});
     }
-    else if ($(this).scrollTop() <= 450){ 
-      element.css({'position': 'absolute', 'top': '320px', 'left': (tag_cloud_offset.left - main_offset.left)});
+    else if ($(this).scrollTop() <= 455){
+      element.css({'position': 'absolute', 'top': '295px', 'left': (tag_cloud_offset.left - main_offset.left - 23), 'width': '22%'});
     }
     
   });
@@ -117,3 +117,17 @@ jQuery.fn.renderFlash = function(path,status,pairs){
 	var renderedObject = this;
 	asyncTranslate(path,function(data){renderedObject.html("<div class=\"message "+status+"\"><p>"+data+"</p></div>");},pairs);
 }; 
+
+
+// Open external links in a new tab
+jQuery(document).ready(function($) {
+  $("a").click(function() {
+    link_host = this.href.split("/")[2];
+    document_host = document.location.href.split("/")[2];
+
+    if (link_host != document_host || this.href.split("/")[3] == "textile_help.html") {
+      window.open(this.href);
+      return false;
+    }
+  });
+});

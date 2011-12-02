@@ -57,11 +57,17 @@ mySettings = {
       replaceWith:function(markItUp) { 
         var s = markItUp.selection.split((($.browser.mozilla) ? "\n" : "\r\n"));
         if (markItUp.altKey) s.reverse();
-        return s.join("* \n");
+        return "* " + s.join("\n* ");
       }
     },
     {name:'Numeric list', className:'numeric',
-      openWith:'(!(# |!|#)!)'
+      //openWith:'(!(# |!|#)!)'
+      replaceWith:function(markItUp) { 
+        var s = markItUp.selection.split((($.browser.mozilla) ? "\n" : "\r\n"));
+        if (markItUp.altKey) s.reverse();
+        return "# " + s.join("\n# ");
+      }
+
     }, 
     {separator:'---------------' },
     {name:'Link', className:'link',
@@ -108,6 +114,12 @@ mySettings = {
     },    
     {name:'Quotes', className:'quotes', 
       openWith:'bq(!(([![Class]!]))!). '
+    },
+    {separator:'---------------' },
+    {name:'Help with textile',className:'help', 
+      beforeInsert:function(h) {
+        window.open('/textile_help.html','','scrollbars=yes, resizable=yes, toolbar=no');
+      }
     }
       ]
 }

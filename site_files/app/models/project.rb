@@ -5,17 +5,17 @@ class Project < ActiveRecord::Base
   
   belongs_to :user
   belongs_to :blackboard
-  has_and_belongs_to_many :groups
-  has_and_belongs_to_many :users
-  has_many :to_do_lists
-  has_many :messages
-  has_many :categories
+  belongs_to :group
+  has_many   :to_do_lists, :dependent => :destroy
+  has_many   :messages, :dependent => :destroy
+  has_many   :categories, :dependent => :destroy
 
   # ==========================================================================
   # Validations
   # ==========================================================================
 
-  validates_presence_of :name
+  validates_presence_of :name, :group
+  validates_uniqueness_of :name
 
   # ==========================================================================
   # Extra defnitions

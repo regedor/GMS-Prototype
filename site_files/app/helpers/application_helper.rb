@@ -1,5 +1,12 @@
 module ApplicationHelper
 
+  def autoscroll_to(css_selector)
+    content_for :head do
+      javascript_include_tag 'auto_scroll'
+    end
+    javascript_tag "jQuery(document).ready(function($){$('#{css_selector}').autoscroll();});"
+  end
+
   def icon_tag(icon)
     "<img src='/images/icons/#{icon}.png' alt=''/>"
   end
@@ -24,7 +31,7 @@ module ApplicationHelper
     if record.class == Group
       options[:size]   = 100 if options[:size] == :medium
       options[:size]   = 50  if options[:size] == :small
-      return "#{root_url}images/guest-#{options[:size]}.png"
+      return "#{root_url}images/default-group-#{options[:size]}.png"
     end  
     
     options[:size] ||= :medium
@@ -46,7 +53,7 @@ module ApplicationHelper
 
   def file_icon_displayer(file)
     if file.content_type =~ /^image\//
-      return image_tag file.url(:thumb)
+      return image_tag file.url(:image)
     else
       return image_tag("#{root_url}images/icons/attach.png") + file.path.split("/").last
     end    
@@ -54,22 +61,25 @@ module ApplicationHelper
 
   def include_i18n_calendar_javascript
     content_for :head do
-     javascript_include_tag case I18n.locale.to_s
+      javascript_include_tag case I18n.locale.to_s
         when 'en'    then "jquery.ui.datepicker-en-GB.js"
-        when 'pt'    then "jquery.ui.datepicker-pt-BR.js"
+        when 'pt'   then "jquery.ui.datepicker-pt-BR.js"
         else raise ArgumentError, "Locale error"
-      end
+      end, "jquery-ui-timepicker-addon.js" 
     end
+  end
+  
+  def include_google_fonts(font_family)
     content_for :head do
-      javascript_include_tag "jquery-ui-timepicker-addon.js"
+      '<link href="http://fonts.googleapis.com/css?family='+ font_family +'" rel="stylesheet" type="text/css">'
     end
   end
 
   def render_date(time)
     if (Time.now - time) < 30.days
-      I18n::t "generic_sentence.time_ago", :time_ago => time_ago_in_words(time)
+      t "generic_sentence.time_ago", :time_ago => time_ago_in_words(time)
     else
-      record.starts_at.strftime('%d %b, %Y')
+      time.strftime('%d %b, %Y')
     end
   end
   

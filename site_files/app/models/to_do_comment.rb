@@ -12,7 +12,7 @@ class ToDoComment < ActiveRecord::Base
   # ==========================================================================
   before_save :apply_filter  
   
-  validates_attachment_size :generic, :less_than => 5.megabytes, :message => I18n::t('flash.file_size_5mb')
+  validates_attachment_size :generic, :less_than => 10.megabytes, :message => I18n::t('flash.file_size_10mb')
   validates_presence_of :body, :message => I18n::t('flash.to_do_comment_body')
 
   # ==========================================================================

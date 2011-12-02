@@ -4,7 +4,6 @@ class Admin::ToDosController < Admin::BaseController
     :attribute_check => true,
     :load_method     => lambda { Project.find(params[:project_id]) }
 
-
   def create
     unless params[:todo][:description].empty?
       @list = ToDoList.find(params[:todo][:to_do_list_id])
@@ -32,7 +31,7 @@ class Admin::ToDosController < Admin::BaseController
       end
 
       if todo.user
-        mail = Mail.new    :message => current_user.name+"&sep&"+todo.description+"&sep&"+todo.to_do_list.name,
+        mail = Mail.new :message => current_user.name+"&sep&"+todo.id.to_s,
           :sent_on => Time.now,
           :subject => t("notifier.to_do_notification.new_todo_subject")
 

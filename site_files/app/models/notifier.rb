@@ -37,8 +37,12 @@ class Notifier < ActionMailer::Base
     @subject += mail.subject
     divided = mail.message.split("&sep&")
     @body[:sender] = divided[0]
-    @body[:todo] = divided[1]
-    @body[:list] = divided[2]
+    @body[:receiver] = user.name unless user.name.blank?
+    todo = ToDo.find(divided[1])
+    @body[:todo] = todo.description
+    @body[:list] = todo.to_do_list.name
+    @body[:link] = admin_project_to_do_comments_url(todo.to_do_list.project.id,todo.id)
+    @body[:date] = I18n::localize(todo.due_date, :format => :medium) if todo.due_date
   end  
   
   def update_to_do_notification(user,mail)

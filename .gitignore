@@ -50,4 +50,11 @@ tmtags
 /site_files/app/views/layouts/application.html.erb
 /site_files/config/*.yml
 /site_files/config/config.local
-
+/site_files/public/stylesheets/backend.css
+/site_files/public/stylesheets/frontend.css
+/site_files/public/stylesheets/backend-extras.css
+/site_files/public/stylesheets/frontend-extras.css
+/site_files/public/javascripts/frontend.js
+/site_files/public/javascripts/backend.js
+/site_files/public/images/*
+*.xls
