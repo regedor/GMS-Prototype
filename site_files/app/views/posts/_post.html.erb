@@ -9,7 +9,7 @@
   <% end -%>
 </div>
   
-<% if (defined? event) && event %>
+<% if (defined? event) && event && event.subscribable? %>
   <div class="event-body">
 	<% if current_user %>
       <% if !event.users.member? current_user %>

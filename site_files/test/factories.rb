@@ -3,6 +3,10 @@ Factory.sequence :name do |n|
   "#{Faker::Name.name} #{n}"
 end
 
+Factory.sequence :post_title do |n| 
+  "#{Faker::Lorem.sentence} #{n}"
+end
+
 # ==========================================================================
 # Defines Users
 # ==========================================================================
@@ -65,9 +69,9 @@ end
 # ==========================================================================
 
 Factory.define :valid_post, :class => Post do |post|
-  post.title        'Great Post'
+  post.sequence(:title) { |n| "post #{n}" }
   post.body         'Lorem'
-  post.published_at 'now'  
+  post.published_at Time.now - 1.day
 end
 
 # ==========================================================================
@@ -96,5 +100,16 @@ end
 Factory.define :to_do do |todo|
   todo.description       Faker::Lorem.sentence
   todo.association       :to_do_list
+end
+
+# ==========================================================================
+# Defines Events
+# ==========================================================================
+
+Factory.define :event do |event|
+  event.name            Faker::Lorem.words
+  event.start_at        Time.now - 1.day
+  event.ends_at         Time.now + 1.day
+  event.price           10
 end
 

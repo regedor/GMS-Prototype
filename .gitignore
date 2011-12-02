@@ -43,6 +43,7 @@ tmtags
 
 # Handy Ant
 /site_files/public/logo.*
+/site_files/public/images/*
 /site_files/public/favicon.ico
 /site_files/public/stylesheets/themes/*
 /site_files/public/stylesheets/partials/*
@@ -58,3 +59,4 @@ tmtags
 /site_files/public/images/*
 /site_files/public/fonts/*
 *.xls
+*.bak

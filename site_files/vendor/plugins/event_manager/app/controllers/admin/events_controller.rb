@@ -28,7 +28,7 @@ class Admin::EventsController < Admin::BaseController
   def create
     activities = params[:record][:event_activities_attributes]
     params[:record].delete(:event_activities_attributes)
-    @record = Event.new params[:record]      
+    @record = Event.new params[:record]
       
     if @record.save
       if activities
