@@ -21,6 +21,9 @@ pt:
   event_calendar:
     title: "Calendário"
 
+  weather_info:
+    title: "Metereologia"
+
   organization:
     title: "Organização"
 

@@ -21,6 +21,9 @@ en:
   event_calendar:
     title: "Calendar"
 
+  weather_info:
+    title: "Weather"
+
   organization:
     title: "Organization"
 
