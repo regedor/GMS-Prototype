@@ -24,6 +24,7 @@ gem 'clickatell'
 gem 'spreadsheet'
 gem 'sass'
 gem 'nokogiri'
+gem 'rest-open-uri'
 
 group :development do
   gem 'sqlite3-ruby'
