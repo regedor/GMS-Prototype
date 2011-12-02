@@ -42,8 +42,8 @@ Icon?
 tmtags
 
 # Handy Ant
-/site_files/public/logo.png
-/site_files/public/logo.swf
+/site_files/public/logo.*
+/site_files/public/images/*
 /site_files/public/favicon.ico
 /site_files/public/stylesheets/themes/*
 /site_files/public/stylesheets/partials/*
@@ -57,4 +57,6 @@ tmtags
 /site_files/public/javascripts/frontend.js
 /site_files/public/javascripts/backend.js
 /site_files/public/images/*
+/site_files/public/fonts/*
 *.xls
+*.bak

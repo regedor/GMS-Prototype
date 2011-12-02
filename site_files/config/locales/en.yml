@@ -18,6 +18,12 @@ en:
     about: "About"
     administration: "Administration"
 
+  event_calendar:
+    title: "Calendar"
+
+  weather_info:
+    title: "Weather"
+
   organization:
     title: "Organization"
 
@@ -151,6 +157,20 @@ en:
 
   announcements:
     none: "There are no current announcements."
+
+  gallery:
+    show:
+      zoom: "Zoom in"
+      read_more: "Read more"
+      back: "Back to gallery"
+    form:
+      new: "New Album"  
+      image: "Images"  
+      name: "Name"
+      create_button: "Create"
+      cancel_button: "Cancel"    
+      hints:
+        image: "Upload images for the album"                                 
 
   posts:
     none: "There are no posts so far."
@@ -1145,6 +1165,8 @@ en:
     image_size_1mb: "Image size must be less than 1 Megabyte"
     cant_be_blank: "can't be blank"
     image_content_type: "Image must be a jpeg or png"
+    album_created: "Created %{name}"
+    album_not_created: "Failed to create album"
   
   notifier: 
     to_do_notification: 

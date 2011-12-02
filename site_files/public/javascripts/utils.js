@@ -125,6 +125,9 @@ jQuery(document).ready(function($) {
     link_host = this.href.split("/")[2];
     document_host = document.location.href.split("/")[2];
 
+    if(this.href === "javascript:;")
+      return false;
+
     if (link_host != document_host || this.href.split("/")[3] == "textile_help.html") {
       window.open(this.href);
       return false;

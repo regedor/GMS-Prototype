@@ -7,12 +7,12 @@ jQuery(document).ready(function($){
 
   $(".activity_checkbox").click(function(){
 	if($(this).is(':checked'))
-	  var sum = parseFloat($("#total_price").text()) + parseFloat($(this).next().next().text()); 
+	  var sum = parseFloat($("#total-price").text()) + parseFloat($(this).next().next().text()); 
     else
-      var sum = parseFloat($("#total_price").text()) - parseFloat($(this).next().next().text());	
+      var sum = parseFloat($("#total-price").text()) - parseFloat($(this).next().next().text());	
     
     if(sum<0)sum=0;
-    $("#total_price").html(sum.toFixed(2));
+    $("#total-price").html(sum.toFixed(2));
   });	
 
 });
