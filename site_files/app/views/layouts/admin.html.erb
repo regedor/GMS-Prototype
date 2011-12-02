@@ -59,6 +59,7 @@
                               admin_root_path,
                               :first => true %>
 
+          <% if permitted_to? :as_manage, :admin_users %>
           <%= navigation_menu 'admin.navigation.main.website',
                               [ 'admin/posts',
                                 'admin/comments',
@@ -89,12 +90,7 @@
                                 'admin/messages',
 								'admin/categories'],
                               admin_projects_path %>
-          <%#= navigation_menu 'admin.navigation.main.events',
-                              [ 'admin/events',
-                                'admin/event_manage',
-                                'admin/event_activities',
-                                'admin/event_activity_manage'],
-                              admin_events_path %>
+         <% end %>
         </ul>
       </div>
     </div>

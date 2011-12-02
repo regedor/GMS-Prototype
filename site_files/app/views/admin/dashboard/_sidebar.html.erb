@@ -8,6 +8,8 @@
   </div>
 </div>
 
+<% if permitted_to? :as_manage, :admin_users %>
+
 <div class="block">
   <h5><%= t("admin.dashboard.sidebar.website_management.title") %></h5>
   <div class="content">
@@ -29,3 +31,5 @@
     </ul>
   </div>
 </div>
+
+<% end %>
