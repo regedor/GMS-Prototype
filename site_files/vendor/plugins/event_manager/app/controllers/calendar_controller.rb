@@ -1,10 +1,10 @@
 class CalendarController < ApplicationController
 
   def index
-    @month = (params[:month] || Time.zone.now.month).to_i
-    @year = (params[:year] || Time.zone.now.year).to_i
+    @cal_month = (params[:cal_month] || Time.zone.now.month).to_i
+    @cal_year = (params[:cal_year] || Time.zone.now.year).to_i
 
-    @shown_month = Date.civil(@year, @month)
+    @shown_month = Date.civil(@cal_year, @cal_month)
 
     @event_strips = Event.event_strips_for_month(@shown_month)
 
