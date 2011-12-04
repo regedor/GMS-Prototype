@@ -4,11 +4,11 @@ module CalendarHelper
   end
 
   def prev_month_link(month_date)
-    link_to("◀", { :month => month_date.month, :year => month_date.year })
+    link_to("◀", { :cal_month => month_date.month, :cal_year => month_date.year })
   end
 
   def next_month_link(month_date)
-    link_to("▶", { :month => month_date.month, :year => month_date.year })
+    link_to("▶", { :cal_month => month_date.month, :cal_year => month_date.year })
   end
 
   # custom options for this calendar
@@ -26,8 +26,7 @@ module CalendarHelper
   def event_calendar(year, month, event_strips, shown_month)
     calendar event_calendar_options(year, month, event_strips, shown_month) do |args|
       event = args[:event]
-      html = %(<span class="title">#{h(event.name)}</span>)
-      
+      html = %(<a href="#{post_path(event.post)}" class="title">#{h(event.name)}</a>)      
     end
   end
   
