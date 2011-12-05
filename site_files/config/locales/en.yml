@@ -203,7 +203,7 @@ en:
       total_default: "0.00"
       total: "Total:"
       total_value: "%{total_price} €"
-      missing_info: "Plese fill this information in order to subscribe to the event"   
+      missing_info: "Please fill this information in order to subscribe to the event"   
 
   comments:
     title: "Post a comment"
