@@ -1,3 +1,43 @@
+<script>
+jQuery(document).ready(function($){
+
+    $("#album_submit").click(function getAlbumImages(){
+        if($(".files tr").size() > $(".files .template-download").size())
+        {
+          setTimeout(function(){getAlbumImages();},1000);
+          return false;
+        }
+        var images_ids = [];
+        $(".files .template-download .delete .ui-button").each(function(index){
+            var id = $(this).attr("data-url").split("/")[2];
+            images_ids.push(id);
+        });
+    
+        console.log(images_ids);
+        var form = $('#new_album');
+        
+        if (form.length > 0) {
+          jQuery.ajax({
+              type: 'POST',
+              data: form.serialize().replace(/&*_method=\w+&*/, '')+"&images="+images_ids,
+              url: window.location.href.replace(/\#.*/,"").replace("new",""),
+              dataType: "json",
+              success: function(data) {
+	            console.log(data.saved);
+	            if(data.saved)
+                    window.location = data.url;
+                else
+                    $(".flash").html("<div class=\"message error\"><p>"+data.text+"</p></div>");
+                return false;
+              },
+           });
+        }
+        
+        return false;
+    });
+});
+</script>
+
 <div class="inner">
   <h2><%= t('gallery.form.new') %></h2>
   <% semantic_form_for :album, @album,
@@ -6,9 +46,8 @@
                        :html => { 
 	                     :class => 'create', 
 	                     :id => 'new_album', 
-	                     :multipart => true 
 	                   } do |form| -%>
-	
+
     <%= render :partial => 'form', :locals => { :form => form } %>
 
     <% form.buttons do -%>
@@ -18,4 +57,6 @@
                              :button_html => { :class => 'button negative' } %>
     <% end -%>
   <% end -%>
+
+  <%= render :partial => 'images_form' %>
 </div>

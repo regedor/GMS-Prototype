@@ -11,6 +11,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :posts
   map.resources :calendar
   map.resources :albums
+  map.resources :images
 
   map.connect 'pages/:slug/comments', :controller => 'comments', :action => 'create', :method => :post
   map.pages 'pages/:slug', :controller => 'pages', :action => 'show', :method => :get
