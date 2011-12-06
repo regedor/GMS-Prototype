@@ -154,6 +154,20 @@ pt:
   announcements:
     none: "Actualmente não há anúncios."
 
+  gallery:
+    show:
+      zoom: "Zoom"
+      read_more: "Ler mais"
+      back: "Regressar à galeria"
+    form:
+      new: "Novo Album"  
+      image: "Imagens"  
+      name: "Nome"
+      create_button: "Criar"
+      cancel_button: "Cancelar"    
+      hints:
+        image: "Fazer upload de imagens para o album"     
+
   posts:
     none: "Ainda não há posts."
     archive: "Arquivo de Posts"
@@ -171,8 +185,6 @@ pt:
       clear_selection: "Limpar tudo"
     tag_menu:
       title: "Tags"
-    categories:
-      title: "Tópicos"
     archives:
       title: "Arquivos"
       none: "Ainda não há posts."
@@ -185,7 +197,9 @@ pt:
       cancel_button: "Cancelar"
       activities: "Actividades"   
       total_default: "0.00"
-      total: "Total:"   
+      total: "Total:"
+      total_value: "%{total_price} €"
+      missing_info: "Por favor preencha esta informação para subscrever a este evento"      
 
   comments:
     title: "Deixar um comentário"
@@ -211,6 +225,7 @@ pt:
       price: "Preço Total: "
       unsubscribe_button: "Cancelar Subscrição"
       ok_button: "OK"
+      total_value: "%{total_price} €"
       
   admin:
     delete:
@@ -443,11 +458,21 @@ pt:
 
     events:
       manage:
+        worksheet_title: 'Utilizadores Subscritos'
         title: "Detalhes do Evento: %{name}"
         download: "Exportar para Excel"  
         table:
           name: "Nome"
-          email: "E-mail"    
+          email: "E-mail"
+          nickname: "Nickname"
+          gender:
+            title: "Sexo"
+            male: "Masculino"
+            female: "Feminino"
+          address: "Morada"
+          id_number: "Nº Identificação"
+          country: "País"
+          phone: "Nº Telefone"  
       add_activity: "Adicionar Actividade"
       index:
         title: "Eventos"
@@ -465,12 +490,9 @@ pt:
       create:
         title: "Evento"
       view:
+        edit_activities: "Editar Actividades" 
         hasAnnouncement: "Tem anúncio"
         hasPost: "Tem post"
-        showAnnouncement: "Mostrar Anúncio"
-        hideAnnouncement: "Ocultar Anúncio"  
-        showPost: "Mostrar Post"
-        hidePost: "Ocultar Post"  
         activities: "Actividades"
         name: "Nome"
         description: "Descrição"
@@ -480,6 +502,10 @@ pt:
         ends_at: "Data de final"
         cancel: "Voltar"
         participation_message: "Mensagem de Participação"
+        requires_id: "Nº Identificação Obrigatório"
+        requires_name: "Nome Obrigatório"
+        requires_address: "Morada Obrigatória"
+        requires_phone: "Nº Telefone Obrigatório"
         button:
           update: "Actualizar"
       form:
@@ -488,6 +514,10 @@ pt:
         create_button: "Criar"
         update_button: "Actualizar"
         cancel_button: "Cancelar"
+        subscribable: "Possível subscrever"
+        hints:
+          subscribable: "Clickar se pretende permitir que o utilizador possa subscrever ao evento"
+
       list:
         found:
           more: "%{count} Eventos Encontrados"
@@ -558,6 +588,8 @@ pt:
         groups: "Grupos"
         phone: "Telefone"
         avatar: "Avatar"
+        address: "Morada"
+        id_number: "Nº Identificação"
       sidebar:
         history:
           title: "Reverter informações"
@@ -1112,7 +1144,9 @@ pt:
     page_updated: "Actualizado %{name}"
     page_not_updated: "Falha ao actualizar %{name}" 
     unsubscribe: "Cancelada subscrição ao evento %{name}"
-    unsubscribe_error: "Não foi possível cancelar subscrição"     
+    unsubscribe_error: "Não foi possível cancelar subscrição"
+    subscribe: "Subscrição ao evento %{name} bem sucedida" 
+    subscribe_error: "Não foi possível subscrever" 
     postUpdated:
       successfully: "Actualizado %{name}"
       error: "Falha ao actualizar o post"            
@@ -1125,6 +1159,8 @@ pt:
     image_size_1mb: "O tamanho da imagem deve ser menor que 1 Megabyte"
     cant_be_blank: "não pode ser vazio"
     image_content_type: "Imagem deve ser em .jpg ou .png"
+    album_created: "Album %{name} criado"
+    album_not_created: "Falha ao criar album"
 
   notifier: 
     to_do_notification: 
@@ -1375,7 +1411,6 @@ pt:
       wrong_length: "tem a extensão errada(deveriam ser %{count} characteres)"
       taken: "já foi escolhido"
       not_a_number: "não é um número"
-      not_an_integer: "deve ser um número inteiro"
       greater_than: "deve ser maior que %{count}"
       greater_than_or_equal_to: "deve ser maior ou igual que %{count}"
       equal_to: "deve ser igual a %{count}"
