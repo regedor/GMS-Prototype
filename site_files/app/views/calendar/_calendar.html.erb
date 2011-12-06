@@ -4,3 +4,7 @@
   <%= render :partial => 'events/calendar', :locals => { :cal_month => cal_month, 
                                                          :cal_year  => cal_year} %>
 </div>
+
+<script>
+  jQuery('div.events').parent().addClass("has-events");
+</script>

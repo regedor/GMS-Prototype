@@ -20,6 +20,7 @@ pt:
 
   event_calendar:
     title: "Calendário"
+    day_with_events_title: "Eventos no dia %{day}:"
 
   weather_info:
     title: "Metereologia"

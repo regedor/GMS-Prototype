@@ -203,11 +203,11 @@ module EventCalendar
           # go through through the strip, for the entries that correspond to the days of this week
           if strip[row_num*7+day_of_week]
             [*strip[row_num*7+day_of_week]].each_with_index do |event, index|              
-              
+
               if event and more_than_one_event_flag == true
                 cal << %(<li>)
                 class_name = event.class.name.tableize.singularize
-              
+
                 if block_given?
                   # add the additional html that was passed as a block to this helper
                   cal << block.call({:event => event, :day => day.to_date, :options => options})
@@ -215,17 +215,18 @@ module EventCalendar
                   # default content in case nothing is passed in
                   cal << %(<a href="/#{class_name.pluralize}/#{event.id}" title="#{h(event.name)}">#{h(event.name)}</a>)
                 end
-              
+
                 cal << %(</li>)
-              
+
               elsif event and more_than_one_event_flag == false
                 more_than_one_event_flag = true
                 cal << %(<div class="events">)
                 cal << %(<ul>)
                 cal << %(<li>)
-              
+                cal << "<span>#{t 'event_calendar.day_with_events_title', :day => day.day}</span>"
+
                 class_name = event.class.name.tableize.singularize
-              
+
                 if block_given?
                   # add the additional html that was passed as a block to this helper
                   cal << block.call({:event => event, :day => day.to_date, :options => options})
@@ -233,7 +234,7 @@ module EventCalendar
                   # default content in case nothing is passed in
                   cal << %(<a href="/#{class_name.pluralize}/#{event.id}" title="#{h(event.name)}">#{h(event.name)}</a>)
                 end
-              
+
                 cal << %(</li>)
               end
             end

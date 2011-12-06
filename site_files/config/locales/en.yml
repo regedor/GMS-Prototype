@@ -20,6 +20,7 @@ en:
 
   event_calendar:
     title: "Calendar"
+    day_with_events_title: "Events in day %{day}:"
 
   weather_info:
     title: "Weather"
