@@ -10,4 +10,12 @@ class Image < ActiveRecord::Base
   
   validates_attachment_presence :multi_purpose_image
   validates_attachment_size :multi_purpose_image, :less_than => 5.megabytes
+  
+  class << self
+    
+    def clean_lost_images
+      Image.all.select{|image| not image.album_id}.map(&:destroy)
+    end
+    
+  end
 end  
