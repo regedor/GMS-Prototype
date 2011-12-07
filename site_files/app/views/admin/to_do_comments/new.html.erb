@@ -41,7 +41,7 @@
           <div class="attachment">
 		    <span class="attachment_icon">
 			  <% if comment.generic.content_type =~ /^image\// %>
-			    <%=  file_icon_displayer(comment.generic) %>
+			    <%=  file_icon_displayer(comment.generic, true) %>
 		     <% else %>
 		        <%= image_tag "#{root_url}images/icons/page_attach.png" %>
 		     <% end %>
