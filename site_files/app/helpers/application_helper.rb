@@ -51,7 +51,10 @@ module ApplicationHelper
     end
   end
 
-  def file_icon_displayer(file)
+  def file_icon_displayer(file, thumb = false)
+    
+    return image_tag file.url(:thumb) if thumb
+    
     if file.content_type =~ /^image\//
       return image_tag file.url(:image)
     else
