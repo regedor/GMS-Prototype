@@ -155,6 +155,7 @@ pt:
     none: "Actualmente não há anúncios."
 
   gallery:
+    title: "Galeria"
     show:
       zoom: "Zoom"
       read_more: "Ler mais"
