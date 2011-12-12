@@ -123,7 +123,7 @@ pt:
       password: "Password"
       openid: "OpenID"
       remember_me: "Lembrar-me"
-      forgot_pass: "Esqueci-me da minha password"
+      forgot_pass: "Esqueceu-se da password?"
       new_account: "Criar uma conta"
       commit_button: "Entrar"
     show:

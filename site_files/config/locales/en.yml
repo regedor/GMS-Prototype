@@ -128,7 +128,7 @@ en:
       password: "Password"
       openid: "OpenID"
       remember_me: "Remember me"
-      forgot_pass: "I forgot my password"
+      forgot_pass: "Forgot your password?"
       new_account: "Create account"
       commit_button: "Sign In"
     show:
