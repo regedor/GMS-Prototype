@@ -5,6 +5,7 @@ class ImagesController < ApplicationController
     if @image.save
       render :json => [{
         :url => @image.multi_purpose_image.url.to_s,
+        :thumbnail_url => @image.multi_purpose_image.url(:thumb).to_s,
         :name => @image.multi_purpose_image.instance.attributes["multi_purpose_image_file_name"],
         :delete_url => image_path(@image),
         :delete_type => "DELETE"

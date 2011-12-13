@@ -169,7 +169,9 @@ en:
       image: "Images"  
       name: "Name"
       create_button: "Create"
-      cancel_button: "Cancel"    
+      add_button: "Add files..."
+      cancel_button: "Cancel"
+      delete_button: "Delete"
       hints:
         image: "Upload images for the album"                                 
 

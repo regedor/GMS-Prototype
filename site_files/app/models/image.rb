@@ -5,7 +5,7 @@ class Image < ActiveRecord::Base
   belongs_to :album
   
   has_attached_file :multi_purpose_image, 
-                    :styles => { :small => "192x142!" },
+                    :styles => { :small => "192x142!", :thumb => "80x50!" },
                     :default_url => '/system/:attachment/:style/missing.png'
   
   validates_attachment_presence :multi_purpose_image

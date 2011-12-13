@@ -13,7 +13,6 @@ jQuery(document).ready(function($){
             images_ids.push(id);
         });
     
-        console.log(images_ids);
         var form = $('#new_album');
         
         if (form.length > 0) {
@@ -23,11 +22,10 @@ jQuery(document).ready(function($){
               url: window.location.href.replace(/\#.*/,"").replace("new",""),
               dataType: "json",
               success: function(data) {
-	            console.log(data.saved);
-	            if(data.saved)
+                if(data.saved)
                     window.location = data.url;
                 else
-                    $(".flash").html("<div class=\"message error\"><p>"+data.text+"</p></div>");
+                    $('#main').renderFlashFrontend("error",data.text);
                 return false;
               },
            });
@@ -37,6 +35,17 @@ jQuery(document).ready(function($){
     });
 });
 </script>
+
+<% content_for :head do %>
+  <%= %q(<script src="http://blueimp.github.com/jQuery-Image-Gallery/jquery.image-gallery.js"></script>) %>
+  <%= javascript_include_tag 'jquery.fileupload', 
+                             'jquery.fileupload-ui',
+                             "jquery.iframe-transport", 
+                             "jquery.xdr-transport" %>
+  <%= stylesheet_link_tag 'jquery.fileupload-ui' %>
+  <%= %q(<link rel="stylesheet" href="http://blueimp.github.com/jQuery-Image-Gallery/jquery.image-gallery.css">) %>
+<% end %>
+
 
 <div class="inner">
   <h2><%= t('gallery.form.new') %></h2>

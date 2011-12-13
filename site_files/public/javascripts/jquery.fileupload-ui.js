@@ -495,6 +495,8 @@
                 type: button.attr('data-type'),
                 dataType: e.data.fileupload.options.dataType
             });
+            //Make toggle unchecked after multiple delete starts
+            $('.fileupload-buttonbar .toggle').prop('checked',false)
         },
         
         _initEventHandlers: function () {
@@ -579,8 +581,9 @@
             this.element.find('.fileupload-buttonbar button')
                 .unbind('click.' + this.options.namespace)
                 .button('destroy');
+            
             this.element.find('.fileupload-buttonbar .toggle')
-                .unbind('change.' + this.options.namespace);
+                .unbind('change.' + this.options.namespace);             
         },
 
         _enableFileInputButton: function () {
