@@ -12,7 +12,6 @@ form.formtastic textarea                              { -moz-border-radius: 4px;
 form.formtastic input[type="text"],
 form.formtastic input[type="password"]                { width: 35% !important; } /*É NESTE*/
 
-
 /*form.formtastic fieldset.inputs            { margin: 0 10px; }*/
 
 form.formtastic fieldset.buttons                      { padding-left: 0; }
@@ -22,7 +21,7 @@ form.formtastic fieldset ol li fieldset ol            { padding: 0 0 0 20%; }
 form.formtastic fieldset.inputs ol li                 { margin-bottom: 25px; }
 
 form.formtastic p.inline-errors,
-form.formtastic p.inline-hints                        { margin: 0.5em 0 0 20% !important; }                       
+form.formtastic p.inline-hints                        { margin: 0.5em 0 0 20% !important; }
 form.formtastic abbr[title="required"]                { color: #C00; }
 
 form.formtastic fieldset ol li fieldset legend        { position: initial; }
@@ -32,7 +31,16 @@ form.formtastic fieldset.inputs ol div.fields         { margin-bottom: 25px; }
 form.formtastic fieldset.inputs ol div.fields a       { font-size: 15px; text-decoration: underline; }
 form.formtastic fieldset.inputs ol div.fields a:hover { color: #591; }
 
-form.formtastic.user_session fieldset.inputs          { margin: 30px 0 20px; }
-form.formtastic.user_session fieldset.inputs li       { margin-bottom: 1em !important; }
+form.formtastic.user_password_reset fieldset.inputs,
+form.formtastic.user_session fieldset.inputs,
+form.formtastic.user fieldset.inputs                  { margin: 30px 0 20px; }
+
+form.formtastic.user_password_reset fieldset.inputs li,
+form.formtastic.user_session fieldset.inputs li,
+form.formtastic.user fieldset.inputs li               { margin-bottom: 1em !important; }
+
+form.formtastic.user_password_reset fieldset.inputs input[type="text"],
 form.formtastic.user_session fieldset.inputs input[type="text"],
-form.formtastic.user_session fieldset.inputs input[type="password"]    { width: 50% !important; }
+form.formtastic.user_session fieldset.inputs input[type="password"],
+form.formtastic.user fieldset.inputs input[type="text"],
+form.formtastic.user fieldset.inputs input[type="password"]    { width: 50% !important; }
