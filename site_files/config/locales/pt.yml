@@ -445,7 +445,7 @@ pt:
           title: "Nome"
           description: "Descrição"
           starts_at: "Data de início"
-          ends_at: "Data de final"
+          ends_at: "Data de fim"
           price: "Preço"
         list:
           found:
@@ -486,7 +486,7 @@ pt:
         name: "Nome"
         description: "Descrição"
         starts_at: "Data de início"
-        ends_at: "Data de final"
+        ends_at: "Data de fim"
         price: "Preço"
       create:
         title: "Evento"
@@ -500,9 +500,9 @@ pt:
         price: "Preço (euros)"
         totalprice: "Preço Total do Evento"
         starts_at: "Data de início"
-        ends_at: "Data de final"
+        ends_at: "Data de fim"
         cancel: "Voltar"
-        participation_message: "Mensagem de Participação"
+        participation_message: "Mensagem de participação"
         requires_id: "Nº Identificação Obrigatório"
         requires_name: "Nome Obrigatório"
         requires_address: "Morada Obrigatória"
@@ -908,7 +908,7 @@ pt:
         search: "Procurar Posts"
         create: "Novo Post"
       columns:
-        published_at: "Data Publicação"
+        published_at: "Data de publicação"
         title: "Título"
         excert: "Excerto"
         total_approved_comments: "Comentários"
