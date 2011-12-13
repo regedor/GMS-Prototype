@@ -28,7 +28,7 @@ form.formtastic abbr[title="required"]                { color: #C00; }
 form.formtastic fieldset ol li fieldset legend        { position: initial; }
 form.formtastic fieldset legend span                  { display: block; font-size: 16px; padding-bottom: 1.2em; }
 
-form.formtastic fieldset.inputs ol div.fields         { margin-bottom: 1.2em; }
+form.formtastic fieldset.inputs ol div.fields         { margin-bottom: 30px; }
 form.formtastic fieldset.inputs ol div.fields a       { font-size: 15px; text-decoration: underline; }
 form.formtastic fieldset.inputs ol div.fields a:hover { color: #591; }
 
