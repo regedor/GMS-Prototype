@@ -128,7 +128,7 @@ en:
       password: "Password"
       openid: "OpenID"
       remember_me: "Remember me"
-      forgot_pass: "I forgot my password"
+      forgot_pass: "Forgot your password?"
       new_account: "Create account"
       commit_button: "Sign In"
     show:
@@ -160,20 +160,21 @@ en:
     none: "There are no current announcements."
 
   gallery:
+    title: "Gallery"
     show:
       zoom: "Zoom in"
       read_more: "Read more"
       back: "Back to gallery"
     form:
-      new: "New Album"  
-      image: "Images"  
+      new: "New Album"
+      image: "Images"
       name: "Name"
       create_button: "Create"
       add_button: "Add files..."
       cancel_button: "Cancel"
       delete_button: "Delete"
       hints:
-        image: "Upload images for the album"                                 
+        image: "Upload images for the album"
 
   posts:
     none: "There are no posts so far."

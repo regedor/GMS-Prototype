@@ -37,15 +37,6 @@
   </div>
 <% end %>
 
-<div class="social-buttons">
-  <div class="addthis_toolbox addthis_default_style " addthis:url="<%= configatron.site_url + post_path(post) %>">
-    <a class="addthis_button_preferred_1"></a>
-    <a class="addthis_button_preferred_2"></a>
-    <a class="addthis_button_compact"></a>
-    <a class="addthis_counter addthis_bubble_style"></a>
-  </div>
-</div>
-
 <div class="meta">
   <ul>
     <li class="date"><%= I18n::t('posts.meta.date') + ' ' + format_post_date(post.published_at) %></li>
