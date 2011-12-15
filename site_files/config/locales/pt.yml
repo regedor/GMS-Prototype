@@ -238,9 +238,7 @@ pt:
         users: "Gestão de Utilizadores"
         website: "Website"
         system: "Utilizadores"
-        communication: "Comunicação"
         projects: "Projectos"
-        events: "Eventos"
       secondary:
         dashboard: "Painel de Controlo"
         users: "Contas"
@@ -251,7 +249,7 @@ pt:
         pages: "Páginas"
         settings: "Definições"
         undo_items: "Acções"
-        mails: "Enviar Mensagem"
+        mails: "Comunicação"
         projects: "Projects"
         to_do_lists: "Listas de Tarefas"
         messages: "Mensagens"

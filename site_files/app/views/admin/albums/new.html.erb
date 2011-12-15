@@ -9,7 +9,7 @@ jQuery(document).ready(function($){
         }
         var images_ids = [];
         $(".files .template-download .delete .ui-button").each(function(index){
-            var id = $(this).attr("data-url").split("/")[2];
+            var id = $(this).attr("data-url").split("/")[3];
             images_ids.push(id);
         });
     
@@ -37,20 +37,20 @@ jQuery(document).ready(function($){
 </script>
 
 <% content_for :head do %>
-  <%= %q(<script src="http://blueimp.github.com/jQuery-Image-Gallery/jquery.image-gallery.js"></script>) %>
   <%= javascript_include_tag 'jquery.fileupload', 
                              'jquery.fileupload-ui',
                              "jquery.iframe-transport", 
-                             "jquery.xdr-transport" %>
-  <%= stylesheet_link_tag 'jquery.fileupload-ui' %>
-  <%= %q(<link rel="stylesheet" href="http://blueimp.github.com/jQuery-Image-Gallery/jquery.image-gallery.css">) %>
+                             "jquery.xdr-transport",
+                             "jquery.image-gallery" %>
+  <%= stylesheet_link_tag 'jquery.fileupload-ui',
+                          'jquery.image-gallery' %>
 <% end %>
 
 
 <div class="inner">
   <h2><%= t('gallery.form.new') %></h2>
   <% semantic_form_for :album, @album,
-                       :url => albums_path,
+                       :url => admin_albums_path,
                        :method => :post,
                        :html => { 
 	                     :class => 'create', 
@@ -62,7 +62,7 @@ jQuery(document).ready(function($){
     <% form.buttons do -%>
       <%= form.commit_button I18n::t('gallery.form.create_button'),
                              :button_html => { :class => 'button positive' } %>
-      <%= form.button_link   I18n::t('gallery.form.cancel_button'), albums_path,
+      <%= form.button_link   I18n::t('gallery.form.cancel_button'), admin_albums_path,
                              :button_html => { :class => 'button negative' } %>
     <% end -%>
   <% end -%>

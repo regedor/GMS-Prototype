@@ -23,9 +23,11 @@
     <link href="/stylesheets/active_scaffold/default/stylesheet-ie.css" media="screen" rel="stylesheet" type="text/css" />
   <![endif]-->
 
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
+ <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+ <script src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+
   <%= javascript_include_tag :defaults,
-        'jquery',
-        'jquery-ui-1.8.7.custom.min',
         'jquery.tokeninput',
         'jquery-impromptu.3.1.min',
         'utils',
@@ -84,19 +86,16 @@
                                 'admin/users',
                                 'admin/deleted_users',
                                 'admin/groups',
-                                'admin/user_optional_group_picks'],
+                                'admin/user_optional_group_picks',
+                                'admin/mails' ],
                               admin_users_path %>
-
-          <%= navigation_menu 'admin.navigation.main.communication',
-                              [ 'admin/mails' ],
-                              new_admin_mail_path %>
 
           <%= navigation_menu 'admin.navigation.main.projects',
                               [ 'admin/projects',
-								'admin/to_do_lists',
+                                'admin/to_do_lists',
                                 'admin/to_do_comments',
                                 'admin/messages',
-								'admin/categories'],
+                                'admin/categories'],
                               admin_projects_path %>
          <% end %>
         </ul>
@@ -155,11 +154,9 @@ secondary_website_tabs << {
                                             { :controller_paths => [ 'admin/groups',
                                                                      'admin/user_optional_group_picks' ],
                                               :i18n_path => 'admin.navigation.secondary.groups',
-                                              :link_to_path => admin_groups_path } ],
+                                              :link_to_path => admin_groups_path },
 
-                                          :specify_first => true %>
-
-            <%= secondary_navigation_menu [ { :controller_paths => 'admin/mails',
+                                            { :controller_paths => 'admin/mails',
                                               :i18n_path => 'admin.navigation.secondary.mails',
                                               :link_to_path => new_admin_mail_path } ],
 

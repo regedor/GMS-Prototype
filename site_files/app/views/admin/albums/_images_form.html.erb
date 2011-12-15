@@ -10,7 +10,7 @@ jQuery(document).ready(function($){
 
 <div id="fileupload">
   <% semantic_form_for :image,
-                       :url => images_path,
+                       :url => admin_images_path,
                        :method => :post,
                         :html => {
                           :class => 'create upload',
@@ -26,7 +26,7 @@ jQuery(document).ready(function($){
       <% form.buttons do -%>
         <%= form.commit_button t('gallery.form.add_button'),
                                :button_html => { :class => 'button positive start' } %>
-        <%= form.button_link   t('gallery.form.delete_button'), albums_path,
+        <%= form.button_link   t('gallery.form.delete_button'), admin_albums_path,
                                :button_html => { :class => 'button negative delete' } %>
         <input type="checkbox" class="toggle">
       <% end -%>

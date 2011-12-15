@@ -246,9 +246,7 @@ en:
         users: "User Management"
         website: "Website"
         system: "Users"
-        communication: "Communication"
         projects: "Projects"
-        events: "Events"
       secondary:
         dashboard: "Dashboard"
         users: "Accounts"
@@ -259,12 +257,13 @@ en:
         pages: "Pages"
         settings: "Settings"
         undo_items: "Actions"
-        mails: "Send Message"
+        mails: "Communication"
         projects: "Projects"
         to_do_lists: "To-Do Lists"
         messages: "Messages"
         to_do_comments: "Comments"
         events: "Events"
+        gallery: "Gallery"
     
     to_do_list:
       sidebar:
