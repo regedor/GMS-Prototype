@@ -160,6 +160,7 @@ en:
     none: "There are no current announcements."
 
   gallery:
+    edit: "Edit"
     title: "Gallery"
     show:
       zoom: "Zoom in"
@@ -184,6 +185,7 @@ en:
     meta:
       date: "Posted on"
       tags: "Tagged"
+      edit: "Edit"
       comments:
         one: "%{count} comment"
         many: "%{count} comments"
