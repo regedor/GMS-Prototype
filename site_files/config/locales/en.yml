@@ -78,8 +78,7 @@ en:
       form_side_notes: 
         first: "Because no one wants to memorize thousands of different passwords, we recommend you
                 use a third party authentication system!"
-        second: "We are using cutting edge techniques to ensure no one (including ourselves) can
-                 have access to your password or personal data."
+        second: "We are using cutting edge techniques to ensure no one (including ourselves) can have access to your password or personal data."
         google_signup: "Google Sign Up"
         yahoo_signup: "Yahoo Sign Up"
       commit_button: "Register account"
@@ -118,10 +117,8 @@ en:
       form_inputs_name: "Please enter your email address and password:"
       form_openid_inputs_name: "You can also sign in using OpenID:"
       form_side_notes: 
-        first: "Because no one wants to memorize thousands of different passwords, we recommend you
-                use a third party authentication system!"
-        second: "We are using cutting edge techniques to ensure no one (including ourselves) can
-                 have access to your password or personal data."
+        first: "Because no one wants to memorize thousands of different passwords, we recommend you use a third party authentication system!"
+        second: "We are using cutting edge techniques to ensure no one (including ourselves) can have access to your password or personal data."
         google_signin: "Google Sign In"
         yahoo_signin: "Yahoo Sign In"
       email: "Email"
@@ -236,7 +233,6 @@ en:
       unsubscribe_button: "Unsubscribe"
       ok_button: "OK"
       total_value: "%{total_price} €"
-      
       
   admin:
     delete: 
@@ -1151,7 +1147,7 @@ en:
       error: "There was an error while updating the event"
     activity_deleted: "Activity succesfully deleted"     
     page_created: "Created %{name}" 
-    page_not_updated: "Failed to create %{name}" 
+    page_not_created: "Failed to create %{name}" 
     page_updated: "Updated %{name}"
     page_not_updated: "Failed to update %{name}" 
     unsubscribe: "Succefully unsubscribed event %{name}"
