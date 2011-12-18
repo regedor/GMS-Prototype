@@ -22,6 +22,15 @@ en:
     title: "Calendar"
     day_with_events_title: "Events in day %{day}:"
 
+  newsletter:
+    title: "Newsletter"
+    name: "Name"
+    email: "Email"
+    subscribe: "Subscribe"
+
+  search:
+    title: "Search"
+
   weather_info:
     title: "Weather"
 
