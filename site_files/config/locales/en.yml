@@ -78,8 +78,7 @@ en:
       form_side_notes: 
         first: "Because no one wants to memorize thousands of different passwords, we recommend you
                 use a third party authentication system!"
-        second: "We are using cutting edge techniques to ensure no one (including ourselves) can
-                 have access to your password or personal data."
+        second: "We are using cutting edge techniques to ensure no one (including ourselves) can have access to your password or personal data."
         google_signup: "Google Sign Up"
         yahoo_signup: "Yahoo Sign Up"
       commit_button: "Register account"
@@ -118,10 +117,8 @@ en:
       form_inputs_name: "Please enter your email address and password:"
       form_openid_inputs_name: "You can also sign in using OpenID:"
       form_side_notes: 
-        first: "Because no one wants to memorize thousands of different passwords, we recommend you
-                use a third party authentication system!"
-        second: "We are using cutting edge techniques to ensure no one (including ourselves) can
-                 have access to your password or personal data."
+        first: "Because no one wants to memorize thousands of different passwords, we recommend you use a third party authentication system!"
+        second: "We are using cutting edge techniques to ensure no one (including ourselves) can have access to your password or personal data."
         google_signin: "Google Sign In"
         yahoo_signin: "Yahoo Sign In"
       email: "Email"
@@ -160,6 +157,7 @@ en:
     none: "There are no current announcements."
 
   gallery:
+    edit: "Edit"
     title: "Gallery"
     show:
       zoom: "Zoom in"
@@ -170,7 +168,9 @@ en:
       image: "Images"
       name: "Name"
       create_button: "Create"
+      add_button: "Add files..."
       cancel_button: "Cancel"
+      delete_button: "Delete"
       hints:
         image: "Upload images for the album"
 
@@ -182,6 +182,7 @@ en:
     meta:
       date: "Posted on"
       tags: "Tagged"
+      edit: "Edit"
       comments:
         one: "%{count} comment"
         many: "%{count} comments"
@@ -233,7 +234,6 @@ en:
       ok_button: "OK"
       total_value: "%{total_price} €"
       
-      
   admin:
     delete: 
       title: "Are you sure you want to delete?"  
@@ -244,9 +244,7 @@ en:
         users: "User Management"
         website: "Website"
         system: "Users"
-        communication: "Communication"
         projects: "Projects"
-        events: "Events"
       secondary:
         dashboard: "Dashboard"
         users: "Accounts"
@@ -257,12 +255,13 @@ en:
         pages: "Pages"
         settings: "Settings"
         undo_items: "Actions"
-        mails: "Send Message"
+        mails: "Communication"
         projects: "Projects"
         to_do_lists: "To-Do Lists"
         messages: "Messages"
         to_do_comments: "Comments"
         events: "Events"
+        gallery: "Gallery"
     
     to_do_list:
       sidebar:
@@ -1148,7 +1147,7 @@ en:
       error: "There was an error while updating the event"
     activity_deleted: "Activity succesfully deleted"     
     page_created: "Created %{name}" 
-    page_not_updated: "Failed to create %{name}" 
+    page_not_created: "Failed to create %{name}" 
     page_updated: "Updated %{name}"
     page_not_updated: "Failed to update %{name}" 
     unsubscribe: "Succefully unsubscribed event %{name}"

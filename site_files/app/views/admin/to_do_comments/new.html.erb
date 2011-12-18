@@ -1,6 +1,19 @@
 <% content_for(:head) do -%>
-  <%= javascript_include_tag 'edit_preview' %>
+  <%= javascript_include_tag 'edit_preview',
+                             'jquery.image-gallery' %>
+  <%= stylesheet_link_tag 'jquery.image-gallery' %>
 <% end -%>
+
+
+<script>
+jQuery.noConflict();
+
+jQuery(document).ready(function($){
+  $('#comments .attachment_icon').imagegallery();
+
+  console.log($("#comments .attachment_icon a[rel='gallery']").attr("href"));
+});
+</script>
 
 <div class="content">
   <div class="inner">
@@ -41,7 +54,9 @@
           <div class="attachment">
 		    <span class="attachment_icon">
 			  <% if comment.generic.content_type =~ /^image\// %>
-			    <%=  file_icon_displayer(comment.generic, true) %>
+			    <a rel="gallery" href="<%= comment.generic.url %>">
+			      <%=  file_icon_displayer(comment.generic, true) %>
+			    </a>
 		     <% else %>
 		        <%= image_tag "#{root_url}images/icons/page_attach.png" %>
 		     <% end %>

@@ -11,7 +11,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :posts
   map.resources :calendar
   map.resources :albums
-
+  
   map.connect 'pages/:slug/comments', :controller => 'comments', :action => 'create', :method => :post
   map.pages 'pages/:slug', :controller => 'pages', :action => 'show', :method => :get
 
@@ -98,6 +98,9 @@ ActionController::Routing::Routes.draw do |map|
       project.resources :messages,      :active_scaffold => true, :active_scaffold_sortable => true, :has_many => :messages_comments
       project.resources :messages_comment, :collection => {:create => :post} 
     end
+    
+    admin.resources :albums,             :active_scaffold => true, :active_scaffold_sortable => true, :has_many => :images
+    admin.resources :images
   end
 
   

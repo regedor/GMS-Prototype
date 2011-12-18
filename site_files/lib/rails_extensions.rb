@@ -7,3 +7,10 @@ module MyActiveRecordExtensions
 end
 
 ActiveRecord::Errors.send(:include, MyActiveRecordExtensions)
+
+module ActiveRecordBaseExtension
+  def random
+    self.find :first, :offset => ( self.count * rand ).to_i
+  end
+end
+ActiveRecord::Base.extend ActiveRecordBaseExtension

@@ -1,4 +1,5 @@
 jQuery.noConflict();
+$=jQuery;
 
 function remove_fields(link) {
   $(link).prev("input[type=hidden]").val("1");
@@ -76,8 +77,6 @@ function asyncTranslate(path,cb,pairs){
 }
 
 jQuery.fn.float_bar = function(top){
-  $=jQuery;
-
   var element = $(this);
   var tag_cloud_offset = $(this).offset();
 
@@ -96,8 +95,6 @@ jQuery.fn.float_bar = function(top){
 }
 
 jQuery.fn.float_bar_nemum = function(top){
-  $=jQuery;
-
   var element = $(this);
   var navigation_offset = $(this).offset();
 
@@ -117,6 +114,12 @@ jQuery.fn.renderFlash = function(path,status,pairs){
 	var renderedObject = this;
 	asyncTranslate(path,function(data){renderedObject.html("<div class=\"message "+status+"\"><p>"+data+"</p></div>");},pairs);
 }; 
+
+jQuery.fn.renderFlashFrontend = function(status,text){
+    $(this).prepend("<div id=\"flash\"><div class=\"message "+status+"\"><p>"+text+"</p> </div></div>");
+    
+    $("#flash").hide().toggle("fade", {}, 2500).delay(4000).toggle("slide", { direction: "down" }, 1500);
+}
 
 
 // Open external links in a new tab

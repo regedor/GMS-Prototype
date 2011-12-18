@@ -58,6 +58,8 @@ pt:
       country: "País"
       emails: "Receber emails"
       profile: "Perfil"
+      id_number: "Nº Identificação"
+      address: "Morada"
     edit:
       title: "Editar conta"
       commit_button: "Actualizar conta"
@@ -155,6 +157,7 @@ pt:
     none: "Actualmente não há anúncios."
 
   gallery:
+    edit: "Editar"
     title: "Galeria"
     show:
       zoom: "Zoom"
@@ -165,7 +168,9 @@ pt:
       image: "Imagens"  
       name: "Nome"
       create_button: "Criar"
-      cancel_button: "Cancelar"    
+      add_button: "Adicionar ficheiros..."
+      cancel_button: "Cancelar"
+      delete_button: "Apagar"
       hints:
         image: "Fazer upload de imagens para o album"     
 
@@ -177,6 +182,7 @@ pt:
     meta:
       date: "Publicado em"
       tags: "Tags"
+      edit: "Editar"
       comments:
         one: "%{count} comentário"
         many: "%{count} comentários"
@@ -238,9 +244,7 @@ pt:
         users: "Gestão de Utilizadores"
         website: "Website"
         system: "Utilizadores"
-        communication: "Comunicação"
         projects: "Projectos"
-        events: "Eventos"
       secondary:
         dashboard: "Painel de Controlo"
         users: "Contas"
@@ -251,12 +255,13 @@ pt:
         pages: "Páginas"
         settings: "Definições"
         undo_items: "Acções"
-        mails: "Enviar Mensagem"
+        mails: "Comunicação"
         projects: "Projects"
         to_do_lists: "Listas de Tarefas"
         messages: "Mensagens"
         to_do_comments: "Comentários"
         events: "Eventos"
+        gallery: "Galeria de Álbuns"
     
     to_do_list:
       sidebar:
@@ -1142,6 +1147,7 @@ pt:
       error: "Ocorreu um erro enquanto se actualizava o evento"
     activity_deleted: "Actividade apagada com sucesso"
     page_created: "Criado %{name}"
+    page_not_crated: "Falha ao criar %{name}" 
     page_updated: "Actualizado %{name}"
     page_not_updated: "Falha ao actualizar %{name}" 
     unsubscribe: "Cancelada subscrição ao evento %{name}"

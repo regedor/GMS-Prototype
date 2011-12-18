@@ -66,9 +66,9 @@ jQuery(document).ready(function($) {
   <% end %>
   <div class="gallery_entry">	
     <div class="item_image">	
-      <img class="thumb" src="/assets/images/thumbs/<%= @album.name %>/<%= image.path %>"/>
+      <img class="thumb" src="<%= image.multi_purpose_image.url(:small) %>"/>
       <span class="overlay"></span>
-      <a class="zoom-icon group_elements" title="<%= image.description %>" href="/assets/images/<%= @album.name %>/<%= image.path %>" rel="<%= @album.name %>"><%= t("gallery.show.zoom") %></a>
+      <a class="zoom-icon group_elements" title="<%= image.description %>" href="<%= image.multi_purpose_image.url %>" rel="<%= @album.name %>"><%= t("gallery.show.zoom") %></a>
       <a class="more-icon" href="#"><%= t("gallery.show.read_more") %></a>	
     </div>
   </div>

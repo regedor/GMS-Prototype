@@ -22,6 +22,6 @@ if ENV['I18N_MOCK']
   end
 end
 
-require 'rails_extensions'
+require 'lib/rails_extensions'
 
 
