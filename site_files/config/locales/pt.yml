@@ -237,7 +237,18 @@ pt:
   admin:
     delete:
       title: "Tem a certeza que quer apagar?"
-
+    
+    album:
+      index:
+        title: "Galeria"
+        create: "Criar Album"
+        show_link: "Ver"
+        update_link: "Editar"
+        destroy: "Apagar"
+      columns:
+        name: "Nome"
+        created_at: "Criado em"    
+   
     navigation:
       main:
         dashboard: "Painel de Controlo"

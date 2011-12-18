@@ -238,6 +238,17 @@ en:
     delete: 
       title: "Are you sure you want to delete?"  
       
+    album:
+      index:
+        title: "Gallery"
+        create: "Create Album"
+        show_link: "View"
+        update_link: "Edit"
+        destroy: "Delete"
+      columns:
+        name: "Name"
+        created_at: "Created at"
+
     navigation:
       main:
         dashboard: "Dashboard"
