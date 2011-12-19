@@ -1,4 +1,4 @@
-<div id="calendar">
+<div id="event-calendar">
   <% cal_month = (params[:cal_month]) ? params[:cal_month].to_i : Time.zone.now.month.to_i %>
   <% cal_year  = (params[:cal_year]) ? params[:cal_year].to_i : Time.zone.now.year.to_i %>
   <%= render :partial => 'events/calendar', :locals => { :cal_month => cal_month, 

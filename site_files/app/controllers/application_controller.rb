@@ -70,6 +70,7 @@ class ApplicationController < ActionController::Base
     # Sets the language for the current request.
     def set_user_language
       I18n.locale = session[:language] if !session[:language].nil? && !configatron.force_locale
+      I18n.locale = configatron.default_locale
     end
 
 end

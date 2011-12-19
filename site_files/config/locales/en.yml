@@ -22,6 +22,15 @@ en:
     title: "Calendar"
     day_with_events_title: "Events in day %{day}:"
 
+  newsletter:
+    title: "Newsletter"
+    name: "Name"
+    email: "Email"
+    subscribe: "Subscribe"
+
+  search:
+    title: "Search"
+
   weather_info:
     title: "Weather"
 
@@ -238,6 +247,17 @@ en:
     delete: 
       title: "Are you sure you want to delete?"  
       
+    album:
+      index:
+        title: "Gallery"
+        create: "Create Album"
+        show_link: "View"
+        update_link: "Edit"
+        destroy: "Delete"
+      columns:
+        name: "Name"
+        created_at: "Created at"
+
     navigation:
       main:
         dashboard: "Dashboard"
