@@ -9,6 +9,7 @@ class Notifier < ActionMailer::Base
     setup_email(user)
     @subject += I18n.translate 'notifier.activation_confirmation.subject' 
     @body[:root_url]  = root_url
+    @body[:user_profile_url] = edit_user_account_url
   end
  
   def password_reset_instructions(user)  
@@ -30,6 +31,22 @@ class Notifier < ActionMailer::Base
     @from     = mail.user.name
     @subject += mail.subject
     @body[:message] = mail.message  
+  end
+  
+  def new_to_do_comment_notification(user,mail)
+    setup_email(user)
+    @subject += mail.subject
+    divided = mail.message.split("&sep&")
+    @body[:sender] = divided[0]
+    @body[:receiver] = user.name unless user.name.blank?
+    todo = ToDo.find(divided[1])
+    comment = ToDoComment.find(divided[2])
+    @body[:todo] = todo.description
+    @body[:list] = todo.to_do_list.name
+    @body[:link] = admin_project_to_do_comments_url(todo.to_do_list.project.id,todo.id)
+    @body[:date] = I18n::localize(todo.due_date, :format => :medium) if todo.due_date
+    @body[:comment] = comment.body
+    @body[:comment_html] = comment.body_html
   end
   
   def new_to_do_notification(user,mail)

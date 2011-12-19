@@ -22,6 +22,15 @@ en:
     title: "Calendar"
     day_with_events_title: "Events in day %{day}:"
 
+  newsletter:
+    title: "Newsletter"
+    name: "Name"
+    email: "Email"
+    subscribe: "Subscribe"
+
+  search:
+    title: "Search"
+
   weather_info:
     title: "Weather"
 
@@ -78,8 +87,7 @@ en:
       form_side_notes: 
         first: "Because no one wants to memorize thousands of different passwords, we recommend you
                 use a third party authentication system!"
-        second: "We are using cutting edge techniques to ensure no one (including ourselves) can
-                 have access to your password or personal data."
+        second: "We are using cutting edge techniques to ensure no one (including ourselves) can have access to your password or personal data."
         google_signup: "Google Sign Up"
         yahoo_signup: "Yahoo Sign Up"
       commit_button: "Register account"
@@ -118,10 +126,8 @@ en:
       form_inputs_name: "Please enter your email address and password:"
       form_openid_inputs_name: "You can also sign in using OpenID:"
       form_side_notes: 
-        first: "Because no one wants to memorize thousands of different passwords, we recommend you
-                use a third party authentication system!"
-        second: "We are using cutting edge techniques to ensure no one (including ourselves) can
-                 have access to your password or personal data."
+        first: "Because no one wants to memorize thousands of different passwords, we recommend you use a third party authentication system!"
+        second: "We are using cutting edge techniques to ensure no one (including ourselves) can have access to your password or personal data."
         google_signin: "Google Sign In"
         yahoo_signin: "Yahoo Sign In"
       email: "Email"
@@ -237,11 +243,21 @@ en:
       ok_button: "OK"
       total_value: "%{total_price} €"
       
-      
   admin:
     delete: 
       title: "Are you sure you want to delete?"  
       
+    album:
+      index:
+        title: "Gallery"
+        create: "Create Album"
+        show_link: "View"
+        update_link: "Edit"
+        destroy: "Delete"
+      columns:
+        name: "Name"
+        created_at: "Created at"
+
     navigation:
       main:
         dashboard: "Dashboard"
@@ -1151,7 +1167,7 @@ en:
       error: "There was an error while updating the event"
     activity_deleted: "Activity succesfully deleted"     
     page_created: "Created %{name}" 
-    page_not_updated: "Failed to create %{name}" 
+    page_not_created: "Failed to create %{name}" 
     page_updated: "Updated %{name}"
     page_not_updated: "Failed to update %{name}" 
     unsubscribe: "Succefully unsubscribed event %{name}"
@@ -1174,6 +1190,9 @@ en:
     album_not_created: "Failed to create album"
   
   notifier: 
+    to_do_comment:
+      link: "online"
+      body: "%{sender} commented on the to-do %{description} from the to-do list %{list}.\n\nThe content of the comment was the following\:\n%{comment}\n\nGo check it out %{comment_link}."
     to_do_notification: 
       new_todo_subject: "New To-Do"
       update_todo_subject: "To-Do update"
@@ -1190,8 +1209,10 @@ en:
     activation_confirmation:
       subject: "Activation Complete!"
       body:
-        header: "Your account has been activated."
-        footer: "If the above URL does not work try copying and pasting it into your browser. If you continue to have problem, please feel free to contact us."
+        profile: "profile"
+        website: "website"
+        header: "Your account has been activated. Please visit the %{website}.\n\nAlso please complete your %{profile} in order to experience the website to its maximum."
+        footer: "\n\n\nIf any of the above URL's does not work try copying and pasting it into your browser. If you continue to have problem, please feel free to contact the maintenance team at %{our_email}."
     password_reset_instructions:
       subject: "Password Reset Instructions"
       body:

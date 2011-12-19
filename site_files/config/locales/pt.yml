@@ -22,6 +22,15 @@ pt:
     title: "Calendário"
     day_with_events_title: "Eventos no dia %{day}:"
 
+  newsletter:
+    title: "Newsletter"
+    name: "Nome"
+    email: "Email"
+    subscribe: "Subscrever"
+
+  search:
+    title: "Pesquisa"
+
   weather_info:
     title: "Metereologia"
 
@@ -58,6 +67,8 @@ pt:
       country: "País"
       emails: "Receber emails"
       profile: "Perfil"
+      id_number: "Nº Identificação"
+      address: "Morada"
     edit:
       title: "Editar conta"
       commit_button: "Actualizar conta"
@@ -155,6 +166,7 @@ pt:
     none: "Actualmente não há anúncios."
 
   gallery:
+    edit: "Editar"
     title: "Galeria"
     show:
       zoom: "Zoom"
@@ -165,7 +177,9 @@ pt:
       image: "Imagens"  
       name: "Nome"
       create_button: "Criar"
-      cancel_button: "Cancelar"    
+      add_button: "Adicionar ficheiros..."
+      cancel_button: "Cancelar"
+      delete_button: "Apagar"
       hints:
         image: "Fazer upload de imagens para o album"     
 
@@ -177,6 +191,7 @@ pt:
     meta:
       date: "Publicado em"
       tags: "Tags"
+      edit: "Editar"
       comments:
         one: "%{count} comentário"
         many: "%{count} comentários"
@@ -231,7 +246,18 @@ pt:
   admin:
     delete:
       title: "Tem a certeza que quer apagar?"
-
+    
+    album:
+      index:
+        title: "Galeria"
+        create: "Criar Album"
+        show_link: "Ver"
+        update_link: "Editar"
+        destroy: "Apagar"
+      columns:
+        name: "Nome"
+        created_at: "Criado em"    
+   
     navigation:
       main:
         dashboard: "Painel de Controlo"
@@ -255,6 +281,7 @@ pt:
         messages: "Mensagens"
         to_do_comments: "Comentários"
         events: "Eventos"
+        gallery: "Galeria de Álbuns"
     
     to_do_list:
       sidebar:
@@ -443,7 +470,7 @@ pt:
           title: "Nome"
           description: "Descrição"
           starts_at: "Data de início"
-          ends_at: "Data de final"
+          ends_at: "Data de fim"
           price: "Preço"
         list:
           found:
@@ -484,7 +511,7 @@ pt:
         name: "Nome"
         description: "Descrição"
         starts_at: "Data de início"
-        ends_at: "Data de final"
+        ends_at: "Data de fim"
         price: "Preço"
       create:
         title: "Evento"
@@ -498,9 +525,9 @@ pt:
         price: "Preço (euros)"
         totalprice: "Preço Total do Evento"
         starts_at: "Data de início"
-        ends_at: "Data de final"
+        ends_at: "Data de fim"
         cancel: "Voltar"
-        participation_message: "Mensagem de Participação"
+        participation_message: "Mensagem de participação"
         requires_id: "Nº Identificação Obrigatório"
         requires_name: "Nome Obrigatório"
         requires_address: "Morada Obrigatória"
@@ -847,7 +874,7 @@ pt:
         paragraph: "Pode <b title=\"Use o botão 'Nova Página'.\">criar</b> páginas novas e <b title=\"Use o botão 'Apagar'.\">apagar</b> as existentes. Também pode <b title=\"Use o botão 'Detalhes'.\">ver</b> e <b title=\"Use o botão 'Editar'.\">editar</b> as páginas actuais.<br/><br/>É possível ordenar a lista de páginas por <b title=\"Clique em 'Título'.\">título</b> ou <b title=\"Clique em 'Data'.\">data</b> também como <b title=\"A caixa de filtros é ao lado do botão de adicionar.\">filtrar</b> os seus conteúdos.<br/><br/>Ao clicar no título da página, será redireccionado para a página pública correspondente."
         edit:
           title: "Editar Página"
-          paragraph: "Está a editar a informação da página. Além do <b title=\"O título é a identificação da página.\">título</b> e do <b title=\"O corpo correspsonde ao conteúdo da página.\">corpo</b>, pode alterar o <b title=\"O slug é a identificação da página, útil para links.\">slug</b> e <b title=\"A ordem em que a página aparecerá no menu de navegação.\">prioridade</b>. Também há checkboxes para <b title=\"Activar para mostrar a página no menu.\">mostrar no menu</b> e <b title=\"Activar se pretende permitir que os utilizadores comentem na página.\">ter comentários</b>.<br/><br/>Pode visualizar os conteúdos da página antes de <b title=\"O botão Guardar guarda a página.\">Guardar</b> ao clicar em <b title=\"O botão Visualização button permite you visualizar a página.\">Visualização</b>. Para descartar alterações, clique em <b title=\"O botão Cancelar descarta qualquer modificação.\">Cancelar</b>."
+          paragraph: "Está a editar a informação da página. Além do <b title=\"O título é a identificação da página.\">título</b> e do <b title=\"O corpo correspsonde ao conteúdo da página.\">corpo</b>, pode alterar o <b title=\"O slug é a identificação da página, útil para links.\">slug</b> e <b title=\"A ordem em que a página aparecerá no menu de navegação.\">prioridade</b>. Também há checkboxes para <b title=\"Activar para mostrar a página no menu.\">mostrar no menu</b> e <b title=\"Activar se pretende permitir que os utilizadores comentem na página.\">ter comentários</b>.<br/><br/>Pode visualizar os conteúdos da página antes de <b title=\"O botão Guardar guarda a página.\">Guardar</b> ao clicar em <b title=\"O botão Visualização permite visualizar a página.\">Visualização</b>. Para descartar alterações, clique em <b title=\"O botão Cancelar descarta qualquer modificação.\">Cancelar</b>."
         history:
           title: "Detalhes da Página"
           paragraph: "Pode reverter as informações de páginas. Clique nas datas em baixo para reverter para estados anteriores. Clique em <b title=\"O link para reverter aparece quando clicar numa data anterior.\">Reverter</b> para completar o processo de reversão."
@@ -906,7 +933,7 @@ pt:
         search: "Procurar Posts"
         create: "Novo Post"
       columns:
-        published_at: "Data Publicação"
+        published_at: "Data de publicação"
         title: "Título"
         excert: "Excerto"
         total_approved_comments: "Comentários"
@@ -979,7 +1006,7 @@ pt:
           link: "Reverter"
         edit:
           title: "Editar Post"
-          paragraph: "Está a editar informação do post. Além do <b title=\"O título é a identificação do post.\">título</b> e do <b title=\"O corpo corresponde ao conteúdo do post.\">corpo</b>, pode alterar <b title=\"Tags são uma série de palavras-chave para definir o que trata o post.\">lista de tags</b>, a <b title=\"\">data de publicação</b> e o <b title=\"O slug é a identificação única do posto, util para links.\">slug</b>. Também existe uma checkbox para fazer <b title=\"Activar se não quiser que os utilizadores sejam notificados da mudança.\">edição mínima</b>.<br/><br/>Pode visualizar os conteúdos do post antes de <b title=\"O botão Guardar guarda o post.\">Guardar</b> ao clicar em <b title=\"O botão Visualização button permite visualizar o post.\">Visualização</b>. Para descartar alterações, clique em <b title=\"O botão Cancelar descarta qualquer modificação.\">Cancelar</b>."
+          paragraph: "Está a editar informação do post. Além do <b title=\"O título é a identificação do post.\">título</b> e do <b title=\"O corpo corresponde ao conteúdo do post.\">corpo</b>, pode alterar <b title=\"Tags são uma série de palavras-chave para definir o que trata o post.\">lista de tags</b>, a <b title=\"\">data de publicação</b> e o <b title=\"O slug é a identificação única do posto, util para links.\">slug</b>. Também existe uma checkbox para fazer <b title=\"Activar se não quiser que os utilizadores sejam notificados da mudança.\">edição mínima</b>.<br/><br/>Pode visualizar os conteúdos do post antes de <b title=\"O botão Guardar guarda o post.\">Guardar</b> ao clicar em <b title=\"O botão Visualização permite visualizar o post.\">Visualização</b>. Para descartar alterações, clique em <b title=\"O botão Cancelar descarta qualquer modificação.\">Cancelar</b>."
         tags:
           paragraph: "Também pode filtrar posts pelas <b title=\"Tags são uma série de palavras-chave para definir o que trata o post.\">tags</b> na lista abaixo. Quando clica numa tag, os posts que <b title=\"Se clicar a tag 'a' e 'b', só os posts contendo ambas as palavras-chave serão mostrados.\">contêm</b> todas as tags seleccionadas serão mostrados."
 
@@ -1057,7 +1084,7 @@ pt:
           paragraph: "Está a visualizr os detalhes de um anúncio. Para editar este anúncio, vá ao separador de anúncios e clique em editar."
         edit:
           title: "Editar Anúncio"
-          paragraph: "Está a editar informação de anúncios. Além do <b title=\"O título é a identificação do anúncio.\">título</b> e <b title=\"A mensagem corresponde ao conteúdo do anúncio.\">mensagem</b>, pode definir o <b title=\"O anúncio será visivel entre a date de início e de fim.\">periodo de tempo</b> no qual o anúncio será mostrado, escolher uma <b title=\"A imagem preencherá a área de anúncios.\">imagem de fundo</b> e ligar o anúncio a um  <b title=\"Quando a imagem é clicada, será redireccionado para o URL especificado.\">URL</b>.<br/><br/>Pode visualizar os conteúdos do anúncio antes de <b title=\"O botão Guardar guarda o anúncio.\">Guardar</b> ao clicar no botão<b title=\"O botão visualizar permite ver o anúncio.\">Visualizar</b>. Para descartar alterações, clique em <b title=\"O botão cancelar descarta as alterações feitas.\">Cancelar</b>."
+          paragraph: "Está a editar informação de anúncios. Além do <b title=\"O título é a identificação do anúncio.\">título</b> e <b title=\"A mensagem corresponde ao conteúdo do anúncio.\">mensagem</b>, pode definir o <b title=\"O anúncio será visivel entre a date de início e de fim.\">periodo de tempo</b> no qual o anúncio será mostrado, escolher uma <b title=\"A imagem preencherá a área de anúncios.\">imagem de fundo</b> e ligar o anúncio a um  <b title=\"Quando a imagem é clicada, será redireccionado para o URL especificado.\">URL</b>.<br/><br/>Pode visualizar os conteúdos do anúncio antes de <b title=\"O botão Guardar guarda o anúncio.\">Guardar</b> ao clicar no botão <b title=\"O botão visualizar permite ver o anúncio.\">Visualizar</b>. Para descartar alterações, clique em <b title=\"O botão cancelar descarta as alterações feitas.\">Cancelar</b>."
 
     settings:
       title: "Definições"
@@ -1140,6 +1167,7 @@ pt:
       error: "Ocorreu um erro enquanto se actualizava o evento"
     activity_deleted: "Actividade apagada com sucesso"
     page_created: "Criado %{name}"
+    page_not_crated: "Falha ao criar %{name}" 
     page_updated: "Actualizado %{name}"
     page_not_updated: "Falha ao actualizar %{name}" 
     unsubscribe: "Cancelada subscrição ao evento %{name}"

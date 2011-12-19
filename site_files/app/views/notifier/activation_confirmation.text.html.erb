@@ -1,0 +1,5 @@
+<%= t 'notifier.activation_confirmation.body.header',
+  :website => "#{link_to t('notifier.activation_confirmation.body.website'), @root_url}", 
+  :profile => "#{link_to t('notifier.activation_confirmation.body.profile'), @user_profile_url}"%>
+<%= t 'notifier.activation_confirmation.body.footer',
+  :our_email => "#{mail_to "contact@groupbuddies.com"}" %>
