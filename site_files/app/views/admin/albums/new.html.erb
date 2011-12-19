@@ -25,7 +25,7 @@ jQuery(document).ready(function($){
                 if(data.saved)
                     window.location = data.url;
                 else
-                    $('#main').renderFlashFrontend("error",data.text);
+                    $('#flash').html("<div class=\"message error\"><p>"+data.text+"</p></div>");
                 return false;
               },
            });
@@ -42,30 +42,31 @@ jQuery(document).ready(function($){
                              "jquery.iframe-transport", 
                              "jquery.xdr-transport",
                              "jquery.image-gallery" %>
-  <%= stylesheet_link_tag 'jquery.fileupload-ui',
-                          'jquery.image-gallery' %>
+
+ <%= stylesheet_link_tag    'jquery.fileupload-ui',
+                             'jquery.image-gallery' %>
 <% end %>
 
+<div class="content">
+  <div class="inner">
+    <h2><%= t('gallery.form.new') %></h2>
+    <% semantic_form_for :album, @album,
+                         :url => admin_albums_path,
+                         :method => :post,
+                         :html => { 
+                           :class => 'create', 
+                           :id => 'new_album', 
+                         } do |form| -%>
 
-<div class="inner">
-  <h2><%= t('gallery.form.new') %></h2>
-  <% semantic_form_for :album, @album,
-                       :url => admin_albums_path,
-                       :method => :post,
-                       :html => { 
-	                     :class => 'create', 
-	                     :id => 'new_album', 
-	                   } do |form| -%>
-
-    <%= render :partial => 'form', :locals => { :form => form } %>
-
-    <% form.buttons do -%>
-      <%= form.commit_button I18n::t('gallery.form.create_button'),
-                             :button_html => { :class => 'button positive' } %>
-      <%= form.button_link   I18n::t('gallery.form.cancel_button'), admin_albums_path,
-                             :button_html => { :class => 'button negative' } %>
+      <%= render :partial => 'form', :locals => { :form => form } %>
     <% end -%>
-  <% end -%>
 
-  <%= render :partial => 'images_form' %>
+    <%= render :partial => 'images_form' %>
+
+    <%= link_to  t('gallery.form.create_button'), "#", 
+                 :id => "album_submit", 
+                 :class => 'button positive'%>
+    <%= link_to  t('gallery.form.cancel_button'), admin_albums_path, 
+                 :class => 'button negative'%>
+  </div>
 </div>
