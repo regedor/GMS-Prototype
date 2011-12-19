@@ -59,22 +59,22 @@ jQuery(document).ready(function($) {
   <% counter = 0 %>
   <div class="gallery_row">
   <% @images.each do |image| %>
-  <% if counter == 4 %>
+    <% if counter == 4 %>
+      </div>
+      <div class="gallery_row">
+      <% counter=0 %>
+    <% end %>
+    <div class="gallery_entry">	
+      <div class="item_image">	
+        <img class="thumb" src="<%= image.multi_purpose_image.url(:small) %>"/>
+        <span class="overlay"></span>
+        <a class="zoom-icon group_elements" title="<%= image.description %>" href="<%= image.multi_purpose_image.url %>" rel="<%= @album.name %>"><%= t("gallery.show.zoom") %></a>
+        <a class="more-icon" href="#"><%= t("gallery.show.read_more") %></a>	
+      </div>
     </div>
-    <div class="gallery_row">
-    <% counter=0 %>	
+    <% counter+=1 %>
   <% end %>
-  <div class="gallery_entry">	
-    <div class="item_image">	
-      <img class="thumb" src="<%= image.multi_purpose_image.url(:small) %>"/>
-      <span class="overlay"></span>
-      <a class="zoom-icon group_elements" title="<%= image.description %>" href="<%= image.multi_purpose_image.url %>" rel="<%= @album.name %>"><%= t("gallery.show.zoom") %></a>
-      <a class="more-icon" href="#"><%= t("gallery.show.read_more") %></a>	
-    </div>
-  </div>
-  <% counter+=1 %>
-  <% end %>
-  <% if counter < 4 %>
+  <% if counter <= 4 %>
     </div>
   <% end %>
-</div>	
+</div>
