@@ -13,7 +13,7 @@ class Admin::ToDoCommentsController < Admin::BaseController
     if comment.save
       flash[:notice] = t("flash.to_do_comment_created", :todo => comment.to_do.description)
       if params[:to_do_comment][:users] and (params[:to_do_comment][:users].map(&:blank?).member? true)
-        mail = Mail.new :message => current_user.name+"&sep&"+comment.to_do.description,
+        mail = Mail.new :message => current_user.name+"&sep&"+params[:to_do_id].to_s+"&sep&"+comment.id.to_s,
           :sent_on => Time.now,
           :subject => t("notifier.to_do_notification.comment_subject")
 
@@ -28,7 +28,7 @@ class Admin::ToDoCommentsController < Admin::BaseController
 
         begin
           mailing_list.each do |user|
-            Notifier.deliver_to_do_notification(user,mail)
+            Notifier.deliver_new_to_do_comment_notification(user,mail)
           end
         rescue Exception
           flash[:error] = t("flash.mail_not_sent_multiple")

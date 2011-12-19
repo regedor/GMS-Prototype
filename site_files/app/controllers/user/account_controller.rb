@@ -39,7 +39,7 @@ class User::AccountController < ApplicationController
     session[:language] = @user.language
     if @user.activate!
       @user.deliver_activation_confirmation!
-      @user.group_id = 1
+      @user.group_ids = [1]
       @user.save
       flash[:notice] = t('flash.account_activated') 
       redirect_to new_user_session_path

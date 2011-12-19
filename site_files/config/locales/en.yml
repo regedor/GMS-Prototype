@@ -1170,6 +1170,9 @@ en:
     album_not_created: "Failed to create album"
   
   notifier: 
+    to_do_comment:
+      link: "online"
+      body: "%{sender} commented on the to-do %{description} from the to-do list %{list}.\n\nThe content of the comment was the following\:\n%{comment}\n\nGo check it out %{comment_link}."
     to_do_notification: 
       new_todo_subject: "New To-Do"
       update_todo_subject: "To-Do update"
@@ -1186,8 +1189,10 @@ en:
     activation_confirmation:
       subject: "Activation Complete!"
       body:
-        header: "Your account has been activated."
-        footer: "If the above URL does not work try copying and pasting it into your browser. If you continue to have problem, please feel free to contact us."
+        profile: "profile"
+        website: "website"
+        header: "Your account has been activated. Please visit the %{website}.\n\nAlso please complete your %{profile} in order to experience the website to its maximum."
+        footer: "\n\n\nIf any of the above URL's does not work try copying and pasting it into your browser. If you continue to have problem, please feel free to contact the maintenance team at %{our_email}."
     password_reset_instructions:
       subject: "Password Reset Instructions"
       body:

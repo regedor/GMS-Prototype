@@ -1,0 +1,6 @@
+<%= t 'notifier.to_do_comment.body',
+  :sender => @sender,
+  :description => @todo,
+  :list => @list,
+  :comment => @comment_html,
+  :comment_link => "#{link_to t('notifier.to_do_comment.link'), @link}" %>
