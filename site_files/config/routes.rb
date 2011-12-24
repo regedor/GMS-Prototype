@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :settings
+
 
   map.root :controller => 'posts', :action => 'index'
   # sparklines route

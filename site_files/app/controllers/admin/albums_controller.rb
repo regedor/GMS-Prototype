@@ -27,4 +27,23 @@ class Admin::AlbumsController < Admin::BaseController
       render :json => { :saved => false ,:text  => t("flash.album_not_created", :name => @album.name)}
     end
   end
+
+  def edit
+    @album = Album.find params[:id]
+  end
+
+  def update
+    @album = Album.find params[:id]
+    @album.update_attributes params[:album]
+    @album.image_ids = params[:images].split(",").map(&:to_i) if params[:images]
+
+    if @album.save
+      flash[:notice] = t("flash.album_created", :name => @album.name)
+      render :json => { :saved => true, :url => albums_url }
+    else
+      #@template.properly_show_errors(@album)
+      #flash.now[:error] = t("flash.album_not_created", :name => @album.name)
+      render :json => { :saved => false ,:text  => t("flash.album_not_created", :name => @album.name)}
+    end
+  end
 end
