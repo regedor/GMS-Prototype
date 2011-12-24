@@ -1,0 +1,72 @@
+<script>
+jQuery(document).ready(function($){
+
+    $("#album_submit").click(function getAlbumImages(){
+        if($(".files tr").size() > $(".files .template-download").size())
+        {
+          setTimeout(function(){getAlbumImages();},1000);
+          return false;
+        }
+        var images_ids = [];
+        $(".files .template-download .delete .ui-button").each(function(index){
+            var id = $(this).attr("data-url").split("/")[3];
+            images_ids.push(id);
+        });
+    
+        var form = $('#edit_album');
+        
+        if (form.length > 0) {
+          jQuery.ajax({
+              type: 'PUT',
+              data: form.serialize().replace(/&*_method=\w+&*/, '')+"&images="+images_ids,
+              url: window.location.href.replace(/\#.*/,"").replace("edit",""),
+              dataType: "json",
+              success: function(data) {
+                if(data.saved)
+                    window.location = data.url;
+                else
+                    $('#flash').html("<div class=\"message error\"><p>"+data.text+"</p></div>");
+                return false;
+              },
+           });
+        }
+        
+        return false;
+    });
+});
+</script>
+
+<% content_for :head do %>
+  <%= javascript_include_tag 'jquery.fileupload', 
+                             'jquery.fileupload-ui',
+                             "jquery.iframe-transport", 
+                             "jquery.xdr-transport",
+                             "jquery.image-gallery" %>
+
+ <%= stylesheet_link_tag    'jquery.fileupload-ui',
+                             'jquery.image-gallery' %>
+<% end %>
+
+<div class="content">
+  <div class="inner">
+    <h2><%= t('gallery.form.new') %></h2>
+    <% semantic_form_for :album, @album,
+                         :url => admin_album_path(@album),
+                         :method => :put,
+                         :html => { 
+                           :class => 'edit', 
+                           :id => 'edit_album', 
+                         } do |form| -%>
+
+      <%= render :partial => 'form', :locals => { :form => form } %>
+    <% end -%>
+
+    <%= render :partial => 'images_form' %>
+
+    <%= link_to  t('gallery.form.create_button'), "#", 
+                 :id => "album_submit", 
+                 :class => 'button positive'%>
+    <%= link_to  t('gallery.form.cancel_button'), admin_albums_path, 
+                 :class => 'button negative'%>
+  </div>
+</div>
