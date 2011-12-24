@@ -38,7 +38,19 @@ class Setting < ActiveRecord::Base
        Setting.all.each do |setting|     
          configatron.send(setting.identifier+"=",setting.convert_value)
        end 
-    end  
+    end
+    
+    def add_list_item(item_name,item_link,before_pages=false)
+      setting = Setting.find_by_identifier "frontend_navigation"
+      item = "<li><a href=\"#{item_link}\">#{item_name}</a></li>"
+      if before_pages
+        setting.value = item+setting.value
+      else
+        setting.value += item
+      end
+      setting.save
+      begin; Setting.load_settings_to_configatron; rescue Exception; end
+    end
   end
 
 end

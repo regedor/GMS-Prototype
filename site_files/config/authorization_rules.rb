@@ -25,7 +25,10 @@ authorization do
     has_permission_on [:admin_user_optional_group_picks], :to =>  [ :as_manage ]
     has_permission_on [:history_entries],                 :to =>  [ :as_manage ]
     has_permission_on [:admin_mails],               :to =>  [ :as_manage ]
-    has_permission_on [:admin_settings],            :to =>  [ :as_manage ]
+    
+    #uncomment to allow admin to edit settings
+    #has_permission_on [:admin_settings],            :to =>  [ :as_manage ] 
+    
     #security issue
     has_permission_on [:admin_history_actions],     :to =>  [ :as_manage ]
   end

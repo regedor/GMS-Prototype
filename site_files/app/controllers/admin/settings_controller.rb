@@ -4,8 +4,14 @@ class Admin::SettingsController < Admin::BaseController
   before_filter :create_options_hash
   
   def index
-    render :inline => @editor.render, :layout => true
-  end 
+    #render :inline => @editor.render, :layout => true
+  end
+  
+  def create
+    Setting.add_list_item params[:setting][:item_name], params[:setting][:item_link]
+    
+    redirect_to root_url
+  end
   
   def update
     @editor.update_attributes params
