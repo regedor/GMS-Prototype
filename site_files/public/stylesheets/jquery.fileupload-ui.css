@@ -10,6 +10,16 @@
  * http://creativecommons.org/licenses/MIT/
  */
 
+#fileupload li {
+  list-style: none;
+  margin-bottom: 25px;
+}
+
+#fileupload label {
+  display: inline-block;
+  width: 25%;
+}
+
 .fileupload-buttonbar .ui-button input {
   position: absolute;
   top: 0;
@@ -39,16 +49,11 @@
   padding: 2px 0;
 }
 
-.fileupload-buttonbar {
-  padding: 0.2em 0.4em;
-}
-
 .fileupload-buttonbar .ui-button {
   vertical-align: middle;
 }
 
 .fileupload-content {
-  padding: 0.2em 0.4em;
   border-top-width: 0;
 }
 
