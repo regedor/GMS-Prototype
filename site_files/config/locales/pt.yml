@@ -173,7 +173,7 @@ pt:
       read_more: "Ler mais"
       back: "Regressar à galeria"
     form:
-      new: "Novo Album"  
+      new: "Novo Álbum"  
       image: "Imagens"  
       name: "Nome"
       create_button: "Criar"
@@ -181,7 +181,7 @@ pt:
       cancel_button: "Cancelar"
       delete_button: "Apagar"
       hints:
-        image: "Fazer upload de imagens para o album"     
+        image: "Fazer upload de imagens para o álbum"     
 
   posts:
     none: "Ainda não há posts."
@@ -250,7 +250,7 @@ pt:
     album:
       index:
         title: "Galeria"
-        create: "Criar Album"
+        create: "Criar Álbum"
         show_link: "Ver"
         update_link: "Editar"
         destroy_link: "Apagar"
@@ -260,8 +260,8 @@ pt:
         created_at: "Criado em"   
       list:
         found:
-          more: "%{count} Albums Encontrados"
-          one: "%{count} Album Encontrado"
+          more: "%{count} Álbuns Encontrados"
+          one: "%{count} Álbum Encontrado"
    
     navigation:
       main:
@@ -1191,8 +1191,8 @@ pt:
     image_size_1mb: "O tamanho da imagem deve ser menor que 1 Megabyte"
     cant_be_blank: "não pode ser vazio"
     image_content_type: "Imagem deve ser em .jpg ou .png"
-    album_created: "Album %{name} criado"
-    album_not_created: "Falha ao criar album"
+    album_created: "Álbum %{name} criado"
+    album_not_created: "Falha ao criar álbum"
 
   notifier: 
     to_do_notification: 
