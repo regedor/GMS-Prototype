@@ -1,14 +1,22 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'smoothness/jquery-ui-1.8.7.custom' %>
+<% end %>
+
+
 <div class="content">
   <div class="inner">
-    <h2><%= I18n::t('admin.announcements.form.new') %></h2>
+    <h2><%= t('admin.announcements.form.new') %></h2>
+
     <% semantic_form_for :record, @record,
                          :url => admin_announcements_path,
                          :html => { :class => 'create', :id => 'new_announcement', :multipart => true } do |form| -%>
+
       <%= render :partial => 'form', :locals => { :form => form } %>
+
       <% form.buttons do -%>
-        <%= form.commit_button I18n::t('admin.announcements.form.create_button'),
+        <%= form.commit_button t('admin.announcements.form.create_button'),
                                :button_html => { :class => 'button positive' } %>
-        <%= form.button_link   I18n::t('admin.announcements.form.cancel_button'), admin_announcements_path,
+        <%= form.button_link   t('admin.announcements.form.cancel_button'), admin_announcements_path,
                                :button_html => { :class => 'button negative' } %>
       <% end -%>
     <% end -%>

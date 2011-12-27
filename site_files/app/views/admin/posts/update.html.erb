@@ -1,10 +1,18 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'smoothness/jquery-ui-1.8.7.custom' %>
+<% end %>
+
+
 <div class="content">
   <div class="inner">
-    <h2><%= I18n::t('admin.posts.form.edit') %></h2>
+    <h2><%= t('admin.posts.form.edit') %></h2>
+
     <% semantic_form_for :record, @record, 
                          :url => admin_post_path(@record), 
                          :html => { :method => :put, :id => "edit_post_#{@record.id}", :multipart => true } do |form| -%>
+
       <%= render :partial => 'form', :locals => { :form => form } %>
+
       <% form.buttons do -%>
         <%= form.commit_button I18n::t('admin.posts.form.update_button'),
                                :button_html => { :class => 'button positive' } %>

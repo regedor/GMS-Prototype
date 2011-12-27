@@ -1,18 +1,26 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'smoothness/jquery-ui-1.8.7.custom' %>
+<% end %>
+
+
 <div class="content">
   <div class="inner">
-    <h2><%= I18n::t('admin.posts.form.new') %></h2>
+    <h2><%= t('admin.posts.form.new') %></h2>
+
     <% semantic_form_for :record, @record,
                          :url => admin_posts_path,
                          :html => { :class => 'create', :id => 'new_post', :multipart => true } do |form| -%>
+
       <%= render :partial => 'form', :locals => { :form => form } %>
+
       <% form.buttons do -%>
-        <%= form.commit_button I18n::t('admin.posts.form.create_button'),
+        <%= form.commit_button t('admin.posts.form.create_button'),
                                :button_html => { :class => 'button positive' } %>
-        <%= form.button_link   I18n::t('admin.posts.form.preview_button'), '#',
+        <%= form.button_link   t('admin.posts.form.preview_button'), '#',
                                :button_html => { :class => 'button positive preview' } %>
-        <%= form.button_link   I18n::t('admin.pages.form.edit_button'), '#',
+        <%= form.button_link   t('admin.pages.form.edit_button'), '#',
                                :button_html => { :class => 'button positive edit' } %>
-        <%= form.button_link   I18n::t('admin.posts.form.cancel_button'), admin_posts_path,
+        <%= form.button_link   t('admin.posts.form.cancel_button'), admin_posts_path,
                                :button_html => { :class => 'button negative' } %>
       <% end -%>
     <% end -%>
