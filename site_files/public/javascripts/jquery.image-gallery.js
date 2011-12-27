@@ -381,7 +381,7 @@
                 'load error',
                 eventData,
                 this._loadHandler
-            ).attr('src', this._link.href);
+            ).prop('src', this._link.href);
             // The timeout prevents the loading animation to show
             // when the image has already been loaded:
             setTimeout(function () {
@@ -393,8 +393,8 @@
 
         _preloadSiblings: function () {
             // Preload the next and previous images:
-            $('<img>').attr('src', this._nextLink.href);
-            $('<img>').attr('src', this._prevLink.href);
+            $('<img>').prop('src', this._nextLink.href);
+            $('<img>').prop('src', this._prevLink.href);
         },
 
         _initSiblings: function () {

@@ -57,7 +57,5 @@ tmtags
 /site_files/public/stylesheets/frontend-extras.css
 /site_files/public/javascripts/frontend.js
 /site_files/public/javascripts/backend.js
-/site_files/public/images/*
-/site_files/public/fonts/*
 *.xls
 *.bak

@@ -1,0 +1,21 @@
+<% semantic_form_for :setting, @setting,
+                     :url => admin_settings_path,
+                     :method => :post,
+                     :html => { 
+                       :class => 'edit', 
+                       :id => 'edit_settings', 
+                     } do |form| -%>
+
+  <% form.input_field_set do -%>
+      <%= form.input :item_name,
+                     :label    => "Name" %>
+      <%= form.input :item_link,
+                     :label    => "Link" %>
+  <% end %>
+
+  <% form.buttons do -%>
+    <%= form.commit_button "Update",
+                          :button_html => { :class => 'button positive' } %>
+  <% end -%>
+
+<% end %>

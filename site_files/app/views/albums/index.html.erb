@@ -42,20 +42,20 @@ jQuery(document).ready(function($){
   <% @albums.each do |album| %>
     <div class="album">
       <a class="link" href="<%= album_path(album) %>">
-	    <% if album.images.empty? %>
-	      <img  class="thumb" src="/assets/images/thumbs/<%= album.cover %>"/>
-	    <% else %>
-	      <img  class="thumb" src="<%= album.images[0].multi_purpose_image.url(:small)%>"/>
-	    <% end %>
-		<span class="overlay"></span>
-		<span class="name"><%= album.name %></span>
-	  </a>
+        <% if album.images.empty? %>
+          <img  class="thumb" src="/assets/images/thumbs/<%= album.cover %>"/>
+        <% else %>
+          <img  class="thumb" src="<%= album.images[0].multi_purpose_image.url(:small)%>"/>
+        <% end %>
+        <span class="overlay"></span>
+        <span class="name"><%= album.name %></span>
+      </a>
       <% if permitted_to? :as_manage, :admin_users %>
         <a class="edit-link" href="<%= edit_admin_album_path(album) %>">
           <%= t('gallery.edit') %>
         </a>
       <% end %>
-	</div>
+    </div>
   <% end %>
 </div>	
 

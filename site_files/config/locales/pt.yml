@@ -253,10 +253,15 @@ pt:
         create: "Criar Album"
         show_link: "Ver"
         update_link: "Editar"
+        destroy_link: "Apagar"
         destroy: "Apagar"
       columns:
         name: "Nome"
-        created_at: "Criado em"    
+        created_at: "Criado em"   
+      list:
+        found:
+          more: "%{count} Albums Encontrados"
+          one: "%{count} Album Encontrado"
    
     navigation:
       main:
