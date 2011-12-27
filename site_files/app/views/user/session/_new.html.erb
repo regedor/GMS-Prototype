@@ -1,48 +1,44 @@
 <h2 class="title"><%= t('user_session.new.title') %></h2>
 
-<%# render :partial => 'shared/form_side_notes' %>
-
-<div class="form_with_notes">
-  <% semantic_form_for @user_session, :url => user_session_path do |f| %>
-      <% if @user_session.openid_identifier.blank? -%>
-        <% f.inputs :name => t('user_session.new.form_inputs_name') do %>
-          <%= f.input :email, :label => I18n::t('user_session.new.email'),
-                      :required => false %>
-          <%= f.input :password, :label => I18n::t('user_session.new.password'),
-                      :required => false %>
-          <%= f.input :remember_me, :label => I18n::t('user_session.new.remember_me'),
-                      :as => :boolean, :required => false %>
-        <% end %>
-      <% else %>
-        <% f.inputs :name => (@user_session.openid_identifier.blank? ? t('user_session.new.form_openid_inputs_name'): "") do %>
-          <%= f.input :openid_identifier, :label => t('user_session.new.openid'),
-                      :required => false %>
-        <% end %>
+<% semantic_form_for @user_session, :url => user_session_path do |f| %>
+    <% if @user_session.openid_identifier.blank? -%>
+      <% f.inputs :name => t('user_session.new.form_inputs_name') do %>
+        <%= f.input :email, :label => I18n::t('user_session.new.email'),
+                    :required => false %>
+        <%= f.input :password, :label => I18n::t('user_session.new.password'),
+                    :required => false %>
+        <%= f.input :remember_me, :label => I18n::t('user_session.new.remember_me'),
+                    :as => :boolean, :required => false %>
       <% end %>
-
-      <% f.buttons do %>
-        <%= f.commit_button t('user_session.new.commit_button'),
-                            :button_html => { :class => 'button positive' } %>
-        <%= f.button_link   t('user_session.new.forgot_pass'), new_user_password_reset_path,
-                            :button_html => { :class => 'button negative' } %>
-        <%= f.button_link   t('user_session.new.new_account'), new_user_account_path,
-                            :button_html => { :class => 'button positive' } %>
+    <% else %>
+      <% f.inputs :name => (@user_session.openid_identifier.blank? ? t('user_session.new.form_openid_inputs_name'): "") do %>
+        <%= f.input :openid_identifier, :label => t('user_session.new.openid'),
+                    :required => false %>
       <% end %>
+    <% end %>
 
-     <div id="open-id">
-       <span><%= t('user_session.new.form_openid_inputs_name') %></span>
-       <ul>
-         <li class="commit">
-           <%= link_to t('user_session.new.form_side_notes.google_signin'),
-               '/user/session?user_session%5Bopenid_identifier%5D=https://www.google.com/accounts/o8/id',
-               :class => 'button positive google_ico', :method => 'post' %>
-         </li>
-         <li class="commit">
-           <%= link_to t('user_session.new.form_side_notes.yahoo_signin'),
-               '/user/session?user_session%5Bopenid_identifier%5D=https://www.yahoo.com',
-               :class => 'button positive yahoo_ico', :method => 'post' %>
-         </li>
-       </ul>
-     </div>
-  <% end %>
-</div>
+    <% f.buttons do %>
+      <%= f.commit_button t('user_session.new.commit_button'),
+                          :button_html => { :class => 'button positive' } %>
+      <%= f.button_link   t('user_session.new.forgot_pass'), new_user_password_reset_path,
+                          :button_html => { :class => 'button negative' } %>
+      <%= f.button_link   t('user_session.new.new_account'), new_user_account_path,
+                          :button_html => { :class => 'button positive' } %>
+    <% end %>
+
+   <div id="open-id">
+     <span><%= t('user_session.new.form_openid_inputs_name') %></span>
+     <ul>
+       <li class="commit">
+         <%= link_to t('user_session.new.form_side_notes.google_signin'),
+             '/user/session?user_session%5Bopenid_identifier%5D=https://www.google.com/accounts/o8/id',
+             :class => 'button positive google_ico', :method => 'post' %>
+       </li>
+       <li class="commit">
+         <%= link_to t('user_session.new.form_side_notes.yahoo_signin'),
+             '/user/session?user_session%5Bopenid_identifier%5D=https://www.yahoo.com',
+             :class => 'button positive yahoo_ico', :method => 'post' %>
+       </li>
+     </ul>
+   </div>
+<% end %>

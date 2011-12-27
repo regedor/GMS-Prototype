@@ -2,36 +2,45 @@
 
 <h2 class="title"><%= t('users.new.title') %></h2>
 
-<%# render :partial => 'shared/form_side_notes' %>
-
-<div class="form_with_notes">
-  <% semantic_form_for @user, :url => user_account_path do |f| %>
-    <% if @user.openid_identifier.blank? -%>
-      <% f.inputs :name => t('users.new.form_inputs_name') do %>
-        <%= f.input :email, :label => t('users.form.email') %>
-        <%= f.input :password, :label => t('users.form.password') %>
-        <%= f.input :password_confirmation, 
-                    :label => t('users.form.password_confirmation') %>
-        <%= f.input :language, :as => :select, :label => t('users.form.language'), 
-                    :collection => select_language_collection unless configatron.force_locale %>
-      <% end %>
-      <% f.inputs :name => t('user_session.new.form_openid_inputs_name') do %>
-        <%= f.input :openid_identifier, :label => t('users.new.openid'),
-                    :required => false %>
-      <% end %>
-    <% else -%>
-      <% f.inputs :name => t('users.new.form_openid_inputs_name') do %>
-        <%= f.input :email, :label => t('users.form.email') %>
-        <%= f.input :openid_identifier, :label => t('users.new.openid') %>
-        <%= f.input :language, :as => :select, :label => t('users.form.language'), 
-                    :collection => select_language_collection unless configatron.force_locale %>
-      <% end %>
-    <% end -%>
-    <% f.buttons do %>
-      <%= f.commit_button :label => t('users.new.commit_button'),
-                          :button_html => { :class => 'button positive' } %>
+<% semantic_form_for @user, :url => user_account_path do |f| %>
+  <% if @user.openid_identifier.blank? -%>
+    <% f.inputs :name => t('users.new.form_inputs_name') do %>
+      <%= f.input :email, :label => t('users.form.email') %>
+      <%= f.input :password, :label => t('users.form.password') %>
+      <%= f.input :password_confirmation, 
+                  :label => t('users.form.password_confirmation') %>
+      <%= f.input :language, :as => :select, :label => t('users.form.language'), 
+                  :collection => select_language_collection unless configatron.force_locale %>
     <% end %>
+  <% else -%>
+    <% f.inputs :name => t('users.new.form_openid_inputs_name') do %>
+      <%= f.input :email, :label => t('users.form.email') %>
+      <%= f.input :openid_identifier, :label => t('users.new.openid') %>
+      <%= f.input :language, :as => :select, :label => t('users.form.language'), 
+                  :collection => select_language_collection unless configatron.force_locale %>
+    <% end %>
+  <% end -%>
+
+  <% f.buttons do %>
+    <%= f.commit_button :label => t('users.new.commit_button'),
+                        :button_html => { :class => 'button positive' } %>
   <% end %>
-</div>
+
+  <div id="open-id">
+    <span><%= t('user_session.new.form_openid_inputs_name') %></span>
+    <ul>
+      <li class="commit">
+        <%= link_to t('user_session.new.form_side_notes.google_signin'),
+            '/user/session?user_session%5Bopenid_identifier%5D=https://www.google.com/accounts/o8/id',
+            :class => 'button positive google_ico', :method => 'post' %>
+      </li>
+      <li class="commit">
+        <%= link_to t('user_session.new.form_side_notes.yahoo_signin'),
+            '/user/session?user_session%5Bopenid_identifier%5D=https://www.yahoo.com',
+            :class => 'button positive yahoo_ico', :method => 'post' %>
+      </li>
+    </ul>
+  </div>
+<% end %>
 
 <%= '<script>jQuery("#new_user").submit();</script>' if @auto_submit %>
