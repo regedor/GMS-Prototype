@@ -12,23 +12,21 @@ jQuery(document).ready(function($){
   <% semantic_form_for :image,
                        :url => admin_images_path,
                        :method => :post,
-                        :html => {
-                          :class => 'create upload',
-                          :multipart => true
-                        } do |form| %>
+                       :html => { :class => 'create upload', :multipart => true } do |form| %>
+
     <div class="fileupload-buttonbar">
-        <%= form.input :multi_purpose_image,
-                       :required => false,
-                       :as       => :file,
-                       :label    => t('gallery.form.image'),
-                       :input_html => {:multiple => ""} %>
-      
+      <%= form.input :multi_purpose_image,
+                     :required => false,
+                     :as       => :file,
+                     :label    => t('gallery.form.image'),
+                     :input_html => { :multiple => "" } %>
+
       <% form.buttons do -%>
         <%= form.commit_button t('gallery.form.add_button'),
                                :button_html => { :class => 'button positive start' } %>
         <%= form.button_link   t('gallery.form.delete_button'), admin_albums_path,
                                :button_html => { :class => 'button negative delete' } %>
-        <input type="checkbox" class="toggle">
+        <input type="checkbox" class="toggle" />
       <% end -%>
     </div>
   
@@ -39,6 +37,7 @@ jQuery(document).ready(function($){
       <div class="fileupload-progressbar"></div>
   </div>
 </div>
+
 
 <script id="template-upload" type="text/x-jquery-tmpl">
     <tr class="template-upload{{if error}} ui-state-error{{/if}}">

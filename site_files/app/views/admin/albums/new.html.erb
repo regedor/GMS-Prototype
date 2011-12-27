@@ -42,30 +42,28 @@ jQuery(document).ready(function($){
                              "jquery.iframe-transport", 
                              "jquery.xdr-transport",
                              "jquery.image-gallery" %>
-  <%= stylesheet_link_tag 'jquery.fileupload-ui',
-                          'jquery.image-gallery' %>
 <% end %>
 
 
-<div class="inner">
-  <h2><%= t('gallery.form.new') %></h2>
-  <% semantic_form_for :album, @album,
-                       :url => admin_albums_path,
-                       :method => :post,
-                       :html => { 
-	                     :class => 'create', 
-	                     :id => 'new_album', 
-	                   } do |form| -%>
-
-    <%= render :partial => 'form', :locals => { :form => form } %>
-
-    <% form.buttons do -%>
-      <%= form.commit_button I18n::t('gallery.form.create_button'),
-                             :button_html => { :class => 'button positive' } %>
-      <%= form.button_link   I18n::t('gallery.form.cancel_button'), admin_albums_path,
-                             :button_html => { :class => 'button negative' } %>
+<div class="content">
+  <div class="inner">
+    <h2><%= t('gallery.form.new') %></h2>
+  
+    <% semantic_form_for :album, @album,
+                         :url => admin_albums_path,
+                         :method => :post,
+                         :html => { :class => 'create', :id => 'new_album' } do |form| -%>
+  
+      <%= render :partial => 'form', :locals => { :form => form } %>
+  
+      <% form.buttons do -%>
+        <%= form.commit_button I18n::t('gallery.form.create_button'),
+                               :button_html => { :class => 'button positive' } %>
+        <%= form.button_link   I18n::t('gallery.form.cancel_button'), admin_albums_path,
+                               :button_html => { :class => 'button negative' } %>
+      <% end -%>
     <% end -%>
-  <% end -%>
-
-  <%= render :partial => 'images_form' %>
+  
+    <%= render :partial => 'images_form' %>
+  </div>
 </div>
