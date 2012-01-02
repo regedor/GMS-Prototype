@@ -4,6 +4,8 @@ class Admin::SettingsController < Admin::BaseController
   before_filter :create_options_hash
   
   def index
+    @setting = Setting.find_by_identifier "frontend_navigation"  
+    render :edit
     #render :inline => @editor.render, :layout => true
   end
   
@@ -13,12 +15,23 @@ class Admin::SettingsController < Admin::BaseController
     redirect_to root_url
   end
   
+  def edit
+    @setting = Setting.find_by_identifier "frontend_navigation"
+  end
+  
   def update
-    @editor.update_attributes params
-    @editor.save
-    flash[:notice]=t("flash.changes_saved_successful_with_delay")
+    #@editor.update_attributes params
+    #@editor.save
+    #flash[:notice]=t("flash.changes_saved_successful_with_delay")
+    #
+    #redirect_to :action=> "index"
     
-    redirect_to :action=> "index"
+    setting = Setting.find params[:id]
+    setting.update_attributes params[:setting]
+    
+    setting.save
+    
+    redirect_to root_url
   end
   
   private

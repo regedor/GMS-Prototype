@@ -1183,7 +1183,7 @@ pt:
       successfully: "Actualizado %{name}"
       error: "Falha ao actualizar o post"            
     postCreated:
-      successfully: "Criado %{nome}"
+      successfully: "Criado %{name}"
       error: "Falha ao criar o post"
     to_do_comment_body: "O comentário não pode estar vazio" 
     file_size_5mb: "O tamanho do ficheiro deve ser menor que 5 Megabytes"
