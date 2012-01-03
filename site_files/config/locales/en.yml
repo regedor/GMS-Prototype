@@ -1192,7 +1192,7 @@ en:
   notifier: 
     to_do_comment:
       link: "online"
-      body: "%{sender} commented on the to-do %{description} from the to-do list %{list}.\n\nThe content of the comment was the following\:\n%{comment}\n\nGo check it out %{comment_link}."
+      body: "%{sender} commented on the to-do %{description} from the to-do list %{list}.\n\nThe content of the comment was the following:\n%{comment}\n\nGo check it out %{comment_link}."
     to_do_notification: 
       new_todo_subject: "New To-Do"
       update_todo_subject: "To-Do update"
