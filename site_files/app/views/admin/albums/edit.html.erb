@@ -52,10 +52,10 @@ jQuery(document).ready(function($){
     <h2><%= t('gallery.form.new') %></h2>
     <% semantic_form_for :album, @album,
                          :url => admin_album_path(@album),
-                         :method => :put,
-                         :html => { 
+                         :html => {
+                           :method => :put,
                            :class => 'edit', 
-                           :id => 'edit_album', 
+                           :id => 'edit_album' 
                          } do |form| -%>
 
       <%= render :partial => 'form', :locals => { :form => form } %>
