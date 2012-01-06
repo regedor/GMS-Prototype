@@ -27,7 +27,7 @@
                     'utils']
 
      # This comes from the instance specific application layout
-     if clocks
+     if (defined? clocks) && clocks
        javascripts << 'coolclock'
        javascripts << 'initializers/clocks'
      end
@@ -37,7 +37,7 @@
  %>
 
   <%= javascript_include_tag javascripts, :cache => 'cache/frontend' %>
-  <% if clocks %>
+  <% if (defined? clocks) &&  clocks %>
     <!--[if IE]><script type="text/javascript" src="excanvas.js"></script><![endif]-->
   <% end %>
 

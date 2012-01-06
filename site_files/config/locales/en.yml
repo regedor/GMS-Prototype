@@ -1190,7 +1190,8 @@ en:
     album_not_created: "Failed to create album"
     newsletter:
       mail_not_sent: "Could not complete your request, please try again"
-      
+      invalid_mail_or_name: "The email or username you entered is invalid"
+      will_be_notified: "Thanks for subscribing!"
   
   notifier: 
     to_do_comment:

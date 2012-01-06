@@ -11,8 +11,9 @@ class Newsletter
   def valid_email?
     begin
       TMail::Address.parse(self.email)
-      return true
-    rescue TMail::SyntaxError
+      return true if self.email =~ /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/
+      return false
+    rescue
       return false
     end
   end
