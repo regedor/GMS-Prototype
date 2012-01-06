@@ -1,8 +1,6 @@
 --- 
 production: &local
   theme: nemum
-  addthis_pubid: ra-4db0c700008daeed
-  addthis_pubid: ra-4db0c70d4e7542c2
   announcement_size: "730x250#"
   default_locale: en
   force_locale: "true"
