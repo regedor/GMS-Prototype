@@ -16,19 +16,30 @@
                              'fancybox/jquery.fancybox-1.3.4',
                              "/stylesheets/frontend", :cache => 'cache/frontend' %>
 
-  <%= javascript_include_tag 'strutil',
-                             'jquery',
-                             'jquery-ui.min',
-                             'jquery.tmpl.min',
-                             'jquery.easing-1.3.pack',
-                             'jquery.fancybox-1.3.4',
-                             'jquery.mousewheel-3.0.4.pack',
-                             'coolclock',
-                             'moreskins',
-                             'announcements',
-                             'utils',
-                             'application', :cache => 'cache/frontend' %>
-  <!--[if IE]><script type="text/javascript" src="excanvas.js"></script><![endif]-->
+  <% javascripts = ['strutil',
+                    'jquery',
+                    'jquery-ui.min',
+                    'jquery.tmpl.min',
+                    'jquery.easing-1.3.pack',
+                    'jquery.fancybox-1.3.4',
+                    'jquery.mousewheel-3.0.4.pack',
+                    'announcements',
+                    'utils']
+
+     # This comes from the instance specific application layout
+     if clocks
+       javascripts << 'coolclock'
+       javascripts << 'initializers/clocks'
+     end
+
+     javascripts << 'application'
+
+ %>
+
+  <%= javascript_include_tag javascripts, :cache => 'cache/frontend' %>
+  <% if clocks %>
+    <!--[if IE]><script type="text/javascript" src="excanvas.js"></script><![endif]-->
+  <% end %>
 
   <%= yield :head %>
 </head>
