@@ -7,7 +7,7 @@ jQuery.noConflict();
 
 jQuery(document).ready(function($) {
 
-	var isAdmin = (document.location.href.split("/")[2] === "admin") ? true : false
+	var isAdmin = (document.location.href.split("/")[3] === "admin") ? true : false
 
 	if(!isAdmin)
 	{
