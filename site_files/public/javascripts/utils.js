@@ -120,20 +120,3 @@ jQuery.fn.renderFlashFrontend = function(status,text){
     
     $("#flash").hide().toggle("fade", {}, 2500).delay(4000).toggle("slide", { direction: "down" }, 1500);
 }
-
-
-// Open external links in a new tab
-jQuery(document).ready(function($) {
-  $("a").click(function() {
-    link_host = this.href.split("/")[2];
-    document_host = document.location.href.split("/")[2];
-
-    if(this.href === "javascript:;")
-      return false;
-
-    if (link_host != document_host || this.href.split("/")[3] == "textile_help.html") {
-      window.open(this.href);
-      return false;
-    }
-  });
-});
