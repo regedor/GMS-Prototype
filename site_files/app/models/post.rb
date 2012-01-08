@@ -36,6 +36,7 @@ class Post < ActiveRecord::Base
     :conditions => (user.nil?) ? {"posts.group_id",[0]} : {"posts.group_id",user.group_ids+[0]}
     }
   }
+  named_scope :search, lambda { |search_string| { :conditions => ["title LIKE ? or body like ?", "%#{search_string}%", "%#{search_string}%"]}}
 
   has_attached_file :image, :styles => { :image => "250x250", :thumb => "50x50" }
   has_attached_file :generic
@@ -179,21 +180,25 @@ class Post < ActiveRecord::Base
     end
 
     # Paginates posts that contain the argument tag names
-    def paginate_with_tag_names(user,tags, page = 1)
+    def paginate_with_tag_names(search_string, user,tags, page = 1)
       tag_ids = Tag.all :select => "id",
         :conditions => { :name => tags }
-      paginate_with_tag_ids(user,tag_ids, page)
+      paginate_with_tag_ids(search_string, user,tag_ids, page)
     end
 
     # Paginates posts that contain the argument tag ids
-    def paginate_with_tag_ids(user,tags, page = 1)
+    def paginate_with_tag_ids(search_string, user,tags, page = 1)
       options =  { :page       => page,
                    :per_page   => DEFAULT_LIMIT,
                    :order      => 'posts.published_at DESC',
                    :conditions => ['published_at < ?', Time.zone.now] }
       options.merge! tags_filter(tags)
         
-      Post.viewable_only(user).paginate options
+      if search_string.blank?
+        Post.viewable_only(user).paginate options
+      else
+        Post.viewable_only(user).search(search_string).paginate options
+      end
     end
 
     # Generates an option hash that only retrieves posts with the argument tags
