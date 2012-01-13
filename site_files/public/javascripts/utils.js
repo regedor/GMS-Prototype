@@ -76,44 +76,42 @@ function asyncTranslate(path,cb,pairs){
 		return jQuery.get("/api/i18n",{"path":path,"pairs":pairs},cb,"text");
 }
 
-jQuery.fn.float_bar = function(top){
+jQuery.fn.float_bar = function() {
   var element = $(this);
   var tag_cloud_offset = $(this).offset();
 
-  $(window).scroll(function(e){ 
+  $(window).scroll(function(e) {
 
     var main_offset = $("div#main").offset();
 
-    if ($(this).scrollTop() > 455){
-      element.css({'position': 'fixed', 'top': element.scrollTop() + 30, 'left': (tag_cloud_offset.left - 20), 'width': '17.3%'});
+    if ($(this).scrollTop() > 400) {
+      element.css({'position': 'fixed', 'top': element.scrollTop() + 20, 'left': tag_cloud_offset.left });
     }
-    else if ($(this).scrollTop() <= 455){
-      element.css({'position': 'absolute', 'top': '295px', 'left': (tag_cloud_offset.left - main_offset.left - 23), 'width': '22%'});
+    else if ($(this).scrollTop() <= 400) {
+      element.css({'position': 'absolute', 'top': '245px', 'left': (tag_cloud_offset.left - main_offset.left + 20) });
     }
-    
   });
 }
 
-jQuery.fn.float_bar_nemum = function(top){
+jQuery.fn.float_bar_nemum = function(top) {
   var element = $(this);
   var navigation_offset = $(this).offset();
 
-  $(window).scroll(function(){ 
+  $(window).scroll(function() {
 
-    if ($(this).scrollTop() > 240 && element.css('position') != 'fixed'){ 
-      element.css({'position': 'fixed', 'top': top}); 
+    if ($(this).scrollTop() > 240 && element.css('position') != 'fixed') {
+      element.css({'position': 'fixed', 'top': top});
     }
-    else if ($(this).scrollTop() <= 240){ 
+    else if ($(this).scrollTop() <= 240){
       element.css({'position': 'relative', 'top': '0px'});
     }
-
-  });  
-};
+  });
+}
 
 jQuery.fn.renderFlash = function(path,status,pairs){
 	var renderedObject = this;
 	asyncTranslate(path,function(data){renderedObject.html("<div class=\"message "+status+"\"><p>"+data+"</p></div>");},pairs);
-}; 
+}
 
 jQuery.fn.renderFlashFrontend = function(status,text){
     $(this).prepend("<div id=\"flash\"><div class=\"message "+status+"\"><p>"+text+"</p> </div></div>");
