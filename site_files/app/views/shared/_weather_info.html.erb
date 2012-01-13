@@ -1,5 +1,6 @@
 <div id="weather">
   <h2 class="title"><%= t('weather_info.title')%></h2>
+
   <div id="weather-info">
     <% weather_info_left  = Nokogiri::XML(open("http://weather.yahooapis.com/forecastrss?w=#{left_location_code}&u=c")) %>
     <% weather_info_right = Nokogiri::XML(open("http://weather.yahooapis.com/forecastrss?w=#{right_location_code}&u=c")) %>
