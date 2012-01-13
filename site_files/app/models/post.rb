@@ -193,7 +193,7 @@ class Post < ActiveRecord::Base
                    :order      => 'posts.published_at DESC',
                    :conditions => ['published_at < ?', Time.zone.now] }
       options.merge! tags_filter(tags)
-        
+
       if search_string.blank?
         Post.viewable_only(user).paginate options
       else

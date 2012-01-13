@@ -102,7 +102,10 @@ ActionController::Routing::Routes.draw do |map|
       project.resources :messages_comment, :collection => {:create => :post} 
     end
     
-    admin.resources :albums,             :active_scaffold => true, :active_scaffold_sortable => true, :has_many => :images
+    admin.resources :albums,             :active_scaffold => true, 
+                                         :active_scaffold_sortable => true, 
+                                         :has_many => :images,
+                                         :member => { :all_images => :get }
     admin.resources :images
   end
 
