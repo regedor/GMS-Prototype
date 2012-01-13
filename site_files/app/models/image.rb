@@ -1,5 +1,6 @@
 class Image < ActiveRecord::Base
   
+  include ActionController::UrlWriter
   #attr_accessible :multi_purpose_image
   
   belongs_to :album
@@ -10,6 +11,16 @@ class Image < ActiveRecord::Base
   
   validates_attachment_presence :multi_purpose_image
   validates_attachment_size :multi_purpose_image, :less_than => 5.megabytes
+  
+  def templatify
+    {
+      :url => self.multi_purpose_image.url.to_s,
+      :thumbnail_url => self.multi_purpose_image.url(:thumb).to_s,
+      :name => self.multi_purpose_image.instance.attributes["multi_purpose_image_file_name"],
+      :delete_url => admin_image_path(self),
+      :delete_type => "DELETE"
+    }
+  end
   
   class << self
     

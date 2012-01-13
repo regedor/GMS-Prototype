@@ -1,6 +1,16 @@
 <script>
 jQuery(document).ready(function($){
 
+  $.getJSON(window.location.href.replace(/\#.*/,"").replace("edit","all_images"), 
+    function (files){
+       var fu = $('#fileupload').data('fileupload'),template;
+       template = fu._renderDownload(files).appendTo($('#fileupload .files'));
+       // Force reflow:
+       fu._reflow = fu._transition && template.length &&template[0].offsetWidth;
+       template.addClass('in');
+       template.show();
+   });
+
     $("#album_submit").click(function getAlbumImages(){
         if($(".files tr").size() > $(".files .template-download").size())
         {
@@ -63,10 +73,12 @@ jQuery(document).ready(function($){
 
     <%= render :partial => 'images_form' %>
 
-    <%= link_to  t('gallery.form.create_button'), "#", 
-                 :id => "album_submit", 
-                 :class => 'button positive'%>
-    <%= link_to  t('gallery.form.cancel_button'), admin_albums_path, 
-                 :class => 'button negative'%>
+    <ul class="buttons">
+      <%= link_to  t('gallery.form.edit_button'), "#", 
+                   :id => "album_submit", 
+                   :class => 'button positive'%>
+      <%= link_to  t('gallery.form.cancel_button'), admin_albums_path, 
+                   :class => 'button negative'%>
+    </ul>
   </div>
 </div>

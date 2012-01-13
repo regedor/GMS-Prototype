@@ -46,4 +46,9 @@ class Admin::AlbumsController < Admin::BaseController
       render :json => { :saved => false ,:text  => t("flash.album_not_created", :name => @album.name)}
     end
   end
+  
+  def all_images
+    @album = Album.find params[:id]
+    render :json  => @album.images.map { |image| image.templatify }
+  end
 end
