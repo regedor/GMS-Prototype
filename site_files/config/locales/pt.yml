@@ -18,6 +18,11 @@ pt:
     about: "Sobre"
     administration: "Administração"
 
+  clocks:
+    title: "Relógios"
+    lisbon: "Lisboa"
+    paris: "Paris"
+
   event_calendar:
     title: "Calendário"
     day_with_events_title: "Eventos no dia %{day}:"
@@ -286,7 +291,7 @@ pt:
         messages: "Mensagens"
         to_do_comments: "Comentários"
         events: "Eventos"
-        gallery: "Galeria de Álbuns"
+        gallery: "Galeria de Imagens"
     
     to_do_list:
       sidebar:
