@@ -33,6 +33,18 @@ class Notifier < ActionMailer::Base
     @body[:message] = mail.message  
   end
   
+  def newsletter_notification(newsletter)
+    @recipients  = configatron.newsletter_email
+    @from        = configatron.mailer_email
+    @subject     = "[#{configatron.site_name}] "
+    @sent_on     = Time.now
+    I18n.locale  = 'en'
+    
+    @subject += I18n.translate 'notifier.newsletter.subject'
+    @body[:subscriber_name] = newsletter.name
+    @body[:subscriber_email] = newsletter.email
+  end
+  
   def new_to_do_comment_notification(user,mail)
     setup_email(user)
     @subject += mail.subject

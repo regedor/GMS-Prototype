@@ -2,7 +2,6 @@
   <%= posts_title(@tags) %>
 <% end -%>
 
-
 <% content_for :head do %>
   <%= auto_discovery_link_tag(:atom, @tags.nil? ? posts_path(:format => 'atom') : posts_path(:tags => @tags, :format => 'atom')) %>
 <% end %>

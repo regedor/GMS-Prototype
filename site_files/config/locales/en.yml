@@ -1188,6 +1188,10 @@ en:
     image_content_type: "Image must be a jpeg or png"
     album_created: "Created %{name}"
     album_not_created: "Failed to create album"
+    newsletter:
+      mail_not_sent: "Could not complete your request, please try again"
+      invalid_mail_or_name: "The email or username you entered is invalid"
+      will_be_notified: "Thanks for subscribing!"
   
   notifier: 
     to_do_comment:
@@ -1226,6 +1230,10 @@ en:
       success: "Action \"%{action}\" performed with success."
       failure: "An error occurred while performing action \"%{action}\"."
       no_selection: "You must select at least one item from the table to execute an action."
+    
+    newsletter:
+      subject: " New newsletter subscription"
+      body: "%{subscriber_name} wishes to receive your newsletter at the e-mail %{subscriber_email}\n"
 
   footer:
     last_session_paragraph: "Your last login was %{time_ago} ago, your IP was %{ip}."
