@@ -10,7 +10,8 @@
 
 <% content_for :tag_cloud do %>
   <div id="tag-cloud">
-    <h2 class="title"><%= I18n::t('posts.tags.title') %></h2>
+    <h2 class="title"><%= t('posts.tags.title') %></h2>
+
     <% tag_cloud @tags_for_cloud, ['nube1', 'nube2', 'nube3', 'nube4', 'nube5'] do |name, css_class| %>
       <% classes = (@tags && (@tags.include? name)) ? (css_class + ' selected') : css_class %>
       <%= link_to name, posts_path(:tags => @tags, :this_tag => name), :class => classes %>
@@ -18,18 +19,6 @@
   </div>
 <% end %>
 
-
-<% content_for :tag_menu do %>
-  <div id="tag-menu">
-    <h2 class="title"><%= I18n::t('posts.tag_menu.title') %></h2>
-    <ul>
-      <% tag_cloud @tags_for_cloud, ['category'] do |name, css_class| %>
-        <% classes = (@tags && (@tags.include? name)) ? (css_class + ' selected') : css_class %>
-        <li><%= link_to name, posts_path(:tags => @tags, :this_tag => name), :class => classes %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
 
 <div id="posts">
   <% if @tags %>
@@ -49,10 +38,11 @@
       </div>
     <% end -%>
   <% end -%>
+
   <%= will_paginate(@posts, :previous_label => t('posts.pagination.previous'),
                             :next_label     => t('posts.pagination.next')) %>
 </div>
 
 <div id="archives">
-  <%= link_to(I18n::t('posts.archive'), archives_path) %>
+  <%= link_to(t('posts.archive'), archives_path) %>
 </div>
