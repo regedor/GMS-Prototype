@@ -307,6 +307,7 @@ pt:
         link: "<img src='/images/icons/bin_closed.png' alt='Remove' />"
       edit:
         link: "<img src='/images/icons/pencil.png' alt='Edit' />"
+        edit_button: "Editar"
       empty: "Não existem listas de tarefas"    
     
     to_do:
@@ -1164,6 +1165,8 @@ pt:
     project_not_deleted: "Não foi possível apagar %{project}"
     to_do_list_created: "Lista de tarefas %{name} criada"
     to_do_list_not_created: "Não foi possível criar lista de tarefas"
+    to_do_list_updated: "Lista de tarefas %{name} alterada"
+    to_do_list_not_updated: "Não foi possível alterar a lista de tarefas"
     eventCreated:
       successfully: "Evento %{name} criado com sucesso"
       error: "Ocorreu um erro enquanto se criava o evento"
@@ -1430,6 +1433,13 @@ pt:
           other:  "%{count} erros impediram que este %{model} fosse guardado"
         # The variable :count is also available
         body: "Houve problemas com os seguintes campos:"
+      models:
+          user:
+            attributes:
+              password:
+                confirmation: "A password é diferente da confirmação"
+              password_confirmation:
+                too_short: "Demasiado pequeno"
     messages:
       inclusion: "não está incluido na lista"
       exclusion: "é reservado"

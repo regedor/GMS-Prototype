@@ -302,6 +302,7 @@ en:
         link: "<img src='/images/icons/bin_closed.png' alt='Remove' />"
       edit:
         link: "<img src='/images/icons/pencil.png' alt='Edit' />"
+        edit_button: "Update"
       empty: "There are no To-Do lists"    
     
     to_do:
@@ -1159,6 +1160,8 @@ en:
     project_not_deleted: "Could not delete %{project}"
     to_do_list_created: "To-Do list %{name} created"
     to_do_list_not_created: "Could not create to-do list"
+    to_do_list_created: "To-Do list %{name} updated"
+    to_do_list_not_created: "Could not update to-do list"
     eventCreated:
       successfully: "Event %{name} created successfully"
       error: "There was an error while creating the event"
@@ -1438,6 +1441,13 @@ en:
           other:  "%{count} errors prohibited this %{model} from being saved"
         # The variable :count is also available
         body: "There were problems with the following fields:"
+      models:
+        user:
+          attributes:
+            password:
+              confirmation: "Password does not match the password confirmation"
+            password_confirmation:
+              too_short: "Too short"
     messages:
       inclusion: "is not included in the list"
       exclusion: "is reserved"

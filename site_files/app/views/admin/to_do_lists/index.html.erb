@@ -157,6 +157,8 @@ jQuery.fn.makeSortable = function(){
   }	
 
  jQuery.fn.deleteList = function(){
+	if(confirm("Are you sure you want to delete?"))
+	{
 		jQuery.ajax({
 	      type: 'DELETE',
 	      url: window.location.href.replace(/\#.*/,"")+"/"+$(this).attr("id").split("_")[1],
@@ -168,7 +170,7 @@ jQuery.fn.makeSortable = function(){
 		  		$("#list_"+r).remove();
 	      }
 	    });
-
+    }
 	return false;
   }
 	

@@ -1,7 +1,14 @@
 <div class="content">
   <div class="inner">
-    <% semantic_form_for @list, :url => admin_project_to_do_lists_path(params[:project_id]), :html => {:method => :put} do |f| %>
-      <%= render :partial => "admin/to_dos/form.html.erb", :layout => false %>
+    <% semantic_form_for @list, :url => admin_project_to_do_list_path(params[:project_id],@list), :html => {:method => :put} do |f| %>
+      <%= render :partial => "admin/to_do_lists/form.html.erb", :locals => {:f => f} %>
+
+      <% f.buttons do %>
+        <%= f.commit_button :label => t("admin.to_do_list.edit.edit_button"),
+                            :button_html => { :class => 'button positive' } %>
+        <%= f.button_link   t("admin.to_do_list.new.cancel_button"), admin_project_to_do_lists_path(params[:project_id]),
+                            :button_html => { :class => 'button negative' } %>
+      <% end %>
     <% end %>
   </div>
 </div>

@@ -5,6 +5,15 @@ jQuery(document).ready(function($){
   });
 
   $('#fileupload .files').imagegallery();
+
+  $('.delete-one-button').live('click',function(e){
+	if(!confirm("Are you sure you want to delete the image?"))
+	{
+		e.preventDefault();
+		e.cancelBubble = true;
+		return false;
+	}
+  });
 });
 </script>
 
@@ -97,7 +106,7 @@ jQuery(document).ready(function($){
             <td colspan="2"></td>
         {{/if}}
         <td class="delete">
-            <button data-type="${delete_type}" data-url="${delete_url}">Delete</button>
+            <button class="delete-one-button" data-type="${delete_type}" data-url="${delete_url}">Delete</button>
             <input class="delete-checkbox" type="checkbox" name="delete" value="1">
         </td>
     </tr>

@@ -18,7 +18,7 @@
   width: 128px;
   height: 128px;
   margin: -64px 0 0 -64px;
-  background: url(loading.gif);
+  background: url(images/loading.gif);
   z-index: 9999;
 }
 
