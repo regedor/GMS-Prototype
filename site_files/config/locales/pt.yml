@@ -624,6 +624,7 @@ pt:
         id_number: "Nº Identificação"
       sidebar:
         history:
+          actual: "Atual"
           title: "Reverter informações"
           paragraph: "Aqui pode reverter informações. Clique nas datas em baixo para ver como estava a respectiva informação nessa data. Clique em <b title=\"O link para reverter aparecerá quando clicar numa data anterior.\">\"Reverter\"</b> para completar o processo de reversão. <br/>A informação de grupo não será revertida. Para editar este utilizador por favor vá à <a href=\"%{url}\">página de edição</a>."
           paragraph_no_link: "Aqui pode reverter informações. Clique nas datas em baixo para ver como estava a respectiva informação nessa data. Clique em <b title=\"O link para reverter aparecerá quando clicar numa data anterior.\">\"Reverter\"</b> para completar o processo de reversão. <br/>A informação de grupo não será revertida. Para editar este utilizador por favor vá à página de edição."

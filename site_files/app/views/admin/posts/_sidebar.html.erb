@@ -50,8 +50,7 @@
         <% history_rows = ( @actual_record || @record ).history_entries_list -%>
         <% if (first_entry = history_rows.shift) -%>
           <li class="<%= 'selected' unless params[:history_entry_id] %>">
-            <%= link_to t("generic_sentence.time_ago", {:time_ago => time_ago_in_words(first_entry.created_at)}), 
-                        admin_post_path(first_entry.historicable) %>
+            <%= link_to t('admin.users.sidebar.history.actual'), admin_post_path(first_entry.historicable) %>
             <%= first_entry.user_name %>
           </li>
         <% end -%>

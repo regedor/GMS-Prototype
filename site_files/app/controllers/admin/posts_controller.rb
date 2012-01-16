@@ -43,8 +43,7 @@ class Admin::PostsController < Admin::BaseController
 
   def update
     @record = Post.find(params[:id])
-    @record.update_attributes params[:record]
-    if @record.save
+    if @record.update_attributes params[:record]
       flash[:notice] = t('flash.postUpdated.successfully', :name => @record.title)
       redirect_to admin_posts_path
     else

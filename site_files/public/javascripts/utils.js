@@ -1,4 +1,4 @@
-jQuery.noConflict();
+//jQuery.noConflict();
 $=jQuery;
 
 function remove_fields(link) {
@@ -94,6 +94,7 @@ jQuery.fn.float_bar = function() {
 }
 
 jQuery.fn.float_bar_nemum = function(top) {
+  $=jQuery;
   var element = $(this);
   var navigation_offset = $(this).offset();
 

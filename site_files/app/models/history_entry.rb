@@ -27,7 +27,7 @@ class HistoryEntry < ActiveRecord::Base
         def create_history_entry!
           return unless create_history_entry?
           message  =  self.to_label
-          message += "has been altered"
+          message += " has been altered"
           history_entry = HistoryEntry.create :historicable => self,
                                               :user_id      => (current_user && current_user.id or 1), 
                                               :message      => message,
@@ -36,7 +36,7 @@ class HistoryEntry < ActiveRecord::Base
 
         def create_first_history_entry!
           message  =  self.to_label
-          message += "has been altered"
+          message += " has been altered"
           history_entry = HistoryEntry.create :historicable => self,
                                               :user_id      => (current_user && current_user.id or 1), 
                                               :message      => message,

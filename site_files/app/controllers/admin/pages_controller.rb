@@ -46,8 +46,7 @@ class Admin::PagesController < Admin::BaseController
   
   def update
     @page = Page.find(params[:id])
-    @page.update_attributes params[:record]
-    if @page.save
+    if @page.update_attributes params[:record]
       flash[:notice] = t("flash.page_updated", :name => @page.title)
       redirect_to admin_pages_path
     else  

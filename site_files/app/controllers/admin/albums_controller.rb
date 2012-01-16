@@ -34,10 +34,9 @@ class Admin::AlbumsController < Admin::BaseController
 
   def update
     @album = Album.find params[:id]
-    @album.update_attributes params[:album]
     @album.image_ids = params[:images].split(",").map(&:to_i) if params[:images]
 
-    if @album.save
+    if @album.update_attributes params[:album]
       flash[:notice] = t("flash.album_created", :name => @album.name)
       render :json => { :saved => true, :url => albums_url }
     else

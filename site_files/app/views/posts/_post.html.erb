@@ -45,7 +45,7 @@
     <% unless post.tags.empty? -%>
       <li class="tags"><%= I18n::t('posts.meta.tags') + ' ' + linked_tag_list(post.tags) %></li>
     <% end -%>
-    <% if permitted_to? :as_manage, :admin_users %>
+    <% if post.id && permitted_to?(:as_manage, :admin_users) %>
       <li class="edit-link">
         <%= link_to(t('posts.meta.edit'), edit_admin_post_path(post)) %>
       </li>

@@ -21,16 +21,13 @@ class Admin::SettingsController < Admin::BaseController
   
   def update
     #@editor.update_attributes params
-    #@editor.save
     #flash[:notice]=t("flash.changes_saved_successful_with_delay")
     #
     #redirect_to :action=> "index"
     
     setting = Setting.find params[:id]
     setting.update_attributes params[:setting]
-    
-    setting.save
-    
+
     redirect_to root_url
   end
   

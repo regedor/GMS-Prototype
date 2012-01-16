@@ -50,8 +50,8 @@ class Admin::ToDoListsController < Admin::BaseController
   
   def update
     to_do_list = ToDoList.find params[:id]
-    to_do_list.update_attributes params[:to_do_list]
-    if to_do_list.save
+     
+    if to_do_list.update_attributes params[:to_do_list]
       flash[:notice] = t("flash.to_do_list_updated", :name => to_do_list.name)   
       redirect_to admin_project_to_do_lists_path(params[:project_id]) 
     else

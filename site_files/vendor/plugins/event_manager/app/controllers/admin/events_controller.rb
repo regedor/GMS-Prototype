@@ -61,10 +61,9 @@ class Admin::EventsController < Admin::BaseController
   def update
     activities = params[:record][:event_activities_attributes]
     params[:record].delete(:event_activities_attributes)
-    @record = Event.find params[:id]
-    @record.update_attributes params[:record]   
+    @record = Event.find params[:id]   
                
-    if @record.save
+    if @record.update_attributes params[:record]
       if activities
         activities.each do |k,value|
           if value.member? :id

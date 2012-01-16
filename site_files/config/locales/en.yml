@@ -619,6 +619,7 @@ en:
         id_number: "Identification Number"
       sidebar:
         history:
+          actual: "Actual"
           title: "Revert information"
           paragraph: "Here you can revert information. Click below on the dates to see user information on that date. Click on <b title=\"The revert link will appear when you click on a previous date.\">\"Revert\"</b> to complete the reversion process. <br/>The group information will not be reverted. To edit this user please proceed to the <a href=\"%{url}\">edit page</a>."
           paragraph_no_link: "Here you can revert information. Click below on the dates to see user information on that date. Click on <b title=\"The revert link will appear when you click on a previous date.\">\"Revert\"</b> to complete the reversion process. <br/>The group information will not be reverted. To edit this user please proceed to the edit page."
