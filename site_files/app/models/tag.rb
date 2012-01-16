@@ -56,11 +56,20 @@ class Tag < ActiveRecord::Base
                                            :order    => 'taggings_count DESC'
     end
 
-    def tags_for_cloud(tags)
-      tag_ids = tags ? (Tag.all :select => "id", :conditions => { :name => tags }) : []
-      Tag.all( tags_filter(tag_ids).merge :limit => 100,
-                                          :order => 'taggings_count DESC, name'
-             ).sort_by { |tag| tag.name.downcase }
+    def tags_for_menu(tags,limit)
+      if tags.nil? || tags.empty?
+        tag_ids = tags ? (Tag.all :select => "id", :conditions => { :name => tags }) : []
+        return Tag.all( tags_filter(tag_ids).merge :limit => limit,
+                                            :order => 'taggings_count DESC, name')
+      elsif tags.size == 1
+        tag_ids = tags ? (Tag.all :select => "id", :conditions => { :name => tags }) : []
+        secondary_result_set = Tag.all( tags_filter(tag_ids).merge :limit => limit+1,
+                                                 :order => 'taggings_count DESC, name')
+        primary_result_set = Tag.all( tags_filter([]).merge :limit => limit,
+                                            :order => 'taggings_count DESC, name')
+        primary = secondary_result_set.shift
+        return {:primary => primary.name, :primary_results => primary_result_set,:secondary_results => secondary_result_set}
+      end
     end
   
     def tags_filter(tags)

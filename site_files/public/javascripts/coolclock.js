@@ -54,8 +54,16 @@ CoolClock.config = {
 			minuteHand: { lineWidth: 10, startAt: -15, endAt: 85, color: "white", alpha: 1 },
 			secondHand: { lineWidth: 4, startAt: -20, endAt: 85, color: "red", alpha: 1 },
 			secondDecoration: { lineWidth: 2, startAt: 70, radius: 8, fillColor: "red", color: "red", alpha: 1 }
+		},
+ 		parisPortugues: {
+			outerBorder: { lineWidth: 3, radius:97, color: "black", alpha: 1 },
+			smallIndicator: { lineWidth: 4, startAt: 89, endAt: 93, color: "black", alpha: 1 },
+			largeIndicator: { lineWidth: 8, startAt: 80, endAt: 93, color: "#6F171B", alpha: 1 },
+			hourHand: { lineWidth: 12, startAt: -15, endAt: 60, color: "#99A846", alpha: 1 },
+			minuteHand: { lineWidth: 10, startAt: -15, endAt: 85, color: "#99A846", alpha: 1 },
+			secondHand: { lineWidth: 4, startAt: -20, endAt: 85, color: "red", alpha: 1 },
+			secondDecoration: { lineWidth: 2, startAt: 70, radius: 8, fillColor: "red", color: "red", alpha: 1 }
 		}
-
 	},
 
 	// Test for IE so we can nurse excanvas in a couple of places

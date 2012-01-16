@@ -4,7 +4,9 @@ class PostsController < ApplicationController
     @posts = Post.paginate_with_tag_names(params[:search],current_user,@tags, params[:page])
 
     respond_to do |format|
-      format.html { @tags_for_cloud = Tag.tags_for_cloud(@tags) }
+      format.html {
+         @tags_for_cloud = Tag.tags_for_menu(@tags,3) 
+      }
       format.atom { render :layout => false }
     end
   end
