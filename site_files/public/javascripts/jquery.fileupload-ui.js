@@ -19,7 +19,7 @@
     // a complete user interface based on the given upload/download
     // templates.
     $.widget('blueimpUI.fileupload', $.blueimp.fileupload, {
-        
+
         options: {
             // By default, files added to the widget are uploaded as soon
             // as the user clicks on the start buttons. To enable automatic
@@ -489,14 +489,19 @@
         _deleteHandler: function (e) {
             e.preventDefault();
             var button = $(this);
-            e.data.fileupload._trigger('destroy', e, {
-                context: button.closest('.template-download'),
-                url: button.attr('data-url'),
-                type: button.attr('data-type'),
-                dataType: e.data.fileupload.options.dataType
-            });
+            if(confirm("This will delete the file forever. Are you sure?"))
+            {
+                e.data.fileupload._trigger('destroy', e, {
+                    context: button.closest('.template-download'),
+                    url: button.attr('data-url'),
+                    type: button.attr('data-type'),
+                    dataType: e.data.fileupload.options.dataType
+                });
+            }
+            else
+                $(this).prop('checked',false);
             //Make toggle unchecked after multiple delete starts
-            $('.fileupload-buttonbar .toggle').prop('checked',false)
+            $('.fileupload-buttonbar .toggle').prop('checked',false);
         },
         
         _initEventHandlers: function () {
@@ -558,8 +563,12 @@
                 .button({icons: {primary: 'ui-icon-trash'}})
                 .bind('click.' + ns, function (e) {
                     e.preventDefault();
-                    filesList.find('.delete input:checked')
-                        .siblings('button').click();
+                    if(confirm("Are you sure you want to delete all the files?"))
+                    {
+                        filesList.find('.delete input:checked')
+                            .siblings('button').click();
+                       
+                    }
                 });
             fileUploadButtonBar.find('.toggle')
                 .bind('change.' + ns, function (e) {
