@@ -7,12 +7,11 @@
 <% end %>
 
 <% content_for :tag_menu do %>
-  <%= tag_cloud_widget @tags %>
+  <%= tag_menu_widget @tags %>
 <% end %>
 
 
 <div id="posts">
-  <%= tag_cloud_header @tags %>
   <% if @posts.empty? -%>
     <p><%= t('posts.none') %></p>
   <% else -%>

@@ -68,8 +68,8 @@ class Tag < ActiveRecord::Base
         tag_ids = tags ? (Tag.all :select => "id", :conditions => { :name => tags }) : []
         return Tag.all( tags_filter(tag_ids).merge :limit => limit,
                                             :order => 'taggings_count DESC, name')
-      elsif tags.size == 1
-        tag_ids = tags ? (Tag.all :select => "id", :conditions => { :name => tags }) : []
+      elsif tags.size >= 1
+        tag_ids = tags ? (Tag.all :select => "id", :conditions => { :name => tags[0] }) : []
         secondary_result_set = Tag.all( tags_filter(tag_ids).merge :limit => limit+1,
                                                  :order => 'taggings_count DESC, name')
         primary_result_set = Tag.all( tags_filter([]).merge :limit => limit,
