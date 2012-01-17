@@ -9,7 +9,7 @@ module TagHelper
   def add_or_remove_tag(old_array, new_tag)
     new_array = old_array.dup
     new_array << new_tag unless new_array.delete new_tag
-    return new_array
+    return new_array.sort!
   end
 
   # Duplicates array
