@@ -56,6 +56,13 @@ class Tag < ActiveRecord::Base
                                            :order    => 'taggings_count DESC'
     end
 
+    def tags_for_cloud(tags)
+      tag_ids = tags ? (Tag.all :select => "id", :conditions => { :name => tags }) : []
+      Tag.all( tags_filter(tag_ids).merge :limit => 100,
+                                          :order => 'taggings_count DESC, name'
+             ).sort_by { |tag| tag.name.downcase }
+    end
+
     def tags_for_menu(tags,limit)
       if tags.nil? || tags.empty?
         tag_ids = tags ? (Tag.all :select => "id", :conditions => { :name => tags }) : []

@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.html {
-         @tags_for_cloud = Tag.tags_for_menu(@tags,3) 
+         
       }
       format.atom { render :layout => false }
     end

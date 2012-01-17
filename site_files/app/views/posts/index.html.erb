@@ -6,13 +6,13 @@
   <%= auto_discovery_link_tag(:atom, @tags.nil? ? posts_path(:format => 'atom') : posts_path(:tags => @tags, :format => 'atom')) %>
 <% end %>
 
-
-<% content_for :tag_cloud do %>
-  
+<% content_for :tag_menu do %>
+  <%= tag_cloud_widget @tags %>
 <% end %>
 
 
 <div id="posts">
+  <%= tag_cloud_header @tags %>
   <% if @posts.empty? -%>
     <p><%= t('posts.none') %></p>
   <% else -%>

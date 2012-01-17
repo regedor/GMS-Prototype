@@ -1,0 +1,8 @@
+<div id="tag-cloud">
+  <h2 class="title"><%= t('posts.tags.title') %></h2>
+
+  <% tag_cloud tags_for_cloud, ['nube1', 'nube2', 'nube3', 'nube4', 'nube5'] do |name, css_class| %>
+    <% classes = (tags && (tags.include? name)) ? (css_class + ' selected') : css_class %>
+    <%= link_to name, posts_path(:tags => tags, :this_tag => name), :class => classes %>
+  <% end %>
+</div>
