@@ -21,8 +21,10 @@ module WidgetHelper
   
   # List of tags being used takes optional parameter to set cloud or menu
   def tag_header(tags,cloud=true)
-    tags = tags[0..1] unless cloud
-    render :partial => 'widgets/tag_cloud_header', 
-           :locals => {:tags => tags} if tags
+    if tags
+      tags = tags[0..1] unless cloud
+      render :partial => 'widgets/tag_cloud_header', 
+             :locals => {:tags => tags}
+    end
   end
 end
