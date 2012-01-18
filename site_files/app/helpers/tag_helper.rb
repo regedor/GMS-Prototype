@@ -6,10 +6,10 @@ module TagHelper
 
   # If the new tag belongs to the old array, the tag is removed.
   # Duplicates array
-  def add_or_remove_tag(old_array, new_tag)
+  def add_or_remove_tag(old_array, new_tag,sort=true)
     new_array = old_array.dup
     new_array << new_tag unless new_array.delete new_tag
-    return new_array.sort!
+    return sort ? new_array.sort! : new_array
   end
 
   # Duplicates array

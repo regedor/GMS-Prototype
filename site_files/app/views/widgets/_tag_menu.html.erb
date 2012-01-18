@@ -19,7 +19,7 @@
             <%= link_to tag.name, root_path, :class => classes %>
             <ul>
               <% tags_for_cloud[:secondary_results].each do |sec_tag| %>
-                <li><%= link_to sec_tag.name, posts_path(:tags => tags, :this_tag => sec_tag.name), :class => classes %></li>
+                <li><%= link_to sec_tag.name, tag_menu_posts_path(:tags => tags, :this_tag => sec_tag.name), :class => classes %></li>
               <% end %>
             </ul>
           <% else %>

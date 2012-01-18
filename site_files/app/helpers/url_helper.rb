@@ -19,7 +19,9 @@ module UrlHelper
   
   def tag_menu_posts_path(options = {})
     tags = options[:tags] ? get_tag_names_from_uncertain_array(options.delete(:tags)) : []
-    this_tag = options.delete(:this_tag)    
+    if this_tag = options.delete(:this_tag)
+      tags = add_or_remove_tag(tags, this_tag,false)
+    end
     if tags.length > 0
       tags << this_tag if tags.length == 1
       tags = [tags[0], tags.last] if tags.length > 1

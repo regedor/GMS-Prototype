@@ -12,6 +12,7 @@
 
 
 <div id="posts">
+  <%= tag_header @tags, false %>
   <% if @posts.empty? -%>
     <p><%= t('posts.none') %></p>
   <% else -%>
