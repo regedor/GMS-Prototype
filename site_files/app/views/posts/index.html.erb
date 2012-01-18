@@ -2,23 +2,19 @@
   <%= posts_title(@tags) %>
 <% end -%>
 
+
 <% content_for :head do %>
   <%= auto_discovery_link_tag(:atom, @tags.nil? ? posts_path(:format => 'atom') : posts_path(:tags => @tags, :format => 'atom')) %>
 <% end %>
 
-<% content_for :tag_menu do %>
-  <%= tag_menu_widget @tags %>
-<% end %>
-
 
 <div id="posts">
-  <%= tag_header @tags, false %>
   <% if @posts.empty? -%>
     <p><%= t('posts.none') %></p>
   <% else -%>
     <% @posts.each do |post| -%>
       <div id="post-<%= post.id %>" class="post">
-        <%= render :partial => 'post', :locals => {:post => post, :event => nil} %>
+        <%= render :partial => 'post', :locals => { :post => post, :event => nil } %>
       </div>
     <% end -%>
   <% end -%>
