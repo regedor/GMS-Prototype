@@ -27,8 +27,6 @@ module UrlHelper
       tags = [tags[0], tags.last] if tags.length > 1
       options[:tags] = tags.join(",")
       posts_with_tags_path(options)
-    else
-      super
     end
   end
 

@@ -74,8 +74,10 @@ class Tag < ActiveRecord::Base
                                                  :order => 'taggings_count DESC, name')
         primary_result_set = Tag.all( tags_filter([]).merge :limit => limit,
                                             :order => 'taggings_count DESC, name')
-        primary = secondary_result_set.shift
-        return {:primary => primary.name, :primary_results => primary_result_set,:secondary_results => secondary_result_set}
+        primary = tags[0]
+        secondary_result_set.reject! { |tag| tag.name == primary }
+        
+        return {:primary => primary, :primary_results => primary_result_set,:secondary_results => secondary_result_set}
       end
     end
   
