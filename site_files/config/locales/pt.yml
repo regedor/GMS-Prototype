@@ -185,6 +185,7 @@ pt:
       add_button: "Adicionar ficheiros..."
       cancel_button: "Cancelar"
       delete_button: "Apagar"
+      edit_button: "Actualizar"
       hints:
         image: "Fazer upload de imagens para o álbum"     
 
