@@ -27,7 +27,7 @@ class Tag < ActiveRecord::Base
       end
     end
   end
-
+  
   cattr_accessor :destroy_unused
   self.destroy_unused = false
 

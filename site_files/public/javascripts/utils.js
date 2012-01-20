@@ -77,6 +77,7 @@ function asyncTranslate(path,cb,pairs){
 }
 
 jQuery.fn.float_bar = function() {
+  $=jQuery;
   var element = $(this);
   var tag_cloud_offset = $(this).offset();
 

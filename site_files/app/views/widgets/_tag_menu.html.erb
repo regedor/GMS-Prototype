@@ -9,7 +9,7 @@
         <% css_class = 'category' %>
         <% classes = (tags && (tags.include? tag.name)) ? (css_class + ' selected') : css_class %>
         <li>
-          <%= link_to tag.name, posts_with_tags_path(:tags => tag.name), :class => classes %>
+          <%= link_to tag.name, posts_with_tags_path(:tags => u(tag.name)), :class => classes %>
         </li>
       <% end %>
     <% else %>
@@ -25,7 +25,7 @@
               <% end %>
             </ul>
           <% else %>
-            <%= link_to tag.name, posts_with_tags_path(:tags => tag.name), :class => css_class %>
+            <%= link_to tag.name, posts_with_tags_path(:tags => u(tag.name)), :class => css_class %>
           <% end %>
         </li>
       <% end %>

@@ -25,6 +25,7 @@ module UrlHelper
     if tags.length > 0
       tags << this_tag if tags.length == 1
       tags = [tags[0], tags.last] if tags.length > 1
+      tags.each_with_index { |str,index|  tags[index]=u(str) }
       options[:tags] = tags.join(",")
       posts_with_tags_path(options)
     end
