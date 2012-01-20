@@ -6,10 +6,14 @@ module WidgetHelper
   end
   
   # Show tags as a 2 level menu of limit elements (can be acompanied by the tag_header)
-  def tag_menu_widget(tags, limit = 10)
+  def tag_menu_widget(tags, limit=10, just_items=false)
     tags_for_cloud = Tag.tags_for_menu(tags, limit) 
     render :partial => 'widgets/tag_menu', 
-           :locals  => { :tags_for_cloud => tags_for_cloud, :tags => tags }
+           :locals  => { 
+             :tags_for_cloud => tags_for_cloud, 
+             :tags => tags, 
+             :just_items => just_items 
+           }
   end
   
   # Show tags as a cloud (should be acompanied by the tag_header)
@@ -20,7 +24,7 @@ module WidgetHelper
   end
   
   # List of tags being used takes optional parameter to set cloud or menu
-  def tag_header(tags, cloud = true)
+  def tag_header(tags, cloud=true)
     if tags
       tags = tags[0..1] unless cloud
       render :partial => 'widgets/tag_cloud_header',

@@ -1,7 +1,9 @@
+<% if !just_items %>
 <div id="tag-menu" class="block">
   <h2 class="title"><%= I18n::t('posts.tag_menu.title') %></h2>
 
   <ul>
+<% end %>
     <% if tags_for_cloud.is_a? Array %>
       <% tags_for_cloud.each do |tag| %>
         <% css_class = 'category' %>
@@ -13,20 +15,23 @@
     <% else %>
       <% tags_for_cloud[:primary_results].each do |tag| %>
         <% css_class = 'category' %>
-        <% classes = (tags_for_cloud[:primary] == tag.name) ? (css_class + ' selected') : css_class %>
         <li>
           <% if tags_for_cloud[:primary] == tag.name %>
-            <%= link_to tag.name, root_path, :class => classes %>
+            <%= link_to tag.name, root_path, :class => css_class + ' selected' %>
             <ul>
               <% tags_for_cloud[:secondary_results].each do |sec_tag| %>
+                <% classes = (tags_for_cloud[:secondary] == sec_tag.name) ? (css_class + ' selected') : css_class %>
                 <li><%= link_to sec_tag.name, tag_menu_posts_path(:tags => tags, :this_tag => sec_tag.name), :class => classes %></li>
               <% end %>
             </ul>
           <% else %>
-            <%= link_to tag.name, posts_with_tags_path(:tags => tag.name), :class => classes %>
+            <%= link_to tag.name, posts_with_tags_path(:tags => tag.name), :class => css_class %>
           <% end %>
         </li>
       <% end %>
     <% end %>
+
+<% if !just_items %>
   </ul>
-</div>
+  </div>
+<% end %>

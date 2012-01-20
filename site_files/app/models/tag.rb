@@ -77,7 +77,7 @@ class Tag < ActiveRecord::Base
         primary = tags[0]
         secondary_result_set.reject! { |tag| tag.name == primary }
         
-        return {:primary => primary, :primary_results => primary_result_set,:secondary_results => secondary_result_set}
+        return {:primary => primary, :primary_results => primary_result_set, :secondary => tags[1], :secondary_results => secondary_result_set}
       end
     end
   
