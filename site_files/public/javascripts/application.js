@@ -22,6 +22,7 @@ jQuery(document).ready(function($) {
 	    link_host = this.href.split("/")[2];
 	    document_host = document.location.href.split("/")[2];
 
+        console.log(this.href);
 	    if(this.href === "javascript:;")
 	      return false;
 
@@ -29,7 +30,7 @@ jQuery(document).ready(function($) {
 	      window.open(this.href);
 	      return false;
 	    }
-	  });
+	});
 
 
 });

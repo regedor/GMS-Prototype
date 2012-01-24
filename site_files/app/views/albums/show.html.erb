@@ -20,23 +20,10 @@ jQuery(document).ready(function($) {
 });
 </script>
 
-
 <div id="gallery">
-  <% counter = 0 %>
-  <div class="gallery_row">
   <% @images.each do |image| %>
-    <% if counter == 4 %>
-      </div>
-      <div class="gallery_row">
-      <% counter=0 %>
-    <% end %>
     <div class="gallery_entry">
-      <img class="thumb" src="<%= image.multi_purpose_image.url(:small) %>"/>
-      <a class="zoom-icon group_elements" title="<%= image.description %>" href="<%= image.multi_purpose_image.url %>" rel="<%= @album.name %>"><%= t("gallery.show.zoom") %></a>
-    </div>
-    <% counter+=1 %>
-  <% end %>
-  <% if counter <= 4 %>
+      <a class="zoom-icon group_elements" title="<%= image.description %>" href="<%= image.multi_purpose_image.url %>" rel="<%= @album.name %>"><img class="thumb" src="<%= image.multi_purpose_image.url(:small) %>"></a>
     </div>
   <% end %>
 </div>

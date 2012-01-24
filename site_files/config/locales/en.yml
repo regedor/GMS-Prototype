@@ -174,7 +174,6 @@ en:
     edit: "Edit"
     title: "Gallery"
     show:
-      zoom: "Zoom in"
       back: "Back to gallery"
     form:
       new: "New Album"
