@@ -35,6 +35,17 @@ class Admin::PostsController < Admin::BaseController
     end
   end
 
+  def destroy
+    post = Post.find(params[:id])
+    if post.destroy
+      flash[:notice] = t("flash.post_deleted",:post => post.title)
+    else
+      flash[:error] = t("flash.post_deletion_fail",:post => post.title)
+    end
+    
+    redirect_to admin_posts_path
+  end
+
   def edit
     @record = Post.find(params[:id])
 

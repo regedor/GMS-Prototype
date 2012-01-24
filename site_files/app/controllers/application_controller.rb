@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
   before_filter { |c| Authorization.current_user = c.current_user }
   before_filter :set_user_language
 
+  $current_category = GlobalCategory.first
+
   # Returns the current user session.
   def current_user_session
     return @current_user_session if defined?(@current_user_session)

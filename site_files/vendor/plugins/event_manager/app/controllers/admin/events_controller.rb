@@ -5,10 +5,10 @@ class Admin::EventsController < Admin::BaseController
   before_filter :validate_data, :only => [ :create, :update ]
 
   active_scaffold :event do |config|
-  
+
     config.action_links.add 'list_activities', :type => :member, :page => true, :method => :get,
-                                     :label => I18n::t("admin.events.index.list_activities")  
-    list.sorting = {:starts_at => 'DESC'}                                   
+      :label => I18n::t("admin.events.index.list_activities")
+    list.sorting = {:starts_at => 'DESC'}
 
     Scaffoldapp::active_scaffold config, "admin.events",
       :create => [ :name, :description, :starts_at, :ends_at, :price, :participation_message ],
@@ -17,60 +17,71 @@ class Admin::EventsController < Admin::BaseController
       :show   => [ ]
   end
 
+  def destroy
+    event = Event.find(params[:id])
+    if event.destroy
+      flash[:notice] = t("flash.event_deleted",:event => event.name)
+    else
+      flash[:error] = t("flash.event_deletion_fail",:page => event.name)
+    end
+
+    redirect_to admin_events_path
+  end
+
   def new
     @record = Event.new
     @record.build_post
     @record.build_announcement
-    
+
     render :create
-  end  
+  end
 
   def create
     activities = params[:record][:event_activities_attributes]
     params[:record].delete(:event_activities_attributes)
     @record = Event.new params[:record]
-      
+
     if @record.save
       if activities
         activities.each do |k,value|
           ea = EventActivity.new value
           ea.event = @record
           ea.starts_at = (DateTime.strptime value[:starts_at], "%d/%m/%Y %H:%M").to_datetime
-          ea.ends_at = (DateTime.strptime value[:ends_at], "%d/%m/%Y %H:%M").to_datetime        
+          ea.ends_at = (DateTime.strptime value[:ends_at], "%d/%m/%Y %H:%M").to_datetime
           ea.save
         end
       end
       flash[:notice]  = t("flash.eventCreated.successfully",:name => @record.name)
-      redirect_to admin_events_path 
+      redirect_to admin_events_path
     else
       @template.properly_show_errors @record.post
       @template.properly_show_errors @record.post if @record.post
       @template.properly_show_errors @record.announcement if @record.announcement
       flash.now[:error] = t("flash.eventCreated.error")
     end
-  end  
-  
+  end
+
   def edit
     @record = Event.find params[:id]
     @record.build_post unless @record.post
     @record.build_announcement unless @record.announcement
-    
+
     render "admin/events/update"
   end
-  
+
   def update
     activities = params[:record][:event_activities_attributes]
     params[:record].delete(:event_activities_attributes)
-    @record = Event.find params[:id]   
-               
+    @record = Event.find params[:id]
+
     if @record.update_attributes params[:record]
       if activities
         activities.each do |k,value|
           if value.member? :id
             ea = EventActivity.find value[:id]
-          else  
+          else
             ea = EventActivity.new value
-          end  
+          end
           ea.event = @record
           ea.starts_at = (DateTime.strptime value[:starts_at], "%d/%m/%Y %H:%M").to_datetime
           ea.ends_at = (DateTime.strptime value[:ends_at], "%d/%m/%Y %H:%M").to_datetime
@@ -78,16 +89,16 @@ class Admin::EventsController < Admin::BaseController
         end
       end
       flash[:notice]  = t("flash.eventUpdated.successfully",:name => @record.name)
-      redirect_to admin_events_path 
+      redirect_to admin_events_path
     else
       @template.properly_show_errors @record
       @template.properly_show_errors @record.post if @record.post
       @template.properly_show_errors @record.announcement if @record.announcement
       flash.now[:error] = t("flash.eventUpdated.error")
-    end    
-  end  
-  
-  
+    end
+  end
+
+
 
   def list_activities
     redirect_to :action => 'index', :controller => 'admin/event_activities', :event_id => params[:id]
@@ -107,7 +118,7 @@ class Admin::EventsController < Admin::BaseController
         params[:record][:has_announcement] = true
       end
       params[:record][:post_attributes][:title] = params[:record][:name]
-    end  
+    end
 
     def date_localization
       params[:record][:post_attributes][:published_at] = (Date.strptime params[:record][:post_attributes][:published_at], "%d/%m/%Y").to_datetime

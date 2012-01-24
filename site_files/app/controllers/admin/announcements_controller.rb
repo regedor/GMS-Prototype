@@ -11,6 +11,17 @@ class Admin::AnnouncementsController < Admin::BaseController
       :create       => [ :title, :starts_at, :ends_at, :url, :avatar, :message, :priority ],
       :edit         => [  ]
   end
+  
+  def destroy
+    announcement = Announcement.find(params[:id])
+    if announcement.destroy
+      flash[:notice] = t("flash.announcement_deleted",:announcement => announcement.title)
+    else
+      flash[:error] = t("flash.announcement_deletion_fail",:announcement => announcement.title)
+    end
+    
+    redirect_to admin_announcements_path
+  end
 
   def do_new
     super

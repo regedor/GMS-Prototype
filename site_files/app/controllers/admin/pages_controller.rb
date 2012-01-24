@@ -21,6 +21,17 @@ class Admin::PagesController < Admin::BaseController
       super
     end 
   end 
+  
+  def destroy
+    page = Page.find(params[:id])
+    if page.destroy
+      flash[:notice] = t("flash.page_deleted",:page => page.title)
+    else
+      flash[:error] = t("flash.page_deletion_fail",:page => page.title)
+    end
+    
+    redirect_to admin_pages_path
+  end
 
   def preview
     @page = Page.build_for_preview(params[:record])

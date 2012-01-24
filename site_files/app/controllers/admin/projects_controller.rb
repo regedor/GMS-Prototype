@@ -45,7 +45,7 @@ class Admin::ProjectsController < Admin::BaseController
     end    
     
     redirect_to admin_projects_path
-  end  
+  end
 
   def create
     project = Project.new params[:project]

@@ -17,6 +17,17 @@ class Admin::AlbumsController < Admin::BaseController
   def show
     redirect_to album_path(params[:id])
   end
+  
+  def destroy
+    album = Album.find(params[:id])
+    if album.destroy
+      flash[:notice] = t("flash.album_deleted",:album => album.name)
+    else
+      flash[:error] = t("flash.album_deletion_fail",:album => album.name)
+    end
+    
+    redirect_to admin_albums_path
+  end
 
   def create
     @album = Album.new params[:album]
