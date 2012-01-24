@@ -22,8 +22,7 @@ jQuery(document).ready(function($) {
 	    link_host = this.href.split("/")[2];
 	    document_host = document.location.href.split("/")[2];
 
-        console.log(this.href);
-	    if(this.href === "javascript:;")
+	    if(this.href === "javascript:;" || this.href === "")
 	      return false;
 
 	    if (link_host != document_host || this.href.split("/")[3] == "textile_help.html") {
