@@ -14,6 +14,10 @@ class Admin::AlbumsController < Admin::BaseController
     @album = Album.new
   end  
 
+  def show
+    redirect_to album_path(params[:id])
+  end
+
   def create
     @album = Album.new params[:album]
     @album.image_ids = params[:images].split(",").map(&:to_i) if params[:images]
