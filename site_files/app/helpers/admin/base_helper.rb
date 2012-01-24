@@ -195,7 +195,9 @@ module Admin::BaseHelper
         first = false
       end
     end
-
+    if options[:show_categories] && permitted_to?(:as_manage, :admin_settings)
+      code += select_tag "categories", options_from_collection_for_select(GlobalCategory.all, "id", "name")
+    end
     code
   end
   
