@@ -35,8 +35,11 @@ class UserOptionalGroupPick < ActiveRecord::Base
     end
 
     # Returns all optional group picks for a user
-    def for_user(user)           
-      conditions = "(id IN (#{user.groups.map(&:user_optional_group_pick).join(",")})) AND (role_id <= #{user.role_id} OR role_id IS NULL)"
+    def for_user(user)
+      group_list=user.groups.map(&:user_optional_group_pick).join(",")
+      conditions = ""
+      conditions += "id IN (#{group_list}) AND" unless group_list.empty?
+      conditions += "(role_id <= #{user.role_id} OR role_id IS NULL)"
       UserOptionalGroupPick.all(:conditions => conditions)
     end
 
