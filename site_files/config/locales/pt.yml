@@ -175,7 +175,6 @@ pt:
     title: "Galeria"
     show:
       zoom: "Zoom"
-      read_more: "Ler mais"
       back: "Regressar à galeria"
     form:
       new: "Novo Álbum"  
@@ -265,6 +264,7 @@ pt:
         name: "Nome"
         created_at: "Criado em"   
       list:
+        noentries: "Nenhum Álbum Encontrado"
         found:
           more: "%{count} Álbuns Encontrados"
           one: "%{count} Álbum Encontrado"
@@ -430,7 +430,7 @@ pt:
       form:
         new: "Novo Projecto"
       list:
-        noentries: "Nenhum Projecto Encontrado"
+        noentries: "Nenhum Projecto encontrado"
         found:
           more: "%{count} Projectos Encontrados"
           one: "%{count} Projecto Encontrado"                              

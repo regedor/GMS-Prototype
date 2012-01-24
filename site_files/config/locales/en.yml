@@ -175,7 +175,6 @@ en:
     title: "Gallery"
     show:
       zoom: "Zoom in"
-      read_more: "Read more"
       back: "Back to gallery"
     form:
       new: "New Album"
@@ -262,6 +261,11 @@ en:
       columns:
         name: "Name"
         created_at: "Created at"
+      list:
+        noentries: "No Albums Found"
+        found:
+          more: "%{count} Albums Found"
+          one: "%{count} Album Found"
 
     navigation:
       main:
@@ -287,7 +291,7 @@ en:
         to_do_comments: "Comments"
         events: "Events"
         gallery: "Image Gallery"
-    
+
     to_do_list:
       sidebar:
         title: "To-Do Lists"
@@ -349,8 +353,8 @@ en:
         file: "Attachment"
         file_hint: "(Max. 10Mb)"
       sidebar:
-        back: "Back to To-Do Lists"                       
-        
+        back: "Back to To-Do Lists"
+
     messages:
       index:
         title: "Messages List"
@@ -384,8 +388,7 @@ en:
         title: "Messages"
         paragraph: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."          
         categories: "Browse by topic:"
-        
-    
+
     categories:
         list:
          title: "Topics of"
@@ -397,8 +400,8 @@ en:
           create_button: "Create"
           edit_button: "Edit"
           cancel_button: "Cancel"
-                
-    
+
+
     project:
       index:
         title: "Projects" 
@@ -414,7 +417,7 @@ en:
         edit_button: "Update"
         cancel: "Cancel"
       create:
-        title: "New Project"      
+        title: "New Project"
       columns:
         name: "Name"
         description: "Description"
@@ -427,8 +430,8 @@ en:
         noentries: "No Projects Found"
         found:
           more: "%{count} Projects Found"
-          one: "%{count} Project Found"                              
-   
+          one: "%{count} Project Found"
+
     dashboard:
       text: "You are now viewing the Administration dashboard. Here you can manage users, groups, communication and Front-end items. The right sidebar also provides useful information and relevant links."
       sidebar:
