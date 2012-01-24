@@ -58,42 +58,43 @@
 
           <% if permitted_to? :as_manage, :admin_users %>
 
-          <% website_tabs = [ 'admin/posts',
-                              'admin/comments',
-                              'admin/announcements',
-                              'admin/pages',
-                              'admin/events',
-                              'admin/event_manage',
-                              'admin/event_activities',
-                              'admin/event_activity_manage',]
+            <% website_tabs = [ 'admin/posts',
+                                'admin/comments',
+                                'admin/announcements',
+                                'admin/pages',
+                                'admin/events',
+                                'admin/event_manage',
+                                'admin/event_activities',
+                                'admin/event_activity_manage',]
+            
+               # Conditionally add new tabs
+               website_tabs << 'admin/albums' if configatron.has_gallery == 'true'
+               website_tabs << 'admin/settings' if permitted_to? :as_manage, :admin_settings
+ %>         
+            
+            
+            <%= navigation_menu 'admin.navigation.main.website',
+                                website_tabs,
+                                admin_posts_path %>
+            
+            <%= navigation_menu 'admin.navigation.main.system',
+                                [ 'admin/action_entries',
+                                  'admin/users',
+                                  'admin/deleted_users',
+                                  'admin/groups',
+                                  'admin/user_optional_group_picks',
+                                  'admin/mails' ],
+                                admin_users_path %>
+            
+            <%= navigation_menu 'admin.navigation.main.projects',
+                                [ 'admin/projects',
+                                  'admin/to_do_lists',
+                                  'admin/to_do_comments',
+                                  'admin/messages',
+                                  'admin/categories'],
+                                admin_projects_path %>
+          <% end %>
 
-             # Conditionally add new tabs
-             website_tabs << 'admin/albums' if configatron.has_gallery == 'true'
-             website_tabs << 'admin/settings' if permitted_to? :as_manage, :admin_settings
- %>
-
-
-          <%= navigation_menu 'admin.navigation.main.website',
-                              website_tabs,
-                              admin_posts_path %>
-
-          <%= navigation_menu 'admin.navigation.main.system',
-                              [ 'admin/action_entries',
-                                'admin/users',
-                                'admin/deleted_users',
-                                'admin/groups',
-                                'admin/user_optional_group_picks',
-                                'admin/mails' ],
-                              admin_users_path %>
-
-          <%= navigation_menu 'admin.navigation.main.projects',
-                              [ 'admin/projects',
-                                'admin/to_do_lists',
-                                'admin/to_do_comments',
-                                'admin/messages',
-                                'admin/categories'],
-                              admin_projects_path %>
-         <% end %>
         </ul>
       </div>
     </div>
@@ -146,7 +147,7 @@ secondary_website_tabs << {
 
 
             <%= secondary_navigation_menu secondary_website_tabs,
-                                          :specify_first => true %>
+                                          :specify_first => true, :show_categories => true %>
 
             <%= secondary_navigation_menu [ { :controller_paths => [ 'admin/users',
                                                                      'admin/deleted_users' ],
