@@ -1268,7 +1268,6 @@ pt:
 
   widgets:
     weather:
-      a: "sf"
       c0: "tornado"
       c1: "tempestade tropical"
       c2: "furacão"
