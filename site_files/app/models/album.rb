@@ -8,7 +8,7 @@ class Album < ActiveRecord::Base
   accepts_nested_attributes_for :images, :allow_destroy => true#, :reject_if => lambda { |t| t['image'].nil? }
 
   def cover
-    return "56883622_18f242e114_b.jpg" if self.images.empty?
+    return "album_default.png" if self.images.empty?
     self.images.first.path
   end  
   
