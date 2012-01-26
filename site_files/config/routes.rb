@@ -28,7 +28,27 @@ ActionController::Routing::Routes.draw do |map|
                       :controller => 'posts', 
                       :action => 'index', 
                       :method => :get, 
-                      :requirements => {:name  => /(#{GlobalCategory.all.map(&:name).map(&:downcase).join('|')})/}
+                      :requirements => {:name  => /(#{GlobalCategory.all.map(&:slug).join('|')})/}
+                      
+  map.connect ':name/:year/:month/:day/:slug/comments', 
+          :controller => 'comments', 
+          :action => 'create', 
+          :method => :post,
+          :requirements => { 
+            :name  => /(#{GlobalCategory.all.map(&:slug).join('|')})/,
+            :year => /\d+/, 
+            :month => /\d+/, 
+            :day => /\d+/ 
+          }
+  map.connect ':name/:year/:month/:day/:slug',          
+          :controller => 'posts', 
+          :action => 'show',
+          :requirements => { 
+            :name  => /(#{GlobalCategory.all.map(&:slug).join('|')})/,
+            :year => /\d+/, 
+            :month => /\d+/, 
+            :day => /\d+/ 
+          }
 
   map.connect ':year/:month/:day/:slug/comments', :controller => 'comments', :action => 'create', :method => :post,
                                                   :requirements => { :year => /\d+/, :month => /\d+/, :day => /\d+/ }

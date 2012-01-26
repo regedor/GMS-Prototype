@@ -941,6 +941,7 @@ pt:
         search: "Procurar Posts"
         create: "Novo Post"
       columns:
+        global_category: "Categoria"
         published_at: "Data de publicação"
         title: "Título"
         excert: "Excerto"

@@ -30,5 +30,5 @@ puts "Saving Groups..."
   default_group.save
 
 puts "Creating Category"
-  GlobalCategory.create :name => "Default" if GlobalCategory.all.empty?
+  GlobalCategory.create :name => "Default", :slug => "default" if GlobalCategory.all.empty?
 

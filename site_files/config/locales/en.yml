@@ -935,6 +935,7 @@ en:
         search: "Search Posts"
         create: "New Post"
       columns:
+        global_category: "Category"
         published_at: "Publish Date"
         title: "Title"
         excert: "Excerpt"

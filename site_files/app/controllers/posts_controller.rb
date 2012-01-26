@@ -1,7 +1,12 @@
 class PostsController < ApplicationController
   def index
     @tags = params[:tags].split(",") if params[:tags]
-    @posts = Post.paginate_with_tag_names(params[:search],current_user,@tags,params[:page])
+    if params[:name]
+      category = GlobalCategory.find_by_slug(params[:name])
+      @posts = Post.filter_by_category(category.id).paginate_with_tag_names(params[:search],current_user,@tags,params[:page])
+    else
+      @posts = Post.paginate_with_tag_names(params[:search],current_user,@tags,params[:page])
+    end
 
     respond_to do |format|
       format.html {

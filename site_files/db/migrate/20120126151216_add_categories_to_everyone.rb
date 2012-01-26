@@ -6,6 +6,16 @@ class AddCategoriesToEveryone < ActiveRecord::Migration
     add_column :events, :global_category_id, :integer, :default => 1
     add_column :groups, :global_category_id, :integer, :default => 1
     remove_column :global_categories, :group_id
+    
+    add_column :global_categories, :slug, :string, :null => false, :default => "error"
+    GlobalCategory.reset_column_information
+ 
+    GlobalCategory.all.each do |cat|
+      cat.slug = cat.name.downcase
+      cat.save!
+    end
+ 
+    change_column_default :global_categories, :slug, nil
   end
 
   def self.down
@@ -15,5 +25,6 @@ class AddCategoriesToEveryone < ActiveRecord::Migration
     remove_column :events, :global_category_id
     remove_column :groups, :global_category_id
     add_column :global_categories, :group_id, :integer
+    remove_column :global_categories, :slug
   end
 end
