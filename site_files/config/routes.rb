@@ -15,7 +15,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :albums
   map.resource  :newsletter
   
-  map.resources :sys_admin, :collection => { :log => :get }
+  map.resources :sys_admin, :collection => { :log => :get, :update_current_user => :put }
   
   map.connect 'pages/:slug/comments', :controller => 'comments', :action => 'create', :method => :post
   map.pages 'pages/:slug', :controller => 'pages', :action => 'show', :method => :get

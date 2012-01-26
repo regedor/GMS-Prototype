@@ -18,11 +18,6 @@ en:
     about: "About"
     administration: "Administration"
 
-  clocks:
-    title: "Clocks"
-    lisbon: "Lisbon"
-    paris: "Paris"
-
   event_calendar:
     title: "Calendar"
     day_with_events_title: "Events in day %{day}:"
@@ -35,9 +30,6 @@ en:
 
   search:
     title: "Search"
-
-  weather_info:
-    title: "Weather"
 
   organization:
     title: "Organization"
@@ -1280,6 +1272,58 @@ en:
     are_you_sure: "Are you sure?"
     cancel: "Cancel"
     delete: "Delete"
+    
+  widgets:
+    weather:
+      c0: "tornado"
+      c01: "tropical storm"
+      c2: "hurricane"
+      c3: "severe thunderstorms"
+      c4: "thunderstorms"
+      c5: "mixed rain and snow"
+      c6: "mixed rain and sleet"
+      c7: "mixed snow and sleet"
+      c8: "freezing drizzle"
+      c9: "drizzle"
+      c10: "freezing rain"
+      c11: "showers"
+      c12: "showers"
+      c13: "snow flurries"
+      c14: "light snow showers"
+      c15: "blowing snow"
+      c16: "snow"
+      c17: "hail"
+      c18: "sleet"
+      c19: "dust"
+      c20: "foggy"
+      c21: "haze"
+      c22: "smoky"
+      c23: "blustery"
+      c24: "windy"
+      c25: "cold"
+      c26: "cloudy"
+      c27: "mostly cloudy"
+      c28: "mostly cloudy"
+      c29: "partly cloudy"
+      c30: "partly cloudy"
+      c31: "clear"
+      c32: "sunny"
+      c33: "fair"
+      c34: "fair"
+      c35: "mixed rain and hail"
+      c36: "hot"
+      c37: "isolated thunderstorms"
+      c38: "scattered thunderstorms"
+      c39: "scattered thunderstorms"
+      c40: "scattered showers"
+      c41: "heavy snow"
+      c42: "scattered snow showers"
+      c43: "heavy snow"
+      c44: "partly cloudy"
+      c45: "thundershowers"
+      c46: "snow showers"
+      c47: "isolated thundershowers"
+      c3200: "not available"
 
 # US English translations for Ruby on Rails
 #

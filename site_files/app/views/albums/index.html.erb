@@ -11,7 +11,7 @@
     <div class="album">
       <a href="<%= album_path(album) %>">
         <% if album.images.empty? %>
-          <img class="thumb" src="/assets/images/thumbs/<%= album.cover %>">
+          <img class="thumb" src="/images/<%= album.cover %>">
         <% else %>
           <img class="thumb" src="<%= album.images[0].multi_purpose_image.url(:small)%>">
         <% end %>

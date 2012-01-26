@@ -18,11 +18,6 @@ pt:
     about: "Sobre"
     administration: "Administração"
 
-  clocks:
-    title: "Relógios"
-    lisbon: "Lisboa"
-    paris: "Paris"
-
   event_calendar:
     title: "Calendário"
     day_with_events_title: "Eventos no dia %{day}:"
@@ -35,9 +30,6 @@ pt:
 
   search:
     title: "Pesquisa"
-
-  weather_info:
-    title: "Metereologia"
 
   organization:
     title: "Organização"
@@ -1269,6 +1261,60 @@ pt:
     are_you_sure: "Tem a certeza?"
     cancel: "Cancelar"
     delete: "Apagar"
+    
+
+  widgets:
+    weather:
+      c0: "tornado"
+      c1: "tempestade tropical"
+      c2: "furacão"
+      c3: "trovões fortes"
+      c4: "trovões"
+      c5: "chuva com neve"
+      c6: "chuva e granizo"
+      c7: "neve e granizo"
+      c8: "chuvisco gelado"
+      c9: "chuviscos"
+      c10: "chuva e gelo"
+      c11: "chuva"
+      c12: "chuva"
+      c13: "flocos de neve"
+      c14: "neve leve"
+      c15: "neve e vento"
+      c16: "neve"
+      c17: "granizo"
+      c18: "chuva com neve"
+      c19: "poeira"
+      c20: "neboloso"
+      c21: "neblina"
+      c22: "nublado"
+      c23: "vento forte"
+      c24: "vento"
+      c25: "frio"
+      c26: "nublado"
+      c27: "muito nublado"
+      c28: "muito nublado"
+      c29: "algumas nuvens"
+      c30: "algumas nuvens"
+      c31: "limpo"
+      c32: "sol"
+      c33: "limpo"
+      c34: "limpo"
+      c35: "chuva e granizo"
+      c36: "quente"
+      c37: "trovoadas isoladas"
+      c38: "trovoadas dispersas"
+      c39: "trovoadas dispersas"
+      c40: "chuva dispersa"
+      c41: "chuva forte"
+      c42: "neve dispersa"
+      c43: "fortes nevões"
+      c44: "algumas nuvens"
+      c45: "trovoadas"
+      c46: "neve"
+      c47: "trovoadas dispersas"
+      c3200: "indisponível"
+
 
 # US English translations for Ruby on Rails
 #
