@@ -7,7 +7,7 @@
         <% else %>
           <img class="thumb" src="<%= album.images[0].multi_purpose_image.url(:small)%>">
         <% end %>
-        <span class="name"><%= album.name %></span>
+        <span class="name" title="<%= h album.name %>"><%= h truncate(album.name, 12, '...') %></span>
       </a>
       <% if permitted_to? :as_manage, :admin_users %>
         <a class="edit-link" href="<%= edit_admin_album_path(album) %>">
@@ -17,5 +17,3 @@
     </div>
   <% end %>
 </div>
-
-<span id="ruler"></span>
