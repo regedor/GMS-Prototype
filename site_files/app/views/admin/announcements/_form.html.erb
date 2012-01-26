@@ -5,40 +5,40 @@ jQuery.noConflict();
 
 jQuery(document).ready(function($){
 
-  setDatepickerWithTime(true);
+	setDatepickerWithTime(true);
 
-  if($("#record_has_message_").attr("checked") === false && $("#flash").text() === "" && $("#record_message").val() === "")
-    $("#description").hide();
-  else
-  {
-	$("#record_has_message_").attr("checked", "checked");
-    $("#description").show();
-  }
-
-  $("#record_has_message_").click(function(){
-    if($("#record_has_message_").attr("checked"))
-	  $("#description").fadeIn('slow');
+	if(!$("#record_has_message_").is(":checked") && $("#flash").text() === "" && $("#record_message").val() === "")
+		$("#description").hide();
 	else
-	  $("#description").fadeOut('slow');
-  });
+	{
+		$("#record_has_message_").prop("checked", true);
+		$("#description").show();
+	}
+
+	$("#record_has_message_").click(function(){
+		if($("#record_has_message_").is(":checked"))
+			$("#description").fadeIn('slow');
+		else
+			$("#description").fadeOut('slow');
+	});
 
 });
 </script>
 
 <% form.input_field_set do -%>
   <%= form.input :title,
-                 :required => true,  
+                 :required => true,
                  :label    => I18n::t('admin.announcements.columns.title') %>
   <%= form.input :has_message,
-                 :as => :check_boxes, 
-                 :required => false, 
-                 :collection => [""], 
- 				 :label => t('admin.announcements.columns.hasMessage') %>
+                 :as => :check_boxes,
+                 :required => false,
+                 :collection => [""],
+                 :label => t('admin.announcements.columns.hasMessage') %>
   <div id="description">
     <%= form.input :message,
                    :hint     => I18n::t('admin.announcements.form.hints.message'),
-       			   :label    => I18n::t('admin.announcements.columns.message') %>
-  </div>				
+                   :label    => I18n::t('admin.announcements.columns.message') %>
+  </div>
   <%= form.input :starts_at,
                  :as => :string,
                  :input_html => { :class => "datepicker", :value => l(@record.starts_at, :format => "%d/%m/%Y %H:%M") },
@@ -51,6 +51,18 @@ jQuery(document).ready(function($){
                  :required => false,
                  :hint     => I18n::t('admin.announcements.form.hints.url'),
                  :label    => I18n::t('admin.announcements.columns.url') %>
+  <% if !@record.new_record? && @record.avatar_file_name -%>
+    <div class="file_icon">
+      <%=  file_icon_displayer(@record.avatar) %>
+    </div>
+  <% end -%>
+  <% unless @record.new_record? || !@record.avatar? -%>
+    <%= form.input :avatar_delete,
+                   :as       => 'boolean',
+                   :required => false,
+                   :hint     => t('admin.announcements.form.hints.delete_avatar'),
+                   :label    => t('admin.announcements.form.delete_avatar') %>
+  <% end -%>
   <%= form.input :avatar,
                  :required => false,
                  :hint     => I18n::t('admin.announcements.form.hints.avatar'),
@@ -63,10 +75,10 @@ jQuery(document).ready(function($){
                  :label      => I18n::t('admin.pages.columns.priority'),
                  :hint       => I18n::t('admin.pages.form.hints.priority') %>
   <%= form.input :group,
-   				 :required => false,
+                 :required => false,
                  :as    => :radio,
-   				 :collection => Group.all + [Group.new :id => 0, :name => "All"],
-    			 :label => t('admin.posts.columns.groups'),
-    			 :hint  => t('admin.posts.form.hints.groups') %>
+                 :collection => Hash[*Group.all.collect {|group| [group.name,group.id]}.flatten].merge({"All"=>0}),
+                 :label => t('admin.posts.columns.groups'),
+                 :hint  => t('admin.posts.form.hints.groups') %>
 
 <% end -%>

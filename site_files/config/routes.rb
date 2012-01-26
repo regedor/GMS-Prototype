@@ -17,8 +17,18 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :sys_admin, :collection => { :log => :get, :update_current_user => :put }
   
-  map.connect 'pages/:slug/comments', :controller => 'comments', :action => 'create', :method => :post
-  map.pages 'pages/:slug', :controller => 'pages', :action => 'show', :method => :get
+  map.connect ':slug/comments', :controller => 'comments', :action => 'create', :method => :post
+  map.page ':slug', 
+          :controller => 'pages', 
+          :action => 'show', 
+          :method => :get, 
+          :requirements => { :slug => /(?! admin)/ }
+  
+  map.global_category ':name/posts', 
+                      :controller => 'posts', 
+                      :action => 'index', 
+                      :method => :get, 
+                      :requirements => {:name  => /(#{GlobalCategory.all.map(&:name).map(&:downcase).join('|')})/}
 
   map.connect ':year/:month/:day/:slug/comments', :controller => 'comments', :action => 'create', :method => :post,
                                                   :requirements => { :year => /\d+/, :month => /\d+/, :day => /\d+/ }

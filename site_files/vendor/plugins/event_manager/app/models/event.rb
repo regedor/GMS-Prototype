@@ -9,6 +9,8 @@ class Event < ActiveRecord::Base
   has_many   :event_activities, :dependent => :destroy
   belongs_to :post, :dependent => :destroy
   belongs_to :announcement, :dependent => :destroy
+  belongs_to :global_category
+
                                                                        
   accepts_nested_attributes_for :post,         :allow_destroy => true 
   accepts_nested_attributes_for :announcement, :allow_destroy => true

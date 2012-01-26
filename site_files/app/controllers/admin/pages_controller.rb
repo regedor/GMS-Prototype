@@ -51,7 +51,7 @@ class Admin::PagesController < Admin::BaseController
       redirect_to admin_pages_path
     else
       @template.properly_show_errors(page)
-      flash.now[:error] = t("flash.page_not_updated", :name => page.title)
+      flash.now[:error] = t("flash.page_not_created", :name => page.title)
     end
   end  
   

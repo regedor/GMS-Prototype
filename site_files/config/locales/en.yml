@@ -966,7 +966,7 @@ en:
         edit_tag: "Edit Tag - %{name}"
         preview_button: "Preview"
         edit_button: "Edit"
-        delete_generic: "Delete attachement"
+        delete_generic: "Delete attachment"
         delete_image: "Delete image"
         create_button: "Create"
         update_button: "Update"
@@ -1073,10 +1073,12 @@ en:
         update_button: "Update"
         cancel_button: "Cancel"
         close_button: "Close"
+        delete_avatar: "Delete image"
         hints:
           url: "This is the target link when you click the announcement image on the Front-end."
           avatar: "This is the announcement image."
           message: "This is the announcement message, which will appear in front of the image."
+          delete_avatar: "Check to delete the current image"
       list:
         noentries: "No Announcements Found"
         found:
@@ -1169,6 +1171,10 @@ en:
     post_deleted: "Deleted %{post}"
     project_deleted: "Deleted %{project}"
     project_not_deleted: "Could not delete %{project}"
+    announcement_created: "Created announcement %{name}"
+    announcement_not_created : "Could not create announcement %{name}"
+    announcement_updated: "Updated announcement %{name}"
+    announcement_not_updated: "Could not update announcement %{name}"
     to_do_list_created: "To-Do list %{name} created"
     to_do_list_not_created: "Could not create to-do list"
     to_do_list_created: "To-Do list %{name} updated"

@@ -28,3 +28,7 @@ puts "Creating admins..."
 
 puts "Saving Groups..."
   default_group.save
+
+puts "Creating Category"
+  GlobalCategory.create :name => "Default" if GlobalCategory.all.empty?
+

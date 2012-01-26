@@ -3,7 +3,11 @@ class GlobalCategory < ActiveRecord::Base
   # Relationships
   # ==========================================================================
 
-   belongs_to :group
+   has_many :groups
+   has_many :posts
+   has_many :announcements
+   has_many :pages
+   has_many :events
 
   # ==========================================================================
   # Validations

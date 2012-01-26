@@ -7,11 +7,11 @@ jQuery(document).ready(function($){
 
   setDatepickerAndTime();
 
-  if($("#record_announcement_attributes_has_message_").attr("checked") === false && $("#flash").text() === "" && $("#record_message").val() === "")
+  if(!$("#record_announcement_attributes_has_message_").is(':checked') && $("#flash").text() === "" && $("#record_message").val() === "")
     $("#description").hide();
   else
   {
-	$("#record_announcement_attributes_has_message_").attr("checked", "checked");
+	$("#record_announcement_attributes_has_message_").prop("checked", true);
     $("#description").show();
   }
 
@@ -22,7 +22,7 @@ jQuery(document).ready(function($){
 	  $("#description").fadeOut('slow');
   });
 
-  if($("#record_has_announcement_").attr("checked") == false && $("#flash").text() == "")
+  if(!$("#record_has_announcement_").is(":checked") && $("#flash").text() == "")
     $("#AnnouncementInputs").hide();
   else
     $("#AnnouncementInputs").show();
@@ -33,7 +33,7 @@ jQuery(document).ready(function($){
     {  
 	  $("#AnnouncementInputs").fadeIn('slow');
 	  $("#description").hide();
-	  $("#record_announcement_attributes_has_message_").attr("checked", "");
+	  $("#record_announcement_attributes_has_message_").prop("checked", false);
 	}
     else
       $("#AnnouncementInputs").fadeOut('slow');

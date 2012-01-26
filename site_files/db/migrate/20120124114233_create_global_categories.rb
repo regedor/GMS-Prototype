@@ -4,8 +4,6 @@ class CreateGlobalCategories < ActiveRecord::Migration
       t.string  :name        ,   :null => false
       t.integer :group_id
     end
-    GlobalCategory.reset_column_information
-    GlobalCategory.create :name => "Default" if GlobalCategory.all.empty?
   end
 
   def self.down

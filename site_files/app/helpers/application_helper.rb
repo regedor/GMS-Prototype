@@ -51,9 +51,11 @@ module ApplicationHelper
     end
   end
 
-  def file_icon_displayer(file, thumb = false)
+  def file_icon_displayer(file, thumb = false, image_attachment = false)
     
     return image_tag file.url(:thumb) if thumb
+    
+    return image_tag("#{root_url}images/icons/attach.png") + file.path.split("/").last if image_attachment
     
     if file.content_type =~ /^image\//
       return image_tag file.url(:image)

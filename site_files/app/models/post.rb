@@ -10,6 +10,7 @@ class Post < ActiveRecord::Base
 
   belongs_to :group
   belongs_to :event
+  belongs_to :global_category
   #has_many                :approved_comments, :class_name => 'Comment'
 
   before_validation       :generate_slug
