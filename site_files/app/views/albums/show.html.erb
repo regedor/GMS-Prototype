@@ -30,9 +30,11 @@ jQuery(document).ready(function($) {
 
 
 <div id="gallery">
+  <h2 class="title"><%= h @album.name %></h2>
+
   <% @images.each do |image| %>
     <div class="gallery_entry">
-      <a class="group_elements" title="<%= image.description %>" href="<%= image.multi_purpose_image.url %>" rel="<%= @album.name %>"><img class="thumb" src="<%= image.multi_purpose_image.url(:small) %>"></a>
+      <a class="group_elements" title="<%= image.description %>" href="<%= image.multi_purpose_image.url %>" rel="<%= h @album.name %>"><img class="thumb" src="<%= image.multi_purpose_image.url(:small) %>"></a>
     </div>
   <% end %>
 </div>
