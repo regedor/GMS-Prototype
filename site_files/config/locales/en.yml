@@ -278,7 +278,7 @@ en:
         messages: "Messages"
         to_do_comments: "Comments"
         events: "Events"
-        gallery: "Image Gallery"
+        gallery: "Gallery"
 
     to_do_list:
       sidebar:

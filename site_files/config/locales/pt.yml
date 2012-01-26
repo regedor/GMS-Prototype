@@ -283,7 +283,7 @@ pt:
         messages: "Mensagens"
         to_do_comments: "Comentários"
         events: "Eventos"
-        gallery: "Galeria de Imagens"
+        gallery: "Galeria"
     
     to_do_list:
       sidebar:
