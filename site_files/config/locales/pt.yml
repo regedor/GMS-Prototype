@@ -287,14 +287,14 @@ pt:
     
     to_do_list:
       sidebar:
-        title: "Listas de Tarefas"
+        title: "Listas de tarefas"
         paragraph: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."          
         select_title: "Mudar projecto:"
         back: "Voltar à lista de projectos"
         reorderLists: "Reorganizar Listas de Tarefas"
       done: "Terminado"
       new:
-        link: "Nova Lista de Tarefas"
+        link: "Nova lista de tarefas"
         name: "Nome"
         description: "Descrição"
         description_hint: "Esta descrição é opcional, utilize-a para explicar a finalidade da lista, caso necessário"
@@ -309,7 +309,7 @@ pt:
     
     to_do:
       add_new:
-        title: "Introduza uma nova tarefa"
+        title: "Nova tarefa"
         done_adding: "Terminado"
         add_button: "Acrescentar tarefa"
         responsible: "Responsável pela tarefa"

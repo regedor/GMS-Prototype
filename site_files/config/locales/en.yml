@@ -304,7 +304,7 @@ en:
     
     to_do:
       add_new:
-        title: "Enter a new to-do item"
+        title: "New to-do item"
         done_adding: "Done adding"
         add_button: "Add to-do"
         responsible: "Responsible for to-do"
