@@ -79,6 +79,7 @@ ActionController::Routing::Routes.draw do |map|
                                      :member          => { :mark_as_spam => :put, :mark_as_ham => :put }
     admin.resources :history_entries
     admin.resources :settings
+    admin.resources :global_categories, :collection => { :set_category => :get }
     admin.resources :mails,          :active_scaffold => true, :active_scaffold_sortable => true, 
                                      :collection      => { :values => :get }     
     admin.resources :user_optional_group_picks, :active_scaffold => true, :active_scaffold_sortable => true      

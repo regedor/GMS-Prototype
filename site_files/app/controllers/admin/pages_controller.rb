@@ -36,7 +36,7 @@ class Admin::PagesController < Admin::BaseController
   def preview
     @page = Page.build_for_preview(params[:record])
     respond_to do |format|
-      format.js   { render :partial => 'preview' }
+      format.js   { render :partial => 'preview', :locals => {:page => @page} }
     end
   end
   

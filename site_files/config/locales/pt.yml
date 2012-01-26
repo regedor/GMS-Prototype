@@ -248,6 +248,9 @@ pt:
       total_value: "%{total_price} €"
       
   admin:
+    global_categories:
+      manage: "Editar as categorias"
+      
     delete:
       title: "Tem a certeza que quer apagar?"
     
@@ -292,6 +295,7 @@ pt:
         to_do_comments: "Comentários"
         events: "Eventos"
         gallery: "Galeria de Imagens"
+        global_categories: "Categorias"
     
     to_do_list:
       sidebar:
@@ -1127,6 +1131,7 @@ pt:
         remember_me: "memorizar"
 
   flash:
+    not_permitted: "Não tem permissão para aceder a essa página"
     login: "Login bem sucedido."
     logout: "Logout bem sucedido."
     require_login: "Deve entrar para aceder a esta página."

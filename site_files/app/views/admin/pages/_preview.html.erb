@@ -1,5 +1,5 @@
 <p class="preview-title"><%= I18n::t('admin.pages.preview.title') %></p>
 <div class="content">
-  <%= render :partial => 'pages/page' %>
+  <%= render :partial => 'pages/page', :locals => {:page => page} %>
   <p class="preview-return"><%= I18n::t('admin.pages.preview.return') %></p>
 </div>

@@ -194,9 +194,9 @@ module Admin::BaseHelper
         code += navigation_menu hash[:i18n_path], hash[:controller_paths], hash[:link_to_path], :first => first
         first = false
       end
-    end
-    if options[:show_categories] && permitted_to?(:as_manage, :admin_settings)
-      code += select_tag "categories", options_from_collection_for_select(GlobalCategory.all, "id", "name")
+      if options[:show_categories] && permitted_to?(:as_manage, :admin_settings)
+        code += select_tag "categories", "<option value='0'>#{I18n::t('admin.global_categories.manage')}</option>" + options_from_collection_for_select(GlobalCategory.all, "id", "name")
+      end
     end
     code
   end

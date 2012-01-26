@@ -9,7 +9,7 @@ $(document).ready(function() {
     var dest = window.location.href.replace(/\#.*/,"").replace(/\?.*/,"");
 	if (!dest.match(/\/new$/)) {
       dest = dest.replace(/\/\d+\/edit$/, '');
-      dest = dest + '/new';
+      //dest = dest + '/new';
     }
 	else
 	{
@@ -35,7 +35,8 @@ $(document).ready(function() {
           type: 'POST',
           data: form.serialize().replace(/&*_method=\w+&*/, '')+'&id='+window.location.pathname.split('/')[3],
           url: dest,
-          error: function() {
+          dataType: 'html',
+          error: function(response,text,error) {
             title = t('admin.posts.preview.title');
             ret = t('admin.posts.preview.return');
             error = t('admin.posts.preview.error');

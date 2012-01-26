@@ -247,6 +247,9 @@ en:
       total_value: "%{total_price} €"
       
   admin:
+    global_categories:
+      manage: "Manage the categories"
+      
     delete: 
       title: "Are you sure you want to delete?"  
       
@@ -290,6 +293,8 @@ en:
         to_do_comments: "Comments"
         events: "Events"
         gallery: "Image Gallery"
+        global_categories: "Categories"
+
 
     to_do_list:
       sidebar:
@@ -1124,6 +1129,7 @@ en:
         remember_me: "remember me"
 
   flash:
+    not_permitted: "You are not allowed to enter that page"
     login: "Login successful."
     logout: "Logout successful."
     require_login: "You must be logged in to access this page."

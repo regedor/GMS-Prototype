@@ -66,10 +66,12 @@
                                 'admin/event_manage',
                                 'admin/event_activities',
                                 'admin/event_activity_manage',]
-            
+
                # Conditionally add new tabs
                website_tabs << 'admin/albums' if configatron.has_gallery == 'true'
                website_tabs << 'admin/settings' if permitted_to? :as_manage, :admin_settings
+
+               website_tabs << 'admin/global_categories'
  %>         
             
             
@@ -143,6 +145,12 @@ secondary_website_tabs << {
   :i18n_path => 'admin.navigation.secondary.settings',
   :link_to_path => admin_settings_path
 } if permitted_to? :as_manage, :admin_settings
+
+secondary_website_tabs << {
+  :controller_paths => [ 'admin/global_categories'],
+  :i18n_path => 'admin.navigation.secondary.global_categories',
+  :link_to_path => admin_global_categories_path
+}
  %>
 
 
