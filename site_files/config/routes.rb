@@ -22,7 +22,7 @@ ActionController::Routing::Routes.draw do |map|
           :controller => 'pages', 
           :action => 'show', 
           :method => :get, 
-          :requirements => { :slug => /(?! admin)/ }
+          :requirements => { :slug => /(?!admin).*/ }
   
   map.global_category ':name/posts', 
                       :controller => 'posts', 
