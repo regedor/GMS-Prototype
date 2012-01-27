@@ -9,7 +9,12 @@ class PagesController < ApplicationController
   protected
 
   def find_page
-    @page = Page.find_by_slug(params[:slug]) || raise(ActiveRecord::RecordNotFound)
+    @page = Page.viewable_only(current_user).find_by_slug(params[:slug])
+    if !@page
+      flash[:notice] = t('flash.not_permitted')
+      redirect_to root_path
+      return
+    end
     @comment = Comment.new if @page.has_comments
   end
 

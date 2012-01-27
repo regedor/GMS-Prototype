@@ -15,6 +15,9 @@ jQuery(document).ready(function($){
 <% end -%>
 
 <% form.input_field_set do -%>
+  <%= form.input :global_category,
+                 :label    => I18n::t('admin.posts.columns.global_category') %>
+
   <%= form.input :title,
                  :label    => I18n::t('admin.posts.columns.title') %>
 
@@ -49,11 +52,11 @@ jQuery(document).ready(function($){
 
   <%= form.input :generic,
                  :required => false,
-				 :as => :file,
+                 :as => :file,
                  :hint     => I18n::t('admin.posts.form.hints.generic_file'),
                  :label    => I18n::t('admin.posts.columns.generic_file') %>
   <% if @record.generic_content_type %>
-    <div class="file_icon"><%=  file_icon_displayer(@record.generic) %></div>
+    <div class="file_icon"><%=  file_icon_displayer(@record.generic,false,true) %></div>
   <% end %>
   <% unless @record.new_record? || !@record.generic? -%>
     <%= form.input :generic_delete,
@@ -78,9 +81,9 @@ jQuery(document).ready(function($){
                  :hint     => I18n::t('admin.posts.form.hints.minor_edit')
                  ) unless @record.new_record? %>
   <%= form.input :group,
-				 :required => false,
+                 :required => false,
                  :as    => :radio,
-				 :collection => Group.all + [Group.new :id => 0, :name => "All"],
- 				 :label => t('admin.posts.columns.groups'),
- 				 :hint  => t('admin.posts.form.hints.groups') %>
+                 :collection => Hash[*Group.all.collect {|group| [group.name,group.id]}.flatten].merge({"All"=>0}),
+                 :label => t('admin.posts.columns.groups'),
+                 :hint  => t('admin.posts.form.hints.groups') %>
 <% end -%>

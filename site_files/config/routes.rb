@@ -17,8 +17,38 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :sys_admin, :collection => { :log => :get, :update_current_user => :put }
   
-  map.connect 'pages/:slug/comments', :controller => 'comments', :action => 'create', :method => :post
-  map.pages 'pages/:slug', :controller => 'pages', :action => 'show', :method => :get
+  map.connect ':slug/comments', :controller => 'comments', :action => 'create', :method => :post
+  map.page ':slug', 
+          :controller => 'pages', 
+          :action => 'show', 
+          :method => :get, 
+          :requirements => { :slug => /(?!admin).*/ }
+  
+  map.global_category ':name/posts', 
+                      :controller => 'posts', 
+                      :action => 'index', 
+                      :method => :get,
+                      :requirements => {:name  => /(#{GlobalCategory.all.map(&:slug).join('|')})/}
+                      
+  map.connect ':name/:year/:month/:day/:slug/comments', 
+          :controller => 'comments', 
+          :action => 'create', 
+          :method => :post,
+          :requirements => { 
+            :name  => /(#{GlobalCategory.all.map(&:slug).join('|')})/,
+            :year => /\d+/, 
+            :month => /\d+/, 
+            :day => /\d+/ 
+          }
+  map.connect ':name/:year/:month/:day/:slug',          
+          :controller => 'posts', 
+          :action => 'show',
+          :requirements => { 
+            :name  => /(#{GlobalCategory.all.map(&:slug).join('|')})/,
+            :year => /\d+/, 
+            :month => /\d+/, 
+            :day => /\d+/ 
+          }
 
   map.connect ':year/:month/:day/:slug/comments', :controller => 'comments', :action => 'create', :method => :post,
                                                   :requirements => { :year => /\d+/, :month => /\d+/, :day => /\d+/ }
@@ -79,6 +109,7 @@ ActionController::Routing::Routes.draw do |map|
                                      :member          => { :mark_as_spam => :put, :mark_as_ham => :put }
     admin.resources :history_entries
     admin.resources :settings
+    admin.resources :global_categories, :collection => { :set_category => :get }
     admin.resources :mails,          :active_scaffold => true, :active_scaffold_sortable => true, 
                                      :collection      => { :values => :get }     
     admin.resources :user_optional_group_picks, :active_scaffold => true, :active_scaffold_sortable => true      

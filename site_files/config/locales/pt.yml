@@ -7,10 +7,10 @@ pt:
       header: "Criar Novo Grupo"
       select_all: "Escolher todos: "
       deselect_all: "Descartar todos: "
-      selected: "Utilizadores seleccionados"
-      not_selected: "Utilizadores não seleccionados"         
+      selected: "Utilizadores selecionados"
+      not_selected: "Utilizadores não selecionados"         
       g_n_placeholder: "Escreva o nome do grupo aqui" 
-      already_selected: "O utilizador %{user} já foi seleccionado"
+      already_selected: "O utilizador %{user} já foi selecionado"
       group_name: "Nome do grupo:"
 
   navigation:
@@ -240,6 +240,9 @@ pt:
       total_value: "%{total_price} €"
       
   admin:
+    global_categories:
+      manage: "Editar as categorias"
+      
     delete:
       title: "Tem a certeza que quer apagar?"
     
@@ -283,6 +286,7 @@ pt:
         messages: "Mensagens"
         to_do_comments: "Comentários"
         events: "Eventos"
+        global_categories: "Categorias"
         gallery: "Galeria"
     
     to_do_list:
@@ -641,7 +645,7 @@ pt:
         groups:
           title: "Grupos"
           reset: "Lista de todos os utilizadores"
-          paragraph: "Pode também filtrar utilizadores por grupos na lista abaixo. Quando clicar num grupo, serão mostrados todos os utilizadores que pertencem ao grupo que seleccionou."
+          paragraph: "Pode também filtrar utilizadores por grupos na lista abaixo. Quando clicar num grupo, serão mostrados todos os utilizadores que pertencem ao grupo que selecionou."
         deleted_users:
           paragraph: "Clique no link abaixo para desfazer apagar utilizadores:"
           link: "Ir a utilizadores apagados"
@@ -699,7 +703,7 @@ pt:
           avatar: "Se fizer o upload de uma imagem mostrar-se-à isto. Caso não faça upload de nenhuma imagem e o utilizador tiver um gravatar, este será utilizado. Em outro caso, será mostrada uma imagem padrão."
           active: "Um utilizador deve estar activo para poder realizar o login."
           phone: "Por favor, introduza também o prefixo do seu país."
-          groups: "Seleccione os grupos aos que o utilizador pertencerá."
+          groups: "Selecione os grupos aos que o utilizador pertencerá."
 
     deleted_users:
       index:
@@ -814,12 +818,12 @@ pt:
         hints:
           mailable: "Se é possível enviar emails em massa para os membros deste grupo"
           user_choosable: "Permite a um utilizador escolher se quer ou não pertencer a este grupo"
-          behavior_type: "Seleccionar o tipo de comportamento"
-          groups: "Subgrupo (s) seleccionado"
-          direct_users: "Seleccionar utilizador(es) pertencentes por defeito"
+          behavior_type: "Selecionar o tipo de comportamento"
+          groups: "Subgrupo (s) selecionado"
+          direct_users: "Selecionar utilizador(es) pertencentes por defeito"
           behavior_at_time: "O tempo a que se aplica o comportamento"
-          behavior_group_to_jump: "Seleccionar o grupo desejado"
-          behavior_file_name: "Seleccionar o comportamento desejado"
+          behavior_group_to_jump: "Selecionar o grupo desejado"
+          behavior_file_name: "Selecionar o comportamento desejado"
           behavior_after_time: "Número de dias decorridos até à aplicação do comportamento"
       list_actions:
         delete_by_ids!: "Apagar"
@@ -856,9 +860,9 @@ pt:
         cancel_button: "Cancelar"
         close_button: "Fechar"
         hints:
-          role: "Seleccionar cargo do utilizador"
-          group: "Seleccionar grupo"
-          groups: "Seleccionar grupo (s)"
+          role: "Selecionar cargo do utilizador"
+          group: "Selecionar grupo"
+          groups: "Selecionar grupo (s)"
       list:
         noentries: "Nenhuma Escolha Encontrada"
         found:
@@ -910,10 +914,10 @@ pt:
         hints:
           body: "<a href='/textile_help.html'>Textile ativado. Precisa de ajuda?</a> Para pré-visualizar as suas alterações, pressione Ctrl+Alt+E."
           slug: "Deixar vazio para utilizar um slug baseado no título, gerado automáticamente."
-          show_in_navigation: "Seleccionar para mostrar na barra de navegação da parte pública."
-          priority: "Seleccionar quão alto (em prioridade) deve estar o link na barra de navegação da parte pública."
-          has_comments: "Seleccione para permitir comentários nesta página."
-          show_announcements: "Seleccione se desejar mostrar os anúncios nesta página."
+          show_in_navigation: "Selecionar para mostrar na barra de navegação da parte pública."
+          priority: "Selecionar quão alto (em prioridade) deve estar o link na barra de navegação da parte pública."
+          has_comments: "Selecione para permitir comentários nesta página."
+          show_announcements: "Selecione se desejar mostrar os anúncios nesta página."
       preview:
         title: "A sua entrada será formatada da seguinte forma:"
         return: "Use Ctrl+Alt+E para voltar ao modo de edição."
@@ -937,6 +941,7 @@ pt:
         search: "Procurar Posts"
         create: "Novo Post"
       columns:
+        global_category: "Categoria"
         published_at: "Data de publicação"
         title: "Título"
         excert: "Excerto"
@@ -972,10 +977,10 @@ pt:
         close_button: "Fechar"
         hints:
           body: "<a href='/textile_help.html'>Textile ativado. Precisa de ajuda?</a> Para pré-visualizar as suas alterações, pressione Ctrl+Alt+E."
-          image: "Seleccione uma imagem do post."
+          image: "Selecione uma imagem do post."
           generic_file: "Anexar um ficheiro"
-          delete_generic: "Verificar para apagar o anexo actual"
-          delete_image: "Verificar para apagar a imagem actual"
+          delete_generic: "Selecionar para apagar o anexo actual"
+          delete_image: "Selecionar para apagar a imagem actual"
           tag_list: "Separado por vírgula: ruby, rails&hellip;"
           published_at: "Clique no campo para abrir o calendário."
           slug: "Deixar vazio para criar um slug baseado no título, gerado automaticamente."
@@ -1003,7 +1008,7 @@ pt:
           paragraph: "Pode <b title=\"Use o botão 'Novo Post'.\">criar</b> posts novos e <b title=\"Use o botão 'Apagar'.\">remover</b> existentes. Também pode <b title=\"Use o botão 'Detalhes'.\">ver</b> e <b title=\"Use o botão 'Editar'.\">editar</b> os existentes.<br/><br/>É possível ordenar a listagem de posts por <b title=\"Clique em 'Título'.\">título</b> ou <b title=\"Clique em 'Data Publicação'.\">data de publicação</b> também como <b title=\"A caixa de filtros encontra-se ao lado do botão Adicionar.\">filtrar</b> os seus conteúdos.<br/><br/>Ao clicar no título do post, será redireccionado para o post correspondente na parte pública."
         history:
           title: "Detalhes do Post"
-          paragraph: "Pode reverter a informação do post. Clique nas datas em baixo para reverter para estados anteriores. Clique em <b title=\"O link para reveter aparecerá quando seleccionar uma data anterior.\">Reverter</b> para completar o processo de reversão."
+          paragraph: "Pode reverter a informação do post. Clique nas datas em baixo para reverter para estados anteriores. Clique em <b title=\"O link para reveter aparecerá quando selecionar uma data anterior.\">Reverter</b> para completar o processo de reversão."
         reversion:
           title: "Reverter Post"
           message: "Está a reverter informação. Se clicar em <b title=\"O link para reverter encontra-se em baixo.\">Reverter</b> em baixo, as suas acções serão permanentes!"
@@ -1012,7 +1017,7 @@ pt:
           title: "Editar Post"
           paragraph: "Está a editar informação do post. Além do <b title=\"O título é a identificação do post.\">título</b> e do <b title=\"O corpo corresponde ao conteúdo do post.\">corpo</b>, pode alterar <b title=\"Tags são uma série de palavras-chave para definir o que trata o post.\">lista de tags</b>, a <b title=\"\">data de publicação</b> e o <b title=\"O slug é a identificação única do posto, util para links.\">slug</b>. Também existe uma checkbox para fazer <b title=\"Activar se não quiser que os utilizadores sejam notificados da mudança.\">edição mínima</b>.<br/><br/>Pode visualizar os conteúdos do post antes de <b title=\"O botão Guardar guarda o post.\">Guardar</b> ao clicar em <b title=\"O botão Visualização permite visualizar o post.\">Visualização</b>. Para descartar alterações, clique em <b title=\"O botão Cancelar descarta qualquer modificação.\">Cancelar</b>."
         tags:
-          paragraph: "Também pode filtrar posts pelas <b title=\"Tags são uma série de palavras-chave para definir o que trata o post.\">tags</b> na lista abaixo. Quando clica numa tag, os posts que <b title=\"Se clicar a tag 'a' e 'b', só os posts contendo ambas as palavras-chave serão mostrados.\">contêm</b> todas as tags seleccionadas serão mostrados."
+          paragraph: "Também pode filtrar posts pelas <b title=\"Tags são uma série de palavras-chave para definir o que trata o post.\">tags</b> na lista abaixo. Quando clica numa tag, os posts que <b title=\"Se clicar a tag 'a' e 'b', só os posts contendo ambas as palavras-chave serão mostrados.\">contêm</b> todas as tags selecionadas serão mostrados."
 
     comments:
       index:
@@ -1071,10 +1076,12 @@ pt:
         update_button: "Actualizar"
         cancel_button: "Cancelar"
         close_button: "Fechar"
+        delete_avatar: "Apagar a imagem"
         hints:
           url: "Este é o link alvo quando clica numa imagem de Anúncio na parte pública."
           avatar: "Esta é a imagem do anúncio."
           message: "Esta é a mensagem do anúncio, que aparecerá à frente da imagem."
+          delete_avatar: "Selecionar para apagar a imagem actual"
       list:
         noentries: "Nenhum Anúncio Encontrado"
         found:
@@ -1119,6 +1126,7 @@ pt:
         remember_me: "memorizar"
 
   flash:
+    not_permitted: "Não tem permissão para aceder a essa página"
     login: "Login bem sucedido."
     logout: "Logout bem sucedido."
     require_login: "Deve entrar para aceder a esta página."
@@ -1166,6 +1174,10 @@ pt:
     post_deleted: "Apagado %{post}"
     project_deleted: "Apagado %{project}"
     project_not_deleted: "Não foi possível apagar %{project}"
+    announcement_created: "Criado %{name}"
+    announcement_not_created : "Ocorreu um erro durante a criação de %{name}"
+    announcement_updated: "Actualizado %{name}"
+    announcement_not_updated: "Ocorreu um erro durante a actualização de %{name}"
     to_do_list_created: "Lista de tarefas %{name} criada"
     to_do_list_not_created: "Não foi possível criar lista de tarefas"
     to_do_list_updated: "Lista de tarefas %{name} alterada"
@@ -1231,7 +1243,7 @@ pt:
       confirm: "Tem a certeza que pretende efectuar a acção \"%{action}\"?"
       success: "Acção \"%{action}\" efectuada com sucesso."
       failure: "Ocorreu um erro enquanto se realizava a acção \"%{action}\"."
-      no_selection: "Deve seleccionar pelo menos um item da tabela para executar uma acção."
+      no_selection: "Deve selecionar pelo menos um item da tabela para executar uma acção."
 
   footer:
     last_session_paragraph: "O seu último login foi há %{time_ago}, o seu IP era %{ip}."
@@ -1458,7 +1470,7 @@ pt:
 
   helpers:
     select:
-      prompt: "Por favor seleccione"
+      prompt: "Por favor selecione"
 
     submit:
       create: 'Criar %{model}'
@@ -1541,4 +1553,4 @@ pt:
   support:
     select:
       # default value for :prompt => true in FormOptionsHelper
-      prompt: "Por favor seleccione"
+      prompt: "Por favor selecione"

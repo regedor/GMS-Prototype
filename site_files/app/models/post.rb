@@ -10,6 +10,7 @@ class Post < ActiveRecord::Base
 
   belongs_to :group
   belongs_to :event
+  belongs_to :global_category
   #has_many                :approved_comments, :class_name => 'Comment'
 
   before_validation       :generate_slug
@@ -37,6 +38,8 @@ class Post < ActiveRecord::Base
     }
   }
   named_scope :search, lambda { |search_string| { :conditions => ["title LIKE ? or body like ?", "%#{search_string}%", "%#{search_string}%"]}}
+  
+  named_scope :filter_by_category, lambda { |category| { :conditions => { :global_category_id => category } } }
 
   has_attached_file :image, :styles => { :image => "250x250", :thumb => "50x50" }
   has_attached_file :generic

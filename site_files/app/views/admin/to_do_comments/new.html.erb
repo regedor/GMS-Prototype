@@ -1,7 +1,10 @@
 <% content_for(:head) do -%>
   <%= javascript_include_tag 'edit_preview',
-                             'jquery.image-gallery' %>
-  <%= stylesheet_link_tag 'jquery.image-gallery' %>
+                             'jquery.easing-1.3.pack',
+                             'jquery.fancybox-1.3.4',
+                             'jquery.mousewheel-3.0.4.pack'  %>
+
+  <%= stylesheet_link_tag 'fancybox/jquery.fancybox-1.3.4' %>
 <% end -%>
 
 
@@ -9,9 +12,7 @@
 jQuery.noConflict();
 
 jQuery(document).ready(function($){
-  $('#comments .attachment_icon').imagegallery();
-
-  console.log($("#comments .attachment_icon a[rel='gallery']").attr("href"));
+  $('#image-icon').fancybox();
 });
 </script>
 
@@ -41,7 +42,7 @@ jQuery(document).ready(function($){
   <div id="comments">
     <% @todo.comments.each do |comment| %>
       <div id="comment-<%= comment.id %>" class="comment">
-	    <div class="avatar"><%= image_tag avatar_url(comment.user,:size => :small) %></div>
+        <div class="avatar"><%= image_tag avatar_url(comment.user,:size => :small) %></div>
 	    <% classStr = (comment.user && comment.user == current_user) ? "comments_meta highlight" : "comments_meta" %>
 	    <div class="<%= classStr %>">
 	      <span class="name"><%= (comment.user) ? comment.user.name : t("admin.to_do_comment.deleted_user") %></span>
@@ -52,19 +53,19 @@ jQuery(document).ready(function($){
         </span>
         <% if !comment.generic_file_name.nil? %>
           <div class="attachment">
-		    <span class="attachment_icon">
-			  <% if comment.generic.content_type =~ /^image\// %>
-			    <a rel="gallery" href="<%= comment.generic.url %>">
-			      <%=  file_icon_displayer(comment.generic, true) %>
-			    </a>
-		     <% else %>
-		        <%= image_tag "#{root_url}images/icons/page_attach.png" %>
-		     <% end %>
-		    </span>
-		    <span class="attachment_name"><%= comment.generic_file_name %></span>
-		    <span class="attachment_download"><%= button_to t("admin.to_do_comment.attachment_download"), :controller => 'to_do_comments', :action => "download", :id => comment.id %></span>
-	      </div>
-	    <% end %>
+            <span class="attachment_icon">
+              <% if comment.generic.content_type =~ /^image\// %>
+                <a id="image-icon" href="<%= comment.generic.url %>">
+                  <%=  file_icon_displayer(comment.generic, true) %>
+                </a>
+              <% else %>
+                <%= image_tag "#{root_url}images/icons/page_attach.png" %>
+              <% end %>
+            </span>
+            <span class="attachment_name"><%= comment.generic_file_name %></span>
+            <span class="attachment_download"><%= button_to t("admin.to_do_comment.attachment_download"), :controller => 'to_do_comments', :action => "download", :id => comment.id %></span>
+          </div>
+        <% end %>
       </div>
       <hr />
     <% end %>

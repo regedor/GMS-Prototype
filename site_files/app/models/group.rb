@@ -10,6 +10,7 @@ class Group < ActiveRecord::Base
   belongs_to              :behavior_group_to_jump,  :foreign_key => "behavior_group_to_jump_id", :class_name => 'Group'
   belongs_to              :behavior_delayed_job, :foreign_key => "behavior_delayed_job_id", :class_name => 'Delayed::Job'
   belongs_to              :user_optional_group_pick
+  belongs_to              :global_category
 
 
   # ==========================================================================

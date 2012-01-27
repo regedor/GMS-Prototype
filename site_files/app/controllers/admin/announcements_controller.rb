@@ -12,6 +12,28 @@ class Admin::AnnouncementsController < Admin::BaseController
       :edit         => [  ]
   end
   
+  def create
+    announcement = Announcement.new params[:record]
+    if announcement.save
+      flash[:notice] = t("flash.announcement_created", :name => announcement.title)
+      redirect_to admin_announcements_path
+    else
+      @template.properly_show_errors(announcement)
+      flash.now[:error] = t("flash.announcement_not_created", :name => announcement.title)
+    end
+  end  
+  
+  def update
+    announcement = Announcement.find(params[:id])
+    if announcement.update_attributes params[:record]
+      flash[:notice] = t("flash.announcement_updated", :name => announcement.title)
+      redirect_to admin_announcements_path
+    else  
+      @template.properly_show_errors(announcement)
+      flash.now[:error] = t("flash.announcement_not_updated", :name => announcement.title) 
+    end      
+  end  
+  
   def destroy
     announcement = Announcement.find(params[:id])
     if announcement.destroy

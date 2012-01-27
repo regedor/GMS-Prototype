@@ -15,6 +15,24 @@ jQuery(document).ready(function($) {
 		$(".current").removeClass("current");
 		$('a[href="'+unescapeFromUrl(window.location.pathname,"UTF-8")+'"]').addClass("current");
 	}
+	else
+	{
+		// Set the current category variable
+		$("#categories").change(function(){
+			var selected_option = $("#categories option:selected").val();
+			console.log(selected_option);
+			console.log(window.location);
+			if(selected_option == 0)
+				window.location.href = "#";
+			else
+			{
+				$.ajax({
+					type: 'GET',
+					url: window.location.origin + "/admin/global_categories/set_category?option_id=" + selected_option
+				});
+			}
+		});
+	}
 	
 	
 	// Open external links in a new tab
