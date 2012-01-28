@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+begin
+  
   map.resources :settings
 
 
@@ -22,7 +24,10 @@ ActionController::Routing::Routes.draw do |map|
           :controller => 'pages', 
           :action => 'show', 
           :method => :get, 
-          :requirements => { :slug => /(?!admin).*/ }
+          :requirements => { :slug => /#{GlobalCategory.all.map do |gc|
+              '(?!'+ gc.slug + ')'
+            end.join}(?!admin)(?!user).*/ 
+          }
   
   map.global_category ':name/posts', 
                       :controller => 'posts', 
@@ -151,4 +156,6 @@ ActionController::Routing::Routes.draw do |map|
    api.resource  :i18n
    api.resources :create_groups,  :collection => {:create_group => :post}
   end
+rescue
+end
 end
