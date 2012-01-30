@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-begin
+#begin
   
   map.resources :settings
 
@@ -20,6 +20,7 @@ begin
   map.resources :sys_admin, :collection => { :log => :get, :update_current_user => :put }
   
   map.connect ':slug/comments', :controller => 'comments', :action => 'create', :method => :post
+  
   map.page ':slug', 
           :controller => 'pages', 
           :action => 'show', 
@@ -156,6 +157,6 @@ begin
    api.resource  :i18n
    api.resources :create_groups,  :collection => {:create_group => :post}
   end
-rescue
-end
+#rescue
+#end
 end
