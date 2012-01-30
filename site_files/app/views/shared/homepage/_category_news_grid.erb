@@ -1,6 +1,6 @@
 <% GlobalCategory.all.each do |global_category| %>
   <div id="global-category-<%= global_category.slug %>" class="global-category">
-    <h2 class="title"><%= global_category.name %></h2>
+    <h2 class="title"><%= link_to(global_category.name, "/#{global_category.slug}/posts") %></h2>
 
     <% @posts = Post.find_all_by_global_category_id(global_category.id, :order => 'published_at DESC').first(5) %>
     <% if @posts.empty? -%>
@@ -13,7 +13,7 @@
 
         <%= link_to(@posts.first.approved_comments_count.to_s, post_path(@posts.first, :anchor => 'comment-list'), :class => 'post-comments') %>
 
-        <p><%= truncate(@posts.first.body, 100, '...') %></p>
+        <p><%= link_to(truncate(@posts.first.body, 80, '...'), post_path(@posts.first)) %></p>
       </div>
 
       <ul>
