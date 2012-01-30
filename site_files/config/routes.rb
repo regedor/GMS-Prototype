@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-#begin
+begin
   
   map.resources :settings
 
@@ -157,6 +157,6 @@ ActionController::Routing::Routes.draw do |map|
    api.resource  :i18n
    api.resources :create_groups,  :collection => {:create_group => :post}
   end
-#rescue
-#end
+rescue
+end
 end
