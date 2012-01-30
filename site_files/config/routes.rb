@@ -27,7 +27,7 @@ begin
           :method => :get, 
           :requirements => { :slug => /#{GlobalCategory.all.map do |gc|
               '(?!'+ gc.slug + ')'
-            end.join}(?!admin)(?!user).*/ 
+            end.join}(?!admin)(?!user)(?!archives).*/ 
           }
   
   map.global_category ':name/posts', 
