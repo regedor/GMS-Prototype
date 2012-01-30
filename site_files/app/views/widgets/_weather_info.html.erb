@@ -7,9 +7,9 @@
     <span class="temperature"><%= left_condition['temp'].to_s + 'ºC' %></span>
 
     <% left_location = weather_info_left.xpath('//yweather:location')[0] %>
-    <span class="location"><%= left_location['city'].to_s %>, <%= left_location['country'].to_s %></span>
+    <span class="location"><%= t "widgets.weather.city.#{left_location['city'].to_s}" %>, <%= t "widgets.weather.country.#{left_location['country'].to_s}" %></span>
 
-    <span class="condition"><%= t "widgets.weather.c#{left_condition['code'].to_s}" %></span>
+    <span class="condition"><%= t "widgets.weather.condition.c#{left_condition['code'].to_s}" %></span>
   </div>
 
   <div class="right">
@@ -17,8 +17,8 @@
     <span class="temperature"><%= right_condition['temp'].to_s + 'ºC' %></span>
 
     <% right_location = weather_info_right.xpath('//yweather:location')[0] %>
-    <span class="location"><%= right_location['city'].to_s %>, <%= right_location['country'].to_s %></span>
+    <span class="location"><%= t "widgets.weather.city.#{right_location['city'].to_s}" %>, <%= t "widgets.weather.country.#{right_location['country'].to_s}" %></span>
 
-    <span class="condition"><%= t "widgets.weather.c#{right_condition['code'].to_s}" %></span>
+    <span class="condition"><%= t "widgets.weather.condition.c#{right_condition['code'].to_s}" %></span>
   </div>
 </div>
