@@ -13,7 +13,7 @@
 
         <%= link_to(@posts.first.approved_comments_count.to_s, post_path(@posts.first, :anchor => 'comment-list'), :class => 'post-comments') %>
 
-        <p><%= truncate(@posts.first.body, 80, '...') %></p>
+        <p><%= link_to(truncate(@posts.first.body, 80, '...'), post_path(@posts.first)) %></p>
       </div>
 
       <ul>
