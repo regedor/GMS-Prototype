@@ -26,6 +26,8 @@ jQuery(document).ready(function($){
 </script>
 
 <% form.input_field_set do -%>
+  <%= form.input :global_category,
+                 :label    => I18n::t('admin.announcements.columns.global_category') %>
   <%= form.input :title,
                  :required => true,
                  :label    => I18n::t('admin.announcements.columns.title') %>

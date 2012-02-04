@@ -901,6 +901,7 @@ en:
           message: "You are reverting information. If you click on <b title=\"The revert link button is below.\">Revert</b> below, you are making your actions permanent!"
           link: "Revert"
       columns:
+        global_category: "Category"
         title: "Title"
         excert: "Excerpt"
         total_approved_comments: "Comments"
@@ -1066,6 +1067,7 @@ en:
         search: "Search Announcements"
         create: "New Announcement"
       columns:
+        global_category: "Category"
         hasMessage: "Has message"  
         title: "Title"
         headline: "Headline"

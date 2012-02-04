@@ -909,6 +909,7 @@ pt:
           message: "Está a reverter informação. se clicar em <b title=\"O botão para reverter encontra-se em baixo.\">Reverter</b> em baixo, as suas acções serão permanentes!"
           link: "Reverter"
       columns:
+        global_category: "Categoria"
         title: "Título"
         excert: "Excerto"
         total_approved_comments: "Comentários"
@@ -1074,6 +1075,7 @@ pt:
         search: "Procurar Anúncios"
         create: "Novo Anúncio"
       columns:
+        global_category: "Categoria"
         hasMessage: "Tem mensagem" 
         title: "Título"
         headline: "Headline"

@@ -439,6 +439,8 @@ jQuery(document).ready(function($){
 
 
 <% form.input_field_set do -%>
+  <%= form.input :global_category,
+                 :label    => I18n::t('admin.pages.columns.global_category') %>
   <%= form.input :title,
                  :label    => I18n::t('admin.pages.columns.title') %>
   <%= form.input :body,
