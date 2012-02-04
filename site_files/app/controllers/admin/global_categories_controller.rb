@@ -27,8 +27,8 @@ class Admin::GlobalCategoriesController < Admin::BaseController
   
   def update
     category = GlobalCategory.find(params[:id])
-     # Mudar isto para o update attributes que nao grava e fazer save so depois
-    if category.update_attributes params[:record]
+    category.attributes = params[:record]
+    if category.save
       flash[:notice] = t('flash.global_category_updated.successfully', :name => category.name)
       redirect_to admin_global_categories_path
     else
@@ -41,7 +41,7 @@ class Admin::GlobalCategoriesController < Admin::BaseController
     if category.destroy
       flash[:notice] = t("flash.global_category_deleted",:name => category.name)
     else
-      flash[:error] = t("flash.global_category_deletion_fail",name => category.name)
+      flash[:error] = t("flash.global_category_deletion_fail", :name => category.name)
     end
     
     redirect_to admin_global_categories_path

@@ -31,11 +31,8 @@ class GlobalCategory < ActiveRecord::Base
    # Generates a unique slug
   def generate_slug
     new_slug = self.name.dup.slugorize
-    p new_slug
     if self.slug.blank? || !self.slug.starts_with?(new_slug)
-      p self.slug
-      repeated = GlobalCategory.all(:select => 'COUNT(*) as id', :conditions => { :slug => self.slug }).first.id
-      p repeated
+      repeated = GlobalCategory.all(:select => 'COUNT(*) as id', :conditions => { :slug => new_slug }).first.id
       self.slug = (repeated > 0) ? "#{new_slug}-#{repeated + 1}" : new_slug
     end 
   end

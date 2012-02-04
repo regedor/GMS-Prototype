@@ -106,7 +106,7 @@ class Post < ActiveRecord::Base
     if self.slug.blank? || !self.slug.starts_with?(new_slug)
       repeated = Post.all(:select => 'COUNT(*) as id', 
                           :conditions => { 
-                            :slug => self.slug 
+                            :slug => new_slug
                            }).first.id
       self.slug = (repeated > 0) ? "#{new_slug}-#{repeated + 1}" : new_slug
     end 

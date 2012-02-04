@@ -241,11 +241,11 @@ pt:
       
   admin:
     global_categories:
-      manage: "Editar as categorias"
+      manage: "Actualizar as categorias"
       index:
         title: "Categorias"
         create: "Criar categoria"
-        update_link: "Editar"
+        update_link: "Actualizar"
         destroy_link: "Apagar"
       list:
         noentries: "Nenhuma Categoria Encontrada"
@@ -259,7 +259,7 @@ pt:
         edit: "Editar Categoria"
         create_button: "Criar"
         cancel_button: "Cancelar"
-        update_button: "Editar"
+        update_button: "Actualizar"
       
     delete:
       title: "Tem a certeza que quer apagar?"
@@ -1221,6 +1221,14 @@ pt:
     postCreated:
       successfully: "Criado %{name}"
       error: "Falha ao criar o post"
+    global_category_created:
+      successfully: "Criada %{name}"
+      error: "Falha ao criar a categoria"
+    global_category_updated:
+      successfully: "Actualizado %{name}"
+      error: "Falha ao actualizar a categoria"
+    global_category_deleted: "Apagado %{name}"
+    global_category_deletion_fail: "Ocorreu um erro ao apagar %{name}"
     to_do_comment_body: "O comentário não pode estar vazio" 
     file_size_5mb: "O tamanho do ficheiro deve ser menor que 5 Megabytes"
     file_size_10mb: "O tamanho do ficheiro deve ser menor que 10 Megabytes"

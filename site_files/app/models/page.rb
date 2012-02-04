@@ -48,7 +48,7 @@ class Page < ActiveRecord::Base
   def generate_slug
     new_slug = self.title.dup.slugorize
     if self.slug.blank? || !self.slug.starts_with?(new_slug)
-      repeated = Page.all(:select => 'COUNT(*) as id', :conditions => { :slug => self.slug }).first.id
+      repeated = Page.all(:select => 'COUNT(*) as id', :conditions => { :slug => new_slug }).first.id
       self.slug = (repeated > 0) ? "#{new_slug}-#{repeated + 1}" : new_slug
     end 
   end 

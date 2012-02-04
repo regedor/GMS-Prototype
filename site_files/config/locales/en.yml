@@ -1198,7 +1198,7 @@ en:
     eventUpdated:
       successfully: "Event %{name} updated successfully"
       error: "There was an error while updating the event"
-    activity_deleted: "Activity succesfully deleted"     
+    activity_deleted: "Activity successfully deleted"     
     page_created: "Created %{name}" 
     page_not_created: "Failed to create %{name}" 
     page_updated: "Updated %{name}"
@@ -1213,6 +1213,14 @@ en:
     postCreated:
       successfully: "Created %{name} successfully"
       error: "There was an error while creating the post"
+    global_category_created:
+      successfully: "Created %{name} successfully"
+      error: "There was an error while creating the category"
+    global_category_updated:
+      successfully: "Updated %{name} successfully"
+      error: "There was an error while updating the category"
+    global_category_deleted: "%{name} successfully deleted"
+    global_category_deletion_fail: "There was a problem while deleting %{name}"
     to_do_comment_body: "The comment body cannot be blank" 
     file_size_5mb: "File size must be less than 5 Megabytes"
     file_size_10mb: "File size must be less than 10 Megabytes"
