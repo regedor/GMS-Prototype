@@ -1,0 +1,19 @@
+<div class="content">
+  <div class="inner">
+    <h2><%= t('admin.global_categories.form.edit') %></h2>
+
+    <% semantic_form_for :record, @record, 
+                         :url => admin_global_category_path(@record), 
+                         :html => { :method => :put, :id => "edit_category_#{@record.id}" } do |form| -%>
+
+      <%= render :partial => 'form', :locals => { :form => form } %>
+
+      <% form.buttons do -%>
+        <%= form.commit_button I18n::t('admin.global_categories.form.update_button'),
+                               :button_html => { :class => 'button positive' } %>
+        <%= form.button_link   I18n::t('admin.global_categories.form.cancel_button'), admin_global_categories_path,
+                               :button_html => { :class => 'button negative' } %>
+      <% end -%>
+    <% end -%>
+  </div>
+</div>

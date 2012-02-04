@@ -242,6 +242,24 @@ pt:
   admin:
     global_categories:
       manage: "Editar as categorias"
+      index:
+        title: "Categorias"
+        create: "Criar categoria"
+        update_link: "Editar"
+        destroy_link: "Apagar"
+      list:
+        noentries: "Nenhuma Categoria Encontrada"
+        found:
+          more: "%{count} Categorias Encontradas"
+          one: "%{count} Categoria Encontrada"
+      columns:
+        name: "Nome"
+      form:
+        new: "Nova Categoria"
+        edit: "Editar Categoria"
+        create_button: "Criar"
+        cancel_button: "Cancelar"
+        update_button: "Editar"
       
     delete:
       title: "Tem a certeza que quer apagar?"

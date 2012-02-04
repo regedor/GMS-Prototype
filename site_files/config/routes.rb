@@ -24,17 +24,14 @@ begin
   map.page ':slug', 
           :controller => 'pages', 
           :action => 'show', 
-          :method => :get, 
-          :requirements => { :slug => /#{GlobalCategory.all.map do |gc|
-              '(?!'+ gc.slug + ')'
-            end.join}(?!admin)(?!user)(?!archives).*/ 
-          }
+          :method => :get,
+          :requirements => { :slug => /(#{Page.all.map(&:slug).map{|ps|url_encode(ps)}.join('|')}).*/ }
   
   map.global_category ':name/posts', 
                       :controller => 'posts', 
                       :action => 'index', 
                       :method => :get,
-                      :requirements => {:name  => /(#{GlobalCategory.all.map(&:slug).join('|')})/}
+                      :requirements => {:name  => /(#{GlobalCategory.all.map(&:slug).map(&:to_s).join('|')})/}
                       
   map.connect ':name/:year/:month/:day/:slug/comments', 
           :controller => 'comments', 
@@ -115,7 +112,12 @@ begin
                                      :member          => { :mark_as_spam => :put, :mark_as_ham => :put }
     admin.resources :history_entries
     admin.resources :settings
-    admin.resources :global_categories, :collection => { :set_category => :get }
+    
+    admin.resources :global_categories, 
+                    :active_scaffold => true, 
+                    :active_scaffold_sortable => true,
+                    :collection => { :set_category => :get }
+                    
     admin.resources :mails,          :active_scaffold => true, :active_scaffold_sortable => true, 
                                      :collection      => { :values => :get }     
     admin.resources :user_optional_group_picks, :active_scaffold => true, :active_scaffold_sortable => true      

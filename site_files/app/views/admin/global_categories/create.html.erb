@@ -1,0 +1,19 @@
+<div class="content">
+  <div class="inner">
+    <h2><%= t('admin.global_categories.form.new') %></h2>
+
+    <% semantic_form_for :record, @record,
+                         :url => admin_global_categories_path,
+                         :html => { :class => 'create', :id => 'new_category' } do |form| -%>
+
+      <%= render :partial => 'form', :locals => { :form => form } %>
+
+      <% form.buttons do -%>
+        <%= form.commit_button t('admin.global_categories.form.create_button'),
+                               :button_html => { :class => 'button positive' } %>
+        <%= form.button_link   t('admin.global_categories.form.cancel_button'), admin_global_categories_path,
+                               :button_html => { :class => 'button negative' } %>
+      <% end -%>
+    <% end -%>
+  </div>
+</div>

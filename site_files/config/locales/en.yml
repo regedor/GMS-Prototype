@@ -238,6 +238,22 @@ en:
   admin:
     global_categories:
       manage: "Manage the categories"
+      index:
+        title: "Categories"
+        create: "Create categories"
+        update_link: "Edit"
+        destroy_link: "Delete"
+      list:
+        noentries: "No Category Found"
+        found:
+          more: "%{count} Categories Found"
+          one: "%{count} Category Found"
+      columns:
+        name: "Name"
+      form:
+        new: "New Category"
+        create_button: "Create"
+        cancel_button: "Cancel"
       
     delete: 
       title: "Are you sure you want to delete?"  
