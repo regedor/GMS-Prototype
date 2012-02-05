@@ -25,7 +25,7 @@ begin
           :controller => 'pages', 
           :action => 'show', 
           :method => :get,
-          :requirements => { :slug => /(#{Page.all.map(&:slug).map{|ps|url_encode(ps)}.join('|')}).*/ }
+          :requirements => { :slug => /(#{(Page.all.map(&:slug) + Page.all.map(&:slug).map{|ps|url_encode(ps)}).join('|')}).*/ }
   
   map.global_category ':name/posts', 
                       :controller => 'posts', 
