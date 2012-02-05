@@ -4,11 +4,11 @@ module CalendarHelper
   end
 
   def prev_month_link(month_date)
-    link_to("◀", { :action => "index", :controller => "posts", :cal_month => month_date.month, :cal_year => month_date.year })
+    link_to("◀", { :action => "index", :controller => "/posts", :cal_month => month_date.month, :cal_year => month_date.year })
   end
 
   def next_month_link(month_date)
-    link_to("▶", { :action => "index", :controller => "posts", :cal_month => month_date.month, :cal_year => month_date.year })
+    link_to("▶", { :action => "index", :controller => "/posts", :cal_month => month_date.month, :cal_year => month_date.year })
   end
 
   # custom options for this calendar
