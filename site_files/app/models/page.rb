@@ -2,7 +2,7 @@ class Page < ActiveRecord::Base
   # ==========================================================================
   # Relationships
   # ==========================================================================
-  
+
   belongs_to :group
   belongs_to :global_category
   has_many   :approved_comments, :as => 'commentable', :dependent => :destroy, :class_name => 'Comment'
@@ -26,9 +26,10 @@ class Page < ActiveRecord::Base
   include HistoryEntry::Historicable
 
   before_save           :apply_filter
+  after_save            :reload_routes
   named_scope :navigation_pages, :conditions => {:show_in_navigation => true}, :order => "priority desc"
-  named_scope :viewable_only, lambda { |user| { 
-      :conditions => (user.nil?) ? {"pages.group_id",[0]} : {"pages.group_id",user.group_ids+[0]}     
+  named_scope :viewable_only, lambda { |user| {
+      :conditions => (user.nil?) ? {"pages.group_id",[0]} : {"pages.group_id",user.group_ids+[0]}
     }
   }
 
@@ -50,9 +51,12 @@ class Page < ActiveRecord::Base
     if self.slug.blank? || !self.slug.starts_with?(new_slug)
       repeated = Page.all(:select => 'COUNT(*) as id', :conditions => { :slug => new_slug }).first.id
       self.slug = (repeated > 0) ? "#{new_slug}-#{repeated + 1}" : new_slug
-    end 
-  end 
-
+    end
+  end
+  
+  def reload_routes
+    ActionController::Routing::Routes.reload!
+  end
 
   # ==========================================================================
   # Class Methods
@@ -72,4 +76,3 @@ class Page < ActiveRecord::Base
   end
 
 end
-
