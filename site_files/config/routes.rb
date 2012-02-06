@@ -21,7 +21,7 @@ begin
   
   map.connect ':slug/comments', :controller => 'comments', :action => 'create', :method => :post
   
-  pages = Page.all.map(&:slug).map{|ps|url_encode(ps)}
+  pages = Page.all.map(&:slug).map{|ps|url_encode(url_encode(ps))}
   
   map.page ':slug', 
           :controller => 'pages', 
