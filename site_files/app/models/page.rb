@@ -28,9 +28,12 @@ class Page < ActiveRecord::Base
   before_save           :apply_filter
   after_save            :reload_routes
   named_scope :navigation_pages, :conditions => {:show_in_navigation => true}, :order => "priority desc"
-  named_scope :viewable_only, lambda { |user| {
-      :conditions => (user.nil?) ? {"pages.group_id",[0]} : {"pages.group_id",user.group_ids+[0]}
-    }
+  named_scope :viewable_only, lambda { |user|
+    if user && user.group_ids.member?(2)
+      { :conditions => {} }
+    else
+      { :conditions => (user.nil?) ? {"pages.group_id",[0]} : {"pages.group_id",user.group_ids+[0]} }
+    end
   }
 
   # ==========================================================================
