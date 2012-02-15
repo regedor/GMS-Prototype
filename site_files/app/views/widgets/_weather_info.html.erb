@@ -3,21 +3,23 @@
   <% weather_info_right = Nokogiri::XML(open("http://weather.yahooapis.com/forecastrss?w=#{right_location_code}&u=c")) %>
 
   <div class="left">
-    <% left_condition = weather_info_left.xpath('//yweather:condition')[0] %>
-    <span class="temperature"><%= left_condition['temp'].to_s + 'ºC' %></span>
-
     <% left_location = weather_info_left.xpath('//yweather:location')[0] %>
-    <span class="location"><%= t "widgets.weather.city.#{left_location['city'].to_s}" %>, <%= t "widgets.weather.country.#{left_location['country'].to_s}" %></span>
+    <% left_condition = weather_info_left.xpath('//yweather:condition')[0] %>
+
+    <span class="location"><%= t "widgets.weather.city.#{left_location['city'].to_s}" %></span>
+
+    <span class="temperature"><%= left_condition['temp'].to_s + 'ºC' %></span>
 
     <span class="condition"><%= t "widgets.weather.condition.c#{left_condition['code'].to_s}" %></span>
   </div>
 
   <div class="right">
-    <% right_condition = weather_info_right.xpath('//yweather:condition')[0] %>
-    <span class="temperature"><%= right_condition['temp'].to_s + 'ºC' %></span>
-
     <% right_location = weather_info_right.xpath('//yweather:location')[0] %>
-    <span class="location"><%= t "widgets.weather.city.#{right_location['city'].to_s}" %>, <%= t "widgets.weather.country.#{right_location['country'].to_s}" %></span>
+    <% right_condition = weather_info_right.xpath('//yweather:condition')[0] %>
+
+    <span class="location"><%= t "widgets.weather.city.#{right_location['city'].to_s}" %></span>
+
+    <span class="temperature"><%= right_condition['temp'].to_s + 'ºC' %></span>
 
     <span class="condition"><%= t "widgets.weather.condition.c#{right_condition['code'].to_s}" %></span>
   </div>
