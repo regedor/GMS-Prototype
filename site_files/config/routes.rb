@@ -21,13 +21,11 @@ begin
   
   map.connect ':slug/comments', :controller => 'comments', :action => 'create', :method => :post
   
-  pages = Page.all.map(&:slug)
-  
   map.page ':slug', 
           :controller => 'pages', 
           :action => 'show', 
           :method => :get,
-          :requirements => { :slug => /(#{pages.join('|')}).*/ }
+          :requirements => { :slug => /(#{Page.all.map(&:slug).join('|')}).*/ }
   
   map.global_category ':name/posts', 
                       :controller => 'posts', 

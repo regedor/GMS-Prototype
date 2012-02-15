@@ -34,7 +34,7 @@ jQuery(document).ready(function($) {
 
   <% @images.each do |image| %>
     <div class="gallery_entry">
-      <a class="group_elements" title="<%= image.description %>" href="<%= image.multi_purpose_image.url %>" rel="<%= h @album.name %>"><img class="thumb" src="<%= image.multi_purpose_image.url(:small) %>"></a>
+      <a class="group_elements" title="<%= image.description %>" href="<%= image.multi_purpose_image.url %>" rel="<%= h @album.name.to_url %>"><img class="thumb" src="<%= image.multi_purpose_image.url(:small) %>"></a>
     </div>
   <% end %>
 </div>
