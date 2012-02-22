@@ -4,7 +4,24 @@ module WidgetHelper
   def clocks_widget
     render :partial => 'widgets/clocks'
   end
-  
+
+  def weather_condition_image(condition)
+    image = "na.png"
+
+    case condition.to_i
+      when 0 # tornado
+        image = "wind.png"
+      when 1 # tropical storm
+        image = "rain_day.png"
+      when 2 # hurricane
+        image = "wind.png"
+      when 34
+        image = "sunny.png"
+    end
+
+    "<img src=\"/images/widgets/weather/#{image}\" height=\"60px\" width=\"85px\">"
+  end
+
   # Show tags as a 2 level menu of limit elements (can be acompanied by the tag_header)
   def tag_menu_widget(tags, limit=10, just_items=false)
     tags_for_cloud = Tag.tags_for_menu(tags, limit) 

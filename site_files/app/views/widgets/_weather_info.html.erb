@@ -10,6 +10,8 @@
 
     <span class="temperature"><%= left_condition['temp'].to_s + 'ºC' %></span>
 
+    <%= weather_condition_image(left_condition['code']) %>
+
     <span class="condition"><%= t "widgets.weather.condition.c#{left_condition['code'].to_s}" %></span>
   </div>
 
@@ -20,6 +22,8 @@
     <span class="location"><%= t "widgets.weather.city.#{right_location['city'].to_s}" %></span>
 
     <span class="temperature"><%= right_condition['temp'].to_s + 'ºC' %></span>
+
+    <%= weather_condition_image(right_condition['code']) %>
 
     <span class="condition"><%= t "widgets.weather.condition.c#{right_condition['code'].to_s}" %></span>
   </div>
