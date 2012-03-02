@@ -1,12 +1,7 @@
 <div id="footer">
   <p>Copyright © <%= Time.now.year %> <%= link_to configatron.site_name, configatron.site_url %>. Todos os direitos reservados. Desenvolvido por <%= link_to 'Group Buddies', 'http://www.groupbuddies.com' %>.</p>
 
-  <% if current_user -%>
-    <p><%=h t 'footer.last_session_paragraph', :time_ago => time_ago_in_words(current_user.last_login_at || Time.now),
-                                               :ip       => current_user.last_login_ip %></p>
-  <% end -%>
-
-  <!--[if lt IE 7]>
+  <!--[if lt IE 8]>
     <p><%= t('footer.browser_warning') %></p>
   <![endif]-->
 </div>
