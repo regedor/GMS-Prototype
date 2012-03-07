@@ -3,10 +3,10 @@ class Post < ActiveRecord::Base
 
   acts_as_taggable
 
-  has_many                :approved_comments, 
-                          :as => 'commentable', 
-                          :dependent => :destroy, 
-                          :class_name => 'Comment'
+  has_many   :approved_comments, 
+             :as => 'commentable', 
+             :dependent => :destroy, 
+             :class_name => 'Comment'
 
   belongs_to :group
   belongs_to :event

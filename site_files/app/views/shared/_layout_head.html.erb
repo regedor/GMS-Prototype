@@ -28,6 +28,10 @@
        javascripts << 'initializers/clocks'
      end
 
+     if (defined? sentir_saude_slider) && sentir_saude_slider
+       javascripts << 'slides.min.jquery'
+     end
+
      javascripts << 'application'
 
  %>

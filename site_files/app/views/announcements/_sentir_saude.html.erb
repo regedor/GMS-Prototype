@@ -1,0 +1,26 @@
+<script>
+jQuery(document).ready(function($){
+  $("#announcements").slides({
+    container: 'announcement',
+    generatePagination: true,
+    generateNextPrev: true,
+    hoverPause: true,
+    play: 5000,
+    slideSpeed: 600,
+    pause: 2500
+  });
+});
+</script>
+
+<% announcements = Announcement.prioritize.viewable_only(current_user).active %>
+<% if params[:controller] != "pages" || @page.show_announcements? %>
+  <div id="announcements">
+    <div class="announcement">
+      <% announcements.each do |announcement| %>
+        <%= "<a href='#{announcement.url}'>" if announcement.url %>
+        <img src="<%= announcement.avatar.url(:announcement) %>" alt="" />
+        <%= "</a>" if announcement.url %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
