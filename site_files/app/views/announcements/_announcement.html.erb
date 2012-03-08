@@ -1,5 +1,6 @@
 <% announcements = Announcement.prioritize.viewable_only(current_user).active %>
 <% if params[:controller] != "pages" || @page.show_announcements? %>
+  <% unless @show_announcements == false  %>
   <div id="announcements">
     <% if(announcements.size > 0) %>
       <div id="announcement-numbers">
@@ -32,6 +33,7 @@
       <p><%= t('announcements.none') %></p>
     <% end %>
   </div>
+<% end %>
 <% end %>
 
 <% javascript_tag do %>
