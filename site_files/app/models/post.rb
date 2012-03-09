@@ -103,7 +103,7 @@ class Post < ActiveRecord::Base
   # Generates a unique slug
   def generate_slug
     new_slug = self.title.dup.to_url
-    if self.slug.blank? || !self.slug.starts_with?(new_slug)
+    if self.slug.blank? || self.slug != new_slug
       repeated = Post.all(:select => 'COUNT(*) as id', 
                           :conditions => { 
                             :slug => new_slug
