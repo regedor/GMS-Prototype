@@ -1,13 +1,16 @@
 <script>
 jQuery(document).ready(function($){
   $("#announcements").slides({
-    container: 'announcement',
+    container: 'announcements-container',
+    effect: 'fade',
+    crossfade: true,
     generatePagination: true,
-    generateNextPrev: true,
     hoverPause: true,
     play: 5000,
-    slideSpeed: 600,
-    pause: 2500
+    preload: true,
+    pause: 2500,
+    prev: 'prev',
+    next: 'next'
   });
 });
 </script>
@@ -15,12 +18,15 @@ jQuery(document).ready(function($){
 <% announcements = Announcement.prioritize.viewable_only(current_user).active %>
 <% if params[:controller] != "pages" || @page.show_announcements? %>
   <div id="announcements">
-    <div class="announcement">
+    <div class="announcements-container">
       <% announcements.each do |announcement| %>
         <%= "<a href='#{announcement.url}'>" if announcement.url %>
         <img src="<%= announcement.avatar.url(:announcement) %>" alt="" />
         <%= "</a>" if announcement.url %>
       <% end %>
     </div>
+
+    <a href="#" class="prev"></a>
+    <a href="#" class="next"></a>
   </div>
 <% end %>
