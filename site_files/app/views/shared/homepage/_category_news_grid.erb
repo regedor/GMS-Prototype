@@ -10,7 +10,7 @@
         <div id="post-<%= @posts.first.id %>" class="first post">
           <%= link_to(image_tag(@posts.first.image.url(:image)), post_path(@posts.first), :class => 'post-image') if @posts.first.image? %>
 
-          <h3 class="title"><%= link_to(@posts.first.title, post_path(@posts.first)) %></h3>
+          <h3 class="title <%= @posts.first.tags.map{ |tag| tag.name.to_url }.join ' ' %>"><%= link_to(@posts.first.title, post_path(@posts.first)) %></h3>
 
           <%= link_to(@posts.first.approved_comments_count.to_s, post_path(@posts.first, :anchor => 'comment-list'), :class => 'post-comments') %>
 
