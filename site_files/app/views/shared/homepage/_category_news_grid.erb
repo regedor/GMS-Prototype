@@ -3,32 +3,7 @@
     <h2 class="title"><%= link_to(global_category.name, "/#{global_category.slug}/posts") %></h2>
 
     <div class="global-category-body">
-      <% @posts = Post.find_all_by_global_category_id(global_category.id, :order => 'published_at DESC').first(5) %>
-      <% if @posts.empty? -%>
-        <p><%= t('posts.none') %></p>
-      <% else -%>
-        <div id="post-<%= @posts.first.id %>" class="first post">
-          <%= link_to(image_tag(@posts.first.image.url(:image)), post_path(@posts.first), :class => 'post-image') if @posts.first.image? %>
-
-          <h3 class="title <%= @posts.first.tags.map{ |tag| tag.name.to_url }.join ' ' %>"><%= link_to(@posts.first.title, post_path(@posts.first)) %></h3>
-
-          <%= link_to(@posts.first.approved_comments_count.to_s, post_path(@posts.first, :anchor => 'comment-list'), :class => 'post-comments') %>
-
-          <p><%= link_to(truncate(@posts.first.body, 80, '...'), post_path(@posts.first)) %></p>
-        </div>
-
-        <ul>
-          <% @posts[1..4].each do |post| %>
-            <li>
-              <div id="post-<%= post.id %>" class="post">
-                <h4 class="title <%= post.tags.map{ |tag| tag.name.to_url }.join ' ' %>"><%= link_to(post.title, post_path(post)) %></h4><%= link_to(post.approved_comments_count.to_s, post_path(post, :anchor => 'comment-list'), :class => 'post-comments') %>
-              </div>
-            </li>
-          <% end -%>
-        </ul>
-
-        <span id="posts-archive"><%= link_to(t('posts.archive'), "/#{global_category.slug}/posts") %></span>
-      <% end -%>
+      <%= render :partial => 'shared/homepage/news_grid_block', :locals => {:global_category => global_category} %>
     </div>
   </div>
 <% end %>
