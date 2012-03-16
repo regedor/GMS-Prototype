@@ -4,6 +4,7 @@ class Image < ActiveRecord::Base
   #attr_accessible :multi_purpose_image
   
   belongs_to :album
+  belongs_to :recipe
   
   has_attached_file :multi_purpose_image, 
                     :styles => { :small => "150x100!", :thumb => "80x50!" },

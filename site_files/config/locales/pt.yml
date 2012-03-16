@@ -248,10 +248,25 @@ pt:
         destroy_link: "Apagar"
         next: "Próximo"
         previous: "Anterior"
+        create: "Nova Receita"
+      form:
+        new: "Nova Receita"
+        edit: "Editar Receita"
+        create_button: "Criar"
+        edit_button: "Editar"
+        cancel_button: "Apagar"
       columns:
         name: "Nome"
         number_of_people: "Nr. de pessoas"
-        duration_in_minutes: "Duração"
+        duration_in_minutes: "Duração (min)"
+        publication_date: "Data de publicação"
+        recipe_category: "Tipo"
+        image: "Imagem"
+        recipe_dificulty: "Dificuldade"
+        preparation_description: "Receita"
+      hints:
+        duration_in_minutes: "A duração de preparação da receita em minutos"
+        publication_date: "A primeira receita de cada dia aparecerá na página inicial"
       list:
         noentries: "Nenhuma Receita Encontrada"
         found:
@@ -1231,6 +1246,10 @@ pt:
     post_deleted: "Apagado %{post}"
     project_deleted: "Apagado %{project}"
     project_not_deleted: "Não foi possível apagar %{project}"
+    recipe_created: "Criado %{name}"
+    recipe_not_created : "Ocorreu um erro durante a criação de %{name}"
+    recipe_updated: "Actualizado %{name}"
+    recipe_not_updated: "Ocorreu um erro durante a actualização de %{name}"
     announcement_created: "Criado %{name}"
     announcement_not_created : "Ocorreu um erro durante a criação de %{name}"
     announcement_updated: "Actualizado %{name}"

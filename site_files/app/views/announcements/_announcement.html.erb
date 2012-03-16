@@ -14,18 +14,20 @@
       </div>
 
       <% announcements.each_with_index do |announcement, i| -%>
-      <div id="announcement<%= i+1 %>" class="announcement<%= ' announcement-tail' if i > 0 %>">
-        <%= "<a href='#{announcement.url}'>" if announcement.url %>
-        <img src="<%= announcement.avatar.url(:announcement) %>" alt="" />
-        <%= "</a>" if announcement.url %>
-        <%= "<a href='#{announcement.url}'>" if announcement.url %>
-        <% if announcement.title && announcement.message %>
-          <div class="announcement-text">
-            <p class="title"><%= announcement.title %></p><p class="body"><%= announcement.message %></p>
+        <% cache("announcement/#{announcement.id}") do %>
+          <div id="announcement<%= i+1 %>" class="announcement<%= ' announcement-tail' if i > 0 %>">
+            <%= "<a href='#{announcement.url}'>" if announcement.url %>
+            <img src="<%= announcement.avatar.url(:announcement) %>" alt="" />
+            <%= "</a>" if announcement.url %>
+            <%= "<a href='#{announcement.url}'>" if announcement.url %>
+            <% if announcement.title && announcement.message %>
+              <div class="announcement-text">
+                <p class="title"><%= announcement.title %></p><p class="body"><%= announcement.message %></p>
+              </div>
+            <% end %>
+            <%= "</a>" if announcement.url %>
           </div>
         <% end %>
-        <%= "</a>" if announcement.url %>
-      </div>
       <% end -%>
 
     <% else %>

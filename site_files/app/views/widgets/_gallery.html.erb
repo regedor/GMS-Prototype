@@ -1,14 +1,9 @@
 <div id="gallery-widget" class="block">
   <h2 class="title">Galeria</h2>
 
-  <% @albums = Album.all.select {|album| !album.images.empty?} %>
-
-  <% if @albums.empty? %>
+  <% if Album.count == 0 %>
     <p>Sem imagens.</p>
   <% else %>
-    <% @albums = @albums.sort_by { rand } %>
-    <% @images = @albums.first.images.sort_by { rand } %>
-
-    <a href="<%= albums_path %>"><img class="thumb" src="<%= @images.first.multi_purpose_image.url(:small)%>"></a>
+    <a href="<%= albums_path %>"><img class="thumb" src="<%= Album.random.images.random.multi_purpose_image.url(:small)%>"></a>
   <% end %>
 </div>

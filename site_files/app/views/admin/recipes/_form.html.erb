@@ -1,0 +1,59 @@
+<%= include_i18n_calendar_javascript %>
+
+<script>
+jQuery.noConflict();
+
+jQuery(document).ready(function($){
+
+  setDatepickerWithTime(false);
+
+});
+</script>
+
+<% form.input_field_set do -%>
+  <%= form.input :name,
+                 :label    => t('admin.recipes.columns.name') %>
+  
+  <% if !@recipe.new_record? && @recipe.image -%>
+    <div class="file_icon"><%=  file_icon_displayer(@recipe.image.multi_purpose_image,true) %></div>
+  <% end -%>
+  <% unless @recipe.new_record? || !@recipe.image -%>
+    <%= form.input :image_delete,
+                   :as       => 'boolean',
+                   :required => false,
+                   :hint     => t('admin.posts.form.hints.delete_image'),
+                   :label    => t('admin.posts.form.delete_image') %>
+  <% end -%>
+
+  <% form.semantic_fields_for :image, @image do |image| %>
+    <%= image.input :multi_purpose_image,
+                    :as       => :file,
+                    :label    => t('admin.recipes.columns.image') %>
+  <% end %>
+  <%= form.input :recipe_category,
+                 :include_blank => false,
+                 :label    => t('admin.recipes.columns.recipe_category') %>
+  <%= form.input :publication_date,
+                 :as => :string,
+                 :input_html => { :class => "datepicker", :value => (@recipe.publication_date) ? l(@recipe.publication_date, :format => "%d/%m/%Y") : '' },
+                 :label    => t('admin.recipes.columns.publication_date'),
+                 :hint => t('admin.recipes.hints.publication_date') %>
+  <%= form.input :preparation_description,
+                 :label => t('admin.recipes.columns.preparation_description') %>
+
+  <%= form.input :number_of_people,
+                 :required => false,
+                 :label    => t('admin.recipes.columns.number_of_people') %>
+  <%= form.input :duration_in_minutes,
+                 :as         => 'select',
+                 :required   => false,
+                 :collection => (0..300).step(5),
+                 :include_blank => false,
+                 :selected   => (@record) ? @record.duration_in_minutes : 0,
+                 :label    => t('admin.recipes.columns.duration_in_minutes'),
+                 :hint => t('admin.recipes.hints.duration_in_minutes') %>
+  <%= form.input :recipe_dificulty,
+                 :required => false,
+                 :include_blank => false,
+                 :label    => t('admin.recipes.columns.recipe_dificulty') %>
+<% end -%>

@@ -10,7 +10,7 @@ class RecipeCategory < ActiveRecord::Base
   # Validations
   # ==========================================================================
 
-
+  validates_presence_of :name, :message => I18n::t('flash.cant_be_blank')
 
   # ==========================================================================
   # Extra defnitions
