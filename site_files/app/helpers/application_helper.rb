@@ -99,5 +99,9 @@ module ApplicationHelper
     end
     link_to_function(name, h("add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\");"), :href => "#add_activity")
   end
+  
+  def in_dev?
+    ENV['RAILS_ENV']=='development'
+  end
 
 end

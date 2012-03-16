@@ -9,6 +9,7 @@ Rails::Initializer.run do |config|
   config.action_mailer.default_url_options = { 
     :host => yaml_config['site_domain'] 
   }
+  config.load_paths <<  "#{RAILS_ROOT}/app/sweepers"
 end
 
 begin; Setting.load_settings_to_configatron; rescue Exception; end

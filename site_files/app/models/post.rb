@@ -16,7 +16,7 @@ class Post < ActiveRecord::Base
   before_validation       :generate_slug
   before_validation       :set_dates
   before_save             :apply_filter
-
+  
   validates_presence_of   :title, :body, :published_at, :message => I18n::t('flash.cant_be_blank')
   validates_uniqueness_of :slug
 

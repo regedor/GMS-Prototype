@@ -7,8 +7,14 @@ class ApplicationController < ActionController::Base
   helper_method :current_user_session, :current_user, :logged_in?
   before_filter { |c| Authorization.current_user = c.current_user }
   before_filter :set_user_language
+  before_filter :init if ENV['RAILS_ENV']=='development'
 
   $current_category = GlobalCategory.first
+
+  # Used to show page rendering time
+  def init
+    @start_time = Time.now 
+  end
 
   # Returns the current user session.
   def current_user_session

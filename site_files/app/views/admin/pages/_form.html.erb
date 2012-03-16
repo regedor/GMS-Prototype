@@ -440,6 +440,7 @@ jQuery(document).ready(function($){
 
 <% form.input_field_set do -%>
   <%= form.input :global_category,
+                 :include_blank => false,
                  :label    => I18n::t('admin.pages.columns.global_category') %>
   <%= form.input :title,
                  :label    => I18n::t('admin.pages.columns.title') %>

@@ -16,3 +16,10 @@ config.action_controller.perform_caching             = false
 # Don't care if the mailer or sms can't send
 config.action_mailer.raise_delivery_errors = false
 config.action_mailer.default_url_options   = { :host => 'localhost', :port => 3000 }
+
+config.action_controller.perform_caching = true
+
+# Does not work with Webrick
+#config.action_controller.page_cache_directory = RAILS_ROOT+"/public/system/cache"
+
+config.action_controller.cache_store = :file_store, RAILS_ROOT+"/tmp/cache/"
