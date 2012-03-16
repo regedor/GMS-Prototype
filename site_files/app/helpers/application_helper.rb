@@ -7,6 +7,16 @@ module ApplicationHelper
     javascript_tag "jQuery(document).ready(function($){$('#{css_selector}').autoscroll();});"
   end
 
+  def find_content_page(page_title)
+    unless (p = Page.find_by_title(page_title)).nil?
+      return p.body_html
+    else
+      %Q{
+       <span class="alert">You need to create a page with the title "footer_left"</span>
+      }
+    end
+  end
+
   def icon_tag(icon)
     "<img src='/images/icons/#{icon}.png' alt=''/>"
   end
