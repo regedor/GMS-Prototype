@@ -12,7 +12,7 @@ module ApplicationHelper
       return p.body_html
     else
       %Q{
-       <span class="alert">You need to create a page with the title "footer_left"</span>
+       <span class="alert">You need to create a page with the title #{page_title}</span>
       }
     end
   end
