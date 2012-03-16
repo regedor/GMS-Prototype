@@ -7,24 +7,24 @@
       <% f.inputs do %>
         <%= f.input :name, 
                     :as => :string,
-                    :label => t("admin.project.new.name") %>
+                    :label => t("admin.projects.new.name") %>
 
         <%= f.input :description, 
                     :as => :text, 
-                    :label => t("admin.project.new.description"), 
+                    :label => t("admin.projects.new.description"), 
                     :required => false %>
 
         <%= f.input :group, 
                     :as => :radio, 
-                    :label => t("admin.project.new.group"), 
+                    :label => t("admin.projects.new.group"), 
                     :required => false %>
       <% end  %>
 
       <% f.buttons do %>
-        <%= f.commit_button :label => t("admin.project.new.edit_button"),
+        <%= f.commit_button :label => t("admin.projects.new.edit_button"),
                             :button_html => { :class => 'button positive' } %>
 
-        <%= f.button_link t("admin.project.new.cancel"),
+        <%= f.button_link t("admin.projects.new.cancel"),
                           admin_projects_path,
                           :button_html => { :class => 'button negative' } %>
      <% end %>

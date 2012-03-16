@@ -16,7 +16,7 @@ begin
   map.resources :calendar
   map.resources :albums
   map.resource  :newsletter
-  map.resources :maps, :collection => { :mapa_de_portugal => :get }
+  
   
   map.resources :sys_admin, :collection => { :log => :get, :update_current_user => :put }
   
@@ -149,6 +149,9 @@ begin
                                          :has_many => :images,
                                          :member => { :all_images => :get }
     admin.resources :images
+    
+    admin.resources :recipes,            :active_scaffold => true, 
+                                         :active_scaffold_sortable => true
   end
 
   

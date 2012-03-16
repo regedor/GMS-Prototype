@@ -4,7 +4,7 @@ class Admin::ProjectsController < Admin::BaseController
 
   active_scaffold :project do |config|
 
-    Scaffoldapp::active_scaffold config, "admin.project", 
+    Scaffoldapp::active_scaffold config, "admin.projects", 
       :list     => [ :name, :description, :user ],        
       :show     => [ ],                                   
       :create   => [ :name, :description, :group ],       

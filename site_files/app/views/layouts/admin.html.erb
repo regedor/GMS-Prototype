@@ -65,7 +65,7 @@
                                 'admin/events',
                                 'admin/event_manage',
                                 'admin/event_activities',
-                                'admin/event_activity_manage',]
+                                'admin/event_activity_manage']
 
                # Conditionally add new tabs
                website_tabs << 'admin/albums' if configatron.has_gallery == 'true'
@@ -96,6 +96,10 @@
                                   'admin/messages',
                                   'admin/categories'],
                                 admin_projects_path %>
+
+            <%= navigation_menu 'admin.navigation.main.culinary',
+                                [ 'admin/recipes'],
+                                admin_recipes_path %>
           
 
         </ul>

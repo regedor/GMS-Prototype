@@ -240,6 +240,24 @@ pt:
       total_value: "%{total_price} €"
       
   admin:
+    recipes:
+      index:
+        title: "Receitas"
+        show_link: "Detalhes"
+        update_link: "Actualizar"
+        destroy_link: "Apagar"
+        next: "Próximo"
+        previous: "Anterior"
+      columns:
+        name: "Nome"
+        number_of_people: "Nr. de pessoas"
+        duration_in_minutes: "Duração"
+      list:
+        noentries: "Nenhuma Receita Encontrada"
+        found:
+          more: "%{count} Receitas Encontradas"
+          one: "%{count} Receita Encontrada"
+    
     global_categories:
       manage: "Actualizar as categorias"
       index:
@@ -247,6 +265,8 @@ pt:
         create: "Criar categoria"
         update_link: "Actualizar"
         destroy_link: "Apagar"
+        next: "Próximo"
+        previous: "Anterior"
       list:
         noentries: "Nenhuma Categoria Encontrada"
         found:
@@ -264,7 +284,7 @@ pt:
     delete:
       title: "Tem a certeza que quer apagar?"
     
-    album:
+    albums:
       index:
         title: "Galeria"
         create: "Criar Álbum"
@@ -272,6 +292,8 @@ pt:
         update_link: "Editar"
         destroy_link: "Apagar"
         destroy: "Apagar"
+        next: "Próximo"
+        previous: "Anterior"
       columns:
         name: "Nome"
         created_at: "Criado em"   
@@ -288,6 +310,7 @@ pt:
         website: "Website"
         system: "Utilizadores"
         projects: "Projectos"
+        culinary: "Culinária"
       secondary:
         dashboard: "Painel de Controlo"
         users: "Contas"
@@ -418,13 +441,15 @@ pt:
           cancel_button: "Cancelar"
                 
     
-    project:
+    projects:
       index:
         title: "Projectos" 
         create: "Novo Projecto"
         update_link: "Editar"
         destroy_link: "Apagar"
         show_link: "Ir a Projecto"
+        next: "Próximo"
+        previous: "Anterior"
       new:
         name: "Nome"
         description: "Descrição"
@@ -532,6 +557,8 @@ pt:
         show_link: "Detalhes"
         update_link: "Editar"
         destroy_link: "Apagar"
+        next: "Próximo"
+        previous: "Anterior"
       columns:
         name: "Nome"
         description: "Descrição"
@@ -624,6 +651,8 @@ pt:
         show_link: "Detalhes"
         search: "Procurar utilizadores"
         create: "Criar utilizador"
+        next: "Próximo"
+        previous: "Anterior"
       columns:
         created_at: "Criado em"
         email: "Email"
@@ -775,6 +804,8 @@ pt:
         destroy_link: "Apagar"
         search: "Procurar grupos"
         create: "Novo grupo"
+        next: "Próximo"
+        previous: "Anterior"
         sidebar:
           users:
             go_to_deleted_users: "Ir a utilizadores apagados"
@@ -895,6 +926,8 @@ pt:
         show_link: "Detalhes"
         search: "Procurar Páginas"
         create: "Nova Página"
+        next: "Próximo"
+        previous: "Anterior"
       sidebar:
         title: "Páginas"
         paragraph: "Pode <b title=\"Use o botão 'Nova Página'.\">criar</b> páginas novas e <b title=\"Use o botão 'Apagar'.\">apagar</b> as existentes. Também pode <b title=\"Use o botão 'Detalhes'.\">ver</b> e <b title=\"Use o botão 'Editar'.\">editar</b> as páginas actuais.<br/><br/>É possível ordenar a lista de páginas por <b title=\"Clique em 'Título'.\">título</b> ou <b title=\"Clique em 'Data'.\">data</b> também como <b title=\"A caixa de filtros é ao lado do botão de adicionar.\">filtrar</b> os seus conteúdos.<br/><br/>Ao clicar no título da página, será redireccionado para a página pública correspondente."
@@ -953,6 +986,8 @@ pt:
         show_link: "Detalhes"
         destroy_link: "Apagar"
         update_link: "Editar"
+        next: "Próximo"
+        previous: "Anterior"
         comments_link:
           image: ""
           more: "%{count} Comentários"
@@ -1074,6 +1109,8 @@ pt:
         close_button: "Fechar"
         search: "Procurar Anúncios"
         create: "Novo Anúncio"
+        next: "Próximo"
+        previous: "Anterior"
       columns:
         global_category: "Categoria"
         hasMessage: "Tem mensagem" 

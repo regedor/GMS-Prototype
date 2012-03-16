@@ -3,7 +3,7 @@ class Admin::AlbumsController < Admin::BaseController
   
   active_scaffold :album do |config|
     #config.list.sorting = {:published_at => :desc}
-    Scaffoldapp::active_scaffold config, "admin.album",
+    Scaffoldapp::active_scaffold config, "admin.albums",
       :list   => [ :name, :created_at ],
       :show   => [],
       :create => [],

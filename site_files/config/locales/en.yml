@@ -243,6 +243,8 @@ en:
         create: "Create categories"
         update_link: "Edit"
         destroy_link: "Delete"
+        next: "Next"
+        previous: "Previous"
       list:
         noentries: "No Category Found"
         found:
@@ -258,13 +260,15 @@ en:
     delete: 
       title: "Are you sure you want to delete?"  
       
-    album:
+    albums:
       index:
         title: "Gallery"
         create: "Create Album"
         show_link: "View"
         update_link: "Edit"
         destroy: "Delete"
+        next: "Next"
+        previous: "Previous"
       columns:
         name: "Name"
         created_at: "Created at"
@@ -375,6 +379,8 @@ en:
         by_category: "Messages on"
         all: "All Messages"
         empty: "There are no messages"
+        next: "Next"
+        previous: "Previous"
       columns:
         title: "Message title"
         body: "Body"
@@ -410,13 +416,15 @@ en:
           cancel_button: "Cancel"
 
 
-    project:
+    projects:
       index:
         title: "Projects" 
         create: "New Project"
         update_link: "Edit"
         destroy_link: "Delete"
         show_link: "Go To Project"
+        next: "Next"
+        previous: "Previous"
       new:
         name: "Name"
         description: "Description"
@@ -480,6 +488,8 @@ en:
           show_link: "Details"
           update_link: "Edit"
           destroy_link: "Delete"
+          next: "Next"
+          previous: "Previous"
         manage:
           button:
             search: "Search"
@@ -524,6 +534,8 @@ en:
         show_link: "Details"
         update_link: "Edit"
         destroy_link: "Delete"
+        next: "Next"
+        previous: "Previous"
       columns:
         name: "Name"
         description: "Description"
@@ -616,6 +628,8 @@ en:
         show_link: "Details"
         search: "Find users"
         create: "Create user"
+        next: "Next"
+        previous: "Previous"
       columns:
         created_at: "Created at"
         email: "Email"
@@ -767,6 +781,8 @@ en:
         destroy_link: "Delete"
         search: "Find groups"
         create: "New Group"
+        next: "Next"
+        previous: "Previous"
         sidebar:
           users:
             go_to_deleted_users: "Go to deleted users"
@@ -887,6 +903,8 @@ en:
         show_link: "Details"
         search: "Search Pages"
         create: "New Page"
+        next: "Next"
+        previous: "Previous"
       sidebar:
         title: "Pages"
         paragraph: "You can <b title=\"Use the 'New Page' button.\">create</b> new pages and <b title=\"Use the 'Delete' button.\">remove</b> existing ones. You can also <b title=\"Use the 'Details' button.\">view</b> and <b title=\"Use the 'Edit' button.\">edit</b> current pages.<br/><br/>It's possible to order the page list by <b title=\"Click in 'Title'.\">title</b> or <b title=\"Click in 'Date'.\">date</b> as well as <b title=\"The filter box is next to the add button.\">filter</b> its contents.<br/><br/>By clicking on the page's title, you'll be redirected to the corresponding page in the Front-end."
@@ -945,6 +963,8 @@ en:
         show_link: "Details"
         destroy_link: "Delete"
         update_link: "Edit"
+        next: "Next"
+        previous: "Previous"
         comments_link:
           image: ""
           more: "%{count} Comments"
@@ -1066,6 +1086,8 @@ en:
         close_button: "Close"
         search: "Search Announcements"
         create: "New Announcement"
+        next: "Next"
+        previous: "Previous"
       columns:
         global_category: "Category"
         hasMessage: "Has message"  
