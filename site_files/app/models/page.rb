@@ -12,7 +12,7 @@ class Page < ActiveRecord::Base
   # Validations
   # ==========================================================================
 
-  validates_presence_of   :title, :body
+  validates_presence_of   :title, :body, :message => I18n::t('flash.cant_be_blank')
   validates_uniqueness_of :slug
   before_validation       :generate_slug
   belongs_to              :group

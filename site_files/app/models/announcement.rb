@@ -12,7 +12,7 @@ class Announcement < ActiveRecord::Base
     :default_url => '/system/:attachment/:style/missing.png'
 
 
-  validates_presence_of :title, :starts_at, :ends_at
+  validates_presence_of :title, :starts_at, :ends_at, :message => I18n::t('flash.cant_be_blank')
   #validates_presence_of :message, :if  => :has_message
   #validates_with DescriptionValidator
   validates_uniqueness_of :title

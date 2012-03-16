@@ -1,5 +1,6 @@
 class Admin::GlobalCategoriesController < Admin::BaseController
   filter_access_to :all, :require => any_as_privilege
+  cache_sweeper :global_category_sweeper, :only => [:update,:create,:destroy]
   
   active_scaffold :global_category do |config|
     Scaffoldapp::active_scaffold config, "admin.global_categories",

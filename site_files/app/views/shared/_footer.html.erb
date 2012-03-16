@@ -4,4 +4,12 @@
   <!--[if lt IE 8]>
     <p><%= t('footer.browser_warning') %></p>
   <![endif]-->
+
+  <% if in_dev? %>
+    <div id="render-time">
+      rendered in <%= Time.now-@start_time %> seconds
+    </div>
+  <% end %>
 </div>
+
+
