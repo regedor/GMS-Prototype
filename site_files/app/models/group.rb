@@ -33,7 +33,8 @@ class Group < ActiveRecord::Base
   # Extra definitions
   # ==========================================================================
 
-  after_save :update_behaviour_delayed_jobs
+  #after_save :update_behaviour_delayed_jobs
+  #before_save   :set_behavior
   named_scope :relevant, lambda { |query_string| { :conditions => "name LIKE '%%%#{query_string}%%'", :limit => 10} } 
   
 
@@ -41,7 +42,6 @@ class Group < ActiveRecord::Base
   # Instance Methods
   # ==========================================================================
 
-  before_save   :set_behavior
   after_save    :update_user_count
 
   # Used to distinguish the types of behavior in forms and save operations

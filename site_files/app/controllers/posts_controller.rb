@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
     
   def index
-    if configatron.site_name == "Paris Português" && params[:name]
+    unless configatron.site_name == "Paris Português" && !params[:name]
       @tags = params[:tags].split(",") if params[:tags]
       if params[:name]
         category = GlobalCategory.find_by_slug(params[:name])
