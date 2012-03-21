@@ -17,7 +17,7 @@ config.action_controller.perform_caching             = false
 config.action_mailer.raise_delivery_errors = false
 config.action_mailer.default_url_options   = { :host => 'localhost', :port => 3000 }
 
-config.action_controller.perform_caching = true
+config.action_controller.perform_caching = false
 
 # Does not work with Webrick
 #config.action_controller.page_cache_directory = RAILS_ROOT+"/public/system/cache"
