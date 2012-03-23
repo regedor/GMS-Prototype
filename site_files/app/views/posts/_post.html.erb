@@ -1,4 +1,4 @@
-<% cache("post/#{post.id}") do %>
+<div id="post-<%= post.id %>" class="post">
   <h2 class="title"><%= link_to(post.title, post_path(post)) %></h2>
   <div class="textile-body">
     <%= content_tag :div, link_to(image_tag(post.image.url(:image)), post.image.url(:original)), :class => 'post-image' if post.image? %>
@@ -24,6 +24,7 @@
     </div>
   <% end %>
   
+
   <% if post.generic_file_name && params[:action] == "show" %>
     <div class="attachment">
       <span class="attachment_icon">
@@ -49,4 +50,4 @@
       <% end %>
     </ul>
   </div>
-<% end %>
+</div>

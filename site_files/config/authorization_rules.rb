@@ -105,6 +105,7 @@ authorization do
   role :guest do
     has_permission_on :posts,                       :to =>  [ :read ]
     has_permission_on :pages,                       :to =>  [ :read ]
+    has_permission_on :admin_posts,                 :to =>  [ :read ]
   end
   
 end

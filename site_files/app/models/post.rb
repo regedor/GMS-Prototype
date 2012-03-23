@@ -41,7 +41,9 @@ class Post < ActiveRecord::Base
   
   named_scope :filter_by_category, lambda { |category| { :conditions => { :global_category_id => category } } }
 
-  has_attached_file :image, :styles => { :image => "250x250", :thumb => "50x50" }
+  post_image_size = (configatron.post_image_size) ? configatron.post_image_size : "250x250"
+
+  has_attached_file :image, :styles => { :image => post_image_size, :thumb => "50x50" }
   has_attached_file :generic
   before_save do |instance|
     instance.image.clear   if instance.image_delete == "1"

@@ -15,7 +15,7 @@
                              'shared/formtastic-changes',
                              "/stylesheets/frontend", :cache => 'cache/frontend' %>
 
-  <% javascripts = ['strutil',
+  <% @javascripts = ['strutil',
                     'jquery',
                     'jquery-ui.min',
                     'jquery.tmpl.min',
@@ -24,22 +24,23 @@
 
      # This comes from the instance specific application layout
      if (defined? clocks_widget) && clocks_widget
-       javascripts << 'coolclock'
-       javascripts << 'initializers/clocks'
+       @javascripts << 'coolclock'
+       @javascripts << 'initializers/clocks'
      end
 
      if (defined? sentir_saude_slider) && sentir_saude_slider
-       javascripts << 'slides.min.jquery'
+       @javascripts << 'slides.min.jquery'
      end
 
-     javascripts << 'application'
+     @javascripts << 'application'
 
  %>
 
-  <%= javascript_include_tag javascripts, :cache => 'cache/frontend' %>
   <% if (defined? clocks_widget) && clocks_widget %>
     <!--[if IE]><script type="text/javascript" src="excanvas.js"></script><![endif]-->
   <% end %>
+
+  <%= javascript_include_tag @javascripts %>
 
   <%= yield :head %>
 </head>
