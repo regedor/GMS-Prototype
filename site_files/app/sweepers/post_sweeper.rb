@@ -17,5 +17,7 @@ class PostSweeper < ActionController::Caching::Sweeper
   def expire_cache_for(post)
     expire_fragment("post/#{post.id}")
     expire_fragment("news_grid_block/#{post.global_category.id}")
+    expire_fragment("tag_menu")
+    Rails.cache.delete("tags_for_cloud")
   end
 end
