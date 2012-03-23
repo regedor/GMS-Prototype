@@ -14,6 +14,8 @@ jQuery(document).ready(function($) {
 		// Add current class to the current page
 		$(".current").removeClass("current");
 		$('a[href="'+unescapeFromUrl(window.location.pathname,"UTF-8")+'"]').addClass("current");
+		if(window.location.pathname.slice(1,5) == "icci")
+			$('a[href="/icci-revista"]').addClass("current");
 	}
 	else
 	{
