@@ -21,3 +21,35 @@ if GlobalCategory.all.empty?
   puts "Creating Category"
   GlobalCategory.create :name => "Default", :slug => "default" 
 end
+
+recipe_categories = [ 
+  {:name => "Entrada"},
+  {:name => "Prato Principal"},
+  {:name => "Sobremesa"}
+]
+
+recipe_categories.each do |attributes| 
+  RecipeCategory.find_or_initialize_by_name(attributes[:name]).save!
+end
+
+recipe_categories = [ 
+  {:name => "Entrada"},
+  {:name => "Prato Principal"},
+  {:name => "Sobremesa"}
+]
+
+recipe_categories.each do |attributes| 
+  RecipeCategory.find_or_initialize_by_name(attributes[:name]).save!
+end
+
+recipe_dificulties = [ 
+  {:name => "Fácil"},
+  {:name => "Médio"},
+  {:name => "Difícil"}
+]
+
+recipe_dificulties.each do |attributes| 
+  RecipeDificulty.find_or_initialize_by_name(attributes[:name]).save!
+end
+
+

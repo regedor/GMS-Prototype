@@ -116,9 +116,7 @@ module WidgetHelper
 
   # Show tags as a 2 level menu of limit elements (can be acompanied by the tag_header)
   def tag_menu_widget(tags, limit=10, just_items=false)
-    tags_for_cloud = Rails.cache.fetch("tags_for_cloud") do
-      Tag.tags_for_menu(tags, limit)
-    end
+    tags_for_cloud = YAML::load(Rails.cache.fetch("tags_for_cloud"){Tag.tags_for_menu(tags, limit).to_yaml})
     render :partial => 'widgets/tag_menu',
     :locals  => {
       :tags_for_cloud => tags_for_cloud,
