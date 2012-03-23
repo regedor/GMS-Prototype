@@ -20,8 +20,7 @@ jQuery(document).ready(function($) {
 		// Set the current category variable
 		$("#categories").change(function(){
 			var selected_option = $("#categories option:selected").val();
-			console.log(selected_option);
-			console.log(window.location);
+			
 			if(selected_option == 0)
 				window.location.href = "#";
 			else

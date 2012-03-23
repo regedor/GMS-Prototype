@@ -29,6 +29,8 @@ gem 'stringex'
 
 group :development do
   gem 'sqlite3-ruby'
+  gem "ruby-growl"
+  gem "bullet", "1.7.6"
 end
 
 group :test do

@@ -1,8 +1,12 @@
 module WidgetHelper
 
+  def culinary_widget
+    render 'widgets/culinary'
+  end
+
   # Lisbon and Paris clocks (must load CSS and JS in head)
   def clocks_widget
-    render :partial => 'widgets/clocks'
+    render 'widgets/clocks'
   end
 
   def weather_condition_image(condition)

@@ -23,3 +23,11 @@ config.action_controller.perform_caching = false
 #config.action_controller.page_cache_directory = RAILS_ROOT+"/public/system/cache"
 
 config.action_controller.cache_store = :file_store, RAILS_ROOT+"/tmp/cache/"
+
+#config.after_initialize do
+#  Bullet.enable = true
+#  Bullet.bullet_logger = true
+#  Bullet.console = true
+#  Bullet.rails_logger = true
+#  Bullet.disable_browser_cache = true
+#end

@@ -16,6 +16,7 @@ begin
   map.resources :calendar
   map.resources :albums
   map.resource  :newsletter
+  map.resources :recipes
   
   
   map.resources :sys_admin, :collection => { :log => :get, :update_current_user => :put }

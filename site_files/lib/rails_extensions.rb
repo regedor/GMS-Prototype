@@ -14,3 +14,9 @@ module ActiveRecordBaseExtension
   end
 end
 ActiveRecord::Base.extend ActiveRecordBaseExtension
+
+class Symbol
+  def titleize
+    self.to_s.tr("_"," ").gsub(/\b\w/){$&.upcase}
+  end
+end

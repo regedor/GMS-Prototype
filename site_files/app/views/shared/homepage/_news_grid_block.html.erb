@@ -1,5 +1,5 @@
 <% cache("news_grid_block/#{global_category.id}") do %>
-  <% @posts = Post.find_all_by_global_category_id(global_category.id, :order => 'published_at DESC').first(5) %>
+  <% @posts = Post.find_all_by_global_category_id(global_category.id, :order => 'published_at DESC', :include => [:tags]).first(5) %>
   <% if @posts.empty? -%>
     <p><%= t('posts.none') %></p>
   <% else -%>
