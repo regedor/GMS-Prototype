@@ -1,4 +1,6 @@
-<% link_to recipe do  %>
-  <span class="recipe-title"><%= recipe.name %></span>
-  <span class="recipe-image"><%= image_tag(recipe.image.multi_purpose_image.url(:thumb)) %></span>
-<% end %>
+<div id="<%= category %>" class="block">
+  <% link_to recipe do  %>
+    <span class="recipe-title"><%= recipe.name %></span>
+    <span class="recipe-image"><%= image_tag(recipe.image.multi_purpose_image.url(:thumb)) %></span>
+  <% end if recipe %>
+</div>

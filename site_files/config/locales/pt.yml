@@ -264,6 +264,13 @@ pt:
         image: "Imagem"
         recipe_dificulty: "Dificuldade"
         preparation_description: "Receita"
+      labels:
+        entrada: "Entrada"
+        sobremesa: "Sobremesa"
+        prato-principal: "Prato Principal"
+        facil: "Fácil"
+        medio: "Médio"
+        dificil: "Difícil"
       hints:
         duration_in_minutes: "A duração de preparação da receita em minutos"
         publication_date: "A primeira receita de cada dia aparecerá na página inicial"

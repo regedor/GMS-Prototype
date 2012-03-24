@@ -22,7 +22,9 @@ class RecipeDificulty < ActiveRecord::Base
   # Instance Methods
   # ==========================================================================
 
-
+  def localize
+    I18n::t("admin.recipes.labels.#{self.name.parameterize}")
+  end
 
   # ==========================================================================
   # Class Methods

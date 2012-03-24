@@ -32,7 +32,8 @@ jQuery(document).ready(function($){
   <% end %>
   <%= form.input :recipe_category,
                  :include_blank => false,
-                 :label    => t('admin.recipes.columns.recipe_category') %>
+                 :label    => t('admin.recipes.columns.recipe_category'),
+                 :label_method => :localize %>
   <%= form.input :publication_date,
                  :as => :string,
                  :input_html => { :class => "datepicker", :value => (@recipe.publication_date) ? l(@recipe.publication_date, :format => "%d/%m/%Y") : '' },
@@ -55,5 +56,6 @@ jQuery(document).ready(function($){
   <%= form.input :recipe_dificulty,
                  :required => false,
                  :include_blank => false,
-                 :label    => t('admin.recipes.columns.recipe_dificulty') %>
+                 :label    => t('admin.recipes.columns.recipe_dificulty'),
+                 :label_method => :localize %>
 <% end -%>
