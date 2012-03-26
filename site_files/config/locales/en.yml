@@ -1227,7 +1227,7 @@ en:
     file_size_5mb: "File size must be less than 5 Megabytes"
     file_size_10mb: "File size must be less than 10 Megabytes"
     image_size_1mb: "Image size must be less than 1 Megabyte"
-    cant_be_blank: "can't be blank"
+    cant_be_blank: "Can\'t be blank"
     image_content_type: "Image must be a jpeg or png"
     album_created: "Created %{name}"
     album_not_created: "Failed to create album"
@@ -1245,8 +1245,8 @@ en:
       update_todo_subject: "To-Do update"
       comment_subject: "New Comment on a To-Do"
       messageInit: "There is a new comment on the to-do %{todo}, from %{user}"
-      new: "A To-Do with the description \"%{todo}\", on To-Do List %{list} has been assigned to you by %{user}"
-      update: "There has been an update on the To-Do with the description \"%{todo}\", on To-Do List %{list}, made by %{user}"
+      new: "A To-Do with the description %{todo}, on To-Do List %{list} has been assigned to you by %{user}"
+      update: "There has been an update on the To-Do with the description %{todo}, on To-Do List %{list}, made by %{user}"
       
     activation_instructions:
       subject: "Activation Instructions"
@@ -1259,28 +1259,26 @@ en:
         profile: "profile"
         website: "website"
         header: "Your account has been activated. Please visit the %{website}.\n\nAlso please complete your %{profile} in order to experience the website to its maximum."
-        footer: "\n\n\nIf any of the above URL's does not work try copying and pasting it into your browser. If you continue to have problem, please feel free to contact the maintenance team at %{our_email}."
+        footer: "\n\n\nIf any of the above URL\'s does not work try copying and pasting it into your browser. If you continue to have problem, please feel free to contact the maintenance team at %{our_email}."
     password_reset_instructions:
       subject: "Password Reset Instructions"
       body:
-        header: "A request to reset your password has been made.\n  
-                 If you did not make this request, simply ignore this email.\n  
-                 If you did make this request just click the link below:"  
-        footer: "If the above URL does not work try copying and pasting it into your browser.\n  
-                 If you continue to have problem please feel free to contact us."
+        header: "A request to reset your password has been made.\nIf you did not make this request, simply ignore this email.\nIf you did make this request just click the link below:"
+        footer: "If the above URL does not work try copying and pasting it into your browser.\nIf that doesn\'t work please contact us."
     actions:
-      confirm: "Are you sure you want to perform action \"%{action}\"?"
-      success: "Action \"%{action}\" performed with success."
-      failure: "An error occurred while performing action \"%{action}\"."
+      confirm: "Are you sure you want to perform action %{action}?"
+      success: "Action %{action} performed with success."
+      failure: "An error occurred while performing action %{action}."
       no_selection: "You must select at least one item from the table to execute an action."
     
     newsletter:
-      subject: " New newsletter subscription"
-      body: "%{subscriber_name} wishes to receive your newsletter at the e-mail %{subscriber_email}\n"
+      subject: "New newsletter subscription"
+      body: "%{subscriber_name} wishes to receive your newsletter at the e-mail %{subscriber_email}"
 
   footer:
+    default_message: "Copyright © %{year} <a href=%{site_url}>%{site_name}</a>. All rights reserved. Powered by <a href=\"http://www.groupbuddies.com\">Group Buddies</a>."
     last_session_paragraph: "Your last login was %{time_ago} ago, your IP was %{ip}."
-    browser_warning: "This website is not rendering correctly because you are using an outdated version of <span style='color:red;'>Microsoft Internet Explorer</span>.<br />For a safer and faster browsing experience, upgrade your browser or download <a href='http://www.mozilla.com/firefox/'>Mozilla Firefox</a>."
+    browser_warning: "This website is not rendering correctly because you are using an outdated version of <span style='color:red;'>Microsoft Internet Explorer</span>.<br>For a safer and faster browsing experience, upgrade your browser or download <a href='http://www.mozilla.com/firefox/'>Mozilla Firefox</a>."
 
   generic_sentence:
     required_field: "<abbr>*</abbr> Required field."

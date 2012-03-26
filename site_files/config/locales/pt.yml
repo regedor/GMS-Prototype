@@ -1262,18 +1262,16 @@ pt:
     password_reset_instructions:
       subject: "Instruções para restaurar Password"
       body:
-        header: "Foi feito um pedido para restaurar a sua password.\n  
-                 Se não efectuou este pedido, por favor ignore este email.\n  
-                 Se fez este pedido, clique no link abaixo:"  
-        footer: "Se a URL acima não funciona tente copiá-la e colá-la no seu browser.\n  
-                 Se continuar a ter problemas, não hesite em contactar-nos."
+        header: "Foi feito um pedido para restaurar a sua password.\nSe não efectuou este pedido, por favor ignore este email.\nSe fez este pedido, clique no link abaixo:"
+        footer: "Se a URL acima não funciona tente copiá-la e colá-la no seu browser.\nCaso isso não funcione, por favor contacte-nos."
     actions:
-      confirm: "Tem a certeza que pretende efectuar a acção \"%{action}\"?"
-      success: "Acção \"%{action}\" efectuada com sucesso."
-      failure: "Ocorreu um erro enquanto se realizava a acção \"%{action}\"."
+      confirm: "Tem a certeza que pretende efectuar a acção %{action}?"
+      success: "Acção %{action} efectuada com sucesso."
+      failure: "Ocorreu um erro enquanto se realizava a acção %{action}."
       no_selection: "Deve selecionar pelo menos um item da tabela para executar uma acção."
 
   footer:
+    default_message: "Copyright © %{year} <a href=%{site_url}>%{site_name}</a>. Todos os direitos reservados. Desenvolvido por <a href=\"http://www.groupbuddies.com\">Group Buddies</a>."
     last_session_paragraph: "O seu último login foi há %{time_ago}, o seu IP era %{ip}."
     browser_warning: "Este website não está a ser mostrado correctamente porque está a utilizar uma versão antiga do <span style='color:red;'>Microsoft Internet Explorer</span>.<br />Para uma experiência de navegação mais rápida e segura, faça update ao seu browser ou descarregue o <a href='http://www.mozilla.com/firefox/'>Mozilla Firefox</a>."
 
