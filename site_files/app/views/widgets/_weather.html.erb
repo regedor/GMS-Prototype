@@ -1,4 +1,4 @@
-<% cache("widget_weather", :expires_in => 3.hours) do %>
+<% cache("weather_widget", :expires_in => 3.hours) do %>
 
   <div id="weather-info" class="block">
     <% weather_info_left  = Nokogiri::XML(open("http://weather.yahooapis.com/forecastrss?w=#{left_location_code}&u=c")) %>
