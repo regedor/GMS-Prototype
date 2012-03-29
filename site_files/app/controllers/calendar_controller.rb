@@ -1,16 +1,10 @@
 class CalendarController < ApplicationController
-  
   def index
-    respond_to do |format|
-      format.js { 
-        render :partial => 'events/calendar',
-               :layout => false,
-               :locals => {
-                 :month => params[:month].to_i,
-                 :year  => params[:year].to_i
-               }
+    render :partial => 'events/calendar',
+      :layout => false,
+      :locals => {
+        :cal_month => params[:cal_month].to_i,
+        :cal_year  => params[:cal_year].to_i
       }
-    end
   end   
-
 end  
