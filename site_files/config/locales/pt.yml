@@ -1257,6 +1257,7 @@ pt:
     recipe_not_created : "Ocorreu um erro durante a criação de %{name}"
     recipe_updated: "Actualizado %{name}"
     recipe_not_updated: "Ocorreu um erro durante a actualização de %{name}"
+    recipes_vote_error: "Voto inválido"
     announcement_created: "Criado %{name}"
     announcement_not_created : "Ocorreu um erro durante a criação de %{name}"
     announcement_updated: "Actualizado %{name}"

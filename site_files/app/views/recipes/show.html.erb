@@ -1,3 +1,4 @@
 <div id="recipe">
-  
+  <%= render "voting", :recipe => @recipe %>
+  <%= render "widgets/sharing", :tweet_text => @recipe.name %>
 </div>

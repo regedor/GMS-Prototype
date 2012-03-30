@@ -6,7 +6,9 @@ class User < ActiveRecord::Base
 
   has_many   :groups_users  
   has_many   :groups, :through => :groups_users
-  has_many   :choosable_groups, :through => :groups_users, :source => :group, :conditions => { :user_choosable => true }  
+  has_many   :choosable_groups, :through => :groups_users, :source => :group, :conditions => { :user_choosable => true }
+  has_many   :recipes_votes
+  has_many   :recipes, :through => :recipes_votes
   belongs_to :role
 
 
