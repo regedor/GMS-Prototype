@@ -1,0 +1,38 @@
+<div class="content">
+  <div class="inner">
+    <h2 class="title"><%= t('admin.recipes.index.title') %></h2>
+
+    <dl class="list">
+      <dt><%= t("admin.recipes.columns.name") %>:</dt>
+      <dd><%= @record.name %></dd>
+
+      <dt><%= t("admin.recipes.columns.image") %>:</dt>
+      <dd><img src="<%= @record.image.multi_purpose_image.url %>" alt="" /></dd>
+
+      <dt><%= t("admin.recipes.columns.recipe_category") %>:</dt>
+      <dd><%= @record.recipe_category.name %></dd>
+
+      <dt><%= t("admin.recipes.columns.publication_date") %>:</dt>
+      <dd><%= @record.publication_date %></dd>
+
+      <dt><%= t("admin.recipes.columns.preparation_description") %>:</dt>
+      <dd><%= @record.name %></dd>
+
+      <dt><%= t("admin.recipes.columns.number_of_people") %>:</dt>
+      <dd><%= @record.number_of_people %></dd>
+
+      <dt><%= t("admin.recipes.columns.duration_in_minutes") %>:</dt>
+      <dd><%= @record.duration_in_minutes %></dd>
+
+      <dt><%= t("admin.recipes.columns.recipe_dificulty") %>:</dt>
+      <dd><%= @record.recipe_dificulty.name %></dd>
+
+      <dt><%= t("admin.recipes.columns.preparation_description") %>:</dt>
+      <dd><%= @record.preparation_description %></dd>
+    </dl>
+
+    <ul class="buttons">
+      <li><%= link_to t("admin.recipes.index.close_button"), admin_recipes_path, :class => 'button negative' %></li>
+    </ul>
+  </div>
+</div>

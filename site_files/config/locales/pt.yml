@@ -244,11 +244,12 @@ pt:
       index:
         title: "Receitas"
         show_link: "Detalhes"
-        update_link: "Actualizar"
+        update_link: "Editar"
         destroy_link: "Apagar"
         next: "Próximo"
         previous: "Anterior"
         create: "Nova Receita"
+        close_button: "Fechar"
       form:
         new: "Nova Receita"
         edit: "Editar Receita"
@@ -310,7 +311,7 @@ pt:
       index:
         title: "Galeria"
         create: "Criar Álbum"
-        show_link: "Ver"
+        show_link: "Detalhes"
         update_link: "Editar"
         destroy_link: "Apagar"
         destroy: "Apagar"
@@ -1362,6 +1363,9 @@ pt:
     
 
   widgets:
+    recipes_of_the_day:
+      title: "Receitas do Dia"
+
     weather:
       city:
         Lisbon: "Lisboa"

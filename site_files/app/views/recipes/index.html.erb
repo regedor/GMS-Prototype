@@ -1,0 +1,9 @@
+<div id="recipes">
+  <h2 class="title"><%= t 'admin.recipes.index.title' %></h2>
+
+  <ul>
+    <% @recipes.each do |recipe| %>
+      <li><%= link_to recipe.name, recipe_path(recipe) %></li>
+    <% end %>
+  </ul>
+</div>

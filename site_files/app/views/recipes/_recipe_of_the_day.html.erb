@@ -1,0 +1,5 @@
+<% link_to recipe, :id => category do %>
+  <%= image_tag recipe.image.multi_purpose_image.url(:thumb), :class => 'recipe-image' %></span>
+
+  <span class="recipe-title"><%= recipe.name %></span>
+<% end if recipe %>

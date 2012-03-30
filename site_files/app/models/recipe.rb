@@ -4,8 +4,8 @@ class Recipe < ActiveRecord::Base
   # Relationships
   # ==========================================================================
 
-  has_one :recipe_dificulty
-  has_one :recipe_category
+  belongs_to :recipe_dificulty
+  belongs_to :recipe_category
   has_one :image, :dependent => :destroy
   accepts_nested_attributes_for :image, :allow_destroy => true
 

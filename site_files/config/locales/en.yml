@@ -1325,6 +1325,9 @@ en:
     delete: "Delete"
     
   widgets:
+    recipes_of_the_day:
+      title: "Recipes for the Day"
+
     weather:
       city:
         Lisbon: "Lisbon"

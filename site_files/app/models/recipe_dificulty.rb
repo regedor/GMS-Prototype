@@ -3,8 +3,6 @@ class RecipeDificulty < ActiveRecord::Base
   # Relationships
   # ==========================================================================
 
-  belongs_to :recipe
-
 
   # ==========================================================================
   # Validations

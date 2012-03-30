@@ -1,7 +1,7 @@
 module WidgetHelper
 
-  def culinary_widget
-    render 'widgets/culinary'
+  def recipes_of_the_day_widget
+    render 'widgets/recipes_of_the_day'
   end
 
   # Lisbon and Paris clocks (must load CSS and JS in head)
