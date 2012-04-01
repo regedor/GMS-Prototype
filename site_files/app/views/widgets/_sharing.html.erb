@@ -1,14 +1,18 @@
-<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=387891007905465";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+<div id="social-sharing">
+  <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 
-<div class='spread'>
-  <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-text="<%= tweet_text %>">Tweet</a>
-  <fb:like href="" layout="bottom_count" show_faces="false" width="450" font="" colorscheme="light"></fb:like>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=387891007905465";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <div id="fb-root"></div>
+
+  <div class='spread'>
+    <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-text="<%= tweet_text %>">Tweet</a>
+    <fb:like href="" layout="bottom_count" show_faces="false" width="450" font="" colorscheme="light"></fb:like>
+  </div>
 </div>

@@ -177,7 +177,14 @@ pt:
       delete_button: "Apagar"
       edit_button: "Actualizar"
       hints:
-        image: "Fazer upload de imagens para o álbum"     
+        image: "Fazer upload de imagens para o álbum"
+
+  recipes:
+    title: "Receitas"
+    form:
+      cancel_button: "Voltar"
+    show:
+      number_of_people: "Pessoas"
 
   posts:
     none: "Ainda não há posts."
