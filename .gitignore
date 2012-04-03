@@ -41,6 +41,9 @@ Icon?
 *.tmproject
 tmtags
 
+# RVM ignores
+.rvmrc 
+
 # Handy Ant
 /site_files/public/fonts/*
 /site_files/public/logo.*

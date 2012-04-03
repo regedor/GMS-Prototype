@@ -26,6 +26,7 @@ gem 'sass'
 gem 'nokogiri'
 gem 'rest-open-uri'
 gem 'stringex'
+gem 'statistics2'
 
 group :development do
   gem 'sqlite3-ruby'
