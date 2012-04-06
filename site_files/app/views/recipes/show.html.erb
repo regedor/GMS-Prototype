@@ -8,7 +8,7 @@
 
     <span class="category"><%= @recipe.recipe_category.name %></span>
 
-    <%= render "voting", :recipe => @recipe %>
+    <%= render "voting", :recipe => @recipe if current_user %>
 
     <ul>
       <li><span class="number-of-people"><%= @recipe.number_of_people %> <%= t 'recipes.show.number_of_people' %></span></li>
