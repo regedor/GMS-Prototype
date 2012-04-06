@@ -56,6 +56,8 @@ class Admin::PostsController < Admin::BaseController
 
   def update
     @record = Post.find(params[:id])
+    @record.image.clear if @record.image && params[:record][:image]
+    @record.generic.clear if @record.generic && params[:record][:generic]
     if @record.update_attributes params[:record]
       flash[:notice] = t('flash.postUpdated.successfully', :name => @record.title)
       redirect_to admin_posts_path
