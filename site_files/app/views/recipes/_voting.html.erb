@@ -1,21 +1,3 @@
-<script>
-jQuery(document).ready(function($){
-  $("div.votes a").click(function(event){
-    $.ajax({
-      type: 'GET',
-      url: $(this).attr("href"),
-      error: function() {
-        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"vote"});
-        return false;
-      }
-    });
-    
-    event.preventDefault();
-  });
-});
-</script>
-
-
 <% content_for :head do %>
   <meta property="og:title" content="<%= recipe.name %>"/> 
   <meta property="og:image" content="http://<%= request.host+recipe.image.multi_purpose_image.url(:thumb) %>"/> 
@@ -24,8 +6,10 @@ jQuery(document).ready(function($){
   <meta property="og:site_name" content="<%= configatron.title %>" />
 <% end %>
 
+<% vote = recipe.has_vote_by(current_user).vote %>
+
 <div class="votes">
   <% 1.upto(5) do |star| %>
-    <%= link_to star, recipe_path(recipe)+"?vote=#{star}" %>
+    <%= link_to star, recipe_path(recipe)+"?vote=#{star}", :class => (star <= vote) ? "voted" : "not-voted" %>
   <% end %>
 </div>

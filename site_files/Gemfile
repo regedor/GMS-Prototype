@@ -30,7 +30,6 @@ gem 'statistics2'
 
 group :development do
   gem 'sqlite3-ruby'
-  gem "ruby-growl"
   gem "bullet", "1.7.6"
 end
 

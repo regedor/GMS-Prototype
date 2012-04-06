@@ -33,6 +33,10 @@
        @javascripts << 'slides.min.jquery'
      end
 
+     if (defined? voting) && voting
+       @javascripts << 'voting'
+     end
+
      @javascripts << 'application'
 
  %>

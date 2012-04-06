@@ -41,7 +41,7 @@ class Recipe < ActiveRecord::Base
   
   
   def has_vote_by(user)
-    RecipesVote.first(:conditions => ["user_id = ? and recipe_id = ?",current_user.id,self.id])
+    RecipesVote.first(:conditions => ["user_id = ? and recipe_id = ?",user.id,self.id])
   end
   
   def prepare_for_next_vote(previous_vote = 0)

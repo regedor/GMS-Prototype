@@ -17,7 +17,7 @@ module Admin::BaseHelper
         end
       end
     end
-  end  
+  end
 
   def title_column(record)
     return case record.class.to_s

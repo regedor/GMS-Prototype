@@ -7,6 +7,7 @@ class RecipesController < ApplicationController
       unless @recipe.save
         flash[:error] = t('flash.recipes_vote_error')
       end
+      render :partial => "voting", :locals => { :recipe => @recipe }
     end
   end
 
