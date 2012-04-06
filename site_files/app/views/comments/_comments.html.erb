@@ -1,26 +1,24 @@
-<div class="entrybody">
-  <ol id="comment-list">
-    <% commentable.approved_comments.each do |_comment| -%>
-    <li<%=raw cycle(' class="alt"', '') %> id="comment-<%= _comment.id %>">
-      <%= render :partial => 'comments/comment', :locals => {:comment => _comment} %>
-    </li>
-    <% end -%>
-  </ol>
-</div>
+<ol id="comment-list">
+  <% commentable.approved_comments.each do |_comment| -%>
+  <li<%=raw cycle(' class="alt"', '') %> id="comment-<%= _comment.id %>">
+    <%= render :partial => 'comments/comment', :locals => {:comment => _comment} %>
+  </li>
+  <% end -%>
+</ol>
 
-<% unless current_user -%>
-  <h2 class="title"><%= link_to I18n::t('comments.log_in_to'), new_user_session_path %></h2>
-<% else -%>
-  <h2 class="title"><%= I18n::t('comments.title') %></h2>
-  <div class="entrybody">
+<div id="new-comment">
+  <% unless current_user -%>
+    <h2 class="title"><%= link_to I18n::t('comments.log_in_to'), new_user_session_path %></h2>
+  <% else -%>
+    <h2 class="title"><%= I18n::t('comments.title') %></h2>
+
     <% form_for([commentable, comment]) do |form| %>
-      <div class="new-comment">
-        <%= form.hidden_field 'type', :value => commentable.class %>
-        <%= form.text_area 'body' %>
-        <ul class="buttons">
-          <li><%= submit_tag I18n::t('comments.submit'), :class => 'button positive' %></li>
-        </ul>
-      </div>
+      <%= form.hidden_field 'type', :value => commentable.class %>
+      <%= form.text_area 'body' %>
+
+      <ul class="buttons">
+        <li><%= submit_tag I18n::t('comments.submit'), :class => 'button positive' %></li>
+      </ul>
     <% end -%>
-  </div>
-<% end -%>
+  <% end -%>
+</div>
