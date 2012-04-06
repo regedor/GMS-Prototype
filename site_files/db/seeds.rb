@@ -52,4 +52,19 @@ recipe_dificulties.each do |attributes|
   RecipeDificulty.find_or_initialize_by_name(attributes[:name]).save!
 end
 
+french_departments = [ 
+  {:name => "Ain",      :code => "01"},
+  {:name => "Aisne",    :code => "02"},
+  {:name => "Allier",   :code => "03"}
+]
+
+french_departments.each do |attributes| 
+  Department.find_or_initialize_by_code(attributes[:code]).tap do |dep|
+    dep.name = attributes[:name]
+    dep.save!
+  end
+end
+
+
+
 

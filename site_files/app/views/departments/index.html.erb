@@ -1,0 +1,14 @@
+<h2 class="title"><%= t('departments.index.title') %></h2>
+
+<ul id="departments">
+  <% @departments.each do |department| %>
+    <% link_to "#{french_associations_path}?code=#{department.code}" do %>
+      <li class="department">
+        <span class="code"><%= department.code %></span>
+        <span class="name"><%= department.name %></span>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<%= link_to t('departments.index.show_all'), french_associations_path %>

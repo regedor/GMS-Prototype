@@ -17,6 +17,8 @@ begin
   map.resources :albums
   map.resource  :newsletter
   map.resources :recipes
+  map.resources :french_associations
+  map.resources :departments
   
   
   map.resources :sys_admin, :collection => { :log => :get, :update_current_user => :put }
@@ -153,6 +155,9 @@ begin
     
     admin.resources :recipes,            :active_scaffold => true, 
                                          :active_scaffold_sortable => true
+                    
+    admin.resources :french_associations, :active_scaffold => true, 
+                                          :active_scaffold_sortable => true
   end
 
   

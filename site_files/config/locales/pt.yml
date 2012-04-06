@@ -27,6 +27,19 @@ pt:
     name: "Nome"
     email: "Email"
     subscribe: "Subscrever"
+    
+  departments:
+    index:
+      title: "Departménts"
+      show_all: "Mostrar todos"
+    validate:
+      wrong_length: "Deve ter %{count} caracteres"
+      
+  associations:
+    index:
+      title: "Associações"
+    validate:
+      wrong_length: "Deve ter %{count} caracteres"
 
   search:
     title: "Pesquisa"
@@ -341,6 +354,7 @@ pt:
         system: "Utilizadores"
         projects: "Projectos"
         culinary: "Culinária"
+        associations: "Associações"
       secondary:
         dashboard: "Painel de Controlo"
         users: "Contas"

@@ -1,0 +1,11 @@
+<h2 class="title"><%= t('associations.index.title') %></h2>
+
+<ul id="associations">
+  <% @associations.each do |assoc| %>
+    <% link_to french_association_path(assoc) do %>
+      <li class="association">
+        <span class="name"><%= assoc.name %></span>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
