@@ -2,6 +2,13 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 pt:
+  support:
+    array:
+      two_words_connector: " e "
+      words_connector: ", "
+      last_word_connector: ", e "
+
+    
   api:
     create_group:
       header: "Criar Novo Grupo"
@@ -29,17 +36,28 @@ pt:
     subscribe: "Subscrever"
     
   departments:
+    link: "Departménts"
     index:
       title: "Departménts"
       show_all: "Mostrar todos"
     validate:
-      wrong_length: "Deve ter %{count} caracteres"
+      wrong_length: "Deve ter 2 caracteres"
       
   associations:
     index:
       title: "Associações"
+    show:
+      name: "Nome"
+      address: "Morada"
+      phone_no: "Telefone"
+      postal_code: "Código Postal"
+      email: "E-mail"
+      website: "Website"
+      fax: "Fax"
+      consulate: "Área Consular"
     validate:
-      wrong_length: "Deve ter %{count} caracteres"
+      wrong_length: "Deve ter 5 caracteres"
+      not_a_number: "Deve ser um número"
 
   search:
     title: "Pesquisa"
@@ -300,6 +318,31 @@ pt:
         found:
           more: "%{count} Receitas Encontradas"
           one: "%{count} Receita Encontrada"
+    
+    associations:
+      index:
+        create: "Criar Associação"
+        title: "Nova Associação"
+        update_link: "Actualizar"
+        destroy_link: "Apagar"
+      form:
+        new: "Criar Associação"
+        create_button: "Criar"
+        cancel_button: "Cancelar"
+      columns:
+        name: "Nome"
+        phone_no: "Telefone"
+        postal_code: "Código Postal"
+        consulate: "Área Consular"
+        address: "Morada"
+        email: "E-mail"
+        website: "Website"
+        fax: "Fax"
+      list:
+          found:
+            more: "%{count} Associações Encontradas"
+            one: "%{count} Associação Encontrada"            
+          noentries: "Nenhuma Associação Encontrada"
     
     global_categories:
       manage: "Actualizar as categorias"
@@ -1309,6 +1352,9 @@ pt:
     postCreated:
       successfully: "Criado %{name}"
       error: "Falha ao criar o post"
+    associationCreated:
+      successfully: "Criada %{name}"
+      error: "Falha ao criar a associação"
     global_category_created:
       successfully: "Criada %{name}"
       error: "Falha ao criar a categoria"
@@ -1325,6 +1371,8 @@ pt:
     image_content_type: "Imagem deve ser em .jpg ou .png"
     album_created: "Álbum %{name} criado"
     album_not_created: "Falha ao criar álbum"
+    association_deleted: "Associação %{assoc} apagada"
+    association_deletion_fail: "Não foi possível apagar a associação %{assoc}"
 
   notifier: 
     to_do_notification: 
@@ -1578,13 +1626,7 @@ pt:
     am: "am"
     pm: "pm"
   
-  #Used in array.to_sentence.
-  support:
-    array:
-      words_connector: ", "
-      two_words_connector: " e "
-      last_word_connector: ", e "
-
+  
   helpers:
     select:
       prompt: "Por favor selecione"
@@ -1633,6 +1675,16 @@ pt:
                 confirmation: "A password é diferente da confirmação"
               password_confirmation:
                 too_short: "Demasiado pequeno"
+          french_association:
+            attributes:
+              name:
+                blank: "Não pode ser vazio"
+              postal_code:
+                blank: "Não pode ser vazio"
+              phone_no:
+                not_a_number: "Deve ser um número"
+              fax:
+                not_a_number: "Deve ser um número"
     messages:
       inclusion: "não está incluido na lista"
       exclusion: "é reservado"

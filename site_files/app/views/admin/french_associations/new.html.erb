@@ -1,0 +1,19 @@
+<div class="content">
+  <div class="inner">
+    <h2><%= t('admin.associations.form.new') %></h2>
+
+    <% semantic_form_for @association,
+                         :url => admin_french_associations_path,
+                         :html => { :class => 'create', :id => 'new_association' } do |form| -%>
+
+      <%= render :partial => 'form', :locals => { :form => form } %>
+
+      <% form.buttons do -%>
+        <%= form.commit_button t('admin.associations.form.create_button'),
+                               :button_html => { :class => 'button positive' } %>
+        <%= form.button_link   t('admin.associations.form.cancel_button'), admin_french_associations_path,
+                               :button_html => { :class => 'button negative' } %>
+      <% end -%>
+    <% end -%>
+  </div>
+</div>

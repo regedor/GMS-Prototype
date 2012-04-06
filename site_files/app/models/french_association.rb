@@ -11,13 +11,21 @@ class FrenchAssociation < ActiveRecord::Base
 
   validates_length_of :postal_code, 
                       :is => 5, 
-                      :wrong_length  => I18n::t('associations.validate.wrong_length', :count => count-1)
+                      :wrong_length  => I18n::t('associations.validate.wrong_length')
                       
   validates_numericality_of :fax,
-                            :only_integer => true
+                            :only_integer => true,
+                            :not_a_number => I18n::t('associations.validate.not_a_number'),
+                            :if => "fax.present?"
   
   validates_numericality_of :phone_no,
-                            :only_integer => true
+                            :only_integer => true,
+                            :not_a_number => I18n::t('associations.validate.not_a_number'),
+                            :if => "phone_no.present?"
+                            
+  validates_presence_of :name
+  
+  validates_presence_of :postal_code
 
   # ==========================================================================
   # Extra defnitions

@@ -1,0 +1,32 @@
+<% form.input_field_set do %>
+  <%= form.input :name,
+                 :label    => I18n::t('admin.associations.columns.name') %>
+
+  <%= form.input :postal_code,
+                 :label    => I18n::t('admin.associations.columns.postal_code') %>
+
+  <%= form.input :address,
+                 :input_html => { :rows => 5 },
+                 :required => false,
+                 :label    => I18n::t('admin.associations.columns.address') %>
+
+  <%= form.input :phone_no,
+                 :required => false,
+                 :label    => I18n::t('admin.associations.columns.phone_no') %>
+
+  <%= form.input :email,
+                 :required => false,
+                 :label    => I18n::t('admin.associations.columns.email') %>
+
+  <%= form.input :website,
+                 :required => false,
+                 :label    => I18n::t('admin.associations.columns.website') %>
+
+  <%= form.input :fax,
+                 :required => false,
+                 :label    => I18n::t('admin.associations.columns.fax') %>
+
+  <%= form.input :consulate,
+                 :required => false,
+                 :label    => I18n::t('admin.associations.columns.consulate') %>
+<% end %>

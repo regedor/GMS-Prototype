@@ -11,7 +11,7 @@ class Department < ActiveRecord::Base
 
   validates_length_of :code,
                       :is => 2,
-                      :wrong_length  => I18n::t('departments.validate.wrong_length', :count => count-1)
+                      :wrong_length  => I18n::t('departments.validate.wrong_length')
 
   # ==========================================================================
   # Extra defnitions

@@ -2,7 +2,7 @@ class CreateAssociations < ActiveRecord::Migration
   def self.up
     create_table :french_associations do |t|
       t.string :name
-      t.string :address
+      t.text   :address
       t.string :phone_no
       t.string :postal_code, :limit => 5
       t.string :email
