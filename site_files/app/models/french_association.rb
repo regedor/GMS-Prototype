@@ -42,7 +42,7 @@ class FrenchAssociation < ActiveRecord::Base
   def join_with_department
     d = Department.find_by_code self.postal_code[0,2]
     unless d
-      errors.add(:postal_code, "Invalid postal code")
+      errors.add(:postal_code, I18n::t('associations.validate.invalid_postal_code'))
       return false
     end
     self.department_id = d.id

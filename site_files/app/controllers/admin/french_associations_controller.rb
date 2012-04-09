@@ -17,7 +17,7 @@ class Admin::FrenchAssociationsController < Admin::BaseController
     @association = FrenchAssociation.new params[:french_association]
     if @association.save
       flash[:notice] = t('flash.associationCreated.successfully', :name => @association.name)
-      redirect_to admin_associations_path
+      redirect_to admin_french_associations_path
     else
       flash.now[:error] = t('flash.associationCreated.error')
       render :new
@@ -26,6 +26,17 @@ class Admin::FrenchAssociationsController < Admin::BaseController
   
   def edit
     @association = FrenchAssociation.find params[:id]
+  end
+  
+  def update
+    @association = FrenchAssociation.find params[:id]
+    if @association.update_attributes params[:french_association]
+      flash[:notice] = t('flash.associationUpdated.successfully', :name => @association.name)
+      redirect_to admin_french_associations_path
+    else
+      flash.now[:error] = t('flash.associationUpdated.error')
+      render :edit
+    end
   end
   
   def destroy

@@ -2,13 +2,6 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 pt:
-  support:
-    array:
-      two_words_connector: " e "
-      words_connector: ", "
-      last_word_connector: ", e "
-
-    
   api:
     create_group:
       header: "Criar Novo Grupo"
@@ -58,6 +51,7 @@ pt:
     validate:
       wrong_length: "Deve ter 5 caracteres"
       not_a_number: "Deve ser um número"
+      invalid_postal_code: "Código postal inválido"
 
   search:
     title: "Pesquisa"
@@ -327,7 +321,9 @@ pt:
         destroy_link: "Apagar"
       form:
         new: "Criar Associação"
+        update: "Actualizar Associação"
         create_button: "Criar"
+        update_button: "Actualizar"
         cancel_button: "Cancelar"
       columns:
         name: "Nome"
@@ -1355,6 +1351,9 @@ pt:
     associationCreated:
       successfully: "Criada %{name}"
       error: "Falha ao criar a associação"
+    associationUpdated:
+      successfully: "Actualizada %{name}"
+      error: "Falha ao actualizar a associação"
     global_category_created:
       successfully: "Criada %{name}"
       error: "Falha ao criar a categoria"
@@ -1716,10 +1715,13 @@ pt:
 #            invalid: "must be a valid telephone number."
     full_messages:
       format: "%{attribute}%{message}"
-
- 
-
+      
   support:
+    array:
+      two_words_connector: " e "
+      words_connector: ", "
+      last_word_connector: ", e "
     select:
       # default value for :prompt => true in FormOptionsHelper
       prompt: "Por favor selecione"
+    
