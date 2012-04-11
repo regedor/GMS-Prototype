@@ -37,7 +37,7 @@
   
   <div class="meta">
     <ul>
-      <li class="date"><%= I18n::t('posts.meta.date') + ' ' + format_post_date(post.published_at) %></li>
+      <li class="date"><%= I18n::t('posts.meta.date') + ' ' + l(post.published_at, :format => "%d de %B, %Y") %></li>
       <li class="comments"><%= count = post.approved_comments_count
         link_to(t('posts.meta.comments.' + (count == 1 ? 'one' : 'many'), :count => count), post_path(post, :anchor => 'comment-list')) %></li>
       <% unless post.cached_tag_list.blank? -%>
