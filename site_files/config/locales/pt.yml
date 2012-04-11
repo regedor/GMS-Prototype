@@ -205,6 +205,11 @@ pt:
         image: "Fazer upload de imagens para o álbum"
 
   recipes:
+    index:
+      number_of_people: "Pessoas"
+      duration_in_minutes: "Duração"
+      difficulty: "Dificuldade"
+      votes: "Votos"
     title: "Receitas"
     form:
       cancel_button: "Voltar"
