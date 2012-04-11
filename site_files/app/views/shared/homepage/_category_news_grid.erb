@@ -1,9 +1,0 @@
-<% GlobalCategory.all.each do |global_category| %>
-  <div id="global-category-<%= global_category.slug %>" class="global-category">
-    <h2 class="title"><%= link_to(global_category.name, "/#{global_category.slug}/posts") %></h2>
-
-    <div class="global-category-body">
-      <%= render :partial => 'shared/homepage/news_grid_block', :locals => {:global_category => global_category} %>
-    </div>
-  </div>
-<% end %>
