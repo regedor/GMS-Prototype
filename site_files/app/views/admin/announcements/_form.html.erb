@@ -83,6 +83,4 @@ jQuery(document).ready(function($){
                  :collection => Hash[*Group.all.collect {|group| [group.name,group.id]}.flatten].merge({"All"=>0}),
                  :label => t('admin.posts.columns.groups'),
                  :hint  => t('admin.posts.form.hints.groups') %>
-
-<% end -%>
 <% end %>
