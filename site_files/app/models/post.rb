@@ -41,7 +41,7 @@ class Post < ActiveRecord::Base
   
   named_scope :filter_by_category, lambda { |category| { :conditions => { :global_category_id => category } } }
 
-  post_image_size = (configatron.post_image_size) ? configatron.post_image_size : "250x250"
+  post_image_size = (configatron.post_image_size.present?) ? configatron.post_image_size : "250x250"
 
   has_attached_file :image, :styles => { :image => post_image_size, :thumb => "50x50" }
   has_attached_file :generic
