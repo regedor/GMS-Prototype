@@ -64,3 +64,4 @@ tmtags
 /site_files/public/javascripts/cache/*
 *.xls
 *.bak
+/site_files/public/icci-revista/
