@@ -4,7 +4,7 @@ class Admin::RecipesController < Admin::BaseController
   before_filter :date_localization, :only => [ :create, :update ]
 
   active_scaffold :recipe do |config|
-
+    config.list.sorting = {:publication_date => :desc}
     Scaffoldapp::active_scaffold config, "admin.recipes",
       :list         => [ :name, :number_of_people, :duration_in_minutes, :publication_date ],
       :show         => [ :name, :image, :number_of_people, :duration_in_minutes, :publication_date ],

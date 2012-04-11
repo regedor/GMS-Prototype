@@ -17,7 +17,6 @@ class Recipe < ActiveRecord::Base
   # ==========================================================================
 
   validates_presence_of :name, :image_id, :recipe_category_id, :publication_date, :message => I18n::t('flash.cant_be_blank')
-  validates_presence_of :current_vote
   validate :vote_value
 
   # ==========================================================================
@@ -54,7 +53,7 @@ class Recipe < ActiveRecord::Base
   def vote_value
     unless current_vote.to_i.between? 1,5
       errors.add(:current_vote, "current vote is not between accepted range")
-    end
+    end if current_vote
   end
   
   def do_voting_average

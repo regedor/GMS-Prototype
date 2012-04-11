@@ -6,10 +6,10 @@
   <meta property="og:site_name" content="<%= configatron.title %>" />
 <% end %>
 
-<% vote = recipe.has_vote_by(current_user).vote %>
+<% vote = recipe.has_vote_by(current_user).vote if recipe.has_vote_by(current_user) %>
 
 <div class="votes">
   <% 1.upto(5) do |star| %>
-    <%= link_to star, recipe_path(recipe)+"?vote=#{star}", :class => (star <= vote) ? "voted" : "not-voted" %>
+    <%= link_to star, recipe_path(recipe)+"?vote=#{star}", :class => (vote) ? ((star <= vote) ? "voted" : "not-voted") : "not-voted" %>
   <% end %>
 </div>
