@@ -14,11 +14,11 @@
     <tbody>
       <% @recipes.each do |recipe| %>
         <tr>
-          <th><%= recipe.name %></th>
-          <th><%= recipe.number_of_people %></th>
-          <th><%= recipe.duration_in_minutes %></th>
-          <th><%= recipe.recipe_dificulty.name %></th>
-          <th></th>
+          <td><%= link_to recipe.name, recipe_path(recipe)  %></td>
+          <td><%= link_to recipe.number_of_people, recipe_path(recipe) %></td>
+          <td><%= link_to recipe.duration_in_minutes, recipe_path(recipe) %></td>
+          <td><%= link_to recipe.recipe_dificulty.name, recipe_path(recipe) %></td>
+          <td><%= link_to recipe.voting_average, recipe_path(recipe) %></td>
         </tr>
       <% end %>
     </tbody>
