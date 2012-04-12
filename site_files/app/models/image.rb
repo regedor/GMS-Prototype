@@ -7,7 +7,7 @@ class Image < ActiveRecord::Base
   belongs_to :recipe
   
   has_attached_file :multi_purpose_image, 
-                    :styles => { :small => "150x100!", :thumb => "80x50!" },
+                    :styles => { :thumb => "80x50!", :small => "150x100!", :medium => "320x200!" },
                     :default_url => '/system/:attachment/:style/missing.png'
   
   validates_attachment_presence :multi_purpose_image
