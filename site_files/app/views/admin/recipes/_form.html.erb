@@ -6,6 +6,15 @@ jQuery.noConflict();
 jQuery(document).ready(function($){
 
   setDatepickerWithTime(false);
+  
+  var duration_input_el = $("#recipe_duration_in_minutes");
+
+  $("#recipe_duration_in_minutes_input").delegate("a","click",function(event){
+    var duration_text = $.text($(this));
+    duration_input_el.val(duration_text);
+
+    event.preventDefault();
+  });
 
 });
 </script>
@@ -30,29 +39,39 @@ jQuery(document).ready(function($){
                     :as       => :file,
                     :label    => t('admin.recipes.columns.image') %>
   <% end %>
+
   <%= form.input :recipe_category,
                  :include_blank => false,
                  :label    => t('admin.recipes.columns.recipe_category'),
                  :label_method => :localize %>
+
   <%= form.input :publication_date,
                  :as => :string,
-                 :input_html => { :class => "datepicker", :value => (@recipe.publication_date) ? l(@recipe.publication_date, :format => "%d/%m/%Y") : '' },
+                 :input_html => { :class => "datepicker", 
+                                  :value => (@recipe.publication_date) ? l(@recipe.publication_date, :format => "%d/%m/%Y") : '' },
                  :label    => t('admin.recipes.columns.publication_date'),
                  :hint => t('admin.recipes.hints.publication_date') %>
+
+  <%= form.input :ingredients,
+                 :label => t('admin.recipes.columns.ingredients') %>
+
   <%= form.input :preparation_description,
                  :label => t('admin.recipes.columns.preparation_description') %>
 
   <%= form.input :number_of_people,
                  :required => false,
                  :label    => t('admin.recipes.columns.number_of_people') %>
+
   <%= form.input :duration_in_minutes,
-                 :as         => 'select',
                  :required   => false,
-                 :collection => (0..300).step(5),
                  :include_blank => false,
-                 :selected   => (@record) ? @record.duration_in_minutes : 0,
                  :label    => t('admin.recipes.columns.duration_in_minutes'),
-                 :hint => t('admin.recipes.hints.duration_in_minutes') %>
+                 :hint => t('admin.recipes.hints.duration_in_minutes', 
+                             :curta => link_to("curta","#"),
+                             :media => link_to("média","#"),
+                             :longa => link_to("longa","#")
+                  ) %>
+
   <%= form.input :recipe_dificulty,
                  :required => false,
                  :include_blank => false,

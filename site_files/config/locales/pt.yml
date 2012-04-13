@@ -302,6 +302,7 @@ pt:
         image: "Imagem"
         recipe_dificulty: "Dificuldade"
         preparation_description: "Receita"
+        ingredients: "Ingredientes"
       labels:
         entrada: "Entrada"
         sobremesa: "Sobremesa"
@@ -310,7 +311,7 @@ pt:
         medio: "Médio"
         dificil: "Difícil"
       hints:
-        duration_in_minutes: "A duração de preparação da receita em minutos"
+        duration_in_minutes: "Duração expressa em minutos ou como %{curta}, %{media} ou %{longa}"
         publication_date: "A primeira receita de cada dia aparecerá na página inicial"
       list:
         noentries: "Nenhuma Receita Encontrada"
@@ -1377,6 +1378,7 @@ pt:
     album_not_created: "Falha ao criar álbum"
     association_deleted: "Associação %{assoc} apagada"
     association_deletion_fail: "Não foi possível apagar a associação %{assoc}"
+    invalid_format: "Formato inválido"
 
   notifier: 
     to_do_notification: 

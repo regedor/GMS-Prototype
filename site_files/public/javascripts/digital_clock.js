@@ -1,23 +1,34 @@
 jQuery(document).ready(function($){
-  setInterval( function() {
-    // Create a newDate() object and extract the seconds of the current time on the visitor's
-    var seconds = new Date().getUTCSeconds();
-    // Add a leading zero to seconds value
-    $("li.sec").html(( seconds < 10 ? "0" : "" ) + seconds);
-    },1000);
-  
-  setInterval( function() {
-    // Create a newDate() object and extract the minutes of the current time on the visitor's
-    var minutes = new Date().getUTCMinutes();
-    // Add a leading zero to the minutes value
-    $("li.min").html(( minutes < 10 ? "0" : "" ) + minutes);
-    },1000);
-  
-  setInterval( function() {
-    // Create a newDate() object and extract the hours of the current time on the visitor's
-    var hours = new Date().getUTCHours();
-    // Add a leading zero to the hours value
-    $("li.portugal-hours").html(( hours < 10 ? "0" : "" ) + (hours+1));
-    $("li.france-hours").html(( hours < 10 ? "0" : "" ) + (hours+2));
-    }, 1000);
+
+  var hours_pt   = $("#portugal-clock"), 
+      hours_fr   = $("#france-clock");
+
+  $.ajax({
+     url: "http://json-time.appspot.com/time.json?callback=?", 
+     dataType: "json",
+     success: function(response){
+       date =  new Date(response.datetime);
+       renderClock();
+       window.setInterval(function(){renderClock();},1000);
+     }, 
+     error: function(){
+       date = new Date();
+       renderClock();
+       window.setInterval(function(){renderClock();},1000);
+     }
+  });
+
+  function renderClock() {
+    date = new Date(date.getTime()+1000);
+    var seconds = ( date.getUTCSeconds() < 10 ? "0" : "" ) + date.getUTCSeconds();
+    var minutes = ( date.getUTCMinutes() < 10 ? "0" : "" ) + date.getUTCMinutes();
+    var hours = ( date.getUTCHours() < 10 ? "0" : "" ) + (date.getUTCHours()+1);
+    var pt_clock = hours+":"+minutes+":"+seconds
+    
+    hours = ( date.getUTCHours() < 10 ? "0" : "" ) + (date.getUTCHours()+2);
+    var fr_clock = hours+":"+minutes+":"+seconds
+
+    hours_pt.text(pt_clock);
+    hours_fr.text(fr_clock);
+  }
 });

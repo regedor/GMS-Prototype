@@ -13,7 +13,7 @@ class Admin::RecipesController < Admin::BaseController
   end
 
   def new
-    @recipe = Recipe.new :preparation_description => render_to_string(:partial => "admin/recipes/recipe_template",:layout => false)
+    @recipe = Recipe.new
     @image = Image.new
   end
 

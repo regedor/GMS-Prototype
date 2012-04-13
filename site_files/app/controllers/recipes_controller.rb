@@ -2,6 +2,7 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find params[:id]
+    self.voting = true
     if params[:vote]
       @recipe.current_vote = params[:vote]
       unless @recipe.save
