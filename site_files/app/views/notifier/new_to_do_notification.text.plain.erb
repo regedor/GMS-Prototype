@@ -1,7 +1,7 @@
 <%#= t("notifier.to_do_notification.new", :user => @sender, :list => @list, :todo => @todo) %>
 
-<%= "Hello #{@receiver}" if @receiver %>
-<%= "#{@sender.capitalize} has assigned you with the task #{@todo}, regarding #{@list}" %>
-<%= "He wishes you to finish it by #{@date}" if @date %>
+<%= "Hello #{@receiver},\n\n" if @receiver %>
+<%= "#{@sender.capitalize} has assigned you with the task #{@todo}, regarding #{@list}.\n" %>
+<%= "He wishes you to finish it by #{@date}\n" if @date %>
 <%= "\nIf you wish to see it, please do so at #{@link}\n\n" %>
 <%= "Please also take a look at our website: http://groupbuddies.com" %>
