@@ -15,6 +15,7 @@ begin
   map.resources :posts
   map.resources :calendar
   map.resources :albums
+  map.resources :videos, :only => [:index]
   map.resource  :newsletter
   map.resources :maps, :collection => { :mapa_de_portugal => :get }
   
@@ -149,6 +150,8 @@ begin
                                          :has_many => :images,
                                          :member => { :all_images => :get }
     admin.resources :images
+    
+    admin.videos 'videos/upload', :controller => "videos", :action => "upload"
   end
 
   

@@ -1,0 +1,21 @@
+<div id="videos">
+  <% if @videos.empty? %>
+    <%= "There are no more videos" %>
+  <% else %>
+    <% @videos.each do |video| %>
+      <div class="video">
+        <%= video.title %>
+        <%= html_safe video.embed_html5 %>
+      </div>
+    <% end %>
+    
+    <div id="pagination">
+      <% if @page == 1 %>
+        <%= "Previous" %>
+      <% else %>
+        <%= link_to "Previous", videos_path(:page => @page-1) %>
+      <% end %>
+      <%= link_to "Next", videos_path(:page => @page+1) %>
+    </div>
+  <% end %>
+</div>
