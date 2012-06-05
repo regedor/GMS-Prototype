@@ -26,6 +26,9 @@ gem 'sass'
 gem 'nokogiri'
 gem 'rest-open-uri'
 gem 'stringex'
+gem 'youtube_it'
+gem 'json'
+gem 'flickraw'
 
 group :development do
   gem 'sqlite3-ruby'
