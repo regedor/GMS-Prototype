@@ -9,14 +9,25 @@ class ApplicationController < ActionController::Base
   before_filter :set_user_language
   before_filter :init if ENV['RAILS_ENV']=='development'
   
-  helper_method :yt_client
-
+  helper_method :yt_client, :sc_client
   
   def yt_client
     @yt_client ||= YouTubeIt::Client.new(
       :username => "zamith.28@gmail.com" , 
       :password => "luispedro" , 
       :dev_key  => "AI39si7b-SojncB9QH2sLZGqe_s9jSdqoMFJNQ12HEYOUBelqqoomK3pqXxnmQrft8YTMiJnNE0UcOzx-04t8qUjm3yvYVedVg")
+  end
+  
+  def sc_client
+    if $SOUND_CLOUD_TOKEN
+      @sc_client = Soundcloud.new({:access_token => $SOUND_CLOUD_TOKEN})
+    else
+      @sc_client = Soundcloud.new({
+        :client_id      => "9726eb57e198e1e3b8edf2dbb0a038a5",
+        :client_secret  => "0da72694fa5bdd47ac908c995e4f1970",
+        :redirect_uri  => sound_cloud_index_url
+      })
+    end
   end
 
   $current_category = GlobalCategory.first
