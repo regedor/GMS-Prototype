@@ -1,6 +1,7 @@
 class Admin::PostsController < Admin::BaseController
   filter_access_to :download, :require => :read
-  filter_access_to :all, :require => any_as_privilege 
+  filter_access_to :all, :require => write_as_privilege
+  filter_access_to [:index,:show], :require => [:as_read]
   cache_sweeper :post_sweeper, :only => [:update,:create,:destroy]
   before_filter :tags_in_instance_variable, :only => [ :list, :index ]
   before_filter :list_tags,                 :only =>   :index

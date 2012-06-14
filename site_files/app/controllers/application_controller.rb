@@ -60,6 +60,10 @@ class ApplicationController < ActionController::Base
     def self.any_as_privilege
       [:as_read, :as_create, :as_update, :as_delete]
     end
+    
+    def self.write_as_privilege
+      [:as_create, :as_update, :as_delete]
+    end
 
     # Stores current URI in session
     def store_location

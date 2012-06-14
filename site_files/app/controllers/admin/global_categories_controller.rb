@@ -1,5 +1,6 @@
 class Admin::GlobalCategoriesController < Admin::BaseController
-  filter_access_to :all, :require => any_as_privilege
+  filter_access_to :all, :require => write_as_privilege
+  filter_access_to [:index,:show], :require => [:as_read]
   cache_sweeper :global_category_sweeper, :only => [:update,:create,:destroy]
   
   active_scaffold :global_category do |config|

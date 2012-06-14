@@ -1,5 +1,6 @@
 class Admin::AnnouncementsController < Admin::BaseController
-  filter_access_to :all, :require => any_as_privilege
+  filter_access_to :all, :require => write_as_privilege
+  filter_access_to [:index,:show], :require => [:as_read]
   cache_sweeper :announcement_sweeper, :only => [:update,:create,:destroy]
   before_filter :date_localization, :only => [ :create, :update ]
   before_filter :validate_data, :only => [ :create, :update ]
