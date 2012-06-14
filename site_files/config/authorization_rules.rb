@@ -1,5 +1,12 @@
 authorization do
 
+  def all
+    Dir.glob(RAILS_ROOT + '/app/controllers/**/*.rb').each { |file| require file }
+    ApplicationController.subclasses.map do |class_name|
+      class_name.underscore.tr("/", "_").gsub("_controller","").to_sym
+    end
+  end
+
   role :root do
     has_omnipotence
   end
@@ -14,6 +21,13 @@ authorization do
     #has_permission_on [:user_roles],                :to =>  [ :as_manage ]
   end
 
+  ##########################################################################################################
+  
+  role :read_only do
+    p all
+    has_permission_on all, :to => [:as_read, :read]
+  end
+  
   ##########################################################################################################
 
   role :general_manager do

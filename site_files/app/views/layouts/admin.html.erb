@@ -56,7 +56,7 @@
                               admin_root_path,
                               :first => true %>
 
-          <% if permitted_to? :as_manage, :admin_users %>
+          <% if permitted_to? :as_read, :admin_users %>
 
             <% website_tabs = [ 'admin/posts',
                                 'admin/comments',

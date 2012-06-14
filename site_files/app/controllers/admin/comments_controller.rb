@@ -1,5 +1,6 @@
 class Admin::CommentsController < Admin::BaseController
-  filter_access_to :all, :require => any_as_privilege
+  filter_access_to :all, :require => write_as_privilege
+  filter_access_to [:index,:show], :require => [:as_read]
   before_filter :calculate_commentable_and_title, :only => [ :index, :list ]
 
   active_scaffold :comments do |config|

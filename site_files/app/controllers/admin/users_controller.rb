@@ -1,5 +1,6 @@
 class Admin::UsersController < Admin::BaseController
-  filter_access_to :all, :require => any_as_privilege
+  filter_access_to :all, :require => write_as_privilege
+  filter_access_to [:index,:show], :require => [:as_read]
 
   before_filter :load_groups, :only => :index
 

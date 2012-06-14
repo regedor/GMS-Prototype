@@ -1,5 +1,6 @@
 class Admin::PagesController < Admin::BaseController
-  filter_access_to :all, :require => any_as_privilege
+  filter_access_to :all, :require => write_as_privilege
+  filter_access_to [:index,:show], :require => [:as_read]
   before_filter :group_hack, :only => [:update, :create]
   
   active_scaffold :page do |config|
