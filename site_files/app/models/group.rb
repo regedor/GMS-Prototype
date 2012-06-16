@@ -126,6 +126,10 @@ class Group < ActiveRecord::Base
     behavior_delayed_job.destroy if behavior_delayed_job
     delay.execute_behaviour
   end
+  
+  def to_json(options={})
+    super(:only => [:id, :name,:description])
+  end
 
 
   # ==========================================================================

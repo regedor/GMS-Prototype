@@ -722,6 +722,9 @@ pt:
           active: "Um utilizador deve estar activo para poder realizar o login."
           phone: "Por favor, introduza também o prefixo do seu país."
           groups: "Selecione os grupos aos que o utilizador pertencerá."
+        positions_table:
+          group: "Grupo"
+          position: "Cargo"
 
     deleted_users:
       index:

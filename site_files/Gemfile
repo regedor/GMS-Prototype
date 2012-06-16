@@ -29,10 +29,10 @@ gem 'stringex'
 gem 'youtube_it'
 gem 'json'
 gem 'flickraw'
-gem 'soundcloud'
 
 group :development do
   gem 'sqlite3-ruby'
+  gem 'ruby-debug'
 end
 
 group :test do

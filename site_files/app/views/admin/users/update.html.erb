@@ -1,3 +1,79 @@
+<script>
+jQuery(document).ready(function($){
+
+  // Load table
+  $.ajax({
+    type: 'GET',
+    url: window.location.href.replace(/\#.*/,"").replace("edit","positions.json"),
+    dataType: "json",
+    error: function() {
+      $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"load_positions"});
+      return false;
+    },
+    success: function(r) {
+      for(var i=0;i<r.groups.length;i++)
+      {
+        var position = "";
+        if(r.positions[i] !== null)
+          position = r.positions[i].position.name
+
+        append_position_line(r.groups[i].group,position);
+      }
+    }
+  });
+
+  $("#record_groups_input ol li input[type='checkbox']").click(function(event){
+    if($(this).is(":checked"))
+    {
+      var group = {
+        'id': event.target.defaultValue,
+        'name': $.trim(event.target.nextSibling.data)
+      };
+      load_position_for_group(group);
+    }
+    else
+      $("#positions tbody td[abbr='"+event.target.defaultValue+"']").parent().remove();
+
+  });
+
+  function load_position_for_group(group)
+  {
+    $.ajax({
+      type: 'GET',
+      url: window.location.href.replace(/\#.*/,"").replace("edit","positions.json")+"?group_id="+group.id,
+      dataType: "json",
+      error: function() {
+        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"load_positions"});
+        return false;
+      },
+      success: function(r) {
+        if(r.groups === null)
+          append_position_line(group,"");
+        else
+        {
+          for(var i=0;i<r.groups.length;i++)
+          {
+            var position = "";
+            if(r.positions[i] !== null)
+              position = r.positions[i].position.name
+            
+            append_position_line(r.groups[i].group,position);
+          }
+        }
+      }
+    });
+  }
+
+  function append_position_line(group,position)
+  {
+    var html_str = "<tr><td class='group' abbr='"+group.id+"'>"+group.name+"</td> \
+                    <td class='position'><input type='text' value='"+position+"' /></td></tr>";
+    $("#positions tbody").append(html_str);
+  }
+
+});
+</script>
+
 <div class="content">
   <div class="inner">
     <h2><%= I18n::t('admin.users.form.edit') + ' - ' + link_to(h(@record.nickname_or_first_and_last_name), admin_user_path(@record)) %></h2>
@@ -5,6 +81,16 @@
                          :url => admin_user_path(@record), 
                          :html => { :method => :put, :id => "edit_user_#{@record.id}", :multipart => true } do |form| -%>
       <%= render :partial => 'form', :locals => { :form => form } %>
+
+      <table id="positions">
+        <thead>
+          <th><%= I18n::t('admin.users.form.positions_table.group') %></th>
+          <th><%= I18n::t('admin.users.form.positions_table.position') %></th>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+
       <% form.buttons do -%>
         <%= form.button      :label => I18n::t('admin.users.form.update_button'),
                              :button_html => { :class => 'button positive' } %>
