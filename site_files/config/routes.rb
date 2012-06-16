@@ -86,9 +86,18 @@ begin
   map.namespace :admin do |admin|
     admin.root :controller => 'dashboard', :action => 'index'
     admin.resources :users,          :active_scaffold => true, :active_scaffold_sortable => true,
-                                     :member          => { :delete => [:get,:put], :suspend => :put, :unsuspend => :put, :activate => :put, 
-                                                           :reset_password => :put },
+                                     :member          => { :delete => [:get,:put], 
+                                                           :suspend => :put, 
+                                                           :unsuspend => :put, 
+                                                           :activate => :put, 
+                                                           :reset_password => :put
+                                                         },
                                      :collection      => { :list_action => :post }
+                                     
+    admin.connect "users/:id/positions.json", 
+            :controller => "users", 
+            :action => "positions" 
+                                     
     admin.resources :deleted_users,  :active_scaffold => true, :active_scaffold_sortable => true,
                                      :member          => { :undelete    => [:get,:put] },
                                      :collection      => { :list_action => :post }

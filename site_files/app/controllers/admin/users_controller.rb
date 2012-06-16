@@ -55,10 +55,33 @@ class Admin::UsersController < Admin::BaseController
     end
   end
   
+  def positions
+    user = User.find params[:id]
+
+    if params[:group_id] and not user.group_ids.include? params[:group_id].to_i
+      groups = nil
+      positions = nil
+    else
+      groups = (params[:group_id]) ? [Group.find(params[:group_id])] : user.groups
+      positions = (params[:group_id]) ? 
+        [Position.find_by_user_id_and_group_id(user.id, params[:group_id])] : 
+        fetch_positions_from_groups(user.group_ids,user)
+    end
+
+    respond_to do |format|
+      format.json {render :json => {'groups' => groups, 'positions' => positions}}
+    end
+  end
+  
   protected
 
     def load_groups
       @groups = Group.all(:order => :name)
     end
-  
+    
+    def fetch_positions_from_groups(group_ids,user)
+      group_ids.inject([]) do |res, group_id|
+        res << Position.find_by_user_id_and_group_id(user.id, group_id)
+      end
+    end
 end
