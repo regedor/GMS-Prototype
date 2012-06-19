@@ -1487,6 +1487,7 @@ en:
       medium: "%d %b %Y"
       showdate: "%d/%m/%Y"
       long: "%B %d, %Y %H:%M"
+      archive: "%B %Y"
     am: "am"
     pm: "pm"
   
