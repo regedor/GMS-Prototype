@@ -43,6 +43,14 @@ class Admin::UsersController < Admin::BaseController
       end
     end
   end
+  
+  def update
+    
+    
+    respond_to do |format|
+      format.json {redirect_to admin_users_path}
+    end
+  end
 
   # Overrided this action to show revertion previews and revert option
   def show

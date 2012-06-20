@@ -10,7 +10,7 @@ class Admin::PostsController < Admin::BaseController
   include ActionView::Helpers::TextHelper
 
   active_scaffold :post do |config|
-    config.list.sorting = {:published_at => :desc}
+    config.list.sorting = {:published_at => :desc} if Post.count > 0
     Scaffoldapp::active_scaffold config, "admin.posts",
       :list   => [ :title, :excert, :published_at, :total_approved_comments ],
       :show   => [ ],

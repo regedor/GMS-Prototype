@@ -1,6 +1,5 @@
 module DateHelper
   def format_month(date)
-    #date.strftime("%B %Y")
     I18n::localize(date, :format => :archive)
   end
 

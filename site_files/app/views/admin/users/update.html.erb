@@ -2,27 +2,18 @@
 jQuery(document).ready(function($){
 
   // Load table
-  $.ajax({
-    type: 'GET',
-    url: window.location.href.replace(/\#.*/,"").replace("edit","positions.json"),
-    dataType: "json",
-    error: function() {
-      $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"load_positions"});
-      return false;
-    },
-    success: function(r) {
-      for(var i=0;i<r.groups.length;i++)
-      {
-        var position = "";
-        if(r.positions[i] !== null)
-          position = r.positions[i].position.name
-
-        append_position_line(r.groups[i].group,position);
-      }
+  $.getJSON(window.location.href.replace(/\#.*/,"").replace("edit","positions.json"),function(r) {
+    for(var i=0;i<r.groups.length;i++)
+    {
+      var position = "";
+      if(r.positions[i] !== null)
+        position = r.positions[i].position.name
+    
+      append_position_line(r.groups[i].group,position);
     }
   });
 
-  $("#record_groups_input ol li input[type='checkbox']").click(function(event){
+  $("#record_groups_input").delegate('input:checkbox', 'click', function(event){
     if($(this).is(":checked"))
     {
       var group = {
@@ -36,29 +27,40 @@ jQuery(document).ready(function($){
 
   });
 
-  function load_position_for_group(group)
-  {
-    $.ajax({
-      type: 'GET',
-      url: window.location.href.replace(/\#.*/,"").replace("edit","positions.json")+"?group_id="+group.id,
+  $("fieldset.buttons").delegate('#update-button','click',function(event){
+    var form = $("form.formtastic");
+    console.log(form.serialize()+escape("&record[positions][group][]='GroupBuddies'&record[positions][name][]='Rei'"));
+
+    jQuery.ajax({
+      type: 'PUT',
+      data: form.serialize().replace(/&*_method=\w+&*/,'')+escape("&record[positions][group][]='GroupBuddies'&record[positions][name][]='Rei'"),
+      url: window.location.href.replace(/\#.*/,"").replace("edit",""),
       dataType: "json",
       error: function() {
-        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"load_positions"});
+        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"create"});
         return false;
       },
       success: function(r) {
-        if(r.groups === null)
-          append_position_line(group,"");
-        else
+      }
+    });
+
+    event.preventDefault();
+  });
+
+  function load_position_for_group(group)
+  {
+    $.getJSON(window.location.href.replace(/\#.*/,"").replace("edit","positions.json")+"?group_id="+group.id, function(r) {
+      if(r.groups === null)
+        append_position_line(group,"");
+      else
+      {
+        for(var i=0;i<r.groups.length;i++)
         {
-          for(var i=0;i<r.groups.length;i++)
-          {
-            var position = "";
-            if(r.positions[i] !== null)
-              position = r.positions[i].position.name
-            
-            append_position_line(r.groups[i].group,position);
-          }
+          var position = "";
+          if(r.positions[i] !== null)
+            position = r.positions[i].position.name
+          
+          append_position_line(r.groups[i].group,position);
         }
       }
     });
@@ -70,7 +72,6 @@ jQuery(document).ready(function($){
                     <td class='position'><input type='text' value='"+position+"' /></td></tr>";
     $("#positions tbody").append(html_str);
   }
-
 });
 </script>
 
@@ -93,7 +94,7 @@ jQuery(document).ready(function($){
 
       <% form.buttons do -%>
         <%= form.button      :label => I18n::t('admin.users.form.update_button'),
-                             :button_html => { :class => 'button positive' } %>
+                             :button_html => { :class => 'button positive', :id => "update-button" } %>
         <%= form.button_link I18n::t('admin.users.form.cancel_button'), admin_users_path,
                              :button_html => { :class => 'button negative' } %>
       <% end -%>
