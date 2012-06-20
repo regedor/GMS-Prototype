@@ -4,7 +4,7 @@ begin
   map.resources :settings
 
 
-  map.root :controller => 'posts', :action => 'index'
+  map.root :controller => 'pages', :action => 'show', :slug => 'home'
   # sparklines route
   map.sparklines '/sparklines', :controller => 'admin/sparklines', :action => 'index'
 

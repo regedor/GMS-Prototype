@@ -1,4 +1,4 @@
-<%= autoscroll_to "#content" %>
+<%= autoscroll_to "#content" unless ["/","/home"].include? request.env['PATH_INFO'] %>
 <% content_for(:page_title) do -%>
   <%= page_title(@page) -%>
 <% end -%>
