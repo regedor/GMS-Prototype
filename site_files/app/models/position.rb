@@ -1,7 +1,7 @@
 class Position < ActiveRecord::Base
+
   belongs_to :user
   belongs_to :group
-  
   before_save :user_belongs_to_group?
   validates_presence_of :name
   validates_uniqueness_of :user_id, :scope => [:group_id]
