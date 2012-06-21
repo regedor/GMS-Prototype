@@ -25,6 +25,6 @@ end
 puts "Creating root user contact@groupbuddies.com please delete after use"
 if User.count == 0
   user = User.new :email=>"contact@groupbuddies.com", :name=>"Contact", :password=>"password", :password_confirmation=>"password"
-  user.role_id = 7
+  user.role_id = 8
   user.activate!
 end

@@ -1,6 +1,6 @@
 class Position < ActiveRecord::Base
-  belongs_to :user, :dependent => :destroy
-  belongs_to :group, :dependent => :destroy
+  belongs_to :user
+  belongs_to :group
   
   before_save :user_belongs_to_group?
   validates_presence_of :name
@@ -14,6 +14,6 @@ class Position < ActiveRecord::Base
   
   def user_belongs_to_group?
     user = User.find(self.user_id)
-    (user.group_ids.include? self.group_id)
+    user.group_ids.include? self.group_id
   end
 end

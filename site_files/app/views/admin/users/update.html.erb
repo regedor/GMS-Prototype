@@ -28,19 +28,20 @@ jQuery(document).ready(function($){
   });
 
   $("fieldset.buttons").delegate('#update-button','click',function(event){
-    var form = $("form.formtastic");
-    console.log(form.serialize()+escape("&record[positions][group][]='GroupBuddies'&record[positions][name][]='Rei'"));
+    var form = $("form.formtastic"),
+        encodedURIofPositions = getPositionsURI();
 
     jQuery.ajax({
       type: 'PUT',
-      data: form.serialize().replace(/&*_method=\w+&*/,'')+escape("&record[positions][group][]='GroupBuddies'&record[positions][name][]='Rei'"),
+      data: form.serialize()+encodedURIofPositions,
       url: window.location.href.replace(/\#.*/,"").replace("edit",""),
       dataType: "json",
       error: function() {
-        $(".flash").renderFlash("notifier.actions.failure", "error", {"action":"create"});
+        $("#flash").renderFlash("notifier.actions.failure", "error", {"action":"actualizar utilizador"});
         return false;
       },
-      success: function(r) {
+      success: function(location) {
+        window.location.href = location;
       }
     });
 
@@ -71,6 +72,20 @@ jQuery(document).ready(function($){
     var html_str = "<tr><td class='group' abbr='"+group.id+"'>"+group.name+"</td> \
                     <td class='position'><input type='text' value='"+position+"' /></td></tr>";
     $("#positions tbody").append(html_str);
+  }
+
+  function getPositionsURI()
+  {
+    var groups = $("#positions .group"),
+        positions = $("#positions .position").find("input"),
+        uri = [];
+
+    for(var i=0;i<groups.length;i++)
+    {
+      uri.push("&record[positions][groups][]=",encodeURI(groups[i].abbr),"&record[positions][names][]=",encodeURI(positions[i].value));
+    }
+
+    return uri.join("");
   }
 });
 </script>

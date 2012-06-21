@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many   :groups_users  
   has_many   :groups, :through => :groups_users
   has_many   :choosable_groups, :through => :groups_users, :source => :group, :conditions => { :user_choosable => true }
-  has_many   :positions
+  has_many   :positions, :dependent => :destroy
   belongs_to :role
 
 
@@ -64,6 +64,9 @@ class User < ActiveRecord::Base
   attr_accessible  :row_mark #scaffold hack
   attr_accessible  :address
   attr_accessible  :id_number
+  attr_accessible  :group_ids
+  attr_accessible  :role_id
+  attr_accessible  :active
 
   boolean_attr_accessor 'active', :trueifier => 'activate', :falsifier => 'deactivate'
 
@@ -327,6 +330,21 @@ class User < ActiveRecord::Base
   
   def validate_role
     self.role_id= Role.id_for(:user) if self.role == nil
+  end
+  
+  def delete_positions(group_ids)
+    p "Starting..."
+    p group_ids
+    if not group_ids.empty?
+      new_group_ids = group_ids.reject!{|c|c.empty?}.map(&:to_i)
+      
+      p new_group_ids
+      p self.group_ids
+      groups_to_remove = self.group_ids - new_group_ids
+      groups_to_remove.each do |group_id|
+        Position.find_by_user_id_and_group_id(self.id,group_id).destroy
+      end
+    end
   end
 
  private

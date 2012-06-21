@@ -45,11 +45,25 @@ class Admin::UsersController < Admin::BaseController
   end
   
   def update
-    
-    
-    respond_to do |format|
-      format.json {redirect_to admin_users_path}
+    positions = params[:record].delete(:positions) if params[:record][:positions]
+    current_user.delete_positions(params[:record][:group_ids])
+
+    if current_user.update_attributes params[:record]
+      positions[:groups].each_with_index do |group_id,idx|
+        prev_position = Position.find_by_user_id_and_group_id(current_user.id,group_id.to_i)
+
+        if prev_position
+          prev_position.update_attributes({:name => positions[:names][idx]})
+        else
+          Position.create(:user_id => current_user.id, :group_id => group_id.to_i, :name => positions[:names][idx])
+        end
+      end if positions
+
+      render :json => "/admin/users".to_json
+    else
+      render :json => "fail", :status => 500
     end
+
   end
 
   # Overrided this action to show revertion previews and revert option
