@@ -657,6 +657,10 @@ pt:
         edit:
           title: "Editar utilizador"
           text: "Pode editar os detalhes do utilizador aqui, mudando toda a informação.<br/> O campo de <b title=\"Ver campo à esquerda.\">email</b> especifica o email pessoal do utilizador.<br/>A opção <b title=\"Ver campo à esquerda.\">activar</b> especifica se o utilizador esta activo ou não.<br/>Também pode alterar o número de <b title=\"Ver campo à esquerda.\">telefone</b>.<br/>O <b>avatar</b title=\"Ver campo de actualização à esquerda.\"> specifica a imagem de apresentação do utilizador. Pode fazer upload a qualquer ficheiro de image que será automáticamente formatado para o tamanho de 100x100 px.<br/>No campo de <b title=\"Ver campo à esquerda.\">perfil</b> há uma breve descrição do utilizador.<br/>Pode especificar um <b title=\"Ver campo à esquerda.\">website</b>, também como o <b title=\"Ver campo à esquerda.\">país</b>.<br/>O <b title=\"Ver campo à esquerda.\">sexo</b> do utilizador também é definido aqui.<br/>Pode adicionar o utilizador a <b title=\"Ver campo à esquerda.\">grupos</b> escolhendo os grupos que pretende.<br/>A informação de <b title=\"Ver as check boxes.\">grupos</b> não será guardada para reversão, uma vez feita uma alteração não é possivel recuperá-la.<br/>Quando guarda, será criada uma entrada de histórico. Isto quer dizer que pode reverter a um estado anterior (excepto para informação de grupos).<br/>Os campos com um asterisco (*) são obrigatórios."
+          error:
+            title: "Oops, não foi possível carregar os cargos."
+            explanation: "Pedimos desculpa, tente fazer refresh à página. Se o problema persistir contacte o administrador do seu site."
+          loading: "Espere um pouco enquanto vamos buscar os cargos do utilizador"
         delete_by_ids!: "Apagar"
         activate!: "Activar"
         deactivate!: "Desactivar"
