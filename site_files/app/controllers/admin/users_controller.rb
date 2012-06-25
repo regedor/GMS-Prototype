@@ -91,7 +91,7 @@ class Admin::UsersController < Admin::BaseController
     end
 
     respond_to do |format|
-      format.json {render :json => {'groups' => groups, 'positions' => positions}}
+      format.json { render :json => {'groups' => groups, 'positions' => positions}}
     end
   end
   

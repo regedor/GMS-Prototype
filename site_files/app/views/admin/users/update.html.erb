@@ -1,15 +1,36 @@
 <script>
 jQuery(document).ready(function($){
+  
+  // Initialization
+  $("#error").hide();
+  $("#positions").hide();
+  $("#loading").show();
+
+  // To now when to abort
+  var fetchingPositions = null;
 
   // Load table
-  $.getJSON(window.location.href.replace(/\#.*/,"").replace("edit","positions.json"),function(r) {
-    for(var i=0;i<r.groups.length;i++)
-    {
-      var position = "";
-      if(r.positions[i] !== null)
-        position = r.positions[i].position.name
-    
-      append_position_line(r.groups[i].group,position);
+  fetchingPositions = $.ajax({
+    url: window.location.href.replace(/\#.*/,"").replace("edit","positions.json"),
+    cache: false,
+    success: function(r) {
+      for(var i=0;i<r.groups.length;i++)
+      {
+        var position = "";
+        if(r.positions[i] !== null)
+          position = r.positions[i].position.name
+      
+        append_position_line(r.groups[i].group,position);
+      }
+      $("#positions").show();
+    },
+    error: function(result) {
+      if(result.statusText != "abort")
+        $("#error").show();
+    },
+    complete: function(){
+      $("#loading").hide();
+      fetchingPositions = null;
     }
   });
 
@@ -23,7 +44,10 @@ jQuery(document).ready(function($){
       load_position_for_group(group);
     }
     else
+    {
       $("#positions tbody td[abbr='"+event.target.defaultValue+"']").parent().remove();
+      $("#positions").hide();
+    }
 
   });
 
@@ -35,6 +59,7 @@ jQuery(document).ready(function($){
       type: 'PUT',
       data: form.serialize()+encodedURIofPositions,
       url: window.location.href.replace(/\#.*/,"").replace("edit",""),
+      cache: false,
       dataType: "json",
       error: function() {
         $("#flash").renderFlash("notifier.actions.failure", "error", {"action":"actualizar utilizador"});
@@ -50,19 +75,39 @@ jQuery(document).ready(function($){
 
   function load_position_for_group(group)
   {
-    $.getJSON(window.location.href.replace(/\#.*/,"").replace("edit","positions.json")+"?group_id="+group.id, function(r) {
-      if(r.groups === null)
-        append_position_line(group,"");
-      else
-      {
-        for(var i=0;i<r.groups.length;i++)
+    if(fetchingPositions)
+      fetchingPositions.abort();
+
+    fetchingPositions = $.ajax({
+      url: window.location.href.replace(/\#.*/,"").replace("edit","positions.json")+"?group_id="+group.id,
+      cache: false,
+      beforeSend: function(){
+        $("#error").hide();
+        $("#loading").show();
+      },
+      success: function(r) {
+        if(r.groups === null)
+          append_position_line(group,"");
+        else
         {
-          var position = "";
-          if(r.positions[i] !== null)
-            position = r.positions[i].position.name
-          
-          append_position_line(r.groups[i].group,position);
+          for(var i=0;i<r.groups.length;i++)
+          {
+            var position = "";
+            if(r.positions[i] !== null)
+              position = r.positions[i].position.name
+            
+            append_position_line(r.groups[i].group,position);
+          }
         }
+        $("#positions").show();
+      },
+      error: function() {
+        if(result.statusText != "abort")
+          $("#error").show();
+      },
+      complete: function(){
+        $("#loading").hide();
+        fetchingPositions = null;
       }
     });
   }
@@ -74,7 +119,6 @@ jQuery(document).ready(function($){
     $("#positions tbody").append(html_str);
   }
 
-<<<<<<< HEAD
   function getPositionsURI()
   {
     var groups = $("#positions .group"),
@@ -107,6 +151,15 @@ jQuery(document).ready(function($){
         <tbody>
         </tbody>
       </table>
+
+      <div id="error">
+        <h2>Whoops, unable to get the positions from server.</h2>
+        <p>Sorry about that, please refresh the page to try again. If the problem persists, contact the website maintainer.<p>
+      </div>
+      
+      <div id="loading">
+        <h2>Just a minute while we get the user's positions</h2>
+      </div>
 
       <% form.buttons do -%>
         <%= form.button      :label => I18n::t('admin.users.form.update_button'),
