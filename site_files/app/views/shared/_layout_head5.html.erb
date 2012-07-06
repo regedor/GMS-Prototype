@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="author" content="Group Buddies">
+  <meta name="viewport" content="initial-scale=1.0, width=device-width">
+
+  <title><%= yield(:page_title) || h(configatron.title) %></title>
+
+  <%= stylesheet_link_tag 'shared/reset.html5',                :media => 'all' %>
+  <%= stylesheet_link_tag 'smoothness/jquery-ui-1.8.7.custom',
+                          'formtastic/formtastic',
+                          'shared/formtastic-changes',
+                          '/stylesheets/frontend',             :media => 'screen', :cache => 'cache/frontend' %>
+
+  <% @javascripts = [ 'strutil',
+                      'jquery',
+                      'jquery-ui.min',
+                      'jquery.tmpl.min',
+                      'announcements',
+                      'ajax_calendar',
+                      'utils',
+                      'application' ] %>
+
+  <%= javascript_include_tag @javascripts %>
+
+  <%= yield :head %>
+</head>
