@@ -7,8 +7,12 @@
   <%= auto_discovery_link_tag(:atom, @tags.nil? ? posts_path(:format => 'atom') : posts_path(:tags => @tags, :format => 'atom')) %>
 <% end %>
 
-
 <div id="posts">
+
+  <% unless configatron.posts_title.nil? %>
+    <h1 id="posts-title"><%= configatron.posts_title %></h1>
+  <% end %>
+
   <% if @posts.empty? -%>
     <p><%= t('posts.none') %></p>
   <% else -%>

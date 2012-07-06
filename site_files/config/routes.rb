@@ -26,7 +26,7 @@ begin
           :controller => 'pages', 
           :action => 'show', 
           :method => :get,
-          :requirements => { :slug => /(#{Page.all.map(&:slug).join('|')}).*/ }
+          :requirements => { :slug => /(#{(Page.all.empty?) ? "cannot-be-empty" : Page.all.map(&:slug).join('|')}).*/ }
   
   map.global_category ':name/posts', 
                       :controller => 'posts', 
