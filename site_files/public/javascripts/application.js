@@ -7,8 +7,6 @@ jQuery.noConflict();
 
 jQuery(document).ready(function($) {
 
-    $.preloadCssImages();
-
 	var isAdmin = (document.location.href.split("/")[3] === "admin") ? true : false
 
 	if(!isAdmin)
