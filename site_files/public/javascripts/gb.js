@@ -3,62 +3,77 @@ jQuery.noConflict();
 jQuery(document).ready(function($) {
 
   var header_logo = {
-   change_at: $("#who-we-are").offset().top-120,
-   from: "logo",
-   to: "lettering",
-   current: "logo",
-   
-   init : function(){
-     $(window).scroll(function(){
-       var current_pos = window.pageYOffset;
-       if(current_pos >= header_logo.change_at && header_logo.current === "logo")
-       {
-          $("#header-logo").stop().animate({opacity: 0},1000,function(){
-            $(this).css({'background-image': "url('/images/logo_lettering.png')", 
-                         "background-repeat": "no-repeat", 
-                         "width": "190px", 
-                         "margin-top": "10px"})
-                   .animate({opacity: 1, height: '33px'},{queue:false,duration:1000});
-          });
-          $("#slogan").fadeOut(600);
+    change_at: $("#who-we-are").offset().top-120,
+    from: "logo",
+    to: "lettering",
+    current: "logo",
+    
+    change_to_lettering: function(){
+      $("#header-logo").stop().animate({opacity: 0},1000,function(){
+        $(this).css({"background-image": "url('/images/logo_lettering.png')", 
+                     "background-repeat": "no-repeat", 
+                     "width": "190px", 
+                     "margin-top": "10px"})
+               .animate({opacity: 1, height: '33px'},{queue:false,duration:1000});
+      });
+      $("#slogan").fadeOut(600);
+      
+      header_logo.from    = "lettering";
+      header_logo.to      = "logo";
+      header_logo.current = "lettering";
+    },
 
-          header_logo.from    = "lettering";
-          header_logo.to      = "logo";
-          header_logo.current = "lettering";
+    change_to_logo: function(){
+      $("#header-logo").stop().animate({opacity: 0},400,function(){
+        $(this).css({"background-image": "url('/logo.png')", 
+                     "background-repeat": "no-repeat", 
+                     "width": "130px",
+                     "margin-top": "0"})
+               .animate({height: '92px'},{duration:1000})
+               .animate({opacity: 1},{duration:1000});
+      });
+      $("#slogan").fadeIn(600);
+
+      header_logo.from    = "logo";
+      header_logo.to      = "lettering";
+      header_logo.current = "logo";
+    },
+
+    init : function(){
+      $(window).scroll(function(){
+        var current_pos = window.pageYOffset;
+        if(current_pos >= header_logo.change_at && header_logo.current === "logo")
+        {
+           header_logo.change_to_lettering();
         }
         else if(current_pos < header_logo.change_at && header_logo.current === "lettering")
         {
-          $("#header-logo").stop().animate({opacity: 0},400,function(){
-            $(this).css({'background-image': "url('/logo.png')", "background-repeat": "no-repeat", "width": "130px"})
-                   .animate({height: '92px'},{duration:1000})
-                   .animate({opacity: 1},{duration:1000});
-          });
-          $("#slogan").fadeIn(600);
-
-          header_logo.from    = "logo";
-          header_logo.to      = "lettering";
-          header_logo.current = "logo";
+           header_logo.change_to_logo();
         }
       });
     }
-  };
+ };
 
   var first_arrow = {
+    scroll_to_page: function(){
+      $("body").animate({scrollTop:$("#who-we-are").offset().top}, 1000);
+    },
+
     init : function(){
       $("#arrow").on('click',function(event){
-        $("body").animate({scrollTop:$("#who-we-are").offset().top-70}, 1000);
+        first_arrow.scroll_to_page();
         event.preventDefault();
       });
     }
   };
 
   var header_nav = {
-    intro: 0,
-    who_we_are: 640,
-    what_we_do: 1340,
-    what_we_did: 2040,
-    contact: 2740,
-    thanks: 3440,
+    intro: $("#intro").offset().top,
+    who_we_are: $("#who-we-are").offset().top,
+    what_we_do: $("#what-we-do").offset().top,
+    what_we_did: $("#what-we-did").offset().top,
+    contact: $("#contact-us").offset().top,
+    thanks: $("footer").offset().top,
 
     add_class_to_one: function(classable_item,class_name){
       $("a."+class_name).each(function(){
@@ -131,7 +146,11 @@ jQuery(document).ready(function($) {
         if(the_team.current_member_showing != null)
           $("#"+the_team.current_member_showing).hide('fast');
 
-        $("#"+member_to_show).show("blind",{ direction: "horizontal" }, 2000);
+        $("header").hide();
+        $("#"+member_to_show).css({'position':'absolute','top':'720px'})
+            .show("blind",{ direction: "horizontal" }, 2000)
+            .delay(5000)
+            .hide("blind",{ direction: "horizontal" }, 2000,function(){$("header").show();});
         the_team.current_member_showing = member_to_show;
 
         event.preventDefault();
