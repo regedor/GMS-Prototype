@@ -81,7 +81,7 @@ jQuery(document).ready(function($) {
 
     current_page: function(){
       $(window).scroll(function(){
-        if(window.pageYOffset >= header_nav.home && window.pageYOffset < header_nav.who_we_are)            //Intro
+        if(window.pageYOffset >= header_nav.home && window.pageYOffset < header_nav.who_we_are)             // Intro
           header_nav.add_class_to_one("#nav-home","current");
         else if(window.pageYOffset >= header_nav.who_we_are && window.pageYOffset < header_nav.what_we_do)  // Who we are
           header_nav.add_class_to_one("#nav-who-we-are","current");
@@ -121,7 +121,7 @@ jQuery(document).ready(function($) {
           default:
             new_pos = header_nav.home;
         }
-        $("body,html").animate({scrollTop:new_pos}, 1000);
+        $("body,html").animate({scrollTop:new_pos+1}, 1000);
 
         event.preventDefault();
       });
@@ -164,7 +164,6 @@ jQuery(document).ready(function($) {
 
     up_action: function(current_page,event){
       event.preventDefault();
-      var current_page = $("nav a.current").attr("id").replace("nav-","");
       var current_page_pos = key_navigation.page_order.indexOf(current_page);
       if(current_page_pos >= 1)
       {
