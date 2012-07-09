@@ -163,5 +163,4 @@ jQuery(document).ready(function($) {
   header_nav.init();
   first_arrow.init();
   the_team.init();
-
 });
