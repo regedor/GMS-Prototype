@@ -162,7 +162,7 @@ jQuery(document).ready(function($) {
   var key_navigation = {
     page_order: ["home", "who-we-are", "what-we-do", "what-we-did", "contact-us", "footer"],
 
-    up_action: function(current_page){
+    up_action: function(current_page,event){
       event.preventDefault();
       var current_page = $("nav a.current").attr("id").replace("nav-","");
       var current_page_pos = key_navigation.page_order.indexOf(current_page);
@@ -174,10 +174,9 @@ jQuery(document).ready(function($) {
       }
       else
         $("body,html").animate({scrollTop:0}, 1000);
-      debugger;
     },
 
-    down_action: function(current_page){
+    down_action: function(current_page,event){
       event.preventDefault();
       var current_page_pos = key_navigation.page_order.indexOf(current_page);
       if(current_page_pos <= key_navigation.page_order.length-1)
@@ -196,9 +195,9 @@ jQuery(document).ready(function($) {
       $(document).on("keydown", function(event){
         var current_page = $("nav a.current").attr("id").replace("nav-","");
         if(event.keyCode === 38 && current_page != "home") // Up arrow
-          key_navigation.up_action(current_page);
+          key_navigation.up_action(current_page,event);
         else if(event.keyCode === 40 && current_page != "footer") // Down arrow
-          key_navigation.down_action(current_page);
+          key_navigation.down_action(current_page,event);
       });
     },
 
