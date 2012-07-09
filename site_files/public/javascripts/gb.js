@@ -70,7 +70,7 @@ jQuery(document).ready(function($) {
     what_we_do: $("#what-we-do").offset().top - 80,
     what_we_did: $("#what-we-did").offset().top - 80,
     contact: $("#contact-us").offset().top - 80,
-    thanks: $("footer").offset().top - 80,
+    footer: $("footer").offset().top - 80,
 
     add_class_to_one: function(classable_item,class_name){
       $("a."+class_name).each(function(){
@@ -89,10 +89,10 @@ jQuery(document).ready(function($) {
           header_nav.add_class_to_one("#nav-what-we-do","current");
         else if(window.pageYOffset >= header_nav.what_we_did && window.pageYOffset < header_nav.contact)    // What we did
           header_nav.add_class_to_one("#nav-what-we-did","current");
-        else if(window.pageYOffset >= header_nav.contact && window.pageYOffset < header_nav.thanks)         // Contact
-          header_nav.add_class_to_one("#nav-contact","current");
-        else if(window.pageYOffset >= header_nav.thanks)                                                    // Thanks
-          header_nav.add_class_to_one("#nav-thanks","current");
+        else if(window.pageYOffset >= header_nav.contact && window.pageYOffset < header_nav.footer)         // Contact
+          header_nav.add_class_to_one("#nav-contact-us","current");
+        else if(window.pageYOffset >= header_nav.footer)                                                    // footer
+          header_nav.add_class_to_one("#nav-footer","current");
       });
     },
 
@@ -112,11 +112,11 @@ jQuery(document).ready(function($) {
           case "nav-what-we-did":
             new_pos = header_nav.what_we_did;
             break;
-          case "nav-contact":
+          case "nav-contact-us":
             new_pos = header_nav.contact;
             break;
-          case "nav-thanks":
-            new_pos = header_nav.thanks;
+          case "nav-footer":
+            new_pos = header_nav.footer;
             break;
           default:
             new_pos = header_nav.home;
@@ -160,25 +160,45 @@ jQuery(document).ready(function($) {
   };
 
   var key_navigation = {
-    page_order: ["home", "who-we-are", "what-we-do", "what-we-did", "contact", "thanks"],
+    page_order: ["home", "who-we-are", "what-we-do", "what-we-did", "contact-us", "footer"],
+
+    up_action: function(current_page){
+      event.preventDefault();
+      var current_page = $("nav a.current").attr("id").replace("nav-","");
+      var current_page_pos = key_navigation.page_order.indexOf(current_page);
+      if(current_page_pos >= 1)
+      {
+        var new_page_name = key_navigation.page_order[current_page_pos - 1];
+        var new_page_offset = $("#"+new_page_name).offset().top;
+        $("body,html").animate({scrollTop:new_page_offset}, 1000);
+      }
+      else
+        $("body,html").animate({scrollTop:0}, 1000);
+      debugger;
+    },
+
+    down_action: function(current_page){
+      event.preventDefault();
+      var current_page_pos = key_navigation.page_order.indexOf(current_page);
+      if(current_page_pos <= key_navigation.page_order.length-1)
+      {
+        var new_page_name = key_navigation.page_order[current_page_pos + 1];
+        if(new_page_name != "footer")
+          new_page_name = "#"+new_page_name;
+        var new_page_offset = $(new_page_name).offset().top;
+        $("body,html").animate({scrollTop:new_page_offset}, 1000);
+      }
+      else
+        $("body,html").animate({scrollTop: header_nav.footer}, 1000);
+    },
 
     up_or_down: function(){
-      $(document).keydown(function(event){
-        if(event.keyCode === 38) // Up arrow
-        {
-          var current_page = $("nav a.current").attr("id").replace("nav-","");
-          var current_page_pos = key_navigation.page_order.indexOf(current_page);
-          if(current_page_pos >= 1)
-          {
-            var new_page_name = key_navigation.page_order[current_page_pos - 1];
-            var new_page_offset = $("#"+new_page_name).offset().top;
-            $("body,html").animate({scrollTop:new_page_offset}, 1000);
-          }
-          else
-            $("body,html").animate({scrollTop:0}, 1000);
-
-          event.preventDefault();
-        }
+      $(document).on("keydown", function(event){
+        var current_page = $("nav a.current").attr("id").replace("nav-","");
+        if(event.keyCode === 38 && current_page != "home") // Up arrow
+          key_navigation.up_action(current_page);
+        else if(event.keyCode === 40 && current_page != "footer") // Down arrow
+          key_navigation.down_action(current_page);
       });
     },
 
