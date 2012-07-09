@@ -159,8 +159,37 @@ jQuery(document).ready(function($) {
     }
   };
 
+  var key_navigation = {
+    page_order: ["home", "who-we-are", "what-we-do", "what-we-did", "contact", "thanks"],
+
+    up_or_down: function(){
+      $(document).keydown(function(event){
+        if(event.keyCode === 38) // Up arrow
+        {
+          var current_page = $("nav a.current").attr("id").replace("nav-","");
+          var current_page_pos = key_navigation.page_order.indexOf(current_page);
+          if(current_page_pos >= 1)
+          {
+            var new_page_name = key_navigation.page_order[current_page_pos - 1];
+            var new_page_offset = $("#"+new_page_name).offset().top;
+            $("body,html").animate({scrollTop:new_page_offset}, 1000);
+          }
+          else
+            $("body,html").animate({scrollTop:0}, 1000);
+
+          event.preventDefault();
+        }
+      });
+    },
+
+    init: function(){
+      key_navigation.up_or_down();
+    }
+  };
+
   header_logo.init();
   header_nav.init();
   first_arrow.init();
   the_team.init();
+  key_navigation.init();
 });
