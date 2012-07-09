@@ -3,39 +3,36 @@ jQuery.noConflict();
 jQuery(document).ready(function($) {
 
   var header_logo = {
-    change_at: $("#who-we-are").offset().top-120,
+    change_at: $("#who-we-are").offset().top - 700,
     from: "logo",
     to: "lettering",
     current: "logo",
-    
+
     change_to_lettering: function(){
-      $("#header-logo").stop().animate({opacity: 0},1000,function(){
-        $(this).css({"background-image": "url('/images/logo_lettering.png')", 
-                     "background-repeat": "no-repeat", 
-                     "width": "190px", 
-                     "margin-top": "10px"})
-               .animate({opacity: 1, height: '33px'},{queue:false,duration:1000});
+      $("#header-logo").stop().animate({opacity: 0}, 300, function() {
+        $(this).css({"background-image": "url('/images/logo_lettering.png')", "width": "190px"})
+          .animate({"opacity": "1"}, {queue: false, duration: 500})
+          .animate({"padding-bottom": "13px", "height": "33px"}, {duration: 500});
+        $(this).css({"background-position-y": "12px"});
       });
-      $("#slogan").fadeOut(600);
-      
-      header_logo.from    = "lettering";
-      header_logo.to      = "logo";
+      $("#slogan").fadeOut(300);
+
+      header_logo.from = "lettering";
+      header_logo.to   = "logo";
       header_logo.current = "lettering";
     },
 
     change_to_logo: function(){
-      $("#header-logo").stop().animate({opacity: 0},400,function(){
-        $(this).css({"background-image": "url('/logo.png')", 
-                     "background-repeat": "no-repeat", 
-                     "width": "130px",
-                     "margin-top": "0"})
-               .animate({height: '92px'},{duration:1000})
-               .animate({opacity: 1},{duration:1000});
+      $("#header-logo").stop().animate({opacity: 0},400,function()
+      {
+        $(this).css({"background-image": "url('/logo.png')", "background-position-y": "0", "padding-bottom": "0", "width": "130px"})
+          .animate({"height": "92px"}, {duration: 300})
+          .animate({"opacity": "1"}, {duration: 300});
       });
-      $("#slogan").fadeIn(600);
+      $("#slogan").delay(500).fadeIn(300);
 
-      header_logo.from    = "logo";
-      header_logo.to      = "lettering";
+      header_logo.from = "logo";
+      header_logo.to   = "lettering";
       header_logo.current = "logo";
     },
 
@@ -52,7 +49,7 @@ jQuery(document).ready(function($) {
         }
       });
     }
- };
+  };
 
   var first_arrow = {
     scroll_to_page: function(){
@@ -68,12 +65,12 @@ jQuery(document).ready(function($) {
   };
 
   var header_nav = {
-    intro: $("#intro").offset().top,
-    who_we_are: $("#who-we-are").offset().top,
-    what_we_do: $("#what-we-do").offset().top,
-    what_we_did: $("#what-we-did").offset().top,
-    contact: $("#contact-us").offset().top,
-    thanks: $("footer").offset().top,
+    home: $("#home").offset().top - 80,
+    who_we_are: $("#who-we-are").offset().top - 80,
+    what_we_do: $("#what-we-do").offset().top - 80,
+    what_we_did: $("#what-we-did").offset().top - 80,
+    contact: $("#contact-us").offset().top - 80,
+    thanks: $("footer").offset().top - 80,
 
     add_class_to_one: function(classable_item,class_name){
       $("a."+class_name).each(function(){
@@ -84,8 +81,8 @@ jQuery(document).ready(function($) {
 
     current_page: function(){
       $(window).scroll(function(){
-        if(window.pageYOffset >= header_nav.intro && window.pageYOffset < header_nav.who_we_are)            //Intro
-          header_nav.add_class_to_one("#nav-intro","current");
+        if(window.pageYOffset >= header_nav.home && window.pageYOffset < header_nav.who_we_are)            //Intro
+          header_nav.add_class_to_one("#nav-home","current");
         else if(window.pageYOffset >= header_nav.who_we_are && window.pageYOffset < header_nav.what_we_do)  // Who we are
           header_nav.add_class_to_one("#nav-who-we-are","current");
         else if(window.pageYOffset >= header_nav.what_we_do && window.pageYOffset < header_nav.what_we_did) // What we do
@@ -101,10 +98,10 @@ jQuery(document).ready(function($) {
 
     scroll_to_page: function(){
       $("nav").on("click","a",function(event){
-        var new_pos = header_nav.intro;
+        var new_pos = header_nav.home;
         switch($(this).attr("id")) {
-          case "nav-intro":
-            new_pos = header_nav.intro;
+          case "nav-home":
+            new_pos = header_nav.home;
             break;
           case "nav-who-we-are":
             new_pos = header_nav.who_we_are;
@@ -122,7 +119,7 @@ jQuery(document).ready(function($) {
             new_pos = header_nav.thanks;
             break;
           default:
-            new_pos = header_nav.intro;
+            new_pos = header_nav.home;
         }
         $("body").animate({scrollTop:new_pos}, 1000);
 
@@ -131,7 +128,7 @@ jQuery(document).ready(function($) {
     },
 
     init: function(){
-      $("#nav-intro").addClass("current");
+      $("#nav-home").addClass("current");
       header_nav.current_page();
       header_nav.scroll_to_page();
     }
@@ -166,5 +163,4 @@ jQuery(document).ready(function($) {
   header_nav.init();
   first_arrow.init();
   the_team.init();
-
 });
