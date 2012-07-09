@@ -9,11 +9,11 @@ jQuery(document).ready(function($) {
     current: "logo",
 
     change_to_lettering: function(){
-      $("#header-logo").stop().animate({opacity: 0}, 300, function() {
+      $("#header-logo").stop().animate({"opacity": "0"}, 300, function() {
         $(this).css({"background-image": "url('/images/logo_lettering.png')", "width": "190px"})
           .animate({"opacity": "1"}, {queue: false, duration: 500})
           .animate({"padding-bottom": "13px", "height": "33px"}, {duration: 500});
-        $(this).css({"background-position-y": "12px"});
+        $(this).css({"background-position": "0 12px"});
       });
       $("#slogan").fadeOut(300);
 
@@ -23,9 +23,8 @@ jQuery(document).ready(function($) {
     },
 
     change_to_logo: function(){
-      $("#header-logo").stop().animate({opacity: 0},400,function()
-      {
-        $(this).css({"background-image": "url('/logo.png')", "background-position-y": "0", "padding-bottom": "0", "width": "130px"})
+      $("#header-logo").stop().animate({"opacity": "0"}, 300, function() {
+        $(this).css({"background-image": "url('/logo.png')", "background-position": "0", "padding-bottom": "0", "width": "130px"})
           .animate({"height": "92px"}, {duration: 300})
           .animate({"opacity": "1"}, {duration: 300});
       });
