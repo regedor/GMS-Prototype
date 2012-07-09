@@ -56,7 +56,7 @@ jQuery(document).ready(function($) {
 
   var first_arrow = {
     scroll_to_page: function(){
-      $("body").animate({scrollTop:$("#who-we-are").offset().top}, 1000);
+      $("body,html").animate({scrollTop:$("#who-we-are").offset().top}, 1000);
     },
 
     init : function(){
@@ -101,6 +101,7 @@ jQuery(document).ready(function($) {
 
     scroll_to_page: function(){
       $("nav").on("click","a",function(event){
+        console.log($(this).attr("id"));
         var new_pos = header_nav.intro;
         switch($(this).attr("id")) {
           case "nav-intro":
@@ -124,7 +125,8 @@ jQuery(document).ready(function($) {
           default:
             new_pos = header_nav.intro;
         }
-        $("body").animate({scrollTop:new_pos}, 1000);
+        console.log(new_pos);
+        $("body,html").animate({scrollTop:new_pos}, 1000);
 
         event.preventDefault();
       });
