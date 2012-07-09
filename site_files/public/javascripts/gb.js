@@ -53,7 +53,7 @@ jQuery(document).ready(function($) {
 
   var first_arrow = {
     scroll_to_page: function(){
-      $("body,html").animate({scrollTop:$("#who-we-are").offset().top}, 1000);
+      $("body").animate({scrollTop:$("#who-we-are").offset().top - 50}, 1000);
     },
 
     init : function(){
