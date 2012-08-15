@@ -13,9 +13,9 @@ class ApplicationController < ActionController::Base
   
   def yt_client
     @yt_client ||= YouTubeIt::Client.new(
-      :username => "zamith.28@gmail.com" , 
-      :password => "luispedro" , 
-      :dev_key  => "AI39si7b-SojncB9QH2sLZGqe_s9jSdqoMFJNQ12HEYOUBelqqoomK3pqXxnmQrft8YTMiJnNE0UcOzx-04t8qUjm3yvYVedVg")
+      :username => "PEDIR" , 
+      :password => "ISTO" , 
+      :dev_key  => "À JSF")
   end
   
   def sc_client
