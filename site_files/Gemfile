@@ -29,6 +29,7 @@ gem 'stringex'
 gem 'youtube_it'
 gem 'json'
 gem 'flickraw'
+gem 'thin'
 
 group :development do
   gem 'sqlite3-ruby'
