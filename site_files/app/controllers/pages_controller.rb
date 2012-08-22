@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
+  unloadable
   before_filter :find_page
   #filter_access_to :show, :attribute_check => true
-
 
   # ==========================================================================
   # Protected Methods

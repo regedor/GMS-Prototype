@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-    
-    
+  unloadable
+
   def index
     unless configatron.site_name == "Paris Português" && !params[:name]
       @tags = params[:tags].split(",") if params[:tags]
