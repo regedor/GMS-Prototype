@@ -103,8 +103,9 @@ jQuery(document).ready(function($){
 
     addUpdateButtonListener : function() {
       $("fieldset.buttons").delegate('#update-button','click',function(event){
+        debugger;
         var form = $("form.formtastic"),
-            encodedURIofPositions = this.getPositionsURI();
+            encodedURIofPositions = updateUser.getPositionsURI();
         
         jQuery.ajax({
           type: 'PUT',
