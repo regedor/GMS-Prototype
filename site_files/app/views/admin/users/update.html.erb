@@ -9,7 +9,7 @@ jQuery(document).ready(function($){
         if(r.positions[i] !== null)
           position = r.positions[i].position.name
       
-        this.append_position_line(r.groups[i].group,position);
+        positionsUtils.append_position_line(r.groups[i].group,position);
       }
     },
 
@@ -37,12 +37,12 @@ jQuery(document).ready(function($){
       $("#error").hide();
       $("#positions").hide();
       $("#loading").show();
-      this.loadTable();
-      this.addCheckboxListener();
+      loadPositions.loadTable();
+      loadPositions.addCheckboxListener();
     },
 
     loadTable : function() {
-      this.fetchingPositions = $.ajax({
+      loadPositions.fetchingPositions = $.ajax({
         url: window.location.href.replace(/\#.*/,"").replace("edit","positions.json"),
         cache: false,
         success: function(r) {
@@ -55,10 +55,10 @@ jQuery(document).ready(function($){
     },
 
     load_position_for_group : function(group) {
-      if(this.fetchingPositions)
-        this.fetchingPositions.abort();
+      if(loadPositions.fetchingPositions)
+        loadPositions.fetchingPositions.abort();
       
-      this.fetchingPositions = $.ajax({
+      loadPositions.fetchingPositions = $.ajax({
         url: window.location.href.replace(/\#.*/,"").replace("edit","positions.json")+"?group_id="+group.id,
         cache: false,
         beforeSend: function(){
@@ -98,7 +98,7 @@ jQuery(document).ready(function($){
 
   var updateUser = {
     init : function() {
-      this.addUpdateButtonListener();
+      updateUser.addUpdateButtonListener();
     },
 
     addUpdateButtonListener : function() {
