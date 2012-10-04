@@ -95,7 +95,7 @@ class Admin::UsersController < Admin::BaseController
     end
   end
   
-  protected
+  private
 
     def load_groups
       @groups = Group.all(:order => :name)

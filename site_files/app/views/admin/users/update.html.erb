@@ -23,9 +23,15 @@ jQuery(document).ready(function($){
       loadPositions.fetchingPositions = null;
     },
 
-    append_position_line : function(group,position) {
+    append_position_line : function(group, position) {
       var html_str = "<tr><td class='group' abbr='"+group.id+"'>"+group.name+"</td> \
-                      <td class='position'><input type='text' value='"+position+"' /></td></tr>";
+                      <td class='position'><select id='group_role'> \
+                      <option "+((position == "1") ? "selected" : "")+" value='1'>Animador</option> \
+                      <option "+((position == "2") ? "selected" : "")+" value='2'>Vice-Animador</option> \
+                      <option "+((position == "3") ? "selected" : "")+" value='3'>Secretário</option> \
+                      <option "+((position == "4") ? "selected" : "")+" value='4'>Tesoureiro</option> \
+                      <option "+((position == "5") ? "selected" : "")+" value='5'>Representante Solsef</option> \
+                      </select></td></tr>";
       $("#positions tbody").append(html_str);
     }
   }
@@ -35,13 +41,13 @@ jQuery(document).ready(function($){
 
     init : function() {
       $("#error").hide();
-      $("#positions").hide();
-      $("#loading").show();
+      //$("#positions").hide();
+      $("#loading").hide();
       loadPositions.loadTable();
       loadPositions.addCheckboxListener();
     },
 
-    loadTable : function() {
+    loadTable : function() { 
       loadPositions.fetchingPositions = $.ajax({
         url: window.location.href.replace(/\#.*/,"").replace("edit","positions.json"),
         cache: false,
@@ -90,7 +96,8 @@ jQuery(document).ready(function($){
         else
         {
           $("#positions tbody td[abbr='"+event.target.defaultValue+"']").parent().remove();
-          $("#positions").hide();
+          if($("#positions tbody tr").size() === 0)
+            $("#positions").hide();
         }
       });
     }
@@ -103,7 +110,6 @@ jQuery(document).ready(function($){
 
     addUpdateButtonListener : function() {
       $("fieldset.buttons").delegate('#update-button','click',function(event){
-        debugger;
         var form = $("form.formtastic"),
             encodedURIofPositions = updateUser.getPositionsURI();
         
@@ -128,9 +134,9 @@ jQuery(document).ready(function($){
 
     getPositionsURI : function() {
       var groups = $("#positions .group"),
-          positions = $("#positions .position").find("input"),
+          positions = $("#positions .position").find("option:selected"),
           uri = [];
-      
+
       for(var i=0;i<groups.length;i++)
       {
         uri.push("&record[positions][groups][]=",encodeURI(groups[i].abbr),"&record[positions][names][]=",encodeURI(positions[i].value));
