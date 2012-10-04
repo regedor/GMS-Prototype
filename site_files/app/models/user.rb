@@ -329,7 +329,7 @@ class User < ActiveRecord::Base
   end
   
   def validate_role
-    self.role_id= Role.id_for(:user) if self.role == nil
+    self.role_id = Role.id_for(:member) if self.role == nil
   end
   
   def delete_positions(group_ids)
