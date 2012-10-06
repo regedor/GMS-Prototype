@@ -18,6 +18,7 @@ authorization do
     has_permission_on [:admin_projects],                  :to =>  [ :manage    ]
     has_permission_on [:admin_users],                     :to =>  [ :as_manage ]
     has_permission_on [:admin_deleted_users],             :to =>  [ :as_manage ]
+    has_permission_on [:admin_albums],                    :to =>  [ :as_manage ]
     #has_permission_on [:user_roles],                :to =>  [ :as_manage ]
   end
 

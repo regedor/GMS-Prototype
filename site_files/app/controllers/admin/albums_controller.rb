@@ -3,7 +3,6 @@ class Admin::AlbumsController < Admin::BaseController
   filter_access_to [:index,:show], :require => [:as_read]
   
   active_scaffold :album do |config|
-    #config.list.sorting = {:published_at => :desc}
     Scaffoldapp::active_scaffold config, "admin.album",
       :list   => [ :name, :created_at ],
       :show   => [],
