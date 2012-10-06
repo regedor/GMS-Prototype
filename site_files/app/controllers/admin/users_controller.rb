@@ -45,21 +45,25 @@ class Admin::UsersController < Admin::BaseController
   end
   
   def update
+    @user = User.find params[:id]
     positions = params[:record].delete(:positions) if params[:record][:positions]
-    current_user.delete_positions(params[:record][:group_ids])
+    @user.delete_positions(params[:record][:group_ids])
 
-    if current_user.update_attributes params[:record]
+    if @user.update_attributes params[:record]
       positions[:groups].each_with_index do |group_id,idx|
-        prev_position = Position.find_by_user_id_and_group_id(current_user.id,group_id.to_i)
+        prev_position = Position.find_by_user_id_and_group_id(@user.id,group_id.to_i)
 
         if prev_position
           prev_position.update_attributes({:name => positions[:names][idx]})
         else
-          Position.create(:user_id => current_user.id, :group_id => group_id.to_i, :name => positions[:names][idx])
+          Position.create(:user_id => @user.id, :group_id => group_id.to_i, :name => positions[:names][idx])
         end
       end if positions
 
-      render :json => "/admin/users".to_json
+      respond_to do |format|
+        format.html { redirect_to admin_users_path }
+        format.json { render :json => "/admin/users".to_json }
+      end
     else
       render :json => "fail", :status => 500
     end

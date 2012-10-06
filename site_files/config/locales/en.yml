@@ -1152,6 +1152,7 @@ en:
     account_updated: "Account updated!"
     user_successfully_undeleted: "User has been recovered!"
     user_deleted: "User has been deleted!"
+    user_updated: "User has been updated"
     invalid_user_invitations: "You have entered an invalid email addresses! Correct it and try again."
     single_user_invitation: "You have successfully sent an invitation to %{mail}."
     multiple_user_invitations: "You have successfully sent %{number} invitations."
